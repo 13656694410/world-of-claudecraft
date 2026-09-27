@@ -115,8 +115,10 @@ export function resolveWorldQuestBoard(id: string): WorldQuestScoreboard {
 // ---- The rankings window ----------------------------------------------------
 
 /** Where the rankings art lives (public/, served verbatim). A missing file
- *  degrades to the stylesheet's gradient, so the window never breaks on art. */
-export const WORLD_QUEST_LADDER_ART_DIR = 'ui/world-quests/leaderboard';
+ *  degrades to the stylesheet's gradient, so the window never breaks on art.
+ *  Root-absolute like every other /ui/ art dir: the game page is /play/, so a
+ *  relative path resolved off the site root and 404'd on deployed hosts. */
+export const WORLD_QUEST_LADDER_ART_DIR = '/ui/world-quests/leaderboard';
 
 export function worldQuestBoardArt(boardId: string): string {
   return `${WORLD_QUEST_LADDER_ART_DIR}/${gliderScoreboardInfo(boardId) ? 'slalom' : boardId}.webp`;

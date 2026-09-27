@@ -41,9 +41,10 @@ function page(over: Partial<WorldQuestLeaderboardPage> = {}): WorldQuestLeaderbo
 
 describe('art paths', () => {
   it('points every board and medal under the rankings art dir', () => {
-    expect(WORLD_QUEST_LADDER_ART_DIR).toBe('ui/world-quests/leaderboard');
-    expect(worldQuestBoardArt('forge')).toBe('ui/world-quests/leaderboard/forge.webp');
-    expect(worldQuestMedalArt('silver')).toBe('ui/world-quests/leaderboard/medal_silver.webp');
+    // Root-absolute: a relative dir resolved under the /play/ page and 404'd on dev.
+    expect(WORLD_QUEST_LADDER_ART_DIR).toBe('/ui/world-quests/leaderboard');
+    expect(worldQuestBoardArt('forge')).toBe('/ui/world-quests/leaderboard/forge.webp');
+    expect(worldQuestMedalArt('silver')).toBe('/ui/world-quests/leaderboard/medal_silver.webp');
   });
 });
 
@@ -62,7 +63,7 @@ describe('cards and board header', () => {
     expect(forge).toMatchObject({
       label: 'A Helping Hammer',
       metricHeader: 'Time',
-      art: 'ui/world-quests/leaderboard/forge.webp',
+      art: '/ui/world-quests/leaderboard/forge.webp',
     });
     expect(view.boardTitle).toBe('A Helping Hammer');
     expect(view.title).toBe('World Quest Rankings');
@@ -132,14 +133,14 @@ describe('ranked board', () => {
       rank: '1',
       medal: 'gold',
       medalText: 'Gold',
-      medalArt: 'ui/world-quests/leaderboard/medal_gold.webp',
+      medalArt: '/ui/world-quests/leaderboard/medal_gold.webp',
       metricText: '99',
       me: false,
     });
     expect(view.rows.map((r) => r.rank)).toEqual(['4', '5', '6', '7', '8', '9', '10', '11', '12']);
     // Rank 4 carries no medal: no medal art, the no-medal text.
     expect(view.rows[0]).toMatchObject({ medal: null, medalArt: null, medalText: 'None' });
-    expect(view.rows[1].medalArt).toBe('ui/world-quests/leaderboard/medal_gold.webp');
+    expect(view.rows[1].medalArt).toBe('/ui/world-quests/leaderboard/medal_gold.webp');
     expect(view.totalText).toBe('12 heroes ranked');
   });
 
@@ -230,7 +231,7 @@ describe('your best', () => {
       name: 'Ari',
       medal: 'bronze',
       medalText: 'Bronze',
-      medalArt: 'ui/world-quests/leaderboard/medal_bronze.webp',
+      medalArt: '/ui/world-quests/leaderboard/medal_bronze.webp',
       metricText: '61.3s',
     });
   });
