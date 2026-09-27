@@ -116,8 +116,11 @@ export function resolveWorldQuestBoard(id: string): WorldQuestScoreboard {
 
 /** Where the rankings art lives (public/, served verbatim). A missing file
  *  degrades to the stylesheet's gradient, so the window never breaks on art.
- *  Root-absolute like every other /ui/ art dir: the game page is /play/, so a
- *  relative path resolved off the site root and 404'd on deployed hosts. */
+ *  Root-absolute on purpose: the window hands these paths to the stylesheet
+ *  through `--wql-art` / `--wql-medal`, and a relative url() inside a custom
+ *  property resolves against the stylesheet that consumes it. In a built client
+ *  that is /assets/main-*.css, so a relative path asks for /assets/ui/... (404);
+ *  the dev server injects CSS inline, which is why it only broke once deployed. */
 export const WORLD_QUEST_LADDER_ART_DIR = '/ui/world-quests/leaderboard';
 
 export function worldQuestBoardArt(boardId: string): string {

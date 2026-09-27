@@ -2,6 +2,8 @@
 // (buildWorldQuestLadderView in src/ui/world_quest_leaderboard_view.ts): the
 // board cards, the podium order and placeholders, the ladder split around the
 // podium, the pinned "your best" bar, the fetch states, and the pager.
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { WorldQuestMedal } from '../src/sim/world_quest_scoreboards';
 import { WORLD_QUEST_SCOREBOARDS } from '../src/sim/world_quest_scoreboards';
@@ -41,10 +43,24 @@ function page(over: Partial<WorldQuestLeaderboardPage> = {}): WorldQuestLeaderbo
 
 describe('art paths', () => {
   it('points every board and medal under the rankings art dir', () => {
-    // Root-absolute: a relative dir resolved under the /play/ page and 404'd on dev.
     expect(WORLD_QUEST_LADDER_ART_DIR).toBe('/ui/world-quests/leaderboard');
     expect(worldQuestBoardArt('forge')).toBe('/ui/world-quests/leaderboard/forge.webp');
     expect(worldQuestMedalArt('silver')).toBe('/ui/world-quests/leaderboard/medal_silver.webp');
+  });
+
+  // The paths reach the stylesheet through a custom property, where a relative
+  // url() resolves against the built stylesheet (/assets/...) instead of the page.
+  // Root-absolute paths are the only form that survives that, so pin the form
+  // AND that every path names a file that actually ships under public/.
+  it('keeps every art path root-absolute and backed by a shipped file', () => {
+    const paths = [
+      ...WORLD_QUEST_SCOREBOARDS.map((b) => worldQuestBoardArt(b.id)),
+      ...(['gold', 'silver', 'bronze'] as const).map(worldQuestMedalArt),
+    ];
+    for (const p of paths) {
+      expect(p.startsWith('/'), p).toBe(true);
+      expect(existsSync(join(process.cwd(), 'public', p)), p).toBe(true);
+    }
   });
 });
 
