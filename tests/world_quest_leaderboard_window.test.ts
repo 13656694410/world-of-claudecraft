@@ -98,7 +98,7 @@ describe('world quest rankings window', () => {
     expect(r.el.querySelector('.wql-self-rank')?.textContent).toBe('Rank 40');
     // Art rides a custom property so the stylesheet gradient stays underneath.
     expect(r.el.querySelector('.wql-card-active .wql-card-art')?.getAttribute('style')).toContain(
-      "--wql-art:url('ui/world-quests/leaderboard/north_watch_cannon.webp')",
+      "--wql-art:url('/ui/world-quests/leaderboard/north_watch_cannon.webp')",
     );
     (r.el.querySelector('[data-close]') as HTMLButtonElement).click();
     expect(r.window.isOpen).toBe(false);
