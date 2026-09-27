@@ -37,7 +37,8 @@ function rig(read?: (board: string, page: number) => Promise<WorldQuestLeaderboa
   const worldQuestLeaderboard = vi.fn(
     read ?? ((board: string) => Promise.resolve(ladderPage(board))),
   );
-  const world = { player: { name: 'Ari' }, worldQuestLeaderboard };
+  const startWorldQuestActivity = vi.fn();
+  const world = { player: { name: 'Ari' }, worldQuestLeaderboard, startWorldQuestActivity };
   const closeOthers = vi.fn();
   const restoreFocus = vi.fn();
   const opener = document.createElement('button');
@@ -48,10 +49,31 @@ function rig(read?: (board: string, page: number) => Promise<WorldQuestLeaderboa
     captureFocus: () => opener,
     restoreFocus,
   });
-  return { el, window, worldQuestLeaderboard, closeOthers, restoreFocus, opener };
+  return {
+    el,
+    window,
+    worldQuestLeaderboard,
+    closeOthers,
+    restoreFocus,
+    opener,
+    startWorldQuestActivity,
+  };
 }
 
 describe('world quest rankings window', () => {
+  it('opens the six timed course boards and launches the selected route', async () => {
+    const r = rig();
+    r.window.open('glider_valleys_v2_lifetime');
+    await flush();
+    expect(r.el.querySelectorAll('.wql-card')).toHaveLength(6);
+    expect(r.el.querySelector('#wql-title')?.textContent).toBe('Glider course records');
+    expect(r.el.querySelector('.wql-board-title')?.textContent).toBe('Valley Circuit: All time');
+    (r.el.querySelector('[data-glider-start]') as HTMLButtonElement).click();
+    expect(r.startWorldQuestActivity).toHaveBeenCalledWith('wq_galecrest_slalom', {
+      courseId: 'galecrest_practice_valleys',
+    });
+    expect(r.window.isOpen).toBe(false);
+  });
   it('opens on the default board, asks for the viewer, and paints podium, list, and self', async () => {
     const r = rig();
     r.window.open();

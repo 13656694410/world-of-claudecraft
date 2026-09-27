@@ -5,6 +5,8 @@
 // pinned best, and the loading / error / empty states). DOM-free; the painter
 // (world_quest_leaderboard_window.ts) renders exactly what this shapes, and
 // the legacy chip tab in leaderboard_window.ts still reads the row helpers.
+
+import { gliderScoreboardInfo } from '../sim/glider_scoreboards';
 import {
   WORLD_QUEST_SCOREBOARDS,
   type WorldQuestMedal,
@@ -17,6 +19,18 @@ import { formatNumber, t } from './i18n';
 import { type PodiumSlot, podiumSplit } from './leaderboard_podium_view';
 import { worldQuestDisplayName } from './world_quest_view';
 
+export function worldQuestBoardLabel(board: WorldQuestScoreboard): string {
+  const glider = gliderScoreboardInfo(board.id);
+  if (!glider) return worldQuestDisplayName(board.questId);
+  const course = t(`hudChrome.leaderboard.gliderCourseNames.${glider.key}`);
+  return t(
+    glider.period === 'daily'
+      ? 'hudChrome.leaderboard.gliderDaily'
+      : 'hudChrome.leaderboard.gliderLifetime',
+    { course },
+  );
+}
+
 export interface WorldQuestBoardChip {
   id: WorldQuestScoreboardId;
   label: string;
@@ -25,9 +39,11 @@ export interface WorldQuestBoardChip {
 
 /** The board selector strip above the rows: one chip per scoreboard. */
 export function worldQuestBoardChips(active: WorldQuestScoreboardId): WorldQuestBoardChip[] {
-  return WORLD_QUEST_SCOREBOARDS.map((board) => ({
+  return WORLD_QUEST_SCOREBOARDS.filter(
+    (board) => !!gliderScoreboardInfo(board.id) === !!gliderScoreboardInfo(active),
+  ).map((board) => ({
     id: board.id,
-    label: worldQuestDisplayName(board.questId),
+    label: worldQuestBoardLabel(board),
     active: board.id === active,
   }));
 }
@@ -103,7 +119,7 @@ export function resolveWorldQuestBoard(id: string): WorldQuestScoreboard {
 export const WORLD_QUEST_LADDER_ART_DIR = 'ui/world-quests/leaderboard';
 
 export function worldQuestBoardArt(boardId: string): string {
-  return `${WORLD_QUEST_LADDER_ART_DIR}/${boardId}.webp`;
+  return `${WORLD_QUEST_LADDER_ART_DIR}/${gliderScoreboardInfo(boardId) ? 'slalom' : boardId}.webp`;
 }
 
 export function worldQuestMedalArt(medal: WorldQuestMedal): string {
@@ -195,9 +211,11 @@ export interface WorldQuestLadderView {
 
 /** The board cards: one per scoreboard, in scoreboard order. */
 export function worldQuestLadderCards(active: WorldQuestScoreboardId): WorldQuestLadderCardView[] {
-  return WORLD_QUEST_SCOREBOARDS.map((board) => ({
+  return WORLD_QUEST_SCOREBOARDS.filter(
+    (board) => !!gliderScoreboardInfo(board.id) === !!gliderScoreboardInfo(active),
+  ).map((board) => ({
     id: board.id,
-    label: worldQuestDisplayName(board.questId),
+    label: worldQuestBoardLabel(board),
     metricHeader: worldQuestMetricHeader(board),
     art: worldQuestBoardArt(board.id),
     active: board.id === active,
@@ -297,13 +315,23 @@ export function buildWorldQuestLadderView(
   const board = resolveWorldQuestBoard(boardId);
   const metric = worldQuestMetricHeader(board);
   const base: WorldQuestLadderView = {
-    title: t('hudChrome.wqLadder.title'),
-    subtitle: t('hudChrome.wqLadder.subtitle'),
+    title: t(
+      gliderScoreboardInfo(board.id)
+        ? 'hudChrome.leaderboard.gliderRankings'
+        : 'hudChrome.wqLadder.title',
+    ),
+    subtitle: t(
+      gliderScoreboardInfo(board.id)
+        ? input.kind === 'page' && input.page.personal
+          ? 'hudChrome.leaderboard.gliderPersonalRules'
+          : 'hudChrome.leaderboard.gliderRules'
+        : 'hudChrome.wqLadder.subtitle',
+    ),
     closeLabel: t('hudChrome.wqLadder.close'),
     boardsLabel: t('hudChrome.leaderboard.wqBoardsLabel'),
     cards: worldQuestLadderCards(board.id),
     boardId: board.id,
-    boardTitle: worldQuestDisplayName(board.questId),
+    boardTitle: worldQuestBoardLabel(board),
     boardRule: worldQuestBoardRule(board),
     state: 'loading',
     message: t('game.leaderboard.loading'),

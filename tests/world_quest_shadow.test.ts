@@ -62,10 +62,35 @@ describe('Duskweave dispatches world quest', () => {
     expect(hasShadowCloak(sim.player)).toBe(false);
     expect(shadowActionsLocked(sim.worldQuestLog)).toBe(false);
     const earned = sim.xp;
+    const meta = sim.meta(sim.playerId)!;
+    const rewards = {
+      copper: meta.copper,
+      factions: { ...meta.factions },
+      counters: { ...meta.counters },
+    };
+    sim.player.pos = sim.groundPos(SHADOW_NPC_DEF.pos.x, SHADOW_NPC_DEF.pos.z);
     sim.talkToNpc(SHADOW_NPC_ID);
-    sim.shadowWorldQuestAction('pickpocket', 2146900041);
-    tick(sim);
+    expect(hasShadowCloak(sim.player)).toBe(true);
+    expect(sim.worldQuestLog.get(ID)?.practiceOnly).toBe(true);
+    const saved = sim.serializeCharacter(sim.playerId)!;
+    expect(saved.worldQuests?.progress.find((row) => row.questId === ID)).toMatchObject({
+      state: 'completed',
+      count: 4,
+    });
+    expect(saved.worldQuests?.progress.find((row) => row.questId === ID)).not.toHaveProperty(
+      'practiceOnly',
+    );
+    for (const guard of SHADOW_GUARDS.filter((row) => !row.sentry)) {
+      near(sim, guard.entityId);
+      sim.shadowWorldQuestAction('pickpocket', guard.entityId);
+      tick(sim, 40);
+    }
+    expect(sim.worldQuestLog.get(ID)?.state).toBe('completed');
+    expect(hasShadowCloak(sim.player)).toBe(false);
     expect(sim.xp).toBe(earned);
+    expect(meta.copper).toBe(rewards.copper);
+    expect(meta.factions).toEqual(rewards.factions);
+    expect(meta.counters.questsCompleted).toBe(rewards.counters.questsCompleted);
   });
   it('catches contact, preserves stolen dispatches, and permits another cloak without duplicate credit', () => {
     const sim = setup();

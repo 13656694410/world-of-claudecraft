@@ -16,6 +16,7 @@
 import type { Pool, QueryResult } from 'pg';
 import { LEADERBOARD_MAX } from '../src/sim/leaderboard_page';
 import type { WorldQuestMedal } from '../src/sim/world_quest_scoreboards';
+import { GLIDER_SCORES_SCHEMA } from './glider_scores_db';
 
 // Both FKs cascade (a deleted character or account takes its rows along; a
 // ladder never shows a ghost), and each carries its own index so the RI probe
@@ -43,6 +44,7 @@ CREATE INDEX IF NOT EXISTS world_quest_scores_board
 CREATE INDEX IF NOT EXISTS world_quest_scores_character ON world_quest_scores (character_id);
 CREATE INDEX IF NOT EXISTS world_quest_scores_account ON world_quest_scores (account_id);
 CREATE INDEX IF NOT EXISTS world_quest_scores_updated ON world_quest_scores (updated_at);
+${GLIDER_SCORES_SCHEMA}
 `;
 
 export interface WorldQuestScoreWrite {

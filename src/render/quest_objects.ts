@@ -2,16 +2,14 @@
 
 import * as THREE from 'three';
 import type { GLTF } from 'three/addons/loaders/GLTFLoader.js';
-import {
-  FARSHORE_SALVAGE_ENTITY_ID_START,
-  FARSHORE_SALVAGE_OBJECT_ITEM_ID,
-} from '../sim/content/world_quests';
-import {
-  FARSHORE_SALVAGE_VISUAL_COUNT,
-  worldQuestSalvageVisualIndex,
-} from '../sim/world_quest_salvage';
 import { loadGltf } from './assets/loader';
 import { registerDeferredPreload } from './assets/preload';
+import {
+  buildFarshoreSalvageObject,
+  FARSHORE_SALVAGE_URLS,
+  groundQuestObjectYaw,
+  salvageVisualItemId,
+} from './farshore_salvage_assets';
 import {
   FENBRIDGE_SURFACE_NORMAL_SCALE,
   fenbridgeSemanticForColor,
@@ -20,6 +18,13 @@ import {
   fenbridgeSurfaceNormalTexture,
   fenbridgeSurfaceRoughnessTexture,
 } from './fenbridge_surface_atlas';
+
+export {
+  farshoreSalvagePrewarmPlan,
+  prepareFarshoreSalvageObjects,
+  prewarmFarshoreSalvageObjects,
+} from './farshore_salvage_assets';
+
 import { buildForgeAnvilTarget, buildForgeWellTarget } from './forge_anvil_target';
 import { GFX, surfaceMat } from './gfx';
 import { markSharedGeometry, markSharedMaterial } from './shared_resource';
@@ -57,12 +62,6 @@ const QUEST_OBJECT_URLS: Record<string, string> = {
   ps_ferry_bell: '/models/props/marsh_bell_gallows.glb',
   leyline_cache: '/models/dungeon/chest.glb',
   confection_game_box: '/models/dungeon/chest.glb',
-  farshore_salvage_0: '/models/props/wreckage_broken_planks.glb',
-  farshore_salvage_1: '/models/props/wreckage_waterlogged_barrel.glb',
-  farshore_salvage_2: '/models/props/wreckage_damaged_crate.glb',
-  farshore_salvage_3: '/models/props/wreckage_fallen_anchor.glb',
-  farshore_salvage_4: '/models/props/wreckage_hull_fragment.glb',
-  farshore_salvage_5: '/models/props/wreckage_capsized_rowboat.glb',
 };
 
 const QUEST_OBJECT_HEIGHTS: Record<string, number> = {
@@ -88,12 +87,6 @@ const QUEST_OBJECT_HEIGHTS: Record<string, number> = {
   ps_ferry_bell: 2.6,
   leyline_cache: 0.85,
   confection_game_box: 0.85,
-  farshore_salvage_0: 1.1,
-  farshore_salvage_1: 1.05,
-  farshore_salvage_2: 1.05,
-  farshore_salvage_3: 1.35,
-  farshore_salvage_4: 2.8,
-  farshore_salvage_5: 2.4,
 };
 
 const SCROLL_ITEM_IDS = new Set(['weathered_ledger_page', 'fen_muster_order', 'highwatch_summons']);
@@ -153,35 +146,12 @@ function castsDynamicShadow(itemId: string): boolean {
 function visualItemIdForEntity(itemId: string, entityId: number): string {
   if (itemId === 'wq_infiltrator_orders') return 'fen_muster_order';
   if (itemId === 'wq_infiltrator_ledger') return 'morthen_grimoire';
-  const salvageVisual = worldQuestSalvageVisualIndex(entityId);
-  return salvageVisual === null ? itemId : `farshore_salvage_${salvageVisual}`;
-}
-
-export const farshoreSalvagePrewarmPlan = Object.freeze(
-  Array.from({ length: FARSHORE_SALVAGE_VISUAL_COUNT }, (_, visual) =>
-    Object.freeze({
-      visual,
-      entityId: FARSHORE_SALVAGE_ENTITY_ID_START + visual,
-      itemId: FARSHORE_SALVAGE_OBJECT_ITEM_ID,
-      poolKey: `object:${FARSHORE_SALVAGE_OBJECT_ITEM_ID}:salvage-${visual}`,
-    }),
-  ),
-);
-
-export function prewarmFarshoreSalvageObjects<T>(
-  build: (itemId: string, entityId: number) => T,
-  store: (poolKey: string, object: T) => void,
-): T[] {
-  return farshoreSalvagePrewarmPlan.map((entry) => {
-    const object = build(entry.itemId, entry.entityId);
-    store(entry.poolKey, object);
-    return object;
-  });
+  return salvageVisualItemId(itemId, entityId) ?? itemId;
 }
 
 /** Test-only window into the preload asset set (mirrors delve_props.ts). */
 export const questObjectPreloadInternalsForTest = {
-  questObjectUrl: QUEST_OBJECT_URLS,
+  questObjectUrl: { ...QUEST_OBJECT_URLS, ...FARSHORE_SALVAGE_URLS },
   usesLegacyScrollDecoration: (itemId: string) =>
     SCROLL_ITEM_IDS.has(itemId) && !AUTHORED_SCROLL_CUE_IDS.has(itemId),
   usesSharedSurfaceDetail: (itemId: string) => !AUTHORED_SCROLL_CUE_IDS.has(itemId),
@@ -740,6 +710,8 @@ export function buildGroundQuestObject(
   itemId: string,
   entityId: number,
 ): { group: THREE.Group; height: number } {
+  const salvage = buildFarshoreSalvageObject(itemId, entityId);
+  if (salvage) return salvage;
   if (itemId === 'forge_tools') return buildForgeAnvilTarget();
   if (itemId === 'forge_water') return buildForgeWellTarget();
   if (itemId === 'eastbrook_freight_wagon') {
@@ -786,12 +758,12 @@ export function buildGroundQuestObject(
   if (template) {
     const model = template.clone(true);
     group.add(model);
-    group.rotation.y = (entityId % 7) * 0.45;
+    group.rotation.y = groundQuestObjectYaw(itemId, entityId);
     return {
       group,
       height: measuredHeightByItem.get(key) ?? QUEST_OBJECT_HEIGHTS[key] ?? TARGET_HEIGHT,
     };
   }
-  group.rotation.y = (entityId % 7) * 0.45;
+  group.rotation.y = groundQuestObjectYaw(itemId, entityId);
   return { group, height: TARGET_HEIGHT };
 }

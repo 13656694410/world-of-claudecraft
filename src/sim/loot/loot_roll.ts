@@ -36,11 +36,9 @@
 
 import { bagPools, canGrantItemInstance } from '../bags';
 import { HEROIC_BOSS_LOOT } from '../content/heroic_loot';
-import { heroicVariantId } from '../content/heroic_variants';
 import { ITEMS, MOBS, QUESTS } from '../data';
 import { formatMoney } from '../format_money';
 import { publicInstanceView } from '../item_instance_transfer';
-import { itemLevel } from '../item_level';
 import { effectiveMasterLooter, meetsMasterThreshold } from '../loot_master';
 import { isHarvestableCorpse } from '../professions/gathering';
 import type { PlayerMeta } from '../sim';
@@ -63,6 +61,7 @@ import type {
 import { cloneItemInstancePayload, dist2d, PARTY_XP_RANGE } from '../types';
 import { grantAwardedLootItem, grantOrHoldAwardedLoot } from './awarded_loot_hold';
 import { rollEnemyLootQuality } from './enemy_quality';
+import { heroicLootItemId } from './heroic_item';
 import { lootEntryRollsOnClaim } from './loot_difficulty_gate';
 import { isTapGroupMember, LOOT_FFA_DELAY } from './loot_ffa';
 
@@ -272,12 +271,7 @@ export function rollLoot(
     ) !== undefined;
   // Swap a base drop for its Heroic variant when the instance is heroic AND the
   // swap is an upgrade (raid epics, already item level 29, are left as-is).
-  const heroicItem = (id: string): string => {
-    if (!heroicClaim) return id;
-    const variant = ITEMS[heroicVariantId(id)];
-    if (!variant) return id;
-    return (itemLevel(variant) ?? 0) > (itemLevel(ITEMS[id]) ?? 0) ? variant.id : id;
-  };
+  const heroicItem = (id: string): string => heroicLootItemId(id, heroicClaim);
   for (const entry of template.loot) {
     // A Normal-only row is not part of a heroic kill at all: skipped BEFORE the
     // group bookkeeping, so a normalOnly group never draws its partition and the
@@ -882,6 +876,7 @@ export function assignMasterLoot(
         text: `${r.meta.name} assigned [[i:${roll.itemId}]] to ${targetName}.`,
         pid,
       });
+    emitLootRollAwarded(ctx, roll, targets[0]);
     grantOrHoldAwardedLoot(
       ctx,
       roll.mobId,
@@ -893,6 +888,24 @@ export function assignMasterLoot(
     return;
   }
   convertMasterRollToNeedGreed(ctx, roll, targets);
+}
+
+// The award-time signal (winner-scoped) that a roll granted its item: the one
+// event a consumer may read as "this player received the drop". Emitted by
+// both ROLL grant paths (the need/greed resolve and a direct master
+// assignment) immediately before grantOrHoldAwardedLoot, so a held-on-corpse
+// grant (full bags) still names its rightful owner. The no-roll award paths
+// (round-robin, looter-takes-all, a solo pickup) deliberately never emit it:
+// no roll happened, so there is no roll id to name.
+function emitLootRollAwarded(ctx: SimContext, roll: PendingLootRoll, winnerPid: number): void {
+  ctx.emit({
+    type: 'lootRollAwarded',
+    rollId: roll.id,
+    itemId: roll.itemId,
+    itemName: roll.itemName,
+    quality: roll.quality,
+    pid: winnerPid,
+  });
 }
 
 // Turn a curate-phase master roll into a normal need/greed roll for `targets` (a
@@ -1052,6 +1065,7 @@ export function resolveLootRoll(ctx: SimContext, roll: PendingLootRoll): void {
       });
     return;
   }
+  emitLootRollAwarded(ctx, roll, winner.pid);
   grantOrHoldAwardedLoot(
     ctx,
     roll.mobId,

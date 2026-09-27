@@ -11,6 +11,8 @@ import {
 const questStringsEn = {
   questUi: {
     tracker: {
+      // The active Clue Scroll hunt's row: the title with the step tally.
+      clueHuntTitle: '{title} (clue {step} of {total})',
       title: 'Quests',
       complete: 'Complete',
       showOnMap: 'Show {name} on the map',
@@ -54,6 +56,14 @@ const questStringsEn = {
       repeatableQuestAria: 'Repeatable quest: {name}',
       discussQuest: 'Discuss {name}.',
       discussQuestAria: 'Discuss quest: {name}',
+      // The Clue Scroll rows (clue_step_row_view.ts): the active hunt's current
+      // step is a talk or a hand-over at this NPC. The click sends the same
+      // authoritative interact the discuss row does; the sim's own log line
+      // ("Clue N of M solved") or refusal is the feedback.
+      clueTalk: 'Ask about the clue.',
+      clueTalkAria: 'Ask about the clue: {name}',
+      clueDeliver: 'Hand over {count} {item}.',
+      clueDeliverAria: 'Hand over {count} {item} to {name}',
       // The profession masters' locked-quest hint row. Deliberately terse:
       // both {placeholders} resolve to already
       // localized leaves (the giver NPC's name, the intro quest's title), and
@@ -92,6 +102,11 @@ const questStringsEn = {
       title: '{zone}: {target}',
       unknown: 'Unknown world quest ({id})',
       itemReward: 'Item reward: {name}',
+      // The day's item slot on the map hover and the board: the exact piece this
+      // class receives today, with both levels the scope doc asks for.
+      itemRewardWithLevels: '{name} (item level {itemLevel}, equips at level {requiredLevel})',
+      factionLine: 'Faction: {faction}',
+      standingReward: '+{amount} {faction} standing',
       rewardLine: 'Rewards: {reward}',
       availableStatus: 'Available world quest',
       activeStatus: 'Active world quest',
@@ -254,7 +269,7 @@ const questStringsEn = {
         finished: 'Every coin purse is recovered!',
         retry: 'Three lives restored. Try the maze again.',
         startNormal: 'Enter the maze: Normal ({shadows} shadows)',
-        startHard: 'Enter the maze: Hard ({shadows} shadows, bonus purse)',
+        startHard: 'Enter the maze: Hard ({shadows} shadows)',
       },
       forge: {
         title: 'A Helping Hammer',
@@ -306,6 +321,9 @@ const questStringsEn = {
           'Increase your flight speed by {speed} yd/s, up to {maximum} yd/s. Available while flying. Recharges in {seconds} seconds.',
         objective: 'Soar through the wind rings and land in the marked zone',
         ready: 'Speak to Flightmaster Zephyr to launch.',
+        replay: 'Fly again',
+        practiceRewards:
+          'Practice flight: improve your time without earning more coins, experience or reputation.',
         countdown: 'Launch in {count}... Hold tight!',
         flying: 'Rings: {rings}/{total} | Time: {time}s | Speed: {speed} yd/s',
         climb: 'Climb',
@@ -377,9 +395,9 @@ const questStringsEn = {
       puzzleLevel: 'Daily level {level}',
       puzzleBonusLevel: 'Bonus level {level} of {total}',
       puzzleBonusCharged:
-        'The cache hums with a bonus charge: level {level} of {total} awaits. Touch the Ley Cache again for extra gold.',
-      puzzleBonusPaid: 'Bonus purse earned!',
-      puzzleBonusDone: 'Every bonus level cleared. The cache rests until the next offer.',
+        'Practice level {level} of {total} awaits. Touch the Ley Cache again. Further rounds give no rewards.',
+      puzzleBonusPaid: 'Practice level cleared!',
+      puzzleBonusDone: 'Every practice level cleared. Touch the Ley Cache to play again.',
       puzzleInstructions: 'Rotate the tiles to carry the beam from the source to the destination.',
       puzzleRotateTile: 'Rotate tile {tile}',
       puzzleConnectors: 'Connectors: {connectors}.',
@@ -398,6 +416,8 @@ const questStringsEn = {
       startEscort: 'Start Escort',
       escortTitle: 'Caravan',
       alreadyCompleted: 'You have already completed this World Quest for this cycle.',
+      replay: 'Play again',
+      practiceRewards: 'Practice: play again without earning more coins, experience or reputation.',
       inProgress: 'This World Quest is already underway.',
       match3Title: 'Confection Cascade',
       match3Instructions:
@@ -434,6 +454,16 @@ const questStringsEn = {
       completed: 'Quest completed: {name}',
       ready: '{name} ({status})',
       progress: '{label}: {current}/{total}',
+      // Clue Scrolls (world quests, Stage 3): the entitlement, the hunt and
+      // the casket. {title} is the hunt's title from the clues catalog.
+      clueScrollEarned: 'Every world quest of the day is done: a Clue Scroll is yours.',
+      clueScrollLost:
+        'Every world quest of the day is done, but you cannot hold another Clue Scroll.',
+      clueHuntStarted: 'Treasure hunt begun: {title}',
+      clueHuntStep: 'Clue {step} of {total} solved: {title}',
+      clueHuntDone: 'Treasure hunt complete: {title}. The casket is yours.',
+      clueHuntAbandoned: 'Treasure hunt abandoned: {title}',
+      clueCasketOpened: 'The casket holds {money} and {items}.',
     },
     errors: {
       unavailable: 'That quest is not available.',

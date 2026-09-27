@@ -18,7 +18,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "a415789c",
+      "state": "3b28d21f",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -73,6 +73,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -172,7 +173,7 @@
       "tick": 51,
       "time": 2.55,
       "nextId": 1011,
-      "state": "25cf1050",
+      "state": "cc5ced39",
       "events": "9a6383ab",
       "rng": {
         "draws": 2,
@@ -252,6 +253,7 @@
             "herbalism": 40,
             "mining": 70.5
           },
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -376,7 +378,7 @@
       "tick": 104,
       "time": 5.2,
       "nextId": 1011,
-      "state": "7cdecf49",
+      "state": "faa50752",
       "events": "42b19fc7",
       "rng": {
         "draws": 4,
@@ -457,6 +459,7 @@
             "herbalism": 40,
             "mining": 70.75
           },
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -594,7 +597,7 @@
       "tick": 157,
       "time": 7.85,
       "nextId": 1011,
-      "state": "77dd8af8",
+      "state": "934f23b1",
       "events": "c9390a19",
       "rng": {
         "draws": 6,
@@ -677,6 +680,7 @@
             "herbalism": 41,
             "mining": 70.75
           },
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -827,7 +831,7 @@
       "tick": 159,
       "time": 7.95,
       "nextId": 1011,
-      "state": "945a0ef9",
+      "state": "eace9eb6",
       "events": "741638a5",
       "rng": {
         "draws": 6,
@@ -910,6 +914,7 @@
             "herbalism": 41,
             "mining": 70.75
           },
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

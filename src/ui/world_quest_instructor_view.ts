@@ -10,6 +10,7 @@ import {
   type WorldQuestDifficulty,
   worldQuestOffersDifficulty,
 } from '../sim/world_quest_activity';
+import { isReplayableWorldQuest } from '../sim/world_quest_practice';
 import type { IWorld } from '../world_api';
 import { tEntity } from './entity_i18n';
 import { formatNumber, t } from './i18n';
@@ -116,9 +117,19 @@ export function worldQuestInstructorDialog(
   let canStart = false;
   let hint: string | undefined;
 
-  if (completed) {
-    if (target.templateId === GLIDER_APPRENTICE_NPC_DEF.id) {
+  if (world.player.dead || world.player.level < quest.minLevel) {
+    canStart = false;
+  } else if (completed) {
+    if (isReplayableWorldQuest(quest)) {
       canStart = true;
+      if (target.templateId !== GLIDER_APPRENTICE_NPC_DEF.id) {
+        buttonLabel = t(
+          quest.objective.type === 'glider'
+            ? 'questUi.worldQuest.glider.replay'
+            : 'questUi.worldQuest.replay',
+        );
+        hint = t('questUi.worldQuest.practiceRewards');
+      }
     } else {
       canStart = false;
       hint = t('questUi.worldQuest.alreadyCompleted');
@@ -143,6 +154,13 @@ export function worldQuestInstructorDialog(
     }
   }
 
+  if (
+    canStart &&
+    (progress?.forging?.phase === 'countdown' ||
+      progress?.forging?.phase === 'working' ||
+      (progress?.wispMaze && !progress.wispMaze.paused && progress.wispMaze.phase !== 'won'))
+  )
+    canStart = false;
   const difficulties = canStart ? difficultyChoices(questId) : undefined;
   return {
     speakerName,

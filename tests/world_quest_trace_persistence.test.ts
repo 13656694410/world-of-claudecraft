@@ -27,7 +27,7 @@ const SHAPES = OBJECTIVE.shapes;
 function run(state?: CharacterState) {
   const sim = new Sim({ seed: WORLD_SEED, playerClass: 'warrior', noPlayer: true, world: WORLD });
   // A real host rotation that offers calligraphy; no dev override may mask save loss.
-  sim.resetDay = '2026-09-18';
+  sim.resetDay = '2026-09-16';
   const pid = sim.addPlayer('warrior', 'Scribe', state ? { state } : undefined);
   const meta = sim.meta(pid)!;
   const player = sim.entities.get(pid)!;

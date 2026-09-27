@@ -65,6 +65,7 @@ import {
   emptyPriestMarkerState,
   priestMarkerStateForAuras,
 } from '../src/sim/combat/priest/presentation';
+import { CLUE_HUNTS } from '../src/sim/content/clue_hunts';
 import { FARM_PATCHES } from '../src/sim/content/farm_patches';
 import { RETIRED_MOUNT_SKIN_IDS } from '../src/sim/content/mount_skins';
 import { MOUNT_RACE_START_PLATFORM, type MountKey } from '../src/sim/content/mounts';
@@ -79,6 +80,7 @@ import { createCannonEncounter } from '../src/sim/minigames/cannon_encounter';
 import { MOUNT_RACE_COUNTDOWN_TICKS } from '../src/sim/mount_race';
 import { petOf, serializePet, summonPet } from '../src/sim/pet/pet_commands';
 import { livePlaytimeSeconds } from '../src/sim/playtime';
+import { spawnHillNow } from '../src/sim/pvp';
 import { interactObjectCreditKey } from '../src/sim/quests/interact_object_credit';
 import { noteRelicItemFind, noteRelicObtain } from '../src/sim/reliquary';
 import { Sim } from '../src/sim/sim';
@@ -131,12 +133,15 @@ const DELTA_KEYS = [
   'equip',
   'qlog',
   'qdone',
+  'wkexp',
+  'wkq',
   'wqday',
   'wqexp',
   'wqlog',
   'fac',
   'wqrr',
   'wqrep',
+  'cluh',
   'lockouts',
   'cds',
   'stats',
@@ -561,11 +566,32 @@ describe('spectate client POV', () => {
     expect(client.consumeSpectateFacing()).toBeNull();
 
     internals.onMessage(JSON.stringify({ t: 'spectate', name: null }));
-    expect(client.spectating).toBeNull();
+    // Identity restores on the exit frame itself, but `spectating` (the HUD's
+    // "this self view is mine" signal) is held until the next own self-decode
+    // rebuilds the moderator's presentation (tests/spectate_exit_hold.test.ts).
+    expect(client.spectating).toBe('Suspect');
     expect(client.playerId).toBe(1);
     expect(client.player.name).toBe('Moderator');
     expect(client.cfg.playerClass).toBe('warrior');
     expect(client.consumeSpectateFacing()).toBeNull();
+    internals.applySnapshot({
+      t: 'snap',
+      ents: [],
+      self: {
+        id: 1,
+        k: 'player',
+        tid: 'warrior',
+        nm: 'Moderator',
+        lv: 10,
+        x: 0,
+        y: 0,
+        z: 0,
+        f: 0,
+        hp: 100,
+        mhp: 100,
+      },
+    });
+    expect(client.spectating).toBeNull();
   });
 });
 
@@ -2332,7 +2358,11 @@ describe('delta snapshots', () => {
       creditedObjects,
       puzzleVariant: 0,
     };
-    meta.worldQuestCycle = 'wq3_2';
+    // A later cycle than the first half, and one that OFFERS the salvage quest:
+    // Farshore's pool is four deep since the round-2 zone hunts, so the
+    // shipwreck sits on cycles 0, 4, 8 (an inactive quest's progress is
+    // filtered out of the self snapshot).
+    meta.worldQuestCycle = 'wq3_4';
     meta.worldQuestLog.clear();
     meta.worldQuestLog.set(salvageQuest.id, salvageProgress);
     session.selfHeavyDirty = true;
@@ -3053,8 +3083,50 @@ describe('autosaves', () => {
     });
   });
 
-  it('joins the market FIFO before taking the shared DB permit', async () => {
+  it('a periodic market save joins the market FIFO before taking the shared DB permit', async () => {
+    // Historical deadlock this guards against: the old permit->FIFO order let
+    // a market write hold the sole DB permit while it was still waiting for
+    // its OWN turn in the market FIFO behind another entry that also needed
+    // that permit to proceed. Joining the FIFO first, then taking the permit
+    // once it is actually this write's turn, makes that circular wait
+    // impossible. `saveMarket`/`saveMail`/`saveRifts` all ride
+    // `enqueueBackgroundMarketWrite`, which does exactly that.
     const gate = createBackgroundDbGate(1, 0); // the supported one-lane edge
+    const server = new GameServer(undefined, gate);
+
+    let releaseHead!: () => void;
+    const headHold = new Promise<void>((resolve) => {
+      releaseHead = resolve;
+    });
+    const head = (server as any).enqueueMarketWrite(async () => headHold) as Promise<void>;
+    vi.mocked(saveMarketState).mockImplementationOnce(async () => {
+      expect(gate.stats().inFlight).toBe(1);
+    });
+
+    const marketSave = server.saveMarket();
+    await Promise.resolve();
+    await Promise.resolve();
+    // Queued behind `head` on the FIFO: it must not have taken the permit yet.
+    expect(gate.stats()).toMatchObject({ inFlight: 0, waiting: 0, max: 1 });
+
+    releaseHead();
+    await Promise.all([head, marketSave]);
+    expect(saveMarketState).toHaveBeenCalledTimes(1);
+    expect(gate.stats()).toMatchObject({ inFlight: 0, waiting: 0, acquired: 1 });
+  });
+
+  it('a guild-book-only autosave no longer waits on the market FIFO', async () => {
+    // Direction B (docs/guild-bank/escrow-fix-plan.md section 3.6): book
+    // writes are a read-modify-write under a per-guild row lock, commutative
+    // and order-independent, so a guild-book-only autosave (opts.withMarket
+    // false) no longer needs the shared market writer's commit-order
+    // guarantee. server/game.ts saveCharacter now runs that write directly
+    // instead of queueing it behind whatever else the market writer is doing
+    // (a market/mail autosave, or another guild's dirty-book autosave): the
+    // exact compounding stall named as the escalation trigger in
+    // server/game.ts's enqueueMarketWrite comment. Before this fix the save
+    // below would have hung on the never-released `head` blocker.
+    const gate = createBackgroundDbGate(1, 0);
     const server = new GameServer(undefined, gate);
     const session = joinServer(server, fakeWs(), 1, 'Testa');
     const guildId = 913;
@@ -3070,42 +3142,13 @@ describe('autosaves', () => {
       releaseHead = resolve;
     });
     const head = (server as any).enqueueMarketWrite(async () => headHold) as Promise<void>;
-    const order: string[] = [];
-    vi.mocked(saveCharacterAndGuildBankState).mockImplementationOnce(async () => {
-      expect(gate.stats().inFlight).toBe(1);
-      order.push('character');
-      return true;
-    });
-    vi.mocked(saveMarketState).mockImplementationOnce(async () => {
-      expect(gate.stats().inFlight).toBe(1);
-      order.push('market');
-    });
+    vi.mocked(saveCharacterAndGuildBankState).mockImplementationOnce(async () => true);
 
-    // The dirty-book autosave owns the character FIFO and queues first on the
-    // market writer. A periodic market save queues behind it. Neither may take
-    // the sole DB permit before its market-FIFO turn begins: the old
-    // permit->market order made the market save hold the permit while waiting
-    // behind a character save that needed that same permit.
-    const serialize = vi.spyOn(server.sim, 'serializeCharacter');
-    const characterSave = server.saveAll('autosave');
-    await vi.waitFor(() => {
-      // The character FIFO is running and has reached the held market writer,
-      // so its market entry necessarily precedes the periodic one below.
-      expect(serialize).toHaveBeenCalled();
-    });
-    const marketSave = server.saveMarket();
-    await Promise.resolve();
-    await Promise.resolve();
-    expect(gate.stats()).toMatchObject({ inFlight: 0, waiting: 0, max: 1 });
+    await server.saveAll('autosave');
+    expect(saveCharacterAndGuildBankState).toHaveBeenCalledTimes(1);
 
     releaseHead();
-    await Promise.all([head, characterSave, marketSave]);
-    expect(order).toEqual(['character', 'market']);
-    expect(gate.stats()).toMatchObject({
-      inFlight: 0,
-      waiting: 0,
-      acquired: 2,
-    });
+    await head;
   });
 
   it('gates WOC dirty-book preflush and mail persistence at their innermost DB calls', async () => {
@@ -5611,6 +5654,7 @@ const ALL_DELTA_KEYS = [
   'cardDuel',
   'cbt',
   'cds',
+  'cluh',
   'copper',
   'corder',
   'corpse',
@@ -5643,6 +5687,7 @@ const ALL_DELTA_KEYS = [
   'gprof',
   'guildBank',
   'hbl',
+  'hill',
   'hirat',
   'honor',
   'hpref',
@@ -5678,17 +5723,23 @@ const ALL_DELTA_KEYS = [
   'renown',
   'rxp',
   'salv',
+  'scb',
   'sh',
   'sp',
   'stats',
   'tal',
   'tfocus',
+  'tfpend',
   'trade',
   'tslot',
   'vault',
   'vehicle',
   'wba',
   'weapon',
+  'weeklyRewards',
+  'wkexp',
+  'wkq',
+  'wpvp',
   'wqday',
   'wqexp',
   'wqlog',
@@ -5743,6 +5794,7 @@ const TERSE_TO_IWORLD: Record<string, string> = {
   bval: 'blockValue',
   cbt: 'inCombat',
   cds: 'cooldowns',
+  cluh: 'clueHunt',
   corder: 'commissionOrders',
   cosmetics: 'accountCosmetics',
   cprof: 'craftingIdentity',
@@ -5770,6 +5822,7 @@ const TERSE_TO_IWORLD: Record<string, string> = {
   ggoal: 'gatheringGoal',
   gprof: 'gatheringProficiency',
   guildBank: 'guildBankInfo',
+  hill: 'hillInfo',
   hirat: 'hitRating',
   hpref: 'harvestPreference',
   hrat: 'hasteRating',
@@ -5805,9 +5858,14 @@ const TERSE_TO_IWORLD: Record<string, string> = {
   sh: 'spellHaste',
   sp: 'spellPower',
   tfocus: 'townFocus',
+  tfpend: 'townFocusPending',
   tslot: 'toolEffectSlots',
   vault: 'vaultInfo',
   vehicle: 'vehicleSession',
+  weeklyRewards: 'weeklyRewardInfo',
+  wkexp: 'weeklyQuestResetAtMs',
+  wkq: 'weeklyQuest',
+  wpvp: 'worldPvpInfo',
   wqday: 'worldQuestCycle',
   wqexp: 'worldQuestExpiresAtMs',
   wqlog: 'worldQuestLog',
@@ -5900,6 +5958,8 @@ function dirtyEveryDeltaField(): {
   // default and the decode-target assertion could not tell them apart.
   meta.vault.stock = { copper_ore: 7 };
   meta.vault.upgrades = 2;
+  // The weekly emissary's charge (wkq): held mid-week so the key rides non-null.
+  meta.weeklyQuest = { questId: 'wk_dungeons', week: '2030-W01', count: 1, state: 'active' };
   // `cvault`: craftVaultStockFor is gated on the craft-draw context predicate,
   // not the banker. This harness player carries a live DELVE RUN (the drun
   // key's seeding below), which the gate refuses by design, so cvault's
@@ -5937,6 +5997,9 @@ function dirtyEveryDeltaField(): {
   });
   meta.questsDone.add('q_wolves');
   meta.worldQuestCycle = '2026-08-31';
+  // `cluh`: an active clue hunt on a shipped hunt id (the client decoder
+  // drops an id the pool does not know, so a made-up one would mirror null).
+  meta.clueHunt = { huntId: CLUE_HUNTS[0].id, step: 1 };
   server.sim.worldQuestExpiresAtMs = FAR_FUTURE_MS;
   meta.worldQuestLog.set('wq_eastbrook_bandits', {
     questId: 'wq_eastbrook_bandits',
@@ -5948,6 +6011,12 @@ function dirtyEveryDeltaField(): {
   meta.lifetimeXp = 555;
   meta.honor = 321;
   meta.lifetimeHonor = 654;
+  // World PvP: the wpvp self readout (meta) and the pvp entity bit (entity).
+  meta.worldPvp = { flagged: true, disarmAt: null, kills: 2, deaths: 1 };
+  sim.entities.get(lp)!.pvpFlag = true;
+  // King of the Hill: a hill stands (in a free-for-all zone the leader is not
+  // in), so the hill self readout rides the snapshot.
+  spawnHillNow(sim.ctx);
   meta.restedXp = 222;
   meta.prestigeRank = 3;
   meta.delveMarks = 7;
@@ -5958,6 +6027,14 @@ function dirtyEveryDeltaField(): {
   // the "carries every key" presence loop, since All encodes as the
   // non-null explicit token, but would not prove a real choice decodes).
   meta.harvestPreference = { kind: 'material', itemId: 'rough_hide' };
+  // tfpend: a REAL queued re-spec (null is the idle default and would fail
+  // the presence loop). Far enough out that no tick in this fixture resolves it.
+  meta.pendingTownFocus = {
+    allocation: { silk: 2 },
+    readyAtTime: sim.time + FAR_FUTURE_MS,
+    coin: 0,
+    materials: 0,
+  };
   // tslot: a REAL slotted effect, not the empty default. Without this the key
   // rides the first snapshot as `[]`, which is not null, so it passes the
   // "dirtied to a non-default value" loop below vacuously and nothing anywhere
@@ -6375,7 +6452,8 @@ describe('full self-state snapshot delta fixture', () => {
       // gated null: the two keys are mutually exclusive on one player by
       // design. Its non-null arrival (and the by-reference mirror) is pinned
       // in tests/vault_wire.test.ts instead.
-      if (key === 'cvault') {
+      // This fixture stands at a different banker; the weekly keeper gate stays closed.
+      if (key === 'cvault' || key === 'weeklyRewards') {
         expect(snap.self[key], 'self.cvault must arrive as the explicit gated null').toBeNull();
         continue;
       }
@@ -6412,6 +6490,29 @@ describe('full self-state snapshot delta fixture', () => {
     expect(client.lifetimeXp).toBe(555); // lxp -> lifetimeXp
     expect(client.honor).toBe(321); // honor
     expect(client.lifetimeHonor).toBe(654); // lhonor -> lifetimeHonor
+    // wpvp -> worldPvpInfo (social_self_wire.ts), and the entity-record pvp bit
+    // -> e.pvpFlag on the self record (a full record) for the flagged leader.
+    expect(client.worldPvpInfo).toMatchObject({
+      flagged: true,
+      kills: 2,
+      deaths: 1,
+      zone: 'contested', // the fixture leader stands on contested ground
+      enabled: true,
+    });
+    expect(client.player.pvpFlag).toBe(true);
+    // hill -> hillInfo (social_self_wire.ts): the standing hill from the
+    // leader's seat (outside its zone, so the live fields are zero; the
+    // fixture leader is ungrouped, so counts as a group of one).
+    expect(client.hillInfo).toMatchObject({
+      radius: 50,
+      phase: 'active',
+      standing: 'counted',
+      holder: 'none',
+      inZone: false,
+      inside: false,
+      minutesLeft: 45,
+    });
+    expect(['drakelands', 'frostveil', 'amberfall']).toContain(client.hillInfo?.zoneId);
     expect(client.restedXp).toBe(222); // rxp -> restedXp
     expect(client.prestigeRank).toBe(3); // prk -> prestigeRank
 
@@ -6994,7 +7095,8 @@ describe('gather node cooldown wire round trip (ncd)', () => {
 });
 
 describe('delta-key contract pins (anti-drift)', () => {
-  it('ALL_DELTA_KEYS contains exactly 103 unique keys in sorted order', () => {
+  it('ALL_DELTA_KEYS contains exactly 111 unique keys in sorted order', () => {
+    // 109 plus the release batch's pending Town Focus and Spell Crit core keys.
     // +1: guildBank (Guild Bank Phase 2), +1: the battleground bg key, +1: the
     // commission order board's corder key (issue #1298), +1: the character
     // sheet's lifetime played-time key ptime, for 67, then +16: the static
@@ -7042,8 +7144,17 @@ describe('delta-key contract pins (anti-drift)', () => {
     // (wqday, wqexp, wqlog), the vehicle session and the world-boss liveness
     // key wba, for 100.
     // The faction standing (fac) and daily reroll (wqrr, wqrep) owner keys, for 103.
-    expect(ALL_DELTA_KEYS).toHaveLength(103);
-    expect(new Set(ALL_DELTA_KEYS).size).toBe(103);
+    // The weekly emissary's wkq and wkexp self keys, for 105, and the Clue
+    // Scrolls active-hunt key cluh, for 106.
+    // The Weekly Vault's weeklyRewards self key (PR 4052), for 107.
+    // The World PvP flag readout wpvp (src/sim/pvp/world_pvp.ts) and the King of
+    // the Hill readout hill (src/sim/pvp/hill.ts), at the second release/v0.44.0
+    // base merge, for 109.
+    // The release batch's pending Town Focus and the Spell Crit sheet cell's
+    // shared crit core scb (server/self_scalar_wire.ts), at the third
+    // release/v0.44.0 base merge, for 111.
+    expect(ALL_DELTA_KEYS).toHaveLength(111);
+    expect(new Set(ALL_DELTA_KEYS).size).toBe(111);
     expect([...ALL_DELTA_KEYS]).toEqual([...ALL_DELTA_KEYS].sort());
   });
 
@@ -7207,8 +7318,13 @@ describe('delta-key contract pins (anti-drift)', () => {
     // The candidate self in-combat key cbt brings the combined inventory to 94;
     // the account ledger's acct key (server/deeds_wire.ts) makes it 95.
     // The World Quests branch adds its five self keys, for 100.
-    // Plus the faction standing and daily reroll owner keys, for 103.
-    expect(scraped.size).toBe(103);
+    // Plus the faction standing and daily reroll owner keys, for 103. The
+    // weekly emissary's wkq and wkexp self keys make 105, and the Clue Scrolls
+    // active-hunt key cluh 106.
+    // The Weekly Vault's weeklyRewards self key (PR 4052) makes 107.
+    // The World PvP readout wpvp and the King of the Hill readout hill make 109.
+    // The release batch's pending Town Focus and Spell Crit core keys make 111.
+    expect(scraped.size).toBe(111);
     expect([...scraped].sort()).toEqual([...ALL_DELTA_KEYS].sort());
   });
 

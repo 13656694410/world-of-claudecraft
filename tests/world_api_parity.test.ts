@@ -78,7 +78,9 @@ import type { IWorldTalents } from '../src/world_api/talents';
 import type { IWorldTargeting } from '../src/world_api/targeting';
 import type { IWorldTelemetry } from '../src/world_api/telemetry';
 import type { IWorldTrade } from '../src/world_api/trade';
+import type { IWorldTransport } from '../src/world_api/transport';
 import type { IWorldVehicles } from '../src/world_api/vehicles';
+import type { IWorldWorldPvp } from '../src/world_api/world_pvp';
 import { expectScansOnlyThroughSharedWalkers } from './helpers/scan_guard_self_audit';
 import { tsFilesUnder } from './helpers/ts_files_under';
 
@@ -134,6 +136,10 @@ export const IWORLD_MEMBERS = [
   { name: 'questsDone', kind: 'data' },
   { name: 'worldQuestCycle', kind: 'data' },
   { name: 'worldQuestExpiresAtMs', kind: 'data' },
+  { name: 'weeklyQuest', kind: 'data' },
+  { name: 'weeklyQuestResetAtMs', kind: 'data' },
+  { name: 'chooseWeeklyQuest', kind: 'method' },
+  { name: 'commendWeeklyQuest', kind: 'method' },
   { name: 'worldQuestLeaderboard', kind: 'method' }, // async
   { name: 'worldQuestLog', kind: 'data' },
   { name: 'worldQuestTime', kind: 'data' },
@@ -141,9 +147,11 @@ export const IWORLD_MEMBERS = [
   { name: 'factions', kind: 'data' },
   { name: 'worldQuestReplacements', kind: 'data' },
   { name: 'worldQuestRerollCycle', kind: 'data' },
+  { name: 'clueHunt', kind: 'data' },
   // --- commands + read-returning methods ---
   { name: 'canRerollWorldQuest', kind: 'method' },
   { name: 'rerollWorldQuest', kind: 'method' },
+  { name: 'abandonClueHunt', kind: 'method' },
   { name: 'questState', kind: 'method' }, // read-returning (1/6)
   { name: 'reactiveAbilityWindowRemaining', kind: 'method' },
   { name: 'groundAimPlacementPreview', kind: 'method' },
@@ -172,6 +180,7 @@ export const IWORLD_MEMBERS = [
   { name: 'activeMasterLootRolls', kind: 'method' }, // read-returning
   { name: 'pickUpObject', kind: 'method' },
   { name: 'townFocus', kind: 'data' },
+  { name: 'townFocusPending', kind: 'data' },
   { name: 'civicServicePlacements', kind: 'data' },
   { name: 'setTownFocus', kind: 'method' },
   { name: 'acceptQuest', kind: 'method' },
@@ -306,6 +315,7 @@ export const IWORLD_MEMBERS = [
   { name: 'guildEventRemove', kind: 'method' },
   { name: 'guildSetMotd', kind: 'method' },
   { name: 'guildBuyRosterPage', kind: 'method' },
+  { name: 'guildSetRanks', kind: 'method' },
   { name: 'searchCharacters', kind: 'method' }, // async (1/2)
   { name: 'characterProfile', kind: 'method' }, // async
   // Operator-set account flair, by name. A pure LOCAL read (the flair rides the entity
@@ -330,6 +340,9 @@ export const IWORLD_MEMBERS = [
   { name: 'marketSweep', kind: 'method' },
   { name: 'marketCancel', kind: 'method' },
   { name: 'marketCollect', kind: 'method' },
+  { name: 'marketOrderPlace', kind: 'method' },
+  { name: 'marketOrderFill', kind: 'method' },
+  { name: 'marketOrderCancel', kind: 'method' },
   // --- Ravenpost mail reads + commands ---
   { name: 'mailInfo', kind: 'data' },
   { name: 'mailUnread', kind: 'data' },
@@ -356,6 +369,9 @@ export const IWORLD_MEMBERS = [
   { name: 'bankUnsocketBag', kind: 'method' },
   // --- Materials Vault (same facet, same bursars): proximity-gated stock read +
   //     deposit/withdraw/buy-upgrade commands ---
+  { name: 'weeklyRewardInfo', kind: 'data' },
+  { name: 'claimWeeklyReward', kind: 'method' },
+  { name: 'openWeeklyReward', kind: 'method' },
   { name: 'vaultInfo', kind: 'data' },
   { name: 'vaultDeposit', kind: 'method' },
   { name: 'vaultWithdraw', kind: 'method' },
@@ -543,6 +559,7 @@ export const IWORLD_MEMBERS = [
   { name: 'reliquaryRarity', kind: 'method' },
   // IWorldActionBar: per-character action-bar layout persistence + login restore.
   { name: 'saveActionBarLayout', kind: 'method' },
+  { name: 'actionBarReadOnly', kind: 'data' },
   { name: 'takeActionBarLayoutRestore', kind: 'method' },
   // IWorldFarming: the static garden-bed geography plus the viewer's own plot
   // rows (both data), the growth phase's two plot mutations, and the knobs
@@ -564,6 +581,13 @@ export const IWORLD_MEMBERS = [
   // data member exists for it.
   { name: 'placeFeast', kind: 'method' },
   { name: 'consumeFeast', kind: 'method' },
+  // --- the scheduled ferry (IWorldTransport): one read-returning method, the
+  // live timetable view both worlds derive from their schedule clock ---
+  { name: 'ferryView', kind: 'method' },
+  // IWorldWorldPvp (world_pvp.ts): the /pvp flag readout + raise/lower.
+  { name: 'worldPvpInfo', kind: 'data' },
+  { name: 'setWorldPvpFlag', kind: 'method' },
+  { name: 'hillInfo', kind: 'data' },
 ] as const satisfies readonly IWorldMember[];
 
 const DATA_MEMBERS = IWORLD_MEMBERS.filter((m) => m.kind === 'data');
@@ -892,9 +916,27 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
     // 402/116/286 on feature/wq-reputation: 397/113/284 plus factions,
     // worldQuestReplacements, worldQuestRerollCycle (+3 data), and canRerollWorldQuest,
     // rerollWorldQuest (+2 methods).
-    expect(IWORLD_MEMBERS.length).toBe(402);
-    expect(DATA_MEMBERS.length).toBe(116);
-    expect(METHOD_MEMBERS.length).toBe(286);
+    // Counted 405/118/287 on feature/weekly-quests rebased onto it: plus the
+    // weekly emissary's weeklyQuest and weeklyQuestResetAtMs (+2 data) and
+    // chooseWeeklyQuest (+1 method).
+    // Plus the emissary's commendation claim commendWeeklyQuest (+1 method):
+    // 406/118/288.
+    // Plus feature/clue-scrolls' active clue hunt readout clueHunt (+1 data)
+    // and abandonClueHunt (+1 method) on the quests integration branch:
+    // 408/119/289.
+    // Plus the Weekly Vault's weeklyRewardInfo (+1 data), claimWeeklyReward and
+    // openWeeklyReward (+2 methods; PR 4052): 411/120/291.
+    // Plus the release's World PvP facet (worldPvpInfo data, setWorldPvpFlag
+    // method) and King of the Hill's hillInfo (data) at the second release/v0.44.0
+    // base merge, with spectate's actionBarReadOnly (data): 415/123/292.
+    // Plus the release batch's townFocusPending data read, its three
+    // market-order methods and guildSetRanks at the third release/v0.44.0 base
+    // merge: 420/124/296.
+    // Plus the release's transport facet (the Eastbrook ferry's ferryView
+    // method) at the fourth release/v0.44.0 base merge: 421/124/297.
+    expect(IWORLD_MEMBERS.length).toBe(421);
+    expect(DATA_MEMBERS.length).toBe(124);
+    expect(METHOD_MEMBERS.length).toBe(297);
   });
   it('has no duplicate member names', () => {
     const names = IWORLD_MEMBERS.map((m) => m.name);
@@ -905,6 +947,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
   // these deliberately, forcing a reviewed edit. NOT length-only.
   it('the full sorted member set is exactly the pinned contract', () => {
     expect(IWORLD_MEMBERS.map((m) => m.name).sort()).toEqual([
+      'abandonClueHunt',
       'abandonPet',
       'abandonQuest',
       'acceptCommissionOrder',
@@ -915,6 +958,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'accountDeeds',
       'accountFlair',
       'accuseWorldQuestSuspect',
+      'actionBarReadOnly',
       'activeBorder',
       'activeConsecrations',
       'activeFrostRings',
@@ -979,12 +1023,16 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'changeWeaponSkin',
       'characterProfile',
       'chat',
+      'chooseWeeklyQuest',
       'civicServicePlacements',
       'claimEventSkin',
+      'claimWeeklyReward',
       'clearGatheringGoal',
       'clearMarker',
+      'clueHunt',
       'collectDelveChestLoot',
       'combineMaterialStacks',
+      'commendWeeklyQuest',
       'commissionOrders',
       'companionState',
       'companionUpgrade',
@@ -1050,6 +1098,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'farmNowMs',
       'farmPatches',
       'feedPet',
+      'ferryView',
       'forfeitCardDuel',
       'friendAdd',
       'friendRemove',
@@ -1083,12 +1132,14 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'guildPromote',
       'guildRoster',
       'guildSetMotd',
+      'guildSetRanks',
       'guildTransfer',
       'harvestCorpse',
       'harvestCrop',
       'harvestNode',
       'harvestPreference',
       'healPet',
+      'hillInfo',
       'hobbyCraft',
       'honor',
       'ignoreAdd',
@@ -1131,6 +1182,9 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'marketInfo',
       'marketList',
       'marketListInstance',
+      'marketOrderCancel',
+      'marketOrderFill',
+      'marketOrderPlace',
       'marketSearch',
       'marketSellPriceCheck',
       'marketSweep',
@@ -1148,6 +1202,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'nodeHarvestableByMe',
       'nodeRespawnSeconds',
       'openCommissionOrder',
+      'openWeeklyReward',
       'ownedMounts',
       'partyAccept',
       'partyDecline',
@@ -1241,6 +1296,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'setSpec',
       'setStopAutoAttackOnTargetSwitch',
       'setTownFocus',
+      'setWorldPvpFlag',
       'shadowWorldQuestAction',
       'slotToolEffect',
       'socialInfo',
@@ -1269,6 +1325,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'toggleWeaponStow',
       'toolEffectSlots',
       'townFocus',
+      'townFocusPending',
       'trackGatheringCommission',
       'trackGatheringRecipe',
       'tradeAccept',
@@ -1296,9 +1353,13 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'vaultWithdraw',
       'vehicleSession',
       'vendorBuyback',
+      'weeklyQuest',
+      'weeklyQuestResetAtMs',
+      'weeklyRewardInfo',
       'whoInfo',
       'whoRequest',
       'worldBossActive',
+      'worldPvpInfo',
       'worldQuestCycle',
       'worldQuestExpiresAtMs',
       'worldQuestLeaderboard',
@@ -1315,6 +1376,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'accountAdmin',
       'accountCosmetics',
       'accountDeeds',
+      'actionBarReadOnly',
       'activeBorder',
       'activeConsecrations',
       'activeFrostRings',
@@ -1342,6 +1404,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'cardMinigameInfo',
       'cfg',
       'civicServicePlacements',
+      'clueHunt',
       'commissionOrders',
       'companionState',
       'companionUpgrades',
@@ -1367,6 +1430,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'gatheringProficiency',
       'guildBankInfo',
       'harvestPreference',
+      'hillInfo',
       'hobbyCraft',
       'honor',
       'inventory',
@@ -1415,12 +1479,17 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'talents',
       'toolEffectSlots',
       'townFocus',
+      'townFocusPending',
       'tradeInfo',
       'unlockedMilestones',
       'vaultInfo',
       'vehicleSession',
       'vendorBuyback',
+      'weeklyQuest',
+      'weeklyQuestResetAtMs',
+      'weeklyRewardInfo',
       'whoInfo',
+      'worldPvpInfo',
       'worldQuestCycle',
       'worldQuestExpiresAtMs',
       'worldQuestLog',
@@ -1433,6 +1502,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
 
   it('the sorted method-kind set is exactly the pinned contract', () => {
     expect(METHOD_MEMBERS.map((m) => m.name).sort()).toEqual([
+      'abandonClueHunt',
       'abandonPet',
       'abandonQuest',
       'acceptCommissionOrder',
@@ -1478,11 +1548,14 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'changeWeaponSkin',
       'characterProfile',
       'chat',
+      'chooseWeeklyQuest',
       'claimEventSkin',
+      'claimWeeklyReward',
       'clearGatheringGoal',
       'clearMarker',
       'collectDelveChestLoot',
       'combineMaterialStacks',
+      'commendWeeklyQuest',
       'companionUpgrade',
       'consumeFeast',
       'convertHusks',
@@ -1527,6 +1600,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'extractEssence',
       'farmNowMs',
       'feedPet',
+      'ferryView',
       'forfeitCardDuel',
       'friendAdd',
       'friendRemove',
@@ -1557,6 +1631,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'guildPromote',
       'guildRoster',
       'guildSetMotd',
+      'guildSetRanks',
       'guildTransfer',
       'harvestCorpse',
       'harvestCrop',
@@ -1587,6 +1662,9 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'marketCollect',
       'marketList',
       'marketListInstance',
+      'marketOrderCancel',
+      'marketOrderFill',
+      'marketOrderPlace',
       'marketSearch',
       'marketSellPriceCheck',
       'marketSweep',
@@ -1601,6 +1679,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'nodeHarvestableByMe',
       'nodeRespawnSeconds',
       'openCommissionOrder',
+      'openWeeklyReward',
       'ownedMounts',
       'partyAccept',
       'partyDecline',
@@ -1674,6 +1753,7 @@ describe('IWORLD_MEMBERS is the pinned IWorld contract (anti-loosening)', () => 
       'setSpec',
       'setStopAutoAttackOnTargetSwitch',
       'setTownFocus',
+      'setWorldPvpFlag',
       'shadowWorldQuestAction',
       'slotToolEffect',
       'socketRiftGem',
@@ -1869,6 +1949,7 @@ const FACET_INTERACTION = [
   'corpseHarvestInfo',
   'pickUpObject',
   'townFocus',
+  'townFocusPending',
   'setTownFocus',
   'autoLoot',
 ] as const satisfies readonly (keyof IWorldInteraction)[];
@@ -1933,6 +2014,10 @@ type _ExhaustCosmetics = AssertNever<
 const FACET_QUESTS = [
   'questLog',
   'questsDone',
+  'chooseWeeklyQuest',
+  'commendWeeklyQuest',
+  'weeklyQuest',
+  'weeklyQuestResetAtMs',
   'worldQuestCycle',
   'worldQuestExpiresAtMs',
   'worldQuestLeaderboard',
@@ -1957,6 +2042,8 @@ const FACET_QUESTS = [
   'worldQuestRerollCycle',
   'canRerollWorldQuest',
   'rerollWorldQuest',
+  'clueHunt',
+  'abandonClueHunt',
 ] as const satisfies readonly (keyof IWorldQuests)[];
 type _ExhaustQuests = AssertNever<Exclude<keyof IWorldQuests, (typeof FACET_QUESTS)[number]>>;
 
@@ -2114,6 +2201,7 @@ const FACET_SOCIAL_GRAPH = [
   'guildEventRemove',
   'guildSetMotd',
   'guildBuyRosterPage',
+  'guildSetRanks',
   'searchCharacters',
   'characterProfile',
   'accountFlair',
@@ -2134,6 +2222,9 @@ const FACET_MARKET = [
   'marketSweep',
   'marketCancel',
   'marketCollect',
+  'marketOrderPlace',
+  'marketOrderFill',
+  'marketOrderCancel',
 ] as const satisfies readonly (keyof IWorldMarket)[];
 type _ExhaustMarket = AssertNever<Exclude<keyof IWorldMarket, (typeof FACET_MARKET)[number]>>;
 
@@ -2148,6 +2239,9 @@ const FACET_MAIL = [
 type _ExhaustMail = AssertNever<Exclude<keyof IWorldMail, (typeof FACET_MAIL)[number]>>;
 
 const FACET_BANK = [
+  'weeklyRewardInfo',
+  'claimWeeklyReward',
+  'openWeeklyReward',
   'bankInfo',
   'bankPurchasedSlots',
   'bankDeposit',
@@ -2346,6 +2440,7 @@ type _ExhaustReliquary = AssertNever<
 >;
 
 const FACET_ACTION_BAR = [
+  'actionBarReadOnly',
   'saveActionBarLayout',
   'takeActionBarLayoutRestore',
 ] as const satisfies readonly (keyof IWorldActionBar)[];
@@ -2364,6 +2459,20 @@ const FACET_FARMING = [
   'consumeFeast',
 ] as const satisfies readonly (keyof IWorldFarming)[];
 type _ExhaustFarming = AssertNever<Exclude<keyof IWorldFarming, (typeof FACET_FARMING)[number]>>;
+
+const FACET_TRANSPORT = ['ferryView'] as const satisfies readonly (keyof IWorldTransport)[];
+type _ExhaustTransport = AssertNever<
+  Exclude<keyof IWorldTransport, (typeof FACET_TRANSPORT)[number]>
+>;
+
+const FACET_WORLD_PVP = [
+  'worldPvpInfo',
+  'setWorldPvpFlag',
+  'hillInfo',
+] as const satisfies readonly (keyof IWorldWorldPvp)[];
+type _ExhaustWorldPvp = AssertNever<
+  Exclude<keyof IWorldWorldPvp, (typeof FACET_WORLD_PVP)[number]>
+>;
 
 // The facet partition, keyed by facet for legible failure messages.
 const FACET_MEMBER_ARRAYS: Readonly<Record<string, readonly string[]>> = {
@@ -2401,6 +2510,8 @@ const FACET_MEMBER_ARRAYS: Readonly<Record<string, readonly string[]>> = {
   reliquary: FACET_RELIQUARY,
   actionBar: FACET_ACTION_BAR,
   farming: FACET_FARMING,
+  transport: FACET_TRANSPORT,
+  worldPvp: FACET_WORLD_PVP,
 };
 
 describe('W1: aggregate IWorld member set equals the disjoint union of the facets', () => {
@@ -2415,7 +2526,9 @@ describe('W1: aggregate IWorld member set equals the disjoint union of the facet
     // on disk minus appearance.ts (the sweep below).
     // 34 at the release/v0.43.0 merge: the release's 33 plus this branch's
     // vehicles facet.
-    expect(Object.keys(FACET_MEMBER_ARRAYS).length).toBe(34);
+    // 35 at the second release/v0.44.0 base merge: plus the release's world_pvp.ts.
+    // 36 at the fourth release/v0.44.0 base merge: plus the release's transport.ts.
+    expect(Object.keys(FACET_MEMBER_ARRAYS).length).toBe(36);
   });
 
   it('every facet FILE on disk is a FACET_MEMBER_ARRAYS key (none can go silently unpartitioned)', () => {
@@ -2494,10 +2607,10 @@ describe('W1: aggregate IWorld member set equals the disjoint union of the facet
 
   it('the facet union equals the pinned IWORLD_MEMBERS set', () => {
     const union = Object.values(FACET_MEMBER_ARRAYS).flatMap((arr) => [...arr]);
-    // Mirrors the IWORLD_MEMBERS.length pin above (402); this pin and the one above
+    // Mirrors the IWORLD_MEMBERS.length pin above (411); this pin and the one above
     // must always agree.
-    expect(union.length, 'union size before dedup (catches a duplicated member)').toBe(402);
-    expect(new Set(union).size, 'union size after dedup (catches a duplicated member)').toBe(402);
+    expect(union.length, 'union size before dedup (catches a duplicated member)').toBe(421);
+    expect(new Set(union).size, 'union size after dedup (catches a duplicated member)').toBe(421);
     const sortedUnion = [...union].sort();
     const pinned = IWORLD_MEMBERS.map((m) => m.name).sort();
     expect(sortedUnion).toEqual(pinned);

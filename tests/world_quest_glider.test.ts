@@ -9,6 +9,7 @@ import {
   GLIDER_QUEST_ID,
   GLIDER_WIND_TUNNELS,
 } from '../src/sim/content/world_quest_glider';
+import { WORLD_QUESTS_BY_ID } from '../src/sim/content/world_quests';
 import { BUILTIN_WORLD, MOBS } from '../src/sim/data';
 import { createMob } from '../src/sim/entity';
 import { gliderActionsLocked } from '../src/sim/glider_action_lock';
@@ -18,6 +19,7 @@ import type { SimContext } from '../src/sim/sim_context';
 import { emptyMoveInput, normAngle } from '../src/sim/types';
 import { WATER_LEVEL } from '../src/sim/world';
 import { advanceGliderMovement, startGliderFlight } from '../src/sim/world_quest_glider';
+import { gliderCourseForCycle } from '../src/sim/world_quest_glider_generation';
 import { WORLD_SEED } from '../src/sim/world_seed';
 
 function setupSim(fullWorld = false) {
@@ -41,7 +43,161 @@ function setupSim(fullWorld = false) {
   return sim;
 }
 
+/** The fixed route shared by authority and course visuals. */
+function liveCourse(sim: Sim) {
+  return gliderCourseForCycle(
+    sim.worldQuestCycle,
+    sim.worldQuestLog.get(GLIDER_QUEST_ID)?.glider?.courseId,
+  );
+}
+
+/** Steers the live flight ring to ring with bounded turn and pitch inputs
+ *  through real ticks, until the flight state leaves `flying`/`countdown` or
+ *  the tick budget runs out. Returns the number of ticks flown. */
+function autopilot(sim: Sim, budget = 2600): number {
+  const progress = sim.worldQuestLog.get(GLIDER_QUEST_ID)!;
+  let ticks = 0;
+  for (; ticks < budget; ticks++) {
+    const state = progress.glider;
+    if (!state || (state.phase !== 'flying' && state.phase !== 'countdown')) break;
+    const target =
+      liveCourse(sim).rings.find((r) => !state.passedRings.includes(r.id)) ??
+      liveCourse(sim).landingPad;
+    const difference = normAngle(
+      Math.atan2(target.x - sim.player.pos.x, target.z - sim.player.pos.z) - sim.player.facing,
+    );
+    Object.assign(sim.moveInput, {
+      ...emptyMoveInput(),
+      forward: true,
+      turnLeft: difference > 0.06,
+      turnRight: difference < -0.06,
+      gliderPitch: pilotPitch(target, sim.player.pos, state.speed),
+    });
+    if (state.speed < 22) sim.boostWorldQuestGlider();
+    sim.tick();
+  }
+  Object.assign(sim.moveInput, emptyMoveInput());
+  return ticks;
+}
+
 describe('World Quest Glider Integration', () => {
+  it('flies again after completion, for fun, and never pays a second time', () => {
+    // World quests round 2: the slalom is replayable without limit; only the
+    // FIRST successful run pays. The pay-once guard is the quest-state check in
+    // world_quests.ts (credit only while the quest is active) and the
+    // instructor's practice flight for a completed quest.
+    const sim = setupSim();
+    const meta = sim.meta(sim.playerId)!;
+    sim.chat('/dev glider start');
+    const progress = sim.worldQuestLog.get(GLIDER_QUEST_ID)!;
+    autopilot(sim);
+    for (let i = 0; i < 3; i++) sim.tick();
+    expect(progress.glider?.phase).toBe('won');
+    expect(progress.state).toBe('completed');
+    const paidCopper = sim.copper;
+    const paidXp = sim.lifetimeXp;
+    const paidFactions = { ...meta.factions };
+    const paidQuests = meta.counters.questsCompleted;
+    const deeds = meta.deedsEarned.size;
+    expect(paidCopper).toBeGreaterThan(0);
+
+    // Back at Zephyr: talking to him starts a PRACTICE flight, not a reset.
+    sim.player.pos = sim.groundPos(GLIDER_NPC_DEF.pos.x + 1, GLIDER_NPC_DEF.pos.z);
+    sim.player.prevPos = { ...sim.player.pos };
+    sim.drainEvents();
+    sim.talkToNpc(GLIDER_NPC_ID);
+    expect(progress.glider?.phase).toBe('countdown');
+    expect(progress.glider?.practiceOnly).toBe(true);
+    expect(progress.state).toBe('active');
+    const savedPractice = sim.serializeCharacter(sim.playerId)!;
+    expect(
+      savedPractice.worldQuests?.progress.find((row) => row.questId === GLIDER_QUEST_ID)?.state,
+    ).toBe('completed');
+
+    // A second full winning flight: the same rings, the same pad, no purse.
+    autopilot(sim);
+    for (let i = 0; i < 3; i++) sim.tick();
+    expect(progress.glider?.phase).toBe('won');
+    expect(progress.glider?.passedRings).toHaveLength(GLIDER_COURSE.rings.length);
+    expect(progress.state).toBe('completed');
+    expect(sim.copper).toBe(paidCopper);
+    expect(sim.lifetimeXp).toBe(paidXp);
+    expect(meta.factions).toEqual(paidFactions);
+    expect(meta.counters.questsCompleted).toBe(paidQuests);
+    expect(meta.deedsEarned.size).toBe(deeds);
+    expect(sim.drainEvents().filter((ev) => ev.type === 'worldQuestDone')).toHaveLength(0);
+
+    // ...and a third time still starts (no cap on fun).
+    sim.player.pos = sim.groundPos(GLIDER_NPC_DEF.pos.x + 1, GLIDER_NPC_DEF.pos.z);
+    sim.player.prevPos = { ...sim.player.pos };
+    sim.talkToNpc(GLIDER_NPC_ID);
+    expect(progress.glider?.phase).toBe('countdown');
+    expect(progress.glider?.practiceOnly).toBe(true);
+  });
+
+  it('keeps the paid quest completed when saving and resuming a practice flight', () => {
+    const sim = setupSim();
+    sim.chat('/dev glider start');
+    autopilot(sim);
+    sim.tick();
+    const copper = sim.copper;
+    const factions = { ...sim.factions };
+    sim.player.pos = sim.groundPos(GLIDER_NPC_DEF.pos.x + 1, GLIDER_NPC_DEF.pos.z);
+    sim.talkToNpc(GLIDER_NPC_ID);
+    const saved = sim.serializeCharacter(sim.playerId)!;
+    const restored = new Sim({ seed: WORLD_SEED, playerClass: 'warrior', noPlayer: true });
+    restored.resetDay = sim.resetDay;
+    restored.addPlayer('warrior', 'Returning Pilot', { state: saved });
+    restored.tick();
+    expect(restored.worldQuestLog.get(GLIDER_QUEST_ID)?.state).toBe('completed');
+    restored.player.pos = restored.groundPos(GLIDER_NPC_DEF.pos.x + 1, GLIDER_NPC_DEF.pos.z);
+    restored.talkToNpc(GLIDER_NPC_ID);
+    expect(restored.worldQuestLog.get(GLIDER_QUEST_ID)?.glider?.practiceOnly).toBe(true);
+    autopilot(restored);
+    restored.tick();
+    expect(restored.worldQuestLog.get(GLIDER_QUEST_ID)?.glider?.phase).toBe('won');
+    expect(restored.copper).toBe(copper);
+    expect(restored.factions).toEqual(factions);
+  });
+
+  it('never opens the practice door on an unearned row: under the gate or without a row nothing launches', () => {
+    // The practice landing stamps the row completed (world_quest_glider.ts), so
+    // the door must only open on a row the player has already EARNED; a player
+    // under the level gate, or one whose row the rotation has not minted yet,
+    // gets no practice flight and keeps a payable day.
+    const minLevel = WORLD_QUESTS_BY_ID[GLIDER_QUEST_ID].minLevel;
+    const talk = (sim: Sim) => {
+      sim.player.pos = sim.groundPos(GLIDER_NPC_DEF.pos.x + 1, GLIDER_NPC_DEF.pos.z);
+      sim.player.prevPos = { ...sim.player.pos };
+      sim.talkToNpc(GLIDER_NPC_ID);
+      return sim.meta(sim.playerId)!.worldQuestLog.get(GLIDER_QUEST_ID);
+    };
+
+    // The control: the dev arm (level, row, cycle) and a talk is the real launch.
+    const armed = setupSim();
+    armed.chat('/dev glider');
+    const launched = talk(armed);
+    expect(launched?.glider?.phase).toBe('countdown');
+    expect(launched?.glider?.practiceOnly).toBeFalsy();
+
+    // Under the level gate with an active row: nothing, and the row stays active.
+    const gated = setupSim();
+    gated.chat('/dev glider');
+    gated.setPlayerLevel(minLevel - 1);
+    const stillActive = talk(gated);
+    expect(stillActive?.glider).toBeUndefined();
+    expect(stillActive?.state).toBe('active');
+
+    // Without a row at all: whatever the talk does, it is never a practice
+    // flight and never a completion.
+    const unminted = setupSim();
+    unminted.chat('/dev glider');
+    unminted.meta(unminted.playerId)!.worldQuestLog.delete(GLIDER_QUEST_ID);
+    const row = talk(unminted);
+    expect(row?.glider?.practiceOnly).toBeFalsy();
+    expect(row?.state).not.toBe('completed');
+  });
+
   it('publishes a wind-only crossing immediately between periodic snapshot ticks', () => {
     const sim = setupSim();
     sim.chat('/dev glider start');
@@ -156,9 +312,9 @@ describe('World Quest Glider Integration', () => {
     expect(progress?.glider?.phase).toBe('flying');
 
     // Ticking sim advances glider movement
-    const prevZ = sim.player.pos.z;
+    const prevX = sim.player.pos.x;
     sim.tick();
-    expect(sim.player.pos.z).toBeGreaterThan(prevZ);
+    expect(sim.player.pos.x).toBeGreaterThan(prevX);
   });
 
   it('immediately arms flight when using /dev glider start', () => {
@@ -219,8 +375,8 @@ describe('World Quest Glider Integration', () => {
     for (let i = 0; i < 2600 && progress.state === 'active'; i++) {
       const state = progress.glider!;
       const target =
-        GLIDER_COURSE.rings.find((r) => !state.passedRings.includes(r.id)) ??
-        GLIDER_COURSE.landingPad;
+        liveCourse(sim).rings.find((r) => !state.passedRings.includes(r.id)) ??
+        liveCourse(sim).landingPad;
       const difference = normAngle(
         Math.atan2(target.x - sim.player.pos.x, target.z - sim.player.pos.z) - sim.player.facing,
       );
@@ -229,14 +385,9 @@ describe('World Quest Glider Integration', () => {
         forward: true,
         turnLeft: difference > 0.06,
         turnRight: difference < -0.06,
-        gliderPitch: Math.max(
-          -1,
-          Math.min(
-            1,
-            ((target.y - sim.player.pos.y) * 1.5 + 0.55) / (target.y > sim.player.pos.y ? 7 : 14),
-          ),
-        ),
+        gliderPitch: pilotPitch(target, sim.player.pos, state.speed),
       });
+      if (state.speed < 22) sim.boostWorldQuestGlider();
       sim.tick();
     }
     expect(progress.state).toBe('completed');
@@ -332,7 +483,7 @@ describe('World Quest Glider Integration', () => {
     const sim = setupSim();
     sim.chat('/dev glider start');
     for (let i = 0; i < 70; i++) sim.tick();
-    expect(sim.player.pos.y).toBeGreaterThan(60);
+    expect(sim.player.pos.y).toBeGreaterThan(GLIDER_LAUNCH_SITE.playerLaunch.y - 2);
     sim.meta(sim.playerId)!.devWorldQuestCycle = 'wq3_0';
     sim.tick();
     expect(sim.worldQuestLog.get(GLIDER_QUEST_ID)?.glider).toBeUndefined();
@@ -369,8 +520,8 @@ describe('World Quest Glider Integration', () => {
           }),
         );
       const target =
-        GLIDER_COURSE.rings.find((r) => !state.passedRings.includes(r.id)) ??
-        GLIDER_COURSE.landingPad;
+        liveCourse(sim).rings.find((r) => !state.passedRings.includes(r.id)) ??
+        liveCourse(sim).landingPad;
       const difference = normAngle(
         Math.atan2(target.x - sim.player.pos.x, target.z - sim.player.pos.z) - sim.player.facing,
       );
@@ -379,14 +530,9 @@ describe('World Quest Glider Integration', () => {
         forward: true,
         turnLeft: difference > 0.06,
         turnRight: difference < -0.06,
-        gliderPitch: Math.max(
-          -1,
-          Math.min(
-            1,
-            ((target.y - sim.player.pos.y) * 1.5 + 0.55) / (target.y > sim.player.pos.y ? 7 : 14),
-          ),
-        ),
+        gliderPitch: pilotPitch(target, sim.player.pos, state.speed),
       });
+      if (state.speed < 22) sim.boostWorldQuestGlider();
       sim.tick();
     }
     expect(progress.state).toBe('completed');
@@ -477,3 +623,16 @@ describe('World Quest Glider Integration', () => {
     expect(sim.player.dead).toBe(false);
   });
 });
+
+/** Aim along the next leg instead of pulling fully up immediately on distant climbs. */
+function pilotPitch(
+  target: { x: number; y: number; z: number },
+  pos: { x: number; y: number; z: number },
+  speed: number,
+): number {
+  const distance = Math.hypot(target.x - pos.x, target.z - pos.z);
+  const wantedVy = (target.y - pos.y) / Math.max(0.4, distance / speed);
+  const climbRate =
+    (7 + Math.max(0, speed - 22) * 0.7) * Math.max(0.1, Math.min(1, (speed - 10) / 8));
+  return Math.max(-1, Math.min(1, (wantedVy + 0.55) / (wantedVy >= -0.55 ? climbRate : 14)));
+}

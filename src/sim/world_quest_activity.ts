@@ -8,8 +8,10 @@
 // offers a choice; the command is quest-keyed so the next activity adds a row
 // here, never a new wire verb.
 
+import { GLIDER_QUEST_ID } from './content/world_quest_glider';
 import { WISP_MAZE_NPC_ID, WISP_MAZE_QUEST_ID } from './content/world_quest_wisp_maze';
 import { WORLD_QUESTS_BY_ID } from './content/world_quests';
+import { startSelectedGliderCourse } from './glider_course_selection';
 import type { SimContext } from './sim_context';
 import { dismountForWorldQuestInstructor } from './world_quest_mount_gate';
 import { startWispMaze } from './world_quest_wisp_maze';
@@ -17,6 +19,18 @@ import { hasActiveWorldQuest, updateWorldQuests } from './world_quests';
 
 export const WORLD_QUEST_DIFFICULTIES = ['normal', 'hard'] as const;
 export type WorldQuestDifficulty = (typeof WORLD_QUEST_DIFFICULTIES)[number];
+export type ActivityChoice = WorldQuestDifficulty | { courseId: string };
+
+export function isActivityChoice(value: unknown): value is ActivityChoice {
+  return (
+    isWorldQuestDifficulty(value) ||
+    (typeof value === 'object' &&
+      value !== null &&
+      'courseId' in value &&
+      typeof value.courseId === 'string' &&
+      value.courseId.length <= 64)
+  );
+}
 
 export function isWorldQuestDifficulty(value: unknown): value is WorldQuestDifficulty {
   return (
@@ -36,9 +50,14 @@ export function worldQuestOffersDifficulty(questId: string): boolean {
 export function startWorldQuestActivity(
   ctx: SimContext,
   questId: string,
-  difficulty: WorldQuestDifficulty,
+  difficulty: ActivityChoice,
   pid?: number,
 ): void {
+  if (!isActivityChoice(difficulty)) return;
+  if (typeof difficulty === 'object') {
+    if (questId === GLIDER_QUEST_ID) startSelectedGliderCourse(ctx, difficulty.courseId, pid);
+    return;
+  }
   if (!isWorldQuestDifficulty(difficulty) || !worldQuestOffersDifficulty(questId)) return;
   const resolved = ctx.resolve(pid);
   if (!resolved) return;
@@ -52,7 +71,7 @@ export function startWorldQuestActivity(
     player.dead ||
     player.level < quest.minLevel ||
     !progress ||
-    !hasActiveWorldQuest(meta, quest.id) ||
+    (!hasActiveWorldQuest(meta, quest.id) && progress.state !== 'completed') ||
     Math.hypot(player.pos.x - quest.area.x, player.pos.z - quest.area.z) > quest.area.radius
   )
     return;

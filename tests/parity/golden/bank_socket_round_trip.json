@@ -31,7 +31,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "bdce0d14",
+      "state": "95a206af",
       "events": "0fc2f589",
       "rng": {
         "draws": 0,
@@ -92,6 +92,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -199,7 +200,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "f711db89",
+      "state": "0f2f3e9a",
       "events": "d6370e1b",
       "rng": {
         "draws": 0,
@@ -260,6 +261,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -363,7 +365,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "496449e1",
+      "state": "ece50612",
       "events": "c5755849",
       "rng": {
         "draws": 0,
@@ -424,6 +426,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -527,7 +530,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "bdce0d14",
+      "state": "95a206af",
       "events": "b2953b7a",
       "rng": {
         "draws": 0,
@@ -588,6 +591,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -695,7 +699,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "bdce0d14",
+      "state": "95a206af",
       "events": "43321b27",
       "rng": {
         "draws": 0,
@@ -756,6 +760,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -863,7 +868,7 @@
       "tick": 2,
       "time": 0.1,
       "nextId": 1011,
-      "state": "40bef5aa",
+      "state": "f81c5295",
       "events": "8d12fdd9",
       "rng": {
         "draws": 0,
@@ -934,6 +939,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

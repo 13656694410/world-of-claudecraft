@@ -1504,6 +1504,10 @@ class Sfx {
       const key = this.mountMovementKey(kind, mountKey, '');
       if (key) this.preload(key);
     }
+    for (const kind of ['squawk', 'flap'] as const) {
+      const key = `mount_${kind}_${mountKey}`;
+      if (key in SFX_CLIPS) this.preload(key);
+    }
     const keys = this.engineClipKeys(mountKey);
     if (!keys) return;
     this.preload(keys.startKey);
@@ -1516,6 +1520,23 @@ class Sfx {
         this.preload(reverse.loopKey);
         this.preload(reverse.stopKey);
       }
+    }
+  }
+
+  /** A mount's call at the top of its jump. Silent for a mount that ships no
+   *  squawk/flap takes, so this is opt-in per mount with nothing to wire.
+   *
+   *  MOVE_GAIN, the same level as the takeoff it answers: the apex is the
+   *  quiet top of the arc, and the two takes stack, so anything hotter reads
+   *  as the bird shouting over its own landing a moment later. Each key's
+   *  authored trim in sfx_gain_map.json does the per-take shaping.
+   *
+   *  A cooldown matches the takeoff's: the caller fires this once per jump,
+   *  and the guard only catches a mount bouncing on a ledge seam. */
+  mountApex(x: number, y: number, z: number, mountKey: string): void {
+    for (const kind of ['squawk', 'flap'] as const) {
+      const key = `mount_${kind}_${mountKey}`;
+      if (key in SFX_CLIPS) this.playAt(key, x, y, z, { gain: MOVE_GAIN, cooldown: 0.08 });
     }
   }
 

@@ -3761,6 +3761,29 @@
       }
     ]
   },
+  "mount_flap_avian_strider": {
+    "ceilingDb": 4.9,
+    "tracks": [
+      {
+        "filename": "mount_flap_avian_strider_1.mp3",
+        "sha256": "37611b813849c4a0df26dd24639a53ba6fe1b5705061c499c59566188f725f23",
+        "size": 15089,
+        "peakDb": -5.9
+      },
+      {
+        "filename": "mount_flap_avian_strider_2.mp3",
+        "sha256": "2685e4142d0966b8f6ae8f12e07585309450d1e8e82e7d9335792d1022446984",
+        "size": 14462,
+        "peakDb": -5.9
+      },
+      {
+        "filename": "mount_flap_avian_strider_3.mp3",
+        "sha256": "c5618a77a9243fc4be3c6151680292cd52a2df7dca72bfd72be8b3613b21fbb0",
+        "size": 16343,
+        "peakDb": -6.1
+      }
+    ]
+  },
   "mount_idle_mech_bird": {
     "ceilingDb": 9.5,
     "tracks": [
@@ -3769,6 +3792,17 @@
         "sha256": "95b62ab97f76cf832a15eed0d4fa9f9c6750e9bc350efde691ae1ff86963e994",
         "size": 235772,
         "peakDb": -10.5
+      }
+    ]
+  },
+  "mount_jump_avian_strider": {
+    "ceilingDb": 5,
+    "tracks": [
+      {
+        "filename": "mount_jump_avian_strider.mp3",
+        "sha256": "926cbef0c529b02b8d31c135579f8c6658d68047a7839e17a2581b52570e0fbd",
+        "size": 12581,
+        "peakDb": -6
       }
     ]
   },
@@ -3814,6 +3848,17 @@
         "filename": "mount_jump_rallycart_rxt_5.mp3",
         "sha256": "3eb062c62c633fb02094857a8b853d1cfc7fe02754bcc2c578dc388e62b8ec4a",
         "size": 14462,
+        "peakDb": -6
+      }
+    ]
+  },
+  "mount_land_avian_strider": {
+    "ceilingDb": 5,
+    "tracks": [
+      {
+        "filename": "mount_land_avian_strider.mp3",
+        "sha256": "94218ba01507857ad6673f7623b2534b177267282e4f52e8e1a01c70dcf1c4e8",
+        "size": 6939,
         "peakDb": -6
       }
     ]
@@ -3877,6 +3922,47 @@
         "sha256": "355a7b6651139d8737500829ebd23ae3d0dba02fb2d3ccb8b3506864346b8c3c",
         "size": 17102,
         "peakDb": -6.2
+      }
+    ]
+  },
+  "mount_run_avian_strider": {
+    "ceilingDb": 4.8,
+    "tracks": [
+      {
+        "filename": "mount_run_avian_strider_1.mp3",
+        "sha256": "588a0c0404b84511083ff13ca168c2da016503cead7b53e89a92d6c04fda88fc",
+        "size": 7566,
+        "peakDb": -6.1
+      },
+      {
+        "filename": "mount_run_avian_strider_2.mp3",
+        "sha256": "6a43d6916cd19e7c9c4eb85563e4db6d24e16e9b0d7f5c94f77fb8894ff6f933",
+        "size": 7566,
+        "peakDb": -6.1
+      },
+      {
+        "filename": "mount_run_avian_strider_3.mp3",
+        "sha256": "4ed021635fe3eb80ee0120ca6619ae16c37f6a915c418f0689d1f24166a5d652",
+        "size": 7566,
+        "peakDb": -5.8
+      },
+      {
+        "filename": "mount_run_avian_strider_4.mp3",
+        "sha256": "b9313677189bd5650173b67646ba15d7a34afc1d286cdd0d5f65c4fdd01c0b34",
+        "size": 7566,
+        "peakDb": -5.9
+      },
+      {
+        "filename": "mount_run_avian_strider_5.mp3",
+        "sha256": "bb318c7fe250a29f738e1b898ce761653d06f9778f1f93f47a5dbc272df61837",
+        "size": 7566,
+        "peakDb": -6.2
+      },
+      {
+        "filename": "mount_run_avian_strider_6.mp3",
+        "sha256": "b26934b064dbc7b9c9a12d55ee8168f0f19d988de3eec6dac95c660df03dc683",
+        "size": 7566,
+        "peakDb": -6
       }
     ]
   },
@@ -4141,6 +4227,40 @@
         "sha256": "d4e79277b2cb1da5d5941c6116136f2ca7104376e12d455c6306919a3e862002",
         "size": 10701,
         "peakDb": -6.2
+      }
+    ]
+  },
+  "mount_squawk_avian_strider": {
+    "ceilingDb": 4.7,
+    "tracks": [
+      {
+        "filename": "mount_squawk_avian_strider_1.mp3",
+        "sha256": "bc1983640c5df72caee098220a05237cc437af6b00f912cc1d5ccbf59650913a",
+        "size": 19478,
+        "peakDb": -8.7
+      },
+      {
+        "filename": "mount_squawk_avian_strider_2.mp3",
+        "sha256": "9cd1462856a58c5c118f69a7c20577b7abc7f2cd76505ad761e336efa5f91704",
+        "size": 16970,
+        "peakDb": -5.7
+      },
+      {
+        "filename": "mount_squawk_avian_strider_3.mp3",
+        "sha256": "5956564938deb7582de0d8af2673e400c238b27d6868f0b10931058db2c06ef4",
+        "size": 15716,
+        "peakDb": -6
+      }
+    ]
+  },
+  "mount_summon_avian_strider": {
+    "ceilingDb": 7,
+    "tracks": [
+      {
+        "filename": "mount_summon_avian_strider.mp3",
+        "sha256": "027e86bcf442e89459c2e0a0b9d39c2f4febe4053df6173ebfb9c9d46ceb2d51",
+        "size": 30763,
+        "peakDb": -8
       }
     ]
   },

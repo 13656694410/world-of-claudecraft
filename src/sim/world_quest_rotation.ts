@@ -26,30 +26,105 @@ export const WORLD_QUEST_ZONES: readonly string[] = Object.freeze([
 ]);
 
 export const WORLD_QUESTS_BY_ZONE: Readonly<Record<string, readonly string[]>> = Object.freeze({
+  // Round 2 (2026-09): the zone hunts (content/world_quest_zone_hunts.ts) are
+  // APPENDED to each pool so the earlier entries keep their day index. A pool's
+  // ROTATING entries (the ALWAYS_ACTIVE ids below are filtered out first, so
+  // Evergarden rotates four of its five and Galecrest none) form its cycle
+  // (index = day mod count); rotating counts are 1, 4 or 7 only:
+  // each divides the 84-day roster period, and the legacy three-day cycle ids
+  // (wq3_N = day 3N) still reach every entry, which 3 or 6 would not. Palmreach
+  // stays one deep: its confection board is a day-keyed puzzle that must be on
+  // the board EVERY day (tests/world_quest_daily_levels.test.ts), and as a
+  // purse-free quest it also keeps a full day under the ten-gold budget.
+  // tests/world_quests.test.ts pins that every quest is offered within the
+  // longest pool's cycle.
   eastbrook_vale: Object.freeze([
     'wq_eastbrook_bandits',
     'wq_eastbrook_caravan',
     'wq_eastbrook_calligraphy',
     'wq_eastbrook_shadow',
+    'wq_eastbrook_boars',
+    'wq_eastbrook_bones',
+    'wq_eastbrook_spiders',
   ]),
-  mirefen_marsh: Object.freeze(['wq_mirefen_gravecallers', 'wq_mirefen_infiltrator']),
-  thornpeak_heights: Object.freeze(['wq_thornpeak_stormcrag']),
-  veiled_hollow: Object.freeze(['wq_hollow_sporelings']),
+  mirefen_marsh: Object.freeze([
+    'wq_mirefen_gravecallers',
+    'wq_mirefen_infiltrator',
+    'wq_mirefen_widows',
+    'wq_mirefen_drowned',
+    'wq_mirefen_trolls',
+    'wq_mirefen_prowlers',
+    'wq_mirefen_murlocs',
+  ]),
+  thornpeak_heights: Object.freeze([
+    'wq_thornpeak_stormcrag',
+    'wq_thornpeak_kobolds',
+    'wq_thornpeak_ogres',
+    'wq_thornpeak_zealots',
+  ]),
+  veiled_hollow: Object.freeze([
+    'wq_hollow_sporelings',
+    'wq_hollow_glimmerwisps',
+    'wq_hollow_stags',
+    'wq_hollow_guardians',
+  ]),
   drakelands: Object.freeze([
     'wq_drakelands_brood',
     'wq_evergarden_forging',
     'wq_evergarden_cannon',
     'wq_last_keep_cannon',
+    'wq_drakelands_raiders',
+    'wq_drakelands_trolls',
+    'wq_drakelands_warcallers',
   ]),
-  frostveil: Object.freeze(['wq_frostveil_howlers', 'wq_frostveil_caravan']),
-  amberfall: Object.freeze(['wq_amberfall_lurkers']),
-  willowfen: Object.freeze(['wq_willowfen_ore', 'wq_willowfen_caravan']),
-  nightbloom: Object.freeze(['wq_nightbloom_barrow']),
-  wraithwood: Object.freeze(['wq_wraithwood_restless']),
+  frostveil: Object.freeze([
+    'wq_frostveil_howlers',
+    'wq_frostveil_caravan',
+    'wq_frostveil_wolves',
+    'wq_frostveil_terraces',
+    'wq_frostveil_wisps',
+    'wq_frostveil_elementals',
+    'wq_frostveil_sprites',
+  ]),
+  amberfall: Object.freeze([
+    'wq_amberfall_lurkers',
+    'wq_amberfall_stags',
+    'wq_amberfall_sprites',
+    'wq_amberfall_treants',
+  ]),
+  willowfen: Object.freeze([
+    'wq_willowfen_ore',
+    'wq_willowfen_caravan',
+    'wq_willowfen_toads',
+    'wq_willowfen_sprites',
+  ]),
+  nightbloom: Object.freeze([
+    'wq_nightbloom_barrow',
+    'wq_nightbloom_grazers',
+    'wq_nightbloom_striders',
+    'wq_nightbloom_stargazers',
+  ]),
+  wraithwood: Object.freeze([
+    'wq_wraithwood_restless',
+    'wq_wraithwood_spinners',
+    'wq_wraithwood_shamblers',
+    'wq_wraithwood_wraiths',
+  ]),
   palmreach: Object.freeze(['wq_palmreach_confections']),
-  evergarden: Object.freeze(['wq_evergarden_watch', 'wq_evergarden_wisp_maze']),
+  evergarden: Object.freeze([
+    'wq_evergarden_watch',
+    'wq_evergarden_wisp_maze',
+    'wq_evergarden_wolves',
+    'wq_evergarden_gnomes',
+    'wq_evergarden_stags',
+  ]),
   galecrest: Object.freeze(['wq_galecrest_wisps', 'wq_galecrest_slalom']),
-  farshore_isle: Object.freeze(['wq_farshore_salvage']),
+  farshore_isle: Object.freeze([
+    'wq_farshore_salvage',
+    'wq_farshore_wretches',
+    'wq_farshore_riftspawn',
+    'wq_farshore_stalkers',
+  ]),
 });
 
 /** Daily activities offered alongside the ordinary zone rotation. */
@@ -67,7 +142,7 @@ export const MAX_WORLD_QUESTS_PER_ROTATION = WORLD_QUESTS_PER_ROTATION;
 
 const DAYS_IN_MONTH = Object.freeze([31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]);
 
-function civilDayNumber(value: string): number | null {
+export function civilDayNumber(value: string): number | null {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
   if (!match) return null;
   const year = Number(match[1]);

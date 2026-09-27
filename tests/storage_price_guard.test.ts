@@ -162,6 +162,9 @@ function scanFiles(
 const FAMILY_ALLOWANCES: ReadonlyArray<[file: string, value: number, anchor: string]> = [
   ['src/ui/guild_bank_view.ts', 10000, 'COPPER_PER_GOLD'],
   ['src/net/guild_bank_log_wire.ts', 10000, 'GUILD_BANK_LOG_TTL_MS'],
+  // The weekly vault opening's door-clear milestone: a duration in ms on a
+  // choreography core that only carries "vault" in its name, never a price.
+  ['src/ui/weekly_vault_burst_core.ts', 1000, 'DOOR_CLEAR_MS'],
 ];
 // One factory builds every anchored allow fn, so the positive control below
 // exercises the exact operator the real scans use while recording into its
@@ -409,6 +412,7 @@ describe('arm (b): the bank/vault/bags/guild_bank family renders no table value'
     expect([...used].sort()).toEqual([
       'src/net/guild_bank_log_wire.ts:10000',
       'src/ui/guild_bank_view.ts:10000',
+      'src/ui/weekly_vault_burst_core.ts:1000',
     ]);
     expect([...usedFamilyAnchors].sort()).toEqual(
       FAMILY_ALLOWANCES.map((entry) => entry.join(':')).sort(),

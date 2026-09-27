@@ -128,6 +128,19 @@ export interface ClipMap {
   wade?: string;
   /** airborne base pose while jumping/falling */
   jump?: string;
+  /** Airborne pose for a jump taken while MOVING, in either direction.
+   *
+   *  A launch clip can have anticipation or an instant takeoff, never both: a
+   *  visible wind-up needs frames going down before it goes up, and those
+   *  frames are exactly the delay a moving jump must not have. So a rig may
+   *  author two, with `jump` carrying the standing version.
+   *
+   *  Which one plays is latched AT TAKEOFF, and has to be: forward momentum
+   *  persists into the air, so "moving" is still true mid-jump and the takeoff
+   *  is no longer observable by the time the pose is chosen.
+   *
+   *  Absent = `jump` is used from any takeoff, as it always was. */
+  jumpMoving?: string;
   /** long-fall flail (arms windmilling, legs kicking), played once the body
    *  is dropping faster than any hop can (anim_state.isFallingAtSpeed).
    *  Absent = the jump pose holds for the whole fall, as it always did. */
@@ -229,6 +242,18 @@ export interface VisualDef {
   walkRef?: number;
   walkBackRef?: number;
   runRef?: number;
+  /** Cadence ceilings (defaults 1.8 walk / 1.6 run, anim_state.ts). Raise for a
+   *  rig whose authored gait is slower than the body it carries: a mount runs
+   *  at ONE fixed speed, so its time scale is a constant and the ceiling is
+   *  what binds, making the reference look like a dead knob past that point. */
+  walkTimeScaleMax?: number;
+  runTimeScaleMax?: number;
+  /** Wind the outgoing gait's cadence down across a crossfade instead of
+   *  letting it hold its last speed while it dissolves. Opt-in per rig: it
+   *  changes how every stop and gait change reads, so rigs adopt it one at a
+   *  time on their own review rather than all at once. Most valuable on a rig
+   *  whose cadence is pushed well past 1 (see runTimeScaleMax). */
+  gaitWindDown?: boolean;
   prowlRef?: number;
   /** Opt-in gait coverage for short quadrupeds; other rigs keep global thresholds. */
   gait?: LocoGaitThresholds;
@@ -412,6 +437,25 @@ const MOUNT_RIGGED: ClipMap = {
   run: 'Run',
   attack: [],
   death: 'Death',
+};
+
+// The Viridian Valestrider is authored as a mount-specific four-clip rig. It
+// only runs forward, has a deliberate look-behind reverse gait, and carries
+// its own full-body jump. Death falls back to Idle because mounts never die
+// independently of their riders.
+const AVIAN_MOUNT_RIGGED: ClipMap = {
+  idle: 'Idle',
+  walk: 'Run',
+  run: 'Run',
+  walkBack: 'WalkBackward',
+  jump: 'Jump',
+  // Two launches on purpose. `Jump` squats 80mm over 180ms before it springs,
+  // which reads right from a standstill; `Jump_Running` opens already crouched
+  // and launches at once, which reads right off a run and stiff when still.
+  // Anticipation and an instant takeoff cannot live in one clip.
+  jumpMoving: 'Jump_Running',
+  attack: [],
+  death: 'Idle',
 };
 
 // The Mech Bird's own map: it ships exactly Idle / Run / Jump (authored in
@@ -1139,6 +1183,8 @@ const FORMS = 'models/chars/forms';
 const CREATURES = 'models/creatures';
 const PROPS = 'models/props';
 const WEAPONS = 'models/weapons';
+/** Worn NPC gear, attached to a body bone rather than held (npc_looks.ts `harbormaster`). */
+const NPC_GEAR = 'models/chars/npc_gear';
 const MOUNTS_DIR = 'models/mounts';
 
 /** Exported for the authored-surface guard (tests/authored_surfaces.test.ts),
@@ -1181,11 +1227,16 @@ export const ITEM_OFFHAND_MODELS: Readonly<Record<string, string>> = {
 export const AUTHORED_HELD_MODELS: ReadonlySet<string> = new Set([
   'hammer_varkhul', // Varkhul Forgebreaker (Ignivar raid legendary)
   'varkhul_emberward', // Varkhul Emberward (Ignivar raid legendary)
+  // Harbormaster Tamsin's worn gear (scripts/assets/harbormaster_gear/): felt, brass and
+  // leather authored per material, which the weapon polish would glaze to one sheen
+  'harbormaster_tricorne',
+  'harbormaster_spyglass',
 ]);
 
-/** True when a held-prop GLB url resolves to one of AUTHORED_HELD_MODELS. */
+/** True when a held-prop GLB url resolves to one of AUTHORED_HELD_MODELS (a held weapon
+ *  under models/weapons/, or worn NPC gear under models/chars/npc_gear/). */
 export function isAuthoredHeldModelUrl(url: string): boolean {
-  const m = /^models\/weapons\/([^/]+)\.glb$/.exec(url);
+  const m = /^models\/(?:weapons|chars\/npc_gear)\/([^/]+)\.glb$/.exec(url);
   return m !== null && AUTHORED_HELD_MODELS.has(m[1]);
 }
 
@@ -2303,6 +2354,50 @@ export const VISUALS: Record<string, VisualDef> = {
     runRef: 12.6,
     lazyPreload: true,
   },
+  // Tall two-legged fantasy bird authored on its own avian skeleton. The
+  // source faces -X, so +90 degrees maps its beak to the renderer's +Z
+  // facing convention. Forward movement intentionally uses Run for both
+  // locomotion bands: this mount never presents a walking forward gait.
+  mount_avian_strider: {
+    url: `${MOUNTS_DIR}/avian_strider.glb`,
+    height: 4.32,
+    yaw: Math.PI / 2,
+    // Baked Tripo atlas: the low-tier uniform emissive floor would grey out
+    // every dark texel of the plumage, so scale the floor by the atlas.
+    authoredAtlas: true,
+    clips: AVIAN_MOUNT_RIGGED,
+    // Cadence, tuned by eye. A mounted rider moves at ONE speed, so both time
+    // scales are constants: forward is RUN_SPEED 7 * (1 + moveSpeedPct 0.8) =
+    // 12.6 yd/s, reverse is that * BACKPEDAL_MULT 0.65 = 8.19. That makes the
+    // refs below exact dials rather than speed-matching curves.
+    //
+    //   reverse  8.19 / walkRef 5.52 = 1.484
+    //   forward 12.6  / runRef  7.16 = 1.760
+    //
+    // walkRef is the only reference walkBack reads; it is shared with the
+    // forward walk band, which this mount only enters when slowed below the
+    // run threshold. History: 4.5 -> 6.0 -> 6.67 -> 5.80 -> 5.52.
+    walkRef: 5.52,
+    // 12.6 -> 10.5 -> 8.4 -> 7.64 -> 7.28 -> 7.16, cumulatively 76% up on the
+    // authored cadence. The stock 1.6 run ceiling silently bound this from
+    // 7.64 down (7.64 and 7.28 both resolved to 1.6, so the second change did
+    // nothing), hence the raised ceilings below.
+    runRef: 7.16,
+    // Raised from the stock 1.8/1.6 so the refs above stay live. The authored
+    // gaits were built for a calmer bird than the one the sim actually moves,
+    // and clamping at stock turns further tuning into a dead knob rather than
+    // a slower mount. 2.0 leaves room to keep dialing before the clip itself
+    // needs re-timing at the source.
+    walkTimeScaleMax: 2.0,
+    runTimeScaleMax: 2.0,
+    // Opted in BECAUSE of the pushed cadence above: at 1.76 the outgoing run
+    // otherwise keeps sprinting for the whole 0.22s crossfade while the body
+    // has already stopped, and the harder the gait is driven the worse that
+    // exit reads. No other rig is affected.
+    gaitWindDown: true,
+    lazyPreload: true,
+  },
+
   // The Cluckwork Mech Bird (the store mount): authored Blender clips on its
   // own 28-bone rig (no bake_mount_gaits entry, never bake over it). walkRef
   // is the Run cycle's measured natural speed (stride 0.332 raw p2p, 0.433s
@@ -3775,6 +3870,12 @@ const NPC_MODULAR_PROP_ATTACH: Record<NpcPropSet, AttachDef[]> = {
   scythe: [{ url: `${WEAPONS}/scythe.glb`, bone: 'handslot.r' }],
   knife: [{ url: `${WEAPONS}/whittler_s_knife.glb`, bone: 'handslot.r' }],
   spear: [{ url: `${WEAPONS}/spear_a.glb`, bone: 'handslot.r' }],
+  // worn, not held: each GLB is authored in its bone's bind frame and rides it with an
+  // identity transform (scripts/assets/harbormaster_gear/build_harbormaster_gear.py)
+  harbormaster: [
+    { url: `${NPC_GEAR}/harbormaster_tricorne.glb`, bone: 'head' },
+    { url: `${NPC_GEAR}/harbormaster_spyglass.glb`, bone: 'hips' },
+  ],
 };
 
 for (const propSet of NPC_PROP_SET_IDS) {

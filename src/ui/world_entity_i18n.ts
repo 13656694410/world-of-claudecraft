@@ -271,6 +271,7 @@ const NPC_IDS = [
   'infiltrator_bram',
   'infiltrator_tessa',
   'wisp_maze_keeper',
+  'weekly_emissary',
   'calligraphy_instructor',
   'calligraphy_apprentice_1',
   'calligraphy_apprentice_2',
@@ -298,7 +299,8 @@ const NPC_IDS = [
   'warmarshal_draven_kole', // Master of the Warfare Stores, the WARFARE vendor (Highwatch, zone 3)
   'loremaster_caddis',
   'auctioneer_voss', // second World Market auctioneer (Highwatch, zone 3)
-  'bursar_fernando', // Gilded Strongbox banker (Eastbrook, zone 1)
+  'bursar_fernando',
+  'eastbrook_vault_keeper', // Gilded Strongbox banker (Eastbrook, zone 1)
   'card_master', // Card Duel minigame queue desk (Eastbrook, zone 1)
   'bursar_petra_vell', // Gilded Strongbox banker (Fenbridge, zone 2)
   'bursar_aldous_crane', // Gilded Strongbox banker (Highwatch, zone 3)
@@ -329,6 +331,7 @@ const NPC_IDS = [
   'gatecaptain_brannoc',
   'quartermaster_sela',
   'scout_yerrin',
+  'harbormaster_tamsin', // the Harbormaster's House at the Wyrmwatch cliff harbor
   // Lanternmere, the Amberfall
   'reeve_ottoline',
   'waywatcher_sorrel',

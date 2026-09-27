@@ -1,10 +1,12 @@
 // @vitest-environment happy-dom
 import { afterEach, expect, it, vi } from 'vitest';
+import { FORGE_QUEST_ID } from '../src/sim/content/world_quest_forging';
 import { GLIDER_QUEST_ID } from '../src/sim/content/world_quest_glider';
 import { createCannonEncounter } from '../src/sim/minigames/cannon_encounter';
+import { createForgeWorkshop } from '../src/sim/minigames/forge_workshop';
 import { applyGliderBoost } from '../src/sim/minigames/glider_boost';
 import { createGliderFlightState } from '../src/sim/minigames/glider_flight';
-import type { VehicleSession, WorldQuestProgress } from '../src/sim/types';
+import type { Entity, VehicleSession, WorldQuestProgress } from '../src/sim/types';
 import {
   GLIDER_PITCH_TAP_MS,
   VehicleActionBarController,
@@ -55,6 +57,11 @@ it('uses slot 1 for flight boost only, shows cooldown and restores the bar after
   });
   bar.update();
   const buttons = [...document.querySelectorAll<HTMLButtonElement>('.vehicle-action')];
+  for (const button of buttons) {
+    expect(button.classList.contains('ui-socket')).toBe(true);
+    expect(button.querySelector('.icon-label.ui-socket-art')).not.toBeNull();
+    expect(button.querySelector('.cd-overlay.ui-socket-cd')).not.toBeNull();
+  }
   expect(buttons[0].getAttribute('aria-disabled')).toBe('true');
   // Flight keeps Climb (slot 2) and Dive (slot 3) on the bar, disabled until airborne.
   expect(buttons[1].style.display).toBe('');
@@ -172,6 +179,11 @@ it('elides unchanged frames, routes all three buttons, and restores normal contr
   controller.update();
   const buttons = [...document.querySelectorAll<HTMLButtonElement>('.vehicle-action')];
   expect(buttons).toHaveLength(3);
+  for (const button of buttons) {
+    expect(button.classList.contains('ui-socket')).toBe(true);
+    expect(button.querySelector('.icon-label.ui-socket-art')).not.toBeNull();
+    expect(button.querySelector('.cd-overlay.ui-socket-cd')).not.toBeNull();
+  }
   const meter = document.querySelector<HTMLElement>('.vehicle-integrity')!;
   expect(meter.tabIndex).toBe(0);
   meter.focus();
@@ -232,4 +244,45 @@ it('checks live temporary action locks without building HUD chrome', () => {
   } finally {
     createElement.mockRestore();
   }
+});
+
+it('shows the forge workshop panel as a centred overlay outside the managed window family', () => {
+  document.body.innerHTML = '<div id="ui"></div>';
+  const progress: WorldQuestProgress = {
+    questId: FORGE_QUEST_ID,
+    state: 'active',
+    count: 0,
+    forging: createForgeWorkshop(1, 0),
+  };
+  const world = {
+    vehicleSession: null as VehicleSession | null,
+    player: { dead: false } as Entity,
+    pickUpObject: vi.fn(),
+    worldQuestTime: 0,
+    worldQuestLog: new Map<string, WorldQuestProgress>([[FORGE_QUEST_ID, progress]]),
+    enterVehicle: vi.fn(),
+    useVehicleAction: vi.fn(),
+    leaveVehicle: vi.fn(),
+  };
+  const bar = new VehicleActionBarController({
+    world,
+    writers: makeWriterFacet(new Map(), new Map(), new Map(), new Map(), vi.fn(), () => {}),
+    keyLabel: (slot) => String(slot + 1),
+    consumePeek: () => false,
+    cancelOnEnter: [],
+    attachTooltip: () => {},
+  });
+  bar.update();
+  const panel = document.getElementById('forge-action-bar')!;
+  expect(panel.style.display).toBe('grid');
+  // Escape / closeAll and the touch chrome's menu mode scan every visible
+  // `.window.panel` (hud.ts topmostOpenWindow, window_open_state.ts). A
+  // workshop hidden that way has no way back (the smith refuses a second start
+  // while one runs), so the panel is a plain .panel overlay that hud.css
+  // centres itself: never a member of the managed window family.
+  expect(panel.className).toBe('panel forge-action-bar');
+  expect([...document.querySelectorAll('.window.panel')]).not.toContain(panel);
+  progress.forging!.phase = 'failed';
+  bar.update();
+  expect(panel.style.display).toBe('none');
 });

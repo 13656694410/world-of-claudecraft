@@ -62,7 +62,9 @@ export const WORLD_QUEST_AMBUSH_PORTAL_ABILITY_ID = 'Raider Rift';
 /** The wreck's raiders: half the debris recovered and the strand is contested. */
 export const FARSHORE_SALVAGE_AMBUSH: WorldQuestAmbushDef = {
   questId: 'wq_farshore_salvage',
-  portal: { x: 283, z: 92 },
+  // Dry approach south of Gull Mere; the whole authored scatter stays within
+  // abandonYards, so collecting its eastern pieces cannot abandon the battle.
+  portal: { x: 340, z: 100 },
   triggerCount: 4,
   waves: [
     { mobId: 'vale_bandit', count: 3, level: 5 },

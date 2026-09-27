@@ -1,3 +1,4 @@
+import { CLUE_HUNTS_BY_ID } from '../../../sim/content/clue_hunts';
 import { WISP_MAZE_QUEST_ID } from '../../../sim/content/world_quest_wisp_maze';
 import { QUESTS, WORLD_QUESTS_BY_ID } from '../../../sim/data';
 import { questObjectiveRequired } from '../../../sim/types';
@@ -7,6 +8,7 @@ import { esc } from '../../esc';
 import { formatNumber, t } from '../../i18n';
 import { ownEntry } from '../../known_item';
 import type { PainterHostWriters } from '../../painter_host';
+import { clueHuntTitle, clueStepText } from '../../quest_event_view';
 import { type QuestTrackingState, sharedQuestTracking } from '../../quest_tracking_core';
 import { forgeInstructionLines } from '../../world_quest_forge_view';
 import { gliderInstructionLines } from '../../world_quest_glider_view';
@@ -32,7 +34,7 @@ export interface QuestTrackerControllerDeps {
   element: HTMLElement;
   document: Document;
   world(): Pick<IWorld, 'questLog' | 'cfg' | 'player' | 'worldQuestLog'> &
-    Partial<Pick<IWorld, 'abandonQuest'>>;
+    Partial<Pick<IWorld, 'abandonQuest' | 'clueHunt'>>;
   /** Injectable tracking set; production leaves it out and shares the HUD's one. */
   tracking?: QuestTrackingState;
   settings: QuestTrackerSettingsPort;
@@ -192,6 +194,32 @@ export class QuestTrackerController {
                   ...(quest.objective.type === 'tracing' ? { instruction: true } : {}),
                 },
               ],
+      });
+    }
+    // The active Clue Scroll hunt rides the tracker as one row: the hunt's
+    // title, and the current clue as a full-width instruction line with the
+    // step tally. It persists across the daily reset, so it stays put while
+    // the world quests around it come and go.
+    const clueHunt = world.clueHunt;
+    const hunt = clueHunt ? CLUE_HUNTS_BY_ID[clueHunt.huntId] : undefined;
+    if (clueHunt && hunt) {
+      quests.push({
+        id: `clue:${clueHunt.huntId}`,
+        number: quests.length + 1,
+        title: t('questUi.tracker.clueHuntTitle', {
+          title: clueHuntTitle(clueHunt.huntId),
+          step: formatNumber(clueHunt.step + 1, { maximumFractionDigits: 0 }),
+          total: formatNumber(hunt.steps.length, { maximumFractionDigits: 0 }),
+        }),
+        complete: false,
+        objectives: [
+          {
+            label: clueStepText(clueHunt.huntId, clueHunt.step),
+            current: clueHunt.step,
+            total: hunt.steps.length,
+            instruction: true,
+          },
+        ],
       });
     }
     if (collapsed && quests.length === 0 && this.deps.settings.available()) {

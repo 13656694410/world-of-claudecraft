@@ -148,6 +148,16 @@ export interface SpatialAudioSink {
    *  first movement. The renderer calls this on summon-cast and mountKey
    *  transitions. A no-op for a mount with no custom movement clips. */
   preloadMountEngine(mountKey: string): void;
+  /** The call a mount makes at the TOP of a jump, once per jump.
+   *
+   *  Keyed per mount and silent for any mount without the takes, the same way
+   *  the takeoff and landing above resolve, so giving another mount a voice
+   *  here is a matter of dropping in files and registering keys.
+   *
+   *  Two keys, not one: on the Valestrider it is a squawk and a wingbeat. They
+   *  stay separate so their variants rotate independently and the two can be
+   *  balanced against each other in the gain map. */
+  mountApex(x: number, y: number, z: number, mountKey: string): void;
   /** Continuous movement loop for a mount that HAS one (a wheeled cart rolls;
    *  it has no stride to hang a one-shot on). Called every frame per mounted
    *  entity, keyed by entity id so several riders each get their own voice.

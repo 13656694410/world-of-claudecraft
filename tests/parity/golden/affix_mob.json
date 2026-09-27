@@ -16,7 +16,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "a415789c",
+      "state": "3b28d21f",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -71,6 +71,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -170,7 +171,7 @@
       "tick": 20,
       "time": 1,
       "nextId": 1013,
-      "state": "1abfb5d1",
+      "state": "57de6fd2",
       "events": "a6eb3820",
       "rng": {
         "draws": 15,
@@ -181,7 +182,7 @@
       "tick": 40,
       "time": 2,
       "nextId": 1013,
-      "state": "556921ae",
+      "state": "ffa59c63",
       "events": "b853922b",
       "rng": {
         "draws": 29,
@@ -192,7 +193,7 @@
       "tick": 50,
       "time": 2.5,
       "nextId": 1013,
-      "state": "7e12d614",
+      "state": "f02dd9d9",
       "events": "cfdd953d",
       "rng": {
         "draws": 104,
@@ -269,6 +270,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -512,7 +514,7 @@
       "tick": 54,
       "time": 2.7,
       "nextId": 1013,
-      "state": "0ebc51bf",
+      "state": "6c0d3080",
       "events": "741638a5",
       "rng": {
         "draws": 134,
@@ -589,6 +591,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

@@ -147,3 +147,57 @@ describe('quest event presentation', () => {
     });
   });
 });
+
+describe('clue scroll and treasure hunt events', () => {
+  it('announces the scroll, the hunt milestones and the casket through the log and banner ports', () => {
+    const earned = questEventPresentation({ type: 'clueScrollEarned', pid: 1 } as never);
+    expect(earned).toEqual({
+      logText: 'Every world quest of the day is done: a Clue Scroll is yours.',
+      sound: 'quest_ready',
+    });
+    expect(questEventPresentation({ type: 'clueScrollLost', pid: 1 } as never)?.logText).toContain(
+      'cannot hold another Clue Scroll',
+    );
+    // A retired or unknown hunt id reads as itself rather than a missing key.
+    const started = questEventPresentation({
+      type: 'clueHuntStarted',
+      huntId: 'hunt_nowhere',
+      total: 3,
+      pid: 1,
+    } as never);
+    expect(started).toEqual({
+      bannerText: 'Treasure hunt begun: hunt_nowhere',
+      logText: 'Treasure hunt begun: hunt_nowhere',
+      sound: 'quest_accept',
+    });
+    const step = questEventPresentation({
+      type: 'clueHuntStep',
+      huntId: 'hunt_nowhere',
+      step: 1,
+      total: 3,
+      pid: 1,
+    } as never);
+    expect(step).toEqual({ logText: 'Clue 2 of 3 solved: hunt_nowhere', sound: 'quest_ready' });
+    const done = questEventPresentation({
+      type: 'clueHuntDone',
+      huntId: 'hunt_nowhere',
+      pid: 1,
+    } as never);
+    expect(done?.sound).toBe('quest_complete');
+    expect(done?.bannerText).toBe('Treasure hunt complete: hunt_nowhere. The casket is yours.');
+    expect(
+      questEventPresentation({ type: 'clueHuntAbandoned', huntId: 'hunt_nowhere', pid: 1 } as never)
+        ?.logText,
+    ).toBe('Treasure hunt abandoned: hunt_nowhere');
+    const casket = questEventPresentation({
+      type: 'clueCasketOpened',
+      itemIds: ['wolf_fang', 'wolf_fang'],
+      copper: 60_000,
+      pid: 1,
+    } as never);
+    expect(casket?.sound).toBe('quest_complete');
+    expect(casket?.logText).toMatch(
+      /^The casket holds 6g 0s and Cracked Wolf Fang and Cracked Wolf Fang\.$/,
+    );
+  });
+});

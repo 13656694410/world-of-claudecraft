@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { applyFactionSelfWire } from '../src/net/faction_snapshot_wire';
+import { CLUE_HUNTS } from '../src/sim/content/clue_hunts';
 import { WORLD_QUESTS } from '../src/sim/content/world_quests';
 import { MAX_STANDING } from '../src/sim/factions';
 import { Sim } from '../src/sim/sim';
@@ -64,5 +65,62 @@ describe('faction standing and reroll owner wire', () => {
     expect(client.factions.rift_watch).toBe(60);
     expect(client.worldQuestRerollCycle).toBe(cycle);
     expect(typeof sim.worldQuestRerollCycle).toBe(typeof client.worldQuestRerollCycle);
+    // Clue Scrolls: both worlds expose the same cursor shape; a fresh
+    // character has no hunt on either side.
+    expect(client.clueHunt).toBeNull();
+    expect(sim.clueHunt).toBeNull();
+  });
+});
+
+describe('clue hunt owner wire (cluh)', () => {
+  const hunt = CLUE_HUNTS[0];
+
+  it('applies a well-formed cursor on a shipped hunt and freezes the mirror', () => {
+    const target = { clueHunt: null as { huntId: string; step: number } | null };
+    applyFactionSelfWire(target, { cluh: { huntId: hunt.id, step: 1 } });
+    expect(target.clueHunt).toEqual({ huntId: hunt.id, step: 1 });
+    expect(Object.isFrozen(target.clueHunt)).toBe(true);
+  });
+
+  it('omission retains the previous cursor; an explicit null clears it', () => {
+    const target = {
+      clueHunt: Object.freeze({ huntId: hunt.id, step: 1 }) as {
+        huntId: string;
+        step: number;
+      } | null,
+    };
+    applyFactionSelfWire(target, { fac: { rift_watch: 1, church_order: 0, automatons: 0 } });
+    expect(target.clueHunt).toEqual({ huntId: hunt.id, step: 1 });
+    applyFactionSelfWire(target, { cluh: null });
+    expect(target.clueHunt).toBeNull();
+  });
+
+  it('junk decodes to null and an out-of-range step is clamped, never trusted', () => {
+    const target = {
+      clueHunt: Object.freeze({ huntId: hunt.id, step: 0 }) as {
+        huntId: string;
+        step: number;
+      } | null,
+    };
+    applyFactionSelfWire(target, { cluh: 'junk' });
+    expect(target.clueHunt).toBeNull();
+    applyFactionSelfWire(target, { cluh: { huntId: 'hunt_not_real', step: 0 } });
+    expect(target.clueHunt).toBeNull();
+    applyFactionSelfWire(target, { cluh: { huntId: hunt.id, step: 99 } });
+    expect(target.clueHunt).toEqual({ huntId: hunt.id, step: hunt.steps.length - 1 });
+    applyFactionSelfWire(target, { cluh: { huntId: hunt.id, step: -3 } });
+    expect(target.clueHunt).toEqual({ huntId: hunt.id, step: 0 });
+    applyFactionSelfWire(target, { cluh: { huntId: hunt.id } });
+    expect(target.clueHunt).toEqual({ huntId: hunt.id, step: 0 });
+  });
+
+  it('a ClientWorld self snapshot mirrors the cursor onto IWorld.clueHunt', () => {
+    const client = bareClient(1);
+    client.applyQuestSelfSnapshot({ cluh: { huntId: hunt.id, step: 2 } });
+    expect(client.clueHunt).toEqual({ huntId: hunt.id, step: 2 });
+    client.applyQuestSelfSnapshot({});
+    expect(client.clueHunt).toEqual({ huntId: hunt.id, step: 2 });
+    client.applyQuestSelfSnapshot({ cluh: null });
+    expect(client.clueHunt).toBeNull();
   });
 });

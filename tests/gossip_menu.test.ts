@@ -21,6 +21,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(true);
   });
@@ -44,6 +45,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(true);
   });
@@ -63,6 +65,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
   });
@@ -82,6 +85,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
   });
@@ -101,6 +105,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
     expect(
@@ -117,6 +122,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
     expect(
@@ -133,6 +139,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
     // The WARFARE quartermaster alone. Its own dimension, because the shop row
@@ -152,6 +159,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
     expect(
@@ -168,6 +176,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
     expect(
@@ -184,6 +193,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
     // A station master's Train option alone keeps the menu open.
@@ -201,6 +211,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: true,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
     // A farmer's husk-trade row alone keeps the menu open (the farming
@@ -221,6 +232,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: true,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
   });
@@ -245,6 +257,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
     // The goods row alone (an unflagged NPC with stock) still keeps it open.
@@ -262,6 +275,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: false,
+        hasClueStep: false,
       }),
     ).toBe(false);
   });
@@ -281,6 +295,7 @@ describe('gossipMenuIsEmpty', () => {
         hasTraining: false,
         hasFarmer: false,
         hasWorldQuestBoard: true,
+        hasClueStep: false,
       }),
     ).toBe(false);
   });

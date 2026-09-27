@@ -7,10 +7,12 @@ import {
   INVESTIGATION_NPCS,
   INVESTIGATION_QUEST_ID,
 } from '../src/sim/content/world_quest_investigation';
-import { DELVES, NPCS, QUESTS, STATIONS } from '../src/sim/data';
+import { DELVES, ITEMS, NPCS, QUESTS, STATIONS } from '../src/sim/data';
 import { CHRONICLER_TEMPLATE_IDS } from '../src/sim/deeds';
 import type { Entity } from '../src/sim/types';
+import { WEEKLY_KEEPER_ENTITY_ID, WEEKLY_KEEPER_ID } from '../src/sim/weekly_rewards';
 import { craftNameText } from '../src/ui/char_window';
+import { itemDisplayName } from '../src/ui/entity_i18n';
 import type { FocusTrapHandle } from '../src/ui/focus_manager';
 import { QuestDialogController } from '../src/ui/hud/quest/quest_dialog_controller';
 import { ensureLocaleLoaded, setLanguage, supportedLanguages, t } from '../src/ui/i18n';
@@ -40,6 +42,7 @@ function harness(
   entity = npc(10, ordinaryNpcId()),
   questState = 'available',
   identityExtra: Record<string, unknown> = {},
+  worldExtra: Record<string, unknown> = {},
 ) {
   document.body.innerHTML = '';
   const element = document.createElement('div');
@@ -83,6 +86,8 @@ function harness(
     turnInQuest,
     reportTelemetry,
     convertHusks,
+    clueHunt: null,
+    ...worldExtra,
   } as unknown as IWorld;
   const release = vi.fn();
   const focusFirst = vi.fn();
@@ -299,6 +304,93 @@ describe('QuestDialogController', () => {
     expect(row.getAttribute('aria-label')).toBe(
       t('questUi.dialog.repeatableQuestAria', { name: `quest:${workOrder.id}` }),
     );
+  });
+
+  it('routes the Weekly Vault Keeper through authoritative interaction without gossip', () => {
+    const keeper = harness(npc(WEEKLY_KEEPER_ENTITY_ID, WEEKLY_KEEPER_ID));
+    keeper.controller.open(WEEKLY_KEEPER_ENTITY_ID);
+    expect(keeper.targetEntity).toHaveBeenCalledWith(WEEKLY_KEEPER_ENTITY_ID);
+    expect(keeper.interact).toHaveBeenCalledTimes(1);
+    expect(keeper.element.style.display).not.toBe('block');
+  });
+
+  it('a clue hand-over at an ordinary quest giver renders the row and the click sends the interact', () => {
+    // The 2026-09-22 playtest bug: the fenwitch salt hunt's first step is a
+    // hand-over of one cooking salt at Mother Sedge, an ORDINARY quest giver.
+    // The gossip menu only sent the interact for service NPCs or an active
+    // quest's discuss row, so the sim's clue check (talkToNpc runs
+    // onNpcTalkedForClueHunt first on every host) was never reached and the
+    // salt was never taken. The row is the one affordance that sends it.
+    const sedge = harness(
+      npc(77, 'mother_sedge'),
+      'none',
+      {},
+      {
+        clueHunt: { huntId: 'hunt_willowfen_fenwitch_salt', step: 0 },
+      },
+    );
+    sedge.controller.open(77);
+    expect(sedge.element.style.display).toBe('block');
+    const row = sedge.element.querySelector<HTMLButtonElement>('[data-clue-step]');
+    expect(row).not.toBeNull();
+    const salt = itemDisplayName(ITEMS.cooking_salt);
+    expect(row?.textContent).toContain(t('questUi.dialog.clueDeliver', { count: '1', item: salt }));
+    expect(row?.getAttribute('aria-label')).toBe(
+      t('questUi.dialog.clueDeliverAria', { count: '1', item: salt, name: 'npc:mother_sedge' }),
+    );
+    // The English literals once, beside the t() form.
+    expect(row?.textContent).toContain(`Hand over 1 ${salt}.`);
+    expect(row?.getAttribute('aria-label')).toBe(`Hand over 1 ${salt} to npc:mother_sedge`);
+    expect(sedge.interact).not.toHaveBeenCalled();
+    row?.click();
+    expect(sedge.targetEntity).toHaveBeenCalledWith(77);
+    expect(sedge.interact).toHaveBeenCalledTimes(1);
+    // No successor window: close WITH the trap's own focus restore (the husk
+    // trade shape), never the bindRoute release(false).
+    expect(sedge.release).toHaveBeenCalledWith(true);
+    expect(sedge.release).not.toHaveBeenCalledWith(false);
+    expect(sedge.controller.isOpen).toBe(false);
+  });
+
+  it('the clue row is absent for another NPC, a non-talk step, or no hunt', () => {
+    // Same hunt, wrong NPC: the step names mother_sedge, not widow_tansy.
+    const tansy = harness(
+      npc(78, 'widow_tansy'),
+      'none',
+      {},
+      {
+        clueHunt: { huntId: 'hunt_willowfen_fenwitch_salt', step: 0 },
+      },
+    );
+    tansy.controller.open(78);
+    expect(tansy.element.querySelector('[data-clue-step]')).toBeNull();
+    // Right NPC, no hunt (the harness default): nothing to hand over.
+    const idle = harness(npc(77, 'mother_sedge'), 'none');
+    idle.controller.open(77);
+    expect(idle.element.querySelector('[data-clue-step]')).toBeNull();
+    expect(idle.interact).not.toHaveBeenCalled();
+  });
+
+  it('refreshIfChanged repaints the open dialog when the clue step moves off this NPC', () => {
+    const sedge = harness(
+      npc(77, 'mother_sedge'),
+      'none',
+      {},
+      {
+        clueHunt: { huntId: 'hunt_willowfen_fenwitch_salt', step: 0 },
+      },
+    );
+    sedge.controller.open(77);
+    expect(sedge.element.querySelector('[data-clue-step]')).not.toBeNull();
+    // Unchanged state: no repaint (the DOM node identity survives).
+    const before = sedge.element.querySelector('[data-clue-step]');
+    sedge.controller.refreshIfChanged();
+    expect(sedge.element.querySelector('[data-clue-step]')).toBe(before);
+    // The hunt ended (or advanced past this NPC): the row must go. The
+    // harness world is the live object the controller reads.
+    (sedge.world as unknown as { clueHunt: unknown }).clueHunt = null;
+    sedge.controller.refreshIfChanged();
+    expect(sedge.element.querySelector('[data-clue-step]')).toBeNull();
   });
 
   it('routes bankers and chroniclers through authoritative interaction without gossip', () => {

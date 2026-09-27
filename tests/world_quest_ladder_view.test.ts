@@ -50,7 +50,13 @@ describe('art paths', () => {
 describe('cards and board header', () => {
   it('builds one card per scoreboard with art, metric header, and one active card', () => {
     const view = buildWorldQuestLadderView('forge', { kind: 'loading' }, 'Hero1');
-    expect(view.cards.map((c) => c.id)).toEqual(WORLD_QUEST_SCOREBOARDS.map((b) => b.id));
+    expect(view.cards.map((c) => c.id)).toEqual([
+      'north_watch_cannon',
+      'last_keep_cannon',
+      'calligraphy',
+      'slalom',
+      'forge',
+    ]);
     expect(view.cards.filter((c) => c.active).map((c) => c.id)).toEqual(['forge']);
     const forge = view.cards.find((c) => c.id === 'forge');
     expect(forge).toMatchObject({

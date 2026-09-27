@@ -28,7 +28,11 @@ import {
 import { WORLD_SEED } from '../src/sim/world_seed';
 
 function setup(variant = 0) {
-  const cycle = Array.from({ length: 210 }, (_, index) => `wq3_${index}`).find(
+  // Searched over the LIVE daily ids: a legacy wq3_N id is day 3N, and with
+  // Mirefen's pool seven deep since the round-2 zone hunts the infiltrator
+  // lands on days 1 mod 7, which under a three-day stride only ever meets two
+  // of the six weekly variants.
+  const cycle = Array.from({ length: 210 }, (_, index) => `wq1_${index}`).find(
     (candidate) =>
       activeWorldQuestsForCycle(candidate).some((quest) => quest.id === ID) &&
       worldQuestPuzzleVariantForCycle(candidate, INVESTIGATION_VARIANTS.length) === variant,

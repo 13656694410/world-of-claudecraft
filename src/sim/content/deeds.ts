@@ -3542,6 +3542,50 @@ export const DEEDS: Record<string, DeedDef> = {
       ],
     },
   },
+  // Clue Scrolls (world quests, Stage 3; docs/design/clue-scrolls.md): the
+  // first Treasure Casket opened and the tenth. The clueCasketsOpened meter
+  // is a persisted lifetime counter the casket-opening site bumps
+  // (src/sim/clue_casket.ts), so a veteran's caskets are credited by the
+  // join-time retro pass. The tenth grants the Treasure Hunter title, which
+  // pages on the Reliquary titles page like every non-hidden title deed.
+  exp_clue_first_casket: {
+    id: 'exp_clue_first_casket',
+    name: 'Treasure Found',
+    desc: 'Open a Treasure Casket dug up at the end of a clue scroll hunt.',
+    category: 'exploration',
+    renown: 10,
+    trigger: { kind: 'meter', meter: 'clueCasketsOpened', amount: 1 },
+  },
+  exp_clue_ten_caskets: {
+    id: 'exp_clue_ten_caskets',
+    name: 'Treasure Hunter',
+    desc: 'Open 10 Treasure Caskets dug up at the end of clue scroll hunts.',
+    category: 'exploration',
+    renown: 25,
+    trigger: { kind: 'meter', meter: 'clueCasketsOpened', amount: 10 },
+    reward: { kind: 'title', text: 'Treasure Hunter' },
+  },
+  // The scheduled ferries (sim/transport_ferry.ts): one crossing in each
+  // direction on every route, the visit marks written when a living passenger
+  // steps off at the far pier. Cosmetic exploration at the castle-visit value
+  // (renown 5); appended at the END per the append-only contract, after
+  // the branch's Clue Scroll casket pair at the release/v0.44.0 base merge.
+  exp_harbor_to_harbor: {
+    id: 'exp_harbor_to_harbor',
+    name: 'Harbor to Harbor',
+    desc: 'Sail both ferries there and back: Eastbrook to Moonrest, and Wickharbor to Wyrmwatch.',
+    category: 'exploration',
+    renown: 5,
+    trigger: {
+      kind: 'visits',
+      markIds: [
+        'ferry:eastbrook_nightbloom',
+        'ferry:nightbloom_eastbrook',
+        'ferry:wickharbor_drakelands',
+        'ferry:drakelands_wickharbor',
+      ],
+    },
+  },
 };
 
 for (const def of Object.values(DEEDS)) {

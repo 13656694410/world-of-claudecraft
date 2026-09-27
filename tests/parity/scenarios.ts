@@ -1872,6 +1872,10 @@ function entityRoster(): Scenario {
       p.dead = true;
       sim.releaseSpirit();
       rec.snapshot('ghost-release');
+      // Turn the ghost first so the golden can see the in-place revive keep its heading
+      // (revive_facing.ts); with facing 0 throughout, old and new code trace the same.
+      p.facing = Math.PI / 2;
+      p.prevFacing = Math.PI / 2;
       sim.resurrectAtSpiritHealer();
       rec.snapshot('healer-resurrect');
       rec.tick(2);
@@ -4519,7 +4523,7 @@ function marketRoundTrip(): Scenario {
         sim.marketListings.find((l) => !l.house && l.sellerName === 'Seller'),
         'parity scenario market listing',
       );
-      sim.marketBuy(sale.id, buyer);
+      sim.marketBuy(sale.id, undefined, buyer);
       rec.snapshot('bought');
 
       // 4) list a second stack then reclaim it -> the escrow returns to the bags.
@@ -7750,7 +7754,10 @@ function worldQuestLifecycle(): Scenario {
       updateWorldQuests(sim.ctx, meta, sim.player);
       rec.notes.sameCycleAfterOneDay = meta.worldQuestCycle === firstCycle;
       sim.resetDay = '2026-09-03';
-      const nextQuest = WORLD_QUESTS_BY_ID.wq_thornpeak_stormcrag;
+      // Day 3 of the rotation: Thornpeak's pool is four deep since the round-2
+      // zone hunts (stormcrag, kobolds, ogres, zealots), so the third day's
+      // Thornpeak slot is the Wyrmcult zealots, not the Stormcrag elementals.
+      const nextQuest = WORLD_QUESTS_BY_ID.wq_thornpeak_zealots;
       teleport(sim, sim.player as AnyEntity, nextQuest.area.x, nextQuest.area.z);
       updateWorldQuests(sim.ctx, meta, sim.player);
       rec.notes.rotationChanged = meta.worldQuestCycle !== firstCycle;

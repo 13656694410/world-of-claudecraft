@@ -51,17 +51,18 @@ export class ShadowActionBarController {
     const slots: ActionBarSlotElements[] = [0, 1].map((index) => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'action-btn vehicle-action';
+      btn.className = 'action-btn vehicle-action ui-socket';
       const label = document.createElement('span'),
         countEl = document.createElement('span'),
         keybindEl = document.createElement('span'),
         cdOverlay = document.createElement('span'),
         cdText = document.createElement('span'),
         rechargeOverlay = document.createElement('span');
-      label.className = 'icon-label';
-      keybindEl.className = 'keybind';
-      cdOverlay.className = 'cd-overlay';
-      cdText.className = 'cdtext';
+      label.className = 'icon-label ui-socket-art';
+      countEl.className = 'item-count ui-socket-count';
+      keybindEl.className = 'keybind ui-socket-key';
+      cdOverlay.className = 'cd-overlay ui-socket-cd';
+      cdText.className = 'cdtext ui-socket-cd-text';
       rechargeOverlay.className = 'recharge-overlay';
       btn.append(label, countEl, keybindEl, cdOverlay, cdText, rechargeOverlay);
       btn.addEventListener('click', () => {

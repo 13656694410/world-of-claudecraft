@@ -87,6 +87,13 @@ export function emitQuestSelfKeys(emit: EmitSelfKey, sim: Sim, meta: PlayerMeta)
   // completion (every worldQuest* event is heavy-self) or a reroll (which bumps
   // wireRev) re-diffs them, and the three-key record is cheap to compare.
   emit('fac', meta.factions);
+  // Clue Scrolls: the active hunt cursor (null when none). Every hunt
+  // transition bumps wireRev (src/sim/clue_scrolls.ts), so the heavy gate
+  // re-diffs it the tick it moves; the explicit null clears a finished or
+  // abandoned hunt on the client.
+  emit('cluh', meta.clueHunt);
   emit('wqrr', meta.worldQuestRerollCycle);
   emit('wqrep', meta.worldQuestReplacements ?? {});
+  emit('wkq', meta.weeklyQuest);
+  emit('wkexp', sim.weeklyQuestResetAtMs);
 }

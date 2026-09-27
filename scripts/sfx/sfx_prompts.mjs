@@ -242,6 +242,42 @@ export const SFX = [
     custom: true,
   },
   {
+    // The Viridian Valestrider's summon call: an authored bird cry played once
+    // when the 1.5s summon channel completes and the mount appears.
+    // Sfx.mountSummon resolves `mount_summon_<key>` per mount and stays silent
+    // for a mount with no authored take, so the other mounts are unaffected.
+    key: 'mount_summon_avian_strider',
+    custom: true,
+  },
+  {
+    // The Valestrider's gait beat, six variants. Rotated per stride by playAt's
+    // variant pool, which is what stops a bird jogging past sounding like a
+    // metronome. This REPLACES the rider's own footsteps while mounted: it is
+    // part of the world mix and does not answer to the on-foot footstep toggle.
+    key: 'mount_run_avian_strider',
+    custom: true,
+  },
+  {
+    // Takeoff and touchdown, on the airborne edges.
+    key: 'mount_jump_avian_strider',
+    custom: true,
+  },
+  {
+    key: 'mount_land_avian_strider',
+    custom: true,
+  },
+  {
+    // Fired together at the APEX of a jump, not at takeoff: the bird calls out
+    // and beats its wings at the top of the arc. Two keys rather than one baked
+    // pair so the variants rotate independently and the mix can be tuned apart.
+    key: 'mount_squawk_avian_strider',
+    custom: true,
+  },
+  {
+    key: 'mount_flap_avian_strider',
+    custom: true,
+  },
+  {
     // The Mech Bird's gait beat: the recorded servo footsteps assembled 1-2-1
     // (step one, step two, step one) per stride by scripts/gen_mech_bird_sfx.mjs.
     key: 'mount_run_mech_bird',

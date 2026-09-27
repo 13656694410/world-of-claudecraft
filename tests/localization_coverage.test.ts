@@ -368,12 +368,18 @@ describe('i18n Localization Key Coverage', () => {
     ability: 'Fireball',
     action: 'Open Chat',
     amount: 42,
+    // The map hover item line (questUi.worldQuest.itemRewardWithLevels).
+    itemLevel: 24,
+    requiredLevel: 20,
+    // The map hover faction line and standing text (questUi.worldQuest.factionLine, standingReward).
+    faction: 'Rift Watch',
     answered: 6,
     // The elixir use line's granted-buff name (itemUi.tooltip.useElixirAura).
     aura: 'Might of the Boar',
     base: 14,
     rested: 18,
     buyer: 'Mira',
+    seller: 'Bramblefoot',
     channel: 'World',
     classes: 'Warrior, Mage',
     candy: 'berry crystal',
@@ -391,6 +397,15 @@ describe('i18n Localization Key Coverage', () => {
     cost: 30,
     current: 120,
     cut: 5,
+    // Resolved Dawnreaver damage details, including the active Ascension splash.
+    damage: '116 to 146',
+    radius: 6,
+    cap: 5,
+    weaponPercent: 336,
+    verdictSingleDamage: '540 to 630',
+    verdictAreaDamage: '225 to 270',
+    verdictAreaRadius: 8,
+    verdictAreaCap: 5,
     delta: '+13',
     detail: 'The ritual is complete.',
     reach: 'Crystals reached: 4',
@@ -414,6 +429,9 @@ describe('i18n Localization Key Coverage', () => {
     moveKeys: 'W/A/S/D',
     questKey: 'L',
     item: 'Rough Bracers',
+    // The casket contents list (questUi.logs.clueCasketOpened): a formatted
+    // item-name list, not a count.
+    items: 'Heroic Mark and Rough Bracers',
     key: 'K',
     // The death recap's slayer (hud.system.deathRecapKiller[Ability]): a mob
     // or player display name spliced verbatim. One sample only, the base and
@@ -455,6 +473,7 @@ describe('i18n Localization Key Coverage', () => {
     needed: 400,
     perCombo: 7,
     percent: 30,
+    pct: '85%',
     position: 3,
     power: 'powered',
     price: '1g 20s',
@@ -468,6 +487,7 @@ describe('i18n Localization Key Coverage', () => {
     rank: 2,
     round: 2,
     rings: 20,
+    rate: '12.5k/s',
     realm: 'Eastbrook',
     requirement: 'Requires Mining 40',
     resource: 'Mana',
@@ -1064,8 +1084,9 @@ describe('i18n Localization Key Coverage', () => {
     // sets x (name + bonus2/bonus4). The druid wave completed the Crucible
     // rollout, so all 29 sets are registered (the ledger in
     // tests/ignivar_loot.test.ts). The eleven crafted collections each carry
-    // a name plus one two-piece bonus, not another raid four-piece tier.
-    expect(itemSetEntries).toHaveLength(8 * 4 + 3 * 2 + 5 * 4 + 29 * 3 + 11 * 2);
+    // a name plus one two-piece bonus, not another raid four-piece tier. The
+    // 27 Warfare Season 2 spec sets carry name + bonus2/bonus4.
+    expect(itemSetEntries).toHaveLength(8 * 4 + 3 * 2 + 5 * 4 + 29 * 3 + 11 * 2 + 27 * 3);
     expect(missingEntityTranslationsForGroups(['itemSet'])).toHaveLength(0);
 
     for (const lang of ['zh_CN', 'zh_TW', 'ja_JP', 'ko_KR', 'ru_RU'] as const) {

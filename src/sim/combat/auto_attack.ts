@@ -86,6 +86,7 @@ import { advanceWarspiritCadence, stoneboundThreatMultiplier } from './shaman_wa
 import { blockedMeleeDamage } from './shield_block';
 import { onCastCompleted, onMeleeSwing } from './talent_procs';
 import { applyThornsReaction } from './thorns_charge';
+import { onTrinketAvoidance } from './trinkets';
 import { warriorMeleeDefense } from './warrior_hit_table';
 
 // Fraction of the mainhand weapon's damage a hunter's Auto Shot deals. There is no
@@ -518,6 +519,8 @@ export function meleeSwing(
     cannotBeDodged?: boolean;
     weapon?: WeaponInfo;
     weaponMult?: number;
+    /** Scales the complete primary hit before callbacks snapshot copied damage. */
+    primaryDamageMult?: number;
     autoAttackHand?: AutoAttackHand;
     apSwingSpeed?: number;
     threatFlat?: number;
@@ -587,6 +590,7 @@ export function meleeSwing(
       ...(opts.attackAnimationStarted ? { attackAnimationStarted: true as const } : {}),
     });
     ctx.enterCombat(attacker, target);
+    onTrinketAvoidance(ctx, target);
     if (attacker.kind === 'player') attacker.overpowerUntil = ctx.time + 5;
     return false;
   }
@@ -603,6 +607,7 @@ export function meleeSwing(
       ...(opts.attackAnimationStarted ? { attackAnimationStarted: true as const } : {}),
     });
     ctx.enterCombat(attacker, target);
+    onTrinketAvoidance(ctx, target);
     return false;
   }
   const mult = opts.weaponMult ?? 1;
@@ -671,8 +676,9 @@ export function meleeSwing(
       grantDevotionFromBlock(target);
       tryGrantSolarReprisal(ctx, target, 'block');
     }
+    onTrinketAvoidance(ctx, target);
   }
-  const dealtAmount = Math.max(1, Math.round(dmg));
+  const dealtAmount = Math.max(1, Math.round(dmg * (opts.primaryDamageMult ?? 1)));
   const hpBefore = target.hp;
   const resolvedAmount = ctx.dealDamage(
     attacker,

@@ -566,11 +566,11 @@ interface ScannedPainter {
 // the float animation on a recycled node.
 const HOT_PAINTERS: ReadonlyArray<ScannedPainter> = [
   { file: 'micro_menu_state_painter.ts', allow: {}, reflowAllow: {} },
-  // Fifteen construction-only class assignments; all update writes use the shared facet.
-  // (Sixteen until b358c6c5ac removed the camera-shake comfort checkbox.)
+  // Sixteen construction-only class assignments; all update writes use the shared facet.
   {
     file: 'hud/vehicle/vehicle_action_bar_controller.ts',
-    allow: { '.className': 15 },
+    // Constructor-only count label now composes ui-socket-count with the shared icon skin.
+    allow: { '.className': 16 },
     reflowAllow: {},
   },
   // Both writes are build-time. The .className is the base class stamped on a tick
@@ -587,6 +587,7 @@ const HOT_PAINTERS: ReadonlyArray<ScannedPainter> = [
   { file: 'swing_timer_painter.ts', allow: {}, reflowAllow: {} },
   { file: 'proc_overlay_painter.ts', allow: {}, reflowAllow: {} },
   { file: 'aura_overlay_painter.ts', allow: {}, reflowAllow: {} },
+  { file: 'hud/cooldown_manager/cooldown_manager_painter.ts', allow: {}, reflowAllow: {} },
   { file: 'cast_bar_painter.ts', allow: {}, reflowAllow: {} },
   { file: 'unit_frame_painter.ts', allow: {}, reflowAllow: {} },
   { file: 'paladin_devotion_painter.ts', allow: {}, reflowAllow: {} },
@@ -700,6 +701,13 @@ const HOT_PAINTERS: ReadonlyArray<ScannedPainter> = [
     allow: { '.className': 14, '.setAttribute': 3 },
     reflowAllow: {},
   },
+  // the ferry panel is built once in ensureEls (three class names and the
+  // panel's status role); every update write is facet-routed.
+  {
+    file: 'hud/transport/ferry_hud_painter.ts',
+    allow: { '.className': 3, '.setAttribute': 1 },
+    reflowAllow: {},
+  },
   // 3 one-time pooled-node builds (createNode's .buff/.dur/.stacks) + the overflow
   // badge span built once in the constructor.
   { file: 'auras_painter.ts', allow: { '.className': 4 }, reflowAllow: {} },
@@ -746,6 +754,15 @@ const HOT_PAINTERS: ReadonlyArray<ScannedPainter> = [
     // what is left is the four build-time role/aria-live attributes on the two
     // self-mounted roots plus the one skeleton innerHTML.
     allow: { '.innerHTML': 1, '.setAttribute': 4 },
+    reflowAllow: {},
+  },
+  // The King of the Hill bar (hud/hill/) rebuilds its skeleton in ONE innerHTML
+  // write when the STRUCTURAL sig changes (a new hill, a holder or challenger
+  // change, crossing the circle); every per-second value rides the elided
+  // writers. The two setAttribute calls are the build-time role + aria-live.
+  {
+    file: 'hud/hill/hill_bar_painter.ts',
+    allow: { '.innerHTML': 1, '.setAttribute': 2 },
     reflowAllow: {},
   },
   // The bg kill feed rebuilds its tiny stack in ONE innerHTML write, on a
@@ -888,11 +905,28 @@ interface ColdPainter {
 }
 
 const COLD_PAINTER_ALLOWANCES: ReadonlyArray<ColdPainter> = [
+  // Only an open vault dropdown measures its anchor and clipping rectangles,
+  // on open/scroll/resize. Ancestor style classification is cached until resize;
+  // no clock or ordinary HUD repaint drives positioning. Nested scrollers can
+  // move clipping rectangles, so those bounded reads remain event-driven.
+  {
+    file: 'weekly_reward_table_picker_controller.ts',
+    reflowAllow: { '.getBoundingClientRect': 2, getComputedStyle: 1 },
+    driverAllow: {},
+  },
   // One app-viewport rect when the player starts dragging an aura in setup mode. The cached
   // rect converts pointer moves to persisted normalized X/Y values; the controller owns no
   // clock and performs no layout read during ordinary combat painting.
   {
     file: 'aura_overlay_controller.ts',
+    reflowAllow: { '.getBoundingClientRect': 1 },
+    driverAllow: {},
+  },
+  // The Cooldown Manager's twin of the above: one app-viewport rect when the player
+  // starts dragging the row while its Options sub-view is open. Pointer moves reuse
+  // it; the per-frame paint path makes no layout read.
+  {
+    file: 'hud/cooldown_manager/cooldown_manager_controller.ts',
     reflowAllow: { '.getBoundingClientRect': 1 },
     driverAllow: {},
   },
@@ -1200,10 +1234,11 @@ const COLD_PAINTER_ALLOWANCES: ReadonlyArray<ColdPainter> = [
   // The arrange-mode border hit test (edgeAt) reads a CACHED wrap box derived
   // from the applied placement (refilled by apply()/ensureGeometry, nulled on
   // viewport resize), so hovering the unlocked chat box costs no layout read
-  // per pointermove; the five reads are the drag/resize measures.
+  // per pointermove; five reads are drag/resize measures. Two more measure the
+  // CSS default box once after the explicit Reset Size action clears custom dimensions.
   {
     file: 'hud/chat/chat_geometry_controller.ts',
-    reflowAllow: { '.getBoundingClientRect': 5 },
+    reflowAllow: { '.getBoundingClientRect': 7 },
     driverAllow: {},
   },
   {

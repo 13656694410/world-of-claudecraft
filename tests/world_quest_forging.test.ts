@@ -92,7 +92,7 @@ describe('personal forging world quest', () => {
   });
   it('starts from natural area arrival on its offering date without developer commands', () => {
     const sim = new Sim({ seed: WORLD_SEED, playerClass: 'warrior', world: WORLD });
-    sim.resetDay = '2026-09-17';
+    sim.resetDay = '2026-09-15';
     sim.setPlayerLevel(WORLD_QUEST_FORGING.minLevel);
     sim.player.pos = sim.groundPos(FORGE_NPC_DEF.pos.x, FORGE_NPC_DEF.pos.z + 4);
     sim.player.prevPos = { ...sim.player.pos };
@@ -187,8 +187,8 @@ describe('personal forging world quest', () => {
     delete saved.worldQuests;
     const sim = new Sim({ seed: WORLD_SEED, playerClass: 'warrior', world: WORLD, noPlayer: true });
     // The source armed the forge from 2026-09-06, whose nearest forge day is
-    // wq1_9 (2026-09-09): a completion claim is bound to that cycle.
-    sim.resetDay = '2026-09-09';
+    // wq1_8 (2026-09-08): a completion claim is bound to that cycle.
+    sim.resetDay = '2026-09-08';
     const pid = sim.addPlayer('warrior', 'Restored', { state: saved });
     const player = sim.entities.get(pid)!;
     player.pos = sim.groundPos(FORGE_NPC_DEF.pos.x, FORGE_NPC_DEF.pos.z + 4);
@@ -218,6 +218,8 @@ describe('personal forging world quest', () => {
       worldQuestCycle: '',
       worldQuestExpiresAtMs: 0,
       worldQuestLog: new Map(),
+      weeklyQuest: null,
+      weeklyQuestResetAtMs: 0,
     };
     applyQuestSelfWire(mirror, { wqday: sim.worldQuestCycle, wqlog: [encoded] });
     expect(mirror.worldQuestLog.get(ID)?.forging).toEqual(progress.forging);

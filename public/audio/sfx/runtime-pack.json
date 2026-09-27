@@ -1,8 +1,8 @@
 {
   "format": "woc-sfx-runtime-pack",
   "version": 1,
-  "bundleId": "04f6ffd4f946e9f39b53f7c9345a92adaf4a80909ffd8174f186188fc918a189",
-  "catalogHash": "69e98ba821dae34f3fffeb09decdc7c3c7d2935beb1cf368f0d810bf640db0bc",
+  "bundleId": "3fe70c74da407892fc94c9b36146148e8fd05f983f314e6d1ac76285af13a7c0",
+  "catalogHash": "7e8fbe8ae171f27554cc0ca5076c0926e67e6ac37ef4ab5de3c5eb3065a3fa6e",
   "clips": {
     "amb_birds": {
       "variants": [
@@ -4162,6 +4162,30 @@
       "gain": 1,
       "playbackRate": 1
     },
+    "mount_flap_avian_strider": {
+      "variants": [
+        {
+          "id": "1",
+          "url": "/audio/sfx/mount_flap_avian_strider_1.mp3?v=37611b813849",
+          "bytes": 15089,
+          "sha256": "37611b813849c4a0df26dd24639a53ba6fe1b5705061c499c59566188f725f23"
+        },
+        {
+          "id": "2",
+          "url": "/audio/sfx/mount_flap_avian_strider_2.mp3?v=2685e4142d09",
+          "bytes": 14462,
+          "sha256": "2685e4142d0966b8f6ae8f12e07585309450d1e8e82e7d9335792d1022446984"
+        },
+        {
+          "id": "3",
+          "url": "/audio/sfx/mount_flap_avian_strider_3.mp3?v=c5618a77a924",
+          "bytes": 16343,
+          "sha256": "c5618a77a9243fc4be3c6151680292cd52a2df7dca72bfd72be8b3613b21fbb0"
+        }
+      ],
+      "gain": 1.678804,
+      "playbackRate": 1
+    },
     "mount_idle_mech_bird": {
       "variants": [
         {
@@ -4172,6 +4196,18 @@
         }
       ],
       "gain": 1.202264,
+      "playbackRate": 1
+    },
+    "mount_jump_avian_strider": {
+      "variants": [
+        {
+          "id": "main",
+          "url": "/audio/sfx/mount_jump_avian_strider.mp3?v=926cbef0c529",
+          "bytes": 12581,
+          "sha256": "926cbef0c529b02b8d31c135579f8c6658d68047a7839e17a2581b52570e0fbd"
+        }
+      ],
+      "gain": 1,
       "playbackRate": 1
     },
     "mount_jump_mech_bird": {
@@ -4220,6 +4256,18 @@
         }
       ],
       "gain": 1.318257,
+      "playbackRate": 1
+    },
+    "mount_land_avian_strider": {
+      "variants": [
+        {
+          "id": "main",
+          "url": "/audio/sfx/mount_land_avian_strider.mp3?v=94218ba01507",
+          "bytes": 6939,
+          "sha256": "94218ba01507857ad6673f7623b2534b177267282e4f52e8e1a01c70dcf1c4e8"
+        }
+      ],
+      "gain": 1,
       "playbackRate": 1
     },
     "mount_land_mech_bird": {
@@ -4283,6 +4331,48 @@
           "url": "/audio/sfx/mount_run_aether_hover_cycle.mp3?v=355a7b665113",
           "bytes": 17102,
           "sha256": "355a7b6651139d8737500829ebd23ae3d0dba02fb2d3ccb8b3506864346b8c3c"
+        }
+      ],
+      "gain": 1,
+      "playbackRate": 1
+    },
+    "mount_run_avian_strider": {
+      "variants": [
+        {
+          "id": "1",
+          "url": "/audio/sfx/mount_run_avian_strider_1.mp3?v=588a0c0404b8",
+          "bytes": 7566,
+          "sha256": "588a0c0404b84511083ff13ca168c2da016503cead7b53e89a92d6c04fda88fc"
+        },
+        {
+          "id": "2",
+          "url": "/audio/sfx/mount_run_avian_strider_2.mp3?v=6a43d6916cd1",
+          "bytes": 7566,
+          "sha256": "6a43d6916cd19e7c9c4eb85563e4db6d24e16e9b0d7f5c94f77fb8894ff6f933"
+        },
+        {
+          "id": "3",
+          "url": "/audio/sfx/mount_run_avian_strider_3.mp3?v=4ed021635fe3",
+          "bytes": 7566,
+          "sha256": "4ed021635fe3eb80ee0120ca6619ae16c37f6a915c418f0689d1f24166a5d652"
+        },
+        {
+          "id": "4",
+          "url": "/audio/sfx/mount_run_avian_strider_4.mp3?v=b9313677189b",
+          "bytes": 7566,
+          "sha256": "b9313677189bd5650173b67646ba15d7a34afc1d286cdd0d5f65c4fdd01c0b34"
+        },
+        {
+          "id": "5",
+          "url": "/audio/sfx/mount_run_avian_strider_5.mp3?v=bb318c7fe250",
+          "bytes": 7566,
+          "sha256": "bb318c7fe250a29f738e1b898ce761653d06f9778f1f93f47a5dbc272df61837"
+        },
+        {
+          "id": "6",
+          "url": "/audio/sfx/mount_run_avian_strider_6.mp3?v=b26934b064db",
+          "bytes": 7566,
+          "sha256": "b26934b064dbc7b9c9a12d55ee8168f0f19d988de3eec6dac95c660df03dc683"
         }
       ],
       "gain": 1,
@@ -4574,6 +4664,42 @@
         }
       ],
       "gain": 1,
+      "playbackRate": 1
+    },
+    "mount_squawk_avian_strider": {
+      "variants": [
+        {
+          "id": "1",
+          "url": "/audio/sfx/mount_squawk_avian_strider_1.mp3?v=bc1983640c5d",
+          "bytes": 19478,
+          "sha256": "bc1983640c5df72caee098220a05237cc437af6b00f912cc1d5ccbf59650913a"
+        },
+        {
+          "id": "2",
+          "url": "/audio/sfx/mount_squawk_avian_strider_2.mp3?v=9cd1462856a5",
+          "bytes": 16970,
+          "sha256": "9cd1462856a58c5c118f69a7c20577b7abc7f2cd76505ad761e336efa5f91704"
+        },
+        {
+          "id": "3",
+          "url": "/audio/sfx/mount_squawk_avian_strider_3.mp3?v=5956564938de",
+          "bytes": 15716,
+          "sha256": "5956564938deb7582de0d8af2673e400c238b27d6868f0b10931058db2c06ef4"
+        }
+      ],
+      "gain": 1.678804,
+      "playbackRate": 1
+    },
+    "mount_summon_avian_strider": {
+      "variants": [
+        {
+          "id": "main",
+          "url": "/audio/sfx/mount_summon_avian_strider.mp3?v=027e86bcf442",
+          "bytes": 30763,
+          "sha256": "027e86bcf442e89459c2e0a0b9d39c2f4febe4053df6173ebfb9c9d46ceb2d51"
+        }
+      ],
+      "gain": 2.238721,
       "playbackRate": 1
     },
     "mount_summon_goblin_rocket_sled": {

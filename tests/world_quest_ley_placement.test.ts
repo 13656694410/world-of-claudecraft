@@ -32,7 +32,7 @@ describe('Ley Alignment placement beside the Old Beacon road', () => {
     expect(ley.area).toEqual({ ...cache, radius: 18 });
     expect(zoneAt(cache.x, cache.z).id).toBe('galecrest');
     expect(Math.hypot(cache.x - 420, cache.z - 330)).toBeGreaterThan(45);
-    expect(GLIDER_LAUNCH_SITE).toMatchObject({ x: 450, z: 520 });
+    expect(GLIDER_LAUNCH_SITE).toMatchObject({ x: 203, z: 557 });
     expect(
       Math.hypot(cache.x - GLIDER_LAUNCH_SITE.x, cache.z - GLIDER_LAUNCH_SITE.z),
     ).toBeGreaterThan(200);

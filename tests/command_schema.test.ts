@@ -172,9 +172,21 @@ const repoRoot = fileURLToPath(new URL('..', import.meta.url));
 // `market_sweep`, both client-sent and server-dispatched.
 // RE-PINNED at the third release/v0.43.0 merge into feature/world-quests:
 // the release's 225/239 plus the branch's eleven world-quest and vehicle
-// commands, plus world_quest_reroll: 237/251/14.
-const EXPECTED_SEND_COUNT = 237;
-const EXPECTED_DISPATCH_COUNT = 251;
+// commands, plus world_quest_reroll: 237/251/14. Plus the weekly emissary's
+// pick and commendation (world_quest_weekly_choose, world_quest_weekly_commend):
+// 239/253/14.
+// +1 send / +1 dispatch for the Clue Scrolls tracker abandon
+// (`clue_hunt_abandon`, sent by QuestWorldWireState.abandonClueHunt and
+// routed through the delegated world-quest switch); on the quests
+// integration branch (weekly + clue scrolls together): 240/254/14.
+// +2 send / +2 dispatch for the Weekly Vault (weekly_reward_claim,
+// weekly_reward_open; PR 4052) on the quests integration branch: 242/256/14.
+// World PvP adds pvp_flag to both sets (sent by ClientWorld.setWorldPvpFlag,
+// dispatched beside bg_flag), at the second release/v0.44.0 base merge: 243/257/14.
+// The third release/v0.44.0 base merge adds the market buy orders (three
+// commands) and guild custom ranks (guild_set_ranks): 247/261/14.
+const EXPECTED_SEND_COUNT = 247;
+const EXPECTED_DISPATCH_COUNT = 261;
 const EXPECTED_DISPATCH_ONLY_COUNT = 14;
 
 // The chat sub-channel routing switch (server/game.ts `switch

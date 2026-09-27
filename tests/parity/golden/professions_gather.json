@@ -21,7 +21,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "a415789c",
+      "state": "3b28d21f",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -76,6 +76,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -175,7 +176,7 @@
       "tick": 51,
       "time": 2.55,
       "nextId": 1011,
-      "state": "fb652978",
+      "state": "fcf82621",
       "events": "600fbb27",
       "rng": {
         "draws": 2,
@@ -252,6 +253,7 @@
           "gatheringProficiency": {
             "mining": 1
           },
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -379,7 +381,7 @@
       "tick": 104,
       "time": 5.2,
       "nextId": 1011,
-      "state": "42d38292",
+      "state": "0923ff3d",
       "events": "f222566b",
       "rng": {
         "draws": 4,
@@ -468,6 +470,7 @@
             "logging": 100,
             "mining": 1
           },
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -609,7 +612,7 @@
       "tick": 500,
       "time": 25,
       "nextId": 1011,
-      "state": "7fa1d15f",
+      "state": "4dfc1faa",
       "events": "975cf7cd",
       "rng": {
         "draws": 18,
@@ -620,7 +623,7 @@
       "tick": 1000,
       "time": 50,
       "nextId": 1011,
-      "state": "940c0af3",
+      "state": "3db5deee",
       "events": "e0e9383b",
       "rng": {
         "draws": 38,
@@ -631,7 +634,7 @@
       "tick": 1500,
       "time": 75,
       "nextId": 1011,
-      "state": "c5963b23",
+      "state": "eb0fc9fa",
       "events": "52583720",
       "rng": {
         "draws": 58,
@@ -642,7 +645,7 @@
       "tick": 2000,
       "time": 100,
       "nextId": 1011,
-      "state": "43042b22",
+      "state": "ad3d74ad",
       "events": "a65169dd",
       "rng": {
         "draws": 78,
@@ -653,7 +656,7 @@
       "tick": 2500,
       "time": 125,
       "nextId": 1011,
-      "state": "46bd9dc9",
+      "state": "625bc5c0",
       "events": "9c18b38d",
       "rng": {
         "draws": 96,
@@ -664,7 +667,7 @@
       "tick": 3000,
       "time": 150,
       "nextId": 1011,
-      "state": "23d4b6e3",
+      "state": "b2469ade",
       "events": "a65169dd",
       "rng": {
         "draws": 116,
@@ -675,7 +678,7 @@
       "tick": 3500,
       "time": 175,
       "nextId": 1011,
-      "state": "68fbab04",
+      "state": "c067b48b",
       "events": "31e4542a",
       "rng": {
         "draws": 136,
@@ -686,7 +689,7 @@
       "tick": 4000,
       "time": 200,
       "nextId": 1011,
-      "state": "2900708b",
+      "state": "375a6704",
       "events": "16549bdd",
       "rng": {
         "draws": 156,
@@ -697,7 +700,7 @@
       "tick": 4500,
       "time": 225,
       "nextId": 1011,
-      "state": "7bb7f5de",
+      "state": "b057d971",
       "events": "ba8d7d9c",
       "rng": {
         "draws": 176,
@@ -708,7 +711,7 @@
       "tick": 5000,
       "time": 250,
       "nextId": 1011,
-      "state": "a5c8a9d7",
+      "state": "fcde5f4e",
       "events": "972455e1",
       "rng": {
         "draws": 194,
@@ -719,7 +722,7 @@
       "tick": 5206,
       "time": 260.3,
       "nextId": 1011,
-      "state": "f76288b2",
+      "state": "106643b1",
       "events": "0de89e63",
       "rng": {
         "draws": 204,
@@ -829,6 +832,7 @@
             "logging": 100,
             "mining": 1
           },
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -989,7 +993,7 @@
       "tick": 5208,
       "time": 260.4,
       "nextId": 1011,
-      "state": "832c138b",
+      "state": "3ef7bbd6",
       "events": "741638a5",
       "rng": {
         "draws": 204,
@@ -1099,6 +1103,7 @@
             "logging": 100,
             "mining": 1
           },
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

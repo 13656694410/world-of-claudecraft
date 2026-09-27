@@ -1,5 +1,5 @@
 import type { Sim } from '../src/sim/sim';
-import { isWorldQuestDifficulty } from '../src/sim/world_quest_activity';
+import { isActivityChoice } from '../src/sim/world_quest_activity';
 
 type QuestWireMessage = Record<string, unknown>;
 
@@ -62,8 +62,18 @@ export function shadowWorldQuestWire(sim: Sim, msg: QuestWireMessage, pid: numbe
 }
 
 export function startWorldQuestActivityWire(sim: Sim, msg: QuestWireMessage, pid: number): void {
-  if (typeof msg.quest !== 'string' || !isWorldQuestDifficulty(msg.difficulty)) return;
+  if (typeof msg.quest !== 'string' || !isActivityChoice(msg.difficulty)) return;
   sim.startWorldQuestActivity(msg.quest, msg.difficulty, pid);
+}
+
+export function chooseWeeklyQuestWire(sim: Sim, msg: QuestWireMessage, pid: number): void {
+  if (typeof msg.quest !== 'string') return;
+  sim.chooseWeeklyQuest(msg.quest, pid);
+}
+
+export function commendWeeklyQuestWire(sim: Sim, msg: QuestWireMessage, pid: number): void {
+  if (typeof msg.faction !== 'string') return;
+  sim.commendWeeklyQuest(msg.faction, pid);
 }
 
 /** The world-quest-only command family; game.ts routes every member here. */
@@ -77,6 +87,9 @@ const WORLD_QUEST_WIRE_COMMANDS = [
   'world_quest_accuse',
   'world_quest_start',
   'world_quest_reroll',
+  'world_quest_weekly_choose',
+  'world_quest_weekly_commend',
+  'clue_hunt_abandon',
 ] as const;
 export type WorldQuestWireCommand = (typeof WORLD_QUEST_WIRE_COMMANDS)[number];
 const WORLD_QUEST_WIRE_COMMAND_SET: ReadonlySet<unknown> = new Set(WORLD_QUEST_WIRE_COMMANDS);
@@ -94,6 +107,12 @@ export function dispatchWorldQuestWire(sim: Sim, msg: QuestWireMessage, pid: num
       break;
     case 'world_quest_reroll':
       sim.rerollWorldQuest(String((msg as unknown as { quest?: unknown }).quest ?? ''), pid);
+      break;
+    case 'world_quest_weekly_choose':
+      chooseWeeklyQuestWire(sim, msg, pid);
+      break;
+    case 'world_quest_weekly_commend':
+      commendWeeklyQuestWire(sim, msg, pid);
       break;
     case 'world_quest_glider_boost':
       sim.boostWorldQuestGlider(pid);
@@ -115,5 +134,8 @@ export function dispatchWorldQuestWire(sim: Sim, msg: QuestWireMessage, pid: num
       break;
     case 'world_quest_accuse':
       accuseWorldQuestSuspectWire(sim, msg, pid);
+      break;
+    case 'clue_hunt_abandon':
+      sim.abandonClueHunt(pid);
   }
 }

@@ -21,8 +21,13 @@ describe('quest snapshot wire', () => {
       factions: { rift_watch: 30, church_order: 0, automatons: 0 },
       worldQuestRerollCycle: 'wq1_1',
       worldQuestReplacements: { wq_test: 'wq_other' },
+      weeklyQuest: null,
+      clueHunt: { huntId: 'hunt_test', step: 2 },
     } as unknown as PlayerMeta;
-    const sim = { worldQuestExpiresAtMs: 1_893_542_400_000 } as Sim;
+    const sim = {
+      worldQuestExpiresAtMs: 1_893_542_400_000,
+      weeklyQuestResetAtMs: 1_893_628_800_000,
+    } as Sim;
 
     emitQuestSelfKeys(emit, sim, meta);
 
@@ -33,8 +38,11 @@ describe('quest snapshot wire', () => {
       ['wqexp', 1_893_542_400_000],
       ['wqlog', [worldQuest]],
       ['fac', meta.factions],
+      ['cluh', { huntId: 'hunt_test', step: 2 }],
       ['wqrr', meta.worldQuestRerollCycle],
       ['wqrep', { wq_test: 'wq_other' }],
+      ['wkq', null],
+      ['wkexp', 1_893_628_800_000],
     ]);
   });
 });

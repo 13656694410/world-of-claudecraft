@@ -68,9 +68,9 @@ export const FARSHORE_ZONE: ZoneDef = {
     { x: 402, z: -72, label: 'The Sundered Cliffs', id: 'the_sundered_cliffs' },
     { x: 434, z: 58, label: 'The Riftfields', id: 'the_riftfields' },
     // APPENDED, never inserted: poi labels resolve through positional locale
-    // rows. The broken hull on the strand northwest of Gullhaven, the salvage
+    // rows. The broken hull on the strand north of Gullhaven, the salvage
     // world quest's landmark (render/farshore_shipwreck.ts places the model).
-    { x: 270, z: 104, label: 'The Wreck', id: 'the_wreck' },
+    { x: 306, z: 123.05, label: 'The Wreck', id: 'the_wreck' },
   ],
   welcome:
     "Cross the sandbar and Gullhaven's bell will find you before the town does. The breaks tear open without warning, and the redoubt holds its shore against whatever pours through. They have been waiting a long while for someone like you.",

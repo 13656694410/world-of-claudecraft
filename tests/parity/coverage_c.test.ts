@@ -1836,13 +1836,16 @@ describe('coverage: each scenario fires its subsystem', { timeout: 90_000 }, () 
       ),
     ).toHaveLength(6);
     expect(rec.notes.xpReward).toBe(2_784);
-    expect(rec.notes.copperReward).toBe(6_000);
+    // The shared copper schedule (content/world_quests.ts WORLD_QUEST_COPPER):
+    // 700 + 120 * 20 at the cap, paid on every quest beside the XP.
+    expect(rec.notes.copperReward).toBe(3_100);
     expect(rec.notes.itemReward).toBe(1);
     expect(rec.notes.questProgress).toBe(22);
     expect(rec.notes.questsCompleted).toBe(3);
     expect(rec.notes.sameCycleAfterOneDay).toBe(false);
     expect(rec.notes.rotationChanged).toBe(true);
-    expect(rec.notes.rotatedQuestIds).toEqual(['wq_thornpeak_stormcrag']);
+    // Day 3's Thornpeak slot since the round-2 zone hunts widened the pool.
+    expect(rec.notes.rotatedQuestIds).toEqual(['wq_thornpeak_zealots']);
     expect(trace.draws).toBe(0);
     expect(trace.drawDigest).toBe('811c9dc5');
   });

@@ -47,7 +47,11 @@ function fakeStorage() {
   };
 }
 
-function harness(entries: QuestProgress[] = [], worldEntries: WorldQuestProgress[] = []) {
+function harness(
+  entries: QuestProgress[] = [],
+  worldEntries: WorldQuestProgress[] = [],
+  clueHunt: { huntId: string; step: number } | null = null,
+) {
   const questLog = new Map(entries.map((entry) => [entry.questId, entry]));
   const worldQuestLog = new Map(worldEntries.map((entry) => [entry.questId, entry]));
   const tracking = new QuestTrackingState(fakeStorage());
@@ -95,7 +99,8 @@ function harness(entries: QuestProgress[] = [], worldEntries: WorldQuestProgress
         player: { name: 'Adventurer' },
         questLog,
         worldQuestLog,
-      }) as unknown as Pick<IWorld, 'questLog' | 'cfg' | 'player' | 'worldQuestLog'>,
+        clueHunt,
+      }) as unknown as Pick<IWorld, 'questLog' | 'cfg' | 'player' | 'worldQuestLog' | 'clueHunt'>,
     settings,
     tracking,
     questTitle: (questId) => `title:${questId}`,
@@ -492,4 +497,19 @@ it('tracks completed glider replays through flight and result without retaining 
   } finally {
     build.mockRestore();
   }
+});
+
+it('rides the active Clue Scroll hunt as one row with the current clue as its instruction', () => {
+  const test = harness([], [], { huntId: 'hunt_drakelands_gate_ashes', step: 1 });
+  test.controller.update(0);
+  expect(test.html()).toContain('Ashes at the Gate (clue 2 of 4)');
+  // The clue prose is the whole objective line, with no numeric column.
+  expect(test.html()).toContain('qt-obj ui-meta');
+  expect(test.html()).not.toContain('class="qt-obj-count ui-num"');
+  expect(test.html()).toContain('Scout Yerrin');
+  expect(test.html()).toContain('<span class="qt-count ui-num">1</span>');
+  // A retired hunt id paints nothing rather than throwing (R34).
+  const retired = harness([], [], { huntId: 'hunt_nowhere', step: 0 });
+  retired.controller.update(0);
+  expect(retired.html()).toBe('');
 });

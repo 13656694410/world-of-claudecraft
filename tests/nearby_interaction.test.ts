@@ -146,8 +146,8 @@ function interact(r: ReturnType<typeof rig>, gather?: NearbyGatherOptions) {
 }
 
 describe('tryNearbyInteraction', () => {
-  it('skips rotated-out shipwreck debris in favor of a visible weekly piece', () => {
-    const hidden = entity({
+  it('admits the nearest authored piece beyond the previous eight-piece layout', () => {
+    const nearest = entity({
       id: 2_147_100_108,
       kind: 'object',
       templateId: 'ground_wreckfield_flotsam_crate',
@@ -155,25 +155,25 @@ describe('tryNearbyInteraction', () => {
       lootable: true,
       pos: { x: 1, y: 0, z: 0 },
     });
-    const visible = entity({
-      id: 2_147_100_100,
+    const farther = entity({
+      id: 2_147_100_101,
       kind: 'object',
       templateId: 'ground_wreckfield_flotsam_crate',
       objectItemId: 'wreckfield_flotsam_crate',
       lootable: true,
       pos: { x: 2, y: 0, z: 0 },
     });
-    const r = rig([hidden, visible]);
-    r.world.worldQuestCycle = worldQuestCycleForResetDay('2026-09-06');
+    const r = rig([nearest, farther]);
+    r.world.worldQuestCycle = worldQuestCycleForResetDay('2026-09-04');
 
     expect(interact(r)).toBe(true);
-    expect(r.calls).toContain(`pickup:${visible.id}`);
-    expect(r.calls).not.toContain(`pickup:${hidden.id}`);
+    expect(r.calls).toContain(`pickup:${nearest.id}`);
+    expect(r.calls).not.toContain(`pickup:${farther.id}`);
   });
 
   it('skips a personally recovered shipwreck piece in favor of the next one', () => {
     const recovered = entity({
-      id: 2_147_100_100,
+      id: 2_147_100_101,
       kind: 'object',
       templateId: 'ground_wreckfield_flotsam_crate',
       objectItemId: 'wreckfield_flotsam_crate',
@@ -182,11 +182,11 @@ describe('tryNearbyInteraction', () => {
     });
     const visible = entity({
       ...recovered,
-      id: 2_147_100_101,
+      id: 2_147_100_102,
       pos: { x: 2, y: 0, z: 0 },
     });
     const r = rig([recovered, visible]);
-    r.world.worldQuestCycle = worldQuestCycleForResetDay('2026-09-06');
+    r.world.worldQuestCycle = worldQuestCycleForResetDay('2026-09-04');
     r.world.worldQuestLog.set('wq_farshore_salvage', {
       questId: 'wq_farshore_salvage',
       count: 1,

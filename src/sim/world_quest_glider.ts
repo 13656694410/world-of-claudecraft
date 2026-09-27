@@ -8,7 +8,9 @@ import {
 } from './content/world_quest_glider';
 import { displacePlayer } from './displacement';
 import { createNpc } from './entity';
-import { GLIDER_TOWER } from './glider_tower_layout';
+import { recordPersonalGliderTime } from './glider_personal_records';
+import { gliderScoreboardId } from './glider_scoreboards';
+import { GLIDER_WHARF } from './glider_wharf_layout';
 import {
   createGliderFlightState,
   type GliderFlightState,
@@ -18,6 +20,7 @@ import type { PlayerMeta } from './sim';
 import type { SimContext } from './sim_context';
 import { clearAfkOnMove } from './social/away';
 import { type Entity, INTERACT_RANGE, type WorldQuestProgress } from './types';
+import { gliderCourseForCycle } from './world_quest_glider_generation';
 import { gliderCourseById } from './world_quest_glider_levels';
 import { emitWorldQuestScore } from './world_quest_score_events';
 
@@ -71,9 +74,9 @@ export function updateGliderLaunchUpdraft(
 ): boolean {
   if (player.dead || player.inCombat || meta.vehicle) return false;
   if (player.pos.y >= 40) return false;
-  const dx = player.pos.x - GLIDER_TOWER.updraft.x;
-  const dz = player.pos.z - GLIDER_TOWER.updraft.z;
-  if (dx * dx + dz * dz > GLIDER_TOWER.updraft.radius * GLIDER_TOWER.updraft.radius) {
+  const dx = player.pos.x - GLIDER_WHARF.updraft.x;
+  const dz = player.pos.z - GLIDER_WHARF.updraft.z;
+  if (dx * dx + dz * dz > GLIDER_WHARF.updraft.radius * GLIDER_WHARF.updraft.radius) {
     return false;
   }
   if (player.mountKey) ctx.forceDismount(player);
@@ -191,6 +194,7 @@ export function startGliderFlight(
 
   const courseId = gliderCourseById(progress.glider?.courseId).id;
   const practiceOnly = practice || progress.glider?.practiceOnly;
+  if (practiceOnly) progress.state = 'active';
   progress.glider = {
     ...createGliderFlightState(true),
     courseId,
@@ -228,7 +232,14 @@ export function advanceGliderMovement(ctx: SimContext, player: Entity, meta: Pla
   const beforeRings = state.passedRings.length;
   const beforeBoosts = state.windBoosts?.length ?? 0;
 
-  tickGliderFlight(state, player, meta.moveInput, gliderCourseById(state.courseId), ctx.cfg.seed);
+  // The fixed ranked route shared by authority and course visuals.
+  tickGliderFlight(
+    state,
+    player,
+    meta.moveInput,
+    gliderCourseForCycle(meta.worldQuestCycle, state.courseId),
+    ctx.cfg.seed,
+  );
   // The tick mutates phase beyond the entry guard's countdown/flying narrowing.
   const phaseAfterTick = state.phase as GliderFlightState['phase'];
   player.onGround = phaseAfterTick === 'won' || phaseAfterTick === 'failed';
@@ -294,6 +305,28 @@ export function updateGliderEncounter(
   if (player.inCombat || player.mountKey || meta.vehicle)
     abortGliderFlight(ctx, meta, player, progress);
   if (state.phase !== 'won' || !state.result) return false;
+  if (!state.scoreReported) {
+    state.scoreReported = true;
+    const course = gliderCourseById(state.courseId);
+    const board = gliderScoreboardId(course.id, 'lifetime');
+    if (board && state.passedRings.length === course.rings.length) {
+      recordPersonalGliderTime(
+        meta.gliderRecords,
+        course.id,
+        ctx.resetDay,
+        state.result.elapsedSeconds,
+        state.result.rating,
+      );
+      ctx.emit({
+        type: 'worldQuestScore',
+        pid: meta.entityId,
+        board,
+        medal: state.result.rating,
+        metric: state.result.elapsedSeconds,
+        resetDay: ctx.resetDay,
+      });
+    }
+  }
   if (!progress.gliderResult || state.result.score > progress.gliderResult.score) {
     progress.gliderResult = { ...state.result };
     meta.wireRev++;

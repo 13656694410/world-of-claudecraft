@@ -9,14 +9,14 @@
     "applyTaunt pet auto-taunt arm (~8110)",
     "applyTaunt pet manual-taunt arm (petTaunt, ~4885)"
   ],
-  "draws": 1890,
-  "drawDigest": "f679fd73",
+  "draws": 1885,
+  "drawDigest": "d0492d35",
   "frames": [
     {
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "fe72d759",
+      "state": "c11a0de6",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -70,6 +70,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -160,7 +161,7 @@
       "tick": 20,
       "time": 1,
       "nextId": 1011,
-      "state": "820038d5",
+      "state": "1f632e88",
       "events": "61f69d56",
       "rng": {
         "draws": 0,
@@ -171,7 +172,7 @@
       "tick": 40,
       "time": 2,
       "nextId": 1011,
-      "state": "5e41fee5",
+      "state": "2cde0dd8",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -182,7 +183,7 @@
       "tick": 60,
       "time": 3,
       "nextId": 1011,
-      "state": "439d6294",
+      "state": "32fcd6ab",
       "events": "741638a5",
       "rng": {
         "draws": 146,
@@ -193,7 +194,7 @@
       "tick": 80,
       "time": 4,
       "nextId": 1011,
-      "state": "bd5a936f",
+      "state": "d7126c1a",
       "events": "741638a5",
       "rng": {
         "draws": 335,
@@ -204,7 +205,7 @@
       "tick": 100,
       "time": 5,
       "nextId": 1012,
-      "state": "5f465665",
+      "state": "f95fd058",
       "events": "326f6b74",
       "rng": {
         "draws": 487,
@@ -215,7 +216,7 @@
       "tick": 120,
       "time": 6,
       "nextId": 1013,
-      "state": "a61b18a4",
+      "state": "63223abb",
       "events": "c51f5603",
       "rng": {
         "draws": 677,
@@ -226,7 +227,7 @@
       "tick": 140,
       "time": 7,
       "nextId": 1013,
-      "state": "f5626c45",
+      "state": "59a59878",
       "events": "84d16de0",
       "rng": {
         "draws": 902,
@@ -237,7 +238,7 @@
       "tick": 160,
       "time": 8,
       "nextId": 1013,
-      "state": "a353c580",
+      "state": "b0fb2737",
       "events": "f64eccee",
       "rng": {
         "draws": 1147,
@@ -248,7 +249,7 @@
       "tick": 180,
       "time": 9,
       "nextId": 1013,
-      "state": "0526f888",
+      "state": "52381c3f",
       "events": "63080192",
       "rng": {
         "draws": 1423,
@@ -259,33 +260,33 @@
       "tick": 200,
       "time": 10,
       "nextId": 1013,
-      "state": "1977e814",
+      "state": "98ba932b",
       "events": "904e2757",
       "rng": {
-        "draws": 1692,
-        "digest": "83d0b4ee"
+        "draws": 1691,
+        "digest": "4ab1c4e9"
       }
     },
     {
       "tick": 220,
       "time": 11,
       "nextId": 1013,
-      "state": "625bcfe9",
+      "state": "3919835c",
       "events": "96e5c311",
       "rng": {
-        "draws": 1853,
-        "digest": "4dfcf0d9"
+        "draws": 1849,
+        "digest": "2e99426a"
       }
     },
     {
       "tick": 220,
       "time": 11,
       "nextId": 1013,
-      "state": "c8022d43",
+      "state": "6ab1b6be",
       "events": "741638a5",
       "rng": {
-        "draws": 1853,
-        "digest": "4dfcf0d9"
+        "draws": 1849,
+        "digest": "2e99426a"
       },
       "label": "pet-taunt",
       "players": [
@@ -356,6 +357,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -565,11 +567,11 @@
       "tick": 224,
       "time": 11.2,
       "nextId": 1013,
-      "state": "5212fc95",
-      "events": "fa4af9f8",
+      "state": "8fc7a1e7",
+      "events": "9e16712b",
       "rng": {
-        "draws": 1890,
-        "digest": "f679fd73"
+        "draws": 1885,
+        "digest": "d0492d35"
       },
       "label": "final",
       "players": [
@@ -640,6 +642,7 @@
           "equipmentInstance": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -743,7 +746,7 @@
           "facing": 1.570796,
           "fallStartY": -2,
           "fiveSecondRule": 99,
-          "hp": 345,
+          "hp": 333,
           "id": 1011,
           "inCombat": true,
           "kind": "mob",
@@ -784,7 +787,7 @@
           "aggroTargetId": 1011,
           "aiState": "attack",
           "autoAttack": true,
-          "combatTimer": 0.2,
+          "combatTimer": 0.15,
           "comboUntil": -1,
           "critChance": 0.05,
           "detonateTimer": "Infinity",
@@ -795,7 +798,7 @@
           "forcedTargetId": 1011,
           "forcedTargetTimer": 2.8,
           "hostile": true,
-          "hp": 49948,
+          "hp": 49946,
           "id": 1012,
           "inCombat": true,
           "kind": "mob",
@@ -836,7 +839,7 @@
             ],
             [
               1011,
-              34
+              36
             ]
           ],
           "weapon": {

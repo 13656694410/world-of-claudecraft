@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { GLIDER_COURSE, GLIDER_LAUNCH_SITE } from '../src/sim/content/world_quest_glider';
 import { createPlayer } from '../src/sim/entity';
+import { applyGliderBoost } from '../src/sim/minigames/glider_boost';
 import {
   createGliderFlightState,
   GLIDER_BASE_FORWARD_SPEED,
@@ -209,14 +210,9 @@ describe('energy-controlled authored glider flight', () => {
           forward,
           turnLeft: difference > 0.06,
           turnRight: difference < -0.06,
-          gliderPitch: Math.max(
-            -1,
-            Math.min(
-              1,
-              ((target.y - player.pos.y) * 1.5 + 0.55) / (target.y > player.pos.y ? 7 : 14),
-            ),
-          ),
+          gliderPitch: pilotPitch(target, player.pos, state.speed),
         };
+        if (state.speed < 22) applyGliderBoost(state);
         const oldY = player.pos.y;
         tickGliderFlight(state, player, input, GLIDER_COURSE, WORLD_SEED);
         if (state.phase === 'flying')
@@ -282,8 +278,8 @@ describe('energy-controlled authored glider flight', () => {
     expect(player.pos).toEqual(terminal);
   });
   it('authors a long progressive course with clear rings and coherent medals', () => {
-    expect(GLIDER_COURSE.rings).toHaveLength(20);
-    expect(GLIDER_COURSE.minRings).toBe(18);
+    expect(GLIDER_COURSE.rings).toHaveLength(24);
+    expect(GLIDER_COURSE.minRings).toBe(24);
     const points = [
       GLIDER_LAUNCH_SITE.playerLaunch,
       ...GLIDER_COURSE.rings,
@@ -293,14 +289,44 @@ describe('energy-controlled authored glider flight', () => {
     for (let i = 1; i < points.length; i++)
       distance += Math.hypot(points[i].x - points[i - 1].x, points[i].z - points[i - 1].z);
     expect(distance).toBeGreaterThan(1250);
-    expect(distance).toBeLessThan(1400);
+    expect(distance).toBeLessThan(1600);
     for (let i = 0; i < GLIDER_COURSE.rings.length; i++) {
       const ring = GLIDER_COURSE.rings[i];
       expect(ring.y - ring.radius - groundHeight(ring.x, ring.z, WORLD_SEED)).toBeGreaterThan(2);
-      if (i) expect(ring.radius).toBeLessThanOrEqual(GLIDER_COURSE.rings[i - 1].radius);
+      expect(ring.radius).toBeGreaterThanOrEqual(4);
+      expect(ring.radius).toBeLessThanOrEqual(8);
+      if (i > 6) expect(ring.radius).toBeLessThanOrEqual(GLIDER_COURSE.rings[i - 1].radius);
     }
-    expect(scoreGliderFlight(20, 20, 51, GLIDER_COURSE.medals).rating).toBe('gold');
-    expect(scoreGliderFlight(19, 20, 60, GLIDER_COURSE.medals).rating).toBe('silver');
-    expect(scoreGliderFlight(18, 20, 80, GLIDER_COURSE.medals).rating).toBe('bronze');
+    expect(scoreGliderFlight(24, 24, 62, GLIDER_COURSE.medals).rating).toBe('gold');
+    expect(scoreGliderFlight(24, 24, 74, GLIDER_COURSE.medals).rating).toBe('silver');
+    expect(scoreGliderFlight(24, 24, 80, GLIDER_COURSE.medals).rating).toBe('bronze');
   });
+});
+
+/** Aim along the next leg instead of pulling fully up immediately on distant climbs. */
+function pilotPitch(
+  target: { x: number; y: number; z: number },
+  pos: { x: number; y: number; z: number },
+  speed: number,
+): number {
+  const distance = Math.hypot(target.x - pos.x, target.z - pos.z);
+  const wantedVy = (target.y - pos.y) / Math.max(0.4, distance / speed);
+  const climbRate =
+    (7 + Math.max(0, speed - 22) * 0.7) * Math.max(0.1, Math.min(1, (speed - 10) / 8));
+  return Math.max(-1, Math.min(1, (wantedVy + 0.55) / (wantedVy >= -0.55 ? climbRate : 14)));
+}
+
+it('does not credit a later red hoop before the next blue hoop', () => {
+  const course: GliderCourseDef = {
+    ...TEST_COURSE,
+    rings: [
+      { id: 1, x: 40, y: 100, z: 20, radius: 3, boostY: 0 },
+      { id: 2, x: 0, y: 100, z: 0.5, radius: 3, boostY: 0 },
+    ],
+  };
+  const state = createGliderFlightState(false);
+  const player = createPlayer(1, 'warrior', { x: 0, y: 100, z: 0 }, 'Pilot');
+  player.facing = 0;
+  tickGliderFlight(state, player, emptyMoveInput(), course, WORLD_SEED);
+  expect(state.passedRings).toEqual([]);
 });

@@ -234,8 +234,8 @@ describe('createMinimapMarkers: the discriminated union per draw kind', () => {
     (shape) => {
       const world = makeWorld(shape);
       world.player.level = 20;
-      world.player.pos.x = 450;
-      world.player.pos.z = 520;
+      world.player.pos.x = 203;
+      world.player.pos.z = 557;
       Object.assign(world, { worldQuestCycle: '2026-08-31', worldQuestLog: new Map() });
       const model = buildMarkers(world);
       const marker = model.find(

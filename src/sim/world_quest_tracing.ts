@@ -6,6 +6,7 @@ import { createNpc } from './entity';
 import type { PlayerMeta } from './sim';
 import type { SimContext } from './sim_context';
 import { type Entity, INTERACT_RANGE, type WorldQuestDef, type WorldQuestProgress } from './types';
+import { beginWorldQuestPractice } from './world_quest_practice';
 import { emitWorldQuestScore } from './world_quest_score_events';
 import { createWorldQuestTrace, stepWorldQuestTrace } from './world_quest_trace_geometry';
 import { scoreWorldQuestTraceLesson, scoreWorldQuestTraceRound } from './world_quest_trace_score';
@@ -58,6 +59,7 @@ export function startWorldQuestTracing(
     return;
   // Double-clicks cannot keep resetting the memorization clock.
   if (progress.tracing?.phase === 'preview' || progress.tracing?.phase === 'drawing') return;
+  beginWorldQuestPractice(progress);
   const shapeIndex = progress.count;
   if (!Number.isSafeInteger(shapeIndex) || shapeIndex < 0 || progress.state !== 'active') return;
   progress.traceVariant ??=

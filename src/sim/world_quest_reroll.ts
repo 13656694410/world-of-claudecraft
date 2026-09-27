@@ -55,7 +55,7 @@ export function canRerollWorldQuest(
     return { canReroll: false, reason: 'Daily world quest reroll already used today.' };
   }
   const progress = meta.worldQuestLog.get(questId);
-  if (progress?.state === 'completed') {
+  if (progress?.state === 'completed' || progress?.practiceOnly || progress?.glider?.practiceOnly) {
     return { canReroll: false, reason: 'Completed world quests cannot be rerolled.' };
   }
   if (progress && progress.count > 0) {
@@ -76,7 +76,8 @@ export function canRerollWorldQuest(
     if (ALWAYS_ACTIVE_WORLD_QUEST_IDS.includes(id)) return false;
     if (activeIds.has(id)) return false;
     const existing = meta.worldQuestLog.get(id);
-    if (existing?.state === 'completed') return false;
+    if (existing?.state === 'completed' || existing?.practiceOnly || existing?.glider?.practiceOnly)
+      return false;
     const def = WORLD_QUESTS_BY_ID[id];
     if (!def) return false;
     if (playerLevel < def.minLevel) return false;

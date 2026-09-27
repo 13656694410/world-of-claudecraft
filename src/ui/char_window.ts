@@ -31,13 +31,16 @@ import {
 } from './char_view';
 import { specializationPanelHtml } from './character_progression_view';
 import { currencyIconHtml } from './currency_art';
+import { DeferredDragRender } from './deferred_drag_render';
 import { markDialogRoot } from './dialog_root';
 import { classDisplayName, itemDisplayName } from './entity_i18n';
 import { draggedCopySlotIndex, dropRequiredLevel, paperdollDropAction } from './equip_drop_core';
 import { esc } from './esc';
 import { focusedWithin, restoreFirstEnabled } from './focus_restore';
+import { writeHotbarDragData } from './hud/action_bar/hotbar';
+import { isUsableTrinketId } from './hud/action_bar/trinket_slot_core';
 import { currenciesTabHtml } from './hud/currencies';
-import { craftNameText } from './hud/professions/craft_name_view';
+import { archetypeTitleText, craftNameText } from './hud/professions/craft_name_view';
 import { gatheringProfessionNameKey } from './hud/professions/gathering_profession_name';
 import { buildGatheringProficiencyRows } from './hud/professions/gathering_view';
 import { archetypeImageUrl } from './hud/professions/profession_art';
@@ -71,24 +74,6 @@ import { wornItemCellParts } from './worn_item_cell_view';
 const SLOT_EMPTY_TEXT_COLOR = 'var(--color-slot-empty-text)';
 const SLOT_EMPTY_BORDER_COLOR = 'var(--color-slot-empty-border)';
 
-// The ten pair-archetype title keys (issue 1130, pair-named under Professions
-// 2.0), one per canonical pair id (see src/sim/professions/archetype.ts
-// ARCHETYPE_PAIR_TARGETS and getArchetypeTitle: the title identifier IS the
-// pair id). Every player-visible string is a t() key, so this is a literal
-// id-to-key table, never a built string.
-const ARCHETYPE_PAIR_TITLE_KEYS: Record<string, TranslationKey> = {
-  'engineering+alchemy': 'hudChrome.archetypePair.engineering+alchemy',
-  'alchemy+cooking': 'hudChrome.archetypePair.alchemy+cooking',
-  'cooking+leatherworking': 'hudChrome.archetypePair.cooking+leatherworking',
-  'leatherworking+tailoring': 'hudChrome.archetypePair.leatherworking+tailoring',
-  'tailoring+inscription': 'hudChrome.archetypePair.tailoring+inscription',
-  'inscription+enchanting': 'hudChrome.archetypePair.inscription+enchanting',
-  'enchanting+jewelcrafting': 'hudChrome.archetypePair.enchanting+jewelcrafting',
-  'jewelcrafting+weaponcrafting': 'hudChrome.archetypePair.jewelcrafting+weaponcrafting',
-  'weaponcrafting+armorcrafting': 'hudChrome.archetypePair.weaponcrafting+armorcrafting',
-  'armorcrafting+engineering': 'hudChrome.archetypePair.armorcrafting+engineering',
-};
-
 const CHARACTER_SIDEBAR_LABEL_KEYS: Record<CharacterSidebarTab, TranslationKey> = {
   stats: 'hudChrome.charSidebar.character',
   progression: 'hudChrome.charSidebar.progression',
@@ -104,16 +89,7 @@ const charSidebarTabId = (id: CharacterSidebarTab): string => `char-sidebar-tab-
 // a pure core may not import a *_window module). Re-exported here so the
 // historical import sites (crafting window, identity card, quest dialog,
 // train window, professions window, hud) keep resolving unchanged.
-export { craftNameText };
-
-/** Localized text for the granted pair-archetype title (the input is the
- *  canonical pair id from IWorld `archetypeTitle`), or the "no title yet" copy
- *  when the player has not completed the zone-1 acceptance quest (or the id is
- *  somehow unrecognized). Exported for the view-model test. */
-export function archetypeTitleText(pairId: string | null): string {
-  const key = pairId !== null ? ARCHETYPE_PAIR_TITLE_KEYS[pairId] : undefined;
-  return t(key ?? 'hudChrome.archetypeTitle.none');
-}
+export { archetypeTitleText, craftNameText };
 
 /** Localized text for the hobby craft (issue 1294): a hobby id IS a craft id
  *  on the ring, so this renders the per-craft display name, or the "no hobby
@@ -176,8 +152,10 @@ export interface CharWindowDeps extends Omit<PainterHostPresentation, 'itemToolt
   progressionHtml(level: number): string;
   /** Remove the equipped piece in `slot` to bags and repaint bags + the sheet. */
   unequip(slot: EquipSlot): void;
-  /** Stage a drag-to-unequip: record the slot HUD-side and reveal the bags drop. */
-  beginUnequipDrag(slot: EquipSlot): void;
+  /** Stage a drag-to-unequip: record the slot HUD-side and reveal the bags drop.
+   *  `hotbarAction` is set when the worn piece is also placeable on the action
+   *  bar (a usable trinket), so the same drag can drop onto a bar slot. */
+  beginUnequipDrag(slot: EquipSlot, hotbarAction: { type: 'item'; id: string } | null): void;
   /** End a drag-to-unequip: clear the HUD slot and the bags drop-target hint. */
   endUnequipDrag(): void;
   /** Mount the shared 3D turntable into the model panel (HUD-owned lifecycle). */
@@ -223,6 +201,17 @@ const SHARE_GLYPH =
 export class CharWindow {
   private openerFocus: HTMLElement | null = null;
   private sidebarTab: CharacterSidebarTab = 'stats';
+  // True while a native drag started on one of this window's own equipped-item
+  // rows (dragging a piece off the paperdoll to unequip it) is in flight. A
+  // browser never fires dragend on a source element that has already left the
+  // document, so render()'s innerHTML rebuild (routine here: the 2 Hz staleness
+  // latch repaints an open sheet within 500ms of a loot, deed, or mount gain)
+  // must defer while one of these rows is the live drag source, or the row is
+  // destroyed before its own dragend fires and the shared drag state it feeds
+  // gets stuck for the rest of the session (see deferred_drag_render.ts;
+  // bags_window.ts hit this hazard first, for bag-item drags).
+  private unequipDragActive = false;
+  private readonly dragRenderGate = new DeferredDragRender();
 
   constructor(private readonly deps: CharWindowDeps) {
     this.watchComposedPortrait();
@@ -268,6 +257,15 @@ export class CharWindow {
   }
 
   render(): void {
+    // A native drag's source row dies with the rest of the sheet on an innerHTML
+    // rebuild, and a browser never fires dragend on a row that already left the
+    // document: the shared unequip-drag state it feeds would then stay stuck on
+    // the stale drag for the rest of the session, silently failing every later
+    // drop. Defer the rebuild instead of tearing the dragged row out from under
+    // it; the row's own dragend flushes it once the drag actually concludes
+    // (deferred_drag_render.ts; the same hazard bags_window.ts guards against
+    // for bag-item drags).
+    if (this.dragRenderGate.shouldDefer(this.unequipDragActive)) return;
     const el = this.deps.root();
     // The 2 Hz staleness latch (Hud.refreshCharSheetIfChanged) makes mid-focus
     // rebuilds ROUTINE: a loot, a deed earn, or a mount gain repaints the open
@@ -443,6 +441,13 @@ export class CharWindow {
         : undefined;
       restoreFirstEnabled([sameAct, sameTab, el.querySelector<HTMLElement>('[data-close]')]);
     }
+  }
+
+  /** Catch up a rebuild render() deferred (see its own comment) because an
+   *  equipped-item row was mid-drag. Called from that row's own dragend, after
+   *  unequipDragActive has already cleared. */
+  private flushDeferredRender(): void {
+    this.dragRenderGate.flush(() => this.render());
   }
 
   private sidebarHtml(world: IWorld, selected: CharacterSidebarTab): string {
@@ -691,11 +696,22 @@ export class CharWindow {
       // Drag the piece out onto the bags window to unequip it.
       row.draggable = true;
       row.addEventListener('dragstart', (e) => {
-        this.deps.beginUnequipDrag(slot);
-        if (e.dataTransfer) e.dataTransfer.effectAllowed = 'move';
+        this.unequipDragActive = true;
+        // A usable trinket also drags onto the action bar (it is used where it
+        // is worn): the bar reads the payload, the bags still take the unequip.
+        const hotbarAction = isUsableTrinketId(item.id)
+          ? { type: 'item' as const, id: item.id }
+          : null;
+        this.deps.beginUnequipDrag(slot, hotbarAction);
+        if (hotbarAction) writeHotbarDragData(e.dataTransfer, hotbarAction);
+        if (e.dataTransfer) e.dataTransfer.effectAllowed = hotbarAction ? 'copyMove' : 'move';
         this.deps.hideTooltip();
       });
-      row.addEventListener('dragend', () => this.deps.endUnequipDrag());
+      row.addEventListener('dragend', () => {
+        this.unequipDragActive = false;
+        this.deps.endUnequipDrag();
+        this.flushDeferredRender();
+      });
     } else {
       // Empty slot: still swallow the native menu so right-click feels consistent.
       row.addEventListener('contextmenu', (ev) => ev.preventDefault());

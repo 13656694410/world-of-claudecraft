@@ -1,134 +1,76 @@
-import { existsSync, readFileSync } from 'node:fs';
-import path from 'node:path';
+import { readFileSync } from 'node:fs';
 import * as THREE from 'three';
-import { describe, expect, it } from 'vitest';
-import {
-  FARSHORE_SHIPWRECK_PLAN,
-  farshoreShipwreckInternalsForTest,
-} from '../src/render/farshore_shipwreck';
-import { WORLD_QUESTS_BY_ID } from '../src/sim/data';
-import { terrainHeight, WATER_LEVEL } from '../src/sim/world';
+import { describe, expect, it, vi } from 'vitest';
+import { loadGltf } from '../src/render/assets/loader';
+import { buildFarshoreShipwreck, prepareFarshoreShipwreck } from '../src/render/farshore_shipwreck';
+import { disposeUnsharedMeshResources } from '../src/render/shared_resource';
+import { createWorldQuestPlacerModel } from '../src/render/world_quest_placer_assets';
 
-function triangleScene(zValues: readonly number[]): THREE.Group {
-  const positions: number[] = [];
-  const normals: number[] = [];
-  const uvs: number[] = [];
-  for (const z of zValues) {
-    positions.push(0, 0, z, 0.2, 0, z + 0.2, 0.1, 0, z + 0.1);
-    normals.push(0, 1, 0, 0, 1, 0, 0, 1, 0);
-    uvs.push(0, 0, 1, 0, 0.5, 1);
-  }
-  const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-  geometry.setAttribute('normal', new THREE.Float32BufferAttribute(normals, 3));
-  geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
-  const group = new THREE.Group();
-  group.add(new THREE.Mesh(geometry, new THREE.MeshBasicMaterial()));
-  return group;
-}
+vi.mock('../src/render/assets/loader', () => ({
+  loadGltf: vi.fn(async () => {
+    const scene = new THREE.Group();
+    scene.position.set(1, -3, 2);
+    scene.add(new THREE.Mesh(new THREE.BoxGeometry(2, 1, 4), new THREE.MeshStandardMaterial()));
+    return { scene };
+  }),
+}));
 
-describe('Farshore moored shipwreck', () => {
-  it('reuses the shipped pirate ship and broken dock assets', () => {
-    const manifest = readFileSync('src/render/assets/manifest.generated.ts', 'utf8');
-    expect(farshoreShipwreckInternalsForTest.assetUrls).toEqual({
-      ship: '/models/biome/sea_boat_sail_b.glb',
-      dock: '/models/biome/beach_dock_broken.glb',
+describe('authored Farshore shipwreck', () => {
+  it('keeps the hull decorative at its approved transform without a salvage marker', async () => {
+    await prepareFarshoreShipwreck();
+    const hull = buildFarshoreShipwreck()!.getObjectByName('farshore-broken-hull');
+    expect(hull).toBeDefined();
+    expect(hull!.position.toArray()).toEqual([302.7, -6, 117.75]);
+    expect(hull!.rotation.y).toBeCloseTo((330 * Math.PI) / 180);
+    expect(hull!.scale.toArray()).toEqual([6, 6, 6]);
+    hull!.traverse((node) => {
+      expect(node).not.toBeInstanceOf(THREE.Sprite);
+      expect(node.userData.entityId).toBeUndefined();
     });
-    for (const url of Object.values(farshoreShipwreckInternalsForTest.assetUrls)) {
-      expect(existsSync(path.join(process.cwd(), 'public', url))).toBe(true);
-      expect(manifest).toContain(url.slice(1));
-    }
   });
 
-  it('places both structures in the shallows beside the salvage quest', () => {
-    const quest = WORLD_QUESTS_BY_ID.wq_farshore_salvage;
-    for (const seed of [1, 42, 1337, 8_675_309]) {
-      expect(
-        terrainHeight(FARSHORE_SHIPWRECK_PLAN.ship.x, FARSHORE_SHIPWRECK_PLAN.ship.z, seed),
-      ).toBeLessThan(WATER_LEVEL);
-      expect(
-        terrainHeight(FARSHORE_SHIPWRECK_PLAN.dock.x, FARSHORE_SHIPWRECK_PLAN.dock.z, seed),
-      ).toBeLessThan(WATER_LEVEL);
-    }
-    // The hull is the quest's landmark: it sits inside the work area, so the
-    // minimap emblem, the "The Wreck" map label and the debris read as one site.
-    expect(
-      Math.hypot(
-        FARSHORE_SHIPWRECK_PLAN.ship.x - quest.area.x,
-        FARSHORE_SHIPWRECK_PLAN.ship.z - quest.area.z,
-      ),
-    ).toBeLessThan(quest.area.radius);
-    expect(
-      Math.hypot(
-        FARSHORE_SHIPWRECK_PLAN.ship.x - FARSHORE_SHIPWRECK_PLAN.dock.x,
-        FARSHORE_SHIPWRECK_PLAN.ship.z - FARSHORE_SHIPWRECK_PLAN.dock.z,
-      ),
-    ).toBeLessThan(14);
-  });
-
-  it('removes the seaward triangles and preserves the render attributes', () => {
-    const source = (triangleScene([-1, 1]).children[0] as THREE.Mesh).geometry;
-    const sourcePositions = source.getAttribute('position').array.slice();
-    const clipped = farshoreShipwreckInternalsForTest.clipGeometryPastBrokenBow(source, 0);
-
-    expect(clipped.getAttribute('position').count).toBe(3);
-    expect(clipped.getAttribute('normal').count).toBe(3);
-    expect(clipped.getAttribute('uv').count).toBe(3);
-    const clippedPositions = clipped.getAttribute('position');
-    expect(
-      Math.min(
-        ...Array.from({ length: clippedPositions.count }, (_, i) => clippedPositions.getZ(i)),
-      ),
-    ).toBeGreaterThanOrEqual(0);
-    expect(source.getAttribute('position').array).toEqual(sourcePositions);
-  });
-
-  it('builds a visibly damaged ship and a separate mooring without mutating the sources', () => {
-    const shipSource = triangleScene([-1.2, -0.4, 0.4, 1.2]);
-    const dockSource = triangleScene([-0.5, 0.5]);
-    const originalShip = Array.from(
-      (
-        (shipSource.children[0] as THREE.Mesh).geometry.getAttribute(
-          'position',
-        ) as THREE.BufferAttribute
-      ).array,
-    );
-
-    const root = farshoreShipwreckInternalsForTest.buildFromScenes(shipSource, dockSource);
-    const ship = root.getObjectByName('farshore-broken-ship') as THREE.Group;
-    const dock = root.getObjectByName('farshore-broken-dock') as THREE.Group;
-
+  it('replaces the ship, dock and ropes with the supplied wreck at its exact exported transform', async () => {
+    await prepareFarshoreShipwreck();
+    const root = buildFarshoreShipwreck()!;
     expect(root.name).toBe('farshore-shipwreck');
-    expect(ship).toBeDefined();
-    expect(dock).toBeDefined();
-    expect(ship.getObjectByName('farshore-exposed-ribs')).toBeDefined();
-    expect(ship.getObjectByName('farshore-broken-plank-ends')).toBeDefined();
-    expect(ship.getObjectByName('farshore-fallen-mast')).toBeDefined();
-    expect(root.getObjectByName('farshore-mooring-lines')?.children).toHaveLength(4);
-    expect(ship.position).toMatchObject({
-      x: FARSHORE_SHIPWRECK_PLAN.ship.x,
-      y: FARSHORE_SHIPWRECK_PLAN.ship.y,
-      z: FARSHORE_SHIPWRECK_PLAN.ship.z,
+    expect(root.children).toHaveLength(2);
+    const ship = root.children[0];
+    expect(ship.name).toBe('farshore-broken-ship');
+    expect(ship.position.toArray()).toEqual([306, -4.75, 123.05]);
+    expect(ship.rotation.x).toBeCloseTo(0);
+    expect(ship.rotation.y).toBeCloseTo(Math.PI / 2);
+    expect(ship.rotation.z).toBeCloseTo(0);
+    expect(ship.scale.toArray()).toEqual([14, 14, 14]);
+    expect(root.getObjectByName('farshore-broken-dock')).toBeUndefined();
+    expect(root.getObjectByName('farshore-mooring-lines')).toBeUndefined();
+    expect(vi.mocked(loadGltf).mock.calls.map(([url]) => url)).not.toContain(
+      '/models/biome/sea_boat_sail_b.glb',
+    );
+    expect(vi.mocked(loadGltf).mock.calls.map(([url]) => url)).toContain(
+      '/models/world_quests/shipwreck/shipwreck.glb',
+    );
+    const preview = createWorldQuestPlacerModel('wq_shipwreck');
+    preview.position.set(306, -4.75, 123.05);
+    preview.rotation.y = Math.PI / 2;
+    preview.scale.setScalar(14);
+    expect(new THREE.Box3().setFromObject(ship)).toEqual(new THREE.Box3().setFromObject(preview));
+  });
+
+  it('shares immutable resources without sharing instance transforms or disposing the next build', async () => {
+    await prepareFarshoreShipwreck();
+    const first = buildFarshoreShipwreck()!;
+    const second = buildFarshoreShipwreck()!;
+    first.children[0].position.x = 999;
+    expect(second.children[0].position.x).toBe(306);
+    expect(disposeUnsharedMeshResources(first, { geometries: true, materials: true })).toEqual({
+      geometries: 0,
+      materials: 0,
     });
-    expect(dock.position).toMatchObject({
-      x: FARSHORE_SHIPWRECK_PLAN.dock.x,
-      y: FARSHORE_SHIPWRECK_PLAN.dock.y,
-      z: FARSHORE_SHIPWRECK_PLAN.dock.z,
-    });
-    expect(
-      Array.from(
-        (
-          (shipSource.children[0] as THREE.Mesh).geometry.getAttribute(
-            'position',
-          ) as THREE.BufferAttribute
-        ).array,
-      ),
-    ).toEqual(originalShip);
+    expect(new THREE.Box3().setFromObject(second).isEmpty()).toBe(false);
   });
 
   it('is composed by the existing Farshore feature builder', () => {
     const source = readFileSync('src/render/farshore_features.ts', 'utf8');
-    expect(source).toContain("import { buildFarshoreShipwreck } from './farshore_shipwreck';");
     expect(source).toContain('const shipwreck = buildFarshoreShipwreck();');
     expect(source).toContain('if (shipwreck) group.add(shipwreck);');
   });

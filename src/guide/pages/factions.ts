@@ -24,7 +24,7 @@ export const factions: GuidePage = {
         )}
         ${section(
           'guide.factionsPage.earningHeading',
-          `<p>${esc(t('guide.factionsPage.earningBody'))}</p>${callout(esc(t('guide.factionsPage.lowLevelNote')), { variant: 'note' })}`,
+          `<p>${esc(t('guide.factionsPage.earningBody'))}</p><p>${esc(t('guide.factionsPage.weeklyBody'))}</p>${callout(esc(t('guide.factionsPage.lowLevelNote')), { variant: 'note' })}`,
         )}
         ${section(
           'guide.factionsPage.tiersHeading',

@@ -237,6 +237,7 @@ import {
   TEMPLE_QUESTS,
 } from './content/temple';
 import { WARLOCK_PET_MOBS } from './content/warlock_pets';
+import { WEEKLY_EMISSARY_NPC_DEF } from './content/weekly_quests';
 import { WILDHEART_DUNGEON_DEFS, WILDHEART_ITEMS, WILDHEART_MOBS } from './content/wildheart';
 import {
   WILLOWFEN_CAMPS,
@@ -350,6 +351,9 @@ import { IGNIVAR_DROP_ITEMS } from './content/ignivar_drops';
 import { IGNIVAR_LOOT_ITEMS, IGNIVAR_VENDOR_NPCS } from './content/ignivar_loot';
 import { PROFESSION_ITEMS } from './content/profession_items';
 import { FURY_NPC, WARFARE_ITEMS } from './content/pvp_honor';
+import { SEASON2_ITEMS } from './content/pvp_honor_season2';
+import { TRINKET_ITEMS } from './content/trinkets';
+import { WYRMWATCH_HARBOR_NPCS } from './content/wyrmwatch_harbor_house';
 import { DELVE_MODULE_LAYOUTS, type DelveModuleId, delveModuleSpan } from './delve_layout';
 
 function mergeItems(...parts: Record<string, ItemDef>[]): Record<string, ItemDef> {
@@ -395,10 +399,12 @@ export const ITEMS: Record<string, ItemDef> = mergeItems(
   TEMPLE_ITEMS,
   DELVE_ITEMS,
   HEROIC_VENDOR_ITEMS,
+  TRINKET_ITEMS,
   HEROIC_ITEMS,
   RETIRED_HEROIC_ITEMS,
   IGNIVAR_LOOT_ITEMS,
   WARFARE_ITEMS,
+  SEASON2_ITEMS,
   RIFT_ITEMS,
   REALM_ITEMS,
   DRAKELANDS_ITEMS,
@@ -499,12 +505,17 @@ export const NPCS: Record<string, NpcDef> = {
   ...WORLD_QUEST_CALLIGRAPHY_NPCS,
   [FORGE_NPC_DEF.id]: FORGE_NPC_DEF,
   [WISP_MAZE_NPC_DEF.id]: WISP_MAZE_NPC_DEF,
+  [WEEKLY_EMISSARY_NPC_DEF.id]: WEEKLY_EMISSARY_NPC_DEF,
   [SHADOW_NPC_DEF.id]: SHADOW_NPC_DEF,
   ...Object.fromEntries(SHADOW_GUARDS.map(({ npc }) => [npc.id, npc])),
   [GLIDER_NPC_DEF.id]: GLIDER_NPC_DEF,
   [GLIDER_APPRENTICE_NPC_DEF.id]: GLIDER_APPRENTICE_NPC_DEF,
   ...Object.fromEntries(INVESTIGATION_NPCS.map((npc) => [npc.id, npc])),
   ...FACTION_VENDOR_NPCS,
+  // The Harbormaster's House keeper at the Wyrmwatch cliff harbor
+  // (content/wyrmwatch_harbor_house.ts), appended last so every NPC placed
+  // before her keeps its entity id.
+  ...WYRMWATCH_HARBOR_NPCS,
 };
 
 // Graveyards + the Spirit Healer: re-exported so the Sim and spirit.ts import the

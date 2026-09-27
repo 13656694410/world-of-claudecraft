@@ -5,9 +5,10 @@ import type {
   CannonPoint,
   QuestProgress,
   VehicleSession,
+  WeeklyQuestProgress,
   WorldQuestProgress,
 } from '../sim/types';
-import type { WorldQuestDifficulty } from '../sim/world_quest_activity';
+import type { ActivityChoice } from '../sim/world_quest_activity';
 import type { NearbyWorldQuestTrace } from '../sim/world_quest_trace_public';
 import { applyQuestSelfWire } from './quest_snapshot_wire';
 import { decodeVehicleSession } from './vehicle_session_wire';
@@ -26,8 +27,11 @@ export type QuestWorldCommand =
   | { cmd: 'world_quest_glider_boost' }
   | { cmd: 'world_quest_accuse'; npcId: number }
   | { cmd: 'world_quest_shadow'; action: 'pickpocket' | 'leave'; targetId?: number }
-  | { cmd: 'world_quest_start'; quest: string; difficulty: WorldQuestDifficulty }
-  | { cmd: 'world_quest_reroll'; quest: string };
+  | { cmd: 'world_quest_start'; quest: string; difficulty: ActivityChoice }
+  | { cmd: 'world_quest_reroll'; quest: string }
+  | { cmd: 'world_quest_weekly_choose'; quest: string }
+  | { cmd: 'world_quest_weekly_commend'; faction: string }
+  | { cmd: 'clue_hunt_abandon' };
 
 /** Cold owner mirrors shared by quest snapshots and world-boss map state. */
 export class QuestWorldWireState {
@@ -38,10 +42,14 @@ export class QuestWorldWireState {
   worldQuestExpiresAtMs = 0;
   worldQuestTime = 0;
   worldQuestLog: ReadonlyMap<string, WorldQuestProgress> = new Map();
+  weeklyQuest: WeeklyQuestProgress | null = null;
+  weeklyQuestResetAtMs = 0;
   nearbyWorldQuestTraces: readonly NearbyWorldQuestTrace[] = [];
   factions: Readonly<Record<FactionId, number>> = freshFactionReputation();
   worldQuestReplacements: Readonly<Record<string, string>> = Object.freeze({});
   worldQuestRerollCycle = '';
+  /** The active clue hunt mirrored from the `cluh` self key (null when none). */
+  clueHunt: Readonly<{ huntId: string; step: number }> | null = null;
   private activeWorldBossIds = new Set<string>();
   private questWorldTransport: ((command: QuestWorldCommand) => void) | null = null;
   private questWorldRestBase = '';
@@ -122,8 +130,12 @@ export class QuestWorldWireState {
     });
   }
 
-  startWorldQuestActivity(questId: string, difficulty: WorldQuestDifficulty): void {
+  startWorldQuestActivity(questId: string, difficulty: ActivityChoice): void {
     this.sendQuestWorldCommand({ cmd: 'world_quest_start', quest: questId, difficulty });
+  }
+
+  abandonClueHunt(): void {
+    this.sendQuestWorldCommand({ cmd: 'clue_hunt_abandon' });
   }
 
   canRerollWorldQuest(questId: string): { canReroll: boolean; reason?: string } {
@@ -134,7 +146,11 @@ export class QuestWorldWireState {
       return { canReroll: false, reason: 'Daily world quest reroll already used today.' };
     }
     const progress = this.worldQuestLog.get(questId);
-    if (progress?.state === 'completed') {
+    if (
+      progress?.state === 'completed' ||
+      progress?.practiceOnly ||
+      progress?.glider?.practiceOnly
+    ) {
       return { canReroll: false, reason: 'Completed world quests cannot be rerolled.' };
     }
     if (progress && progress.count > 0) {
@@ -148,6 +164,14 @@ export class QuestWorldWireState {
     if (!check.canReroll) return false;
     this.sendQuestWorldCommand({ cmd: 'world_quest_reroll', quest: questId });
     return true;
+  }
+
+  chooseWeeklyQuest(questId: string): void {
+    this.sendQuestWorldCommand({ cmd: 'world_quest_weekly_choose', quest: questId });
+  }
+
+  commendWeeklyQuest(factionId: FactionId): void {
+    this.sendQuestWorldCommand({ cmd: 'world_quest_weekly_commend', faction: factionId });
   }
 
   worldBossActive(bossId: string): boolean {
@@ -166,6 +190,9 @@ export class QuestWorldWireState {
     this.worldQuestLog = new Map();
     this.worldQuestReplacements = Object.freeze({});
     this.worldQuestRerollCycle = '';
+    this.weeklyQuest = null;
+    this.weeklyQuestResetAtMs = 0;
+    this.clueHunt = null;
     this.nearbyWorldQuestTraces = [];
     this.activeWorldBossIds = new Set();
   }
