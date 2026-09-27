@@ -29,13 +29,14 @@ const board = (id: string): WorldQuestScoreboard => {
 };
 
 describe('scoreboard catalog', () => {
-  it('names one board per medal world quest, each backed by a real quest record', () => {
+  it('names medal boards and six timed course boards backed by real quest records', () => {
     expect(WORLD_QUEST_SCOREBOARDS.map((b) => b.questId)).toEqual([
       NORTH_WATCH_CANNON.questId,
       LAST_KEEP_CANNON.questId,
       WORLD_QUEST_CALLIGRAPHY_ID,
       GLIDER_QUEST_ID,
       FORGE_QUEST_ID,
+      ...Array(6).fill(GLIDER_QUEST_ID),
     ]);
     for (const b of WORLD_QUEST_SCOREBOARDS) expect(WORLD_QUESTS_BY_ID[b.questId]).toBeDefined();
     expect(new Set(WORLD_QUEST_SCOREBOARDS.map((b) => b.id)).size).toBe(

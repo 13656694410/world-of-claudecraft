@@ -1,3 +1,4 @@
+import { bagPools, bagsFullError, canAddItem } from './bags';
 import { maybeAwardClueScroll, updateClueHunt } from './clue_scrolls';
 import { WORLD_QUEST_CALLIGRAPHY_ID } from './content/world_quest_calligraphy';
 import { FORGE_QUEST_ID } from './content/world_quest_forging';
@@ -5,7 +6,13 @@ import { GLIDER_APPRENTICE_NPC_DEF, GLIDER_QUEST_ID } from './content/world_ques
 import { INVESTIGATION_QUEST_ID } from './content/world_quest_investigation';
 import { SHADOW_QUEST_ID } from './content/world_quest_shadow';
 import { WISP_MAZE_QUEST_ID } from './content/world_quest_wisp_maze';
-import { WORLD_QUEST_MIN_LEVEL, WORLD_QUESTS, WORLD_QUESTS_BY_ID } from './content/world_quests';
+import {
+  WORLD_QUEST_COPPER,
+  WORLD_QUEST_MIN_LEVEL,
+  WORLD_QUEST_XP_RATE,
+  WORLD_QUESTS,
+  WORLD_QUESTS_BY_ID,
+} from './content/world_quests';
 import { grantDeed } from './deeds';
 import {
   awardFactionCurrency,
@@ -27,15 +34,11 @@ import {
 } from './quests/interact_object_credit';
 import type { PlayerMeta } from './sim';
 import type { SimContext } from './sim_context';
-import type {
-  Entity,
-  GatherNodeDef,
-  WorldQuestDef,
-  WorldQuestProgress,
-  WorldQuestReward,
-} from './types';
+import type { Entity, GatherNodeDef, WorldQuestDef, WorldQuestProgress } from './types';
 import { xpForLevel } from './types';
 import { vehicleStationById } from './vehicle_stations';
+import { ensureWeeklyEmissary } from './weekly_quests';
+import { recordWeeklyWorldQuest } from './weekly_rewards';
 import {
   FARSHORE_SALVAGE_AMBUSH,
   triggerWorldQuestAmbush,
@@ -83,6 +86,7 @@ import {
   talkToInvestigation,
   updateInvestigationEncounter,
 } from './world_quest_investigation';
+import { worldQuestItemRewardForQuest } from './world_quest_item_slots';
 import {
   claimLeyBonus,
   leyBonusPending,
@@ -95,6 +99,7 @@ import {
   worldQuestMatch3InitialBoard,
 } from './world_quest_match3';
 import { dismountForWorldQuestInstructor } from './world_quest_mount_gate';
+import { beginWorldQuestPractice } from './world_quest_practice';
 import {
   sanitizeWorldQuestPuzzleRotations,
   traceWorldQuestPuzzle,
@@ -210,13 +215,23 @@ export function restoreWorldQuestClaims(meta: PlayerMeta): void {
   }
 }
 
-export function worldQuestRewardAmount(
-  reward: Extract<WorldQuestReward, { type: 'xp' | 'copper' }>,
+/** XP a world quest pays at a character level: a share of that level's XP bar. */
+export function worldQuestXpReward(quest: Pick<WorldQuestDef, 'reward'>, level: number): number {
+  const safeLevel = Math.max(1, Math.floor(level));
+  const rate = quest.reward?.xpRate ?? WORLD_QUEST_XP_RATE;
+  return Math.max(1, Math.round(xpForLevel(safeLevel) * rate));
+}
+
+/** Copper a world quest pays at a character level, from its schedule or the
+ *  shared one. The whole day's circuit at the cap stays under the owner's
+ *  budget (WORLD_QUEST_DAILY_COPPER_BUDGET, pinned by tests/world_quest_rewards.test.ts). */
+export function worldQuestCopperReward(
+  quest: Pick<WorldQuestDef, 'reward'>,
   level: number,
 ): number {
   const safeLevel = Math.max(1, Math.floor(level));
-  if (reward.type === 'xp') return Math.max(1, Math.round(xpForLevel(safeLevel) * reward.rate));
-  return Math.max(0, Math.round(reward.base + reward.perLevel * safeLevel));
+  const schedule = quest.reward?.copper ?? WORLD_QUEST_COPPER;
+  return Math.max(0, Math.round(schedule.base + schedule.perLevel * safeLevel));
 }
 
 function inWorldQuestArea(entity: Entity, quest: WorldQuestDef): boolean {
@@ -270,6 +285,7 @@ export function hasActiveWorldQuest(meta: PlayerMeta, questId: string): boolean 
 export function updateWorldQuests(ctx: SimContext, meta: PlayerMeta, player: Entity): void {
   ensureGliderInstructor(ctx);
   updateGliderLaunchUpdraft(ctx, meta, player);
+  ensureWeeklyEmissary(ctx);
   if (player.level < WORLD_QUEST_MIN_LEVEL) {
     clearShadowEncounter(ctx, meta);
     clearInvestigationEncounter(ctx, meta);
@@ -507,28 +523,31 @@ export function talkToWorldQuestInstructor(
     if (
       player.level >= quest.minLevel &&
       progress &&
-      hasActiveWorldQuest(meta, quest.id) &&
+      (hasActiveWorldQuest(meta, quest.id) || progress.state === 'completed') &&
       inWorldQuestArea(player, quest)
     )
       startShadowEncounter(ctx, meta, player, npc, progress);
     return true;
   }
   if (quest.objective.type === 'glider') {
-    const isQuestActive =
-      player.level >= quest.minLevel &&
-      progress &&
-      inWorldQuestArea(player, quest) &&
-      playerActiveWorldQuests(meta).some((active) => active.id === quest.id);
-    if (isQuestActive && progress) {
+    // A COMPLETED quest launches a PRACTICE flight (world quests round 2: the
+    // slalom is replayable without limit, only the first success pays), so the
+    // state check sits beside the board check: the board still lists the quest
+    // all day after the purse is paid. Only an earned completion opens the
+    // practice door: a player under the level gate, or one whose row the
+    // rotation has not minted yet, gets nothing, because a practice landing
+    // stamps the row completed (world_quest_glider.ts) and would burn the
+    // day's purse before it was ever payable.
+    const eligible =
+      player.level >= quest.minLevel && !!progress && inWorldQuestArea(player, quest);
+    if (
+      eligible &&
+      progress.state === 'active' &&
+      playerActiveWorldQuests(meta).some((active) => active.id === quest.id)
+    ) {
       startGliderFlight(ctx, meta, player, npc, progress);
-    } else {
-      const practice = meta.worldQuestLog.get(GLIDER_QUEST_ID) ?? {
-        questId: GLIDER_QUEST_ID,
-        count: 0,
-        state: 'active',
-      };
-      meta.worldQuestLog.set(GLIDER_QUEST_ID, practice);
-      startGliderFlight(ctx, meta, player, npc, practice, true);
+    } else if (eligible && progress.state === 'completed') {
+      startGliderFlight(ctx, meta, player, npc, progress, true);
     }
     return true;
   }
@@ -550,34 +569,51 @@ export function talkToWorldQuestInstructor(
   }
   if (
     player.level >= quest.minLevel &&
-    hasActiveWorldQuest(meta, quest.id) &&
     progress &&
+    (hasActiveWorldQuest(meta, quest.id) || progress.state === 'completed') &&
     inWorldQuestArea(player, quest)
   )
     startWorldQuestTracing(ctx, meta, player, npc, quest, progress);
   return true;
 }
 
+/** The bundle every world quest pays: XP, copper, then the quest's fixed extra
+ *  (if any), then the day's item when this quest's zone is one of the cycle's
+ *  item slots and the character is in the item bracket; standing follows in
+ *  the caller's order. No rng: the item is fixed per cycle, zone and class
+ *  (src/sim/world_quest_item_slots.ts), so the map hover can show it in advance. */
 export function awardWorldQuest(ctx: SimContext, meta: PlayerMeta, quest: WorldQuestDef): void {
   const player = ctx.entities.get(meta.entityId);
   if (!player) return;
-  if (quest.reward.type === 'xp') {
-    ctx.grantXp(worldQuestRewardAmount(quest.reward, player.level), meta);
-  } else if (quest.reward.type === 'copper') {
-    const amount = worldQuestRewardAmount(quest.reward, player.level);
-    meta.copper += amount;
+  // Every component pays at the level the character HAD on turn-in: the XP
+  // can ding them, and the map hover promised the bundle, the standing and
+  // the item bracket at that level, so nothing below re-reads player.level.
+  const level = player.level;
+  ctx.grantXp(worldQuestXpReward(quest, level), meta);
+  const copper = worldQuestCopperReward(quest, level);
+  if (copper > 0) {
+    meta.copper += copper;
     ctx.emit({
       type: 'loot',
-      text: `You receive ${formatMoney(amount)}.`,
+      text: `You receive ${formatMoney(copper)}.`,
       pid: meta.entityId,
     });
-  } else {
-    ctx.addItem(quest.reward.itemId, quest.reward.count, meta.entityId);
+  }
+  const extra = quest.reward?.extraItem;
+  if (extra) ctx.addItem(extra.itemId, extra.count, meta.entityId);
+  const dailyItemId = worldQuestItemRewardForQuest(meta.worldQuestCycle, quest, meta.cls, level);
+  if (dailyItemId) {
+    // Capacity is a caller pre-check for addItem (bags.ts addStacked). A full
+    // bag loses the day's piece and says so, the Clue Scroll's rule: the quest
+    // completes once per cycle, so there is no second turn-in to defer to.
+    if (canAddItem(meta.inventory, bagPools(meta.bags), dailyItemId, 1))
+      ctx.addItem(dailyItemId, 1, meta.entityId);
+    else bagsFullError(ctx, meta.entityId, dailyItemId);
   }
 
   const factionId = worldQuestFaction(quest);
-  const standingAward = worldQuestStandingReward(quest, player.level);
-  const standingResult = awardFactionReputation(meta, factionId, standingAward, player.level);
+  const standingAward = worldQuestStandingReward(quest, level);
+  const standingResult = awardFactionReputation(meta, factionId, standingAward, level);
   if (standingResult.gained > 0) {
     // Standing feeds the prog_<faction>_* meter deeds; no narrow key covers
     // PlayerMeta.factions, so the award site requests a full pass.
@@ -608,7 +644,10 @@ function creditWorldQuest(
   amount = 1,
 ): void {
   progress.count = Math.min(quest.count, progress.count + amount);
-  meta.counters.questProgress++;
+  const practice =
+    progress.practiceOnly ||
+    meta.unlockedMilestones.has(claimToken(meta.worldQuestCycle, quest.id));
+  if (!practice) meta.counters.questProgress++;
   if (progress.count < quest.count) {
     ctx.emit({
       type: 'worldQuestProgress',
@@ -631,8 +670,18 @@ function creditWorldQuest(
   delete progress.match3RefillIndex;
   if (meta.openWorldQuestPuzzleId === quest.id) meta.openWorldQuestPuzzleId = null;
   meta.worldQuestAreas.delete(quest.id);
+  if (practice) {
+    if (quest.id === SHADOW_QUEST_ID) clearShadowEncounter(ctx, meta);
+    if (quest.id === WORLD_QUEST_CALLIGRAPHY_ID && progress.traceResult?.rating === 'gold')
+      grantDeed(ctx, meta, 'exp_arcane_calligraphy_gold');
+    meta.wireRev++;
+    return;
+  }
   meta.counters.questsCompleted++;
   meta.unlockedMilestones.add(claimToken(meta.worldQuestCycle, quest.id));
+  // The Weekly Vault's world row counts this completion once: the claim token
+  // above is the once-per-cycle guard, and no client command reaches the counter.
+  recordWeeklyWorldQuest(ctx, meta.entityId);
   awardWorldQuest(ctx, meta, quest);
   // Clue Scrolls: with the day's rewards and standing already landed above,
   // the last zone slot of the slate pays the scroll (once per cycle).
@@ -822,11 +871,20 @@ export function onObjectInteractedForWorldQuests(
   if (handled) return true;
   for (const progress of meta.worldQuestLog.values()) {
     // A completed ley quest still answers its cache while a bonus board is charged.
-    if (progress.state !== 'active' && !leyBonusPending(progress)) continue;
     const quest = worldQuestById(progress.questId);
     if (!quest || !inWorldQuestArea(player, quest) || !inWorldQuestArea(obj, quest)) continue;
     if (quest.objective.type === 'puzzle' || quest.objective.type === 'match3') {
       if (quest.objective.activationObjectItemId !== obj.objectItemId) continue;
+      if (player.level < quest.minLevel) continue;
+      const pendingBonus: boolean = leyBonusPending(progress);
+      if (progress.state === 'completed' && !pendingBonus) {
+        if (quest.objective.type === 'puzzle') unlockLeyBonus(progress, progress.puzzleDay);
+        else {
+          beginWorldQuestPractice(progress);
+          const level = match3Level(quest, progress);
+          if (level) progress.match3Board = worldQuestMatch3InitialBoard(level);
+        }
+      }
       handled = true;
       meta.openWorldQuestPuzzleId = quest.id;
       if (quest.objective.type === 'puzzle') {
@@ -850,6 +908,7 @@ export function onObjectInteractedForWorldQuests(
       });
       continue;
     }
+    if (progress.state !== 'active') continue;
     if (quest.objective.type === 'delivery') {
       if (
         obj.objectItemId !== quest.objective.pickupObjectItemId &&
@@ -1089,6 +1148,7 @@ export function sanitizeWorldQuestProgress(
       count,
       state: raw.state,
     };
+    if (includeSessionDeadlines && raw.practiceOnly === true) normalized.practiceOnly = true;
     if (quest.objective.type === 'shadow' && raw.state === 'active') {
       normalized.creditedObjects = sanitizeShadowCreditedObjects(raw.creditedObjects).slice(
         0,

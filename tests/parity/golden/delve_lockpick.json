@@ -16,7 +16,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "b1eb28b9",
+      "state": "51e80822",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -71,6 +71,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -167,7 +168,7 @@
       "tick": 10,
       "time": 0.5,
       "nextId": 1021,
-      "state": "1d20ffb0",
+      "state": "c07cdaa1",
       "events": "707b6954",
       "rng": {
         "draws": 5,
@@ -178,7 +179,7 @@
       "tick": 20,
       "time": 1,
       "nextId": 1021,
-      "state": "b0349b3b",
+      "state": "9d9ee190",
       "events": "6cb80331",
       "rng": {
         "draws": 5,
@@ -189,7 +190,7 @@
       "tick": 30,
       "time": 1.5,
       "nextId": 1021,
-      "state": "8ebf673a",
+      "state": "958adcfb",
       "events": "67fcaac8",
       "rng": {
         "draws": 8,
@@ -200,7 +201,7 @@
       "tick": 38,
       "time": 1.9,
       "nextId": 1023,
-      "state": "9ed4b6c5",
+      "state": "3580c0f4",
       "events": "641e6918",
       "rng": {
         "draws": 11,
@@ -300,6 +301,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -541,7 +543,7 @@
       "tick": 40,
       "time": 2,
       "nextId": 1023,
-      "state": "7a7861c7",
+      "state": "934a3bbe",
       "events": "741638a5",
       "rng": {
         "draws": 11,
@@ -552,7 +554,7 @@
       "tick": 40,
       "time": 2,
       "nextId": 1023,
-      "state": "7a7861c7",
+      "state": "934a3bbe",
       "events": "741638a5",
       "rng": {
         "draws": 11,
@@ -652,6 +654,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

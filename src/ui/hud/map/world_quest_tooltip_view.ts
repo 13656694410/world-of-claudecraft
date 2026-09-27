@@ -15,8 +15,9 @@ import {
   worldQuestStandingReward,
 } from '../../../sim/factions';
 import { isItemLevelEligible, itemInstanceLevel } from '../../../sim/item_level';
-import type { ItemDef, WorldQuestDef } from '../../../sim/types';
-import { worldQuestRewardAmount } from '../../../sim/world_quests';
+import type { ItemDef, PlayerClass, WorldQuestDef } from '../../../sim/types';
+import { worldQuestItemRewardForQuest } from '../../../sim/world_quest_item_slots';
+import { worldQuestCopperReward, worldQuestXpReward } from '../../../sim/world_quests';
 import { currencyImageUrl, factionEmblemImageUrl } from '../../currency_art';
 import { itemDisplayName } from '../../entity_i18n';
 import { formatMoney, formatNumber, type MoneyParts, moneyParts, t } from '../../i18n';
@@ -108,35 +109,58 @@ export interface WorldQuestTooltipInput {
   /** Credited progress this cycle (0 before the quest starts). */
   readonly progressCount: number;
   readonly playerLevel: number;
+  /** The viewer's class and the rotation cycle: they pick the day's item slot. */
+  readonly playerClass: PlayerClass;
+  readonly cycle: string;
   readonly expiresAtMs: number;
   readonly nowMs: number;
 }
 
 const whole = (value: number): string => formatNumber(value, { maximumFractionDigits: 0 });
 
-function baseReward(quest: WorldQuestDef, level: number): WorldQuestTooltipReward {
-  const reward = quest.reward;
-  if (reward.type === 'xp') {
-    const amount = worldQuestRewardAmount(reward, level);
-    return { kind: 'xp', amount, text: t('questUi.detail.xpReward', { xp: whole(amount) }) };
-  }
-  if (reward.type === 'copper') {
-    const copper = worldQuestRewardAmount(reward, level);
-    return { kind: 'money', copper, parts: moneyParts(copper), text: formatMoney(copper, 'long') };
-  }
-  const item = ownEntry(ITEMS, reward.itemId) ?? null;
+function itemReward(itemId: string, count: number): WorldQuestTooltipItemReward {
+  const item = ownEntry(ITEMS, itemId) ?? null;
   const ilvl = item && isItemLevelEligible(item) ? (itemInstanceLevel(item) ?? null) : null;
   return {
     kind: 'item',
-    itemId: reward.itemId,
-    count: reward.count,
+    itemId,
+    count,
     item,
-    name: item ? itemDisplayName(item) : reward.itemId,
+    name: item ? itemDisplayName(item) : itemId,
     quality: item?.quality ?? 'common',
     itemLevel: ilvl,
     itemLevelText:
       ilvl === null ? null : t('hudChrome.options.itemLevelLine', { level: whole(ilvl) }),
   };
+}
+
+/** The shared bundle every world quest pays (copper and XP), its fixed extra item
+ *  if it has one, and the day's piece when this viewer has one coming. */
+function bundleRewards(
+  quest: WorldQuestDef,
+  input: WorldQuestTooltipInput,
+): WorldQuestTooltipReward[] {
+  const copper = worldQuestCopperReward(quest, input.playerLevel);
+  const xp = worldQuestXpReward(quest, input.playerLevel);
+  const rewards: WorldQuestTooltipReward[] = [];
+  if (copper > 0)
+    rewards.push({
+      kind: 'money',
+      copper,
+      parts: moneyParts(copper),
+      text: formatMoney(copper, 'long'),
+    });
+  rewards.push({ kind: 'xp', amount: xp, text: t('questUi.detail.xpReward', { xp: whole(xp) }) });
+  const extra = quest.reward?.extraItem;
+  if (extra) rewards.push(itemReward(extra.itemId, extra.count));
+  const dayItem = worldQuestItemRewardForQuest(
+    input.cycle,
+    quest,
+    input.playerClass,
+    input.playerLevel,
+  );
+  if (dayItem) rewards.push(itemReward(dayItem, 1));
+  return rewards;
 }
 
 export function buildWorldQuestTooltip(input: WorldQuestTooltipInput): WorldQuestTooltipModel {
@@ -174,7 +198,7 @@ export function buildWorldQuestTooltip(input: WorldQuestTooltipInput): WorldQues
       iconUrl: currencyImageUrl(currencyId),
     });
   }
-  rewards.push(baseReward(quest, playerLevel));
+  rewards.push(...bundleRewards(quest, input));
   return {
     questId: quest.id,
     title: worldQuestDisplayName(quest.id),

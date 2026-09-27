@@ -31,7 +31,7 @@
       "tick": 2,
       "time": 0.1,
       "nextId": 1026,
-      "state": "4e137bae",
+      "state": "fc891284",
       "events": "b65f80d4",
       "rng": {
         "draws": 39,
@@ -94,6 +94,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -177,6 +178,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -952,7 +954,7 @@
       "tick": 4,
       "time": 0.2,
       "nextId": 1026,
-      "state": "03695091",
+      "state": "05245cbb",
       "events": "eb3dd672",
       "rng": {
         "draws": 39,
@@ -1015,6 +1017,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1098,6 +1101,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1154,6 +1158,7 @@
           "critChance": 0.06,
           "detonateTimer": "Infinity",
           "dodgeChance": 0.06,
+          "facing": 3.141593,
           "fallStartY": -1.618548,
           "fiveSecondRule": 99.2,
           "healPower": 5,
@@ -1206,6 +1211,7 @@
           "critChance": 0.056,
           "detonateTimer": "Infinity",
           "dodgeChance": 0.056,
+          "facing": 3.141593,
           "fallStartY": -1.618548,
           "fiveSecondRule": 99.2,
           "healPower": 13,
@@ -1878,7 +1884,7 @@
       "tick": 5,
       "time": 0.25,
       "nextId": 1026,
-      "state": "97fb17d8",
+      "state": "b58b85be",
       "events": "741638a5",
       "rng": {
         "draws": 39,
@@ -1889,7 +1895,7 @@
       "tick": 10,
       "time": 0.5,
       "nextId": 1026,
-      "state": "dc288c09",
+      "state": "d6a16b7b",
       "events": "741638a5",
       "rng": {
         "draws": 39,
@@ -1900,7 +1906,7 @@
       "tick": 15,
       "time": 0.75,
       "nextId": 1026,
-      "state": "1b8a0159",
+      "state": "f61eabcb",
       "events": "741638a5",
       "rng": {
         "draws": 39,
@@ -1911,7 +1917,7 @@
       "tick": 20,
       "time": 1,
       "nextId": 1026,
-      "state": "949f9bc1",
+      "state": "35bf4d77",
       "events": "cd1db2b2",
       "rng": {
         "draws": 41,
@@ -1922,7 +1928,7 @@
       "tick": 24,
       "time": 1.2,
       "nextId": 1026,
-      "state": "1efbc5e4",
+      "state": "41c56636",
       "events": "741638a5",
       "rng": {
         "draws": 41,
@@ -1988,6 +1994,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2074,6 +2081,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2130,6 +2138,7 @@
           "critChance": 0.06,
           "detonateTimer": "Infinity",
           "dodgeChance": 0.06,
+          "facing": 3.141593,
           "fallStartY": -1.618548,
           "fiveSecondRule": 100.2,
           "healPower": 5,
@@ -2182,6 +2191,7 @@
           "critChance": 0.056,
           "detonateTimer": "Infinity",
           "dodgeChance": 0.056,
+          "facing": 3.141593,
           "fallStartY": -1.618548,
           "fiveSecondRule": 100.2,
           "healPower": 13,
@@ -2231,7 +2241,7 @@
       "tick": 24,
       "time": 1.2,
       "nextId": 1026,
-      "state": "1efbc5e4",
+      "state": "41c56636",
       "events": "741638a5",
       "rng": {
         "draws": 41,
@@ -2297,6 +2307,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2383,6 +2394,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2439,6 +2451,7 @@
           "critChance": 0.06,
           "detonateTimer": "Infinity",
           "dodgeChance": 0.06,
+          "facing": 3.141593,
           "fallStartY": -1.618548,
           "fiveSecondRule": 100.2,
           "healPower": 5,
@@ -2491,6 +2504,7 @@
           "critChance": 0.056,
           "detonateTimer": "Infinity",
           "dodgeChance": 0.056,
+          "facing": 3.141593,
           "fallStartY": -1.618548,
           "fiveSecondRule": 100.2,
           "healPower": 13,

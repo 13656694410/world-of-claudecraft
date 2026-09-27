@@ -4,6 +4,10 @@
 // ledger, so recovered pieces remain gone after leaving the area or reconnecting.
 
 import {
+  FARSHORE_SALVAGE_PLACEMENTS,
+  FARSHORE_SALVAGE_VISUAL_KEYS,
+} from './content/farshore_shipwreck_layout';
+import {
   FARSHORE_SALVAGE_ENTITY_ID_START,
   FARSHORE_SALVAGE_OBJECT_ITEM_ID,
 } from './content/world_quests';
@@ -11,7 +15,7 @@ import { hasInteractObjectCredit, interactObjectCreditKey } from './quests/inter
 import type { Entity, WorldQuestDef, WorldQuestProgress } from './types';
 import { activeWorldQuestsForCycle, worldQuestPuzzleVariantForCycle } from './world_quest_rotation';
 
-export const FARSHORE_SALVAGE_VISUAL_COUNT = 6;
+export const FARSHORE_SALVAGE_VISUAL_COUNT = FARSHORE_SALVAGE_VISUAL_KEYS.length;
 
 function layoutVariant(
   quest: WorldQuestDef,
@@ -84,8 +88,9 @@ export function isWorldQuestSalvageObjectHidden(
 /** Stable visual slot for the six bespoke GLBs; null means ordinary flotsam. */
 export function worldQuestSalvageVisualIndex(entityId: number): number | null {
   const offset = entityId - FARSHORE_SALVAGE_ENTITY_ID_START;
-  if (offset < 0 || offset >= 24 || !Number.isInteger(offset)) return null;
-  return offset % FARSHORE_SALVAGE_VISUAL_COUNT;
+  if (!Number.isInteger(offset)) return null;
+  const placement = FARSHORE_SALVAGE_PLACEMENTS[offset];
+  return placement ? FARSHORE_SALVAGE_VISUAL_KEYS.indexOf(placement.key) : null;
 }
 
 export function isFarshoreSalvageEntity(entity: Entity): boolean {

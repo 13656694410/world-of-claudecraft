@@ -850,37 +850,43 @@ describe('item-art audit builder', () => {
     // faction quartermaster items (which landed without moving this block)
     // plus the two clue items (clue_scroll, treasure_casket): 1304 / 1322,
     // the sha/bytes straight from `--verify-only` on this tree.
-    // The release's own arm measured the Viridian Valestrider reins at
-    // 1284 / 1302. At the release/v0.44.0 merge into feature/buried-hoards the
-    // tree carries both arms plus the Buried Hoards branch's 18 faction reward
-    // paintings, five treasure-map family icons and 96 hoard boss loot
-    // paintings: 1424 / 1442 on 34 sheet pages, the sha/bytes straight from
-    // `--verify-only` on the merged tree.
+    // the Viridian Valestrider's reins (PR 4175, release/v0.44.0 base merge): 1306 / 1324, re-minted on the merged tree.
+    // Warfare Season 2: measured again with its four painted weapons, 1288 / 1306 on the release.
     expect(verified).toMatchObject({
       catalogPath: 'tmp/imagegen/item-art-consistency/final-audit/catalog.json',
-      catalogSha256: '04e91e35f492b6974cd679b8aa6cfcd4027b88b3a841a40956792cb7e1b06648',
-      catalogBytes: 778846,
+      // Re-minted on the quests integration branch: the catalog carries the 15
+      // faction quartermaster owners, the Emissary's Cache chest and the two
+      // Clue Scroll items (1305 / 1323). Re-minted again with the faction
+      // ladder rework's 17 rows (faction-ladder-icons-2026-09-23): 1322 /
+      // 1340, sha and bytes straight from `--verify-only` on this tree; 1323 / 1341
+      // with the Viridian Valestrider's reins (release/v0.44.0 base merge), re-measured the same way. 1341 / 1359 with the trinket slot's 18 trinkets (PR 4173) landed on the integration branch (a 26th group and a 32nd sheet page), sha and bytes re-measured with `--verify-only` on the merged tree.
+      // 1345 / 1498 with Warfare Season 2 (release/v0.44.0, second base merge 2026-09-26)'s four
+      // painted weapons, re-measured with `--verify-only` on the merged tree.
+      // 1464 / 1482 at the 2026-09-28 release/v0.44.0 merge into feature/buried-hoards
+      // (the hoard boss loot and map paintings on 36 sheet pages), re-measured the same way.
+      catalogSha256: 'e3f58abc4acad903941898542c592ca749451e776bdb34935821a6e79e32e7c6',
+      catalogBytes: 801291,
       rendererFingerprint: '41f5404c4d6d9643c8f03b9d88a8546e44564cc03a1baabdd4a72cb9258a2da7',
-      catalogCount: 1424,
-      liveItemCount: 1442,
+      catalogCount: 1464,
+      liveItemCount: 1482,
       generatedHeroicDefinitions: 78,
       heroicDefinitionsWithOwnWebp: 59,
       heroicWeaponArtAliases: 19,
-      groupCount: 25,
-      sheetPageCount: 34,
-      sheetCount: 272,
+      groupCount: 26,
+      sheetPageCount: 36,
+      sheetCount: 288,
       sheetModeCounts: {
-        '128-color': 34,
-        '40-color': 34,
-        '28-color': 34,
-        '22-color': 34,
-        '28-grayscale': 34,
-        '64-circle': 34,
-        'small-multiview': 34,
-        identity: 34,
+        '128-color': 36,
+        '40-color': 36,
+        '28-color': 36,
+        '22-color': 36,
+        '28-grayscale': 36,
+        '64-circle': 36,
+        'small-multiview': 36,
+        identity: 36,
       },
       sheetSetSha256: null,
-      shippingCatalogSha256: '66986cfaab22f34815cf107c428bec5092b9d2cf14bbe59afc2b34bbf8f5b98f',
+      shippingCatalogSha256: '53d42dd05b8370ad9bf62c5b1d779efc05f02f28fe129a7fe8b53c1b863557fc',
       machineChecksPassed: true,
       verdict: null,
     });

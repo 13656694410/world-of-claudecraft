@@ -30,7 +30,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1012,
-      "state": "2668141e",
+      "state": "c90155a4",
       "events": "3f7b1c05",
       "rng": {
         "draws": 0,
@@ -87,6 +87,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -172,6 +173,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -326,7 +328,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1012,
-      "state": "2d8631b7",
+      "state": "f354ab05",
       "events": "f6c9cef3",
       "rng": {
         "draws": 0,
@@ -385,6 +387,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -473,6 +476,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -637,7 +641,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1012,
-      "state": "2d8631b7",
+      "state": "f354ab05",
       "events": "859002b1",
       "rng": {
         "draws": 0,
@@ -696,6 +700,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -784,6 +789,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -948,7 +954,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1012,
-      "state": "2d8631b7",
+      "state": "f354ab05",
       "events": "1e6a35de",
       "rng": {
         "draws": 0,
@@ -1007,6 +1013,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1095,6 +1102,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1259,7 +1267,7 @@
       "tick": 1,
       "time": 0.05,
       "nextId": 1012,
-      "state": "65cdf3fd",
+      "state": "1f3f29a9",
       "events": "2bf38a71",
       "rng": {
         "draws": 0,
@@ -1324,6 +1332,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1419,6 +1428,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1535,7 +1545,7 @@
           "critChance": 0.056,
           "detonateTimer": "Infinity",
           "dodgeChance": 0.056,
-          "fallStartY": 1.976318,
+          "fallStartY": 1.974807,
           "fiveSecondRule": 99.05,
           "healPower": 13,
           "hp": 54,
@@ -1551,7 +1561,7 @@
           "petMode": "defensive",
           "pos": {
             "x": 40,
-            "y": 1.976318,
+            "y": 1.974807,
             "z": -40
           },
           "potionCooldownUntil": -1,
@@ -1584,7 +1594,7 @@
       "tick": 1,
       "time": 0.05,
       "nextId": 1012,
-      "state": "65cdf3fd",
+      "state": "1f3f29a9",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -1649,6 +1659,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1744,6 +1755,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1860,7 +1872,7 @@
           "critChance": 0.056,
           "detonateTimer": "Infinity",
           "dodgeChance": 0.056,
-          "fallStartY": 1.976318,
+          "fallStartY": 1.974807,
           "fiveSecondRule": 99.05,
           "healPower": 13,
           "hp": 54,
@@ -1876,7 +1888,7 @@
           "petMode": "defensive",
           "pos": {
             "x": 40,
-            "y": 1.976318,
+            "y": 1.974807,
             "z": -40
           },
           "potionCooldownUntil": -1,

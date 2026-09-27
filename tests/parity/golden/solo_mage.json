@@ -15,7 +15,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "1c4d1f2c",
+      "state": "438b0c23",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -70,6 +70,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -161,7 +162,7 @@
       "tick": 20,
       "time": 1,
       "nextId": 1012,
-      "state": "11e52f0c",
+      "state": "57191b63",
       "events": "4fcaef60",
       "rng": {
         "draws": 2,
@@ -172,7 +173,7 @@
       "tick": 40,
       "time": 2,
       "nextId": 1012,
-      "state": "86450455",
+      "state": "983618a4",
       "events": "4487dd8a",
       "rng": {
         "draws": 2,
@@ -183,7 +184,7 @@
       "tick": 60,
       "time": 3,
       "nextId": 1012,
-      "state": "c77603d9",
+      "state": "a78e7cd8",
       "events": "c035533e",
       "rng": {
         "draws": 136,
@@ -194,7 +195,7 @@
       "tick": 80,
       "time": 4,
       "nextId": 1012,
-      "state": "02c39a8a",
+      "state": "10c9e329",
       "events": "ea73b59c",
       "rng": {
         "draws": 304,
@@ -205,7 +206,7 @@
       "tick": 100,
       "time": 5,
       "nextId": 1012,
-      "state": "b3aa75ff",
+      "state": "d8bcdb06",
       "events": "130d8322",
       "rng": {
         "draws": 507,
@@ -216,7 +217,7 @@
       "tick": 120,
       "time": 6,
       "nextId": 1012,
-      "state": "487e2ac4",
+      "state": "8dc35e7b",
       "events": "699fbb9f",
       "rng": {
         "draws": 714,
@@ -227,7 +228,7 @@
       "tick": 128,
       "time": 6.4,
       "nextId": 1012,
-      "state": "9f20e2b7",
+      "state": "2cc5e83e",
       "events": "741638a5",
       "rng": {
         "draws": 797,
@@ -301,6 +302,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

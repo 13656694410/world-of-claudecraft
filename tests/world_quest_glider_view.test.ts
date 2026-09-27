@@ -4,6 +4,7 @@ import {
   GLIDER_COURSE_RINGS,
   GLIDER_QUEST_ID,
 } from '../src/sim/content/world_quest_glider';
+import { GLIDER_COURSES } from '../src/sim/content/world_quest_glider_levels';
 import { createGliderFlightState, scoreGliderFlight } from '../src/sim/minigames/glider_flight';
 import type { WorldQuestProgress } from '../src/sim/types';
 import { formatNumber, t } from '../src/ui/i18n';
@@ -97,4 +98,16 @@ it('keeps completion truthful if a terminal score is absent', () => {
   if (!progress.glider) throw new Error('missing fixture');
   progress.glider.phase = 'won';
   expect(gliderInstructionLines(progress)[0]).toBe(t('questUi.worldQuest.glider.complete'));
+});
+
+it('uses the selected short course count and switches to its landing guidance', () => {
+  const progress = fixture();
+  const course = GLIDER_COURSES[1];
+  const session = progress.glider!;
+  session.phase = 'flying';
+  session.courseId = course.id;
+  session.passedRings = course.rings.map((r) => r.id);
+  const lines = gliderInstructionLines(progress);
+  expect(lines[0]).toContain('11/11');
+  expect(lines[1]).toBe(t('questUi.worldQuest.glider.landing'));
 });

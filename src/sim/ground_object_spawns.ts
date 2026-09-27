@@ -27,6 +27,15 @@ export function spawnGroundObjects(
 ): void {
   const stableIds = new Set<number>();
   for (const definition of definitions) {
+    for (const position of definition.positions) {
+      if (
+        (position.y !== undefined && !Number.isFinite(position.y)) ||
+        (position.facing !== undefined && !Number.isFinite(position.facing)) ||
+        (position.scale !== undefined && (!Number.isFinite(position.scale) || position.scale <= 0))
+      ) {
+        throw new Error(`Invalid authored ground object transform: ${definition.itemId}`);
+      }
+    }
     if (definition.entityIds && definition.entityIds.length !== definition.positions.length) {
       throw new Error(`Ground object ${definition.itemId} has mismatched stable entity ids`);
     }
@@ -50,14 +59,14 @@ export function spawnGroundObjects(
       if (!Number.isSafeInteger(entityId) || entityId <= 0 || deps.entities.has(entityId)) {
         throw new Error(`Invalid or duplicate ground object entity id: ${entityId}`);
       }
-      deps.addEntity(
-        createGroundObject(
-          entityId,
-          definition.itemId,
-          definition.name,
-          deps.groundPos(position.x, position.z),
-        ),
-      );
+      const pos =
+        position.y === undefined
+          ? deps.groundPos(position.x, position.z)
+          : { x: position.x, y: position.y, z: position.z };
+      const entity = createGroundObject(entityId, definition.itemId, definition.name, pos);
+      if (position.facing !== undefined) entity.facing = entity.prevFacing = position.facing;
+      if (position.scale !== undefined) entity.scale = position.scale;
+      deps.addEntity(entity);
     }
   }
 }

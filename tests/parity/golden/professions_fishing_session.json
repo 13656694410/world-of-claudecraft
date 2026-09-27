@@ -18,7 +18,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "982e4739",
+      "state": "316057a2",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -74,6 +74,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -174,7 +175,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "898955fa",
+      "state": "2f31aaed",
       "events": "c4514c52",
       "rng": {
         "draws": 1,
@@ -231,6 +232,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -340,7 +342,7 @@
       "tick": 91,
       "time": 4.55,
       "nextId": 1011,
-      "state": "7f95bdb7",
+      "state": "b2a73dae",
       "events": "238e2198",
       "rng": {
         "draws": 1,
@@ -397,6 +399,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -506,7 +509,7 @@
       "tick": 91,
       "time": 4.55,
       "nextId": 1011,
-      "state": "67acb20b",
+      "state": "a7feaaa6",
       "events": "04ba906b",
       "rng": {
         "draws": 2,
@@ -567,6 +570,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -688,7 +692,7 @@
       "tick": 99,
       "time": 4.95,
       "nextId": 1011,
-      "state": "85cdec12",
+      "state": "5896ac61",
       "events": "8dee233a",
       "rng": {
         "draws": 3,
@@ -757,6 +761,7 @@
           "gatheringProficiency": {
             "fishing": 0.08
           },
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

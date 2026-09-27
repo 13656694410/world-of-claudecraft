@@ -16,7 +16,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "982e4739",
+      "state": "316057a2",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -72,6 +72,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -172,7 +173,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "eb8975c5",
+      "state": "601fb6a8",
       "events": "a3cf857d",
       "rng": {
         "draws": 0,
@@ -228,6 +229,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -344,7 +346,7 @@
       "tick": 8,
       "time": 0.4,
       "nextId": 1019,
-      "state": "af7ba427",
+      "state": "5102fff6",
       "events": "02416442",
       "rng": {
         "draws": 40,
@@ -429,6 +431,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -547,7 +550,7 @@
       "tick": 8,
       "time": 0.4,
       "nextId": 1019,
-      "state": "dbda94e8",
+      "state": "3fa7e17b",
       "events": "56a52c4f",
       "rng": {
         "draws": 40,
@@ -635,6 +638,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -742,7 +746,7 @@
       "tick": 10,
       "time": 0.5,
       "nextId": 1019,
-      "state": "5b602a53",
+      "state": "d527aa8e",
       "events": "741638a5",
       "rng": {
         "draws": 40,
@@ -830,6 +834,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

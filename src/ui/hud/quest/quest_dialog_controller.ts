@@ -5,6 +5,7 @@ import { craftsForPairTarget } from '../../../sim/professions/archetype';
 import { professionQuestSelectionTargets } from '../../../sim/quests/profession_quest_effects';
 import { npcQuestMarkerKind, type QuestMarkerKind } from '../../../sim/quests/quest_marker_kind';
 import { dist2d, type Entity, type ItemDef, questObjectiveRequired } from '../../../sim/types';
+import { WEEKLY_KEEPER_ID } from '../../../sim/weekly_rewards';
 import type { IWorld } from '../../../world_api';
 import { archetypeTitleText, craftNameText } from '../../char_window';
 import { currencyIconHtml, heroicMarkIconHtml } from '../../currency_art';
@@ -32,6 +33,7 @@ import { archetypeImageUrl } from '../professions/profession_art';
 import { buildAttunementPreview } from '../professions/profession_identity_view';
 import { isStationMasterNpc } from '../vendor/train_view';
 import { isWarfareVendorNpc } from '../vendor/warfare_vendor_view';
+import { clueStepRowFor, clueStepRowSig } from './clue_step_row_view';
 import { clueReplyKey, clueTalkFor } from './clue_talk_row_core';
 import { gossipMenuIsEmpty } from './gossip_menu';
 import { masterCraftTarget } from './master_craft_core';
@@ -122,6 +124,10 @@ export class QuestDialogController {
   private lastIntroHintVisible: boolean | null = null;
   private clueReplyOpen = false;
   private lastGossipRowSig: string | null = null;
+  // The Clue Scroll row's staleness signature (clue_step_row_view.ts): the row reads
+  // LIVE hunt state, so it joins the refreshIfChanged watch (a step can advance
+  // or the hunt end while the dialog is open).
+  private lastClueRowSig = '';
   private trap: FocusTrapHandle | null = null;
   private openedAt = 0;
   private voiceNpcId: number | null = null;
@@ -141,9 +147,14 @@ export class QuestDialogController {
       (npc.kind !== 'npc' && !isInvestigationTarget(npcId) && !isWorldQuestInstructorOrEscort(npc))
     )
       return;
-    // The banker and the Riftwright both short-circuit the gossip menu: the
+    // Service NPCs short-circuit the gossip menu:
     // sim's interact emits the window-opening event, identical on every host.
-    if (NPCS[npc.templateId]?.banker || NPCS[npc.templateId]?.riftForge) {
+    if (
+      NPCS[npc.templateId]?.banker ||
+      NPCS[npc.templateId]?.riftForge ||
+      NPCS[npc.templateId]?.weeklyEmissary ||
+      npc.templateId === WEEKLY_KEEPER_ID
+    ) {
       world.targetEntity(npc.id);
       world.interact();
       return;
@@ -224,6 +235,7 @@ export class QuestDialogController {
     this.investigationSig = null;
     this.lastIntroHintVisible = null;
     this.lastGossipRowSig = null;
+    this.lastClueRowSig = '';
     this.deps.hideTooltip();
     this.trap?.release(restoreFocus);
     this.trap = null;
@@ -265,7 +277,9 @@ export class QuestDialogController {
     if (!npc) return;
     if (
       this.introHintVisibleFor(npc) !== this.lastIntroHintVisible ||
-      gossipRowSig(this.offerableRows(npc)) !== this.lastGossipRowSig
+      gossipRowSig(this.offerableRows(npc)) !== this.lastGossipRowSig ||
+      clueStepRowSig(clueStepRowFor(this.deps.world().clueHunt, npc.templateId)) !==
+        this.lastClueRowSig
     ) {
       this.refresh();
     }
@@ -380,9 +394,15 @@ export class QuestDialogController {
         ),
       )
       .map((progress) => progress.questId);
-    // An active Clue Scroll step that names this NPC (a talk or a delivery):
-    // its own discuss row, since opening this window never reaches the sim.
-    const clueTalk = clueTalkFor(world.clueHunt, npc.templateId, world.inventory);
+    // The Clue Scroll talk or hand-over row: the active hunt's current step
+    // targets this NPC (clue_step_row_view.ts). The sim resolves it first inside
+    // talkToNpc on every host; this row is what makes the client SEND that
+    // interact for an ordinary quest giver, which the gossip menu never did.
+    const clueRowRaw = clueStepRowFor(world.clueHunt, npc.templateId);
+    this.lastClueRowSig = clueStepRowSig(clueRowRaw);
+    // A hand-over of an item the catalog does not know draws no row: its id is
+    // never player-visible text, and the row could not be acted on anyway.
+    const clueRow = clueRowRaw?.kind === 'deliver' && !ITEMS[clueRowRaw.itemId] ? null : clueRowRaw;
     // The WARFARE quartermaster REPLACES the generic goods row with its sectioned
     // window (gated on the NpcDef flag, never a hard-coded id).
     //
@@ -436,7 +456,7 @@ export class QuestDialogController {
       closeIfEmpty &&
       gossipMenuIsEmpty({
         questCount: interesting.length,
-        discussionCount: discussionQuests.length + (clueTalk ? 1 : 0),
+        discussionCount: discussionQuests.length,
         hasVendor,
         hasMarket,
         hasHeroicVendor,
@@ -447,6 +467,7 @@ export class QuestDialogController {
         hasTraining,
         hasFarmer,
         hasWorldQuestBoard,
+        hasClueStep: clueRow !== null,
       })
     ) {
       this.close();
@@ -500,9 +521,23 @@ export class QuestDialogController {
       const title = this.deps.text.questTitle(questId);
       html += `<button type="button" class="qd-list-item ui-btn ui-btn--plate" data-discuss="${esc(questId)}" aria-label="${esc(t('questUi.dialog.discussQuestAria', { name: title }))}"><span class="gold">?</span> ${esc(t('questUi.dialog.discussQuest', { name: title }))}</button>`;
     }
-    if (clueTalk) {
-      const title = clueHuntTitle(clueTalk.huntId);
-      html += `<button type="button" class="qd-list-item ui-btn ui-btn--plate" data-clue-talk="${esc(clueTalk.huntId)}" aria-label="${esc(t('questUi.dialog.discussQuestAria', { name: title }))}"><span class="gold">?</span> ${esc(t('questUi.dialog.discussQuest', { name: title }))}</button>`;
+    if (clueRow) {
+      const clueLabel =
+        clueRow.kind === 'talk'
+          ? t('questUi.dialog.clueTalk')
+          : t('questUi.dialog.clueDeliver', {
+              count: this.deps.text.number(clueRow.count),
+              item: itemDisplayName(ITEMS[clueRow.itemId]),
+            });
+      const clueAria =
+        clueRow.kind === 'talk'
+          ? t('questUi.dialog.clueTalkAria', { name: npcName })
+          : t('questUi.dialog.clueDeliverAria', {
+              count: this.deps.text.number(clueRow.count),
+              item: itemDisplayName(ITEMS[clueRow.itemId]),
+              name: npcName,
+            });
+      html += `<button type="button" class="qd-list-item ui-btn ui-btn--plate" data-clue-step="1" aria-label="${esc(clueAria)}"><span class="gold">${svgIcon('questlog')}</span> ${esc(clueLabel)}</button>`;
     }
     if (hasVendor) {
       html += `<button type="button" class="qd-list-item ui-btn ui-btn--plate" data-vendor="1" aria-label="${esc(t('questUi.dialog.browseGoodsAria', { name: npcName }))}">${currencyIconHtml('coin_gold')} ${esc(t('questUi.dialog.browseGoods'))}</button>`;
@@ -579,18 +614,6 @@ export class QuestDialogController {
         item.disabled = true;
       });
     });
-    // The clue talk sends the same sim talk; a talk the sim will accept is
-    // answered in the NPC's voice (a short delivery gets the sim's own error).
-    this.deps.element
-      .querySelector<HTMLButtonElement>('[data-clue-talk]')
-      ?.addEventListener('click', (event) => {
-        const liveWorld = this.deps.world();
-        const talk = clueTalkFor(liveWorld.clueHunt, npc.templateId, liveWorld.inventory);
-        liveWorld.targetEntity(npc.id);
-        liveWorld.interact();
-        if (talk?.ready) this.renderClueReply(npc, talk.huntId, talk.step);
-        else (event.currentTarget as HTMLButtonElement).disabled = true;
-      });
     this.bindRoute('[data-vendor]', (opener) => this.deps.openVendor(npc.id, opener));
     this.bindRoute('[data-heroic-shop]', (opener) => this.deps.openHeroicVendor(npc.id, opener));
     this.bindRoute('[data-crucible-shop]', (opener) =>
@@ -618,6 +641,20 @@ export class QuestDialogController {
     this.deps.element.querySelector('[data-husk-trade]')?.addEventListener('click', () => {
       this.deps.world().convertHusks();
       this.close(true);
+    });
+    // The Clue Scroll row sends the SAME authoritative interact the discuss
+    // row does (sim talkToNpc runs onNpcTalkedForClueHunt first on every
+    // host; online it is the interact command). A talk step the sim will
+    // accept is answered in the NPC's own voice (clue_talk_row_core.ts);
+    // anything else opens no successor window (the sim's clue log line or
+    // refusal is the feedback), so it closes WITH the trap's focus restore.
+    this.deps.element.querySelector('[data-clue-step]')?.addEventListener('click', () => {
+      const liveWorld = this.deps.world();
+      const talk = clueTalkFor(liveWorld.clueHunt, npc.templateId, liveWorld.inventory);
+      liveWorld.targetEntity(npc.id);
+      liveWorld.interact();
+      if (talk?.ready) this.renderClueReply(npc, talk.huntId, talk.step);
+      else this.close(true);
     });
     this.bindClose();
     this.showAndFocus();

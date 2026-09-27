@@ -141,14 +141,18 @@ const build = await buildItemArtAudit({
     // release's Viridian Valestrider reins (1284 / 1302 on its own arm):
     // 1424 catalog records and 1442 live definitions on 34 sheet pages,
     // measured with the same verifier run on the merged tree.
-    catalogCount: 1424,
-    liveItemCount: 1442,
-    pendingArtCount: 0,
+    // Re-measured at the 2026-09-28 release/v0.44.0 merge into
+    // feature/buried-hoards: the release's faction ladder, trinket slot and
+    // Warfare Season 2 compose with the hoard paintings: 1464 / 1482, with the
+    // release's 135 pending rows (trinkets and Season 2), on 36 sheet pages.
+    catalogCount: 1464,
+    liveItemCount: 1482,
+    pendingArtCount: 135,
     generatedHeroicDefinitions: 78,
     heroicDefinitionsWithOwnWebp: 59,
     heroicWeaponArtAliases: 19,
-    sheetPageCount: 34,
-    groupCount: 25,
+    sheetPageCount: 36,
+    groupCount: 26,
   },
 });
 assertItemArtAuditPass(build);

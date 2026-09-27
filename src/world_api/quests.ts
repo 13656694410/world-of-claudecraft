@@ -1,7 +1,12 @@
 import type { TreasureMapRarity } from '../sim/content/treasure_maps';
 import type { FactionId } from '../sim/factions';
-import type { QuestProgress, QuestState, WorldQuestProgress } from '../sim/types';
-import type { WorldQuestDifficulty } from '../sim/world_quest_activity';
+import type {
+  QuestProgress,
+  QuestState,
+  WeeklyQuestProgress,
+  WorldQuestProgress,
+} from '../sim/types';
+import type { ActivityChoice } from '../sim/world_quest_activity';
 import type { WorldQuestMedal, WorldQuestScoreboardId } from '../sim/world_quest_scoreboards';
 import type { NearbyWorldQuestTrace } from '../sim/world_quest_trace_public';
 
@@ -15,6 +20,8 @@ export interface WorldQuestLeaderboardEntry {
 }
 
 export interface WorldQuestLeaderboardPage {
+  /** Offline records belonging only to this character. */
+  personal?: boolean;
   board: WorldQuestScoreboardId;
   leaders: WorldQuestLeaderboardEntry[];
   page: number;
@@ -35,6 +42,10 @@ export interface IWorldQuests {
   /** Latest authoritative simulation time used by session-bound World Quest deadlines. */
   readonly worldQuestTime?: number;
   worldQuestLog: ReadonlyMap<string, WorldQuestProgress>;
+  /** The weekly emissary's pick for this character (null while none is taken). */
+  readonly weeklyQuest: WeeklyQuestProgress | null;
+  /** Epoch ms of the next weekly reset, when the pick rolls over. */
+  readonly weeklyQuestResetAtMs: number;
   /** Nearby other players' blue trails/results, never their private drawing guidance. */
   readonly nearbyWorldQuestTraces: readonly NearbyWorldQuestTrace[];
   /** Persistent reputation standing across all allied factions. */
@@ -74,7 +85,11 @@ export interface IWorldQuests {
   shadowWorldQuestAction(action: 'pickpocket' | 'leave', targetId?: number): void;
   /** The instructor dialog's explicit-difficulty start (Normal / Hard) for an
    *  activity that offers the choice; the plain talk keeps its default profile. */
-  startWorldQuestActivity(questId: string, difficulty: WorldQuestDifficulty): void;
+  startWorldQuestActivity(questId: string, difficulty: ActivityChoice): void;
+  /** Take one of the emissary's weekly charges (server-validated: beside him, none taken). */
+  chooseWeeklyQuest(questId: string): void;
+  /** Claim the finished weekly charge's commendation for one faction. */
+  commendWeeklyQuest(factionId: FactionId): void;
   /** One page of a medal world quest's public ladder (best row per character;
    *  the offline world has no ladder and resolves an empty page). `viewer` is a
    *  character name: the page's `self` carries that character's standing. */

@@ -10,11 +10,7 @@ import {
   WORLD_QUEST_LEY_BONUS_SIZES,
 } from '../src/sim/world_quest_daily_generation';
 import { resolveWorldQuestLeyPuzzle } from '../src/sim/world_quest_daily_levels';
-import {
-  LEY_BONUS_PURSES,
-  leyBonusPending,
-  sanitizeLeyBonusProgress,
-} from '../src/sim/world_quest_ley_bonus';
+import { leyBonusPending, sanitizeLeyBonusProgress } from '../src/sim/world_quest_ley_bonus';
 import {
   traceWorldQuestPuzzle,
   worldQuestPuzzleInitialRotations,
@@ -86,10 +82,9 @@ describe('ley bonus boards', () => {
     expect(traceWorldQuestPuzzle(daily.puzzle, daily.solution).path.length).toBeLessThanOrEqual(10);
   });
 
-  it('completes on the daily solve, then charges and pays two harder boards', () => {
+  it('pays the daily solve once, then offers unlimited reward-free harder boards', () => {
     const sim = armed();
     const meta = sim.meta(sim.playerId)!;
-    const level = sim.player.level;
     solveOpenBoard(sim);
     let progress = sim.worldQuestLog.get(QUEST_ID)!;
     expect(progress.state).toBe('completed');
@@ -107,9 +102,7 @@ describe('ley bonus boards', () => {
     const copperBefore = meta.copper;
     solveOpenBoard(sim);
     progress = sim.worldQuestLog.get(QUEST_ID)!;
-    expect(meta.copper - copperBefore).toBe(
-      Math.round(LEY_BONUS_PURSES[0].base + LEY_BONUS_PURSES[0].perLevel * level),
-    );
+    expect(meta.copper).toBe(copperBefore);
     expect(progress.puzzleBonusClaimed).toBe(1);
     expect(progress.puzzleBonusLevel).toBe(2);
     expect(progress.puzzleRotations).toBeUndefined();
@@ -121,14 +114,14 @@ describe('ley bonus boards', () => {
     const secondBefore = meta.copper;
     solveOpenBoard(sim);
     progress = sim.worldQuestLog.get(QUEST_ID)!;
-    expect(meta.copper - secondBefore).toBe(
-      Math.round(LEY_BONUS_PURSES[1].base + LEY_BONUS_PURSES[1].perLevel * level),
-    );
+    expect(meta.copper).toBe(secondBefore);
     expect(progress.puzzleBonusClaimed).toBe(2);
     expect(progress.puzzleBonusLevel).toBeUndefined();
-    // The cache is spent for this offer.
-    expect(sim.pickUpObject(cacheId(sim))).toBe(false);
-    expect(sim.worldQuestLog.get(QUEST_ID)!.puzzleRotations).toBeUndefined();
+    expect(sim.pickUpObject(cacheId(sim))).toBe(true);
+    expect(sim.worldQuestLog.get(QUEST_ID)!.puzzleRotations).toHaveLength(25);
+    solveOpenBoard(sim);
+    expect(meta.copper).toBe(copperBefore);
+    expect(meta.counters.questsCompleted).toBe(1);
   });
 
   it('lets a bonus board time out and reopen without touching the completion', () => {

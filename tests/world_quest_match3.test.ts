@@ -243,28 +243,31 @@ describe('weekly world quest match-three', () => {
     expect(sim.pickUpObject(activator.id)).toBe(true);
     sim.drainEvents();
 
-    let board = [...(sim.worldQuestLog.get(quest.id)?.match3Board ?? level.board)];
-    let refillIndex = sim.worldQuestLog.get(quest.id)?.match3RefillIndex ?? 0;
-    for (
-      let move = 0;
-      move < level.maxMoves && sim.worldQuestLog.get(quest.id)?.state === 'active';
-      move++
-    ) {
-      let best:
-        | { from: number; to: number; result: ReturnType<typeof applyWorldQuestMatch3Move> }
-        | undefined;
-      for (let from = 0; from < board.length; from++) {
-        for (const to of [from + 1, from + level.columns]) {
-          const result = applyWorldQuestMatch3Move(level, board, from, to, refillIndex);
-          if (!result.accepted) continue;
-          if (!best || result.cleared > best.result.cleared) best = { from, to, result };
+    function solve() {
+      let board = [...(sim.worldQuestLog.get(quest.id)?.match3Board ?? level.board)];
+      let refillIndex = sim.worldQuestLog.get(quest.id)?.match3RefillIndex ?? 0;
+      for (
+        let move = 0;
+        move < level.maxMoves && sim.worldQuestLog.get(quest.id)?.state === 'active';
+        move++
+      ) {
+        let best:
+          | { from: number; to: number; result: ReturnType<typeof applyWorldQuestMatch3Move> }
+          | undefined;
+        for (let from = 0; from < board.length; from++) {
+          for (const to of [from + 1, from + level.columns]) {
+            const result = applyWorldQuestMatch3Move(level, board, from, to, refillIndex);
+            if (!result.accepted) continue;
+            if (!best || result.cleared > best.result.cleared) best = { from, to, result };
+          }
         }
+        if (!best) break;
+        sim.swapWorldQuestMatch3Tiles(quest.id, best.from, best.to);
+        board = best.result.board;
+        refillIndex = best.result.refillIndex;
       }
-      if (!best) break;
-      sim.swapWorldQuestMatch3Tiles(quest.id, best.from, best.to);
-      board = best.result.board;
-      refillIndex = best.result.refillIndex;
     }
+    solve();
     expect(sim.worldQuestLog.get(quest.id)).toEqual({
       questId: quest.id,
       count: quest.count,
@@ -280,6 +283,22 @@ describe('weekly world quest match-three', () => {
       count: quest.count,
       state: 'completed',
     });
+    expect(sim.countItem('rift_essence')).toBe(rewardCount);
+    const meta = sim.meta(sim.playerId)!;
+    const copper = meta.copper;
+    const factions = { ...meta.factions };
+    const completions = meta.counters.questsCompleted;
+    expect(sim.pickUpObject(activator.id)).toBe(true);
+    expect(sim.worldQuestLog.get(quest.id)).toMatchObject({
+      state: 'active',
+      count: 0,
+      practiceOnly: true,
+    });
+    solve();
+    expect(sim.worldQuestLog.get(quest.id)?.state).toBe('completed');
+    expect(meta.copper).toBe(copper);
+    expect(meta.factions).toEqual(factions);
+    expect(meta.counters.questsCompleted).toBe(completions);
     expect(sim.countItem('rift_essence')).toBe(rewardCount);
   });
 

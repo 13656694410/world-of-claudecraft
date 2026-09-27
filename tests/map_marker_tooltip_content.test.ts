@@ -29,6 +29,9 @@ function makeWorld(
     questLog: options.questLog ?? new Map(),
     worldQuestLog: options.worldQuestLog ?? new Map(),
     worldQuestExpiresAtMs: options.worldQuestExpiresAtMs ?? 0,
+    // The reward line resolves the day's item from the cycle and the viewer's class.
+    worldQuestCycle: 'wq1_0',
+    cfg: { seed: 1, playerClass: 'warrior' },
     player: { level: 10 },
     inventory: [],
     gatheringProficiency: {},
@@ -215,14 +218,15 @@ describe('MapMarkerTooltipContent', () => {
     const semantic = content.worldQuestSemantic(quest.id, Date.UTC(2026, 7, 31, 12, 0));
     expect(semantic).toContain(`Load freight into the wagon: 2/${quest.count}`);
     expect(semantic).toContain(
-      'Rewards: 912 experience · +30 Church Order Standing · +5 Order Crest',
+      'Rewards: 912 experience · 19s · +30 Church Order standing · +5 Order Crest',
     );
     expect(semantic).toContain('Expires in 2 days, 14 hours, and 16 minutes');
   });
 
   it('embeds the host item card for an item-reward world quest', () => {
-    const quest = WORLD_QUESTS.find((row) => row.reward.type === 'item');
-    if (quest?.reward.type !== 'item') throw new Error('no item-reward world quest');
+    const quest = WORLD_QUESTS.find((row) => row.reward?.extraItem !== undefined);
+    const extra = quest?.reward?.extraItem;
+    if (!quest || !extra) throw new Error('no item-reward world quest');
     const itemIds: string[] = [];
     const content = new MapMarkerTooltipContent(makeWorld(), {
       itemTooltip: (item) => {
@@ -234,7 +238,7 @@ describe('MapMarkerTooltipContent', () => {
       { questId: quest.id, mx: 0, my: 0, radius: 40, state: 'available' },
       Date.UTC(2026, 7, 31, 12, 0),
     );
-    expect(itemIds).toEqual([quest.reward.itemId]);
+    expect(itemIds).toEqual([extra.itemId]);
     expect(html).toContain('<div class="wq-tt-item-card"><div class="tt-title">host card</div>');
   });
 });

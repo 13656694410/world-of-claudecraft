@@ -1,11 +1,12 @@
-import { GLIDER_COURSE, GLIDER_COURSE_RINGS } from '../sim/content/world_quest_glider';
 import { TICK_RATE, type WorldQuestProgress } from '../sim/types';
+import { gliderCourseById } from '../sim/world_quest_glider_levels';
 import { formatNumber, t } from './i18n';
 
 const number = (value: number) => formatNumber(value, { maximumFractionDigits: 0 });
 
 export function gliderInstructionLines(progress: WorldQuestProgress): string[] {
   const session = progress.glider;
+  const course = gliderCourseById(session?.courseId);
   if (session?.phase === 'failed') {
     return [t('questUi.worldQuest.glider.failed'), t('questUi.worldQuest.glider.retry')];
   }
@@ -43,13 +44,13 @@ export function gliderInstructionLines(progress: WorldQuestProgress): string[] {
   return [
     t('questUi.worldQuest.glider.flying', {
       rings: number(session.passedRings.length),
-      total: number(GLIDER_COURSE_RINGS.length),
+      total: number(course.rings.length),
       time: formatNumber(session.tick / TICK_RATE, { maximumFractionDigits: 1 }),
       speed: number(session.speed),
     }),
-    session.passedRings.length === GLIDER_COURSE_RINGS.length
+    session.passedRings.length === course.rings.length
       ? t('questUi.worldQuest.glider.landing')
-      : t('questUi.worldQuest.glider.nextRing', { minimum: number(GLIDER_COURSE.minRings) }),
+      : t('questUi.worldQuest.glider.nextRing', { minimum: number(course.minRings) }),
     t('questUi.worldQuest.glider.controls'),
   ];
 }

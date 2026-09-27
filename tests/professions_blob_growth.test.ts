@@ -177,6 +177,7 @@ const NON_PROFESSIONS_BLOB_FIELDS = [
   'honor',
   'lifetimeHonor',
   'honorArenaDaily',
+  'worldPvp',
   'prestigeRank',
   'unlockedMilestones',
   'restedXp',
@@ -207,6 +208,9 @@ const NON_PROFESSIONS_BLOB_FIELDS = [
   // world-quest payout spent at the faction quartermasters: persisted beside
   // the standing rows, world-quest state, never professions state.
   'factionCurrencies',
+  // The weekly emissary's pick (src/sim/weekly_quests.ts), beside the world
+  // quests it stands next to.
+  'weeklyQuest',
   'arenaRating',
   'arenaWins',
   'arenaLosses',
@@ -496,7 +500,13 @@ function enchantCeiling(itemId: string, payload: ItemInstancePayload): ItemInsta
     (a, b) =>
       Buffer.byteLength(JSON.stringify(b), 'utf8') - Buffer.byteLength(JSON.stringify(a), 'utf8'),
   );
-  if (!candidates[0]) throw new Error(`no legal enchant for ${itemId}`);
+  // The trinket slot (PR 4173) admits no enchant: no ENCHANTS row names it, so
+  // its instance carries the bare payload at the ceiling rather than a made-up
+  // roll; every other slot still throws when it finds no legal enchant.
+  if (!candidates[0]) {
+    if (def.slot === 'trinket') return payload;
+    throw new Error(`no legal enchant for ${itemId}`);
+  }
   return candidates[0];
 }
 
@@ -601,7 +611,8 @@ function ceilingSim(nowMs?: number): Sim {
   // The fixture and the settle assertion both read ALL_EQUIP_SLOTS, so the
   // list length itself needs a literal pin: a slot silently dropped from the
   // live list would shrink the fixture and the measured ceiling in lockstep.
-  if (ALL_EQUIP_SLOTS.length !== 12)
+  // 13 with the trinket slot (PR 4173); the ceilings below were re-minted.
+  if (ALL_EQUIP_SLOTS.length !== 13)
     throw new Error('live equip slot list changed; re-mint the ceiling');
   for (const slot of ALL_EQUIP_SLOTS) {
     const ordinary = ALL_RECIPES.map((recipe) => ITEMS[recipe.resultItemId]).find(
@@ -890,11 +901,13 @@ describe('the professions blob growth bound (phase 16)', () => {
     expect(s2.knownRecipes ?? []).toHaveLength(RETAINABLE_KNOWN_IDS.size);
     expect(new Set(s2.knownRecipes)).toEqual(RETAINABLE_KNOWN_IDS);
     expect(MAX_KNOWN_RECIPE_IDS).toBe(512);
-    // 204 -> 209 recipes and 205 -> 213 retainable ids at the faction
-    // quartermasters (src/sim/content/faction_vendors.ts): five recipes and
-    // three drop-acquired enchants sold for faction currency.
+    // 204 -> 209 recipes and +8 retainable ids at the faction quartermasters
+    // (src/sim/content/faction_vendors.ts, the Buried Hoards merge): five recipes
+    // and three formula-taught etchings sold for faction marks.
     expect(new Set(ALL_RECIPES.map((recipe) => recipe.id)).size).toBe(209);
-    expect(RETAINABLE_KNOWN_IDS.size).toBe(213);
+    // 209 with the four learned faction formulas (content/enchants.ts), each
+    // a retained `acquisition: 'drop'` enchant id like Zeal.
+    expect(RETAINABLE_KNOWN_IDS.size).toBe(217);
     expect(RETAINABLE_KNOWN_IDS.size).toBeLessThan(MAX_KNOWN_RECIPE_IDS);
     expect(s2.knownRecipes).toContain('enchant_weapon_lastflame_zeal');
     // Derived from the refusal policy so a profession becoming slottable
@@ -935,7 +948,9 @@ describe('the professions blob growth bound (phase 16)', () => {
     expect(Object.keys(s2.questCadence ?? {})).toHaveLength(
       Object.values(QUESTS).filter((q) => q.repeatCadenceTicks).length,
     );
-    expect(Object.keys(s2.equipmentInstance ?? {})).toHaveLength(ALL_EQUIP_SLOTS.length);
+    // Every slot but the trinket (PR 4173): trinkets admit no enchant and no
+    // crafting signer, so the fixture's empty trinket instance prunes on save.
+    expect(Object.keys(s2.equipmentInstance ?? {})).toHaveLength(ALL_EQUIP_SLOTS.length - 1);
     // Content-scaled like the node cooldowns: one row per authored bed, so
     // the field grows with the FARM_PATCHES table, never per player action.
     expect(Object.keys(s2.farmPlots ?? {})).toHaveLength(FARM_BED_IDS.size);
@@ -1169,21 +1184,21 @@ describe('the professions blob growth bound (phase 16)', () => {
     // boundTo digits for this fixture's. The edge stays measurement plus one
     // and the floor measurement minus 380 (the 11m rule); the 18 KiB
     // structural ceiling holds with 836 bytes of headroom.
+    //
+    // Faction ladder rework: 18,975 measured (the four learned faction
+    // formula ids joining retained knowledge, content/enchants.ts: 134 bytes
+    // at their widths plus quotes and commas, and the worn copy's widest
+    // enchant marker growing with the longest new id). Edge measurement plus
+    // one, floor measurement minus 380.
     const bytes = professionsBytes(s2);
     // Crucible 2026-09-05: 18,807 = 17,596 + 1,189 (33 new recipe ids) + 32
     // (Zeal) - 10 (legal equipment payloads, including new binding/provenance,
     // replacing the invented three-stat rolls). Same narrow tracking band.
     // One quest recipe adds exactly 30 UTF-8 bytes to retained knowledge.
-    // Faction quartermasters: 19,077 = 18,830 (the release measurement) + 247,
-    // all in knownRecipes and measured EXACTLY: the five vendor recipe ids
-    // (pattern_reinforced_armor_kit 31, plans_dense_sharpening_stone 31,
-    // recipe_elixir_of_mana_regeneration 37, recipe_potion_of_invisibility 32,
-    // schematic_clockwork_shock_bomb 33, each quoted plus comma) and the three
-    // vendor enchant ids (enchant_feet_shadowstride 28,
-    // enchant_gloves_forged_might 30, enchant_offhand_spirit 25). The edge
-    // stays measurement plus one and the floor measurement minus 380.
-    expect(bytes).toBeGreaterThan(18697);
-    expect(bytes).toBeLessThan(19078);
+    // +247 at the faction quartermasters (Buried Hoards merge, measured exactly):
+    // the five vendor recipe ids and three vendor enchant ids in knownRecipes.
+    expect(bytes).toBeGreaterThan(18842);
+    expect(bytes).toBeLessThan(19223);
     // Strictly dominated by the band's upper edge while the band holds:
     // kept as documentation that the structural ceiling also bounds this
     // state, never the live guard.
@@ -1968,8 +1983,8 @@ describe('the whole-character gear-heavy maximal blob (Phase 18 U-MEASURE)', () 
     // professions arm pins, so the two measurements can never describe
     // different fixtures.
     const professions = professionsBytes(s2);
-    expect(professions).toBeGreaterThan(18697);
-    expect(professions).toBeLessThan(19078);
+    expect(professions).toBeGreaterThan(18842);
+    expect(professions).toBeLessThan(19223);
 
     // Every container really reached its ceiling through the load (the
     // `field in state` and non-empty pins above are the pattern): a load clamp
@@ -2193,15 +2208,23 @@ describe('the whole-character gear-heavy maximal blob (Phase 18 U-MEASURE)', () 
     // Intellect and Spirit (tierDeltaStats, item_budget.ts), so every baked
     // copy in the maximal bags and bank is a few bytes longer and the
     // equipped-instance delta shrinks by the same shape.
+    // Faction ladder rework: knownRecipes +134 (the four learned faction
+    // formula ids at their widths plus quotes and commas), equipmentInstance
+    // +11 (the worn copy's widest legal enchant marker is now a faction
+    // formula id); the professions band above re-measured at 18,975.
+    // The trinket slot (PR 4173) then adds its equipment row (the id-ordered
+    // first trinket a warrior can wear, bastion_sigil): 115 to 141.
     expect(fixtureDelta).toEqual({
-      equipment: 115,
-      equipmentInstance: -17,
+      equipment: 141,
+      equipmentInstance: -6,
       inventory: 16400,
       bank: 36080,
       vendorBuyback: 756,
-      // 62 + 247: the faction quartermasters' five recipe ids and three enchant
+      // 62 + 134: the four learned faction formula ids retained in
+      // knownRecipes (content/enchants.ts, the faction ladder rework).
+      // 196 + 247: the faction quartermasters' five recipe ids and three enchant
       // ids in knownRecipes (itemized at the professions band above).
-      knownRecipes: 309,
+      knownRecipes: 443,
     });
     // field_kit (below) is the ONE Field Kit deedStats entry inside this same
     // settled state; the fixture-repair deltas above are Crucible-only and
@@ -2364,31 +2387,61 @@ describe('the whole-character gear-heavy maximal blob (Phase 18 U-MEASURE)', () 
     // characters of ids plus 2 x 3 = 32). Predicted from the literals BEFORE
     // the run (56,241 to 56,346; the deeds row below moves 599 to 672 and
     // deedStats 469 to 501).
-    // Plus 533 at the faction currency stock (fffccbd715): the 19 new faction
-    // quartermaster item ids (recipes, formulas, their crafted goods,
-    // cartographers_ink, the allied/rift conveniences) in
-    // deedStats.itemsDiscovered, sorted-array rows of `"<id>",`. Its other
-    // mover, the eight new retainable recipe and enchant ids in knownRecipes
-    // (+247), is already inside fixtureDelta.knownRecipes (62 to 309) above.
-    // Plus 4,711 at the Buried Hoards content: cmb_coinsack_caught in the deeds
-    // row (+35), the 96 hoard gear ids (32 pieces in base, rare_ and
-    // legendary_ forms, content/hoard_loot.ts) and the four treasure_map_* ids
-    // in itemsDiscovered (+2,889), the hoardGoblinKills counter (+26), and
-    // the 32 hoard gear reliquary.firstFind rows plus the
-    // conquerors_buried_hoards illuminated page (+1,761). MEASURED on the
-    // merged tree against the 212,524 re-base: 218,015, exactly +5,491
-    // (247 + 533 + 4,711).
+    // Plus 154 at the fourth release/v0.44.0 base merge: the release's
+    // Eastbrook ferry round-trip deed (exp_harbor_to_harbor, +36 in the deeds
+    // row) and its four ferry:<from>_<to> visit marks (+118 in deedStats), earned
+    // in this maximal fixture (the release's own attribution).
+    // Plus 13,496 for the Warfare Season 2 honor stock (139 item ids across the
+    // maximal fixture's discovered-item and reliquary fields). MEASURED on the
+    // release: the settled blob grew by exactly this much when the stock landed.
     expect(counterfactualBytes - 156144).toBe(
       Object.values(fixtureDelta).reduce((sum, value) => sum + value, 0) +
         183 +
         1548 +
         50 +
+        // 49 -> 71 with the Viridian Valestrider's reins (PR 4175, release/v0.44.0 base merge) in the dev-mount isolation.
         71 +
         375 +
         358 +
+        // Plus 17 at the weekly emissary rebase: the Emissary's Cache id in the
+        // maximal character's deedStats.itemsDiscovered (the deedStats row
+        // below moves 469 to 486 by the same 17). MEASURED (56,241 to 56,258).
+        // Plus 105 at the Clue Scroll content (the two deed ids and the two
+        // item ids).
         282 +
+        17 +
         105 +
+        // Plus 371 at the faction ladder rework: the 17 new faction rows
+        // (13 periphery pieces and 4 formulas) in the maximal character's
+        // deedStats.itemsDiscovered, 320 characters of ids plus 3 bytes of
+        // quoting and comma each. Predicted from the literals BEFORE the run
+        // (56,508 to 56,879; the deedStats row below moves by the same 371).
+        371 +
+        // Plus 1,136 at the trinket slot (PR 4173) landing on the integration
+        // branch: the 18 trinket ids in the maximal character's
+        // deedStats.itemsDiscovered (270 characters of ids plus 18 x 3 = 324)
+        // and the 17 trinket Reliquary pages in its reliquary rows (+812).
+        // MEASURED on the integration tree (the deedStats row below moves by
+        // the same 324 and reliquary 80 to 892).
+        1136 +
+        // Plus 13,496 at the second release/v0.44.0 base merge: Warfare Season 2's
+        // 139 honor item ids (deedStats.itemsDiscovered +4,648 and the reliquary
+        // rows +8,848, the release's own attribution).
+        13496 +
+        // Plus 154 at the fourth release/v0.44.0 base merge (the ferry deed and
+        // its four visit marks, attributed above).
+        154 +
+        // Plus 533 at the faction currency stock (Buried Hoards merge): the 19 new
+        // faction quartermaster item ids (recipes, formulas, their crafted goods,
+        // cartographers_ink, the allied conveniences) in deedStats.itemsDiscovered.
+        // Its other mover, the eight retainable recipe and enchant ids in
+        // knownRecipes (+247), is already inside fixtureDelta.knownRecipes above.
         533 +
+        // Plus 4,711 at the Buried Hoards content: cmb_coinsack_caught in the deeds
+        // row (+35), the 96 hoard gear ids and the four treasure_map_* ids in
+        // itemsDiscovered (+2,889), the hoardGoblinKills counter (+26), and the 32
+        // hoard gear reliquary.firstFind rows plus the conquerors_buried_hoards page
+        // (+1,761), Blaine's itemization; MEASURED on the 2026-09-28 merged tree.
         4711,
     );
     const forgeBaseline = {
@@ -2414,18 +2467,29 @@ describe('the whole-character gear-heavy maximal blob (Phase 18 U-MEASURE)', () 
       // release/v0.43.0 merge: the world-quest deeds (+285) and quest items
       // (+90) attributed in the +375 above. deedStats 111 -> 469 at the
       // wq-reputation merge: the faction quartermaster items (+358 above).
-      // deeds 317 -> 599 at the faction standing deeds (+282 above). deeds
-      // 599 -> 672 and deedStats 469 -> 501 at the Clue Scroll content (+73
-      // and +32 of the +105 above). knownRecipes 30 -> 277 and deedStats
-      // 501 -> 1034 at the faction currency stock (+247, +533 above); deeds
-      // 672 -> 707, deedStats 1034 -> 3949 and reliquary 80 -> 1841 at the
-      // Buried Hoards content (+35, +2,915, +1,761 of the +4,711 above).
+      // deeds 317 -> 599 at the faction standing deeds (+282 above); deedStats
+      // 469 -> 486 at the weekly emissary rebase (+17 above). deeds 599 -> 672
+      // and deedStats 486 -> 518 at the Clue Scroll content (+73 and +32 of the
+      // +105 above). At the 2026-09-28 Buried Hoards merge: deeds +35, deedStats
+      // +3,448 (533 + 2,889 + 26), knownRecipes +247, reliquary +1,761 (the +533,
+      // +4,711 and fixtureDelta +247 above).
     ).toEqual({
+      // Faction ladder rework: knownRecipes 30 + 134 (the four learned formula
+      // ids), deedStats 518 + 371 (the 17 faction ladder rows), the same two
+      // terms the settled-ceiling equation above names. deedStats 889 + 324
+      // and reliquary 80 -> 892 at the trinket slot (PR 4173): the 18 trinket
+      // item ids and the 17 trinket Reliquary pages (+324 and +812 of the
+      // +1,136 above).
       questsDone: 100,
-      knownRecipes: 277,
-      deeds: 707,
-      deedStats: 3949,
-      reliquary: 1841,
+      knownRecipes: 411,
+      // deeds 672 -> 708 and deedStats 5,861 -> 5,979 at the fourth
+      // release/v0.44.0 base merge: the ferry deed and its four visit marks
+      // (the +154 above).
+      deeds: 743,
+      // deedStats +4,648 and reliquary +8,848 at the second release/v0.44.0 base
+      // merge: Warfare Season 2's 139 item ids (the 13,496 attributed above).
+      deedStats: 9427,
+      reliquary: 11501,
     });
     // Removing field_kit AND the Bramblehide release content reproduces the
     // pre-field-kit, pre-Bramblehide baseline WITH the hammer content still
@@ -2435,7 +2499,8 @@ describe('the whole-character gear-heavy maximal blob (Phase 18 U-MEASURE)', () 
     // after the real merge settle: 209,474. RE-MEASURED at 209,524 once the
     // hub training dummy and hub healing dummy PRs landed their two guided
     // practice quests (+50, attributed above; neither dummy nor its NPC touches
-    // any other field this fixture tracks).
+    // any other field this fixture tracks). RE-MEASURED at 223,269 for Warfare
+    // Season 2: exactly +13,496, the 139 honor item ids attributed above.
     expect(
       Buffer.byteLength(JSON.stringify(preReleaseCounterfactual), 'utf8'),
       'field_kit and the Bramblehide release content removed, must reproduce the recorded pre-field-kit Crucible+hammer baseline',
@@ -2446,11 +2511,22 @@ describe('the whole-character gear-heavy maximal blob (Phase 18 U-MEASURE)', () 
       // 210,148 -> 210,506 at the wq-reputation merge: the 15 faction
       // quartermaster item ids (+358, attributed above) stay here too.
       // 210,506 -> 210,788 at the faction standing deeds (+282), in the deeds
-      // row this counterfactual keeps. 210,788 -> 210,893 at the Clue Scroll
-      // content (+105: the two deed ids and the two item ids). 210,893 ->
-      // 216,384 at the faction currency stock and the Buried Hoards content
-      // (+247 + 533 + 4,711, attributed above).
-    ).toBe(216384);
+      // row this counterfactual keeps; +17 at the weekly emissary rebase;
+      // +105 at the Clue Scroll content (the two deed ids and the two item ids).
+      // 210,910 -> 211,426 at the faction ladder rework (+516: the 17 faction
+      // rows in deedStats, +371, the four learned formula ids in knownRecipes,
+      // +134, and the worn copy's wider enchant marker, +11), all attributed
+      // in the growth equation above.
+      // 211,426 -> 212,588 at the trinket slot (PR 4173): the +1,136 of trinket
+      // ids and Reliquary pages attributed above plus the 26-byte trinket
+      // equipment row, both of which this counterfactual keeps.
+      // 212,588 -> 226,084 at the second release/v0.44.0 base merge (+13,496,
+      // the Warfare Season 2 stock this counterfactual keeps).
+      // 226,084 -> 226,238 at the fourth release/v0.44.0 base merge (+154, the
+      // ferry deed and its visit marks, which this counterfactual keeps).
+      // 226,238 -> 231,729 at the 2026-09-28 Buried Hoards merge (+5,491: the
+      // +247 knownRecipes, +533 and +4,711 attributed above, all kept here).
+    ).toBe(231729);
     // Removing ONLY field_kit (the Bramblehide release content and the two
     // dev-mount reins items still present, current staged tree) reproduces
     // 209,524 plus the 1,548-byte Bramblehide delta plus the 71-byte
@@ -2461,21 +2537,24 @@ describe('the whole-character gear-heavy maximal blob (Phase 18 U-MEASURE)', () 
     // 211,392 for the Viridian Valestrider, exactly +22 over the 211,370
     // above: the one new developer-only mount reins id in
     // deedStats.itemsDiscovered (`"reins_avian_strider",`), inside the same
-    // devMountReleaseDelta isolation.
+    // devMountReleaseDelta isolation. RE-MEASURED at 224,888 for Warfare
+    // Season 2: exactly +13,496, the same 139 honor item ids.
     expect(
       counterfactualBytes,
       'field_kit removed, must reproduce the current staged Crucible+hammer+Bramblehide+dev-mount baseline',
       // 211,370 -> 211,745 at the release/v0.43.0 merge into feature/world-quests:
       // plus the world-quest deeds and items (+375), which this baseline keeps.
       // 211,745 -> 212,103 at the wq-reputation merge (+358, the faction items).
-      // 212,103 -> 212,385 at the faction standing deeds (+282).
-      // 212,385 -> 212,490 at the Clue Scroll content (+105).
-      // 212,490 -> 212,512 at the release/v0.44.0 merge into
-      // feature/buried-hoards: the release's Viridian Valestrider reins id
-      // (+22, the devMountReleaseDelta 49 -> 71 above).
-      // 212,512 -> 218,003 at the faction currency stock and the Buried Hoards
-      // content (+5,491, attributed above).
-    ).toBe(218003);
+      // 212,103 -> 212,385 at the faction standing deeds (+282); +17 at the
+      // weekly emissary rebase; +105 at the Clue Scroll content.
+      // 212,507 -> 213,023 at the faction ladder rework (+516, as above).
+      // 213,023 -> 213,045 with the Viridian Valestrider's reins (release/v0.44.0 base merge) (+22).
+      // 213,045 -> 214,207 at the trinket slot (PR 4173): +1,136 of trinket ids
+      // and Reliquary pages plus the 26-byte trinket equipment row.
+      // 214,207 -> 227,703 at the second release/v0.44.0 base merge (+13,496).
+      // 227,703 -> 227,857 at the fourth release/v0.44.0 base merge (+154).
+      // 227,857 -> 233,348 at the 2026-09-28 Buried Hoards merge (+5,491, kept).
+    ).toBe(233348);
     const priorContent = withoutCrucibleContent(s2);
     const contentDelta = Object.fromEntries(
       (['knownRecipes', 'deedStats', 'reliquary'] as const).map((key) => [
@@ -2525,37 +2604,49 @@ describe('the whole-character gear-heavy maximal blob (Phase 18 U-MEASURE)', () 
     // the zero-valued Spirit keys the old normaliser wrote (-8). Re-based per
     // the standing rule (floor measurement minus 380, edge measurement plus
     // one, band width unchanged at 381): 211,002..211,383.
-    // RE-BASED again for the Viridian Valestrider: 211,404 bytes, exactly +22
-    // over the 211,382 above, the same one new reins id, attributed through
-    // the same devMountReleaseDelta isolation. Same standing rule, same 381
-    // width: 211,024..211,405.
-    // RE-BASED at the release/v0.43.0 merge into feature/world-quests: 211,757
-    // bytes, up 375 from 211,382. The movers are the branch's eight world-quest
-    // deeds (deeds, +285) and four quest items (deedStats.itemsDiscovered, +90),
+    // Shifted +17 at the weekly emissary rebase: the held weekly pick row.
+    // RE-BASED at the Clue Scroll content: +105 (the two exp_clue_* deed ids in
+    // the deeds row, +73, and the two clue item ids in
+    // deedStats.itemsDiscovered, +32), both attributed in the growth equation
+    // above; no container or ceiling changed shape. On the quests integration
+    // branch: 212,519 bytes. Floor at measurement minus 380, edge at
+    // measurement plus one: 212,139..212,520.
+    // RE-BASED at the faction ladder rework: +516 (the 17 faction rows in
+    // deedStats.itemsDiscovered, +371; the four learned formula ids in
+    // knownRecipes, +134; the worn copy's wider enchant marker, +11), all
+    // attributed in the growth equation above: 213,035 bytes; 213,057 with the Viridian Valestrider's reins (release/v0.44.0 base merge)
+    // (+22, the one reins id in deedStats.itemsDiscovered). Floor at
+    // measurement minus 380, edge at measurement plus one: 212,677..213,058.
+    // RE-BASED at the trinket slot (PR 4173) landing on the integration
+    // branch: 214,219 bytes, up 1,162 from 213,057. The movers are the 18
+    // trinket ids in deedStats.itemsDiscovered (+324), the 17 trinket
+    // Reliquary pages in the reliquary rows (+812) and the trinket equipment
+    // row (+26), all attributed in the growth equation above; the trinket's
+    // empty instance prunes on save, so no container or ceiling changed shape.
+    // Floor at measurement minus 380, edge at measurement plus one:
+    // 213,839..214,220.
+    // RE-BASED at the second release/v0.44.0 base merge: 227,715 bytes,
+    // up 13,496 from 214,219: Warfare Season 2's 139 honor item ids in
+    // deedStats.itemsDiscovered and the reliquary firstFind rows (the release's
+    // own attribution); no container or ceiling changed shape. Floor at
+    // measurement minus 380, edge at measurement plus one: 227,335..227,716.
+    // RE-BASED at the fourth release/v0.44.0 base merge: 227,869 bytes,
+    // up 154 from 227,715: the release's Eastbrook ferry round-trip deed in the
+    // deeds row (+36) and its four visit marks in deedStats (+118), the
+    // release's own attribution; no container or ceiling changed shape. Floor
+    // at measurement minus 380, edge at measurement plus one:
+    // 227489..227870.
+    // RE-BASED at the 2026-09-28 release/v0.44.0 merge into feature/buried-hoards:
+    // 233,360 bytes, up 5,491 from 227,869: the faction quartermasters' eight
+    // retainable recipe and enchant ids in knownRecipes (+247), their 19 item ids
+    // in deedStats.itemsDiscovered (+533), and the Buried Hoards content (+4,711:
+    // the Coinsack deed, the 100 hoard and treasure-map item ids, the goblin
+    // counter, and the 32 firstFind rows plus the hoard Reliquary page), all
     // attributed in the growth equation above; no container or ceiling changed
-    // shape. Floor at measurement minus 380, edge at measurement plus one.
-    // RE-BASED at the wq-reputation merge (faction quartermaster stock):
-    // 212,115 bytes, up 358 from 211,757. The mover is the 15 faction vendor
-    // item ids in deedStats.itemsDiscovered (+358, attributed in the growth
-    // equation above); no container or ceiling changed shape.
-    // RE-BASED at the faction standing deeds: 212,397 bytes, up 282 from
-    // 212,115. The mover is the seven faction standing deed ids in the maximal
-    // character's deeds row (+282, attributed in the growth equation above).
-    // RE-BASED at the Clue Scroll content: 212,502 bytes, up 105 from
-    // 212,397. The movers are the two exp_clue_* deed ids in the deeds row
-    // (+73) and the two clue item ids in deedStats.itemsDiscovered (+32), both
-    // attributed in the growth equation above.
-    // RE-BASED at the release/v0.44.0 merge into feature/buried-hoards:
-    // 212,524 bytes, the branch's 212,502 plus the release's +22 Valestrider
-    // reins id above. Floor at measurement minus 380, edge at measurement plus
-    // one: 212,144..212,525.
-    // RE-BASED at the faction currency stock and the Buried Hoards content:
-    // 218,015 bytes, up 5,491 from 212,524 (knownRecipes +247, deeds +35,
-    // deedStats +3,448, reliquary +1,761, each attributed in the growth
-    // equation above). Floor at measurement minus 380, edge at measurement
-    // plus one: 217,635..218,016.
-    expect(bytes, reMint).toBeGreaterThan(217635);
-    expect(bytes, reMint).toBeLessThan(218016);
+    // shape. Floor at measurement minus 380, edge at measurement plus one:
+    // 232980..233361.
+    expect(bytes, reMint).toBeGreaterThan(232980);
+    expect(bytes, reMint).toBeLessThan(233361);
 
     // The Crucible database review approved 229,376 bytes (224 KiB), the first
     // 32-KiB step above the corrected 209,261-byte pre-field-kit fixture it was
@@ -2564,8 +2655,8 @@ describe('the whole-character gear-heavy maximal blob (Phase 18 U-MEASURE)', () 
     // 163,840-byte threshold warned on this legal modeled state. Measured here,
     // after this release merge's settle: this combined fixture (hammer
     // content, field_kit, the Bramblehide release content, and the two hub
-    // practice quests) is 211,084 bytes, 18,292 bytes of headroom below the
-    // threshold. Pin the measured
+    // practice quests) was 211,084 bytes; with the Warfare Season 2 stock it is
+    // 224,900 bytes, 4,476 bytes of headroom below the threshold. Pin the measured
     // relation: a lower threshold or further content growth crossing it
     // requires re-measuring and reviewing both sides together, never silently
     // widening this test's narrow tracking band or the warn threshold itself.

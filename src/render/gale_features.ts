@@ -3,15 +3,14 @@
 // cap, with a slowly turning light, the realm's landmark from anywhere on
 // the downs, plus the grey stone stair the sim's beaconSpiralLift makes
 // walkable, hugging the column up to the C balcony, on the masonry plinth
-// that fills the volume the same lift field walls off), the stilt piers and
-// boardwalk of Wickharbor's harbor (drawn from the SAME sim/gale_harbor.ts
-// decks the player walks, with steep ramps drawn as stepped stairs), and
-// the ribs of old hulls half-buried on the Wreckfields. Same contract as the sibling
-// realm modules: build once, update(time) turns the beacon.
+// that fills the volume the same lift field walls off), and the ribs of old
+// hulls half-buried on the Wreckfields. Wickharbor's wooden harbor is its own
+// Blender model (render/wickharbor_harbor.ts, with the ferry wharf,
+// render/wickharbor_wharf.ts). Same contract as the sibling realm modules:
+// build once, update(time) turns the beacon.
 import * as THREE from 'three';
 import { BEACON_SPIRAL, beaconSpiralLift } from '../sim/beacon_spiral';
-import { GALE_HARBOR_DECKS } from '../sim/gale_harbor';
-import { GLIDER_TOWER } from '../sim/glider_tower_layout';
+import { GLIDER_WHARF, GLIDER_WHARF_DECKS } from '../sim/glider_wharf_layout';
 import { hash2 } from '../sim/rng';
 import { terrainHeight, WATER_LEVEL } from '../sim/world';
 import { loadGltf } from './assets/loader';
@@ -275,23 +274,6 @@ export function buildGaleFeatures(seed: number): GaleFeaturesView {
     group.add(light);
   }
 
-  // --- Wickharbor's harbor: plank decks on stilts over the bay ---
-  // Drawn from the same GALE_HARBOR_DECKS rectangles groundHeight walks, so
-  // the plank plane underfoot is exactly the plank plane on screen (the
-  // shared walkway builder in deck_render.ts).
-  {
-    const wood = mat(0x8a6a4a, 0.9);
-    const postWood = mat(0x6b523d, 0.92);
-    const { planks, posts } = buildDeckWood(
-      GALE_HARBOR_DECKS,
-      (x, z) => terrainHeight(x, z, seed),
-      WATER_LEVEL,
-      { bollards: true },
-    );
-    group.add(mergeBoxes(planks, wood));
-    group.add(mergeBoxes(posts, postWood));
-  }
-
   // --- the Wreckfields: hull ribs arcing out of the shingle ---
   {
     const ribGeo = new THREE.TorusGeometry(1, 0.08, 5, 10, Math.PI);
@@ -330,162 +312,52 @@ export function buildGaleFeatures(seed: number): GaleFeaturesView {
     group.add(mesh);
   }
 
-  // --- The Shear: Windrider Flight Atalaya (Flightmaster Zephyr's tower) ---
-  // A soaring coastal flight tower at (450, 520) reaching Y = 74, matching
-  // the sim's gliderTowerSurface(x, z). Built with a heavy stone plinth, banded
-  // cylinder column, flared corbelled capital, wood-planked flight deck, and
-  // a roadside updraft funnel at (450, 512.5) with spiraling wind rings.
+  // Zephyr's pier on the existing western mountain. Shared rectangles keep
+  // the visible planks and walkable deck aligned.
   const updraftGroup = new THREE.Group();
   {
-    const stone = mat(0x8f959c, 0.95);
-    const baseStone = mat(0x7c828a, 0.95);
-    const darkIron = mat(0x4b4f56, 0.8);
-    const woodPlank = mat(0x8a6a4a, 0.9);
+    const wood = mat(0x8a6a4a, 0.9);
+    const postWood = mat(0x6b523d, 0.92);
+    const { planks, posts } = buildDeckWood(
+      GLIDER_WHARF_DECKS,
+      (x, z) => terrainHeight(x, z, seed),
+      WATER_LEVEL,
+      { railAll: true },
+    );
+    group.add(mergeBoxes(planks, wood));
+    group.add(mergeBoxes(posts, postWood));
+
+    // A wind-sock pennant at the pier root, pointing the way the course opens.
     const bannerBlue = mat(0x38bdf8, 0.75);
-
-    const tx = GLIDER_TOWER.x;
-    const tz = GLIDER_TOWER.z;
-    const deckY = GLIDER_TOWER.deckY;
-    const groundY = terrainHeight(tx, tz, seed);
-    const totalH = deckY - groundY;
-
-    // 1. Plinth at base
-    const plinthGeo = new THREE.CylinderGeometry(5.2, 5.8, 6.0, 16);
-    const plinth = new THREE.Mesh(plinthGeo, baseStone);
-    plinth.position.set(tx, groundY + 2.5, tz);
-    plinth.castShadow = true;
-    plinth.receiveShadow = true;
-    group.add(plinth);
-
-    // 2. Tower column shaft
-    const shaftH = totalH - 5.0;
-    const shaftGeo = new THREE.CylinderGeometry(
-      GLIDER_TOWER.columnRadius,
-      GLIDER_TOWER.columnRadius + 0.3,
-      shaftH,
-      16,
-    );
-    const shaft = new THREE.Mesh(shaftGeo, stone);
-    shaft.position.set(tx, groundY + 3.0 + shaftH / 2, tz);
-    shaft.castShadow = true;
-    shaft.receiveShadow = true;
-    group.add(shaft);
-
-    // 3. Banded decorative masonry rings every 14 yards up the column
-    for (let by = groundY + 14; by < deckY - 8; by += 14) {
-      const bandGeo = new THREE.CylinderGeometry(
-        GLIDER_TOWER.columnRadius + 0.35,
-        GLIDER_TOWER.columnRadius + 0.35,
-        0.8,
-        16,
-      );
-      const band = new THREE.Mesh(bandGeo, baseStone);
-      band.position.set(tx, by, tz);
-      band.castShadow = true;
-      band.receiveShadow = true;
-      group.add(band);
-    }
-
-    // 4. Corbelled capital flare beneath the platform
-    const corbelGeo = new THREE.CylinderGeometry(
-      GLIDER_TOWER.deckRadius,
-      GLIDER_TOWER.columnRadius,
-      4.0,
-      16,
-    );
-    const corbel = new THREE.Mesh(corbelGeo, baseStone);
-    corbel.position.set(tx, deckY - 2.0, tz);
-    corbel.castShadow = true;
-    corbel.receiveShadow = true;
-    group.add(corbel);
-
-    // 5. Flight deck stone slab & wooden decking
-    const deckGeo = new THREE.CylinderGeometry(
-      GLIDER_TOWER.deckRadius + 0.15,
-      GLIDER_TOWER.deckRadius + 0.15,
-      0.5,
-      16,
-    );
-    const deckMesh = new THREE.Mesh(deckGeo, stone);
-    deckMesh.position.set(tx, deckY - 0.25, tz);
-    deckMesh.castShadow = true;
-    deckMesh.receiveShadow = true;
-    group.add(deckMesh);
-
-    const woodDeckGeo = new THREE.CylinderGeometry(
-      GLIDER_TOWER.deckRadius - 0.2,
-      GLIDER_TOWER.deckRadius - 0.2,
-      0.06,
-      16,
-    );
-    const woodDeck = new THREE.Mesh(woodDeckGeo, woodPlank);
-    woodDeck.position.set(tx, deckY + 0.03, tz);
-    woodDeck.receiveShadow = true;
-    group.add(woodDeck);
-
-    // 6. Flight deck perimeter railings with open southern launch mouth
-    const railParts: THREE.BufferGeometry[] = [];
-    const railRadius = GLIDER_TOWER.deckRadius - 0.3;
-    const postCount = 14;
-    const postPositions: THREE.Vector3[] = [];
-    for (let i = 0; i < postCount; i++) {
-      const angle = (i / postCount) * Math.PI * 2;
-      const px = tx + Math.sin(angle) * railRadius;
-      const pz = tz + Math.cos(angle) * railRadius;
-      if (angle > 1.1 && angle < 2.0) continue; // open mouth for glider takeoff
-
-      const post = new THREE.BoxGeometry(0.14, 1.1, 0.14);
-      post.translate(px, deckY + 0.55, pz);
-      railParts.push(post.toNonIndexed());
-      postPositions.push(new THREE.Vector3(px, deckY, pz));
-    }
-    for (let i = 0; i + 1 < postPositions.length; i++) {
-      const p1 = postPositions[i];
-      const p2 = postPositions[i + 1];
-      if (p1.distanceTo(p2) < 3.2) {
-        beamBetween(
-          railParts,
-          new THREE.Vector3(p1.x, deckY + 0.5, p1.z),
-          new THREE.Vector3(p2.x, deckY + 0.5, p2.z),
-          0.06,
-          0.08,
-        );
-        beamBetween(
-          railParts,
-          new THREE.Vector3(p1.x, deckY + 1.0, p1.z),
-          new THREE.Vector3(p2.x, deckY + 1.0, p2.z),
-          0.06,
-          0.08,
-        );
-      }
-    }
-    if (railParts.length > 0) group.add(mergeBoxes(railParts, darkIron));
-
-    // 7. Wind indicator mast and fluttering pennants on the deck
-    const mastGeo = new THREE.CylinderGeometry(0.08, 0.1, 4.2, 8);
-    const mast = new THREE.Mesh(mastGeo, darkIron);
-    mast.position.set(tx - 3.2, deckY + 2.1, tz - 2.2);
-    group.add(mast);
-
+    const poleGeo = new THREE.CylinderGeometry(0.09, 0.11, 4.2, 6);
+    const rootDeck = GLIDER_WHARF_DECKS[0];
+    const poleX = rootDeck.ax + 2.6;
+    const poleZ = rootDeck.az + 1.5;
+    const poleY = terrainHeight(poleX, poleZ, seed);
+    const pole = new THREE.Mesh(poleGeo, mat(0x4b4f56, 0.8));
+    pole.position.set(poleX, poleY + 2.1, poleZ);
+    group.add(pole);
     const pennantGeo = new THREE.ConeGeometry(0.4, 2.2, 3);
     pennantGeo.rotateZ(Math.PI / 2);
-    pennantGeo.rotateY(-0.235);
+    pennantGeo.rotateY(Math.PI / 2);
     const pennant = new THREE.Mesh(pennantGeo, bannerBlue);
-    pennant.position.set(tx - 3.2 + 0.9, deckY + 3.8, tz - 2.2);
+    pennant.position.set(poleX + 0.9, poleY + 3.9, poleZ);
     group.add(pennant);
 
-    // 8. Ground-level updraft vent at (450, 512.5)
-    const ux = GLIDER_TOWER.updraft.x;
-    const uz = GLIDER_TOWER.updraft.z;
+    // The return updraft beside the landing pad (GLIDER_WHARF.updraft):
+    // a stone ring on the ground and a spiralling wind funnel the update() arm
+    // turns. The sim's updateGliderLaunchUpdraft carries a player standing in
+    // it back up to Zephyr.
+    const ux = GLIDER_WHARF.updraft.x;
+    const uz = GLIDER_WHARF.updraft.z;
     const uy = terrainHeight(ux, uz, seed);
 
     const stoneRingGeo = new THREE.TorusGeometry(1.6, 0.22, 8, 24);
     stoneRingGeo.rotateX(Math.PI / 2);
-    const stoneRing = new THREE.Mesh(stoneRingGeo, baseStone);
+    const stoneRing = new THREE.Mesh(stoneRingGeo, mat(0x7c828a, 0.95));
     stoneRing.position.set(ux, uy + 0.12, uz);
     group.add(stoneRing);
 
-    // Spiraling wind funnel in Three.js
     const updraftMat = new THREE.MeshBasicMaterial({
       color: 0x67e8f9,
       transparent: true,

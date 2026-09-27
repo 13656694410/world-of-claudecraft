@@ -2,13 +2,12 @@
 //
 // Solving the daily board completes the world quest and pays its reward as
 // before. It also charges the cache with two harder boards (5x5, then 6x6) on
-// the same 90 second clock; each one cleared pays a coin purse
-// (world_quest_bonus.ts) on top. The bonus is optional: nothing about the base
+// the same 90 second clock, as reward-free practice. The practice is optional: nothing about the base
 // quest waits on it, and a player who walks away keeps the completion.
 //
 // State lives on the persisted WorldQuestProgress row of a COMPLETED quest:
 //   puzzleBonusLevel   the level currently charged (1 or 2); absent when none
-//   puzzleBonusClaimed how many bonus levels this offer already paid (0..2)
+//   puzzleBonusClaimed how many practice levels this offer cleared (0..2)
 //   puzzleDay          kept past completion so the bonus boards stay this offer's
 //   puzzleRotations / puzzleExpiresAt   the open board, exactly as on the daily
 // The same sanitizer that guards the daily fields guards these, for the wire
@@ -17,14 +16,7 @@
 import type { PlayerMeta } from './sim';
 import type { SimContext } from './sim_context';
 import type { WorldQuestDef, WorldQuestProgress } from './types';
-import { awardWorldQuestBonusCopper, worldQuestBonusCopper } from './world_quest_bonus';
 import { WORLD_QUEST_LEY_BONUS_LEVELS } from './world_quest_daily_generation';
-
-/** Purse per cleared bonus level (index = level - 1), scaled by character level. */
-export const LEY_BONUS_PURSES = Object.freeze([
-  Object.freeze({ base: 2_000, perLevel: 150 }),
-  Object.freeze({ base: 3_500, perLevel: 250 }),
-]);
 
 export function isLeyBonusLevel(value: unknown): value is number {
   return (
@@ -48,21 +40,14 @@ export function unlockLeyBonus(progress: WorldQuestProgress, day: number | undef
   progress.puzzleBonusClaimed = 0;
 }
 
-/** A solved bonus board: pay its purse, drop the board, charge the next level or finish. */
+/** A solved practice board: drop the board and advance without paying again. */
 export function claimLeyBonus(
-  ctx: SimContext,
-  meta: PlayerMeta,
+  _ctx: SimContext,
+  _meta: PlayerMeta,
   progress: WorldQuestProgress,
 ): void {
   const level = progress.puzzleBonusLevel;
   if (!isLeyBonusLevel(level)) return;
-  const player = ctx.entities.get(meta.entityId);
-  const purse = LEY_BONUS_PURSES[level - 1];
-  awardWorldQuestBonusCopper(
-    ctx,
-    meta,
-    worldQuestBonusCopper(purse.base, purse.perLevel, player?.level ?? 1),
-  );
   progress.puzzleBonusClaimed = level;
   delete progress.puzzleRotations;
   delete progress.puzzleExpiresAt;

@@ -27,6 +27,8 @@ describe('glider course presentation lifecycle', () => {
       visual.update(state);
       for (let i = 0; i < course.rings.length; i++) {
         const mesh = visual.group.children[i];
+        expect(mesh.visible).toBe(true);
+        expect(mesh.scale.x * GLIDER_COURSE.rings[i].radius).toBeCloseTo(course.rings[i].radius);
         expect(mesh.position.toArray()).toEqual([
           course.rings[i].x,
           course.rings[i].y,
@@ -37,16 +39,38 @@ describe('glider course presentation lifecycle', () => {
         (child) => child.name === 'glider-wind-tunnels' && child.visible,
       );
       expect(visibleWinds).toHaveLength(1);
-      expect(visibleWinds[0].children[0].position.toArray()).toEqual([
-        course.windTunnels![0].x,
-        course.windTunnels![0].y,
-        course.windTunnels![0].z,
-      ]);
+      if (course.windTunnels?.length) {
+        expect(visibleWinds[0].children[0].position.toArray()).toEqual([
+          course.windTunnels[0].x,
+          course.windTunnels[0].y,
+          course.windTunnels[0].z,
+        ]);
+      } else expect(visibleWinds[0].children).toHaveLength(0);
+      for (let i = course.rings.length; i < GLIDER_COURSE.rings.length; i++) {
+        expect(visual.group.children[i].visible).toBe(false);
+      }
       expect(ring.geometry).toBe(geometry);
     }
     expect(gate).toHaveBeenCalledOnce();
     visual.dispose();
   });
+  it('shows only the next hoop blue, later hoops red and passed hoops green', async () => {
+    const visual = new GliderCourseVisual(new THREE.Group(), () => 0);
+    await visual.readyForEntry;
+    const state = world();
+    visual.update(state);
+    const color = (i: number) =>
+      ((visual.group.children[i] as THREE.Mesh).material as THREE.MeshBasicMaterial).color.getHex();
+    expect(color(0)).toBe(0x45c8ff);
+    expect(color(1)).toBe(0xf05252);
+    state.worldQuestLog.get(GLIDER_QUEST_ID)!.glider!.passedRings = [GLIDER_COURSE.rings[0].id];
+    visual.update(state);
+    expect(color(0)).toBe(0x75f69a);
+    expect(color(1)).toBe(0x45c8ff);
+    expect(color(2)).toBe(0xf05252);
+    visual.dispose();
+  });
+
   it('warms wind geometry under the course gate and shares its attempt visibility', async () => {
     let warmedWindCount = 0;
     let hiddenAtCompile = false;

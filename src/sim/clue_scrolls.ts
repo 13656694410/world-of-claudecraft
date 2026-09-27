@@ -116,7 +116,14 @@ export function worldQuestSlateComplete(
     (quest) => !ALWAYS_ACTIVE_WORLD_QUEST_IDS.includes(quest.id) && playerLevel >= quest.minLevel,
   );
   if (slots.length === 0) return false;
-  return slots.every((quest) => meta.worldQuestLog.get(quest.id)?.state === 'completed');
+  return slots.every((quest) => {
+    const progress = meta.worldQuestLog.get(quest.id);
+    return (
+      progress?.state === 'completed' ||
+      progress?.practiceOnly === true ||
+      progress?.glider?.practiceOnly === true
+    );
+  });
 }
 
 /** True when one more scroll fits: under the stack cap AND the bags have room. */

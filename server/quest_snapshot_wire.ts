@@ -101,4 +101,6 @@ export function emitQuestSelfKeys(emit: EmitSelfKey, sim: Sim, meta: PlayerMeta)
   );
   emit('wqrr', meta.worldQuestRerollCycle);
   emit('wqrep', meta.worldQuestReplacements ?? {});
+  emit('wkq', meta.weeklyQuest);
+  emit('wkexp', sim.weeklyQuestResetAtMs);
 }

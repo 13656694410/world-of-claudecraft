@@ -8,6 +8,8 @@
 // BEST row per board and serves it back through IWorldQuests. Nothing here
 // grants power: the ladder is bragging rights only.
 
+import { GLIDER_SCOREBOARD_COURSES, gliderScoreboardId } from './glider_scoreboards';
+
 export type WorldQuestMedal = 'bronze' | 'silver' | 'gold';
 
 export const WORLD_QUEST_MEDAL_RANK: Record<WorldQuestMedal, number> = {
@@ -34,12 +36,27 @@ export const WORLD_QUEST_SCOREBOARDS: readonly WorldQuestScoreboard[] = [
   { id: 'calligraphy', questId: 'wq_eastbrook_calligraphy', metric: 'points', primary: 'medal' },
   { id: 'slalom', questId: 'wq_galecrest_slalom', metric: 'points', primary: 'medal' },
   { id: 'forge', questId: 'wq_evergarden_forging', metric: 'seconds', primary: 'medal' },
+  ...GLIDER_SCOREBOARD_COURSES.flatMap(({ courseId }) =>
+    (['daily', 'lifetime'] as const).map(
+      (period): WorldQuestScoreboard => ({
+        id: gliderScoreboardId(courseId, period)!,
+        questId: 'wq_galecrest_slalom',
+        metric: 'seconds',
+        primary: 'metric',
+      }),
+    ),
+  ),
 ];
 
 export type WorldQuestScoreboardId = (typeof WORLD_QUEST_SCOREBOARDS)[number]['id'];
 
 const BY_ID = new Map(WORLD_QUEST_SCOREBOARDS.map((board) => [board.id, board]));
-const BY_QUEST = new Map(WORLD_QUEST_SCOREBOARDS.map((board) => [board.questId, board]));
+const BY_QUEST = new Map(
+  WORLD_QUEST_SCOREBOARDS.filter((board) => !board.id.startsWith('glider_')).map((board) => [
+    board.questId,
+    board,
+  ]),
+);
 
 export function worldQuestScoreboard(id: string): WorldQuestScoreboard | undefined {
   return BY_ID.get(id);

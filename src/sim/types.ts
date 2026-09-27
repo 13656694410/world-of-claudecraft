@@ -125,7 +125,16 @@ export type HonorReason =
   | 'battleground_first_win'
   | 'battleground_complete'
   | 'battleground_kill'
-  | 'battleground_assist';
+  | 'battleground_assist'
+  // World PvP (/pvp flag, src/sim/pvp/world_pvp.ts): the killing blow's share
+  // of the kill pool, and everyone else's who damaged the victim or healed a
+  // damager inside the assist window. Two reasons so the float and the chat
+  // line can name which one just paid, like the battleground drip above.
+  | 'world_kill'
+  | 'world_assist'
+  // King of the Hill (pvp/hill.ts): the once-a-minute trickle to a holder
+  // standing inside the circle.
+  | 'hill_hold';
 
 // Persisted anti-win-trading window for ranked honor. `winsByOpponent` is keyed
 // by bracket plus the stable, sorted opposing-team identity; `totalWins` drives
@@ -504,6 +513,8 @@ export type AuraKind =
   // Vespers Priest: source-owned self resource built by Mindfracture and
   // Effigy-bound Dirge ticks, consumed whole by Call Tithefiend.
   | 'gloomtithe'
+  // Benison Dawnweave: up to three direct-prayer stacks, consumed by Choirmend.
+  | 'benison_prayers'
   // Destruction warlock secondary-resource and cast-shaping state.
   | 'destruction_ruin'
   | 'desolation'
@@ -849,6 +860,11 @@ export interface Stats {
   // player-vs-player damage only; PvE never reads them.
   pvpOffense: number;
   pvpDefense: number;
+  // WARFARE Vitality: the maximum-health fraction honor gear grants outside PvE
+  // instances (pvp/power.ts pvpVitalityFromRating). Unlike the two above it is
+  // not scoped to hostile hits; pvp/vitality.ts switches it off in dungeons,
+  // raids, delves and rift floors.
+  pvpVitality: number;
 }
 
 // The six class/item attributes authored in content. WARFARE fractions are
@@ -877,7 +893,8 @@ export type EquipSlot =
   | 'gloves'
   | 'feet'
   | 'ring1'
-  | 'ring2';
+  | 'ring2'
+  | 'trinket';
 
 // Every live equipment key, including the redesigned Warrior's additive
 // offhand. THE equipment surface: stat derivation, command validators, and
@@ -900,6 +917,7 @@ export const ALL_EQUIP_SLOTS: readonly EquipSlot[] = [
   'feet',
   'ring1',
   'ring2',
+  'trinket',
 ];
 
 /** Narrow an untrusted slot string (a wire field, a DOM dataset value, a
@@ -1023,7 +1041,10 @@ export type ItemUse =
   | { type: 'invisibility' }
   | { type: 'sharpeningStone' }
   | { type: 'shockBomb' }
-  | { type: 'armorKit' };
+  | { type: 'armorKit' }
+  // A container: using it hands the owner its contents and consumes one unit
+  // (src/sim/emissary_cache.ts owns the one container shipped so far).
+  | { type: 'container'; container: 'emissary_cache' };
 
 // Rarity ranks for the cosmetic skin-select event, ordered low → high. A rolled
 // rank unlocks its own tier and every tier below it (epic unlocks rare+uncommon).
@@ -1179,6 +1200,10 @@ interface BaseItemDef {
   // `kind` (weapon/armor/bag/tool: 1, everything else: 20); see stackSizeOf.
   stackSize?: number;
   requiredClass?: PlayerClass[];
+  // Class-locked gear (Warfare Season 2 spec sets): only the requiredClass list
+  // may equip it. Without the flag, armor follows the armor-type rank alone and
+  // requiredClass is advisory (canEquipItem in equipment_rules.ts).
+  classLocked?: boolean;
   // Minimum character level needed to equip this piece. When omitted, the level
   // is DERIVED from `quality` (see src/sim/item_level_req.ts); set this only to
   // override the per-quality default for a specific item.
@@ -1299,7 +1324,7 @@ export interface ItemSet {
 
 export interface ArmorItemDef extends BaseItemDef {
   kind: 'armor';
-  slot: Exclude<EquipSlot, 'mainhand' | 'neck' | 'ring1' | 'ring2'>;
+  slot: Exclude<EquipSlot, 'mainhand' | 'neck' | 'ring1' | 'ring2' | 'trinket'>;
   armorType: ArmorType;
   weapon?: never;
   // A shield stays inside v0.26's established armor item kind, avoiding a new
@@ -1309,13 +1334,13 @@ export interface ArmorItemDef extends BaseItemDef {
   blockValue?: number;
 }
 
-// Jewelry: neck and ring pieces. kind 'armor' so the equip/budget/tooltip paths
+// Jewelry: neck, ring, and trinket pieces. kind 'armor' so the equip/budget/tooltip paths
 // treat it as gear, but it carries NO armor class: equipment_rules falls through
 // the armorType gate, so any class can wear jewelry (requiredClass still applies
 // when set). Rings declare slot 'ring'; see resolveEquipSlot.
 export interface JewelryItemDef extends BaseItemDef {
   kind: 'armor';
-  slot: 'neck' | 'ring';
+  slot: 'neck' | 'ring' | 'trinket';
   armorType?: never;
   weapon?: never;
 }
@@ -2001,8 +2026,6 @@ export interface MobTemplate {
   /** Optional mandatory encounter threshold. Damage cannot move the mob below
    * this max-HP fraction until encounter logic clears its runtime floor. */
   damageFloorPct?: number;
-  /** Optional resting HP fraction for friendly practice targets that should stay healable. */
-  restHpFraction?: number;
   loot: LootEntry[];
   scale: number; // render hint
   color: number; // render hint
@@ -2069,6 +2092,8 @@ export interface MobTemplate {
   // (mob/practice_dummies.ts) so a healer always has something real to heal and
   // the target resets itself for the next player.
   friendlyPracticeTarget?: boolean;
+  // Custom resting health fraction for friendly practice targets (default: 0.35).
+  restHpFraction?: number;
   // Take PASSIVE idle draws off the shared world stream (Entity.offStreamRng).
   // CampDef.offStream covers a wholly new camp; this covers a template that
   // REPLACED shipped content in an existing camp slot, where the spawn draws
@@ -3959,6 +3984,9 @@ export interface NpcDef {
   // widened. Vending stays emergent from vendorItems; the watch fee is a
   // plant-time bag payment and never gates on this flag (D9).
   farmer?: true;
+  // The weekly emissary: talking to this NPC opens the weekly-quest window
+  // (src/sim/weekly_quests.ts) instead of the gossip menu.
+  weeklyEmissary?: boolean;
   greeting: string;
   // Registered but not surface-placed at world init. The owning system spawns
   // the entity on demand (e.g. the Nythraxis encounter walks Brother Aldric in
@@ -3992,10 +4020,20 @@ export interface CampDef {
 // Ground interactables (sparkle objects)
 export const STABLE_GROUND_OBJECT_ENTITY_ID_MIN = 2_147_000_000;
 
+export interface GroundObjectPosition {
+  x: number;
+  z: number;
+  /** Exact world height when authored; omitted positions sit on the terrain. */
+  y?: number;
+  /** Authored yaw in radians. */
+  facing?: number;
+  scale?: number;
+}
+
 export interface GroundObjectDef {
   itemId: string;
   name: string;
-  positions: { x: number; z: number }[];
+  positions: GroundObjectPosition[];
   /** Optional ids in the reserved high range, used without shifting the legacy roster. */
   entityIds?: readonly number[];
 }
@@ -4104,7 +4142,10 @@ export interface DungeonDef {
   index: number; // x-band for instance origins; must be unique
   doorPos: { x: number; z: number }; // overworld entrance portal
   /** where leaving drops the player, relative to doorPos (default 0,-4);
-   *  doors flush against a building face need a FORWARD drop instead */
+   *  doors flush against a building face need a FORWARD drop instead. Also the
+   *  predefined exit facing: leaveDungeon points the player away from the door
+   *  along this vector, instead of leaving them facing whatever way they were
+   *  walking inside the instance. */
   leaveOffset?: { x: number; z: number };
   /** render the entrance membrane still (no swirl spin): for doors that
    *  read as a building's own doorway rather than a magic portal */
@@ -4205,6 +4246,15 @@ export interface ZoneDef {
   westPassZ?: number;
   zMax: number;
   levelRange: [number, number];
+  /**
+   * World PvP policy of the ground (src/sim/pvp/world_pvp_zones.ts). 'sanctuary':
+   * no world PvP at all, flagged or not. 'ffa': free-for-all, everyone standing
+   * here is fair game with no flag. Absent: contested, the mutual-flag rule.
+   * Owner tuning: the tutorial island and the starter zone are sanctuaries, the
+   * three highest-level zones are free-for-all (tests/world_pvp_zones.test.ts
+   * pins the set; flip one word here to move a zone).
+   */
+  worldPvp?: 'sanctuary' | 'ffa';
   biome: BiomeId;
   hub: { x: number; z: number; radius: number; name: string };
   graveyard: { x: number; z: number };
@@ -4431,7 +4481,8 @@ export interface ZonePropsDef {
      * sunk this many yd below the waterline (the hull's draft) */
     float?: number;
     /** A standable top (crate/rock family, see `colliders.ts`): this many yd
-     * above ground, a mover may land and stand on it instead of the piece
+     * above the rendered base, ground for ordinary props and the waterline
+     * draft for floating props. A mover may land and stand on it instead of the piece
      * colliding as a full-height wall. Requires `r` (or `hw`/`hd`) for the
      * footprint; omit for ordinary full-height or walk-through decor. */
     standableTop?: number;
@@ -4694,10 +4745,26 @@ export interface QuestProgress {
   rev?: number;
 }
 
-export type WorldQuestReward =
-  | { type: 'xp'; rate: number }
-  | { type: 'copper'; base: number; perLevel: number }
-  | { type: 'item'; itemId: string; count: number };
+/** A level-scaled copper purse: `base + perLevel * level`. */
+export interface WorldQuestCopperSchedule {
+  base: number;
+  perLevel: number;
+}
+
+/** Per-quest overrides of what a world quest pays. Every world quest pays XP,
+ *  copper and faction standing (src/sim/world_quests.ts awardWorldQuest); a def
+ *  only names what differs from the shared schedule. The day's item rewards are
+ *  never authored here: three zone slots per cycle carry one, chosen per cycle
+ *  and per class (src/sim/world_quest_item_slots.ts). */
+export interface WorldQuestReward {
+  /** XP as a share of xpForLevel(level); WORLD_QUEST_XP_RATE when omitted. */
+  xpRate?: number;
+  /** Copper purse override; WORLD_QUEST_COPPER when omitted. */
+  copper?: WorldQuestCopperSchedule;
+  /** A fixed extra item on top of the bundle (the two rift essence quests),
+   *  never equipment: gear comes only from the day's item slots. */
+  extraItem?: { itemId: string; count: number };
+}
 
 export type WorldQuestBeamSide = 'north' | 'east' | 'south' | 'west';
 
@@ -4857,7 +4924,9 @@ export interface WorldQuestDef {
   area: { x: number; z: number; radius: number };
   objective: WorldQuestObjective;
   count: number;
-  reward: WorldQuestReward;
+  /** Overrides of the shared reward schedule; omitted means XP, copper and
+   *  standing at the defaults. */
+  reward?: WorldQuestReward;
 }
 
 /** Per-character state for the current host-provided UTC cycle. Available
@@ -4878,7 +4947,23 @@ export interface WorldQuestShadowState {
   stealing?: { targetId: number; remaining: number; x: number; z: number };
 }
 
+/** The one weekly charge a character holds (src/sim/weekly_quests.ts). */
+export interface WeeklyQuestProgress {
+  questId: string;
+  /** The week the pick belongs to; a different current week means it is over. */
+  week: string;
+  count: number;
+  state: 'active' | 'completed';
+  /** The faction id that took the week's commendation (standing), once the
+   *  finished charge's one choice is made; absent until then. */
+  commended?: string;
+}
+
 export interface WorldQuestProgress {
+  /** Reward-free replay cursor. Session only; saved as the earned completion. */
+  practiceOnly?: boolean;
+  /** Completed lesson scores retained while a session-only replay is in progress. */
+  practiceTraceScores?: WorldQuestTraceRoundScore[];
   /** Personal borrowed cloak and channel, omitted from saves. */
   shadow?: WorldQuestShadowState;
   /** Personal investigation clues and live summon reference, omitted from saves. */
@@ -4968,6 +5053,31 @@ export type Consuming = FoodConsuming | DrinkConsuming;
 
 export function isConsuming(e: { eating: Consuming | null; drinking: Consuming | null }): boolean {
   return e.eating !== null || e.drinking !== null;
+}
+
+/** A ferry passenger's voyage (src/sim/transport_ferry.ts): which route,
+ *  and the berths it sails from and to (the ferry deed and a save taken
+ *  aboard read them). Where they stand is their ordinary position: the
+ *  moving deck carries it (src/sim/transport_deck.ts). */
+export interface FerryRide {
+  /** route id (content/transport_ships.ts TRANSPORT_ROUTES) */
+  route: string;
+  /** departure and destination berth indexes */
+  from: number;
+  to: number;
+  /** the ship's pose this tick (the frame the wire's deck spot is taken in) */
+  ship: { x: number; z: number; rot: number };
+}
+
+/** An online entity's spot on a sailing ship's deck, as the snapshot sends it
+ *  (src/net/transport_wire.ts): the route index, the spot in the hull's frame
+ *  (x port, y above the waterline, z bow) and the heading off the bow. */
+export interface FerryDeckMirror {
+  route: number;
+  x: number;
+  y: number;
+  z: number;
+  f: number;
 }
 
 /**
@@ -5063,6 +5173,13 @@ export interface ClientMirroredEntityFields {
   climbProgress?: number;
   /** Mirror of an in-flight Vaulting Charge: a bare server-owned movement bit. */
   leaping?: boolean;
+  /** Mirror of a ferry ride (`ferryRide`): aboard a sailing ship, with the
+   *  deck spot of the newest snapshot and the one being interpolated from, so
+   *  the renderer draws deck-bound bodies in the ship's frame (no slide
+   *  against the deck while it moves). */
+  ferryRiding?: boolean;
+  ferryDeck?: FerryDeckMirror | null;
+  ferryDeckPrev?: FerryDeckMirror | null;
 }
 
 export interface Entity extends ClientMirroredEntityFields {
@@ -5150,8 +5267,9 @@ export interface Entity extends ClientMirroredEntityFields {
   // from the guild's (or pledged guild's) collective lifetime XP. 0 for the
   // base look and for the unguilded. Server-set display only.
   guildTier: number;
-  // Book of Deeds display title: a deed id (never display text), null/absent
-  // for untitled players and every mob/npc. Written by the sim title setter
+  // Display title: a title-deed id or a developer-badge rung title id
+  // ('dev:<rung>', not a deed), never display text; null/absent for untitled
+  // players and every mob/npc. Written by the sim title setter
   // (src/sim/deeds.ts setActiveTitle) and player spawn from persisted state;
   // rides the identity wire only when non-null.
   title?: string | null;
@@ -5160,6 +5278,13 @@ export interface Entity extends ClientMirroredEntityFields {
   // the sim border setter (src/sim/deeds.ts setActiveBorder) and player spawn
   // from persisted state; rides the identity wire only when non-null.
   border?: string | null;
+  // The chosen talent specialization (a spec id such as 'holy', never display
+  // text), null for a character with no spec yet and for every mob/npc.
+  // Render-only mirror of PlayerMeta.talentMods.spec, stamped by
+  // recalcPlayerStats beside the other worn-state mirrors so every spec,
+  // respec, loadout, level, and load path refreshes it. The sim never reads
+  // it; it rides the identity wire for the mouseover tooltip's spec line.
+  specId?: string | null;
   pos: Vec3;
   prevPos: Vec3; // for render interpolation
   facing: number; // radians, 0 = +Z
@@ -5457,8 +5582,18 @@ export interface Entity extends ClientMirroredEntityFields {
   // Authoritative ledge-climb pull-up. Like `leap`, it owns movement while it
   // runs; see `src/sim/climb.ts`.
   climb?: LedgeClimb | null;
+  // A scheduled ferry passenger (src/sim/transport_ferry.ts): aboard while the
+  // ship sails, carried by its moving deck. Session-only and absent until a
+  // first voyage; the wire carries the deck spot (`fry`, see ferryDeck).
+  ferryRide?: FerryRide | null;
+  // The ferry parked this player's pet for a crossing (the delve pet stash);
+  // it comes back once the owner is off the ship and alive.
+  ferryPetParked?: boolean;
   followTargetId: number | null; // /follow: auto-walk after another player until interrupted
   savedMana: number; // druid forms: mana put aside while running on rage/energy
+  // Druid Cat Form: how far the parked energy pool sits below full while out of
+  // the form (0 or absent = full). See combat/cat_form_energy.ts.
+  parkedEnergyDeficit?: number;
   sitting: boolean;
   eating: Consuming | null;
   drinking: Consuming | null;
@@ -5687,6 +5822,20 @@ export interface Entity extends ClientMirroredEntityFields {
    *  see isHostileTo). Server-set via setJailed on jail/unjail and at join
    *  restore; never true offline, never user-settable. */
   jailed?: boolean;
+  /** World PvP flag (/pvp, src/sim/pvp/world_pvp.ts): two flagged players who
+   *  share no party or raid (a guild is no shield) are mutually hostile in the
+   *  open world (isHostileTo's world arm). The DISPLAY mirror of the
+   *  authoritative PlayerMeta.worldPvp state, written only by that module
+   *  (the away.ts meta<->entity precedent), and it rides the entity wire
+   *  (`pvp`) so every nearby client colours the nameplate. Absent/false is
+   *  unflagged, so an unflagged character samples and serializes exactly as
+   *  before the flag existed. */
+  pvpFlag?: boolean;
+  /** WARFARE Vitality switch (src/sim/pvp/vitality.ts): false while the player
+   *  stands in a PvE instance (a dungeon, raid, delve or rift floor), so honor
+   *  gear's health bonus never reaches raid content. Absent means the open
+   *  world, where it applies; battlegrounds and arenas apply it too. */
+  pvpVitalityActive?: boolean;
   /** Wearing the operator-applied Cheater tag (src/sim/moderation/). Server-set
    *  via setCheaterMark at join restore and when an operator applies or lifts a
    *  mark; never true offline, never user-settable. Cosmetic: nothing reads it
@@ -6126,6 +6275,9 @@ export interface NythraxisEncounterState {
     ascensionStacks: number;
   } | null;
   majorGapTimer?: number;
+  // Seconds left before Bone Storm may begin after a Soul Rend detonation
+  // (nythraxis_soul_rend.ts); 0 when no detonation is settling.
+  soulRendSettleTimer?: number;
   // The Crown Endures: seconds since the first encounter tick (the clock runs
   // through the transition) and the enrage stack the boss carries once it has
   // run out (nythraxis_enrage_clock.ts).
@@ -6140,7 +6292,6 @@ export interface NythraxisEncounterState {
     chargeIndex: number;
     chargeTargetId: number | null;
     slammed: boolean;
-    openingSlamSpent: boolean;
     whirlTickTimer: number;
     chargedIds: number[];
   } | null;
@@ -6723,6 +6874,20 @@ export type SimEvent = { pid?: number } & (
       expiresAt: number;
       candidates: { pid: number; name: string }[];
     }
+  // A party loot roll GRANTED its item: fired once per roll, at resolution
+  // (a need/greed win or a direct master-loot assignment), pid-scoped to the
+  // winner. Distinct from the `lootRoll` PROMPT above, which fans one copy out
+  // per candidate before anyone has rolled and so never names a recipient; a
+  // consumer that wants "who received the drop" (the Discord rare-drop card)
+  // reads this event, never the prompt. Never fired when everyone passes or
+  // the winner is gone (the item returns to the corpse instead).
+  | {
+      type: 'lootRollAwarded';
+      rollId: number;
+      itemId: string;
+      itemName: string;
+      quality: ItemDef['quality'];
+    }
   | {
       type: 'error';
       text: string;
@@ -6746,14 +6911,30 @@ export type SimEvent = { pid?: number } & (
     }
   | { type: 'questReady'; questId: string }
   | { type: 'questDone'; questId: string }
+  /** The Gambler's Die landed (src/sim/combat/trinkets.ts): the client names the
+   *  fortune it rolled. */
+  | { type: 'trinketGamble'; fortune: 'keenEdge' | 'luckyHeal' | 'gildedGuard' | 'snakeEyes' }
   | { type: 'worldQuestStarted'; questId: string }
+  // The weekly emissary (src/sim/weekly_quests.ts): open the window, the pick,
+  // progress, and the paid completion. All personal (pid); the client owns
+  // every visible string.
+  | { type: 'worldQuestWeeklyOpen' }
+  | { type: 'worldQuestWeeklyChosen'; questId: string }
+  | { type: 'worldQuestWeeklyProgress'; questId: string; count: number; required: number }
+  | { type: 'worldQuestWeeklyDone'; questId: string }
   /** A big on-screen line for a shared world-quest moment (the client owns the
    *  wording under questUi.worldQuest.banner.<banner>). */
   | { type: 'worldQuestBanner'; banner: WorldQuestBannerId }
   | ({ type: 'cannonResult' } & CannonResult)
   /** One finished scoreboard attempt (src/sim/world_quest_scoreboards.ts); the
    *  server keeps the character's best row per board. */
-  | { type: 'worldQuestScore'; board: string; medal: WorldQuestMedal | null; metric: number }
+  | {
+      type: 'worldQuestScore';
+      board: string;
+      medal: WorldQuestMedal | null;
+      metric: number;
+      resetDay?: string;
+    }
   | {
       type: 'worldQuestProgress';
       questId: string;
@@ -6924,7 +7105,7 @@ export type SimEvent = { pid?: number } & (
   // Asks the client to open the bank window (the interact path at a banker NPC).
   // Structured data only (pid supplied by the union intersection); the client
   // builds every visible string, the mailbox precedent.
-  | { type: 'bank' }
+  | { type: 'bank' | 'weekly_rewards' }
   // Asks the client to open the Rift Forge window (the interact path at a
   // riftForge NPC). Structured only, the bank precedent above.
   | { type: 'riftForge' }
@@ -7287,6 +7468,19 @@ export type SimEvent = { pid?: number } & (
       // clamped heal2 emit site; a tick whose heal fully overheals without
       // draining a heal-absorb shield still emits nothing.
       overheal?: number;
+    }
+  // One absorb shield soaking part of one hit. Emitted per shield drained
+  // (combat/absorb_credit.ts) so the Healing meter and the parse recorder can
+  // credit the SHIELDER: the damage event's aggregate `absorbed` total names
+  // nobody. `sourceId` is the shield aura's caster, `ability` its display
+  // name, `abilityId` its aura id. Never emitted for a zero soak.
+  | {
+      type: 'absorb';
+      sourceId: number;
+      targetId: number;
+      amount: number;
+      ability: string;
+      abilityId: string;
     }
   // visual-only cue for the renderer: spell projectiles, channel beams, dot
   // ticks, aoe novas, and the ranged-mob windup telegraph ('windup' fires at
@@ -8602,8 +8796,9 @@ export const EASTBROOK_NOTICEBOARD_NATIVE_DIMENSIONS = Object.freeze({
 export const EASTBROOK_NOTICEBOARD_INTERACTION_RADIUS = 4 as const;
 // Static world services use their own namespace above the sequential allocator
 // and reserved 1_000_000_x singleton ids (the Vale Cup groundskeeper, FURY in
-// Eastbrook, Warmarshal Draven Kole in Highwatch, the Crucible vendor, and
-// authored practice dummies). A singleton NPC takes a reserved id AND
+// Eastbrook, Warmarshal Draven Kole in Highwatch, the Crucible vendor, the
+// Wyrmwatch harbormaster, the Eastbrook vault keeper, practice dummies; each id
+// is taken ONCE, tests/reserved_singleton_entity_ids.test.ts pins the band). A singleton NPC takes a reserved id AND
 // `dynamic: true` so the generic world-init loop skips it: that loop allocates
 // ids by iterating the merged NPC table in insertion order, so a plain
 // insertion would shift the id of every NPC, camp mob and object created after
@@ -8817,6 +9012,7 @@ export interface SimConfig {
   playerName?: string;
   noPlayer?: boolean; // multiplayer server: start with an empty world and addPlayer() later
   devCommands?: boolean; // local dev: /dev level|tp|give chat cheats
+  worldPvpDisabled?: boolean; // realm kill switch for the /pvp flag (server env WORLD_PVP_DISABLED=1)
   lockoutNowMs?: () => number; // host wall-clock for persisted raid lockouts
   // Live server: schedule the first world-boss rise at boot instead of one
   // interval out, so a freshly (re)started realm has Thunzharr up immediately.

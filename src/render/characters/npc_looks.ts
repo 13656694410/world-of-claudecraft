@@ -18,10 +18,16 @@
 //   point (FURY's closed visor, the chroniclers' scholar hat, Brosk's fur cap).
 // - `props` picks a fixed held-prop def (manifest.ts NPC_MODULAR_PROP_SETS):
 //   NPC gear never changes, so props are authored attaches, never weapon swaps.
+//   An attach is not only a held item: the `harbormaster` set is WORN gear (a
+//   tricorne and pipe on the head bone, a spyglass on the hips bone),
+//   Blender-authored in each bone's bind frame (scripts/assets/harbormaster_gear/).
+// - `outfit` may name an NPC-only colorway (modular.ts NPC_MATERIAL_COLORWAY_IDS,
+//   Tamsin's navy-and-brass `admiralty`): normalizeNpcAppearance keeps it where
+//   the player normalizer would clamp it, so no player can ever wear one.
 //
 // tests/npc_looks.test.ts pins: every NpcDef id resolves to a look EXCEPT
 // Brother Aldric (see aldricKeepsHisRig), every authored value survives
-// normalizeAppearance unchanged (a typo'd style id would silently clamp to the
+// normalizeNpcAppearance unchanged (a typo'd style id would silently clamp to the
 // default), and no two NPCs share an appearance.
 
 import { SHADOW_GUARDS } from '../../sim/content/world_quest_shadow';
@@ -36,6 +42,7 @@ import {
   type ModularLook,
   NEUTRAL_BODY,
   NEUTRAL_FACE,
+  NPC_MATERIAL_COLORWAY_IDS,
   normalizeAppearance,
 } from './modular';
 
@@ -55,7 +62,8 @@ export type NpcPropSet =
   | 'sword'
   | 'scythe'
   | 'knife'
-  | 'spear';
+  | 'spear'
+  | 'harbormaster';
 
 export const NPC_PROP_SET_IDS: readonly NpcPropSet[] = [
   'none',
@@ -71,6 +79,7 @@ export const NPC_PROP_SET_IDS: readonly NpcPropSet[] = [
   'scythe',
   'knife',
   'spear',
+  'harbormaster',
 ];
 
 export interface NpcLookDef {
@@ -1833,6 +1842,29 @@ export const NPC_LOOKS: Record<string, NpcLookDef> = {
     worn: kit('ranger'),
     props: 'crossbow',
   },
+  // Harbormaster Tamsin of the Wyrmwatch quays: an old sea wolf ashore. A salt-grey
+  // braid under a navy tricorne, a pipe in the corner of her mouth, a squint and
+  // wind-burnt cheeks from forty years of weather, the long buttoned coat (the mage's,
+  // dyed the NPC-only `admiralty` navy with brass buttons and cuffs) over dark leather
+  // gloves, and a spyglass on her hip. The ferry's palette.
+  harbormaster_tamsin: {
+    app: {
+      gender: 'female',
+      hair: 'warriorbraid',
+      ...hair(30, 0.1, 0.64),
+      brows: 'thick',
+      eyeShape: 'narrow',
+      ...eyes(200, 0.4, 0.4),
+      ...skin(22, 0.42, 0.4),
+      mouth: 'smile',
+      blush: 'warm',
+      face: face({ jaw: 0.15, brow: 0.3, cheeks: -0.15, smirk: 0.2 }),
+      body: body({ shoulders: 0.2 }),
+      outfit: 'admiralty',
+    },
+    worn: kit('mage', { hands: 'rogue' }),
+    props: 'harbormaster',
+  },
   // Reeve Ottoline of Lanternmere: the harvest never ends; neither do ledgers.
   reeve_ottoline: {
     app: {
@@ -2291,6 +2323,42 @@ export const NPC_LOOKS: Record<string, NpcLookDef> = {
   },
   // === World quests: instructors and the Fenbridge watch ==================
   // Elian: a silver-haired scholar whose open face stays visible above his book.
+  // The Vault Keeper (PR 4052): the Weekly Vault's custodian at the stone hall
+  // by the harbour road, a clean-shaven steward in bank gold with a clerk's
+  // ledger, deliberately plainer than the Gilded Strongbox's bursar.
+  eastbrook_vault_keeper: {
+    app: {
+      gender: 'male',
+      hair: 'sweptback',
+      ...hair(34, 0.18, 0.62),
+      brows: 'arched',
+      eyeShape: 'almond',
+      ...eyes(205, 0.4, 0.45),
+      ...skin(24, 0.42, 0.52),
+      face: face({ cheeks: 0.05, chin: -0.05 }),
+      outfit: 'gold',
+    },
+    worn: kit('rogue'),
+    props: 'tome',
+  },
+  // Cham Pete: the weekly emissary on the Eastbrook green, a
+  // hooded ledger-keeper in the town's violet.
+  weekly_emissary: {
+    app: {
+      gender: 'male',
+      hair: 'sweptback',
+      ...hair(22, 0.12, 0.28),
+      beard: 'goatee',
+      brows: 'soft',
+      eyeShape: 'almond',
+      ...eyes(262, 0.55, 0.5),
+      ...skin(28, 0.35, 0.55),
+      face: face({ cheeks: -0.1, chin: 0.1 }),
+      outfit: 'violet',
+    },
+    worn: kit('mage'),
+    props: 'tome',
+  },
   calligraphy_instructor: {
     app: {
       gender: 'male',
@@ -2459,6 +2527,18 @@ export function aldricKeepsHisRig(templateId: string): boolean {
   return templateId.startsWith('brother_aldric');
 }
 
+/** normalizeAppearance for an authored NPC look: the same clamps, except that an
+ *  NPC-only outfit colorway (modular.ts NPC_MATERIAL_COLORWAY_IDS) survives where
+ *  the player normalizer would clamp it back to the default. */
+export function normalizeNpcAppearance(app: Partial<ModularAppearance>): ModularAppearance {
+  const out = normalizeAppearance(app);
+  const outfit = app.outfit as string | undefined;
+  if (outfit && (NPC_MATERIAL_COLORWAY_IDS as readonly string[]).includes(outfit)) {
+    out.outfit = outfit as ModularAppearance['outfit'];
+  }
+  return out;
+}
+
 /** Suffixed hub ids that share one person's look (the same character recurs
  *  across zones under new templateIds). */
 function baseId(templateId: string): string {
@@ -2481,7 +2561,7 @@ export function npcLookFor(templateId: string, kind: EntityKind = 'npc'): Modula
   let look = resolved.get(id);
   if (look === undefined) {
     const def = NPC_LOOKS[id];
-    look = def ? { app: normalizeAppearance(def.app), worn: def.worn } : null;
+    look = def ? { app: normalizeNpcAppearance(def.app), worn: def.worn } : null;
     resolved.set(id, look);
   }
   return look;

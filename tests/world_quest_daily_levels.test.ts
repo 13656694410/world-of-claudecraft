@@ -94,6 +94,8 @@ describe('daily world quest integration', () => {
         worldQuestCycle: '',
         worldQuestExpiresAtMs: 0,
         worldQuestLog: new Map(),
+        weeklyQuest: null,
+        weeklyQuestResetAtMs: 0,
       };
       applyQuestSelfWire(mirror, { wqday: saved.cycle, wqlog: saved.progress });
       const wire = mirror.worldQuestLog.get(id)!;

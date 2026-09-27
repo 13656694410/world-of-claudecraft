@@ -51,6 +51,7 @@ export const guideStrings = {
     talents: 'Talents',
     arena: 'Arena & PvP',
     thornhollow: 'Thornhollow Fields',
+    worldPvp: 'World PvP',
     deeds: 'Book of Deeds',
     reliquary: 'The Reliquary',
     glossary: 'Glossary',
@@ -141,7 +142,7 @@ export const guideStrings = {
   home: {
     eyebrow: 'Classic-style browser MMO',
     title: 'World of ClaudeCraft',
-    subtitle: 'Quest, group up, and explore a hand-built world, free in your browser.',
+    subtitle: 'Explore the world, take on quests, and tackle dungeons with friends.',
     ctaPlay: 'Play Now',
     ctaLearn: 'How to Play',
 
@@ -549,6 +550,8 @@ export const guideStrings = {
     ifTooltipScale: 'Tooltip text size, handy on a small screen or a very large one.',
     ifHighContrastText:
       'Heavier, higher-contrast interface text. An accessibility option first, and a good one on a bright screen.',
+    ifColorblindMode:
+      'Recolors the Nythraxis floor hazards (the Grave Eruption strike ring, the Grave Flame and Soulfire pools, the Gravefire line, and the Soul Rend marks) onto a colorblind-safe palette with distinct hues and brightness, so overlapping circles keep their edges. Sizes, timers, and positions never change.',
     ifHighContrastBackground:
       'A plainer, higher-contrast background behind the start and character screens.',
     ifInvertLookY: 'Flips the up and down direction of mouse look.',
@@ -582,8 +585,12 @@ export const guideStrings = {
       'Puts your buffs and debuffs on your own unit frame as well as the aura bar.',
     ifAuraBarBelowFrame:
       'Moves the buff row below your unit frame instead of above it. Only matters while buffs are on the player frame.',
+    ifTargetAurasBelowFrame:
+      "Hangs the target frame's buff and debuff strip below the frame instead of above it, the classic layout. Off by default, since the stock target frame sits directly above the action bar; turn it on once you have moved the frame somewhere with room beneath it.",
     ifAlwaysShowAllBuffs:
       'Shows every active buff even on the Low graphics preset, bypassing its usual buff-icon cap.',
+    ifShowAuraCaster:
+      'Adds a "Cast by" line to every buff/debuff tooltip, naming who applied it. Handy for telling apart several casters of the same buff, like two paladins\' Blessings.',
     ifTargetOfTarget:
       'Shows who your target is targeting, the classic way to tell whether the tank still has it.',
     ifPetFrame: 'Shows a frame for your pet.',
@@ -601,7 +608,7 @@ export const guideStrings = {
     ifWalkByAutoloot: 'Scoops the loot from your own kills as you walk past them. Off by default.',
     ifGroundReticle: 'Shows the ground circle while you are aiming a placed spell.',
     ifMouseoverCast:
-      'Lets a heal or a friendly spell land on the party frame you are hovering, without changing your target.',
+      'Lets a heal or a friendly spell land on the unit frame you are hovering, a party or raid row or the target-of-target frame, without changing your target.',
     ifStickyTarget:
       'Keeps your current target when you click on empty ground, instead of clearing it.',
     ifFctScale: 'The size of the damage and healing numbers that float off your target.',
@@ -750,11 +757,21 @@ export const guideStrings = {
     // five non-Latin fills land in this same change.
     framesGovernedAuraTracks:
       'Edit Frames also loosens the six opt-in aura tracks once you have switched them on from the Combat tab of the same Interface options: the My Buffs track, the Defensive Cooldowns track, the My Shields track, the Offensive Cooldowns track, the Movement and Stealth track, and the My Buffs on Allies track. Every track is off by default, and each wears its own name chip while it is loose.',
+    frameGroups:
+      '{trackers} can combine quests, deeds, rifts, delves, gathering goals, and Reliquary tracking. {auras} can combine Target dots and the six aura tracks. Enable either group in Frames Settings, or leave it off to move each frame separately. {tot} includes a resource bar. {focus} has three independently movable targets: Shift+F1 through Shift+F3 assigns them; Ctrl+F1 through Ctrl+F3 selects them. Drag the damage or threat meter anywhere outside its buttons to move it, and drag its edges to resize it, even while frames are locked. While frames are unlocked, Show or Hide Frames has its own grouped menu. Right-click an unlocked frame for Reset size or Frame Options. Interface > Frames also contains Frame Settings and collapsible Party Frame Options. Lock Target of Target to Target keeps those frames together. Turn it off to move Target of Target separately; turning it back on preserves the separate position for later. Assigned focus frames hide their setup controls; right-click and choose Unset Focus to restore them. Mouseover casting also works on focus frames.',
     // The Talking Head (src/ui/hud/talking_head/) joined HUD_FRAME_SPECS with the
     // interface redesign: an NPC's line while the speaker is out of view. Own key
     // for the same reason as the aura tracks. Wordy (M16): non-Latin fills ride along.
     framesGovernedTalkingHead:
       "Edit Frames also loosens the Dialogue panel, which carries an NPC's spoken line while that NPC is out of your view; it wears its name chip while it is loose.",
+    // The mouseover tooltip's movable seat (interface_unlock_core.ts
+    // 'unitTooltip', unit_tooltip_seat.ts) joined HUD_FRAME_SPECS with the
+    // player card's title, guild, and spec lines (player_tooltip_view.ts).
+    // Own key for the same reason as the aura tracks; the menu names are the
+    // live hudChrome.interfaceUnlock values. Wordy (M16): non-Latin fills ride
+    // along.
+    framesGovernedUnitTooltip:
+      "Edit Frames also loosens the Tooltip frame, the spot where the card for whatever your mouse rests on appears: a creature's level and kind, or another player's title, guild, level and class, and specialization with its role. Drag it anywhere and the card grows from there, away from the nearest edges of the screen. Untick Tooltip under Show or Hide Frames in Frames Settings to hide that card altogether.",
 
     barsTitle: 'Bars, timers, and combat text',
     barsBody:
@@ -978,6 +995,12 @@ export const guideStrings = {
     session: 'What you have done since you logged in: kills, deaths, damage and experience.',
     arena:
       'Your Ashen Coliseum standing in both brackets: rating, wins, losses and win rate for 1v1 and for 2v2.',
+    pvp: 'World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.',
+    // The zone layer retired the "anywhere" claim above (sanctuaries allow no
+    // world PvP and free-for-all zones need no flag), so this row is its
+    // reworded successor and `pvp` is retired in scripts/i18n_retired_keys.mjs.
+    pvpZones:
+      'World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other on contested ground, sanctuaries allow no world fighting at all, and the free-for-all zones allow it with or without a flag; switching off takes 5 minutes.',
     listings:
       'Your own listings on the World Market, with the asking price, the time each has left, and how much room you have for more.',
     buyback: 'What you sold to a vendor recently and could still buy back.',
@@ -1996,7 +2019,7 @@ export const guideStrings = {
     // cooldown or timer lengths in the prose.
     resetTitle: 'Resetting your instances',
     resetBody:
-      'Switch difficulty while your group still holds claimed runs and the old claims linger for a while before clearing on their own. The party leader can let them go at once instead: choose Reset All Instances on their own portrait menu, or type /dungeon reset. A reset works only after the difficulty has actually been changed, only while nobody, living or fallen, remains inside, only once every corpse in there has been looted clean, and a short cooldown separates one reset from the next. Arrive at the door on the wrong difficulty and the game says so before the run starts. The raid resets the same way, its own lockout and corpse-return rules still standing on top.',
+      'Switch difficulty while your group still holds claimed runs and the old claims linger for a while before clearing on their own. The party leader can let them go at once instead: choose Reset All Instances on their own portrait menu, or type /dungeon reset. A reset works only after the difficulty has actually been changed, only while nobody, living or fallen, remains inside, only once every corpse in there has been looted clean, and a short cooldown separates one reset from the next. Arrive at the door on the wrong difficulty and the game says so before the run starts. The raid resets the same way, its own lockout and corpse-return rules still standing on top, but it skips the cooldown between resets: a raid that picked the wrong tier, or bounced off Heroic, can switch back at once, since its own lockout is what limits repeat runs.',
 
     // Standalone, spoiler-safe lore for the Drowned Temple card (the goddess twist and any
     // boss names are withheld).
@@ -2247,12 +2270,63 @@ export const guideStrings = {
     // changes nothing else.
     warfareTradeBodyRatingSpent:
       'That is the deliberate trade. Warfare gear is built for fighting players, not as a shortcut past the dungeon tiers: a Warfare piece never carries the combat ratings a dungeon epic in the same slot does, and the Warfare rating and set bonuses it carries instead are spent entirely on other players. If you want to hold your own in the arena, buy it. If you want to clear heroics faster, earn your gear in the dungeons.',
+    // Warfare Season 2 (src/sim/content/pvp_honor_season2.ts,
+    // docs/design/warfare-season-2.md). Spoiler-safe: no prices, item levels,
+    // set names or bonus numbers.
+    vanguardHeading: 'Vanguard gear: Warfare Season 2',
+    vanguardBody:
+      "Vanguard gear is the second season of Warfare gear, sold by the same two quartermasters above the original tier, which stays on sale. Every spec has its own Vanguard set of five pieces, for the head, shoulders, chest, legs and hands, and the shop lists only the three sets your class can wear, followed by the Vanguard weapons you can wield. A Vanguard piece carries the same Warfare ratings as the original tier at a higher item level, and each set has two bonuses, at two and four pieces, that change one of your spec's abilities. Unlike the original sets, those bonuses work everywhere, monsters included, but they are built for fighting players, so a raid set stays the better choice inside a raid.",
   },
 
   // The Thornhollow Fields 5v5 capture-the-flag battleground page
   // (docs/design/thornhollow-fields-lore.md). Spoiler-safe: the mode, the field,
   // flags, wave respawns, runes, the ladder; no honor amounts, rating math, or
   // tuning constants.
+  // World PvP (the /pvp flag): concepts only, no honor amounts or tuning
+  // constants (guide spoiler policy); the stakes shape is named, never priced.
+  worldPvpPage: {
+    heading: 'World PvP',
+    intro:
+      'Open-world player-versus-player is opt-in. Raise your PvP flag and every other flagged player who is not in your party, raid or guild becomes an enemy anywhere in the open world; lower it and, after a short delay, you are a bystander again. Nobody who has not raised the flag can attack or be attacked.',
+    flagHeading: 'Raising and lowering the flag',
+    flagBody:
+      'Type /pvp in chat, or open the PvP window on G and use the World PvP tab, which also shows your record and the stakes. Raising the flag is instant once you are past the starting levels. Lowering it starts a countdown of a few minutes, and the flag will not drop while you are still fighting, so switching off is never an escape from a fight you started. Healing a flagged player who is in a fight raises your own flag.',
+    stakesHeading: 'What a kill is worth',
+    stakesBody:
+      'When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.',
+    limitsHeading: 'Fair play rules',
+    limitsBody:
+      'Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.',
+    // The zone layer (src/sim/pvp/world_pvp_zones.ts, ZoneDef.worldPvp) changed
+    // four of the five paragraphs above from "true" to "true only on contested
+    // ground", so each gained a reworded SUCCESSOR key and the original is
+    // retired in scripts/i18n_retired_keys.mjs rather than edited in place: every
+    // non-Latin overlay already carries a reviewed translation of the old claim,
+    // and rewording an already-translated value never marks it pending again.
+    introZones:
+      'Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. Two zones are sanctuaries where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.',
+    zonesHeading: 'Where world PvP happens',
+    zonesBody:
+      'The world has three kinds of ground. The Proving Shore and Eastbrook Vale are sanctuaries: no world PvP happens there at all, flagged or not, so a new character can never be fought before they know what the flag is. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.',
+    flagBodyAid:
+      'Type /pvp in chat, or open the PvP window on G and use the World PvP tab, which also shows your record and the stakes. Raising the flag is instant once you are past the starting levels. Lowering it starts a countdown of a few minutes, and the flag will not drop while you are still fighting, so switching off is never an escape from a fight you started. Healing, shielding or buffing a flagged player who is in a fight raises your own flag as well, so nobody sustains a fighter from behind a flag they do not wear; aiding a player who is not flagged raises nothing.',
+    stakesUnflaggedTake:
+      'Nor does an unflagged fighter take any: gold only changes hands between two flagged players, though everyone who helped still earns the Honor.',
+    stakesBodyFlagged:
+      'When a flagged player is defeated by another player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. A player who was not flagged pays no gold at all, even when they fall in a free-for-all zone. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.',
+    hillHeading: 'King of the Hill',
+    hillBody:
+      'Once every three hours, at a moment nobody can predict, the whole realm is told that a hill will rise in one of the free-for-all zones in fifteen minutes, and the circle where it will stand is marked on open ground. When it rises it stands for forty-five minutes, then falls. The party with the most players standing inside contests the hill, and after a minute of unbroken majority the hill is theirs; a lone player counts as a party of one, but raid members do not count at all. While a party holds the hill, each of its members standing inside earns a little Honor every minute, so a full party holding an uncontested hill for its whole stand earns a little less than one battleground win pays. A bar over the field shows who holds it, your numbers against theirs, and the contest clock; /hill in chat says where it stands.',
+    limitsBodyHour:
+      'Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.',
+    // Successors (2026-09-25): hillBody said a full hold pays a little under one
+    // battleground win, but the hold now ramps (hill_rules.ts hillHonorPerPayout);
+    // limitsBodyHour gains the raid rule (world_pvp_rules.ts worldPvpGroupEarns).
+    hillBodyRamp:
+      'Once every three hours, at a moment nobody can predict, the whole realm is told that a hill will rise in one of the free-for-all zones in fifteen minutes, and the circle where it will stand is marked on open ground. When it rises it stands for forty-five minutes, then falls. The party with the most players standing inside contests the hill, and after a minute of unbroken majority the hill is theirs; a lone player counts as a party of one, but raid members do not count at all. While a party holds the hill, each of its members standing inside earns Honor every minute, and the longer the same party holds it, the more each minute pays: a full party holding an uncontested hill for its whole stand earns about as much as three battleground wins. When the hill changes hands, the new holders start the count from the beginning. A bar over the field shows who holds it, your numbers against theirs, and the contest clock; /hill in chat says where it stands.',
+    limitsBodyRaids:
+      "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor. Raids earn nothing from world kills: a raid member takes no Honor or gold and does not shrink anyone else's share, so fight as a party to be paid.",
+  },
   thornhollowPage: {
     heading: 'Thornhollow Fields',
     intro:
@@ -2313,6 +2387,8 @@ export const guideStrings = {
     earningHeading: 'Earning standing',
     earningBody:
       "Standing comes from world quests. Every world quest counts toward the faction of the zone it is set in, and because the three factions cover different zones, all three progress at once as you work your way across the map. Taskmaster Kaelen in Eastbrook opens the World Quests board on the map, and the board is also where you may replace one world quest each day if the day's assignment does not suit you.",
+    weeklyBody:
+      "The weekly emissary in Eastbrook Vale adds a second road: finish the week's charge and you may name one faction to receive his commendation of standing, once a week, at the window where you took the charge.",
     lowLevelNote:
       'Standing pauses at a tier for lower-level characters and resumes as you level, so a young character can start earning early without running out of road.',
     tiersHeading: 'Standing tiers',
@@ -3911,10 +3987,16 @@ export const guideStrings = {
     parryBody:
       "Parry is the warrior's own defense: a chance to turn a melee blow aside entirely and take no damage, and it grows with Strength. Only an attack coming at your front can be parried, which is one more reason to keep facing whatever is hitting you. Other classes see the row on their sheet sitting at zero.",
     // Warfare: one player-facing PvP rating, inert against anything that is not a
-    // hostile player. No curve or cap numbers here by design.
+    // hostile player or a hostile player's pet. No curve or cap numbers here by design.
+    // warfareBody is retired (scripts/i18n_retired_keys.mjs): it said Warfare does
+    // nothing against creatures, which stopped being true once pets fight with their
+    // owner's Warfare and honor gear grants health (WARFARE Vitality) outside PvE
+    // instances; warfareBodyPets is its successor.
     warfareTitle: 'Warfare',
     warfareBody:
       'Warfare is the one stat that counts only against other players: it raises the damage you deal to them and lowers the damage you take from them, and your sheet shows both halves on one line. Against creatures it does nothing at all. It comes from the Warfare gear you buy with honor, so it is a reward for playing PvP rather than something to chase while leveling.',
+    warfareBodyPets:
+      'Warfare is the stat honor gear carries for fighting players. In fights between players it raises the damage you and your pet deal to other players and their pets, and lowers the damage you and your pet take from them. It also raises your maximum health everywhere except dungeons, raids, delves and rifts, so a player in honor gear is far harder to kill than one without it. Your sheet shows all of it on one line. It comes from the Warfare gear you buy with honor, so it is a reward for playing PvP rather than something to chase while leveling.',
   },
 
   // Leveling and Progression. How experience is earned, the journey across the three

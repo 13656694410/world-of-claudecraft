@@ -29,7 +29,7 @@
       "tick": 25,
       "time": 1.25,
       "nextId": 1012,
-      "state": "a923334a",
+      "state": "3c91e4a6",
       "events": "34d94ab2",
       "rng": {
         "draws": 0,
@@ -40,7 +40,7 @@
       "tick": 50,
       "time": 2.5,
       "nextId": 1012,
-      "state": "ff911d61",
+      "state": "d46f2f51",
       "events": "582e601c",
       "rng": {
         "draws": 70,
@@ -51,7 +51,7 @@
       "tick": 75,
       "time": 3.75,
       "nextId": 1012,
-      "state": "c2e6b967",
+      "state": "f5d08def",
       "events": "403dc396",
       "rng": {
         "draws": 292,
@@ -62,7 +62,7 @@
       "tick": 100,
       "time": 5,
       "nextId": 1012,
-      "state": "a87294ac",
+      "state": "bc8459e8",
       "events": "313e7cc4",
       "rng": {
         "draws": 530,
@@ -73,7 +73,7 @@
       "tick": 125,
       "time": 6.25,
       "nextId": 1012,
-      "state": "93118143",
+      "state": "a1e081a5",
       "events": "7b881f5b",
       "rng": {
         "draws": 781,
@@ -84,7 +84,7 @@
       "tick": 142,
       "time": 7.1,
       "nextId": 1012,
-      "state": "4a7313e6",
+      "state": "b739b9f2",
       "events": "741638a5",
       "rng": {
         "draws": 959,
@@ -168,6 +168,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -204,6 +205,21 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {},
+            "pvp": 1,
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604805049
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
@@ -284,6 +300,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

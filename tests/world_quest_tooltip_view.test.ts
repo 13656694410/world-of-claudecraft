@@ -22,12 +22,16 @@ const TEN_HOURS = NOW + 10 * 60 * 60_000;
 
 function tooltip(
   quest: WorldQuestDef,
-  options: { level?: number; progress?: number; expiresAtMs?: number } = {},
+  options: { level?: number; progress?: number; expiresAtMs?: number; cycle?: string } = {},
 ): WorldQuestTooltipModel {
   return buildWorldQuestTooltip({
     quest,
     progressCount: options.progress ?? 0,
     playerLevel: options.level ?? 20,
+    playerClass: 'warrior',
+    // No rotation cycle: no zone carries the day's item slot, so only the
+    // quest's own bundle shows (the slot is covered in the map tooltip test).
+    cycle: options.cycle ?? '',
     expiresAtMs: options.expiresAtMs ?? TEN_HOURS,
     nowMs: NOW,
   });
@@ -67,10 +71,10 @@ describe('world quest tooltip model', () => {
     expect(worldQuestTooltipHtml(model)).not.toContain('Time remaining:');
   });
 
-  it('pays an XP quest as experience after standing and currency with their icons', () => {
+  it('pays the bundle (copper, then experience) after standing and currency with their icons', () => {
     const model = tooltip(WORLD_QUESTS_BY_ID.wq_eastbrook_bandits, { level: 20 });
-    expect(model.rewards.map((row) => row.kind)).toEqual(['standing', 'currency', 'xp']);
-    const [standing, currency, xp] = model.rewards;
+    expect(model.rewards.map((row) => row.kind)).toEqual(['standing', 'currency', 'money', 'xp']);
+    const [standing, currency, , xp] = model.rewards;
     expect(standing).toMatchObject({
       kind: 'standing',
       factionId: 'church_order',
@@ -107,9 +111,9 @@ describe('world quest tooltip model', () => {
   it('splits a copper reward into gold, silver and copper parts', () => {
     const quest: WorldQuestDef = {
       ...WORLD_QUESTS_BY_ID.wq_mirefen_gravecallers,
-      reward: { type: 'copper', base: 9_893_682, perLevel: 0 },
+      reward: { copper: { base: 9_893_682, perLevel: 0 } },
     };
-    const money = tooltip(quest).rewards.at(-1);
+    const money = tooltip(quest).rewards.find((row) => row.kind === 'money');
     expect(money).toEqual({
       kind: 'money',
       copper: 9_893_682,
@@ -122,16 +126,18 @@ describe('world quest tooltip model', () => {
     expect(html).toContain('<span class="coin-amount">82</span><span class="coin c"');
   });
 
-  it('scales the shipped copper quest with the character level', () => {
-    const money = tooltip(WORLD_QUESTS_BY_ID.wq_mirefen_gravecallers, { level: 10 }).rewards.at(-1);
-    expect(money).toMatchObject({ kind: 'money', copper: 4250 });
-    expect(money?.kind === 'money' && money.parts).toEqual({ gold: 0, silver: 42, copper: 50 });
+  it('scales the shared copper purse with the character level', () => {
+    const money = tooltip(WORLD_QUESTS_BY_ID.wq_mirefen_gravecallers, { level: 10 }).rewards.find(
+      (row) => row.kind === 'money',
+    );
+    expect(money).toMatchObject({ kind: 'money', copper: 1900 });
+    expect(money?.kind === 'money' && money.parts).toEqual({ gold: 0, silver: 19, copper: 0 });
   });
 
   it('names an item reward with its id, quality, and item level', () => {
     const quest: WorldQuestDef = {
       ...WORLD_QUESTS_BY_ID.wq_palmreach_confections,
-      reward: { type: 'item', itemId: 'boundstone_helm', count: 1 },
+      reward: { extraItem: { itemId: 'boundstone_helm', count: 1 } },
     };
     const reward = itemReward(tooltip(quest));
     expect(reward.itemId).toBe('boundstone_helm');
@@ -151,7 +157,7 @@ describe('world quest tooltip model', () => {
   it('keeps an unknown item id renderable (a newer server item)', () => {
     const quest: WorldQuestDef = {
       ...WORLD_QUESTS_BY_ID.wq_palmreach_confections,
-      reward: { type: 'item', itemId: 'from_a_future_server', count: 2 },
+      reward: { extraItem: { itemId: 'from_a_future_server', count: 2 } },
     };
     const reward = itemReward(tooltip(quest));
     expect(reward).toMatchObject({ item: null, name: 'from_a_future_server', itemLevel: null });
@@ -187,7 +193,7 @@ describe('world quest tooltip html', () => {
   it('embeds the shared item card and slots the item level under its title', () => {
     const quest: WorldQuestDef = {
       ...WORLD_QUESTS_BY_ID.wq_palmreach_confections,
-      reward: { type: 'item', itemId: 'boundstone_helm', count: 1 },
+      reward: { extraItem: { itemId: 'boundstone_helm', count: 1 } },
     };
     const seen: ItemDef[] = [];
     const html = worldQuestTooltipHtml(tooltip(quest), {
@@ -215,7 +221,7 @@ describe('world quest tooltip html', () => {
   it('falls back to the quality-colored name without a host item card', () => {
     const quest: WorldQuestDef = {
       ...WORLD_QUESTS_BY_ID.wq_palmreach_confections,
-      reward: { type: 'item', itemId: 'boundstone_helm', count: 3 },
+      reward: { extraItem: { itemId: 'boundstone_helm', count: 3 } },
     };
     const html = worldQuestTooltipHtml(tooltip(quest));
     expect(html).toMatch(/<div class="tt-title" style="color:[^"]+">Boundstone Helm<\/div>/);
@@ -235,7 +241,7 @@ describe('world quest tooltip html', () => {
   it('localizes the plain faction and reward texts instead of hard-coded English', async () => {
     const quest = WORLD_QUESTS_BY_ID.wq_eastbrook_bandits;
     expect(worldQuestFactionLine(quest)).toBe('Faction: Church Order');
-    expect(worldQuestStandingRewardText(quest, 20)).toBe('+80 Church Order Standing');
+    expect(worldQuestStandingRewardText(quest, 20)).toBe('+80 Church Order standing');
     expect(worldQuestFactionCurrencyRewardText(quest, 20)).toBe('+10 Order Crest');
     await ensureLocaleLoaded('es');
     setLanguage('es');

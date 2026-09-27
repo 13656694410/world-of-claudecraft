@@ -17,7 +17,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "982e4739",
+      "state": "316057a2",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -73,6 +73,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -173,7 +174,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "8272c581",
+      "state": "c7642696",
       "events": "8c718819",
       "rng": {
         "draws": 0,
@@ -229,6 +230,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -340,7 +342,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "3e8b637b",
+      "state": "df7bf910",
       "events": "0bddbfcf",
       "rng": {
         "draws": 0,
@@ -396,6 +398,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -517,7 +520,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "76b2a042",
+      "state": "271316e7",
       "events": "b148b641",
       "rng": {
         "draws": 0,
@@ -575,6 +578,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -687,8 +691,8 @@
       "tick": 0,
       "time": 0,
       "nextId": 1012,
-      "state": "0e771b4d",
-      "events": "a5efc334",
+      "state": "9e414515",
+      "events": "36db2719",
       "rng": {
         "draws": 0,
         "digest": "811c9dc5"
@@ -718,6 +722,7 @@
           "bgRating": 1500,
           "cls": "warrior",
           "companionUpgrades": {},
+          "copper": 3100,
           "counters": {
             "questProgress": 6,
             "questsCompleted": 1,
@@ -751,6 +756,7 @@
             "church_order": 80
           },
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -780,6 +786,21 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {},
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000,
+            "world": 1
+          },
           "worldQuestCycle": "wq1_0",
           "worldQuestLog": [
             [
@@ -866,8 +887,8 @@
       "tick": 0,
       "time": 0,
       "nextId": 1013,
-      "state": "2dacc25b",
-      "events": "30ededbc",
+      "state": "67b39121",
+      "events": "b31d0795",
       "rng": {
         "draws": 0,
         "digest": "811c9dc5"
@@ -897,11 +918,11 @@
           "bgRating": 1500,
           "cls": "warrior",
           "companionUpgrades": {},
-          "copper": 6000,
+          "copper": 9300,
           "counters": {
             "questProgress": 22,
             "questsCompleted": 3,
-            "xpGained": 2784
+            "xpGained": 8352
           },
           "craftDaily": {},
           "craftSkills": {},
@@ -937,6 +958,7 @@
             "rift_watch": 80
           },
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -951,7 +973,7 @@
               "itemId": "rift_essence"
             }
           ],
-          "lifetimeXp": 169984,
+          "lifetimeXp": 175552,
           "mailWelcomed": true,
           "nodeHarvestReadyAt": {},
           "recipesGrandfathered": true,
@@ -972,6 +994,21 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {},
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000,
+            "world": 3
+          },
           "worldQuestCycle": "wq1_0",
           "worldQuestLog": [
             [
@@ -1074,8 +1111,8 @@
       "tick": 0,
       "time": 0,
       "nextId": 1013,
-      "state": "d63ebc82",
-      "events": "f061f193",
+      "state": "4225155a",
+      "events": "bf18640f",
       "rng": {
         "draws": 0,
         "digest": "811c9dc5"
@@ -1105,11 +1142,11 @@
           "bgRating": 1500,
           "cls": "warrior",
           "companionUpgrades": {},
-          "copper": 6000,
+          "copper": 9300,
           "counters": {
             "questProgress": 22,
             "questsCompleted": 3,
-            "xpGained": 2784
+            "xpGained": 8352
           },
           "craftDaily": {},
           "craftSkills": {},
@@ -1145,6 +1182,7 @@
             "rift_watch": 80
           },
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1159,7 +1197,7 @@
               "itemId": "rift_essence"
             }
           ],
-          "lifetimeXp": 169984,
+          "lifetimeXp": 175552,
           "mailWelcomed": true,
           "nodeHarvestReadyAt": {},
           "recipesGrandfathered": true,
@@ -1175,12 +1213,27 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {},
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000,
+            "world": 3
+          },
           "worldQuestCycle": "wq1_3",
           "worldQuestLog": [
             [
-              "wq_thornpeak_stormcrag",
+              "wq_thornpeak_zealots",
               {
-                "questId": "wq_thornpeak_stormcrag",
+                "questId": "wq_thornpeak_zealots",
                 "state": "active"
               }
             ]
@@ -1211,7 +1264,7 @@
           "critChance": 0.0695,
           "detonateTimer": "Infinity",
           "dodgeChance": 0.0695,
-          "fallStartY": 9.533061,
+          "fallStartY": 14.526649,
           "fiveSecondRule": 99,
           "healPower": 5,
           "hp": 822,
@@ -1227,9 +1280,9 @@
           "overpowerUntil": -1,
           "petMode": "defensive",
           "pos": {
-            "x": 122,
-            "y": 9.533061,
-            "z": 778
+            "x": 56,
+            "y": 14.526649,
+            "z": 837
           },
           "potionCooldownUntil": -1,
           "resourceType": "rage",
@@ -1260,7 +1313,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1013,
-      "state": "d63ebc82",
+      "state": "4225155a",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -1291,11 +1344,11 @@
           "bgRating": 1500,
           "cls": "warrior",
           "companionUpgrades": {},
-          "copper": 6000,
+          "copper": 9300,
           "counters": {
             "questProgress": 22,
             "questsCompleted": 3,
-            "xpGained": 2784
+            "xpGained": 8352
           },
           "craftDaily": {},
           "craftSkills": {},
@@ -1331,6 +1384,7 @@
             "rift_watch": 80
           },
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1345,7 +1399,7 @@
               "itemId": "rift_essence"
             }
           ],
-          "lifetimeXp": 169984,
+          "lifetimeXp": 175552,
           "mailWelcomed": true,
           "nodeHarvestReadyAt": {},
           "recipesGrandfathered": true,
@@ -1361,12 +1415,27 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {},
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000,
+            "world": 3
+          },
           "worldQuestCycle": "wq1_3",
           "worldQuestLog": [
             [
-              "wq_thornpeak_stormcrag",
+              "wq_thornpeak_zealots",
               {
-                "questId": "wq_thornpeak_stormcrag",
+                "questId": "wq_thornpeak_zealots",
                 "state": "active"
               }
             ]
@@ -1397,7 +1466,7 @@
           "critChance": 0.0695,
           "detonateTimer": "Infinity",
           "dodgeChance": 0.0695,
-          "fallStartY": 9.533061,
+          "fallStartY": 14.526649,
           "fiveSecondRule": 99,
           "healPower": 5,
           "hp": 822,
@@ -1413,9 +1482,9 @@
           "overpowerUntil": -1,
           "petMode": "defensive",
           "pos": {
-            "x": 122,
-            "y": 9.533061,
-            "z": 778
+            "x": 56,
+            "y": 14.526649,
+            "z": 837
           },
           "potionCooldownUntil": -1,
           "resourceType": "rage",

@@ -90,10 +90,10 @@ describe('worldQuestInstructorDialog presentation', () => {
     expect(view?.difficulties?.map((choice) => choice.difficulty)).toEqual(['normal', 'hard']);
     expect(view?.difficulties?.map((choice) => choice.label)).toEqual([
       'Enter the maze: Normal (3 shadows)',
-      'Enter the maze: Hard (5 shadows, bonus purse)',
+      'Enter the maze: Hard (5 shadows)',
     ]);
     progress.state = 'completed';
-    expect(worldQuestInstructorDialog(world, keeper)?.difficulties).toBeUndefined();
+    expect(worldQuestInstructorDialog(world, keeper)?.difficulties).toHaveLength(2);
     const elian = { id: 8, kind: 'npc', templateId: 'calligraphy_instructor' } as Entity;
     const elianWorld = makeWorld([
       [
@@ -133,6 +133,16 @@ describe('worldQuestInstructorDialog presentation', () => {
     expect(dialog?.canStart).toBe(true);
   });
 
+  it('offers Zephyr a reward-free replay after completion, but never while dead', () => {
+    const world = makeWorld([
+      ['wq_galecrest_slalom', { questId: 'wq_galecrest_slalom', count: 1, state: 'completed' }],
+    ]);
+    const zephyr = { id: 3, kind: 'npc', templateId: 'glider_instructor' } as Entity;
+    expect(worldQuestInstructorDialog(world, zephyr)?.canStart).toBe(true);
+    world.player.dead = true;
+    expect(worldQuestInstructorDialog(world, zephyr)?.canStart).toBe(false);
+  });
+
   it('allows glider apprentice Skye to retry even if previously completed', () => {
     const world = makeWorld([
       ['wq_galecrest_slalom', { questId: 'wq_galecrest_slalom', count: 1, state: 'completed' }],
@@ -144,7 +154,7 @@ describe('worldQuestInstructorDialog presentation', () => {
     expect(dialog?.canStart).toBe(true);
   });
 
-  it('disallows starting when the world quest has already been completed', () => {
+  it('allows reward-free calligraphy after the world quest has been completed', () => {
     const world = makeWorld([
       [
         'wq_eastbrook_calligraphy',
@@ -155,7 +165,7 @@ describe('worldQuestInstructorDialog presentation', () => {
     const dialog = worldQuestInstructorDialog(world, elian);
 
     expect(dialog).not.toBeNull();
-    expect(dialog?.canStart).toBe(false);
+    expect(dialog?.canStart).toBe(true);
     expect(dialog?.hint).toBeTruthy();
   });
 

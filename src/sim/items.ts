@@ -30,6 +30,7 @@ import {
 } from './bags';
 import { openTreasureCasket } from './clue_casket';
 import { useClueScroll } from './clue_scrolls';
+import { isWornTrinket, onTrinketEquipped, useWornTrinket } from './combat/trinkets';
 import { buildConsuming } from './consuming';
 import {
   useAlliedHearthstone,
@@ -46,6 +47,7 @@ import { resolveFactionVendorRowGate, vendorFactionForNpc } from './content/fact
 import { isRawCookingCatch } from './content/items';
 import { ITEMS, NPCS } from './data';
 import { markItemDiscovered } from './deeds';
+import { openEmissaryCache } from './emissary_cache';
 import { recalcPlayerStats } from './entity';
 import {
   canDualWield,
@@ -713,6 +715,7 @@ export function equipItem(
     returnEquippedItemToBags(meta, displacedId, displacedInstance);
   }
   meta.equipment[slot] = itemId;
+  if (slot === 'trinket') onTrinketEquipped(p, itemId, old);
   const equippedPayload = equipmentPayloadFor(consumed);
   if (equippedPayload) {
     meta.equipmentInstance ??= {};
@@ -868,6 +871,11 @@ export function useItem(
     return taken.instance;
   };
   if (!def) return;
+  // The worn trinket is used where it sits, not from the bags (combat/trinkets.ts).
+  if (isWornTrinket(meta, itemId)) {
+    useWornTrinket(ctx, meta, p, itemId);
+    return;
+  }
   if (ctx.countItem(itemId, meta.entityId) <= 0) {
     ctx.error(meta.entityId, "You don't have that item.");
     return;
@@ -938,7 +946,7 @@ export function useItem(
   // ONLY that the item is a permanent tool, never spent, so no consumeOneUnit
   // here; it says nothing about gate order.
   if (def.use?.type === 'placeMobileStation') {
-    placeMobileStationFromItem(ctx, def.use.stationCraftId, def.name, meta.entityId);
+    placeMobileStationFromItem(ctx, def.use.stationCraftId, def.name, meta.entityId, def.id);
     return;
   }
   // The placeable shared feast (ItemDef.feast, Farming Phase 12): using the
@@ -977,6 +985,10 @@ export function useItem(
     return;
   }
   if (p.dead) return;
+  if (def.use?.type === 'container') {
+    openEmissaryCache(ctx, meta, consumeOneUnit);
+    return;
+  }
   if (def.use?.type === 'throw') {
     throwFirebottleAtNearestHut(ctx, p, meta);
     return;

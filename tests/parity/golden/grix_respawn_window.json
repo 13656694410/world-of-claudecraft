@@ -28,7 +28,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1012,
-      "state": "fd32a225",
+      "state": "960ca3a8",
       "events": "f3233964",
       "rng": {
         "draws": 10,
@@ -99,6 +99,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -293,7 +294,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1012,
-      "state": "8e02dd3d",
+      "state": "6a93ba74",
       "events": "10bc9a8d",
       "rng": {
         "draws": 21,
@@ -364,6 +365,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -559,7 +561,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1012,
-      "state": "8e02dd3d",
+      "state": "6a93ba74",
       "events": "741638a5",
       "rng": {
         "draws": 21,
@@ -630,6 +632,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

@@ -144,9 +144,10 @@ describe('audited launch totals (literals: update deliberately with the catalog)
     // three Champion at 25, and the all-factions meta at 50: +140).
     // 317 / 3530 with the two Clue Scroll casket deeds (the first casket at
     // 10 and the tenth at 25: +35).
-    // 318 / 3540 with the Coinsack Scurrier catch (cmb_coinsack_caught, 10).
-    expect(DEED_ORDER.length).toBe(318);
-    expect(ALL.reduce((sum, d) => sum + d.renown, 0)).toBe(3540);
+    // 318 / 3535 with the release's Eastbrook ferry round trip
+    // (exp_harbor_to_harbor at renown 5) at the fourth release/v0.44.0 base merge.
+    expect(DEED_ORDER.length).toBe(319);
+    expect(ALL.reduce((sum, d) => sum + d.renown, 0)).toBe(3545);
   });
 
   it('ships the audited per-category counts', () => {
@@ -186,7 +187,8 @@ describe('audited launch totals (literals: update deliberately with the catalog)
       social: 20,
       // +2 the Clue Scroll casket pair (exp_clue_first_casket and
       // exp_clue_ten_caskets, both on the clueCasketsOpened meter).
-      exploration: 21,
+      // +1 the release's ferry round trip (exp_harbor_to_harbor).
+      exploration: 22,
       feat: 3,
       hidden: 10,
     });
@@ -404,6 +406,9 @@ describe('audited launch totals (literals: update deliberately with the catalog)
       'exp_clue_ten_caskets',
       // The Buried Hoard's Coinsack Scurrier, caught once (hoardGoblinKills).
       'cmb_coinsack_caught',
+      // The release's Eastbrook ferry round trip, appended last at the fourth
+      // release/v0.44.0 base merge.
+      'exp_harbor_to_harbor',
     ]);
     expect(DEEDS.dgn_wildheart_basin.renown).toBe(10);
     expect(DEEDS.dgn_wildheart_basin_heroic.renown).toBe(10);
@@ -1027,11 +1032,15 @@ describe('frozen trigger + renown catalog (design rule 9: never retro-edit a tri
   // clueCasketsOpened meter), re-minted THE AUDITABLE WAY: the 2b8d9d03...
   // literal rotated down into PRE_APPEND_CATALOG_SHA256 and the proof below
   // reproduces it exactly. No shipped trigger or renown value was touched.
-  // Re-baselined for the appended Coinsack Scurrier catch
-  // (cmb_coinsack_caught on the new hoardGoblinKills stat), re-minted THE
-  // AUDITABLE WAY: the 0d91bc68... literal rotated down into
-  // PRE_APPEND_CATALOG_SHA256 and the proof below reproduces it exactly.
-  const FROZEN_CATALOG_SHA256 = '34fe6e4f7198203099d588651d75dc9aa50c1bcc40f8402fc4bcf5d7a9e2745c';
+  // Re-baselined for the release's appended Eastbrook ferry round trip
+  // (exp_harbor_to_harbor, a visits deed on the four ferry crossings) at the
+  // fourth release/v0.44.0 base merge into integration/world-quests-v0440,
+  // re-minted THE AUDITABLE WAY: the 0d91bc68... literal rotated down into
+  // PRE_APPEND_CATALOG_SHA256 and the proof below reproduces it exactly. No
+  // shipped trigger or renown value was touched.
+  // Re-baselined at the 2026-09-28 release merge into feature/buried-hoards: one NEW
+  // deed (cmb_coinsack_caught) joins; no existing trigger or renown changed.
+  const FROZEN_CATALOG_SHA256 = '765c2ea13a8a87d5b43a3f725ab56e1c58464f850dc2ec0e10048adc12f67829';
 
   it('every shipped deed keeps its trigger and renown unchanged', () => {
     const canonical = JSON.stringify(
@@ -1094,21 +1103,22 @@ describe('frozen trigger + renown catalog (design rule 9: never retro-edit a tri
   // 2b8d9d03... literal (rotated down here), and stripping the two must
   // reproduce it exactly.
   //
-  // The Coinsack Scurrier catch appends one deed after exp_clue_ten_caskets;
-  // the previous mint is the casket pair's 0d91bc68... literal (rotated down
-  // here), and stripping it must reproduce it exactly.
+  // The release's Eastbrook ferry round trip appends exp_harbor_to_harbor
+  // after exp_clue_ten_caskets at the fourth release/v0.44.0 base merge; the
+  // previous mint is the clue pair's 0d91bc68... literal (rotated down here),
+  // and stripping the one id must reproduce it exactly.
   const PRE_APPEND_CATALOG_SHA256 =
     '0d91bc68e18b88a6b0c4dc7088c118d556b3bbec0be1617506b36b8172123eb6';
-  const APPENDED_SINCE: readonly string[] = ['cmb_coinsack_caught'];
+  const APPENDED_SINCE: readonly string[] = ['cmb_coinsack_caught', 'exp_harbor_to_harbor'];
 
   it('the catalog minus the ids appended since the previous mint reproduces the previous digest', () => {
     const appended = new Set(APPENDED_SINCE);
     for (const id of APPENDED_SINCE) {
       expect(DEED_ORDER.includes(id), `${id} is in the live catalog`).toBe(true);
     }
-    // The goblin catch sits at the true tail after the Clue Scroll casket
-    // pair. Pin its two predecessors too: this is an append into a known
-    // seat, never a scattered insert or a retro-edit (the digest below
+    // The ferry round trip sits at the true tail after the Clue Scroll casket
+    // pair. Pin its two predecessors too: this is an append into a
+    // known seat, never a scattered insert or a retro-edit (the digest below
     // proves it).
     expect(DEED_ORDER.slice(-2 - APPENDED_SINCE.length)).toEqual([
       'exp_clue_first_casket',
@@ -1331,9 +1341,9 @@ describe('table shape', () => {
     // raid block (whose flawless task was the previous final entry).
     // The one-time Forgebreaker quest's hidden celebration appends after it,
     // then the world-quest block, then the faction standing ladder, then the
-    // Clue Scroll casket pair, then the Buried Hoard goblin catch as the final
-    // entry.
-    expect(DEED_ORDER[DEED_ORDER.length - 1]).toBe('cmb_coinsack_caught');
+    // Clue Scroll casket pair, then the release's ferry round trip as the
+    // final entry.
+    expect(DEED_ORDER[DEED_ORDER.length - 1]).toBe('exp_harbor_to_harbor');
   });
 
   it('every entry key matches its id and its prefix matches its category', () => {

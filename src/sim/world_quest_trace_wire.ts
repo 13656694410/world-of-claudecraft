@@ -110,6 +110,7 @@ export function worldQuestProgressForWire(progress: WorldQuestProgress): WorldQu
     investigation: rawInvestigation,
     shadow: rawShadow,
     glider: rawGlider,
+    practiceTraceScores: _practiceTraceScores,
     ...base
   } = progress;
   const shadow =

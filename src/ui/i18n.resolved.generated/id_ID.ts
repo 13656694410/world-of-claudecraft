@@ -192,6 +192,22 @@ export const id_ID: EnTranslations = {
       "lfgboard": {
         "label": "Isi papan daftar",
         "description": "Buat skenario daftar grup siap pakai."
+      },
+      "hillwarn": {
+        "label": "Hitungan mundur bukit",
+        "description": "Umumkan bukit sekarang; ia naik setelah peringatan penuh."
+      },
+      "hillnow": {
+        "label": "Naikkan bukit sekarang",
+        "description": "Naikkan bukit sekaligus dan berdiri di atasnya."
+      },
+      "hillrise": {
+        "label": "Lewati hitungan mundur bukit",
+        "description": "Naikkan bukit yang diumumkan langsung."
+      },
+      "hillend": {
+        "label": "Akhiri bukit",
+        "description": "Buat bukit saat ini jatuh sekarang."
       }
     }
   },
@@ -331,6 +347,48 @@ export const id_ID: EnTranslations = {
     }
   },
   "hudChrome": {
+    "framePresets": {
+      "apply": "Terapkan",
+      "pickerLabel": "Pratinjau Bingkai: {name}",
+      "overwrite": "Timpa Pratinjau",
+      "overwriteBody": "Ganti pratinjau tersimpan \"{name}\" dengan tata letak saat inimu?",
+      "current": "Tata Letak Saat Ini",
+      "new": "Pratinjau Baru",
+      "empty": "Tidak ada pratinjau tersimpan",
+      "deleteNamed": "Hapus {name}",
+      "deleteBody": "Hapus pratinjau bingkai \"{name}\"?",
+      "title": "Pratinjau Bingkai",
+      "name": "Nama Pratinjau",
+      "slot": "Pratinjau {slot}",
+      "remove": "Hapus",
+      "saved": "Selesai.",
+      "failed": "Tidak dapat menyimpan atau memuat pratinjau."
+    },
+    "frameMenus": {
+      "hide": "Sembunyikan Bingkai",
+      "units": "Bingkai Unit",
+      "bars": "Bilah Aksi",
+      "trackers": "Pelacak",
+      "auras": "Aura",
+      "combat": "Tampilan Pertempuran",
+      "other": "Elemen HUD Lainnya",
+      "options": "Opsi Bingkai",
+      "allOptions": "Semua Opsi Bingkai",
+      "independentTarget": "Kunci Target Target untuk Menargetkan"
+    },
+    "focusTargets": {
+      "showEmpty": "Tampilkan Bingkai Fokus Kosong",
+      "assignHint": "Pilih target. Tekan {key} atau klik {button}.",
+      "assignClickHint": "Pilih target. Klik {button}.",
+      "ally": "Sekutu",
+      "enemy": "Musuh",
+      "unset": "Tetapkan Ulang Fokus",
+      "frame1": "Fokus 1",
+      "frame2": "Fokus 2",
+      "frame3": "Fokus 3",
+      "assign": "Tetapkan fokus {slot}",
+      "target": "Targetkan fokus {slot}"
+    },
     "professionTrainers": {
       "blacksmithing": "Pelatih Pandai Besi",
       "cooking": "Pelatih Memasak",
@@ -343,43 +401,154 @@ export const id_ID: EnTranslations = {
       "hobby": "Pelatih Hobi",
       "nameplate": "<{title}>"
     },
+    "weeklyRewards": {
+      "title": "Gudang Mingguan",
+      "tab": "Hadiah Mingguan",
+      "intro": "Setiap pencapaian yang diselesaikan menghasilkan satu gudang. Setelah reset Crucible, buka setiap gudang untuk menggulung jarahan mereka, lalu pilih satu item untuk minggu itu. Hadiah yang dibuka disimpan dan minggu yang tidak diklaim tetap tersedia.",
+      "approachKeeper": "Berdiri dekat Penjaga Gudang untuk melihat hadiah mingguan Anda.",
+      "nextReset": "Reset mingguan Crucible",
+      "countdown": "{days}h {hours}j {minutes}m {seconds}d",
+      "progress": "{count} / {max}",
+      "milestone": "1 gulung tabel jarahan",
+      "lockedRoll": "Membuka 1 gulung tabel jarahan",
+      "earned": "Gudang tersedia setelah reset berikutnya: {count}",
+      "normal": "Normal",
+      "heroic": "Heroik",
+      "mixedClears": "{heroic} Heroik / {normal} Normal",
+      "heroicClears": "{count} Heroik",
+      "normalClears": "{count} Normal",
+      "viewPossibleLoot": "Lihat jarahan yang mungkin",
+      "chooseTable": "Pilih tabel mana untuk menggulung",
+      "selectAllTables": "Pilih semua",
+      "selectedTables": "{count} tabel dipilih",
+      "selectedTable": "{count} tabel dipilih",
+      "noLevelLoot": "Tidak ada jarahan yang memenuhi syarat pada level Anda saat ini.",
+      "tableItemCount": "{count} item",
+      "tableItem": "{count} item",
+      "previouslyRolled": "Hadiah yang sebelumnya diputar",
+      "noTables": "Tidak ada perlengkapan yang memenuhi syarat dari penghapusan bos yang tercatat pada kesulitan ini.",
+      "tablesExhausted": "Semua item yang memenuhi syarat telah digulir. Pilih hadiah yang terungkap.",
+      "heroicUpgradeOne": "{count} lagi penghapusan dungeon Heroik untuk upgrade",
+      "heroicUpgradeMany": "{count} lagi penghapusan dungeon Heroik untuk upgrade",
+      "completedTask": {
+        "raidOne": "{count} Pertemuan Serangan Dibereskan",
+        "raidMany": "{count} Pertemuan Serangan Dibereskan",
+        "dungeonOne": "{count} Dungeon Dibereskan",
+        "dungeonMany": "{count} Dungeon Dibereskan",
+        "worldOne": "{count} Misi Dunia Diselesaikan",
+        "worldMany": "{count} Misi Dunia Diselesaikan",
+        "pvpOne": "{count} Pertandingan Berperingkat Dimenangkan",
+        "pvpMany": "{count} Pertandingan Berperingkat Dimenangkan"
+      },
+      "requiredTask": {
+        "raidOne": "Bersihkan {count} Pertemuan Serangan",
+        "raidMany": "Bersihkan {count} Pertemuan Serangan",
+        "dungeonOne": "Bersihkan {count} Dungeon",
+        "dungeonMany": "Bersihkan {count} Dungeon",
+        "worldOne": "Selesaikan {count} Misi Dunia",
+        "worldMany": "Selesaikan {count} Misi Dunia",
+        "pvpOne": "Menangkan {count} Pertandingan Berperingkat",
+        "pvpMany": "Menangkan {count} Pertandingan Berperingkat"
+      },
+      "readyWeeks": "Minggu yang tidak diklaim: {count}. Klaim minggu yang paling tua terlebih dahulu.",
+      "claimLastWeek": "Klaim hadiah minggu lalu",
+      "readyTitle": "Hadiah mingguan Anda siap",
+      "readyDescription": "Sebuah minggu hadiah yang selesai sedang menunggu. Buka gudang yang Anda peroleh, lalu pilih satu item untuk diklaim.",
+      "notNow": "Tidak sekarang",
+      "completedWeek": "Minggu berakhir {date}",
+      "currentWeek": "Kembali ke kemajuan minggu ini",
+      "openRewards": "Buka gudang yang Anda peroleh",
+      "openedCount": "{count} dari {total} gudang dibuka. Buka semuanya untuk memilih hadiah Anda.",
+      "openingSavedReward": "Membuka gudang dan menyimpan hadiah Anda...",
+      "rewardNumber": "Hadiah {count}",
+      "openVault": "Buka gudang: {name}",
+      "inspectItem": "Periksa {name}",
+      "selectItem": "Pilih {name}",
+      "revealed": "Terungkap",
+      "revealedItem": "Terungkap: {name}",
+      "chooseReward": "Pilih satu hadiah",
+      "confirmTitle": "Klaim {name}?",
+      "confirmClaim": "Konfirmasi klaim",
+      "backToChoices": "Kembali ke pilihan",
+      "claimRequested": "Klaim diminta. Jika tasmu penuh, buat ruang dan pilih lagi.",
+      "waiting": "Tidak ada hadiah yang siap. Gudang yang diperoleh minggu ini terbuka pada reset berikutnya.",
+      "chooseOne": "Pilih dengan hati-hati: mengambil satu item melepaskan setiap pilihan lain untuk minggu itu.",
+      "itemLevel": "Tingkat item {level}",
+      "backlogFull": "Minggu yang disimpan penuh. Kumpulkan hadiah untuk membuat ruang untuk minggu mendatang.",
+      "claim": "Ambil item yang dipilih",
+      "poolSize": "Lihat {count} item",
+      "worldPoolRule": "Perlengkapan Normal Nythraxis. Tidak ada penghapusan serangan yang diperlukan.",
+      "poolRule": "Setiap item yang terdaftar memiliki kesempatan yang sama. Item sesuai dengan batasan kelasmu. Serangan yang dikalahkan membuka jarahan mereka pada kesulitan itu. Item legendaris dikecualikan.",
+      "selectionPoolRule": "Untuk serangan dan dungeon, pilih satu atau lebih tabel sebelum membuka. Tabel dungeon menggabungkan bos yang telah Anda bersihkan pada kesulitan ini. Gulungan mengeluarkan duplikat, item legendaris dan perlengkapan yang memerlukan lebih dari {maxLevelOffset} level di atas level Anda.",
+      "rare": "Langka",
+      "epic": "Epik",
+      "unavailable": "Belum tersedia",
+      "worldUnavailable": "Hadiah misi dunia akan tersedia saat misi dunia yang berputar tiba.",
+      "category": {
+        "raid": "Serangan",
+        "dungeon": "Dungeon",
+        "world": "Misi Dunia",
+        "pvp": "PvP"
+      },
+      "task": {
+        "raid": "Tumbangkan pertemuan serangan yang berbeda. Setiap pertemuan dihitung sekali; penghapusan Heroik meningkatkan kreditnya.",
+        "dungeon": "Selesaikan dungeon. Penghapusan terbaik Anda menentukan kesulitan hadiah pada setiap pencapaian.",
+        "world": "Selesaikan misi dunia yang berputar. Misi cerita tidak dihitung.",
+        "pvp": "Menangkan pertandingan arena berperingkat atau medan perang berperingkat. Pertandingan latihan dan penyerahan tidak dihitung."
+      },
+      "pool": {
+        "raid": "Jarahan serangan Normal",
+        "raid_heroic": "Jarahan serangan Heroik",
+        "dungeon": "Jarahan dungeon Normal",
+        "dungeon_heroic": "Jarahan dungeon Heroik",
+        "world": "Jarahan misi dunia",
+        "pvp": "Perlengkapan PEPERANGAN"
+      }
+    },
+    "ferry": {
+      "regionLabel": "Jadwal feri",
+      "departsIn": "Feri ke {dest} berangkat dalam {time}",
+      "castingOff": "Feri ke {dest} sedang berlayar",
+      "boardHint": "Berdiri di dek saat berlayar. Penyeberangan gratis.",
+      "sailing": "Berlayar ke {dest}"
+    },
     "materialStackSelectionUnavailable": "Pilihan material itu tidak lagi tersedia.",
     "vehicle": {
-      "title": "North Watch Cannon",
-      "objective": "Defend the north watch",
-      "lastKeepTitle": "The Last Keep Cannon",
-      "lastKeepObjective": "Defend the approach to The Last Keep",
-      "cannonball": "Cannonball",
-      "grapeshot": "Grapeshot",
-      "incendiary": "Incendiary Shot",
-      "integrity": "Cannon integrity",
-      "exit": "Leave cannon",
-      "wave": "Wave {wave}/{total}",
-      "endlessWave": "Endless wave {wave} (round {round})",
-      "resultWaves": "Waves held: {waves}.",
-      "enemies": "Enemies remaining: {count}",
-      "countdown": "Prepare: {seconds}",
-      "hint": "Choose a shot, then click the ground to fire.",
-      "aim": "Click to fire. Right click or Escape cancels aiming.",
-      "sapperWarning": "Sapper incoming! Stop the explosive carrier before it reaches the line.",
-      "chargeWarning": "Commander orders a charge! All surviving enemies move faster.",
-      "armorHint": "Break the silver shields with Cannonball, then use Incendiary Shot.",
-      "exposedHint": "Broken armor: Incendiary Shot deals double damage.",
-      "barrelHint": "Shoot the marked powder barrels when enemies gather around them.",
-      "barrelRules": "Direct hits ignite powder barrels: {damage} damage within {radius} yards, with chain explosions.",
-      "armorRules": "Armored troops take {reduction} less damage until Cannonball breaks their armor. Broken armor takes {bonus} more fire damage.",
-      "shake": "Camera shake",
-      "gold": "Gold medal",
-      "silver": "Silver medal",
-      "bronze": "Bronze medal",
-      "failed": "Defense failed",
-      "result": "{medal}: integrity {integrity}, accuracy {accuracy}.",
-      "medalRules": "Gold: at least {goldIntegrity} integrity and {goldAccuracy} accuracy. Silver: {silverIntegrity} and {silverAccuracy}. Any other victory earns Bronze. Enemy or barrel hits count; each shot counts once. Medals grant no extra money.",
-      "shotDamage": "Deal {damage} damage to each enemy within {radius} yards of the impact.",
-      "shotSlow": "Slow enemies hit by {amount} for {seconds} sec.",
-      "shotBurn": "Leave fire for {seconds} sec, dealing {damage} damage each second to enemies standing in it.",
-      "shotTiming": "Cooldown: {cooldown} sec. Impact after {flight} sec. All shots share {recovery} sec recovery.",
-      "shotRules": "Aim inside the marked field. No mana cost. Damage does not scale with gear or talents."
+      "title": "Meriam Pengawasan Utara",
+      "objective": "Pertahankan pengawasan utara",
+      "lastKeepTitle": "Meriam The Last Keep",
+      "lastKeepObjective": "Pertahankan pendekatan ke The Last Keep",
+      "cannonball": "Bola Meriam",
+      "grapeshot": "Tembakan Anggur",
+      "incendiary": "Tembakan Inkendiari",
+      "integrity": "Integritas Meriam",
+      "exit": "Tinggalkan meriam",
+      "wave": "Gelombang {wave}/{total}",
+      "endlessWave": "Gelombang tanpa henti {wave} (putaran {round})",
+      "resultWaves": "Gelombang dipertahankan: {waves}.",
+      "enemies": "Musuh tersisa: {count}",
+      "countdown": "Persiapkan: {seconds}",
+      "hint": "Pilih tembakan, kemudian klik tanah untuk menembak.",
+      "aim": "Klik untuk menembak. Klik kanan atau Escape membatalkan penargetan.",
+      "sapperWarning": "Penyetrum datang! Hentikan pembawa bom sebelum mencapai garis.",
+      "chargeWarning": "Komandan memesan serangan! Semua musuh yang bertahan bergerak lebih cepat.",
+      "armorHint": "Patahkan perisai perak dengan Bola Meriam, kemudian gunakan Tembakan Incendier.",
+      "exposedHint": "Armor yang pecah: Tembakan Incendier memberikan kerusakan ganda.",
+      "barrelHint": "Tembakkan tong bubuk yang ditandai ketika musuh berkumpul di sekitarnya.",
+      "barrelRules": "Pukulan langsung menyalakan tong bubuk: {damage} kerusakan dalam jarak {radius} yard, dengan ledakan berantai.",
+      "armorRules": "Pasukan berpajak menerima {reduction} lebih sedikit kerusakan hingga Bola Meriam memecahkan mereka. Armor yang pecah menerima {bonus} lebih banyak kerusakan api.",
+      "shake": "Guncangan kamera",
+      "gold": "Medali emas",
+      "silver": "Medali perak",
+      "bronze": "Medali perunggu",
+      "failed": "Pertahanan gagal",
+      "result": "{medal}: integritas {integrity}, akurasi {accuracy}%.",
+      "medalRules": "Emas: setidaknya {goldIntegrity} integritas dan {goldAccuracy}% akurasi. Perak: {silverIntegrity} dan {silverAccuracy}%. Kemenangan lainnya mendapat Perunggu. Tembakan musuh atau barel dihitung; setiap tembakan dihitung sekali. Medali tidak memberikan uang tambahan.",
+      "shotDamage": "Berikan {damage} kerusakan kepada setiap musuh dalam jarak {radius} yard dari dampak.",
+      "shotSlow": "Lambatkan musuh yang terkena sebesar {amount}% selama {seconds} detik.",
+      "shotBurn": "Tinggalkan api selama {seconds} detik, memberikan {damage} kerusakan setiap detik kepada musuh yang berdiri di dalamnya.",
+      "shotTiming": "Waktu tunggu: {cooldown} detik. Dampak setelah {flight} detik. Semua tembakan berbagi pemulihan {recovery} detik.",
+      "shotRules": "Bidik di dalam bidang yang ditandai. Tanpa biaya mana. Kerusakan tidak berkembang dengan perlengkapan atau bakat."
     },
     "warlock": {
       "doomLabel": "Kecaman",
@@ -425,18 +594,18 @@ export const id_ID: EnTranslations = {
     "death": {
       "resurrectAtCorpse": "Bangkit di Jasad",
       "resurrectAtHealer": "Sang Penjaga Pucat (Upeti Sang Penjaga)",
-      "ghostHint": "Run to the location of your death or talk to the Pale Keeper to revive",
+      "ghostHint": "Berlari ke lokasi kematianmu atau berbicara dengan Penjaga Pucat untuk hidup kembali",
       "spiritHealerAlive": "Sang Penjaga Pucat mengawasi para mati. Kamu masih termasuk yang hidup.",
-      "keeperTalkTitle": "The Pale Keeper",
-      "keeperTalkBody": "I can raise you where you stand, but my Toll comes with it: the Keeper's Toll reduces all of your attributes by 75%, for up to 10 minutes at higher levels. Walking your spirit back to where you fell revives you with no penalty.",
-      "keeperTalkSparedBody": "I can raise you where you stand. My Toll would normally come with it, a weakening of all you are for a time, but you are new to this world, so I will spare you it. Walking your spirit back to where you fell revives you with no penalty either way.",
-      "keeperTalkAccept": "Revive Me",
-      "keeperTalkLeave": "Leave",
+      "keeperTalkTitle": "Penjaga Pucat",
+      "keeperTalkBody": "Aku bisa membangkitkanmu di tempat berdirimu, tetapi Pajak Penjagaku menyertainya: Pajak Penjaga mengurangi semua atributmu 75%, hingga 10 menit pada level lebih tinggi. Membawa rohmu kembali ke tempat jatuhmu membangkitkanmu tanpa penalti.",
+      "keeperTalkSparedBody": "Aku bisa membangkitkanmu di tempat berdirimu. Pajak Penjagaku biasanya menyertainya, melemahkan semua yang kamu adalah untuk waktu tertentu, tetapi kamu baru di dunia ini, jadi aku akan menyelamatkanmu darinya. Membawa rohmu kembali ke tempat jatuhmu membangkitkanmu tanpa penalti bagaimanapun.",
+      "keeperTalkAccept": "Bangkitkan Aku",
+      "keeperTalkLeave": "Pergi",
       "healerConfirmTitle": "Terima Upeti Sang Penjaga?",
       "healerConfirmBody": "Sang Penjaga Pucat akan menghidupkan Anda kembali di sini, tetapi Upeti Sang Penjaga mengurangi semua atribut Anda sebesar 75%, hingga 10 menit pada level yang lebih tinggi. Membawa roh Anda kembali ke mayat Anda akan menghidupkan Anda kembali tanpa penalti.",
-      "keeperConfirmBody": "Are you sure? The Pale Keeper will revive you, but you will be weaker for it: the Keeper's Toll reduces all of your attributes by 75% until it fades, up to 10 minutes at higher levels.",
-      "keeperConfirmSparedTitle": "Let the Keeper raise you?",
-      "keeperConfirmSparedBody": "Are you sure? The Pale Keeper will revive you here. You are below level 10, so the Keeper's Toll will not weaken you this time.",
+      "keeperConfirmBody": "Kamu yakin? Penjaga Pucat akan membangkitkanmu, tetapi kamu akan melemah karenanya: Pajak Penjaga mengurangi semua atributmu 75% sampai hilang, hingga 10 menit pada level lebih tinggi.",
+      "keeperConfirmSparedTitle": "Biarkan Penjaga membangkitkanmu?",
+      "keeperConfirmSparedBody": "Kamu yakin? Penjaga Pucat akan membangkitkanmu di sini. Kamu di bawah level 10, jadi Pajak Penjaga tidak akan melemahkanmu kali ini.",
       "healerConfirmAccept": "Bangkitkan Aku",
       "healerConfirmCancel": "Membatalkan"
     },
@@ -451,7 +620,7 @@ export const id_ID: EnTranslations = {
       "help": "Pemulihan: /unstuck memulai hitung mundur diam di tempat untuk memindahkanmu ke titik aman terjangkau terdekat.",
       "helpAtGraveyard": "Pemulihan: /unstuck memulai hitung mundur diam di tempat, lalu mengirim rohmu ke kuburan terdekat. Kembali lewat Sang Penjaga Pucat membutuhkan Upeti Sang Penjaga.",
       "helpUnstuckSickness": "Pemulihan: /unstuck memulai hitung mundur diam di tempat, lalu memindahkanmu ke kuburan terdekat dan menghidupkanmu kembali jika kamu telah tumbang. Penyakit Pelepasan tetap membebanimu hingga 5 menit.",
-      "helpUnstuckWindow": "Recovery: /unstuck starts a stationary countdown, then moves you to the nearest graveyard, reviving you if you had fallen. The first use in an hour is free. Use it again within an hour of the last and it leaves you with Unstuck Sickness for up to 5 minutes.",
+      "helpUnstuckWindow": "Pemulihan: /unstuck memulai hitungan menit yang diam, kemudian memindahkanmu ke kuburan terdekat, menghidupkanmu kembali jika kamu telah jatuh. Penggunaan pertama dalam satu jam gratis. Gunakan lagi dalam satu jam terakhir dan itu membiarkanmu dengan Penyakit Terbelit selama hingga 5 menit.",
       "started": "Lepaskan Diri dalam {seconds} detik. Bergerak, bertarung, menerima kerusakan, atau memulai tindakan lain akan membatalkannya.",
       "countdown": "Lepaskan Diri: {seconds}",
       "completed": "Dipindahkan ke titik aman terjangkau terdekat.",
@@ -459,8 +628,8 @@ export const id_ID: EnTranslations = {
       "revivedAtGraveyard": "Kamu telah dikembalikan ke kuburan terdekat dan dihidupkan kembali. Upeti Sang Penjaga membebanimu.",
       "movedToGraveyard": "Kamu telah dipindahkan ke kuburan terdekat. Penyakit Pelepasan membebanimu.",
       "revivedAtGraveyardUnstuck": "Kamu telah dipindahkan ke kuburan terdekat dan dihidupkan kembali. Penyakit Pelepasan membebanimu.",
-      "movedToGraveyardFree": "You have been moved to the nearest graveyard. Using Unstuck again within the hour will leave you with Unstuck Sickness.",
-      "revivedAtGraveyardFree": "You have been moved to the nearest graveyard and revived. Using Unstuck again within the hour will leave you with Unstuck Sickness.",
+      "movedToGraveyardFree": "Kamu telah dipindahkan ke kuburan terdekat. Menggunakan Unstuck lagi dalam satu jam akan membiarkanmu dengan Penyakit Terbelit.",
+      "revivedAtGraveyardFree": "Kamu telah dipindahkan ke kuburan terdekat dan dihidupkan kembali. Menggunakan Unstuck lagi dalam satu jam akan membiarkanmu dengan Penyakit Terbelit.",
       "cancelledMoved": "Lepaskan Diri dibatalkan karena kamu bergerak.",
       "cancelledDamaged": "Lepaskan Diri dibatalkan karena kamu menerima kerusakan.",
       "cancelledCombat": "Lepaskan Diri dibatalkan karena kamu memasuki pertempuran.",
@@ -567,15 +736,15 @@ export const id_ID: EnTranslations = {
     },
     "trade": {
       "windowClosed": "Jendela perdagangan ditutup.",
-      "offerQuantityHint": "You will be asked how many to offer",
-      "offerQuantityTitle": "Offer {item}",
-      "offerQuantityInput": "Quantity to offer",
-      "offerQuantityConfirm": "Offer",
-      "offerQuantityAll": "Offer all",
-      "offerRemoveTitle": "Remove {item}",
-      "offerRemoveInput": "Quantity to remove",
-      "offerRemove": "Remove",
-      "offerRemoveAll": "Remove all",
+      "offerQuantityHint": "Kamu akan ditanya berapa banyak yang akan ditawarkan",
+      "offerQuantityTitle": "Tawarkan {item}",
+      "offerQuantityInput": "Kuantitas untuk ditawarkan",
+      "offerQuantityConfirm": "Tawarkan",
+      "offerQuantityAll": "Tawarkan semua",
+      "offerRemoveTitle": "Hapus {item}",
+      "offerRemoveInput": "Kuantitas untuk dihapus",
+      "offerRemove": "Hapus",
+      "offerRemoveAll": "Hapus semua",
       "woc": {
         "tabGold": "Emas",
         "tabWoc": "$WOC",
@@ -1322,45 +1491,56 @@ export const id_ID: EnTranslations = {
       "devTierCol": "Lencana",
       "mergedPrs": "PR Digabungkan",
       "devEmpty": "Belum ada kontributor berperingkat.",
-      "tabWorldQuests": "World Quests",
-      "wqBoardsLabel": "World quest scoreboards",
-      "wqMedal": "Medal",
-      "wqWaves": "Waves held",
-      "wqTime": "Time",
-      "wqPoints": "Score",
-      "wqSeconds": "{seconds}s",
-      "wqNoMedal": "None",
-      "wqMedals": {
-        "gold": "Gold",
-        "silver": "Silver",
-        "bronze": "Bronze"
+      "tabWorldQuests": "Misi Dunia",
+      "wqBoardsLabel": "Papan penilaian misi dunia",
+      "wqMedal": "Medali",
+      "wqWaves": "Gelombang dipegang",
+      "wqTime": "Waktu",
+      "gliderCourseNames": {
+        "downs": "Sirkuit Pesisir",
+        "valleys": "Sirkuit Lembah",
+        "switchbacks": "Tikungan Punggungan"
       },
-      "wqEmpty": "No scores on this board yet. Finish the world quest to claim a spot.",
+      "gliderDaily": "{course}: Hari Ini",
+      "gliderLifetime": "{course}: Sepanjang Waktu",
+      "gliderStart": "Terbang kursus ini",
+      "gliderRankings": "Rekor kursus peluncur",
+      "gliderPersonalRules": "Rekor offlinemu, disimpan dengan karakter ini. Lewati setiap cincin secara berurutan. Rekor harian dihapus setiap hari.",
+      "gliderRules": "Penerbangan lengkap tercepat menang. Lewati setiap cincin. Rekor harian diatur ulang dengan realm. Rekor menyegarkan dalam 30 detik.",
+      "wqPoints": "Skor",
+      "wqSeconds": "{seconds}d",
+      "wqNoMedal": "Tidak ada",
+      "wqMedals": {
+        "gold": "Emas",
+        "silver": "Perak",
+        "bronze": "Perunggu"
+      },
+      "wqEmpty": "Tidak ada skor di papan ini. Selesaikan misi dunia untuk mengklaim tempat.",
       "podiumLabel": "Tiga Teratas",
       "unclaimed": "Belum Diklaim",
       "prestigeTitle": "Prestise {rank}"
     },
     "wqLadder": {
-      "title": "World Quest Rankings",
-      "subtitle": "The best attempt of every hero, one ladder per medal world quest.",
-      "close": "Close World Quest Rankings",
+      "title": "Peringkat Misi Dunia",
+      "subtitle": "Usaha terbaik dari setiap pahlawan, satu tangga per misi dunia bermedali.",
+      "close": "Tutup Peringkat Misi Dunia",
       "rankedBy": {
-        "waves": "Ranked by waves held",
-        "seconds": "Ranked by fastest time",
-        "points": "Ranked by highest score"
+        "waves": "Diurutkan berdasarkan gelombang yang dipertahankan",
+        "seconds": "Diurutkan berdasarkan waktu tercepat",
+        "points": "Diurutkan berdasarkan skor tertinggi"
       },
       "rankedByMedal": {
-        "waves": "Ranked by medal, then waves held",
-        "seconds": "Ranked by medal, then fastest time",
-        "points": "Ranked by medal, then highest score"
+        "waves": "Diurutkan berdasarkan medali, lalu gelombang yang dipertahankan",
+        "seconds": "Diurutkan berdasarkan medali, lalu waktu tercepat",
+        "points": "Diurutkan berdasarkan medali, lalu skor tertinggi"
       },
-      "podiumLabel": "Top three",
-      "unclaimed": "Unclaimed",
-      "totalOne": "One hero ranked",
-      "totalMany": "{count} heroes ranked",
-      "selfLabel": "Your best",
-      "selfRank": "Rank {rank}",
-      "selfNone": "You have no score on this board yet. Finish the world quest to join the ladder."
+      "podiumLabel": "Tiga teratas",
+      "unclaimed": "Belum diklaim",
+      "totalOne": "Satu pahlawan diurutkan",
+      "totalMany": "{count} pahlawan diurutkan",
+      "selfLabel": "Usaha terbaik mu",
+      "selfRank": "Peringkat {rank}",
+      "selfNone": "Kamu belum punya skor di papan ini. Selesaikan misi dunia untuk bergabung dengan tangga."
     },
     "pledge": {
       "open": "Menerima lamaran",
@@ -1388,6 +1568,48 @@ export const id_ID: EnTranslations = {
       "yourPledge": "Lamaranmu: {guild}",
       "since": "Melamar {date}",
       "withdraw": "Tarik lamaran"
+    },
+    "guildRanks": {
+      "tab": "Pangkat",
+      "introEdit": "Namakan pangkat guildmu dan pilih apa yang dapat dilakukan oleh masing-masing. Perubahan berlaku untuk semua orang yang memiliki pangkat setelah kamu menyimpan.",
+      "introView": "Setiap gelar pangkat dan apa yang dapat dilakukannya. Hanya Master Guild yang dapat mengubahnya.",
+      "colRank": "Pangkat",
+      "colTitle": "Gelar",
+      "colMembers": "Anggota",
+      "colActions": "Urutan",
+      "numbered": "Pangkat {n}",
+      "perm": {
+        "invite": "Undang",
+        "remove": "Hapus",
+        "promote": "Promosikan",
+        "bank": "Bank Guild",
+        "officerChat": "Obrolan Perwira",
+        "motd": "Papan Pengumuman",
+        "events": "Kalender"
+      },
+      "permHint": {
+        "invite": "Undang pemain ke guild dan jawab janji mereka.",
+        "remove": "Hapus anggota yang memiliki pangkat lebih rendah.",
+        "promote": "Promosikan dan turunkan anggota yang memiliki pangkat lebih rendah, hingga satu pangkat di bawah pangkat mereka.",
+        "bank": "Setor dan tarik tembaga dan item di bank guild. Setiap anggota dapat melihatnya.",
+        "officerChat": "Baca dan berbicara di obrolan perwira.",
+        "motd": "Edit papan pengumuman guild.",
+        "events": "Tambah dan hapus acara kalender guild."
+      },
+      "titleLabel": "Gelar untuk {rank}",
+      "permLabel": "{perm} untuk {rank}",
+      "leaderLocked": "Master Guild selalu memiliki setiap izin.",
+      "add": "Tambah Pangkat",
+      "save": "Simpan Pangkat",
+      "moveUp": "Pindahkan {rank} ke atas",
+      "moveDown": "Pindahkan {rank} ke bawah",
+      "remove": "Hapus {rank}",
+      "full": "Guild dapat memiliki paling banyak {max} pangkat.",
+      "invalidTitle": "Gelar pangkat menggunakan huruf, angka, spasi, apostrof, dan tanda hubung, hingga {max} karakter.",
+      "removeConfirm": "Anggota yang memegang {rank} akan menjadi {fallback}. Hapus pangkat ini?",
+      "removeAccept": "Hapus Pangkat",
+      "promoteTo": "Promosikan {name} ke {rank}",
+      "demoteTo": "Turunkan {name} ke {rank}"
     },
     "raidLockout": {
       "title": "Penguncian Raid",
@@ -1490,6 +1712,7 @@ export const id_ID: EnTranslations = {
       "breakdownSummary": "{tab}: {value}",
       "breakdownRow": "{value} ({percent})",
       "breakdownOther": "Lainnya ({count})",
+      "targetsHeader": "Target",
       "percent": "{value}%",
       "petAbility": "{pet}: {ability}",
       "melee": "Jarak Dekat",
@@ -1497,7 +1720,154 @@ export const id_ID: EnTranslations = {
       "resize": "Seret untuk mengubah ukuran pengukur ini",
       "dock": "Kembalikan pengukur ini ke jendela pengukur",
       "separate": "Pisahkan {meter}",
-      "regroup": "Gabungkan kembali {meter}"
+      "regroup": "Gabungkan kembali {meter}",
+      "settingsTitle": "Pengaturan Details / Meter",
+      "optionsEngineBadge": "Mesin WoC Details!",
+      "resetDefaults": "Atur Ulang ke Default",
+      "closeSettings": "Tutup",
+      "densityCompact": "Kepadatan: Ringkas (16px)",
+      "densityStandard": "Kepadatan: Standar (20px)",
+      "bgGlass": "Latar Belakang: Kaca (76%)",
+      "bgSolid": "Latar Belakang: Solid (98%)",
+      "bgMinimal": "Latar Belakang: Minimal (45%)",
+      "numDetailed": "Angka: Terperinci",
+      "numCompact": "Angka: Disingkat (k/M)",
+      "raidTotalsOn": "Total grup header: Ya",
+      "raidTotalsOff": "Total grup header: Tidak",
+      "tabGeneral": "Jendela & Latar Belakang",
+      "tabGeneralDesc": "Opacity, skala, kunci",
+      "tabBars": "Bilah & Tekstur",
+      "tabBarsDesc": "Tinggi, jarak, animasi",
+      "tabText": "Teks & Tipografi",
+      "tabTextDesc": "Font, k/M, DPS, peringkat",
+      "tabHeader": "Header & Judul",
+      "tabHeaderDesc": "Total grup, bilah judul",
+      "tabCombat": "Pertarungan & Batas",
+      "tabCombatDesc": "Baris maks, perisai",
+      "tabPresets": "Tema Cepat",
+      "tabPresetsDesc": "Preset satu klik",
+      "tabProfiles": "Profil dan Impor",
+      "tabProfilesDesc": "Ekspor, impor, dan profil",
+      "groupWindow": "Penampilan Jendela & Latar Belakang",
+      "bgMode": "Mode Latar Belakang",
+      "bgModeDesc": "Gaya visual untuk panel meter.",
+      "optGlass": "Kaca (Blur)",
+      "optGlassDesc": "Efek blur buram",
+      "optSolid": "Solid",
+      "optSolidDesc": "Panel kontras tinggi gelap",
+      "optMinimal": "Minimal",
+      "optMinimalDesc": "Transluser samar",
+      "optTransparent": "Transparan",
+      "optTransparentDesc": "Tidak ada latar belakang, hanya bilah",
+      "bgOpacity": "Opacity Latar Belakang",
+      "bgOpacityDesc": "Persentase opacity untuk latar belakang jendela.",
+      "windowScale": "Skala Jendela",
+      "windowScaleDesc": "Tambahkan atau kurangi skala meter secara keseluruhan.",
+      "lockPosition": "Kunci Posisi",
+      "lockPositionDesc": "Kunci jendela untuk mencegah penggeseran atau perubahan ukuran yang tidak disengaja dalam pertarungan.",
+      "groupBars": "Geometri & Tekstur Bilah",
+      "barHeight": "Tinggi Bilah",
+      "barHeightDesc": "Ketebalan vertikal setiap baris pertarungan (14px ringkas hingga 26px lapang).",
+      "barSpacing": "Jarak Bilah",
+      "barSpacingDesc": "Celah piksel vertikal antar baris yang berdekatan.",
+      "barTexture": "Tekstur Bilah",
+      "barTextureDesc": "Tekstur visual dan pembayangan di atas warna kelas.",
+      "texSpecular": "Berkilau (Specular)",
+      "texSpecularDesc": "Sorot atas dengan efek bevel",
+      "texSmooth": "Halus (Datar)",
+      "texSmoothDesc": "Warna kelas datar yang bersih",
+      "texGradient": "Gradien",
+      "texGradientDesc": "Gradien warna horizontal yang halus",
+      "barAnimation": "Animasi Bilah Halus",
+      "barAnimationDesc": "Interpolasi pertumbuhan dan peluruhan bilah secara real-time.",
+      "alwaysShowMe": "Selalu Tampilkan Saya",
+      "alwaysShowMeDesc": "Sematkan bilah pemainmu di bawah jika peringkatmu di luar baris yang terlihat.",
+      "groupText": "Pemformatan Teks & Telemetri",
+      "numFormat": "Format Angka",
+      "numFormatDesc": "Gaya tampilan untuk total.",
+      "optNumCompact": "Disingkat (k / M)",
+      "optNumCompactDesc": "Contoh: 145.2k, 1.2M",
+      "optNumDetailed": "Terperinci Penuh",
+      "optNumDetailedDesc": "Contoh: 145.200, 1.240.500",
+      "optNumDamageDps": "Kerusakan | DPS",
+      "optNumDamageDpsDesc": "Contoh: 239.2k | 18.4k (bilah telemetri bersih)",
+      "showDps": "Tampilkan Tarif Per Detik (DPS / HPS)",
+      "showDpsDesc": "Menampilkan tarif kerusakan atau penyembuhan per detik di setiap bilah.",
+      "showPercent": "Tampilkan Persentase (%)",
+      "showPercentDesc": "Menampilkan persen kontribusi dari total keluaran grup.",
+      "showRank": "Tampilkan Peringkat (#1, #2...)",
+      "showRankDesc": "Menampilkan nomor peringkat ordinal di sebelah nama.",
+      "showClassIcon": "Tampilkan Ikon Kelas",
+      "showClassIconDesc": "Menampilkan ikon kelas atau peran di sebelah setiap pemain.",
+      "groupFont": "Tipografi Pertarungan (Keluarga Font)",
+      "groupHeader": "Kustomisasi Header",
+      "showTitleBar": "Tampilkan Bilah Judul",
+      "showTitleBarDesc": "Menampilkan bilah atas dengan nama segmen pertarungan dan kontrol.",
+      "showRaidTotals": "Ringkasan Grup di Subtitle",
+      "showRaidTotalsDesc": "Menampilkan DPS/HPS grup kumulatif di subjudul header.",
+      "groupCombat": "Aturan & Batas Pertarungan",
+      "maxRows": "Baris Terlihat Maksimal",
+      "maxRowsDesc": "Bilah simultan (0 = tak terbatas, otomatis sesuai tinggi jendela).",
+      "autoRows": " (Otomatis)",
+      "barsUnit": " bilah",
+      "includeShields": "Hitung Penyerapan sebagai Penyembuhan",
+      "includeShieldsDesc": "Menambahkan kerusakan perisai yang diserap (Mazmur Penangkal, dll) ke meter Penyembuhan.",
+      "groupPresets": "Tema Cepat Satu Klik",
+      "applyPreset": "Terapkan Tema",
+      "presetDetailsName": "Kaca Modern",
+      "presetDetailsDesc": "Latar belakang blur buram, bilah berkilau mengkilap, angka disingkat, dan telemetri lengkap.",
+      "presetDetailsBadge": "Direkomendasikan",
+      "presetClassicName": "Klasik Solid",
+      "presetClassicDesc": "Panel solid kontras tinggi gelap, bilah kelas datar, angka terperinci tidak terkompresi dalam tata letak klasik.",
+      "presetClassicBadge": "Klasik",
+      "presetMinimalName": "Murni Minimal",
+      "presetMinimalDesc": "Latar belakang hampir transparan, bilah ringkas 16px tanpa celah, teks langsung tanpa persentase.",
+      "presetMinimalBadge": "Bersih",
+      "presetRaidName": "Fokus Raid",
+      "presetRaidDesc": "Dirancang untuk raid: kepadatan 18px ringkas, batas 10 bilah, total grup terlihat, dan bilah pemain tersematkan.",
+      "presetRaidBadge": "Raid",
+      "presetProGradientName": "Gradien Pro",
+      "presetProGradientDesc": "Panel transparan mengambang, bilah gradien horizontal, ikon spec, dan telemetri Kerusakan | DPS.",
+      "presetProGradientBadge": "Pro",
+      "groupManageProfiles": "Manajemen Profil",
+      "activeProfile": "Profil Aktif",
+      "activeProfileDesc": "Pilih atau kelola profil mandiri untuk skenario permainan yang berbeda.",
+      "saveAs": "Simpan Sebagai...",
+      "duplicate": "Duplikat",
+      "deleteProfile": "Hapus",
+      "cannotDeleteDefault": "Profil Default tidak bisa dihapus",
+      "promptNewProfile": "Nama profil baru:",
+      "profileCopySuffix": " (Salinan)",
+      "groupExport": "Ekspor Profil Saat Ini",
+      "exportDesc": "String profil terenkripsi dari konfigurasi saat ini. Salin untuk berbagi atau cadangan.",
+      "copyString": "Salin String Profil",
+      "copiedFeedback": "Disalin ke papan klip!",
+      "groupImport": "Impor Profil",
+      "importDesc": "Tempelkan string profil (!WoC-Details:... atau JSON) untuk menerapkan dan menyimpan.",
+      "importPlaceholder": "Tempelkan string profil di sini (!WoC-Details:...)",
+      "importNamePlaceholder": "Nama profil (opsional)",
+      "importApply": "Impor & Terapkan",
+      "errEmptyProfile": "Silakan tempelkan string profil.",
+      "errInvalidProfile": "Kesalahan: String profil tidak valid atau rusak.",
+      "importSuccess": "Profil \"{name}\" berhasil diimpor!",
+      "reportSent": "Laporan disalin dan dikirim ke obrolan",
+      "reportNoData": "Tidak ada data tercatat.",
+      "noDetailedData": "Tidak ada data terperinci",
+      "noDeathEvents": "Tidak ada peristiwa tercatat sebelum kematian",
+      "killedBy": "Dibunuh oleh {killer} ({ability})",
+      "lethalHit": "Pukulan Mematikan",
+      "recentCombatEvents": "{count} peristiwa pertarungan terakhir",
+      "backComparison": "Perbandingan",
+      "comparisonNeedTwo": "Minimal 2 pertarungan diperlukan untuk perbandingan",
+      "backTimeline": "Linimasa",
+      "timelineCombatEvents": "Peristiwa pertarungan: {count}",
+      "backDev": "Keseimbangan / Dev",
+      "balanceAbilitiesCount": "Kemampuan tercatat: {count}",
+      "targetSubtitle": "Target: {target}",
+      "noTargetData": "Tidak ada data pemain untuk target ini"
+    },
+    "auraTooltip": {
+      "caster": "Dilontarkan oleh {name}"
     },
     "auraTracks": {
       "defensives": "Cooldown Pertahanan",
@@ -1524,6 +1894,7 @@ export const id_ID: EnTranslations = {
       "buffs": "Buff",
       "unlock": "Pindahkan jendela aura target",
       "lock": "Kunci jendela aura target",
+      "close": "Tutup jendela aura target",
       "configureRows": "Atur aura target",
       "fewerRows": "Utamakan lebih sedikit baris aura",
       "moreRows": "Utamakan lebih banyak baris aura",
@@ -1617,7 +1988,7 @@ export const id_ID: EnTranslations = {
       "name_rallycart_rxt": "Rallycart RXT",
       "name_terrorspark_groundshaker": "Pengguncang Tanah Percik Teror",
       "name_drakemaw_raptor": "Raptor Drakemaw",
-      "name_avian_strider": "Viridian Valestrider",
+      "name_avian_strider": "Valestrider Viridian",
       "name_mech_bird": "Burung Mekanik Cluckwork",
       "name_lanternback_troll": "Grumbol si Punggung Lentera",
       "name_chimeglass_tortoise": "Tolliver si Kaca Cerobong Asap",
@@ -1634,7 +2005,7 @@ export const id_ID: EnTranslations = {
       "desc_rallycart_skin": "Mobil reli kecil dengan raungan dahsyat.",
       "desc_terrorspark_groundshaker": "Mesin lapis baja ringkas dengan rantai roda berat, meriam berkaliber besar, dan pelana yang dibuat untuk pilot tanpa rasa takut.",
       "desc_drakemaw_raptor": "Seekor raptor sarang dari Kaldera Drakemaw yang telah dijinakkan untuk ditunggangi, seluruhnya otot dan kecepatan, masih samar berbau abu.",
-      "desc_avian_strider": "A towering saddle-bird whose heavy talons and folded wings turn every journey into a thundering sprint.",
+      "desc_avian_strider": "Seekor burung pelana menjulang tinggi dengan cakar berat dan sayap terlipat mengubah setiap perjalanan menjadi lari yang menggelegar.",
       "desc_mech_bird": "Ayam perang jarum jam buatan tangan yang berlari dengan kecepatan servo, kunci putaran masih berputar.",
       "desc_lanternback_troll": "Troll bukit dipatahkan oleh penyala lampu, membawa singgasana besi di bahunya dengan lentera badai menyala di kedua lengannya.",
       "desc_chimeglass_tortoise": "Kura-kura dataran garam yang telah melampaui tiga generasi karavan. Tinker memberinya kacamata dari kaca badai dan menggantungkan lonceng perunggu di tenggorokannya, sehingga jalan mendengarnya jauh sebelum jalan melihatnya.",
@@ -1751,6 +2122,7 @@ export const id_ID: EnTranslations = {
       "clickMoveLeft": "Klik Kiri",
       "clickMoveRight": "Klik Kanan",
       "version": "v{version} ({build})",
+      "overlays": "Tumpang tindih",
       "browserEffects": "Efek Peramban",
       "browserEffectsAuto": "Otomatis",
       "browserEffectsFull": "Penuh",
@@ -1780,6 +2152,9 @@ export const id_ID: EnTranslations = {
       "gfxBloom": "Mekar",
       "gfxAntiAliasing": "Anti-Aliasing",
       "gfxDynamicLights": "Cahaya Dinamis",
+      "gfxGhostFade": "Hantu Kamera",
+      "gfxGhostFadeDithered": "Bercahaya",
+      "gfxGhostFadeSmooth": "Halus",
       "gfxParticleEffects": "Efek Partikel",
       "gfxHalf": "Setengah",
       "gfxCustomNote": "Mengubah salah satu pengatur akan mengalihkan prasetel kualitas ke Lanjutan: campuran kustom yang dibangun di atas dasar kualitas High, dimulai dari tingkat yang ditampilkan untuk prasetel Anda saat ini.",
@@ -1804,15 +2179,15 @@ export const id_ID: EnTranslations = {
       "shaderWarmOff": "Nonaktif",
       "shaderWarmOn": "Aktif",
       "shaderWarmNote": "Panaskan cache shader di latar belakang untuk mencegah tersendat dalam game. Auto: Aktif hanya saat didukung sistem grafismu. (Direkomendasikan). Aktif: Dipaksa di semua tempat. Dapat memperburuk performa pada beberapa konfigurasi. Nonaktif: Dimatikan.",
-      "frameRateCap": "Frame Rate Limit",
-      "frameRateCapAuto": "Auto",
-      "frameRateCapDisplay": "Display",
+      "frameRateCap": "Batas Kecepatan Frame",
+      "frameRateCapAuto": "Otomatis",
+      "frameRateCapDisplay": "Tampilan",
       "frameRateCapSixty": "60",
       "frameRateCapThirty": "30",
-      "frameRateCapNote": "Limits how many images the game draws each second. On a computer that cannot keep up with its display, a lower limit gives a steadier picture and keeps the computer cooler. The limit follows your display, so the real rate can differ a little from the number. Auto lowers the limit only when this computer cannot keep up with its display, then keeps it steady. (Recommended). Display: no limit.",
-      "frameRateCapStatusPaced": "Drawing {fps} images per second on a {hz} Hz display.",
-      "frameRateCapStatusUnpaced": "Limiting to {fps} images per second.",
-      "frameRateCapStatusInert": "This display already runs at or under this limit, so the limit changes nothing.",
+      "frameRateCapNote": "Membatasi berapa banyak gambar yang digambar game setiap detik. Pada komputer yang tidak dapat mengikuti layarnya, batas lebih rendah memberikan gambar yang lebih mantap dan menjaga komputer tetap sejuk. Batasnya mengikuti layarmu, jadi kecepatan sebenarnya bisa sedikit berbeda dari angkanya. Otomatis menurunkan batas hanya ketika komputer ini tidak dapat mengikuti layarnya, lalu menjaganya tetap mantap. (Disarankan). Tampilan: tanpa batas.",
+      "frameRateCapStatusPaced": "Menggambar {fps} gambar per detik pada layar {hz} Hz.",
+      "frameRateCapStatusUnpaced": "Membatasi hingga {fps} gambar per detik.",
+      "frameRateCapStatusInert": "Layar ini sudah berjalan pada batas ini atau lebih rendah, jadi batasnya tidak mengubah apa pun.",
       "gpuBackend": "Backend Grafis",
       "gpuBackendAuto": "Otomatis",
       "gpuBackendVulkan": "Vulkan",
@@ -1840,7 +2215,9 @@ export const id_ID: EnTranslations = {
       "targetHealthText": "Teks Kesehatan Sasaran",
       "aurasOnPlayerFrame": "Buff pada Bingkai Pemain",
       "auraBarBelowFrame": "Buff di bawah Bingkai Pemain",
+      "targetAurasBelowFrame": "Target Aura di Bawah Bingkai",
       "alwaysShowAllBuffs": "Selalu Tampilkan Semua Buff",
+      "showAuraCaster": "Tampilkan Pembuat Aura dalam Tooltip",
       "highContrastBackground": "Latar Kontras Tinggi",
       "startAttackOnAbility": "Serangan Otomatis Saat Memakai Kemampuan",
       "stopAutoAttackOnTargetSwitch": "Hentikan Serangan Otomatis Saat Ganti Target",
@@ -1875,6 +2252,11 @@ export const id_ID: EnTranslations = {
       "showFriendlyTrack": "Tampilkan Buff-ku pada Sekutu",
       "showShieldTrack": "Tampilkan Perisaiku",
       "waterRipples": "Riak Air (Ombak Jejak)",
+      "actionCam": "Kamera Aksi",
+      "actionCamShoulder": "Bahu Kamera Aksi",
+      "actionCamShoulderLeft": "Kiri {pct}",
+      "actionCamShoulderRight": "Kanan {pct}",
+      "actionCamShoulderCenter": "Tengah",
       "showAttackButton": "Tampilkan Tombol Serang",
       "showDailyRewardsChest": "Tampilkan Peti Hadiah Harian",
       "mobileCameraJoystick": "Joystick kamera",
@@ -1949,7 +2331,7 @@ export const id_ID: EnTranslations = {
       "crossHotbarEditHelp": "Pegang bemper kiri dan tekan tombol muka atas untuk mengatur palang dengan pengontrol."
     },
     "perf": {
-      "title": "Performance",
+      "title": "Performa",
       "overlaySection": "Lapisan Performa",
       "enable": "Tampilkan Hamparan Kinerja",
       "description": "Pilih statistik mana yang ditampilkan, di mana hamparan berada, dan tampilannya.",
@@ -2192,6 +2574,80 @@ export const id_ID: EnTranslations = {
         }
       }
     },
+    "cooldownManager": {
+      "title": "Pengelola Waktu Tunggu",
+      "intro": "Tombol mengambang untuk sihir yang Anda pilih. Mereka tidak dapat diklik: masing-masing menampilkan waktu tunggunya, redup saat Anda tidak dapat melontarkannya, dan bersinar saat siap.",
+      "generalTitle": "Umum",
+      "enabled": "Tampilkan Pengelola Waktu Tunggu",
+      "idleOpacity": "Opasitas Saat Tidak Siap",
+      "combatOnly": "Suara Hanya di Pertempuran",
+      "dragHint": "Saat menu ini terbuka, setiap grup ditampilkan di layar dan Anda dapat menyeretnya untuk memindahkannya.",
+      "addSingle": "Tambah Tombol Tunggal",
+      "addGrid": "Tambah Grup Tombol",
+      "addLine": "Tambah Baris Sihir",
+      "groupsFull": "Anda memiliki jumlah grup maksimal. Hapus satu untuk menambah yang lain.",
+      "noGroups": "Tambah satu tombol, grup tombol atau baris sihir untuk mulai.",
+      "groupSingle": "Tombol Tunggal {index}",
+      "groupGrid": "Grup Tombol {index}",
+      "groupLine": "Baris Sihir {index}",
+      "groupName": "Nama Grup",
+      "spellCount": "{count} / {max} sihir",
+      "orientation": "Orientasi",
+      "horizontal": "Horisontal",
+      "vertical": "Vertikal",
+      "columns": "# Kolom",
+      "rows": "# Baris",
+      "direction": "Arah Ikon",
+      "dirRight": "Kanan",
+      "dirLeft": "Kiri",
+      "dirDown": "Bawah",
+      "dirUp": "Atas",
+      "iconSize": "Ukuran Ikon",
+      "iconPadding": "Bantalan Ikon",
+      "opacity": "Opasitas",
+      "visibility": "Visibilitas",
+      "visAlways": "Selalu Terlihat",
+      "visCombat": "Di Pertempuran",
+      "visHidden": "Tersembunyi",
+      "visHiddenHint": "Grup tersembunyi masih memutar suaranya dan menerangi bilah acsimu.",
+      "showTimer": "Tampilkan Pengatur Waktu",
+      "positionX": "Posisi Horisontal",
+      "positionY": "Posisi Vertikal",
+      "resetPosition": "Atur Ulang ke Posisi Default",
+      "deleteGroup": "Hapus Grup",
+      "deleteGroupAria": "Hapus {group}",
+      "trackedTitle": "Sihir Terlacak",
+      "trackedHint": "Seret sihir ke grup, atau pilih untuk memilih grup dan peringatannya. Tombol mengikuti sikirnya saat berubah menjadi yang lain, dan bersinar saat melakukannya.",
+      "search": "Cari sihir",
+      "searchPlaceholder": "Cari",
+      "notDisplayed": "Tidak Ditampilkan",
+      "otherSpells": "Sihir Lain",
+      "otherSpellsHint": "Sihir dari spesialisasi, pilihan bakat, dan tingkat lebih tinggi lainnya. Letakkan satu sekarang dan tombolnya muncul setelah Anda mengetahuinya.",
+      "notKnown": "{spell} (belum diketahui)",
+      "aurasTitle": "Keberuntungan, Mesin dan Manfaat",
+      "aurasHint": "Sumber daya mesin dan tumpukannya, keberuntungan, dan manfaat yang sihir Anda berikan pada Anda. Apa pun lain yang telah ada pada Anda juga muncul di sini.",
+      "auraFallback": "Aura",
+      "onlyWhileActive": "Hanya Tampilkan Saat Aktif",
+      "alertStacks": "Peringatan di Tumpukan",
+      "alertStacksAny": "Saat muncul",
+      "alertStacksHint": "Tombol menerangi, bergetar dan berbunyi setelah aura mencapai tumpukan ini. Saat muncul berarti segera setelah muncul.",
+      "auraSoundHint": "Diputar saat aura muncul, atau saat mencapai tujuan tumpukan Anda.",
+      "emptySection": "Letakkan sihir di sini.",
+      "spellsEmpty": "Anda belum mengetahui sihir apa pun.",
+      "selectSpell": "Pilih {spell}",
+      "group": "Grup",
+      "groupFullOption": "{group} (penuh)",
+      "notInGroupHint": "Letakkan sihir ini di grup untuk menampilkan tombolnya.",
+      "moveEarlier": "Pindahkan {spell} lebih awal",
+      "moveLater": "Pindahkan {spell} lebih lambat",
+      "glowWhenReady": "Bersinar Saat Siap",
+      "glowWhenReadyHint": "Menerangi dan menggaris tombol saat sihir dapat dilontarkan.",
+      "hotbarGlow": "Cahaya Bilah Aksi",
+      "hotbarGlowHint": "Juga menerangi sihir ini di bilah aksi Anda saat siap.",
+      "onlyWhenReady": "Hanya Tampilkan Saat Siap",
+      "sound": "Suara Siap",
+      "soundHint": "Diputar saat sihir siap, atau saat tombolnya berubah menjadi sihir lain saat siap."
+    },
     "auraOverlay": {
       "title": "Aura",
       "currentClass": "Kelas saat ini: {class}",
@@ -2315,19 +2771,80 @@ export const id_ID: EnTranslations = {
         "battlegroundFirstWin": "Kemenangan pertama Medan Thornhollow hari ini",
         "battlegroundComplete": "Pertempuran Medan Thornhollow selesai",
         "battlegroundKill": "Pembunuhan terhormat",
-        "battlegroundAssist": "Bantuan pukulan pamungkas"
+        "battlegroundAssist": "Bantuan pukulan pamungkas",
+        "worldKill": "pembunuhan dunia",
+        "worldAssist": "membantu pembunuhan dunia",
+        "hillHold": "memegang bukit"
       },
       "floatReasons": {
         "kill": "Bunuh",
         "assist": "Bantuan",
-        "firstWin": "Kemenangan Pertama"
+        "firstWin": "Kemenangan Pertama",
+        "hill": "Bukit"
       }
+    },
+    "worldPvp": {
+      "tab": "Pertempuran Dunia PvP",
+      "title": "Pertempuran Dunia PvP",
+      "blurb": "Naikkan bendera mu untuk melawan pemain lain yang sudah naikkan bendera di mana saja di dunia terbuka. Kalahkan satu dan ambil bagian dari uang mereka, ditambah Kehormatan untuk perlengkapan Perang. Arena Pertempuran dan Arena masih membayar lebih banyak.",
+      "statusOn": "Bendera PvP mu naik. Pemain yang sudah naikkan bendera bisa menyerangmu.",
+      "statusOff": "Bendera PvP mu turun. Kamu tidak bisa menyerang atau diserang di dunia terbuka.",
+      "statusOffFfa": "Bendera PvP mu turun, tapi di tanah bebas untuk semua kamu masih bisa menyerang dan diserang.",
+      "statusDisarming": "Bendera mu turun dalam {time}, atau saat pertempuran saat ini berakhir.",
+      "zoneSanctuary": "Tempat perlindungan: tidak ada pertempuran dunia di sini.",
+      "zoneContested": "Tanah yang diperebutkan: hanya pemain yang sudah naikkan bendera yang melawan di sini.",
+      "zoneFfa": "Tanah bebas untuk semua: semua orang di sini adil dijadi incaran.",
+      "realmDisabled": "Pertempuran Dunia PvP dinonaktifkan di realm ini.",
+      "groundSanctuary": "Tepi Pembuktian dan Lembah Eastbrook adalah tempat perlindungan: tidak ada pertempuran dunia sama sekali.",
+      "groundContested": "Di mana pun yang lain adalah tanah yang diperebutkan: hanya dua pemain yang sudah naikkan bendera yang bisa melawan.",
+      "groundFfa": "Tanah Naga, Jangkauan Embun Beku, dan Amberfall adalah bebas untuk semua: semua orang di sini adalah target yang sah.",
+      "groupLine": "Anggota pesta dan serbuan tidak pernah bermusuhan satu sama lain. Rekan guild di luar grup mu masih bisa dilawan.",
+      "markLine": "Menyerang pemain yang tidak naikkan bendera di sana akan menaikkan bendera mu sendiri; menyerang pemain yang sudah naikkan bendera hanya menahan mereka.",
+      "aidLine": "Menyembuhkan, melindungi, atau memberi buff pada pemain yang sudah naikkan bendera di pertempuran dunia akan menaikkan bendera mu.",
+      "stakeLine": "Yang kalah membayar {cap} atau {percent} dari kantong mereka, mana pun yang lebih kecil.",
+      "noStakeLine": "Pemain yang tidak naikkan bendera yang terbunuh di tanah bebas untuk semua tidak kehilangan emas.",
+      "noTakeLine": "Pejuang yang tidak naikkan bendera juga tidak kehilangan emas: hanya bergerak antara dua pemain yang sudah naikkan bendera.",
+      "honorLine": "{honor} Kehormatan per pembunuhan, dibagi antara semua orang yang membantu.",
+      "splitLine": "1v1 yang bersih membayar seluruh pot; pembantu dan penyembuh mereka berbagi.",
+      "repeatLine": "Membunuh pemain yang sama berulang kali membayar {second}, lalu {third}, lalu tidak ada; hitungan direset {reset} setelah pembunuhan pertama.",
+      "greyLine": "Pemain yang lebih dari {levels} level di bawah mu tidak membayar apa pun.",
+      "disarmLine": "Mematikan bendera membutuhkan {minutes} menit dan menunggu pertempuran berakhir.",
+      "record": "Rekor: {kills} pembunuhan, {deaths} kematian",
+      "enable": "Aktifkan Pertempuran Dunia PvP",
+      "disable": "Nonaktifkan Pertempuran Dunia PvP",
+      "keepUp": "Pertahankan Bendera",
+      "confirmBody": "Pemain lain yang sudah naikkan bendera akan bisa menyerangmu di mana saja dan mengambil hingga {cap} dari kantong mu saat mereka menang. Kamu bisa matikan lagi, tapi membutuhkan {minutes} menit.",
+      "confirmAccept": "Naikkan Bendera",
+      "confirmCancel": "Batal",
+      "levelReq": "Memerlukan level {level}.",
+      "pending": "Menunggu status PvP mu dari realm.",
+      "commandHint": "Chat: /pvp mengalihkan bendera, /pvp on dan /pvp off menetapkannya."
+    },
+    "hill": {
+      "title": "Raja Bukit",
+      "rising": "Bukit belum naik",
+      "heldYou": "Grup mu memegang bukit",
+      "heldOther": "Grup lain memegang bukit",
+      "heldNone": "Tidak ada yang memegang bukit",
+      "counts": "Di dalam: kamu {yours}, pemegang {theirs}",
+      "countsUnheld": "Di dalam: kamu {yours}, rival terbesar {theirs}",
+      "countsHolding": "Di dalam: kamu {yours}, rival {theirs}",
+      "contestYou": "Mengambil bukit: {seconds} dari {total}",
+      "contestOther": "Kehilangan bukit: {seconds} dari {total}",
+      "contestNone": "Pegang mayoritas di dalam selama {total} untuk mengambilnya",
+      "inside": "Kamu berada di dalam lingkaran",
+      "distance": "{yards} yd ke lingkaran",
+      "rises": "Naik dalam {minutes}",
+      "falls": "Jatuh dalam {minutes}",
+      "standingRaid": "Anggota raid tidak dihitung: hanya pihak yang dapat memegang bukit"
     },
     "warfareShop": {
       "gossipOption": "Jelajahi Set Perang",
       "gossipOptionAria": "Jelajahi toko set Perang yang ditawarkan oleh {name}",
       "jewelry": "Perhiasan",
       "weapons": "Senjata",
+      "groupSeason2": "Musim Peperangan 2: Pasukan Depan",
+      "groupEntry": "Musim Peperangan 1",
       "owned": "Dimiliki",
       "buyAria": "Beli {item} seharga {honor}",
       "buyOwnedAria": "Beli {item} seharga {honor}, sudah dimiliki",
@@ -2335,7 +2852,9 @@ export const id_ID: EnTranslations = {
     },
     "charSheet": {
       "offense": "Serangan",
+      "spell": "Sihir",
       "defense": "Pertahanan",
+      "ratings": "Peringkat",
       "playtimeLabel": "Waktu Bermain",
       "playtimeParts": "{major}, {minor}",
       "playtimeUnderMinute": "Kurang dari satu menit",
@@ -2350,10 +2869,10 @@ export const id_ID: EnTranslations = {
       "stats": "Statistik",
       "progression": "Kemajuan",
       "skills": "Keterampilan",
-      "reputation": "Reputation",
-      "currencies": "Currencies",
-      "character": "Character",
-      "professions": "Professions",
+      "reputation": "Reputasi",
+      "currencies": "Mata Uang",
+      "character": "Karakter",
+      "professions": "Profesi",
       "gathering": "Mengumpulkan",
       "crafting": "kerajinan",
       "openProfessions": "Profesi Terbuka"
@@ -2372,20 +2891,20 @@ export const id_ID: EnTranslations = {
       }
     },
     "currencies": {
-      "intro": "None of these take bag space. Coin stays in your bag as always.",
-      "activities": "Activities",
-      "factions": "Factions",
-      "honor": "Honor",
-      "delveMark": "Delve Mark",
-      "wocToken": "WoC Token",
-      "heroicMarkNote": "Heroic dungeons . spend at the heroic quartermaster",
-      "honorNote": "Battlegrounds and the arena",
-      "delveMarkNote": "Delves completed",
-      "wocTokenNote": "Linked wallet balance",
-      "walletNotLinked": "No wallet linked",
-      "wocPreview": "Preview balance, not yet verified",
-      "lifetime": "Lifetime {amount}",
-      "factionPending": "Faction currency: pending Stage 2",
+      "intro": "Tidak satu pun dari ini menggunakan ruang tas. Koin tetap di tas seperti biasanya.",
+      "activities": "Aktivitas",
+      "factions": "Faksi-faksi",
+      "honor": "Kehormatan",
+      "delveMark": "Merek Galian",
+      "wocToken": "Token WoC",
+      "heroicMarkNote": "Dungeon Heroik: belanjakan di kepala perlengkapan heroik",
+      "honorNote": "Medan Pertempuran dan arena",
+      "delveMarkNote": "Galian diselesaikan",
+      "wocTokenNote": "Saldo dompet tertaut",
+      "walletNotLinked": "Tidak ada dompet yang ditautkan",
+      "wocPreview": "Saldo pratinjau, belum diverifikasi",
+      "lifetime": "Seumur hidup {amount}",
+      "factionPending": "Mata uang faksi: menunggu Tahap 2",
       "riftWatchMark": "Rift Watch Mark",
       "riftWatchMarkNote": "World Quests in Rift Watch zones",
       "churchOrderCrest": "Order Crest",
@@ -2405,69 +2924,69 @@ export const id_ID: EnTranslations = {
       "subtitle": "World Quest"
     },
     "reputation": {
-      "intro": "All three factions progress at once: every world quest counts toward the faction of its zone.",
+      "intro": "Ketiga faksi maju bersamaan: setiap misi dunia menghitung untuk faksi zonanya.",
       "faction": {
-        "rift_watch": "Rift Watch",
-        "church_order": "Church Order",
+        "rift_watch": "Pengawas Celah",
+        "church_order": "Tatanan Gereja",
         "automatons": "Automatons"
       },
       "hub": {
         "rift_watch": "Drifthaven",
-        "church_order": "Brother Aldric",
+        "church_order": "Saudara Aldric",
         "automatons": "Wyrmwatch"
       },
       "hubLine": "{hub} . {zone}",
       "tier": {
-        "unknown": "Unknown",
-        "recognized": "Recognized",
-        "trusted": "Trusted",
-        "proven": "Proven",
-        "vanguard": "Vanguard",
-        "champion": "Champion"
+        "unknown": "Tidak Dikenal",
+        "recognized": "Diakui",
+        "trusted": "Dipercaya",
+        "proven": "Terbukti",
+        "vanguard": "Pelopor",
+        "champion": "Juara"
       },
       "factionTitle": {
         "rift_watch": {
-          "unknown": "Outsider",
-          "recognized": "Watcher",
-          "trusted": "Riftwalker",
+          "unknown": "Orang Luar",
+          "recognized": "Pengamat",
+          "trusted": "Pejalan Celah",
           "proven": "Warden",
-          "vanguard": "Riftwarden",
-          "champion": "Champion"
+          "vanguard": "Penjaga Celah",
+          "champion": "Juara"
         },
         "church_order": {
-          "unknown": "Outsider",
-          "recognized": "Acolyte",
-          "trusted": "Keeper",
-          "proven": "Templar",
-          "vanguard": "Dawnkeeper",
-          "champion": "Champion"
+          "unknown": "Orang Luar",
+          "recognized": "Novis",
+          "trusted": "Penjaga",
+          "proven": "Kesatria Agama",
+          "vanguard": "Penjaga Fajar",
+          "champion": "Juara"
         },
         "automatons": {
-          "unknown": "Outsider",
+          "unknown": "Orang Luar",
           "recognized": "Operator",
-          "trusted": "Mechanist",
-          "proven": "Artificer",
-          "vanguard": "Forgemaster",
-          "champion": "Champion"
+          "trusted": "Mekanis",
+          "proven": "Pengrajin",
+          "vanguard": "Tuan Peletak",
+          "champion": "Juara"
         }
       },
       "progress": "{current} / {next}",
-      "next": "Next: {tier}",
-      "maxed": "Highest standing reached",
-      "cappedByLevel": "Standing pauses at {tier} until level 16",
-      "today": "Today",
-      "questsDone": "World quests completed",
+      "next": "Berikutnya: {tier}",
+      "maxed": "Posisi tertinggi yang tercapai",
+      "cappedByLevel": "Posisi berhenti pada {tier} hingga level 16",
+      "today": "Hari ini",
+      "questsDone": "Misi dunia selesai",
       "questsDoneValue": "{done} / {total}",
-      "resetsIn": "Board",
-      "resetsUnknown": "No board today",
-      "title": "Faction title",
+      "resetsIn": "Papan",
+      "resetsUnknown": "Tidak ada papan hari ini",
+      "title": "Gelar faksi",
       "titleLine": "{faction} . {tier}",
-      "legend": "Standing tiers",
-      "vendorGate": "Requires {tier} with {faction}.",
-      "standingGained": "+{amount} {faction} Standing.",
-      "tierReachedBanner": "Now {tier} with the {faction}",
-      "tierReachedSubtext": "Faction title: {title}",
-      "tierReachedLine": "You are now {tier} with the {faction}. Your faction title is now {title}."
+      "legend": "Tingkat posisi",
+      "vendorGate": "Memerlukan {tier} dengan {faction}.",
+      "standingGained": "+{amount} Posisi {faction}.",
+      "tierReachedBanner": "Sekarang {tier} dengan {faction}",
+      "tierReachedSubtext": "Gelar faksi: {title}",
+      "tierReachedLine": "Kamu sekarang {tier} dengan {faction}. Gelar faksimu sekarang {title}."
     },
     "questLog": {
       "completed": "Selesai",
@@ -2479,6 +2998,7 @@ export const id_ID: EnTranslations = {
       "names": {
         "spellPower": "Kekuatan Mantra",
         "healPower": "Kekuatan Penyembuhan",
+        "spellCrit": "Mantra Kritis",
         "critRating": "Rating Kritis",
         "hasteRating": "Rating Kecepatan",
         "parry": "Tangkis",
@@ -2495,14 +3015,17 @@ export const id_ID: EnTranslations = {
         "armor": "Meredam pukulan fisik yang datang. Pengurangannya lebih besar terhadap penyerang berlevel lebih rendah dan dibatasi hingga 75%.",
         "attackPower": "Memberi tenaga pada serangan senjata Anda. Setiap 14 daya serang menambah 1 kerusakan per detik.",
         "spellPower": "Meningkatkan kerusakan mantra dan kekuatan penyembuhanmu. Setiap poin Kecerdasan memberi sedikit Kekuatan Mantra, di atas apa pun dari perlengkapan atau buff.",
+        "healPower": "Meningkatkan penyembuhan dari penyembuh dan efek penyembuh-sepanjang-waktu, dan ukuran perisai penyerap. Ini adalah Kekuatan Mantramu ditambah Kekuatan Penyembuh dari peralatanmu dan bonus himpunan, yang menambah penyembuhan tetapi tidak pernah untuk kerusakan.",
         "dps": "Perkiraan kerusakan senjata Anda per detik, menggabungkan kerusakan dan kecepatan senjata dengan daya serang Anda.",
         "critChance": "Peluang serangan Anda menghantam secara kritis, memberikan kerusakan ganda.",
+        "spellCrit": "Peluangmu untuk mantra atau penyembuh menyerang secara kritis, memberikan kerusakan atau penyembuhan 150%. Mantra dan penyembuh menggulung ini bukan pada Peluang Kritis: Intelijen hanya menaikkan peluang ini, sementara peringkat kritis, bakat, dan bonus himpunan menaikkan keduanya.",
         "dodge": "Peluang Anda untuk sepenuhnya menghindari serangan jarak dekat, tanpa menerima kerusakan.",
         "critRating": "Rating kritis dari perlengkapan dan bonus set Anda, menaikkan peluang serangan kritis Anda. Sekitar 10 rating memberi 1% kritis.",
         "hasteRating": "Rating kecepatan dari perlengkapan dan bonus set Anda, mempercepat serangan dan rapalan mantra Anda. Sekitar 10 rating memberi 1% kecepatan.",
         "parry": "Peluang Anda untuk sepenuhnya menangkis serangan jarak dekat dari depan, tanpa menerima kerusakan. Pukulan dari belakang tidak dapat ditangkis.",
         "hitRating": "Rating pukulan dari perlengkapan dan bonus setelanmu, mengurangi seberapa sering seranganmu meleset dan mantramu ditangkal, terutama melawan musuh level lebih tinggi. Sekitar 10 rating memberikan 1% hit.",
-        "warfare": "Meningkatkan kerusakan yang diberikan kepada pemain sebesar {increase}% dan mengurangi kerusakan yang diterima dari pemain sebesar {reduction}%."
+        "warfare": "Meningkatkan kerusakan yang diberikan kepada pemain sebesar {increase}% dan mengurangi kerusakan yang diterima dari pemain sebesar {reduction}%.",
+        "warfareWithHealth": "Meningkatkan kerusakan yang diberikan kepada pemain sebesar {increase}% dan mengurangi kerusakan yang diterima dari pemain sebesar {reduction}%. Juga menaikkan kesehatan maksimalmu sebesar {health}% di mana-mana kecuali di dungeon, raid, menggali dan celah."
       },
       "effects": {
         "attackPower": "+{value} Daya Serang",
@@ -2570,6 +3093,47 @@ export const id_ID: EnTranslations = {
       "attackSlow": "dan memperlambat kecepatan serangan target sebesar {pct}% selama {duration} dtk",
       "dot": "menjangkitkan {name}, kerusakan berkala {school} yang memberikan {total} selama {duration} dtk",
       "hot": "memekarkan {name}, penyembuhan berkala yang memulihkan {total} selama {duration} dtk"
+    },
+    "trinkets": {
+      "equipLine": "Lengkapi: {effect}",
+      "scaled": "{base} (+{bonus})",
+      "useLine": "Gunakan: {effect} (pendinginan {cooldown})",
+      "cooldownMinutes": "{minutes} menit",
+      "cooldownSeconds": "{seconds} detik",
+      "gambleResult": "{item}: {fortune}!",
+      "snakeEyes": "Mata Ular",
+      "equippedLine": "Dilengkapi",
+      "equipLockout": "Memakainya memulai pendinginan {seconds} detik pada penggunaannya, atau pendinginan yang tersisa pada perhiasan yang digantikannya jika lebih lama.",
+      "equip": {
+        "lastStand": "Menerima kerusakan saat kesehatan di bawah {threshold}% memberikan perisai yang menyerap {absorb} kerusakan ({absorbPct}% kesehatan maksimalmu) selama {duration} detik. Dapat terjadi sekali setiap {icd} detik.",
+        "hourglass": "Penyembuhan berlebih dari penyembuh langsung disimpan dalam jam pasir, hingga {cap} ({capPct}% kesehatan maksimalmu). Penyembuhan disimpan hilang {fade} detik setelah terakhir kali tumbuh.",
+        "twinStrike": "Pukulan auto-attack kamu memiliki peluang {chance}% untuk membuat ayunan senjata tangan utama jarak dekat ekstra. Dapat terjadi sekali setiap {icd} detik.",
+        "tally": "Pukulan auto-attack yang kritis dan pukulan penutupmu menambah tanda centang, hingga {max}. Tanda bertahan {duration} detik, disegarkan setiap kali kamu mendapat tanda.",
+        "storm": "Setiap mantra yang kamu baca menambah muatan, hingga {max}. Muatan bertahan {duration} detik, disegarkan setiap kali kamu mendapat muatan.",
+        "heat": "Setiap pukulan senjata jarak dekat dan jarak jauh kamu menambah tumpukan panas, hingga {max}. Panas berlangsung {duration} detik, disegarkan setiap kali kamu mendapat tumpukan.",
+        "ignite": "Pukulan kritis senjata jarak dekat dan jarak jauh kamu menyalakan target, memberikan {tick} kerusakan Api setiap {every} detik selama {duration} detik. Pukulan kritis baru menyegarkannya. Kerusakan meningkat dengan Kekuatan Serangan atau Kekuatan Serangan Jarak Jauh, mana yang lebih tinggi.",
+        "guardHeat": "Setiap serangan yang kamu hindari, elak atau blok menambah tumpukan panas, hingga {max}. Panas berlangsung {duration} detik, disegarkan setiap kali kamu mendapat tumpukan."
+      },
+      "use": {
+        "retaliate": "Selama {duration} detik, musuh yang langsung menghantammu mengalami kerusakan Fisik sama dengan {pct}% kesehatan yang ditikamnya dari dirimu. Kerusakan berkala tidak memicunya.",
+        "anchor": "Selama {duration} detik, terima {reduction}% lebih sedikit kerusakan tetapi bergerak dengan kecepatan {speed}%. Menghilangkan pingsang, akar, kelambatan, ketakutan, polimorf, keheningan, kebutaan, kutukan, lepaskan senjata dan efek mengacaukan pada dirimu, dan kamu mengabaikan yang baru dan dorongan mundur selama berlangsung.",
+        "hourglass": "Ubah semua penyembuhan yang disimpan menjadi perisai pada anggota kelompok dalam jarak {range} yard dengan persentase kesehatan terendah, termasuk dirimu. Perisai bertahan {duration} detik. Memerlukan penyembuhan yang disimpan.",
+        "wellspring": "Sembuhkan dirimu dan anggota kelompok dalam jarak {radius} yard untuk {tick} setiap {every} detik selama {duration} detik. Penyembuhan meningkat dengan Kekuatan Penyembuh.",
+        "bleedEdge": "Selama {duration} detik, pukulan auto-attack kamu menerapkan Luka Cakar, yang memberikan {tick} kerusakan Fisik per tumpukan setiap {every} detik selama {bleedDuration} detik dan menumpuk hingga {stacks} kali. Kerusakan meningkat dengan Kekuatan Serangan.",
+        "tallyStrike": "Habiskan semua tanda centang untuk menyerang target kamu dalam jarak {range} yard untuk {perMark} kerusakan Fisik per tanda ({max} di {maxMarks} tanda). Kerusakan meningkat dengan Kekuatan Serangan. Memerlukan tanda centang.",
+        "stormjar": "Lepaskan semua muatan sebagai baut pada target kamu dalam jarak {range} yard yang melompat ke hingga {extra} musuh lagi dalam jarak {jumpRange} yard. Setiap musuh mengalami {perCharge} kerusakan Alam per muatan ({max} di {maxCharges} muatan). Kerusakan meningkat dengan Kekuatan Mantra. Memerlukan muatan.",
+        "echo": "Selama {duration} detik, {casts} penyembuh atau pukulan kerusakan langsung non-Fisik berikutnya kamu berulang untuk {pct}% dari jumlah mereka.",
+        "gamble": "Gulung salah satu dari empat keberuntungan selama {duration} detik: {keenEdge} (berikan {keenPct}% lebih banyak kerusakan), {luckyStreak} (sembuhkan {heal} selama durasi), {gildedGuard} (perisai yang menyerap {absorb} kerusakan), atau {snakeEyes} (tidak ada efek, tetapi pendinginan ini dibelah dua).",
+        "blink": "Melangkah maju {yards} yard, kemudian terima {reduction}% lebih sedikit kerusakan selama {guard} detik.",
+        "sprint": "Tingkatkan kecepatan gerakmu sebesar {speed}% selama {duration} detik. Tidak menumpuk dengan peningkatan kecepatan lainnya.",
+        "defiance": "Menghilangkan semua pingsang, akar, kelambatan, ketakutan, polimorf, keheningan, kebutaan, kutukan, lepaskan senjata dan efek mengacaukan pada dirimu. Dapat digunakan saat tersingkir.",
+        "brand": "Tandai pemain musuh dalam jarak {range} yard, mengurangi penyembuhan yang mereka terima sebesar {cut}% selama {duration} detik.",
+        "temper": "Habiskan semua tumpukan panas untuk merendam senjatamu selama {duration} detik. Pukulan senjata jarak dekat dan jarak jauh kamu memberikan {damage} kerusakan Api ekstra, ditingkatkan oleh {perHeat}% untuk setiap tumpukan panas yang dihabiskan (hingga {maxBonus}% di {maxHeat} tumpukan). Setiap pukulan penutup menambah {killExtend} detik, hingga {maxDuration} detik total. Kerusakan meningkat dengan Kekuatan Serangan atau Kekuatan Serangan Jarak Jauh, mana yang lebih tinggi.",
+        "kindlingOrb": "Panggil bola ember di sebelahmu selama {duration} detik. Setiap mantra yang kamu baca pada musuh membuatnya menembakkan baut pada musuh itu untuk {damage} kerusakan Api. Kerusakan meningkat dengan Kekuatan Mantra.",
+        "pierce": "Selama {duration} detik, serangan otomatis, tembakan dan kemampuan fisik kamu (bukan pendarahan) juga menyerang musuh terdekat target kamu dalam jarak {reach} yard untuk {share}% dari kerusakan yang diberikan.",
+        "lantern": "Letakkan lentera di kakimu selama {duration} detik. Penyembuh langsung dari siapa pun padamu atau anggota kelompok dalam jarak {radius} yard darinya juga menyembuhkan anggota kelompok lain yang paling terluka dalam cahayanya untuk {share}% dari penyembuhan.",
+        "heartNova": "Habiskan semua tumpukan panas pada ledakan api yang memberikan {perHeat} kerusakan Api per tumpukan ({max} di {maxHeat} tumpukan) ke setiap musuh dalam jarak {radius} yard dan mengejek setiap makhluk yang terkena. Kerusakan meningkat dengan Kekuatan Serangan. Memerlukan tumpukan panas."
+      }
     },
     "questShare": {
       "notShareable": "Misi ini tidak dapat dibagikan.",
@@ -2740,15 +3304,16 @@ export const id_ID: EnTranslations = {
       "failed": "Tidak dapat mengirim laporan bug. Silakan coba lagi."
     },
     "hostDiag": {
-      "title": "System Report",
-      "intro": "Collects details about this computer, including the programs using the most processor and memory, into a file that helps diagnose performance problems. Nothing is sent: the file stays on your computer.",
-      "create": "Generate system report",
-      "running": "Collecting system details...",
-      "saved": "Report saved as {fileName}.",
-      "savedNoName": "Report saved.",
-      "failed": "The report could not be created. Please try again."
+      "title": "Laporan Sistem",
+      "intro": "Mengumpulkan detail tentang komputer ini, termasuk program yang menggunakan paling banyak prosesor dan memori, ke dalam file yang membantu mendiagnosis masalah kinerja. Tidak ada yang dikirim: file tetap di komputermu.",
+      "create": "Buat laporan sistem",
+      "running": "Mengumpulkan detail sistem...",
+      "saved": "Laporan disimpan sebagai {fileName}.",
+      "savedNoName": "Laporan disimpan.",
+      "failed": "Laporan tidak dapat dibuat. Silakan coba lagi."
     },
     "paperdoll": {
+      "trinketSlot": "Perhiasan",
       "unequipAria": "Lepas {item}",
       "unequipHint": "Klik ×, klik kanan, atau seret ke tas untuk melepas",
       "hideHelmAria": "Sembunyikan helm",
@@ -2920,6 +3485,8 @@ export const id_ID: EnTranslations = {
       "hint": "Poin fokus menambahkan bonus di atas hasil dasar setiap komponen. Komponen tanpa fokus tetap pada hasil dasar.",
       "tierHint": "Setiap {points} poin pada komponen meningkatkan tingkat panennya satu langkah, hingga {steps} langkah; kurang dari {points} poin tetap meningkatkan hasilnya.",
       "townOnlyHint": "Fokus hanya bisa diubah saat kamu berada di kota.",
+      "preferenceHint": "Fokus menaikkan nilai dan jumlah apa yang kamu kumpulkan. Untuk mengumpulkan hanya satu bahan, atur Pilihan Kumpul dari Peralatan Lapanganmu atau jendela Profesi.",
+      "pendingLine": "Tersimpan. Spesialisasi ulangmu ke alokasi ini selesai dalam {time}.",
       "budgetLabel": "Sisa poin: {remaining} / {budget}",
       "saveButton": "Simpan Fokus",
       "notInTownHint": "Kamu harus berada di kota untuk mengatur fokusmu.",
@@ -3329,8 +3896,8 @@ export const id_ID: EnTranslations = {
         "kingsWrathSummary": "Nythraxis menghasilkan {bonusNormal} lebih banyak kerusakan pada Normal atau {bonusHeroic} pada Heroic selama sisa pertarungan. Erupsi Makam terjadi setiap {eruptionEveryNormal} dtk ({eruptionEveryHeroic} pada Heroic).",
         "kingsWrathResponse": "Gunakan cooldown defensif yang tersisa untuk kerusakan yang tidak bisa dihindari. Jaga semua mekanik sebelumnya tetap bersih sementara raid menyelesaikan pertarungan.",
         "boneStormName": "Badai Tulang",
-        "boneStormSummary": "Mulai {first} dtk setelah Murka Raja dan setiap {everyNormal} dtk sesudahnya, Nythraxis memulai Badai Tulang selama {duration} dtk. Ia mengabaikan ancaman, bergerak {speed} kali kecepatan normal, dan melakukan {charges} terjangan masing-masing selama {chargeSeconds} dtk. Pusarannya menghasilkan {whirlNormal} kesehatan maksimum setiap detik dalam {radius} yd. Setiap terjangan berakhir dengan Hantaman Tulang dalam radius yang sama sebesar {slamNormal} kesehatan maksimum. Hantaman pertama setiap badai sebesar {openingSlamNormal} sebagai gantinya. Penghancur Makam siap lagi {rearm} dtk setelah berakhir.",
-        "boneStormHeroicSummary": "Mulai {first} dtk setelah Murka Raja dan setiap {everyHeroic} dtk sesudahnya, Nythraxis memulai Badai Tulang selama {duration} dtk. Ia mengabaikan ancaman, bergerak {speed} kali kecepatan normal, dan melakukan {charges} terjangan masing-masing selama {chargeSeconds} dtk. Pusarannya menghasilkan {whirlHeroic} kesehatan maksimum setiap detik dalam {radius} yd. Setiap terjangan berakhir dengan Hantaman Tulang dalam radius yang sama sebesar {slamHeroic} kesehatan maksimum. Hantaman pertama setiap badai sebesar {openingSlamHeroic} sebagai gantinya. Penghancur Makam siap lagi {rearm} dtk setelah berakhir.",
+        "boneStormSummary": "Mulai {first} dtk setelah Murka Raja dan setiap {everyNormal} dtk sesudahnya, Nythraxis memulai Badai Tulang selama {duration} dtk. Ia mengabaikan ancaman, bergerak {speed} kali kecepatan normal, dan melakukan {charges} terjangan masing-masing selama {chargeSeconds} dtk. Pusarannya menghasilkan {whirlNormal} kesehatan maksimum setiap detik dalam {radius} yd. Setiap terjangan berakhir dengan Hantaman Tulang dalam radius yang sama sebesar {slamNormal} kesehatan maksimum. Semua merek Robekan Jiwa yang aktif dilepaskan tanpa terselesaikan saat badai dimulai, dan badai tidak pernah dimulai tepat setelah detonasi Robekan Jiwa. Penghancur Makam siap lagi {rearm} dtk setelah berakhir.",
+        "boneStormHeroicSummary": "Mulai {first} dtk setelah Murka Raja dan setiap {everyHeroic} dtk sesudahnya, Nythraxis memulai Badai Tulang selama {duration} dtk. Ia mengabaikan ancaman, bergerak {speed} kali kecepatan normal, dan melakukan {charges} terjangan masing-masing selama {chargeSeconds} dtk. Pusarannya menghasilkan {whirlHeroic} kesehatan maksimum setiap detik dalam {radius} yd. Setiap terjangan berakhir dengan Hantaman Tulang dalam radius yang sama sebesar {slamHeroic} kesehatan maksimum. Semua merek Robekan Jiwa yang aktif dilepaskan tanpa terselesaikan saat badai dimulai, dan badai tidak pernah dimulai tepat setelah detonasi Robekan Jiwa. Penghancur Makam siap lagi {rearm} dtk setelah berakhir.",
         "boneStormResponse": "Menyebarlah dan terus lari dari Nythraxis. Raider yang diterjang berlari menjauh sementara semua orang memberi ruang di sekitar jalur terjangan, lalu tank mengambilnya kembali saat badai berakhir.",
         "crownEnduresName": "Mahkota Bertahan",
         "crownEnduresSummary": "Pada {enrageNormal} dtk sejak pull (jam berhenti saat Bruder Aldric masuk pada 70%), Mahkota Bertahan terpicu sebagai enrage keras. Nythraxis mendapat {damage} lebih banyak kerusakan dan serangan {haste} lebih cepat, lalu tambahan {rampStep} kerusakan setiap {rampEveryNormal} dtk. Tidak ada bilah timer. Peringatan datang sebagai teriakan pada sisa {warn60}, {warn30}, dan {warn10} dtk.",
@@ -3388,7 +3955,7 @@ export const id_ID: EnTranslations = {
       "forbiddenReflectionLock": "Pantulan Terlarang belum bisa disiapkan lagi",
       "internalCooldown": "Efek ini tidak dapat terpicu lagi hingga penghitung waktu berakhir",
       "carriedFlag": "Kamu membawa bendera musuh. Batalkan buff ini untuk menjatuhkannya.",
-      "carryingFreight": "You are carrying freight. Movement speed is reduced by {pct}%.",
+      "carryingFreight": "Anda sedang membawa kargo. Kecepatan gerak berkurang {pct}%.",
       "battleStance": "Kuda-kuda Tempur: penghasilan amarah 10% lebih banyak",
       "berserkerStance": "Kuda-kuda Berserker: kritis 3% lebih sering dan menghantam 3% lebih keras",
       "crit": "Meningkatkan peluang serangan kritis sebesar {pct}%",
@@ -3417,6 +3984,8 @@ export const id_ID: EnTranslations = {
       "iceFloesCasts": "{n} mantra berikutmu yang memiliki waktu rapalan dapat dirafalkan saat bergerak",
       "freeCast": "Rapalan berikutmu tidak membutuhkan biaya",
       "instantCast": "Mantra berikutmu yang memiliki waktu rapalan menjadi seketika",
+      "benisonPrayers": "Penyembuhan Koor berikutnya Anda menyembuhkan {pct}% lebih banyak dan mengonsumsi semua tumpukan.",
+      "benisonWhisper": "Doa Berbisik berikutnya Anda instan dan menyembuhkan {pct}% lebih banyak. Gunakan sebelum efek ini berakhir.",
       "cheapCast": "Mantra berikutmu menghabiskan {pct}% lebih sedikit mana",
       "radiantResonance": "Cahaya Pemulih berikutnya menjadi seketika, atau Pelukan Fajar berikutnya menghabiskan {pct}% lebih sedikit mana dan dirapal dalam {castTime} dtk",
       "solarReprisal": "Cakram Surya berikutnya tidak menghabiskan mana, mengabaikan jeda, dan memberi {pct}% lebih banyak kerusakan; Palu Karunia mengabaikan jedanya dan menyembuhkanmu sebesar 100% kerusakan yang diberikan; atau Cahaya Pemulih menjadi seketika",
@@ -3436,6 +4005,40 @@ export const id_ID: EnTranslations = {
       "resourceSap": "Memulihkan {value} dari sumber dayamu saat ini setiap {interval} dtk",
       "nextAttackCrit": "Seranganmu berikutnya dijamin akan menjadi pukulan kritis",
       "healEcho": "Turun di bawah {threshold}% nyawa memulihkan {value} nyawa",
+      "trinket": {
+        "lastStandCooldown": "Perisai Berdiri Terakhir Sigil Benteng telah digunakan. Jatuh di bawah {threshold}% kesehatan tidak dapat menaikkannya lagi sampai ini berakhir.",
+        "lastBastion": "Menyerap {value} kerusakan. Sigil Benteng menaikkannya saat Anda menerima kerusakan di bawah {threshold}% kesehatan.",
+        "retaliate": "Musuh yang mengenai Anda secara langsung menerima kerusakan Fisik sama dengan {pct}% dari kesehatan yang pukulan itu ambil dari Anda. Kerusakan berkala tidak memicu ini.",
+        "moored": "Anda menerima {reduction}% kerusakan lebih sedikit namun bergerak dengan kecepatan {speed}%. Anda mengabaikan kejutan, akar, perlambatan, ketakutan, perubahan bentuk, keheningan, kebutaan, mantra, pelucutan senjata, efek tidak mampu bergerak dan serangan balik.",
+        "hourglassStored": "Menahan {stored} penyembuhan tersimpan dari penyembuhan berlebih Anda. Gunakan Gelas Penyembuh untuk mengubahnya menjadi perisai di anggota pihak dalam {range} yard dengan persentase kesehatan terendah, termasuk Anda.",
+        "hourglassShield": "Menyerap {value} kerusakan. Dibuat dari penyembuhan yang disimpan Gelas Penyembuh.",
+        "wellspring": "Memulihkan {tick} kesehatan setiap {every} detik.",
+        "twinStrikeCooldown": "Cakar Berpasangan baru saja membuat ayunan tambahan. Tidak dapat membuat yang lain sampai ini berakhir.",
+        "bleedEdge": "Pukulan otomatis Anda menerapkan Luka Cakar: {tick} kerusakan Fisik per tumpukan setiap {every} detik selama {duration} detik, menumpuk hingga {max} kali.",
+        "bleedEdgeOther": "Pukulan otomatis menerapkan Luka Cakar, pendarahan Fisik yang menumpuk hingga {max} kali. Kerusakan meningkat dengan Kekuatan Serangan.",
+        "talonWound": "Menimbulkan {damage} kerusakan Fisik setiap {every} detik ({stacks}/{max} tumpukan). Setiap tumpukan baru menambah kerusakan dan memperbarui durasi.",
+        "tally": "Tanda perhitungan: {stacks}/{max}. Gunakan Tali Pemburu untuk menghabiskan semuanya pada serangan di target Anda sebesar {damage} kerusakan Fisik ({perMark} per tanda).",
+        "tallyOther": "Tanda perhitungan: {stacks}/{max}. Tali Pemburu menghabiskan semuanya pada serangan Fisik yang menimbulkan kerusakan lebih banyak untuk setiap tanda.",
+        "storm": "Muatan: {stacks}/{max}. Gunakan Botol Badai untuk melepaskannya sebagai bolt yang mengenai target Anda dan hingga {extra} musuh lain dalam {jumpRange} yard satu sama lain sebesar {damage} kerusakan Alam masing-masing ({perCharge} per muatan).",
+        "stormOther": "Muatan: {stacks}/{max}. Botol Badai melepaskannya sebagai bolt Alam yang mengenai target dan hingga {extra} musuh lain, menimbulkan kerusakan lebih banyak untuk setiap muatan.",
+        "echo": "Penyembuhan langsung atau pukulan kerusakan non-Fisik langsung berikutnya {casts} Anda terulang sebesar {pct}% dari jumlahnya.",
+        "keenEdge": "Keberuntungan Dadu Penjudi: Anda menimbulkan {pct}% kerusakan lebih banyak.",
+        "luckyStreak": "Keberuntungan Dadu Penjudi: memulihkan {tick} kesehatan setiap {every} detik.",
+        "gildedGuard": "Keberuntungan Dadu Penjudi: menyerap {value} kerusakan.",
+        "riftGuard": "Anda menerima {pct}% kerusakan lebih sedikit.",
+        "sprint": "Kecepatan gerak meningkat {pct}%. Tidak menumpuk dengan peningkatan kecepatan lain.",
+        "brand": "Penyembuhan yang diterima berkurang {pct}%.",
+        "forgeHeat": "Panas: {stacks}/{max}. Menggunakan Badani Pandai Besi menghabiskan semuanya, dan api senjatanya menimbulkan {pct}% kerusakan lebih banyak.",
+        "tempered": "Pukulan senjata jarak dekat dan jarak jauh Anda menimbulkan {damage} kerusakan Api tambahan ({pct}% lebih banyak dari panas yang dihabiskan). Setiap pukulan pembunuh menambah {killExtend} detik, hingga {maxDuration} detik total.",
+        "temperedOther": "Pukulan senjata jarak dekat dan jarak jauh menimbulkan kerusakan Api tambahan, {pct}% lebih banyak dari panas yang dihabiskan. Kerusakan meningkat dengan Kekuatan Serangan atau Kekuatan Serangan Jarak Jauh, mana pun yang lebih tinggi.",
+        "kindlingOrb": "Setiap sihir yang Anda lontarkan ke musuh membuat bola menembakkan bolt ke musuh itu sebesar {damage} kerusakan Api. Bola menahan apinya di musuh yang diubah bentuk, tidak mampu bergerak atau buta.",
+        "kindlingOrbOther": "Setiap sihir yang dilontarkan ke musuh membuat bola menembakkan bolt kerusakan Api ke musuh itu. Kerusakan meningkat dengan Kekuatan Sihir.",
+        "moltenIgnite": "Menimbulkan {damage} kerusakan Api setiap {every} detik. Pukulan kritis senjata lain memperpanjangnya.",
+        "pierce": "Serangan otomatis, tembakan dan kemampuan fisik Anda (bukan pendarahan) juga menyerang musuh terdekat target Anda dalam {reach} yard sebesar {pct}% dari kerusakan yang ditimbulkan.",
+        "lantern": "Penyembuhan langsung dari siapa pun pada Anda atau anggota pihak dalam {radius} yard dari lentera juga menyembuhkan anggota pihak lain yang paling terluka dalam cahayanya sebesar {pct}% dari penyembuhan.",
+        "crucibleHeat": "Panas: {stacks}/{max}. Gunakan Jantung Cekungan untuk menghabiskan semuanya pada ledakan api yang menimbulkan {damage} kerusakan Api ke setiap musuh dalam {radius} yard dan menggoda setiap makhluk yang terkena.",
+        "crucibleHeatOther": "Panas: {stacks}/{max}. Jantung Cekungan menghabiskan semuanya pada ledakan api dalam {radius} yard yang menimbulkan kerusakan Api lebih banyak untuk setiap tumpukan dan menggoda setiap makhluk yang terkena."
+      },
       "increase": {
         "ap": "Aumenta el poder de ataque en {value}",
         "str": "Meningkatkan Kekuatan sebesar {value}",
@@ -3567,6 +4170,7 @@ export const id_ID: EnTranslations = {
       "resetErrInvalid": "Tautan pengaturan ulang ini tidak valid atau sudah kedaluwarsa. Minta yang baru."
     },
     "loot": {
+      "rollWon": "Selamat! Kamu menang {item} dengan roll {roll}",
       "chestTitle": "Peti",
       "takeLootButton": "Ambil Jarahan",
       "takeLootTooltip": "Mengambil koin dan barang yang jatuh. Tidak menggunakan kesempatan panen.",
@@ -3583,6 +4187,7 @@ export const id_ID: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "pvpTag": "PvP",
       "cheaterTag": "< Pemain Curang >",
       "pledgeTag": "Ikrar {guild}",
       "npcRoleTag": "<{role}>",
@@ -3616,6 +4221,10 @@ export const id_ID: EnTranslations = {
       "friendly": "Ramah",
       "elite": "Elite",
       "boss": "Bos"
+    },
+    "playerTooltip": {
+      "guild": "<{guild}>",
+      "specRole": "{spec} ({role})"
     },
     "targetFrame": {
       "unlock": "Pindahkan bingkai sasaran",
@@ -3661,6 +4270,8 @@ export const id_ID: EnTranslations = {
       "label": "Atur Ulang Posisi Bingkai"
     },
     "interfaceUnlock": {
+      "combineTrackers": "Gabungkan Bingkai Pelacak",
+      "combineAuras": "Gabungkan Bingkai Aura",
       "label": "Edit Bingkai",
       "unlock": "Buka kunci antarmuka",
       "lock": "Kunci antarmuka",
@@ -3671,6 +4282,8 @@ export const id_ID: EnTranslations = {
       "lockFrame": "Kunci bingkai ini",
       "resizeFrame": "Ubah ukuran bingkai ini",
       "frameNames": {
+        "trackerGroup": "Pelacak",
+        "auraGroup": "Pelacak aura",
         "actionBar1": "Bilah Aksi",
         "actionBar2": "Bilah Aksi 2",
         "actionBar3": "Bilah Aksi 3",
@@ -3695,7 +4308,8 @@ export const id_ID: EnTranslations = {
         "deedTracker": "Pelacak Perbuatan",
         "delveTracker": "Pelacak Delve",
         "riftTracker": "Pelacak Rift",
-        "swingBarOffhand": "Tangan Kiri"
+        "swingBarOffhand": "Tangan Kiri",
+        "unitTooltip": "Tooltip"
       },
       "framesMenu": "Pengaturan Bingkai",
       "framesMenuTitle": "Tampilkan atau sembunyikan bingkai satu per satu. Bingkai yang tidak dicentang tetap tersembunyi sampai kamu mencentangnya lagi atau mengatur ulang ke bawaan.",
@@ -3802,13 +4416,13 @@ export const id_ID: EnTranslations = {
       }
     },
     "lootQuality": {
-      "ordinary": "Ordinary",
-      "superior": "Superior",
-      "exceptional": "Exceptional",
-      "magnificent": "Magnificent",
-      "transcendent": "Transcendent",
+      "ordinary": "Biasa",
+      "superior": "Unggul",
+      "exceptional": "Luar Biasa",
+      "magnificent": "Megah",
+      "transcendent": "Transenden",
       "itemName": "{item}, {quality}",
-      "tooltip": "{quality}: +{levels} item levels. Retained through upgrades."
+      "tooltip": "{quality}: +{levels} level item. Tetap di upgrade."
     },
     "itemTooltip": {
       "requiresLevel": "Membutuhkan Level {level}",
@@ -4246,6 +4860,8 @@ export const id_ID: EnTranslations = {
       "vaultTab": "Brankas",
       "vaultCapacityNote": "Setiap material menampung hingga {cap}.",
       "vaultEmpty": "Brankasmu kosong. Klik sebuah material di tasmu untuk menyetorkannya.",
+      "vaultSearchAria": "Cari bahan brankas berdasarkan nama",
+      "vaultSearchNoMatch": "Tidak ada bahan di brankas Anda yang cocok dengan pencarian Anda.",
       "vaultRowAria": "{item}: {count} dari {cap} tersimpan",
       "vaultLockedIntro": "Buka kunci Brankas Material untuk menimbun material kerajinan di samping bankmu. Setiap material mendapat ruangnya sendiri, hingga {cap} per jenis.",
       "vaultUnlockButton": "Buka Kunci Brankas Material",
@@ -4716,10 +5332,18 @@ export const id_ID: EnTranslations = {
       "enchant_lucent_infusion": "Infusi Bercahaya",
       "enchant_offhand_spirit": "Offhand Etching: Spirit",
       "enchant_feet_shadowstride": "Boot Etching: Shadowstride",
-      "enchant_gloves_forged_might": "Glove Etching: Forged Might"
+      "enchant_gloves_forged_might": "Glove Etching: Forged Might",
+      "enchant_weapon_riftwalkers_grace": "Karunia Pejalan Celah",
+      "enchant_weapon_dawnfire_etching": "Ukiran Senjata: Dawnfire",
+      "enchant_weapon_dawns_benediction": "Ukiran Senjata: Berkah Fajar",
+      "enchant_weapon_piston_drive": "Ukiran Senjata: Dorongan Piston"
     },
     "enchantDescription": {
-      "enchant_weapon_lastflame_zeal": "Serangan jarak dekatmu yang mengenai target dapat memberi 50 Kekuatan selama 15 dtk dan memulihkan 200 kesehatanmu. Pengubah penyembuhan berlaku. Setiap serangan memiliki peluang 1% per 0,6 dtk kecepatan dasar senjata yang menyerang. Tanpa cooldown internal. Kedua tangan berbagi satu buff; setiap pemicu menyegarkannya dan buff ini tidak pernah bertumpuk. Serangan jarak jauh tidak memicu efek ini. Bentuk Serigala menggunakan kecepatan ayunan dasar 1 dtk sebagai gantinya."
+      "enchant_weapon_lastflame_zeal": "Serangan jarak dekatmu yang mengenai target dapat memberi 50 Kekuatan selama 15 dtk dan memulihkan 200 kesehatanmu. Pengubah penyembuhan berlaku. Setiap serangan memiliki peluang 1% per 0,6 dtk kecepatan dasar senjata yang menyerang. Tanpa cooldown internal. Kedua tangan berbagi satu buff; setiap pemicu menyegarkannya dan buff ini tidak pernah bertumpuk. Serangan jarak jauh tidak memicu efek ini. Bentuk Serigala menggunakan kecepatan ayunan dasar 1 dtk sebagai gantinya.",
+      "enchant_weapon_riftwalkers_grace": "Serangan jarak dekat yang mendarat darimu dapat memberikan 60 Kelincahan dan 2% serangan jarak dekat lebih cepat selama 15 det. Setiap pukulan menggulung 1% per 0,6 det kecepatan dasar senjata penyerang. Tidak ada waktu tunggu internal. Kedua tangan berbagi satu buff; pemicu apa pun menyegarkannya, dan tidak pernah bertumpuk. Serangan jarak jauh tidak memicu efek ini. Wujud Kucing menggunakan kecepatan ayunan dasar 1 detik sebagai gantinya.",
+      "enchant_weapon_dawnfire_etching": "Mengukir permanen senjata dengan 18 Kekuatan Mantra. Kekuatan Mantra juga dihitung ke arah Kekuatan Penyembuhan. Bonus datar; tidak terskalakan.",
+      "enchant_weapon_dawns_benediction": "Mengukir permanen senjata dengan 34 Kekuatan Penyembuhan. Kekuatan Penyembuhan meningkatkan penyembuhan saja, tidak pernah kerusakan mantra. Bonus datar; tidak terskalakan.",
+      "enchant_weapon_piston_drive": "Mengukir permanen senjata dua tangan dengan 12 Kekuatan dan 25 Peringkat Serangan Kritis. Tidak dapat diterapkan pada senjata satu tangan. Bonus datar; tidak terskalakan."
     },
     "factionRewards": {
       "alliedHearthstoneUse": "Use: Teleports you to your attuned faction hub. (10 sec cast, 15 min cooldown)",
@@ -4927,6 +5551,7 @@ export const id_ID: EnTranslations = {
         "dormantKnowledge": "Pengetahuan {craft} tersimpan namun tidak aktif hingga pasangan atau hobinya aktif."
       },
       "stationRequired": "Anda harus berada di {station} untuk membuatnya.",
+      "mobileStationTitle": "{name}'s {station}",
       "stationName": {
         "forge": "Bengkel Tempa",
         "kitchens": "Dapur",
@@ -5642,8 +6267,6 @@ export const id_ID: EnTranslations = {
       "level": "Tingkat {level}",
       "landmarkCount": "{count} bangunan terkenal",
       "filtersAria": "Lapisan peta",
-      "railToggle": "Side panel",
-      "railToggleAria": "Show or hide the map side panel",
       "filters": {
         "quests": "Pencarian",
         "gather": "Mengumpulkan",
@@ -5660,30 +6283,30 @@ export const id_ID: EnTranslations = {
       "untrack": "Hapus jejak",
       "track": "Melacak",
       "worldQuests": {
-        "heading": "World quests today",
+        "heading": "Misi dunia hari ini",
         "count": "{done} / {total}",
-        "empty": "No world quests today",
-        "replacement": "Replacement",
+        "empty": "Tidak ada misi dunia hari ini",
+        "replacement": "Penggantian",
         "state": {
-          "active": "In progress",
-          "completed": "Done"
+          "active": "Sedang berjalan",
+          "completed": "Selesai"
         },
-        "reroll": "Replace quest",
-        "rerollNote": "One replacement available today",
-        "rerollUsed": "Replacement used today",
+        "reroll": "Ganti misi",
+        "rerollNote": "Satu penggantian tersedia hari ini",
+        "rerollUsed": "Penggantian sudah dipakai hari ini",
         "rerollReason": {
-          "noCycle": "No board today",
-          "usedToday": "Replacement used today",
-          "completed": "A completed quest cannot be replaced",
-          "inProgress": "A quest in progress cannot be replaced",
-          "notActive": "This quest is not on your board",
-          "noAlternative": "No other quest is available in that zone today",
-          "unknown": "This quest cannot be replaced today"
+          "noCycle": "Tidak ada papan hari ini",
+          "usedToday": "Penggantian sudah dipakai hari ini",
+          "completed": "Misi yang sudah selesai tidak bisa diganti",
+          "inProgress": "Misi yang sedang berjalan tidak bisa diganti",
+          "notActive": "Misi ini tidak ada di papan kamu",
+          "noAlternative": "Tidak ada misi lain yang tersedia di zona itu hari ini",
+          "unknown": "Misi ini tidak bisa diganti hari ini"
         },
-        "confirmTitle": "Replace this world quest?",
-        "confirmBody": "You can replace only one world quest a day, and it cannot be undone. {quest} will be swapped for another quest in its zone.",
-        "confirmOk": "Replace",
-        "confirmCancel": "Cancel"
+        "confirmTitle": "Ganti misi dunia ini?",
+        "confirmBody": "Kamu hanya bisa mengganti satu misi dunia per hari, dan tidak bisa dibatalkan. {quest} akan ditukar dengan misi lain di zona yang sama.",
+        "confirmOk": "Ganti",
+        "confirmCancel": "Batal"
       },
       "legend": {
         "dungeon": "penjara bawah tanah",
@@ -5691,7 +6314,9 @@ export const id_ID: EnTranslations = {
         "herb": "Herba",
         "mail": "Surat",
         "passage": "Jalan"
-      }
+      },
+      "collapseHint": "Tutup bilah peta",
+      "expandHint": "Buka bilah peta"
     },
     "arenaGate": {
       "minLevelNote": "Membutuhkan Level {level}"
@@ -5926,7 +6551,9 @@ export const id_ID: EnTranslations = {
       "listingStatusReturned": "Dikembalikan",
       "listingStatusCancelled": "Dibatalkan",
       "listingStatusSuspended": "Ditangguhkan",
-      "listingStatusUnsold": "Tidak Terjual"
+      "listingStatusUnsold": "Tidak Terjual",
+      "charselectWebLink": "Penawaran, beli, atau jual di situs $WOC Exchange",
+      "charselectWebNote": "Masuk ke permainan dengan karakter untuk menawar, membeli, atau menjual."
     },
     "lootExplorer": {
       "title": "Penjelajah Penjarahan",
@@ -5964,6 +6591,61 @@ export const id_ID: EnTranslations = {
       "gatedByQuest": "Saat mencari: {quest}",
       "empty": "Tidak ada jarahan yang cocok dengan filter ini.",
       "resultCount": "Hasil {count}"
+    },
+    "weekly": {
+      "title": "Misi Mingguan",
+      "close": "Tutup misi mingguan",
+      "subtitle": "Pilih salah satu dari empat muatan. Itu",
+      "resetsIn": "menyetel ulang dalam {time}.",
+      "anyDifficulty": "Kesulitan apa pun",
+      "choose": "Pilih misi",
+      "inProgress": "Sedang berlangsung ({count}/{required})",
+      "completed": "Selesai minggu ini",
+      "lockedThisWeek": "Terkunci minggu ini",
+      "footerPick": "Kamu dapat memegang satu muatan mingguan sekaligus. Pilih kartu untuk membaca persyaratannya.",
+      "footerHeld": "Muatanmu untuk minggu ini sudah ditetapkan. Tiga lainnya membuka saat reset.",
+      "dialogHeading": "Misi mingguan: {category}",
+      "objectives": "Objektif misi",
+      "rewards": "Hadiah",
+      "alsoReceive": "Kamu juga akan menerima:",
+      "tally": "{count} / {required}",
+      "cacheDesc": "Membuka satu potongan serangan Normal untuk kelasmu (tidak pernah potongan set tingkat), plus {count} x {item}.",
+      "dialogNote": "Hanya satu muatan mingguan yang dapat aktif. Itu {reset}",
+      "accept": "Terima",
+      "decline": "Tolak",
+      "kinds": {
+        "dungeons": {
+          "category": "Dungeon",
+          "lore": "Kedalaman alam tidak pernah istirahat: Derelict Mech bergerak lagi dan Hollow Crypt terbangun. Kumpulkan sekutumu dan bersihkan dungeon dari kerusakannya.",
+          "goal": "Selesaikan {count} dungeon pada kesulitan apa pun.",
+          "goalLabel": "Dungeon selesai"
+        },
+        "raid": {
+          "category": "Serangan",
+          "lore": "Kekuatan kuno terbangun di Crucible of the Last Flame dan di ketinggian Thornpeak. Hadapi Ignivar atau Nythraxis dan tumbangkan komandan musuh.",
+          "goal": "Ambil bagian dalam {count} serangan pada kesulitan apa pun.",
+          "goalLabel": "Serangan selesai"
+        },
+        "battlegrounds": {
+          "category": "Medan Perang",
+          "lore": "Bendera perang berkibar di Thornhollow Fields. Bertarung di samping faksimumu, pegang bendera dan buktikan nilaimu dalam pertempuran; setiap pertandingan dihitung, menang atau kalah.",
+          "goal": "Selesaikan {count} medan perang.",
+          "goalLabel": "Medan perang selesai"
+        },
+        "worldboss": {
+          "category": "Bos dunia",
+          "lore": "Musuh perkasa berkeliaran di tanah liar, masing-masing cukup kuat untuk menentang seluruh tentara. Bergabunglah dengan siapa pun yang dekat dan tumbangkan satu aberasi raksasa.",
+          "goal": "Tumbangkan {count} bos dunia di tanah liar.",
+          "goalLabel": "Bos dunia terginjak"
+        }
+      },
+      "commendHeading": "Komendasi Utusan",
+      "commendNote": "{amount} berdiri pada salah satu faksi pilihanmu, sekali seminggu.",
+      "commendClaimed": "Komendasi minggu ini pergi ke {faction}.",
+      "commendRewardLine": "{amount} berdiri dengan faksi pilihanmu",
+      "chosen": "Misi mingguan diambil: {category}",
+      "progress": "{label}: {count}/{required}",
+      "done": "Misi mingguan selesai: {category}"
     }
   },
   "gatherEvent": {
@@ -6075,7 +6757,7 @@ export const id_ID: EnTranslations = {
       "unknown": "Tidak ada guild dengan nama itu."
     },
     "world_quests": {
-      "unknown_board": "No scoreboard by that name."
+      "unknown_board": "Tidak ada papan peringkat dengan nama itu."
     },
     "steam": {
       "disabled": "Penautan Steam sedang tidak tersedia.",
@@ -6179,89 +6861,89 @@ export const id_ID: EnTranslations = {
   "clues": {
     "items": {
       "clue_scroll": {
-        "desc": "A sealed riddle earned by finishing every zone slot of the day. Use it to begin a treasure hunt, and use it again on the hidden spot when the last clue says to dig."
+        "desc": "Teka-teki tersegel yang diperoleh dengan menyelesaikan setiap slot zona hari itu. Gunakan untuk memulai perburuan harta, dan gunakan lagi di tempat tersembunyi saat petunjuk terakhir mengatakan untuk gali."
       },
       "treasure_casket": {
-        "desc": "A locked casket dug up at the end of a treasure hunt. Use it to open it and claim what the hunt buried."
+        "desc": "Peti terkunci yang digali di akhir perburuan harta. Gunakan untuk membukanya dan klaim apa yang dimakamkan perburuan."
       }
     },
     "hunt_drakelands_gate_ashes": {
-      "0": "The road out of Wyrmwatch runs west into a stand of old trees that guards the gate. Stand beneath the Gatewood and the trail begins.",
-      "1": "A far-dune watcher keeps to the eastern sands, north of the garrison. Find Scout Yerrin and ask what the wind carried in.",
-      "2": "The keeper of the garrison stores has not eaten since the last patrol. Bring Quartermaster Sela 2 x Cottage Loaf.",
-      "3": "East and a little south of where the cinders drift into dunes, a scorched patch of ground hides what the ash buried. Use the scroll there and dig.",
-      "title": "Ashes at the Gate",
+      "0": "Jalan keluar Wyrmwatch menuju ke barat ke tegakan pohon tua yang menjaga pintu. Berdiri di bawah Gatewood dan jejak dimulai.",
+      "1": "Pengamat jauh-dune tetap tinggal di pasir timur, utara garnis. Temukan Scout Yerrin dan tanya apa yang dibawa angin.",
+      "2": "Penjaga gudang garnis tidak makan sejak patroli terakhir. Bawa ke Quartermaster Sela 2 x Roti Cottage.",
+      "3": "Timur dan sedikit selatan di mana abu melayang ke duna, bidang tanah yang terbakar menyembunyikan apa yang dimakamkan abu. Gunakan gulir di sana dan gali.",
+      "title": "Abu di Pintu",
       "reply": {
         "1": "The wind came off the eastern dunes carrying ash, and ash does not blow in from empty sand. Sela at the garrison stores logs every patrol. She will talk, once someone feeds her.",
         "2": "Bread at last, bless you. The patrol swore it saw smoke rising from bare sand, east and a little south of the dunes, where nothing is left to burn."
       }
     },
     "hunt_frostveil_aurora_vigil": {
-      "0": "Where the terraces climb toward the lights that dance at night, kneel on the Aurora Steps and let the sky notice you.",
-      "1": "The one who reads the lights waits close by the steps. Speak with Aurorist Veyla about what the sky spelled out.",
-      "2": "East of the howling terraces, a little to the south, the snow lies flatter than it should. Use the scroll there and dig.",
-      "title": "Lights over the Steps",
+      "0": "Di mana teras naik menuju cahaya yang menari di malam hari, berlutut di Aurora Steps dan biarkan langit memperhatikanmu.",
+      "1": "Yang membaca cahaya menunggu dekat dengan tangga. Berbicara dengan Aurorist Veyla tentang apa yang dieja langit.",
+      "2": "Timur dari teras yang melolong, sedikit ke selatan, salju berbaring lebih datar dari yang seharusnya. Gunakan gulir di sana dan gali.",
+      "title": "Cahaya di atas Tangga",
       "reply": {
         "1": "You knelt, and the lights answered. Last night they bent east past the terraces and pointed straight down at the snow."
       }
     },
     "hunt_amberfall_lantern_ferry": {
-      "0": "At the water's edge north of Lanternmere, the keeper of the lantern ferries knows which light went out. Speak with Ferrymaster Caddow.",
-      "1": "A single stone leans against the sky northeast of the great mere, older than the town. Stand at the Leaning Monolith.",
-      "2": "The keeper of the gilded rows waters her orchard by hand and thirsts for it. Bring Orchardist Pomeline 3 x Cold Well Water.",
-      "3": "Northeast of the rise where the cindermaples burn red, the leaves lie in a circle that no wind made. Use the scroll there and dig.",
-      "title": "Lanterns on the Mere",
+      "0": "Di tepi air sebelah utara Lanternmere, penjaga feri lampu mengerti cahaya mana yang padam. Berbicara dengan Ferrymaster Caddow.",
+      "1": "Sebuah batu berdiri menghadap langit di timur laut besar mere, lebih tua dari kota. Berdiri di Monolith Miring.",
+      "2": "Penjaga barisan berlapis emas menyiram kebun dengan tangan dan haus akan itu. Bawa ke Pomeline Orchardist 3 x Air Sumur Dingin.",
+      "3": "Di timur laut naik di mana cindermaples terbakar merah, daun berbaring dalam lingkaran yang tidak dibuat angin. Gunakan gulir di sana dan gali.",
+      "title": "Lentera di Mere",
       "reply": {
         "0": "One lantern went dark last night, the one that faces the old stone across the water. My ferrymen will not go near it. Perhaps you will.",
         "2": "Cold well water, just what the trees wanted. Up past the red maples the leaves have been falling in a ring, and no tree of mine drops its leaves that neatly."
       }
     },
     "hunt_willowfen_fenwitch_salt": {
-      "0": "The fen-witch of Willowweep will not talk to anyone who comes empty-handed. Bring Mother Sedge 1 x Cooking Salt.",
-      "1": "Where the fen goes flat and the air makes everyone drowsy, stand on the Drowsy Flats and sigh, as the witch told you.",
-      "2": "Southeast of the pools that shine in the bog, a hummock of dry ground stays dry all year. Use the scroll there and dig.",
-      "title": "The Fen-Witch's Salt",
+      "0": "Penyihir fen dari Willowweep tidak akan berbicara dengan siapa pun yang datang tangan kosong. Bawa ke Mother Sedge 1 x Garam Masak.",
+      "1": "Di mana fen menjadi datar dan udara membuat semua orang mengantuk, berdiri di Drowsy Flats dan mendesah, seperti penyihir bilang.",
+      "2": "Tenggara dari kolam yang bersinar di rawa, sebuah tumpukan tanah kering tetap kering sepanjang tahun. Gunakan gulir di sana dan gali.",
+      "title": "Garam Penyihir Fen",
       "reply": {
         "0": "Salt. Good, you listen. The flats beyond the reeds make everyone drowsy. Go and sigh there like you mean it, and the fen will show you the rest."
       }
     },
     "hunt_nightbloom_sleepless_vigil": {
-      "0": "Northeast of Moonrest, where the stones keep a watch that never ends, stand at the Standing Vigil.",
-      "1": "The watcher at the vigil counts stars the way others count coins. Speak with Astronomer Cassian about the one that fell.",
-      "2": "North of the town lies a barrow whose sleeper never rests. Salute the Sleepless Barrow so the sleeper knows a friend has come.",
-      "3": "Southeast of the field where the gloam gathers, the moonlight pools on one bare patch of soil. Use the scroll there and dig.",
-      "title": "Vigil of the Sleepless",
+      "0": "Timur laut Moonrest, di mana batu menjaga vigil yang tidak pernah berakhir, berdiri di Vigil yang Berdiri.",
+      "1": "Pengawas di vigil menghitung bintang seperti yang lain menghitung koin. Berbicara dengan Astronomer Cassian tentang yang jatuh.",
+      "2": "Utara kota terletak barrow yang tidurnya tidak pernah istirahat. Hormat Barrow Tidur Tanpa Henti sehingga tidur tahu teman telah tiba.",
+      "3": "Tenggara dari lapangan di mana gloam berkumpul, cahaya bulan mengumpul di satu patch tanah kosong. Gunakan gulir di sana dan gali.",
+      "title": "Vigil dari yang Tidur Tanpa Henti",
       "reply": {
         "1": "A star fell three nights ago, and it fell toward the old barrow north of town. The dead there never sleep. Greet them as a soldier would."
       }
     },
     "hunt_wraithwood_mournstone_candles": {
-      "0": "The candlewright of Gibbetmere sells light to people who fear the dark. Speak with Widow Tansy about a candle that was never paid for.",
-      "1": "The last vicar of the Mournstone has been fasting on prayers alone. Bring Vicar Creel 2 x Salted Jerky.",
-      "2": "Northeast of the town, past the crows, a glade hangs its own strange fruit. Stand in the Hanging Glade.",
-      "3": "Southeast of the clearing where the huntsman set his snares, the leaf litter has been turned over recently. Use the scroll there and dig.",
-      "title": "Candles for the Mournstone",
+      "0": "Pembuat lilin dari Gibbetmere menjual cahaya kepada orang yang takut gelap. Berbicara dengan Widow Tansy tentang lilin yang tidak pernah dibayar.",
+      "1": "Vikaris terakhir dari Mournstone telah berpuasa doa saja. Bawa ke Vicar Creel 2 x Daging Asin.",
+      "2": "Timur laut kota, melewati gagak, sebuah jerami menggantung buah aneh. Berdiri di Jerami Gantung.",
+      "3": "Tenggara dari pembukaan di mana pemburu menaruh jerat-jeratnya, sampah daun telah dibalik baru-baru ini. Gunakan gulir di sana dan gali.",
+      "title": "Lilin untuk Mournstone",
       "reply": {
         "0": "The vicar ordered that candle and never paid for it. He has been fasting ever since, praying and nothing else. Take him something to chew and ask him why.",
         "1": "Thank you, friend. I never lit that candle. Something walks the glade past the crows at night, and I could not face it. Go and stand there, if you can."
       }
     },
     "hunt_palmreach_sunken_idol": {
-      "0": "Deep in the tangle, northwest of the lagoon, the vines pour down like a waterfall. Stand at the Vinefall.",
-      "1": "A hermit who went into the tangle and came back out lives close to the falling vines. Speak with Okrim about what he saw down there.",
-      "2": "To the east, an idol sits half-drowned and still watching. Cower before the Sunken Idol, the way the hermit said the divers do.",
-      "3": "Northeast of where the tangle opens its mouth to the sea, the sand has been heaped higher than the tide reaches. Use the scroll there and dig.",
-      "title": "The Idol's Secret",
+      "0": "Dalam jerat, barat laut laguna, anggur turun seperti air terjun. Berdiri di Vinefall.",
+      "1": "Seorang pertapa yang pergi ke jerat dan keluar tinggal dekat dengan anggur yang jatuh. Berbicara dengan Okrim tentang apa yang dia lihat di sana.",
+      "2": "Ke timur, sebuah patung setengah tenggelam dan masih menonton. Berapa pun terhadap Patung Tenggelam, caranya si selam bilang mereka lakukan.",
+      "3": "Timur laut di mana jerat membuka mulutnya ke laut, pasir telah ditumpuk lebih tinggi dari jangkauan pasang. Gunakan gulir di sana dan gali.",
+      "title": "Rahasia Patung",
       "reply": {
         "1": "Below the vines the divers found an idol, and the idol did not like them. Anyone who stood tall before it did not come back. Be small before it."
       }
     },
     "hunt_evergarden_beacon_road": {
-      "0": "The parterre gardener along the walk north of Hedgewick swears her beds are starving. Bring Farmer Verbena 2 x Compost.",
-      "1": "In the far southeast corner of the garden, an old mill still turns for no miller. Stand at the Old Mill.",
-      "2": "Follow the road south over the border into the Galecrest and out to the coast. The keeper of the old beacon, Keeper Bram, has the last word.",
-      "3": "Northwest of the old beacon, just off the path down from the light, the turf has been cut and laid back. Use the scroll there and dig.",
-      "title": "Beacon and Bloom",
+      "0": "Tukang parterre taman di sepanjang jalan utara Hedgewick bersumpah tempat tidurnya kelaparan. Bawa ke Farmer Verbena 2 x Kompos.",
+      "1": "Di sudut jauh tenggara taman, sebuah pabrik tua masih berputar untuk tidak ada penggilingan. Berdiri di Pabrik Tua.",
+      "2": "Ikuti jalan selatan melampaui perbatasan ke Galecrest dan keluar ke pantai. Penjaga mercusuar tua, Keeper Bram, memiliki kata-kata terakhir.",
+      "3": "Barat laut dari mercusuar tua, tepat di luar jalan turun dari cahaya, rumput telah dipotong dan diletakkan kembali. Gunakan gulir di sana dan gali.",
+      "title": "Mercusuar dan Bunga",
       "reply": {
         "0": "Proper compost, the beds will live. The old miller buried something before he left. His mill still turns in the far corner of the gardens. Go and stand by it.",
         "2": "So the mill sent you down the coast road. The beacon keeps one last secret: northwest of it, just off the path, the turf was cut and laid back. Dig there."
@@ -6290,7 +6972,7 @@ export const id_ID: EnTranslations = {
       "progression": "Naik Level & Perkembangan",
       "world": "Dunia",
       "quests": "Misi",
-      "factions": "Factions & Standing",
+      "factions": "Faksi & Berdiri",
       "dungeons": "Dungeon & Raid",
       "delves": "Delve",
       "rifts": "Rift",
@@ -6305,6 +6987,7 @@ export const id_ID: EnTranslations = {
       "talents": "Talent",
       "arena": "Arena & PvP",
       "thornhollow": "Medan Thornhollow",
+      "worldPvp": "Peperangan Dunia",
       "deeds": "Kitab Jasa",
       "reliquary": "Relikuari",
       "glossary": "Glosarium",
@@ -6372,7 +7055,7 @@ export const id_ID: EnTranslations = {
     "home": {
       "eyebrow": "MMO browser bergaya klasik",
       "title": "World of ClaudeCraft",
-      "subtitle": "Berpetualang, bersatu, dan jelajahi dunia rakitan tangan, gratis di browser-mu.",
+      "subtitle": "Jelajahi dunia, selesaikan quest, dan taklukkan dungeon bersama teman.",
       "ctaPlay": "Main Sekarang",
       "ctaLearn": "Cara Bermain",
       "what": {
@@ -6601,7 +7284,7 @@ export const id_ID: EnTranslations = {
       "rowBrightness": "Eksposur pemandangan, lebih gelap atau lebih terang. Preferensi murni.",
       "rowWeather": "Hujan dan salju sekitar. Hanya atmosfer saja, dan mematikannya akan menghemat sedikit saat terjadi badai.",
       "rowBrowserEffects": "Betapa mewahnya antarmuka itu sendiri: kaca buram, cahaya, menu animasi. Otomatis cocok dengan browser Anda; dunia 3D tidak tersentuh.",
-      "rowFrameRateCap": "A ceiling on how many images the game draws each second. A computer that cannot keep up with its display lands on an uneven rhythm; a steady 30 looks smoother than that, halves the work, and keeps the computer cooler. Display means no limit.",
+      "rowFrameRateCap": "Batas berapa banyak gambar yang ditarik permainan setiap detik. Komputer yang tidak dapat mengikuti layarnya mendarat pada irama tidak merata; mantap 30 terlihat lebih mulus dari itu, mengurangi pekerjaan setengahnya, dan membuat komputer tetap dingin. Tampilan berarti tanpa batas.",
       "rowTerrainDetail": "Tekstur tanah yang kaya dan tercampur versus tampilan medan yang lebih sederhana dan lebih cepat.",
       "rowFoliageDensity": "Seberapa jauh dan lebatnya rumput yang tumbuh di sekitar karakter Anda.",
       "rowEffectsQuality": "Bloom, oklusi ambien, dan berapa banyak obor serta mantra yang memancarkan cahaya sungguhan. Penghematan tunggal terbesar di antara tombol detail, dan sakelar yang menjadi sandaran tombol pencahayaan lainnya.",
@@ -6645,6 +7328,7 @@ export const id_ID: EnTranslations = {
       "ifHudOpacity": "Seberapa pekat panel HUD di atas dunia di baliknya.",
       "ifTooltipScale": "Ukuran teks tooltip, berguna pada layar kecil maupun yang sangat besar.",
       "ifHighContrastText": "Teks antarmuka yang lebih tebal dan berkontras tinggi. Ini terutama opsi aksesibilitas, dan berguna di layar yang terang.",
+      "ifColorblindMode": "Mewarnai ulang bahaya lantai Nythraxis (cincin hantaman Erupsi Kubur, genangan Api Kubur dan Api Jiwa, garis Api Kubur, serta tanda Sobekan Jiwa) ke palet ramah buta warna dengan rona dan kecerahan yang berbeda, sehingga lingkaran yang bertumpuk tetap memiliki tepi yang terlihat. Ukuran, penghitung waktu, dan posisi tidak berubah.",
       "ifHighContrastBackground": "Latar belakang yang lebih polos dan berkontras tinggi di balik layar mulai dan layar karakter.",
       "ifInvertLookY": "Membalik arah atas dan bawah pandangan mouse.",
       "ifShowItemLevel": "Menambahkan baris level item pada setiap tooltip barang. Nonaktif secara bawaan, sehingga tooltip klasik yang hanya menampilkan statistik tetap terjaga.",
@@ -6664,7 +7348,9 @@ export const id_ID: EnTranslations = {
       "ifPartyShowAuras": "Apakah buff dan debuff ditampilkan pada bingkai party. Sakelar serupa mencakup bilah sumber daya, penyerapan, peliharaan, dan apakah Anda muncul pada daftar party Anda sendiri.",
       "ifAurasOnPlayerFrame": "Menampilkan buff dan debuff Anda pada bingkai unit Anda sendiri selain di bilah aura.",
       "ifAuraBarBelowFrame": "Memindahkan baris buff ke bawah bingkai unitmu alih-alih di atasnya. Hanya berpengaruh saat buff ditampilkan pada bingkai pemain.",
+      "ifTargetAurasBelowFrame": "Menggantung strip buff dan debuff bingkai target di bawah bingkai daripada di atasnya, tata letak klasik. Mati secara bawaan, karena bingkai target stok duduk langsung di atas bilah tindakan; nyalakan setelah kamu memindahkan bingkai ke suatu tempat dengan ruang di bawahnya.",
       "ifAlwaysShowAllBuffs": "Menampilkan setiap buff aktif bahkan pada preset grafis Rendah, melewati batas ikon buff yang biasanya berlaku.",
+      "ifShowAuraCaster": "Menambahkan baris \"Dilempar oleh\" ke setiap tooltip buff/debuff, menamai siapa yang menerapkannya. Berguna untuk membedakan beberapa pemberi casting dari buff yang sama, seperti dua berkat Paladin.",
       "ifTargetOfTarget": "Menampilkan siapa yang sedang disasar oleh sasaran Anda, cara klasik untuk mengetahui apakah tank masih memegangnya.",
       "ifPetFrame": "Menampilkan bingkai untuk peliharaan Anda.",
       "ifChatFontScale": "Ukuran teks obrolan.",
@@ -6715,7 +7401,7 @@ export const id_ID: EnTranslations = {
       "allyRezBody": "Kamu tak selalu harus lari balik. Seorang sekutu dengan mantra kebangkitan bisa membangkitkanmu sebagai gantinya, dan itu datang kepadamu sebagai permintaan yang bisa kamu terima atau tolak; biarkan tak terjawab dan permintaan itu kedaluwarsa, jadi jawablah selagi masih ada. Terima, dan kamu bangkit di sisi teman yang merapalkannya dengan sebagian nyawa dan mana pulih. Sebagian penyembuh bisa menawarkan kebangkitan bagi seluruh party yang tumbang sekaligus, meski kalian masing-masing tetap menjawab permintaan kalian sendiri. Medan Thornhollow adalah pengecualiannya: tak ada mantra kebangkitan yang menjangkaumu di sana, dan kamu menunggu gelombang berikutnya timmu.",
       "unstuckTitle": "Saat kamu benar-benar terjebak",
       "unstuckBody": "Jika dunia menjebakmu di suatu tempat yang tak bisa kamu keluar darinya, ketik /unstuck. Kamu harus berada di luar pertempuran dan berdiri diam, tidak sedang terkena pingsan atau akar, dan tidak sedang dalam duel atau pertandingan arena: hitung mundur singkat pun berjalan, dan bergerak atau menerima kerusakan akan membatalkannya. Setelah selesai, kamu diturunkan di kuburan terdekat. Ia tak pernah membunuhmu dan tak meninggalkan mayat, dan jika kamu sudah tumbang sebelumnya, ia justru membangkitkanmu di sana. Harganya adalah Penyakit Pelepasan, pelemahan sementara atas seluruh dirimu yang sudah pudar pada saat kamu bisa menggunakan perintah itu lagi, dan seperti Upeti Sang Penjaga, ia sepenuhnya membebaskan karakter yang baru dibuat.",
-      "unstuckBodyWindow": "If the world traps you somewhere you cannot get out of, type /unstuck. You need to be out of combat and standing still, not held by a stun or a root, and not in a duel or an arena match: a short countdown runs, and moving or taking damage cancels it. When it finishes you are set down at the nearest graveyard. It never kills you and it leaves no corpse, and if you were already down it raises you there instead. The first use in an hour costs you nothing. Use it again within an hour of the last and the price is Unstuck Sickness, a temporary weakening of all you are that has worn off by the time you could use the command again, and like the Keeper's Toll it spares brand-new characters entirely.",
+      "unstuckBodyWindow": "Jika dunia menjebakmu di suatu tempat yang tidak bisa keluar, ketik /unstuck. Kamu perlu berada di luar pertarungan dan berdiri diam, tidak ditahan oleh stun atau akar, dan tidak dalam duel atau pertandingan arena: hitungan mundur pendek berjalan, dan bergerak atau menerima kerusakan membatalkannya. Ketika selesai kamu diletakkan di kuburan terdekat. Tidak pernah membunuhmu dan meninggalkan jasad, dan jika kamu sudah tumbang sebelumnya itu akan menaikkanmu di sana. Penggunaan pertama dalam satu jam tidak memerlukan biaya. Gunakan lagi dalam satu jam dari yang terakhir dan harganya adalah Penyakit Terjebak, pelemahan sementara dari semua yang kamu miliki yang telah hilang pada saat kamu bisa menggunakan perintah lagi, dan seperti Tol Penjaga itu menghemat karakter benar-benar baru.",
       "climbTitle": "Menarik dirimu naik ke tepian",
       "climbBody": "Tepian bukanlah tembok. Melompat ke arah sesuatu yang terlalu tinggi untuk dipijak membuat karaktermu menangkap bibirnya di dekat puncak lompatan dan menariknya naik ke atasnya, tanpa tombol tersendiri untuk ditekan. Apa pun yang cukup rendah untuk dilewati sendiri akan terlewati tanpa basa-basi; tarikan penuh itu disediakan untuk bibir yang berada di atas kepalamu. Gerakan ini singkat, dan ia mengambil alih kendali selama berlangsung, sehingga kamu tak bisa mengarahkannya di tengah jalan. Sebuah pingsan yang mengenaimu di tengah tarikan membuatmu melepas pegangan dan jatuh, diukur dari tempat lompatan itu meninggalkan tanah, dan sebuah pingsan atau akar mencegah panjatan itu dimulai sama sekali, hal yang patut diingat saat kamu berusaha keluar dari posisi buruk dalam sebuah pertarungan."
     },
@@ -6741,7 +7427,9 @@ export const id_ID: EnTranslations = {
       "framesMoveBodyEditFrames": "Bingkai kamu, bingkai sasaranmu, dan bingkai partymu semuanya dapat dipindahkan. Masing-masing membawa tombol pindah kecil di sudutnya: buka kuncinya, seret bingkai ke tempat yang kamu inginkan, lalu kunci lagi agar klik tak sengaja tidak menggesernya. Edit Bingkai, di bagian atas tab Bingkai pada opsi Antarmuka, melonggarkan seluruh antarmuka sekaligus, termasuk ketiga bingkai itu: bilah aksi, bilah rapal, bilah ayunan, bilah pengalaman, peta mini, rel tombol, bingkai pet, bilah sikap, baris buff dan debuff, serta chip Pengingat Wishlist, masing-masing memakai chip nama saat longgar. Jika posisinya akhirnya tidak kamu sukai, Atur Ulang ke Bawaan di bagian bawah tab Bingkai yang sama mengembalikan semuanya ke posisi awal.",
       "framesGovernedExtra": "Edit Bingkai juga melonggarkan tumpukan pelacak di bawahnya, yaitu misi dan tujuan yang kamu lacak, kemajuan jasamu, halaman Relikvarium, resep yang kamu sematkan dari kerajinan, delve yang sedang kamu jalani, rift yang sedang kamu ikuti, serta resep atau komisi yang kamu lacak, bilah aksi pet di samping bingkai pet, bingkai Titik Sasaran untuk debuffmu pada musuh terdekat, medali Devosi paladin, Bilah Penderitaan warlock, hamparan proc mantra, timer ayunan tangan kedua untuk pemakai dua senjata, dan jendela meter kerusakan bertab, semuanya memakai chip nama sendiri saat dilonggarkan.",
       "framesGovernedAuraTracks": "Edit Bingkai juga melonggarkan enam jalur aura pilihan setelah kamu menyalakannya dari tab Tempur pada opsi Antarmuka yang sama: jalur Buffku, jalur Masa Tunggu Defensif, jalur Perisaiku, jalur Masa Tunggu Ofensif, jalur Pergerakan dan Sembunyi, serta jalur Buffku pada Sekutu. Semua jalur mati secara bawaan, dan masing-masing memakai chip nama sendiri saat dilonggarkan.",
+      "frameGroups": "{trackers} dapat menggabungkan pencarian, jasa, celah, menggali, tujuan pengumpulan, dan pelacakan Relikuari. {auras} dapat menggabungkan Target dot dan enam lagu aura. Aktifkan grup apa pun di Pengaturan Bingkai, atau biarkan tetap mati untuk memindahkan setiap bingkai secara terpisah. {tot} mencakup bilah sumber daya. {focus} memiliki tiga target yang dapat dipindahkan secara independen: Shift+F1 hingga Shift+F3 menetapkannya; Ctrl+F1 hingga Ctrl+F3 memilihnya. Seret meter kerusakan atau ancaman ke mana saja di luar tombolnya untuk memindahkannya, dan seret tepinya untuk mengubah ukurannya, bahkan saat bingkai terkunci. Saat bingkai terbuka, Tampilkan atau Sembunyikan Bingkai memiliki menu bergroupe sendiri. Klik kanan bingkai yang terbuka untuk Ukuran Reset atau Opsi Bingkai. Antarmuka > Bingkai juga berisi Pengaturan Bingkai dan Opsi Bingkai Pesta yang dapat runtuh. Kunci Target dari Target ke Target menjaga bingkai-bingkai tersebut bersama. Matikan untuk memindahkan Target dari Target secara terpisah; menyalakannya kembali menyimpan posisi terpisah untuk nanti. Bingkai fokus yang ditetapkan menyembunyikan kontrol penyiapannya; klik kanan dan pilih Batalkan Atur Fokus untuk mengembalikannya. Penyiaran mouseover juga bekerja pada bingkai fokus.",
       "framesGovernedTalkingHead": "Edit Frames juga melonggarkan panel Dialog, yang membawa kalimat lisan NPC saat NPC tersebut berada di luar pandangan Anda; ia memakai chip namanya saat longgar.",
+      "framesGovernedUnitTooltip": "Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.",
       "barsTitle": "Bilah, penghitung waktu, dan teks pertarungan",
       "barsBody": "Bilah rapalanmu muncul di tengah layar, tepat di atas bilah aksimu, setiap kali kamu merapal atau menyalurkan mantra, dan menampilkan nama mantra serta waktu yang tersisa. Targetmu mendapatkan bilah rapalannya sendiri pada bingkainya, sehingga kamu bisa melihat apa yang akan datang dan meresponsnya.\n\nSebuah bilah ayunan tipis berada di bawah bilah rapalanmu dan terisi di antara ayunan senjatamu, sehingga penyerang jarak dekat atau jarak jauh bisa melihat kapan pukulan otomatis berikutnya akan mendarat.\n\nBilah pengalamanmu membentang selebar penuh di bawah bilah aksimu, terbagi menjadi segmen-segmen, dengan sebuah bagian yang lebih terang menunjukkan pengalaman istirahat yang telah kamu tabung.\n\nBerenang di bawah air dan sebuah bilah napas biru muncul di bagian atas layar. Bilah itu berkurang selama kepalamu terendam, berkedip merah begitu habis dan kamu mulai tenggelam, lalu terisi cepat begitu kamu muncul ke permukaan. Space membuatmu berenang ke atas, dan tombol Berenang Turun, Ctrl secara bawaan, membawamu lebih dalam.\n\nKerusakan dan penyembuhan melayang ke atas dari apa pun yang menerimanya sebagai angka-angka kecil, sehingga kamu bisa membaca sebuah pertarungan tanpa membaca teks. Tab Catatan Tempur di kotak obrolanmu menyimpan catatan tertulis yang lengkap.",
       "aurasTitle": "Buff dan debuff",
@@ -6852,6 +7540,8 @@ export const id_ID: EnTranslations = {
       "completed": "Misi yang sudah kamu serahkan, dalam urutan kamu menyelesaikannya.",
       "session": "Apa yang telah kamu lakukan sejak kamu masuk: pembunuhan, kematian, kerusakan, dan pengalaman.",
       "arena": "Kedudukanmu di Coliseum Abu pada kedua bracket: peringkat, menang, kalah, dan rasio kemenangan untuk 1v1 dan 2v2.",
+      "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
+      "pvpZones": "Bendera Peperangan Dunia: /pvp mengubahnya, /pvp on dan /pvp off menetapkannya. Pemain dengan bendera dapat saling bertarung di tanah yang diperebutkan, tempat suci tidak memungkinkan pertarungan dunia sama sekali, dan zona pertarungan bebas memungkinkannya dengan atau tanpa bendera; mematikan membutuhkan 5 menit.",
       "listings": "Daftar milikmu sendiri di Pasar Dunia, lengkap dengan harga yang diminta, waktu tersisa masing-masing, dan berapa banyak ruang yang masih kamu miliki untuk menambah lagi.",
       "buyback": "Apa yang baru-baru ini kamu jual ke pedagang dan masih bisa kamu beli kembali.",
       "groupState": "Keadaanmu saat ini",
@@ -6889,7 +7579,7 @@ export const id_ID: EnTranslations = {
       "dungeonReset": "Tinggalkan instansi-instansi kosong milikmu sendiri, yang kamu lakukan setelah mengganti kesulitan.",
       "groupRecovery": "Pemulihan dan kehadiran",
       "unstuck": "Jalan keluar saat dunia menjebakmu. Berdirilah diam selama hitung mundur singkat dan kamu akan dipindahkan ke kuburan terdekat, serta dibangkitkan di sana jika kamu sudah tumbang. Perintah ini membuatmu lemah karena Penyakit Pelepasan untuk sementara waktu setelahnya, jadi ini adalah pilihan terakhir, bukan jalan pintas.",
-      "unstuckWindow": "The way out when the world has trapped you. Stand still through a short countdown and you are moved to the nearest graveyard, and raised there if you had already fallen. The first use in an hour is free. Use it again within an hour of the last and it leaves you weakened by Unstuck Sickness for a while afterwards, so it is a rescue rather than a shortcut.",
+      "unstuckWindow": "Jalan keluar ketika dunia telah menjebakmu. Berdiri diam melalui hitungan mundur pendek dan kamu dipindahkan ke kuburan terdekat, dan diangkat di sana jika kamu sudah jatuh. Penggunaan pertama dalam satu jam gratis. Gunakan lagi dalam satu jam dari yang terakhir dan itu meninggalkanmu melemah oleh Penyakit Terjebak untuk sementara sesudahnya, jadi ini adalah penyelamatan daripada jalan pintas.",
       "afk": "Tandai dirimu sebagai Pergi Sebentar (AFK), dengan pesan opsional yang akan diterima secara otomatis oleh siapa pun yang membisikimu. Ulangi tanpa pesan untuk menghapusnya; obrolan lain apa pun juga akan menghapusnya.",
       "dnd": "Jangan Ganggu: seperti status pergi, hanya saja bisikan yang dikirim kepadamu ditahan, bukan disampaikan.",
       "sit": "Duduk di tempatmu berada, lalu berdiri kembali. Kamu akan otomatis berdiri begitu kamu bergerak, merapal, atau terkena pukulan.",
@@ -6996,7 +7686,7 @@ export const id_ID: EnTranslations = {
       "fatigueDef": "Berenanglah cukup jauh ke laut lepas dan air mulai menguras tenagamu: sebuah peringatan datang lebih dulu, lalu kerusakan yang meningkat hingga kamu berbalik menuju daratan.",
       "unstuckTerm": "Penyakit Pelepasan",
       "unstuckDef": "Harga yang harus dibayar karena menggunakan Lepaskan Diri dari menu permainan. Diam saja selama hitung mundur dan itu akan menurunkanmu di kuburan terdekat, dan kamu membawa kelemahan sementara untuk beberapa saat setelahnya.",
-      "unstuckDefWindow": "The price of leaning on Unstuck from the game menu more than once in an hour. Stand still through the countdown and it sets you down at the nearest graveyard. The first use in an hour is free, and a repeat within an hour of the last also leaves you carrying a temporary weakness for a while afterwards.",
+      "unstuckDefWindow": "Harga mengandalkan Terjebak dari menu game lebih dari sekali dalam satu jam. Berdiri diam melalui hitungan mundur dan itu menetapkanmu di kuburan terdekat. Penggunaan pertama dalam satu jam gratis, dan pengulangan dalam satu jam dari yang terakhir juga meninggalkanmu membawa kelemahan sementara untuk sementara sesudahnya.",
       "itemLevelTerm": "Level item",
       "itemLevelDef": "Satu angka yang merangkum seberapa kuat sebuah perlengkapan, berguna saat kamu ingin membandingkan dua potongan dengan cepat. Aktifkan Tampilkan Level Item di opsi untuk melihatnya pada tooltip. Hanya perlengkapan yang sumbernya diketahui yang membawa satu angka, sehingga barang dasar pedagang dan perlengkapan awal tidak menampilkan apa pun, dan angka yang tidak ada adalah hal normal, bukan sebuah cacat.",
       "requiredLevelTerm": "Level yang Dibutuhkan",
@@ -7453,14 +8143,14 @@ export const id_ID: EnTranslations = {
       "sideWardenBody": "Di samping kisah utama, para marsekal dan penjaga Lembah serta fen membagikan tangga sayembara tetap. Naiki setapak demi setapak, musuh demi musuh, sebagaimana setiap pemburu sayembara sebelummu meraih tempatnya. Ini menaikkan level dengan jujur sekaligus tur ke para pembuat onar terburuk di tiap zona.",
       "sideCryptTitle": "Raja yang terlupakan",
       "sideCryptBody": "Tinggi di atas puncak terbentang misteri yang lebih hening: makam-makam tua bertanda mahkota yang tak terekam catatan mana pun. Baca para mati, kumpulkan apa yang mereka jaga, dan buka segel makam yang seharusnya tetap tertutup. Ini jejak ala detektif yang membuka jalan menuju raid akhir sepuluh pemain milik realm.",
-      "cluesTitle": "Clue Scrolls",
-      "cluesBody": "Out in the far zones, the daily world-quest board hides one more reward for anyone who clears the whole slate: a Clue Scroll, and the treasure hunt written on it.",
-      "cluesEarnTitle": "Earning a scroll",
-      "cluesEarnBody": "Once your character is far enough along, completing every zone slot on the day's world-quest board hands you a Clue Scroll on top of the usual rewards. A rerolled slot counts once it is done; the always-open dailies are not required. You can hold a few scrolls at a time, so there is no need to spend one the day you earn it.",
-      "cluesHuntTitle": "Following the clues",
-      "cluesHuntBody": "Using a scroll starts a hunt: a short chain of riddles that shows in your quest tracker one step at a time. Each riddle points at something real in the world, a landmark to stand at, a person to talk to, an emote to perform somewhere, or a small errand to run, and the last one always asks you to dig. Only one hunt runs at a time, and it keeps your place across the daily reset and between sessions, so take your time.",
-      "cluesCasketTitle": "The casket",
-      "cluesCasketBody": "Solve the last clue and use the scroll on the spot it names to dig up a Treasure Casket; finishing the hunt also earns standing with the faction whose land hid it. Open the casket for coin and a stack of fine gathering materials. Now and then it holds a piece of gear or a few Heroic Marks, and very rarely Grumbol the Lanternback, a mount found nowhere else. Your first casket and your tenth are recorded in the Book of Deeds.",
+      "cluesTitle": "Gulungan Petunjuk",
+      "cluesBody": "Di zona jauh, papan pencarian dunia harian menyembunyikan satu imbalan lebih untuk siapa pun yang menghapus seluruh selat: Gulungan Petunjuk, dan perburuan harta yang ditulis di atasnya.",
+      "cluesEarnTitle": "Memperoleh gulungan",
+      "cluesEarnBody": "Setelah karaktermu maju cukup jauh, menyelesaikan setiap slot zona di papan pencarian dunia hari ini memberikan kamu Gulungan Petunjuk di atas hadiah biasa. Slot yang diatur ulang dihitung sekali selesai; pencarian harian yang selalu terbuka tidak diperlukan. Kamu dapat menyimpan beberapa gulungan sekaligus, jadi tidak perlu menghabiskan satu hari kamu memperolehnya.",
+      "cluesHuntTitle": "Mengikuti petunjuknya",
+      "cluesHuntBody": "Menggunakan gulungan memulai perburuan: rantai pendek teka-teki yang menunjukkan dalam pelacak pencarian kamu satu langkah pada satu waktu. Setiap teka-teki menunjuk pada sesuatu yang nyata di dunia, landmark untuk berdiri di, seseorang untuk diajak bicara, emosi untuk dilakukan di suatu tempat, atau tugas kecil untuk dijalankan, dan yang terakhir selalu meminta kamu menggali. Hanya satu perburuan yang berjalan sekaligus, dan itu menyimpan tempatmu di seluruh reset harian dan antara sesi, jadi luangkan waktu kamu.",
+      "cluesCasketTitle": "Peti itu",
+      "cluesCasketBody": "Selesaikan petunjuk terakhir dan gunakan gulungan itu di tempat yang dinamakannya untuk menggali Peti Harta; menyelesaikan perburuan juga menghasilkan berdiri dengan faksi yang negerinya menyembunyikannya. Buka peti untuk koin dan tumpukan bahan pengumpulan halus. Sekarang dan kemudian itu menyimpan sepotong perlengkapan atau beberapa Tanda Heroik, dan sangat jarang Grumbol si Lanternback, tunggangan yang tidak ditemukan di tempat lain. Peti pertama dan kesepuluh kamu dicatat dalam Kitab Jasa.",
       "sideTempleTitle": "Kuil yang tenggelam",
       "sideTempleBody": "Sebuah gerbang cahaya pucat di atas telaga tinggi di pegunungan terbuka menuju kuil yang tenggelam tempat sebuah kultus yang karam masih bernyanyi. Rangkaian pendeknya berdiri terpisah dari kisah utama, sebuah misteri mandiri bagi siapa pun yang mendaki ke tepiannya, membaca peringatan yang terukir di bebatuan, dan turun untuk melihat untuk apa semua itu.",
       "availableTitle": "Mengapa seorang NPC tidak punya apa-apa untukmu",
@@ -7612,7 +8302,30 @@ export const id_ID: EnTranslations = {
       "warfareBody": "Setiap perlengkapan Perang membawa Rating Serangan Perang dan Rating Pertahanan Perang, dan kedua rating itu sama sekali tak berguna melawan monster. Keduanya berlaku hanya saat kamu bertarung melawan pemain lain, dalam duel, di arena, atau di Medan Thornhollow, tempat Serangan menambah kerusakan yang kamu berikan dan Pertahanan mengurangi kerusakan yang kamu terima, masing-masing hingga batas tertingginya sendiri. Setiap keluarga zirah juga merupakan sebuah set, dan bonus setnya pun sama-sama berupa rating Perang atau efek yang hanya bekerja melawan pemain, sehingga satu set perlengkapan kehormatan penuh sama sekali tak berguna melawan bos dungeon.",
       "warfareBodyStatsStay": "Setiap perlengkapan Perang membawa Rating Serangan Perang dan Rating Pertahanan Perang, dan kedua rating itu sama sekali tidak berpengaruh melawan monster. Keduanya hanya berlaku saat kamu melawan pemain lain, dalam duel, arena, atau medan pertempuran, saat Serangan menambah kerusakan yang kamu berikan dan Pertahanan mengurangi kerusakan yang kamu terima, masing-masing hingga batasnya sendiri. Setiap keluarga zirah juga merupakan set, dan bonus setnya juga berupa rating Perang atau efek yang hanya bekerja melawan pemain, jadi bonus set lengkap Kehormatan tidak berarti apa-apa pada bos dungeon. Potongannya sendiri tetap membawa statistik biasa, zirah, dan kerusakan senjata yang bekerja di mana-mana; rating Perang dan bonus setlah yang diam terhadap monster.",
       "warfareTradeBody": "Itulah kompromi yang disengaja. Perlengkapan Perang dibuat untuk bertarung melawan pemain, bukan sebagai jalan pintas melewati tingkatan dungeon: satu perlengkapan Perang tak pernah membawa rating pertarungan yang dimiliki perlengkapan Epik dungeon di slot yang sama, dan semua yang ia bawa dihabiskan untuk melawan pemain lain. Jika kamu ingin bertahan sendiri di arena, belilah. Jika kamu ingin menuntaskan heroik lebih cepat, dapatkan perlengkapanmu di dungeon.",
-      "warfareTradeBodyRatingSpent": "Itulah pertukaran yang disengaja. Perlengkapan Perang dibuat untuk melawan pemain, bukan jalan pintas melewati tingkatan dungeon: perlengkapan Perang tidak pernah membawa rating pertarungan yang dimiliki epik dungeon pada slot yang sama, dan rating Perang serta bonus set yang dibawanya sepenuhnya digunakan untuk melawan pemain lain. Jika ingin bertahan di arena, belilah. Jika ingin menuntaskan mode heroik lebih cepat, dapatkan perlengkapanmu di dungeon."
+      "warfareTradeBodyRatingSpent": "Itulah pertukaran yang disengaja. Perlengkapan Perang dibuat untuk melawan pemain, bukan jalan pintas melewati tingkatan dungeon: perlengkapan Perang tidak pernah membawa rating pertarungan yang dimiliki epik dungeon pada slot yang sama, dan rating Perang serta bonus set yang dibawanya sepenuhnya digunakan untuk melawan pemain lain. Jika ingin bertahan di arena, belilah. Jika ingin menuntaskan mode heroik lebih cepat, dapatkan perlengkapanmu di dungeon.",
+      "vanguardHeading": "Perlengkapan Vanguard: Musim Peperangan 2",
+      "vanguardBody": "Perlengkapan Vanguard adalah musim kedua perlengkapan Peperangan, dijual oleh kedua dua kepala perbekalan yang sama di atas tingkat asli, yang tetap dijual. Setiap spesialisasi memiliki rangkaian Vanguard sendiri dengan lima potongan, untuk kepala, bahu, dada, kaki dan tangan, dan toko hanya mencantumkan tiga rangkaian yang kelas kamu dapat kenakan, diikuti oleh senjata Vanguard yang dapat kamu gunakan. Sebuah potongan Vanguard membawa peringkat Peperangan yang sama dengan tingkat asli pada tingkat item yang lebih tinggi, dan setiap rangkaian memiliki dua bonus, di dua dan empat potongan, yang mengubah salah satu kemampuan spesialisasi kamu. Tidak seperti rangkaian asli, bonus itu bekerja di mana-mana, monster termasuk, tetapi dibangun untuk melawan pemain, jadi rangkaian raid tetap menjadi pilihan yang lebih baik di dalam raid."
+    },
+    "worldPvpPage": {
+      "heading": "Peperangan Dunia",
+      "intro": "Open-world player-versus-player is opt-in. Raise your PvP flag and every other flagged player who is not in your party, raid or guild becomes an enemy anywhere in the open world; lower it and, after a short delay, you are a bystander again. Nobody who has not raised the flag can attack or be attacked.",
+      "flagHeading": "Menaikkan dan menurunkan bendera",
+      "flagBody": "Type /pvp in chat, or open the PvP window on G and use the World PvP tab, which also shows your record and the stakes. Raising the flag is instant once you are past the starting levels. Lowering it starts a countdown of a few minutes, and the flag will not drop while you are still fighting, so switching off is never an escape from a fight you started. Healing a flagged player who is in a fight raises your own flag.",
+      "stakesHeading": "Apa yang Dibayar untuk Pembunuhan",
+      "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
+      "limitsHeading": "Aturan Permainan Adil",
+      "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
+      "introZones": "Pemain-versus-pemain dunia terbuka adalah opt-in, dan tanah tempat kamu berdiri memutuskan apa artinya itu. Angkat bendera Peperangan Dunia kamu dan setiap pemain lain dengan bendera yang bukan dalam pihak atau raid kamu menjadi musuh di tanah yang diperebutkan; turunkannya dan, setelah penundaan pendek, kamu adalah pengamat lagi. Dua zona adalah tempat suci di mana pertarungan dunia tidak terjadi sama sekali, dan tiga zona paling utara adalah tanah pertarungan bebas di mana semua orang hadir adalah permainan yang adil, bendera atau tidak ada bendera. Pihak dan anggota raid kamu tidak pernah menjadi musuh kamu di mana saja; anggota guild di luar grup kamu adalah permainan yang adil seperti siapa pun yang lain.",
+      "zonesHeading": "Tempat Terjadinya PvP Dunia",
+      "zonesBody": "Dunia memiliki tiga jenis medan. Pantai Pembuktian dan Lembah Eastbrook adalah tempat suci: tidak ada PvP dunia yang terjadi di sana sama sekali, bertanda atau tidak, jadi karakter baru tidak pernah bisa bertarung sebelum mereka tahu apa itu bendera. Sebagian besar dunia adalah medan yang diperebutkan, di mana aturan bendera di atas adalah seluruh ceritanya. Drakelands, Jangkauan Frostveil, dan Amberfall, tiga zona paling utara, adalah medan bebas-untuk-semua: semua orang yang berdiri di dalamnya bisa menyerang semua orang lain yang berdiri di dalamnya, dengan atau tanpa bendera, dan kamu diberitahu saat memasuki dan lagi saat keluar. Menyerang pemain yang tidak bertanda di sana menaikkan bendera milikmu sendiri, jadi penyerang selalu berakhir menanggung risikonya. Memukul pemain yang sudah bertanda tidak pernah menaikkannya, yang berarti membela diri atau membela seseorang yang tidak bertanda tidak membebanani Anda sama sekali.",
+      "flagBodyAid": "Ketik /pvp dalam obrolan, atau buka jendela Peperangan Dunia di G dan gunakan tab Peperangan Dunia, yang juga menunjukkan catatan dan taruhan kamu. Menaikkan bendera langsung setelah kamu melampaui tingkat awal. Menurunkannya memulai hitungan mundur beberapa menit, dan bendera tidak akan jatuh saat kamu masih bertarung, jadi mematikan tidak pernah melarikan diri dari pertarungan yang kamu mulai. Menyembuhkan, melindungi atau membuff pemain dengan bendera yang sedang bertarung menaikkan bendera kamu sendiri juga, jadi tidak ada yang mempertahankan pejuang dari belakang bendera yang tidak mereka kenakan; membantu pemain yang tidak dibenderai tidak menaikkan apa pun.",
+      "stakesUnflaggedTake": "Pejuang yang tidak bertanda pun tidak menerima apa pun: emas hanya berganti tangan di antara dua pemain bertanda, namun siapa pun yang membantu tetap mendapat Kehormatan.",
+      "stakesBodyFlagged": "Ketika pemain dengan bendera dikalahkan oleh pemain lain, yang kalah membayar bagian kecil dari emas dalam dompet mereka, dibatasi jumlah sedang, dan pemenang memperoleh Kehormatan menuju perlengkapan Peperangan. Pemain yang tidak dibenderai tidak membayar emas sama sekali, bahkan ketika jatuh di zona pertarungan bebas. Semua orang yang membantu berbagi keduanya: pukulan pembunuhan, siapa pun yang melukai target sesaat sebelumnya, dan penyembuh yang menjaga pejuang itu tetap berdiri. Satu-satu yang bersih membayar pot seluruhnya; grup membelahnya.",
+      "hillHeading": "Raja Bukit",
+      "hillBody": "Once every three hours, at a moment nobody can predict, the whole realm is told that a hill will rise in one of the free-for-all zones in fifteen minutes, and the circle where it will stand is marked on open ground. When it rises it stands for forty-five minutes, then falls. The party with the most players standing inside contests the hill, and after a minute of unbroken majority the hill is theirs; a lone player counts as a party of one, but raid members do not count at all. While a party holds the hill, each of its members standing inside earns a little Honor every minute, so a full party holding an uncontested hill for its whole stand earns a little less than one battleground win pays. A bar over the field shows who holds it, your numbers against theirs, and the contest clock; /hill in chat says where it stands.",
+      "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
+      "hillBodyRamp": "Setiap tiga jam sekali, pada saat tidak ada yang bisa diprediksi, seluruh realm diberitahu bahwa bukit akan naik di salah satu zona pertarungan bebas dalam lima belas menit, dan lingkaran di mana itu akan berdiri ditandai di tanah terbuka. Ketika naik itu berdiri selama empat puluh lima menit, kemudian jatuh. Pihak dengan pemain paling banyak di dalam memperebutkan bukit, dan setelah satu menit mayoritas tanpa gangguan bukit itu milik mereka; pemain tunggal dihitung sebagai pihak dari satu, tetapi anggota raid tidak dihitung sama sekali. Saat pihak memegang bukit, masing-masing anggotanya berdiri di dalam memperoleh Kehormatan setiap menit, dan semakin lama pihak yang sama memegangnya, semakin banyak setiap menit membayar: pihak penuh memegang bukit yang tidak diperebutkan selama seluruh berdiri menghasilkan sekitar jumlah tiga kemenangan medan pertempuran. Ketika bukit berganti tangan, pemegang baru memulai hitungan dari awal. Bilah di atas bidang menunjukkan siapa memegang itu, nomor kamu melawan mereka, dan jam kontes; /hill dalam obrolan mengatakan di mana itu berdiri.",
+      "limitsBodyRaids": "Mengalahkan pemain yang sama lagi dan lagi membayar lebih sedikit setiap kali dan segera tidak ada, dan hitungan kamu melawan pemain itu hanya dimulai lagi sekitar satu jam setelah yang pertama dari pembunuhan itu, jadi mengepung satu korban tidak pernah sepadan dengan menunggu. Target jauh di bawah level kamu tidak membayar apa pun sama sekali. Medan pertempuran dan Arena menjalankan aturan mereka sendiri saat kamu berada di dalam, dan mereka membayar lebih banyak Kehormatan daripada dunia terbuka, jadi Peperangan Dunia adalah jalan yang lebih lambat ke vendor yang sama. Raid tidak memperoleh apa pun dari pembunuhan dunia: anggota raid tidak mengambil Kehormatan atau emas dan tidak mengecilkan bagian siapa pun, jadi bertarung sebagai pihak untuk dibayar."
     },
     "thornhollowPage": {
       "heading": "Medan Thornhollow",
@@ -7637,27 +8350,28 @@ export const id_ID: EnTranslations = {
       "rewardsBody": "Setiap pertandingan yang selesai membayar Kehormatan: lebih banyak untuk kemenangan, sekadar penghibur untuk kekalahan atau hasil seri, ditambah sejumlah kecil untuk setiap pukulan pamungkas yang kamu daratkan dan setiap yang kamu bantu, sehingga bertarung jauh dari bendera tetap sepadan untuk dilakukan. Kemenangan pertamamu tiap hari membayar bonus tambahan di atasnya, dan panel akan memberitahumu selama bonus itu masih menunggumu. Hari itu adalah milik Kehormatan sendiri, dan ia berputar ulang menurut jamnya sendiri, bukan mengikuti reset instans realm. Bertemu tim yang sama berulang kali membayar lebih sedikit untuk pertandingan itu sendiri setelah yang pertama, dengan cepat menetap di sebuah batas bawah alih-alih menyusut sampai nol, dan pertandingan yang menyerah sama sekali tidak membayar apa pun. Belanjakan hasil yang kamu peroleh di salah satu dari kedua Kepala Perbekalan Perang."
     },
     "factionsPage": {
-      "heading": "Factions and Standing",
-      "intro": "Three allied factions each keep watch over their own corner of the realm, and every world quest you finish in their lands raises your standing with them. Standing climbs through six tiers, each with a title of its own, and opens a quartermaster stock piece by piece along the way.",
-      "whoHeading": "The three factions",
-      "whoBody": "Each faction is tied to a group of zones, so where you are doing world quests decides which faction the credit goes to. You never pick a side: all three keep their own tally, and none of them ever asks you to turn on another.",
-      "riftWatchBody": "The Rift Watch guards the shore and watches the deep tears. Their lands are the coast: the Farshore, the Palmreach, the Galecrest, the Willowfen and the Veiled Hollow. Their hub is Drifthaven, on the Palmreach.",
-      "churchOrderBody": "The Church Order holds the heartland of the realm: Eastbrook Vale, Mirefen Marsh, Thornpeak Heights, the Nightbloom and the Wraithwood. Brother Aldric speaks for them from Eastbrook Vale.",
-      "automatonsBody": "The Automatons keep the forges of the far reaches: the Drakelands, the Frostveil Reach, the Amberfall and the Evergarden. Their hub is Wyrmwatch, in the Drakelands.",
-      "earningHeading": "Earning standing",
-      "earningBody": "Standing comes from world quests. Every world quest counts toward the faction of the zone it is set in, and because the three factions cover different zones, all three progress at once as you work your way across the map. Taskmaster Kaelen in Eastbrook opens the World Quests board on the map, and the board is also where you may replace one world quest each day if the day's assignment does not suit you.",
-      "lowLevelNote": "Standing pauses at a tier for lower-level characters and resumes as you level, so a young character can start earning early without running out of road.",
-      "tiersHeading": "Standing tiers",
-      "tiersBody": "Every faction climbs the same six tiers: Unknown, Recognized, Trusted, Proven, Vanguard and Champion. Each faction gives its own name to each rung, and that name becomes your title with them.",
-      "riftWatchTitles": "With the Rift Watch you are an Outsider, then a Watcher, a Riftwalker, a Warden, a Riftwarden and at last a Champion.",
-      "churchOrderTitles": "With the Church Order you are an Outsider, then an Acolyte, a Keeper, a Templar, a Dawnkeeper and at last a Champion.",
-      "automatonsTitles": "With the Automatons you are an Outsider, then an Operator, a Mechanist, an Artificer, a Forgemaster and at last a Champion.",
-      "quartermastersHeading": "Quartermasters",
-      "quartermastersBody": "Each faction keeps a quartermaster at its hub: Quartermaster Vaelen for the Rift Watch in Drifthaven, Templar Althea for the Church Order at the Eastbrook chapel, and Artificer Tobrin for the Automatons in Wyrmwatch. Each sells a small stock of jewelry, armor, weapons and bags, unlocked tier by tier as your standing with that faction grows, and paid for in ordinary coin.",
-      "readingHeading": "Where to read it",
-      "readingBody": "The Reputation tab of the character sheet (C) shows each faction with its current standing, a bar toward the next tier, and the title that standing has earned you. The chat log reports every standing gain as it lands, and reaching a new tier shows a celebration banner on screen.",
-      "deedsHeading": "Deeds",
-      "deedsBody": "The Book of Deeds keeps score of your standing too: reaching Trusted with a faction and reaching Champion with a faction each record a deed, and reaching Champion with all three is a deed of its own. Like every deed these are cosmetic, never power, and the Champion deeds grant a title you can wear."
+      "heading": "Faksi dan Berdiri",
+      "intro": "Tiga faksi sekutu masing-masing menjaga sudut realm mereka sendiri, dan setiap pencarian dunia yang kamu selesaikan di tanah mereka menaikkan berdirimu dengan mereka. Berdiri naik melalui enam tingkat, masing-masing dengan gelarnya sendiri, dan membuka stok kepala perbekalan potongan demi potongan sepanjang cara.",
+      "whoHeading": "Tiga Faksi",
+      "whoBody": "Setiap faksi terikat pada sekelompok zona, jadi di mana kamu melakukan pencarian dunia memutuskan faksi mana yang mendapat kreditnya. Kamu tidak pernah memilih sisi: ketiganya menyimpan tabulasi mereka sendiri, dan tidak ada dari mereka yang pernah memintamu untuk berubah melawan yang lain.",
+      "riftWatchBody": "Pengawal Celah menjaga pantai dan mengawasi air mata dalam yang dalam. Tanah mereka adalah pantai: Pesisir Jauh, Teluk Palem, Puncak Angin, Paya Willow dan Ceruk Terselubung. Hub mereka adalah Drifthaven, di Teluk Palem.",
+      "churchOrderBody": "Ketertiban Gereja menguasai jantung realm: Lembah Eastbrook, Rawa Mirefen, Dataran Tinggi Thornpeak, Kuntum Malam dan Hutan Arwah. Saudara Aldric berbicara untuk mereka dari Lembah Eastbrook.",
+      "automatonsBody": "Para Otomaton menjaga tungku di jangkauan jauh: Tanah Naga, Jangkauan Frostveil, Air Terjun Amber dan Taman Abadi. Hub mereka adalah Wyrmwatch, di Tanah Naga.",
+      "earningHeading": "Memperoleh berdiri",
+      "earningBody": "Berdiri datang dari pencarian dunia. Setiap pencarian dunia menghitung ke arah faksi zona tempat ia ditetapkan, dan karena tiga faksi mencakup zona berbeda, ketiganya berkembang sekaligus saat kamu bekerja di seluruh peta. Kepala Tugas Kaelen di Eastbrook membuka papan Pencarian Dunia di peta, dan papan itu juga tempat kamu dapat mengganti satu pencarian dunia setiap hari jika penugasan hari ini tidak sesuai denganmu.",
+      "weeklyBody": "Utusan mingguan di Lembah Eastbrook menambahkan jalan kedua: selesaikan tugas minggu ini dan kamu boleh menamakan satu faksi untuk menerima rekomendasi berdiri-nya, sekali seminggu, di jendela di mana kamu mengambil tugas itu.",
+      "lowLevelNote": "Berdiri berhenti di tingkat untuk karakter tingkat rendah dan dilanjutkan saat kamu naik level, jadi karakter muda dapat mulai mendapatkan imbalan lebih awal tanpa kehabisan jalan.",
+      "tiersHeading": "Tingkat Berdiri",
+      "tiersBody": "Setiap faksi memanjat enam tingkat yang sama: Tidak Diketahui, Diakui, Dipercaya, Terbukti, Vanguard dan Juara. Setiap faksi memberikan nama sendiri ke setiap pijakan, dan nama itu menjadi gelarmu dengan mereka.",
+      "riftWatchTitles": "Dengan Pengawal Celah kamu adalah Luar Biasa, kemudian Pengamat, Pejalan Celah, Warden, Warden Celah dan terakhir Juara.",
+      "churchOrderTitles": "Dengan Ketertiban Gereja kamu adalah Luar Biasa, kemudian Akolit, Penjaga, Templar, Penjaga Fajar dan terakhir Juara.",
+      "automatonsTitles": "Dengan Otomaton kamu adalah Luar Biasa, kemudian Operator, Mekanis, Pengrajin, Guru Tungku dan terakhir Juara.",
+      "quartermastersHeading": "Kepala-Kepala Perbekalan",
+      "quartermastersBody": "Setiap faksi memelihara kepala perbekalan di hub-nya: Kepala Perbekalan Vaelen untuk Pengawal Celah di Drifthaven, Templar Althea untuk Ketertiban Gereja di kapel Eastbrook, dan Pengrajin Tobrin untuk Otomaton di Wyrmwatch. Masing-masing menjual stok kecil perhiasan, baju besi, senjata dan tas, dibuka tingkat demi tingkat saat berdirimu dengan faksi itu tumbuh, dan dibayar dengan koin biasa.",
+      "readingHeading": "Di mana membacanya",
+      "readingBody": "Tab Reputasi lembar karakter (C) menunjukkan setiap faksi dengan berdirinya saat ini, palang menuju tingkat berikutnya, dan gelar yang berdiri itu telah memperolehkan untukmu. Log obrolan melaporkan setiap kenaikan berdiri saat mendarat, dan mencapai tingkat baru menunjukkan papan perayaan di layar.",
+      "deedsHeading": "Jasa",
+      "deedsBody": "Kitab Jasa juga menyimpan skor berdirimu: mencapai Dipercaya dengan faksi dan mencapai Juara dengan faksi masing-masing mencatat jasa, dan mencapai Juara dengan ketiganya adalah jasa sendiri. Seperti setiap jasa ini bersifat kosmetik, tidak pernah kekuatan, dan jasa Juara memberikan gelar yang dapat kamu kenakan."
     },
     "deedsPage": {
       "intro": "Kitab Jasa adalah tempat dunia mencatat segala yang telah kamu lakukan, dari langkah pertamamu keluar dari lembah permulaan hingga pertarungan tersulit yang bisa disodorkan realm ini. Raih jasa sembari bermain, sandang gelar yang dianugerahkannya, dan saksikan Kemasyhuranmu menanjak.",
@@ -8438,7 +9152,8 @@ export const id_ID: EnTranslations = {
       "parryTitle": "Tangkis",
       "parryBody": "Tangkis adalah pertahanan khas Prajurit: peluang untuk sepenuhnya menepis sebuah pukulan jarak dekat dan tidak menerima kerusakan sama sekali, dan ia tumbuh bersama Strength. Hanya serangan yang datang dari depan yang bisa ditangkis, satu alasan lagi untuk terus menghadap apa pun yang sedang menyerangmu. Kelas lain melihat barisnya di lembar statistik berada di angka nol.",
       "warfareTitle": "Perang",
-      "warfareBody": "Perang adalah satu-satunya statistik yang hanya berlaku melawan pemain lain: ia menaikkan kerusakan yang kamu berikan kepada mereka dan menurunkan kerusakan yang kamu terima dari mereka, dan lembar statistikmu menampilkan kedua bagian itu dalam satu baris. Terhadap makhluk, ia sama sekali tidak berpengaruh. Ia berasal dari perlengkapan Perang yang kamu beli dengan Kehormatan, sehingga ia adalah hadiah untuk bermain PvP, bukan sesuatu yang perlu kamu kejar saat naik level."
+      "warfareBody": "Perang adalah satu-satunya statistik yang hanya berlaku melawan pemain lain: ia menaikkan kerusakan yang kamu berikan kepada mereka dan menurunkan kerusakan yang kamu terima dari mereka, dan lembar statistikmu menampilkan kedua bagian itu dalam satu baris. Terhadap makhluk, ia sama sekali tidak berpengaruh. Ia berasal dari perlengkapan Perang yang kamu beli dengan Kehormatan, sehingga ia adalah hadiah untuk bermain PvP, bukan sesuatu yang perlu kamu kejar saat naik level.",
+      "warfareBodyPets": "Peperangan adalah stat yang dibawa perlengkapan kehormatan untuk melawan pemain. Dalam pertarungan antar pemain itu meningkatkan kerusakan yang kamu dan peliharaan kamu berikan kepada pemain lain dan peliharaan mereka, dan mengurangi kerusakan yang kamu dan peliharaan kamu terima dari mereka. Itu juga meningkatkan kesehatan maksimal kamu di mana-mana kecuali dungeon, raid, menggali dan celah, jadi pemain dalam perlengkapan kehormatan jauh lebih sulit dibunuh daripada yang tanpa itu. Lembar kamu menunjukkan semuanya dalam satu baris. Itu datang dari perlengkapan Peperangan yang kamu beli dengan kehormatan, jadi itu hadiah untuk bermain Peperangan Dunia daripada sesuatu untuk dikejar saat menaik level."
     },
     "progression": {
       "intro": "Setiap pertempuran, misi, dan langkah ke utara membuat pahlawanmu lebih kuat. Inilah cara kerja menaikkan level dan apa yang membuatmu terus berkembang setelah mencapai puncak.",
@@ -8981,8 +9696,8 @@ export const id_ID: EnTranslations = {
     "viewAll": "Lihat semua pembaruan di GitHub"
   },
   "download": {
-    "title": "Unduh Peluncur Desktop",
-    "desc": "Dapatkan peluncur mandiri untuk performa optimal dan permainan layar penuh.",
+    "title": "Unduh aplikasi desktop",
+    "desc": "Main di Windows, macOS, atau Linux dengan akun dan karakter yang sama.",
     "macCta": "Unduh untuk macOS",
     "windowsCta": "Unduh untuk Windows",
     "linuxCta": "Unduh untuk Linux",
@@ -9001,7 +9716,7 @@ export const id_ID: EnTranslations = {
     "offlineDesc": "Dunia pemain-tunggal seketika di peramban kamu. Tidak ada yang disimpan: sempurna untuk pertarungan singkat atau pengujian.",
     "offlineAria": "Main Luring: mulai sesi pemain-tunggal lokal seketika",
     "tipTitle": "TIPS:",
-    "tipText": "Untuk pengalaman paling lancar, matikan ekstensi pemblokir iklan di situs ini. Laporan komunitas menemukan beberapa pemblokir dapat menyebabkan lag.",
+    "tipText": "Game terasa lambat? Coba nonaktifkan pemblokir iklan untuk situs ini.",
     "serverOnline": "Online",
     "serverOffline": "Offline",
     "play": "Main",
@@ -10322,15 +11037,23 @@ export const id_ID: EnTranslations = {
       "dodge": "MENGELAK!"
     }
   },
+  "landing": {
+    "headline": "Bertualang bersama teman.",
+    "contribute": "Berkontribusi untuk game ini",
+    "tools": "Alat",
+    "records": "Rekor WoC",
+    "scout": "Pengintai WoC",
+    "parseService": "Layanan Parse WoC"
+  },
   "seo": {
     "title": "World of ClaudeCraft: MMO Web Bergaya Klasik",
-    "description": "Mulailah petualangan epik di World of ClaudeCraft, micro-MMO bergaya klasik yang dapat dimainkan langsung di peramban. Bergabunglah dengan dunia bersama yang persisten, naikkan level kelas, dan kalahkan musuh!",
+    "description": "Mainkan World of ClaudeCraft, MMO peramban gratis. Jelajahi dunia, selesaikan quest, dan taklukkan dungeon bersama teman. Tanpa perlu mengunduh.",
     "genre": "MMORPG",
     "playMode": "Multipemain",
     "applicationCategory": "Permainan",
     "operatingSystem": "Peramban web",
     "officialLabel": "Situs resmi World of ClaudeCraft",
-    "officialBody": "worldofclaudecraft.com adalah MMO peramban gratis resmi untuk dunia Claudemoon. Bermain daring dengan karakter yang persisten, jelajahi solo secara luring, baca wiki, dan ikuti tautan komunitas terverifikasi dari situs ini."
+    "officialBody": "Situs resmi World of ClaudeCraft. Main daring, baca wiki, dan temukan tautan komunitas di sini."
   },
   "a11y": {
     "goHome": "Ke halaman utama",
@@ -10445,9 +11168,9 @@ export const id_ID: EnTranslations = {
       "fatalBody": "World of ClaudeCraft mengalami kesalahan tak terduga dan perlu ditutup."
     },
     "hostDiag": {
-      "saveTitle": "Save system report",
-      "saveButton": "Save",
-      "fileType": "JSON file"
+      "saveTitle": "Simpan laporan sistem",
+      "saveButton": "Simpan",
+      "fileType": "File JSON"
     },
     "titlebar": {
       "exitGame": "Keluar dari Gim"
@@ -10499,11 +11222,11 @@ export const id_ID: EnTranslations = {
     "inWorld": "di dunia",
     "takeOver": "Ambil Alih",
     "inWorldHint": "Sudah berada di dunia. Keluar di tempat lain, atau ambil alih.",
-    "currentLocation": "Current location: {zone}",
-    "lockouts": "Lockouts ({count})",
-    "lockoutRaids": "Raids",
-    "lockoutDungeons": "Dungeons",
-    "lockoutWorldBosses": "World bosses",
+    "currentLocation": "Lokasi saat ini: {zone}",
+    "lockouts": "Penguncian ({count})",
+    "lockoutRaids": "Penyerbuan",
+    "lockoutDungeons": "Penggudangan",
+    "lockoutWorldBosses": "Bos Dunia",
     "takeOverConfirm": "Ini akan memutus karakter ini dari sesi lain dan membawanya ke sini. Lanjutkan?",
     "renameRequired": "wajib ganti nama",
     "delete": "Hapus",
@@ -10645,6 +11368,16 @@ export const id_ID: EnTranslations = {
       "xpGainRested": "Kamu memperoleh {amount} pengalaman ({rested} bonus dari istirahat).",
       "deathTitle": "Kamu telah tewas.",
       "releaseSpirit": "Lepaskan Arwah",
+      "deathRecap": "Ringkasan",
+      "deathRecapTitle": "Ringkasan Kematian",
+      "deathRecapKiller": "Pukulan mematikan: {killer} ({ability})",
+      "deathRecapNoKiller": "Peristiwa pertempuran menjelang kematian",
+      "deathRecapLethal": "Pukulan Mematikan",
+      "deathRecapClose": "Tutup",
+      "deathRecapNoEvents": "Tidak ada peristiwa pertempuran yang tercatat.",
+      "deathRecapCrit": "Kritis",
+      "deathRecapDamage": "Kerusakan",
+      "deathRecapHeal": "Penyembuhan",
       "chatTab": "Obrolan",
       "combatLogTab": "Catatan Tempur",
       "chatPlaceholder": "Katakan sesuatu... (/s berkata, /w nama bisik, /r balas, /p party, /gu guild, /o perwira, /general umum, /help)",
@@ -10713,9 +11446,9 @@ export const id_ID: EnTranslations = {
         "readyQuest": "Misi siap diserahkan",
         "repeatQuest": "Misi berulang",
         "cooldownQuest": "Misi dalam masa tunggu",
-        "availableWorldQuest": "Available world quest: {name}",
-        "activeWorldQuest": "Active world quest: {name}",
-        "worldBoss": "World boss: {name}",
+        "availableWorldQuest": "Misi dunia tersedia: {name}",
+        "activeWorldQuest": "Misi dunia aktif: {name}",
+        "worldBoss": "Bos dunia: {name}",
         "questObjective": "Area tujuan misi",
         "readyOre": "Urat bijih siap ditambang",
         "readyWood": "Tegakan pohon siap ditebang",
@@ -10858,6 +11591,7 @@ export const id_ID: EnTranslations = {
       "compactChat": "Obrolan Ringkas",
       "frostedPanels": "Panel Beku",
       "highContrastText": "Teks Kontras Tinggi",
+      "colorblindMode": "Mode Buta Warna",
       "reduceMotion": "Kurangi Gerakan",
       "showFps": "Tampilkan FPS",
       "invertLookY": "Balik Arah Pandang (Y)",
@@ -10919,6 +11653,19 @@ export const id_ID: EnTranslations = {
       "threat": "Ancaman",
       "damageShort": "Krs",
       "healingShort": "Sembuh",
+      "damageTaken": "Kerusakan Diterima",
+      "damageTakenShort": "Terima",
+      "avoidableDmg": "Kerusakan yang Dapat Dihindari",
+      "avoidableDmgShort": "Hindari",
+      "interrupts": "Gangguan",
+      "interruptsShort": "Gang",
+      "dispels": "Penghapusan",
+      "dispelsShort": "Hapus",
+      "deaths": "Kematian",
+      "deathsShort": "Mati",
+      "reset": "Atur ulang pengukur",
+      "resetHint": "Atur ulang data pertempuran",
+      "groupTotal": "Total: {total} ({rate})",
       "current": "Saat Ini",
       "lastFight": "Pertarungan terakhir",
       "fightIndex": "Pertarungan -{index}",
@@ -10930,6 +11677,16 @@ export const id_ID: EnTranslations = {
       "segmentSummary": "{label} - {duration}",
       "olderSegment": "Segmen lebih lama",
       "newerSegment": "Segmen lebih baru",
+      "selectSegment": "Pilih segmen pertempuran",
+      "selectMode": "Pilih mode pengukur",
+      "back": "Kembali",
+      "resetFight": "Atur ulang pertempuran saat ini",
+      "resetAll": "Atur ulang semua data",
+      "criticals": "Serangan Kritis: {count}",
+      "hits": "Pukulan: {count}",
+      "topAbility": "Teratas: {name}",
+      "activity": "Aktivitas: {pct}",
+      "newWindow": "Jendela baru",
       "close": "Tutup pengukur"
     },
     "chat": {
@@ -11053,7 +11810,7 @@ export const id_ID: EnTranslations = {
       "deathRecapDrowned": "Kamu telah tewas. Kamu tenggelam.",
       "deathRecapCauterized": "Kamu telah tewas. Bakaran Kauterisasi mengalahkanmu.",
       "respawn": "Kamu merasa segar dan pulih kembali.",
-      "respawnKeeperToll": "The Pale Keeper has revived you, but you are weaker for it: the Keeper's Toll drains your attributes until it fades.",
+      "respawnKeeperToll": "Penjaga Pucat telah menghidupkan kembali Anda, namun Anda melemah karenanya: Pajak Penjaga menguras atribut Anda sampai pudar.",
       "ignoringChat": "Mengabaikan obrolan dari {name}.",
       "noLongerIgnoring": "Tidak lagi mengabaikan {name}.",
       "playerNotNearby": "Pemain itu tidak berada di dekatmu.",
@@ -11091,7 +11848,7 @@ export const id_ID: EnTranslations = {
       "cantInForm": "Kamu tidak bisa melakukan itu dalam Wujud {form}.",
       "bear": "Bruin",
       "cat": "Kucing",
-      "bearOrCat": "Bruin or Cat",
+      "bearOrCat": "Bruin atau Kucing",
       "travel": "Fleet",
       "shapeshifted": "Kamu tidak bisa melakukan itu saat berubah wujud.",
       "stealthed": "Kamu harus dalam mode siluman.",
@@ -11364,6 +12121,7 @@ export const id_ID: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "Serang",
+      "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Alihkan serangan otomatis pada targetmu. Klik kanan pada musuh juga menyerang.",
       "attackRemoveHint": "Klik kanan untuk menghapusnya dari bilah dan mengosongkan slot.",
       "emptySlot": "Slot kosong",
@@ -11412,6 +12170,9 @@ export const id_ID: EnTranslations = {
       "anyTarget": "Target musuh atau teman",
       "selfOnly": "Hanya diri sendiri",
       "damageRange": "{min} hingga {max}",
+      "edictExplosion": "Saat Kenaikan Ilahi aktif, ledakan menimbulkan {damage} kerusakan Fisik dalam {radius} m, berkurang melampaui {cap} target. Kerusakan ini meningkat dengan Kekuatan Serangan.",
+      "edictDamage": "Menyerang dengan {weaponPercent}% kerusakan senjata ditambah {damage} kerusakan Fisik. Kerusakan senjata mencakup Kekuatan Serangan.",
+      "verdictDamage": "Titah Terakhir meledak dengan {verdictSingleDamage} kerusakan Ilahi. Runtuhnya Fajar meledak dengan {verdictAreaDamage} kerusakan Ilahi dalam {verdictAreaRadius} m, berkurang melampaui {verdictAreaCap} target. Ledakan mana pun tidak berskala dengan Kekuatan Sihir. Hanya satu musuh yang bisa membawa tanda milikmu.",
       "finisherDamage": "{base} ditambah {perCombo} per poin kombo"
     },
     "resources": {
@@ -11424,7 +12185,7 @@ export const id_ID: EnTranslations = {
     "forms": {
       "bear": "Bruin",
       "cat": "Kucing",
-      "bearOrCat": "Bruin or Cat"
+      "bearOrCat": "Bruin atau Kucing"
     },
     "cast": {
       "fishing": "Memancing",
@@ -11485,7 +12246,7 @@ export const id_ID: EnTranslations = {
   },
   "questUi": {
     "tracker": {
-      "clueHuntTitle": "{title} (clue {step} of {total})",
+      "clueHuntTitle": "{title} (petunjuk {step} dari {total})",
       "title": "Misi",
       "complete": "Selesai",
       "showOnMap": "Tampilkan {name} di peta",
@@ -11520,14 +12281,18 @@ export const id_ID: EnTranslations = {
       "repeatableQuestAria": "Misi berulang: {name}",
       "discussQuest": "Bahas {name}.",
       "discussQuestAria": "Bahas misi: {name}",
+      "clueTalk": "Tanyakan tentang petunjuknya.",
+      "clueTalkAria": "Tanyakan tentang petunjuknya: {name}",
+      "clueDeliver": "Serahkan {count} {item}.",
+      "clueDeliverAria": "Serahkan {count} {item} ke {name}",
       "profIntroHint": "Temui {name} untuk \"{quest}\".",
       "nythraxisDeathlessKingWarning": "Ketiga pusaka itu menceritakan kisah yang sama: Aldren berjuang membela rajanya, Malric menerobos batas kematian, dan Voss berupaya menghentikan apa yang menyusul. Segel itu kian melemah, dan kripta terbengkalai adalah jalan turun ke bawah.",
       "browseGoods": "Biar kulihat-lihat daganganmu.",
       "browseGoodsAria": "Lihat dagangan dari {name}",
       "worldMarket": "Tunjukkan World Market kepadaku.",
       "worldMarketAria": "Buka World Market",
-      "worldQuestBoard": "Show me the world quest board.",
-      "worldQuestBoardAria": "Open the world quest board on the map",
+      "worldQuestBoard": "Tunjukkan papan misi dunia kepada saya.",
+      "worldQuestBoardAria": "Buka papan misi dunia di peta",
       "accept": "Terima",
       "decline": "Tolak",
       "continue": "Lanjutkan",
@@ -11549,354 +12314,361 @@ export const id_ID: EnTranslations = {
     },
     "worldQuest": {
       "title": "{zone}: {target}",
-      "unknown": "Unknown world quest ({id})",
-      "itemReward": "Item reward: {name}",
-      "rewardLine": "Rewards: {reward}",
-      "availableStatus": "Available world quest",
-      "activeStatus": "Active world quest",
-      "expiresIn": "Expires in {time}",
-      "mineOre": "Mine copper ore",
-      "recoverObject": "Recover {name}",
-      "redirectLeyBeam": "Redirect the ley beam",
-      "matchConfections": "Match enchanted confections",
-      "loadFreight": "Load freight into the wagon",
-      "escortCaravan": "Escort the caravan: {zone}",
-      "salvageWreckage": "Salvage debris washed along the strand from the wreck northwest of Gullhaven",
+      "unknown": "Pencarian dunia tidak dikenal ({id})",
+      "itemReward": "Hadiah benda: {name}",
+      "itemRewardWithLevels": "{name} (tingkat benda {itemLevel}, dilengkapi di tingkat {requiredLevel})",
+      "factionLine": "Faksi: {faction}",
+      "standingReward": "+{amount} reputasi {faction}",
+      "rewardLine": "Hadiah: {reward}",
+      "availableStatus": "Misi dunia tersedia",
+      "activeStatus": "Misi dunia aktif",
+      "expiresIn": "Kedaluwarsa dalam {time}",
+      "mineOre": "Tambang bijih tembaga",
+      "recoverObject": "Pulihkan {name}",
+      "redirectLeyBeam": "Alihkan berkas ley",
+      "matchConfections": "Cocokkan permen yang dipesona",
+      "loadFreight": "Muat muatan ke gerobak",
+      "escortCaravan": "Kawal karavan: {zone}",
+      "salvageWreckage": "Selamatkan puing-puing yang terbawa arus di pantai dari bangkai kapal barat laut Gullhaven",
       "banner": {
-        "riftOpens": "A rift tears open on the strand! Raiders are coming for the salvage.",
-        "captainSteps": "The raider captain steps through the rift!",
-        "riftRouted": "The raiders are routed. The strand is yours again.",
-        "championRises": "Extra loot! A champion rises at the site. Bring it down together.",
-        "championFallen": "Extra loot! The champion falls: a bonus purse for everyone who fought it.",
-        "endlessBegins": "The line holds! Endless waves begin, each one harder. Leave the cannon whenever you like."
+        "riftOpens": "Celah robek terbuka di tepi! Penyerbu datang untuk penyelamatan.",
+        "captainSteps": "Kapten penyerbu melangkah menembus celah!",
+        "riftRouted": "Penyerbu diusir. Tepi adalah milikmu lagi.",
+        "championRises": "Jarahan tambahan! Juara naik di lokasi. Bawa turun bersama.",
+        "championFallen": "Jarahan tambahan! Juara terjatuh: uang bonus untuk semua yang menyerangnya.",
+        "endlessBegins": "Garis bertahan! Gelombang tanpa henti dimulai, masing-masing lebih sulit. Tinggalkan meriam kapan saja."
       },
       "shadow": {
-        "title": "Under Cover of Shadow",
-        "objective": "Steal four sealed orders without being caught",
-        "cloak": "Duskweave Cloak",
-        "pickpocket": "Pick Pocket",
-        "leave": "Remove Cloak",
-        "stealTip": "Approach from behind and remain still while taking the orders. Stay out of the lantern beams.",
-        "leaveTip": "Remove the cloak. Your recovered orders are kept.",
-        "documents": "Orders recovered: {count}/4",
-        "suspicion": "Suspicion: {value}",
-        "safe": "Steal from behind. Lantern guards sweep wide beams that see through the cloak; wait for a clear opening.",
-        "behind": "Move behind the guard before stealing.",
-        "danger": "You are being spotted! Get out of sight!",
-        "channel": "Stealing... {seconds}s",
-        "noTarget": "Move close to a guard carrying orders.",
-        "start": "Speak with Scout Valerie to borrow her cloak.",
-        "caught": "Caught! Return to Scout Valerie for another cloak. Your orders are safe.",
-        "complete": "All four orders recovered."
+        "title": "Di Bawah Naungan Bayangan",
+        "objective": "Curi empat pesanan tersegel tanpa ketahuan",
+        "cloak": "Jubah Tenun Senja",
+        "pickpocket": "Ambil dari Saku",
+        "leave": "Lepaskan Jubah",
+        "stealTip": "Dekati dari belakang dan tetap diam saat mengambil pesanan. Hindari sinar lentera.",
+        "leaveTip": "Lepaskan jubah. Pesanan yang sudah dipulihkan tetap aman.",
+        "documents": "Pesanan dipulihkan: {count}/4",
+        "suspicion": "Kecurigaan: {value}",
+        "safe": "Curi dari belakang. Penjaga lentera menyapu sinar lebar yang dapat melihat melalui jubah; tunggu kesempatan yang tepat.",
+        "behind": "Bergeraklah di belakang penjaga sebelum mencuri.",
+        "danger": "Kamu sedang diperhatikan! Segera bersembunyi!",
+        "channel": "Mencuri... {seconds}d",
+        "noTarget": "Bergeraklah mendekati penjaga yang membawa pesanan.",
+        "start": "Bicaralah dengan Pengintai Valerie untuk meminjam jubahnya.",
+        "caught": "Tertangkap! Kembali ke Pengintai Valerie untuk jubah lainnya. Pesanan Anda aman.",
+        "complete": "Keempat pesanan berhasil dipulihkan."
       },
       "investigation": {
-        "title": "A Borrowed Face",
-        "objective": "Unmask and defeat the infiltrator",
-        "briefing": "A creature has stolen a soldier's face. Read the standing orders and the watch ledger, question all four guards, then come back and name the one whose story contradicts our records.",
-        "instructions": "Read the standing orders and watch ledger, then question all four guards. Compare their stories with the records.",
-        "confront": "Report to Sergeant Alric and name the guard whose story contradicts the records.",
-        "name": "Which of my guards is wearing a borrowed face?",
-        "accuseOption": "Accuse {name}",
-        "cleared": "Sergeant Alric: That soldier is accounted for. Compare the other stories with our records and try again.",
-        "guardCleared": "Sergeant Alric has already accounted for this soldier.",
-        "revealed": "The creature has shed this face. Defeat it.",
-        "defeat": "Defeat the revealed infiltrator.",
-        "heard": "Guards questioned: {count}/4",
-        "clues": "Records examined: {count}/2",
+        "title": "Wajah Pinjaman",
+        "objective": "Identifikasi dan kalahkan penyamar",
+        "briefing": "Seekor makhluk telah mencuri wajah tentara. Baca perintah berdiri dan buku ledger penjaga, tanyai keempat penjaga, lalu kembalilah dan sebutkan yang ceritanya bertentangan dengan catatan kami.",
+        "instructions": "Baca perintah berdiri dan buku ledger penjaga, lalu tanyai keempat penjaga. Bandingkan cerita mereka dengan catatan.",
+        "confront": "Laporkan ke Sersan Alric dan sebutkan penjaga yang ceritanya bertentangan dengan catatan.",
+        "name": "Manakah penjagaku yang mengenakan wajah pinjaman?",
+        "accuseOption": "Tuduh {name}",
+        "cleared": "Sersan Alric: Tentara itu tercatat. Bandingkan cerita yang lain dengan catatan kami dan coba lagi.",
+        "guardCleared": "Sersan Alric sudah mencatat tentara ini.",
+        "revealed": "Makhluk itu telah melepas wajah ini. Kalahkan dia.",
+        "defeat": "Kalahkan penyamar yang terungkap.",
+        "heard": "Penjaga ditanya: {count}/4",
+        "clues": "Catatan diperiksa: {count}/2",
         "clueNames": {
-          "c0": "Standing Orders",
-          "c1": "Watch Ledger"
+          "c0": "Perintah Berdiri",
+          "c1": "Buku Ledger Penjaga"
         },
         "variants": {
           "v0": {
-            "clue0": "The south bridge has been closed since dawn. All patrols must use the western road.",
-            "clue1": "Orin was assigned to gate duty. Nella, Bram and Tessa patrolled the western road.",
-            "guard0": "My patrol took the western road this morning.",
-            "guard1": "I crossed the south bridge on my morning patrol.",
-            "guard2": "I patrolled the western road with Nella and Tessa.",
-            "guard3": "The south bridge is closed. We used the western road."
+            "clue0": "Jembatan selatan telah ditutup sejak fajar. Semua patroli harus menggunakan jalan barat.",
+            "clue1": "Orin ditugaskan untuk tugas gerbang. Nella, Bram dan Tessa patroli jalan barat.",
+            "guard0": "Patroli kami mengambil jalan barat pagi ini.",
+            "guard1": "Saya menyeberangi jembatan selatan pada patroli pagi saya.",
+            "guard2": "Saya patroli jalan barat dengan Nella dan Tessa.",
+            "guard3": "Jembatan selatan ditutup. Kami menggunakan jalan barat."
           },
           "v1": {
-            "clue0": "Today's password is Reedwatch. Yesterday's password, Lantern, is no longer valid.",
-            "clue1": "All four guards were briefed on the new password at dawn.",
-            "guard0": "Reedwatch. I learned the new password at dawn.",
-            "guard1": "Lantern was yesterday's password. Today we use Reedwatch.",
-            "guard2": "All four of us attended the dawn briefing.",
-            "guard3": "Today's password is Lantern. I heard it at the dawn briefing."
+            "clue0": "Kata sandi hari ini adalah Reedwatch. Kata sandi kemarin, Lantern, tidak lagi berlaku.",
+            "clue1": "Keempat penjaga diberi penjelasan kata sandi baru pada fajar.",
+            "guard0": "Reedwatch. Saya mempelajari kata sandi baru pada fajar.",
+            "guard1": "Lantern adalah kata sandi kemarin. Hari ini kami menggunakan Reedwatch.",
+            "guard2": "Keempat kami menghadiri penjelasan fajar.",
+            "guard3": "Kata sandi hari ini adalah Lantern. Saya mendengarnya pada penjelasan fajar."
           },
           "v2": {
-            "clue0": "All garrison supply crates must carry blue wax seals. Reject any crate with a red seal.",
-            "clue1": "Today's delivery was inspected: every crate had an intact blue wax seal.",
-            "guard0": "I inspected today's delivery. Every crate had a red wax seal.",
-            "guard1": "We only accept crates sealed with blue wax.",
-            "guard2": "The ledger records blue seals on today's delivery.",
-            "guard3": "No crates with red seals were accepted today."
+            "clue0": "Semua peti pasokan garnis harus membawa segel lilin biru. Tolak peti apa pun dengan segel merah.",
+            "clue1": "Pengiriman hari ini diperiksa: setiap peti memiliki segel lilin biru yang utuh.",
+            "guard0": "Saya memeriksa pengiriman hari ini. Setiap peti memiliki segel lilin merah.",
+            "guard1": "Kami hanya menerima peti yang disegel dengan lilin biru.",
+            "guard2": "Buku ledger mencatat segel biru pada pengiriman hari ini.",
+            "guard3": "Tidak ada peti dengan segel merah yang diterima hari ini."
           },
           "v3": {
-            "clue0": "The night watch relights the east beacon at dusk. The west beacon stays dark until the ferry signals.",
-            "clue1": "Nella and Orin held the gate through the night. Bram and Tessa walked the causeway and relit the east beacon at dusk.",
-            "guard0": "Orin and I had the gate all night. Nothing came through but the fog.",
-            "guard1": "Gate duty with Nella. We watched the east beacon come alight at dusk, as ordered.",
-            "guard2": "Tessa and I walked the causeway. We lit the west beacon at dusk so the ferry could see us.",
-            "guard3": "Causeway patrol with Bram. We relit the east beacon the moment the sun went down."
+            "clue0": "Penjaga malam menyalakan kembali mercusuar timur saat senja. Mercusuar barat tetap gelap sampai feri memberi sinyal.",
+            "clue1": "Nella dan Orin memegang gerbang sepanjang malam. Bram dan Tessa berjalan di jambatan dan menyalakan kembali mercusuar timur saat senja.",
+            "guard0": "Orin dan saya memiliki gerbang sepanjang malam. Tidak ada yang datang selain kabut.",
+            "guard1": "Tugas gerbang dengan Nella. Kami menonton mercusuar timur menyala saat senja, seperti yang diperintahkan.",
+            "guard2": "Tessa dan saya berjalan di jambatan. Kami menyalakan mercusuar barat saat senja agar feri bisa melihat kami.",
+            "guard3": "Patroli jambatan dengan Bram. Kami menyalakan kembali mercusuar timur saat matahari terbenam."
           },
           "v4": {
-            "clue0": "The quartermaster's cart arrives at noon by the north road. No supplies come by water while the marsh is flooded.",
-            "clue1": "Noon delivery received from the north road. Tessa signed for it; Bram and Nella unloaded; Orin was at the well.",
-            "guard0": "I helped Bram unload the cart at noon. Salt pork and lamp oil, the usual.",
-            "guard1": "I unloaded the noon delivery myself, straight off the supply barge.",
-            "guard2": "Nella and I carried the crates in. Tessa signed the ledger.",
-            "guard3": "The cart came up the north road at noon. I signed for it."
+            "clue0": "Gerobak pembantu suplai tiba saat siang hari lewat jalan utara. Tidak ada pasokan yang datang melalui air saat rawa membanjir.",
+            "clue1": "Pengiriman siang hari diterima dari jalan utara. Tessa menandatanganinya; Bram dan Nella menurunkan; Orin berada di sumur.",
+            "guard0": "Saya membantu Bram menurunkan gerobak saat siang hari. Daging babi asin dan minyak lampu, yang biasa.",
+            "guard1": "Saya menurunkan pengiriman siang hari sendiri, lurus dari tongkang pasokan.",
+            "guard2": "Nella dan saya membawa peti masuk. Tessa menandatangani buku ledger.",
+            "guard3": "Gerobak datang naik jalan utara saat siang hari. Saya menandatangani untuknya."
           },
           "v5": {
-            "clue0": "The fallen from the last raid lie in the chapel crypt. Nobody enters the crypt without the sergeant's key.",
-            "clue1": "The sergeant's key has not left his belt since the raid. Nella, Orin and Bram stood the wall; Tessa kept the yard.",
-            "guard0": "I stood the wall. The crypt has stayed locked since the raid; only the sergeant holds the key.",
-            "guard1": "Wall duty with Nella and Bram. Quiet, except for the frogs.",
-            "guard2": "The wall, all day. Nobody has been near the crypt.",
-            "guard3": "I kept the yard and looked in on the crypt this morning. The fallen are resting."
+            "clue0": "Yang jatuh dari serangan terakhir berbaring di kripta kapel. Tidak ada yang memasuki kripta tanpa kunci sersan.",
+            "clue1": "Kunci sersan tidak meninggalkan ikat pinggangnya sejak serangan. Nella, Orin dan Bram berdiri di dinding; Tessa menjaga halaman.",
+            "guard0": "Saya berdiri di dinding. Kripta telah tetap terkunci sejak serangan; hanya sersan yang memegang kunci.",
+            "guard1": "Tugas dinding dengan Nella dan Bram. Tenang, kecuali katak.",
+            "guard2": "Dinding, sepanjang hari. Tidak ada yang dekat dengan kripta.",
+            "guard3": "Saya menjaga halaman dan melihat kripta pagi ini. Yang jatuh beristirahat."
           }
         }
       },
       "horde": {
-        "title": "The Last Barricade",
-        "objective": "Defend the barricade and defeat the horde commander",
-        "ready": "Speak to the barricade captain to begin.",
-        "countdown": "Horde incoming in {seconds}s!",
-        "status": "{seconds}s left. Kills: {kills}. Barricade: {barrier}%.",
-        "upgrade": "Weapon: {weapon}",
-        "loadout": "Shots: {count} | +{speed}% speed | {weapon}",
-        "exit": "Leave defense",
+        "title": "Barisan Terakhir",
+        "objective": "Pertahankan barisan dan kalahkan komandan gerombolan",
+        "ready": "Berbicara dengan kapten barisan untuk memulai.",
+        "countdown": "Gerombolan datang dalam {seconds}d!",
+        "status": "{seconds}d tersisa. Pembunuhan: {kills}. Barisan: {barrier}%.",
+        "upgrade": "Senjata: {weapon}",
+        "loadout": "Tembakan: {count} | +{speed}% kecepatan | {weapon}",
+        "exit": "Tinggalkan pertahanan",
         "gained": "Upgrade: {upgrade}",
-        "killBurst": "+{count} defeated!",
+        "killBurst": "+{count} dikalahkan!",
         "choices": {
-          "projectile": "+1 shot",
-          "haste": "+25% fire rate",
-          "pierce": "Piercing shots",
-          "explosive": "Explosive shots",
-          "double": "x2 shots"
+          "projectile": "+1 tembakan",
+          "haste": "+25% tingkat tembak",
+          "pierce": "Tembakan tembus",
+          "explosive": "Tembakan eksplosif",
+          "double": "Tembakan x2"
         },
         "weapons": {
-          "0": "Repeater",
-          "1": "Twin Shot",
-          "2": "Piercing Shot",
-          "3": "Explosive Shot"
+          "0": "Pengulang",
+          "1": "Tembakan Kembar",
+          "2": "Tembakan Tembus",
+          "3": "Tembakan Eksplosif"
         },
-        "controls": "Auto-fire. A/D, arrows or joystick. Backward: leave.",
-        "supplies": "Break one crate to choose. The other disappears!",
-        "result": "{rating}! Score: {score}.",
-        "resultStats": "Kills: {kills}. Barricade: {barrier}%.",
-        "failed": "Defense failed. Try again!",
-        "replay": "Speak to the captain to retry. Rewards once per rotation.",
+        "controls": "Tembak otomatis. A/D, panah atau joystick. Mundur: keluar.",
+        "supplies": "Pecahkan satu peti untuk memilih. Yang lain menghilang!",
+        "result": "{rating}! Skor: {score}.",
+        "resultStats": "Pembunuhan: {kills}. Barisan: {barrier}%.",
+        "failed": "Pertahanan gagal. Coba lagi!",
+        "replay": "Berbicara dengan kapten untuk mencoba lagi. Hadiah sekali per rotasi.",
         "medals": {
-          "gold": "Gold",
-          "silver": "Silver",
-          "bronze": "Bronze"
+          "gold": "Emas",
+          "silver": "Perak",
+          "bronze": "Perunggu"
         }
       },
       "wispMaze": {
-        "leave": "Leave maze",
-        "title": "Wispwood Maze",
-        "objective": "Recover every stolen coin purse from the maze",
-        "ready": "Speak to the maze keeper to begin.",
-        "controls": "Move through the maze to pick up the coin purses. Avoid the shadows. Radiant wisps let you banish shadows for a short time.",
-        "collected": "Coin purses: {count}/{total}",
-        "lives": "Lives: {count}/3",
-        "power": "Wisp power: {seconds}s",
-        "countdown": "Starting in {seconds}s",
-        "collect": "Pick up the coin purses. Avoid shadows.",
-        "powered": "Power surge! Touch shadows to banish them.",
-        "finished": "Every coin purse is recovered!",
-        "retry": "Three lives restored. Try the maze again.",
-        "startNormal": "Enter the maze: Normal ({shadows} shadows)",
-        "startHard": "Enter the maze: Hard ({shadows} shadows, bonus purse)"
+        "leave": "Tinggalkan labirin",
+        "title": "Labirin Hutan Cahaya",
+        "objective": "Pulihkan setiap kantong koin yang dicuri dari labirin",
+        "ready": "Bicaralah dengan penjaga labirin untuk memulai.",
+        "controls": "Bergeraklah melalui labirin untuk mengumpulkan kantong koin. Hindari bayangan. Cahaya bijak memungkinkan Anda mengusir bayangan untuk waktu yang singkat.",
+        "collected": "Kantong koin: {count}/{total}",
+        "lives": "Nyawa: {count}/3",
+        "power": "Kekuatan bijak: {seconds}d",
+        "countdown": "Dimulai dalam {seconds}d",
+        "collect": "Kumpulkan kantong koin. Hindari bayangan.",
+        "powered": "Lonjakan daya! Sentuh bayangan untuk mengusirnya.",
+        "finished": "Setiap kantong koin berhasil dipulihkan!",
+        "retry": "Tiga nyawa dipulihkan. Coba labirin lagi.",
+        "startNormal": "Masuki labirin: Normal ({shadows} bayangan)",
+        "startHard": "Masuki labirin: Sulit ({shadows} bayangan)"
       },
       "forge": {
-        "title": "A Helping Hammer",
-        "objective": "Help Smith Mara forge a shield",
-        "ready": "Speak to Smith Mara to begin.",
-        "countdown": "Ready your hands! Starting in {seconds}s.",
-        "preparing": "Nicely done! Next request...",
-        "fuel": "Woodpile",
-        "metal": "Ingot Crate",
-        "water": "Well",
-        "tools": "Anvil",
+        "title": "Palu yang Membantu",
+        "objective": "Bantu Smith Mara membuat perisai",
+        "ready": "Bicaralah dengan Smith Mara untuk memulai.",
+        "countdown": "Siapkan tangan mu! Dimulai dalam {seconds}d.",
+        "preparing": "Bagus! Permintaan berikutnya...",
+        "fuel": "Tumpukan Kayu",
+        "metal": "Peti Ingot",
+        "water": "Sumur",
+        "tools": "Paron",
         "request": {
-          "fuel": "Stoke the fire! Add some wood!",
-          "metal": "More metal! Open the ingot crate!",
-          "water": "Cool it down! Water from the well!",
-          "tools": "Hammer it into shape! Use the anvil!"
+          "fuel": "Nyalakan api! Tambahkan kayu!",
+          "metal": "Lebih banyak logam! Buka peti ingot!",
+          "water": "Dinginkan! Air dari sumur!",
+          "tools": "Pukul menjadi bentuk! Gunakan batu lonceng!"
         },
-        "sequence": "{instruction} Then click the {next}.",
-        "round": "Request {round}/{total}: step {step}/{steps}",
-        "thresholds": "Gold: {gold}s or less. Silver: {silver}s or less.",
-        "starting": "Getting ready...",
-        "finished": "Fine work! A shield fit for the garrison!",
-        "failed": "Too many mistakes! The metal cracked. Speak to Mara to try again.",
-        "wrong": "Wrong tool! +{penalty}s. Try the requested object.",
-        "correct": "That is it! Keep going.",
-        "result": "{rating}! {seconds}s. Mistakes: {mistakes}.",
-        "replay": "Speak to Mara to try again. Rewards are earned once per rotation.",
+        "sequence": "{instruction} Lalu klik {next}.",
+        "round": "Permintaan {round}/{total}: langkah {step}/{steps}",
+        "thresholds": "Emas: {gold}d atau kurang. Perak: {silver}d atau kurang.",
+        "starting": "Bersiap...",
+        "finished": "Pekerjaan yang bagus! Perisai cocok untuk garnisun!",
+        "failed": "Terlalu banyak kesalahan! Logamnya retak. Bicaralah dengan Mara untuk mencoba lagi.",
+        "wrong": "Alat salah! +{penalty}d. Coba benda yang diminta.",
+        "correct": "Itu benar! Lanjutkan.",
+        "result": "{rating}! {seconds}d. Kesalahan: {mistakes}.",
+        "replay": "Bicaralah dengan Mara untuk mencoba lagi. Hadiah diperoleh sekali per rotasi.",
         "medals": {
-          "gold": "Gold",
-          "silver": "Silver",
-          "bronze": "Bronze"
+          "gold": "Emas",
+          "silver": "Perak",
+          "bronze": "Perunggu"
         },
-        "strike": "Strike",
-        "strikeTip": "Hammer the piece. Press when the needle crosses the dark band; the band narrows and the needle quickens with every good blow. A blow outside the band, or on a cold forge, costs three seconds.",
-        "stoke": "Stoke",
-        "stokeTip": "Throw wood on the fire. The forge cools all the time; keep its heat above {floor} or your blows land cold.",
-        "strikes": "Strikes: {count}/{total}",
-        "heat": "Forge heat: {value} (keep above {floor})",
-        "mistakes": "Mistakes: {count}",
-        "meterAria": "Hammer timing meter",
-        "hintStrike": "Watch the needle. Strike inside the dark band!",
-        "hintStoke": "The forge is cooling! Stoke the fire before you strike.",
-        "hit": "Clean blow! The band narrows.",
-        "miss": "Missed the band! +{penalty}s.",
-        "cold": "Cold strike! Stoke the fire first. +{penalty}s."
+        "strike": "Pukul",
+        "strikeTip": "Palu benda tersebut. Tekan saat jarum menyeberangi pita gelap; pita menyempit dan jarum mempercepat dengan setiap pukulan bagus. Pukulan di luar pita, atau di perapian dingin, biaya tiga detik.",
+        "stoke": "Nyalakan",
+        "stokeTip": "Lemparkan kayu ke api. Perapian selalu mendingin; jaga panasnya di atas {floor} atau pukulanmu akan dingin.",
+        "strikes": "Pukulan: {count}/{total}",
+        "heat": "Panas tempa: {value} (tetap di atas {floor})",
+        "mistakes": "Kesalahan: {count}",
+        "meterAria": "Meter waktu palu",
+        "hintStrike": "Perhatikan jarum. Pukul di dalam pita gelap!",
+        "hintStoke": "Tempa mendingin! Nyalakan api sebelum kamu memukul.",
+        "hit": "Pukulan bersih! Pita menyempit.",
+        "miss": "Meleset dari pita! +{penalty}d.",
+        "cold": "Pukulan dingin! Nyalakan api lebih dulu. +{penalty}d."
       },
       "glider": {
-        "title": "Windrider Slalom",
-        "boost": "Extra Speed",
-        "boostTip": "Increase your flight speed by {speed} yd/s, up to {maximum} yd/s. Available while flying. Recharges in {seconds} seconds.",
-        "objective": "Soar through the wind rings and land in the marked zone",
-        "ready": "Speak to Flightmaster Zephyr to launch.",
-        "countdown": "Launch in {count}... Hold tight!",
-        "flying": "Rings: {rings}/{total} | Time: {time}s | Speed: {speed} yd/s",
-        "climb": "Climb",
-        "climbTip": "Hold to pull the nose up and trade speed for height. Tap for a short nudge. Slow flight loses lift.",
-        "dive": "Dive",
-        "diveTip": "Hold to point the nose down and gain speed. Tap for a short nudge.",
-        "controls": "Hold right mouse and look up to climb at the cost of speed; look down to dive and gain speed. Slow flight loses lift. Left/right steer; backward brakes. Jump or swim up/down also control pitch. Fly forward through wind tunnels for a speed boost, once per tunnel per attempt.",
-        "landed": "{rating}! Passed {rings}/{total} rings in {time}s.",
-        "failed": "Descent failed! Landed off course or missed too many rings.",
-        "retry": "Talk to Zephyr to retry, or to Skye by the landing zone to return to the launch point.",
-        "nextRing": "Aim through the next wind ring along the canyon. Clear at least {minimum} rings, then land in the marked zone.",
-        "landing": "All rings cleared! Steer onto the landing zone ahead.",
-        "complete": "Landing complete!",
-        "score": "Score: {score}.",
+        "title": "Slalom Penggaris Angin",
+        "boost": "Kecepatan Ekstra",
+        "boostTip": "Tingkatkan kecepatan terbangmu sebesar {speed} y/d, hingga {maximum} y/d. Tersedia saat terbang. Terisi kembali dalam {seconds} detik.",
+        "objective": "Terbang melalui cincin angin dan mendarat di zona bertanda",
+        "ready": "Berbicara dengan Juru Terbang Zephyr untuk meluncur.",
+        "replay": "Terbang lagi",
+        "practiceRewards": "Penerbangan praktik: tingkatkan waktumu tanpa menghasilkan lebih banyak koin, pengalaman atau reputasi.",
+        "countdown": "Luncur dalam {count}... Pegang erat!",
+        "flying": "Cincin: {rings}/{total} | Waktu: {time}d | Kecepatan: {speed} y/d",
+        "climb": "Tanjak",
+        "climbTip": "Tahan untuk menengakkan hidung dan menukar kecepatan dengan ketinggian. Ketuk untuk sentakan pendek. Terbang lambat kehilangan daya angkat.",
+        "dive": "Selam",
+        "diveTip": "Tahan untuk menunjukkan hidung ke bawah dan mendapat kecepatan. Ketuk untuk sentakan pendek.",
+        "controls": "Tahan tombol kanan mouse dan lihat ke atas untuk tanjak dengan mengorbankan kecepatan; lihat ke bawah untuk menyelam dan mendapat kecepatan. Terbang lambat kehilangan daya angkat. Kiri/kanan mengemudi; mundur mengerem. Lompat atau renang naik/turun juga mengontrol pitch. Terbang maju melalui terowongan angin untuk bonus kecepatan, sekali per terowongan per percobaan.",
+        "landed": "{rating}! Lewati {rings}/{total} cincin dalam {time}d.",
+        "failed": "Keturunan gagal! Mendarat di luar jalur atau melewatkan terlalu banyak cincin.",
+        "retry": "Bicarakan dengan Zephyr untuk mencoba lagi, atau dengan Skye di zona pendaratan untuk kembali ke titik peluncur.",
+        "nextRing": "Tujukan melalui cincin angin berikutnya di sepanjang ngarai. Bersihkan setidaknya {minimum} cincin, lalu mendarat di zona bertanda.",
+        "landing": "Semua cincin jernih! Kemudi ke zona pendaratan di depan.",
+        "complete": "Pendaratan selesai!",
+        "score": "Skor: {score}.",
         "medals": {
-          "gold": "Gold",
-          "silver": "Silver",
-          "bronze": "Bronze"
+          "gold": "Emas",
+          "silver": "Perak",
+          "bronze": "Perunggu"
         }
       },
-      "calligraphyTitle": "Arcane Calligraphy",
-      "traceOutline": "Trace the outline with your footsteps",
-      "traceRoundInstruction": "Round {round} of {total}: {shape}. {instruction}",
+      "calligraphyTitle": "Kaligrafi Arkan",
+      "traceOutline": "Ikuti garis dengan jejak kaki Anda",
+      "traceRoundInstruction": "Putaran {round} dari {total}: {shape}. {instruction}",
       "traceShape": {
-        "triangle": "Triangle",
-        "square": "Square",
-        "star": "Star",
-        "hourglass": "Hourglass",
-        "lightning": "Lightning Rune",
-        "spiral": "Angular Spiral",
-        "double-triangle": "Twin-Triangle Sigil",
-        "diamond": "Diamond",
+        "triangle": "Segitiga",
+        "square": "Bujur Sangkar",
+        "star": "Bintang",
+        "hourglass": "Jam Pasir",
+        "lightning": "Runa Kilat",
+        "spiral": "Spiral Segi",
+        "double-triangle": "Tanda Segitiga Kembar",
+        "diamond": "Berlian",
         "pentagon": "Pentagon",
-        "arrow": "Arrow Rune",
-        "zigzag": "Zigzag Sigil",
-        "cross": "Cross Rune"
+        "arrow": "Runa Panah",
+        "zigzag": "Tanda Zigzag",
+        "cross": "Runa Salib"
       },
       "traceRating": {
-        "bronze": "Bronze",
-        "silver": "Silver",
-        "gold": "Gold"
+        "bronze": "Perunggu",
+        "silver": "Perak",
+        "gold": "Emas"
       },
-      "traceScoreResult": "Complete! {rating}: {score}/{total}. Base reward unchanged. Gold: deed, title, +10 Renown.",
+      "traceScoreResult": "Selesai! {rating}: {score}/{total}. Hadiah dasar tidak berubah. Emas: pencapaian, gelar, +10 Renown.",
       "traceCompletionLog": "{completion} {result}",
-      "traceUnavailable": "This rune needs a newer game version.",
+      "traceUnavailable": "Runa ini membutuhkan versi game yang lebih baru.",
       "traceReaction": {
-        "tessaTriangle": "Three corners, and every one in its place!",
-        "pipSquare": "Four sides! I think I can do that too!",
-        "elianFinal": "Final rune. A line may cross or revisit a point; follow the bright marker to the next corner.",
-        "elianGold": "Beautifully traced! Your steps have earned their place in gold.",
-        "elianComplete": "A complete rune! Care and practice will make your next one even finer."
+        "tessaTriangle": "Tiga sudut, dan semuanya di tempat yang tepat!",
+        "pipSquare": "Empat sisi! Saya pikir saya juga bisa melakukannya!",
+        "elianFinal": "Runa akhir. Sebuah garis boleh bersilangan atau mengunjungi kembali suatu titik; ikuti penanda terang ke sudut berikutnya.",
+        "elianGold": "Indah terlacak! Langkah Anda telah mendapatkan tempatnya dalam emas.",
+        "elianComplete": "Runa lengkap! Perawatan dan latihan akan membuat runa berikutnya lebih indah."
       },
-      "traceReady": "Speak to the instructor to begin.",
-      "tracePreview": "Watch the outline. Golden sparkles will guide you.",
-      "traceStart": "Move to the start marker. Trace either way.",
-      "traceDrawing": "Follow golden sparkles to the bright corner. Blue marks your trail.",
-      "traceSuccess": "Outline complete!",
-      "traceRetry": "Speak to the instructor to try again.",
-      "traceOffPath": "You left the outline. Speak to the instructor to retry.",
-      "traceMovement": "Stay on foot and on the ground. Speak to the instructor to retry.",
-      "traceTimeout": "Time ran out. Speak to the instructor to retry.",
-      "traceCombat": "Leave combat, then speak to the instructor to retry.",
-      "puzzleTitle": "Ley Beam Alignment",
-      "puzzleBeamReach": "Crystals reached: {count}",
-      "puzzleVictoryTitle": "Perfect alignment",
-      "puzzleVictoryDetail": "The ley beam has reached its destination.",
-      "puzzleDefeatTitle": "Alignment lost",
-      "puzzleDefeatDetail": "The current has faded. The ritual is unfinished.",
-      "puzzleReturn": "Return to realm",
+      "traceReady": "Bicaralah dengan instruktur untuk memulai.",
+      "tracePreview": "Perhatikan garis yang akan diikuti. Kilatan emas akan memandu Anda.",
+      "traceStart": "Bergeraklah ke penanda awal. Ikuti salah satu arah.",
+      "traceDrawing": "Ikuti kilatan emas ke sudut yang terang. Tanda biru menandai jejak Anda.",
+      "traceSuccess": "Garis selesai!",
+      "traceRetry": "Bicaralah dengan instruktur untuk mencoba lagi.",
+      "traceOffPath": "Kamu meninggalkan garis. Bicaralah dengan instruktur untuk mencoba lagi.",
+      "traceMovement": "Tetap berjalan kaki dan di atas tanah. Bicaralah dengan instruktur untuk mencoba lagi.",
+      "traceTimeout": "Waktu habis. Bicaralah dengan instruktur untuk mencoba lagi.",
+      "traceCombat": "Tinggalkan pertempuran, lalu bicaralah dengan instruktur untuk mencoba lagi.",
+      "puzzleTitle": "Penyelarasan Berkas Ley",
+      "puzzleBeamReach": "Kristal tercapai: {count}",
+      "puzzleVictoryTitle": "Penyelarasan sempurna",
+      "puzzleVictoryDetail": "Berkas ley telah mencapai tujuannya.",
+      "puzzleDefeatTitle": "Penyelarasan hilang",
+      "puzzleDefeatDetail": "Arus telah memudar. Ritual belum selesai.",
+      "puzzleReturn": "Kembali ke alam",
       "puzzleResultAnnouncement": "{title}. {detail} {reach}.",
-      "puzzleLevel": "Daily level {level}",
-      "puzzleBonusLevel": "Bonus level {level} of {total}",
-      "puzzleBonusCharged": "The cache hums with a bonus charge: level {level} of {total} awaits. Touch the Ley Cache again for extra gold.",
-      "puzzleBonusPaid": "Bonus purse earned!",
-      "puzzleBonusDone": "Every bonus level cleared. The cache rests until the next offer.",
-      "puzzleInstructions": "Rotate the tiles to carry the beam from the source to the destination.",
-      "puzzleRotateTile": "Rotate tile {tile}",
-      "puzzleConnectors": "Connectors: {connectors}.",
-      "puzzlePowered": "The beam reaches this tile.",
-      "puzzleUnpowered": "The beam does not reach this tile.",
-      "puzzleClose": "Close ley beam puzzle",
-      "puzzleSource": "Source",
-      "puzzleTarget": "Destination",
-      "puzzleSourceEndpoint": "Source: {direction}.",
-      "puzzleTargetEndpoint": "Destination: {direction}.",
+      "puzzleLevel": "Level harian {level}",
+      "puzzleBonusLevel": "Level bonus {level} dari {total}",
+      "puzzleBonusCharged": "Level praktik {level} dari {total} menanti. Sentuh Peti Ley lagi. Putaran lebih lanjut tidak memberikan hadiah.",
+      "puzzleBonusPaid": "Level praktik telah dihapus!",
+      "puzzleBonusDone": "Setiap level praktik telah dihapus. Sentuh Peti Ley untuk bermain lagi.",
+      "puzzleInstructions": "Putar ubin untuk membawa balok dari sumber ke tujuan.",
+      "puzzleRotateTile": "Putar ubin {tile}",
+      "puzzleConnectors": "Konektor: {connectors}.",
+      "puzzlePowered": "Balok mencapai ubin ini.",
+      "puzzleUnpowered": "Berkas tidak mencapai ubin ini.",
+      "puzzleClose": "Tutup teka-teki balok ley",
+      "puzzleSource": "Sumber",
+      "puzzleTarget": "Tujuan",
+      "puzzleSourceEndpoint": "Sumber: {direction}.",
+      "puzzleTargetEndpoint": "Tujuan: {direction}.",
       "puzzleTileAria": "{rotation} {connectors} {power} {source} {target}",
-      "puzzleRetry": "Try again",
-      "puzzleTimer": "{seconds}s",
-      "puzzleTimerAria": "Time remaining: {seconds} seconds",
-      "startQuest": "Start World Quest",
-      "startEscort": "Start Escort",
-      "escortTitle": "Caravan",
-      "alreadyCompleted": "You have already completed this World Quest for this cycle.",
-      "inProgress": "This World Quest is already underway.",
-      "match3Title": "Confection Cascade",
-      "match3Instructions": "Select two adjacent confections. A swap only counts when it creates a line of three or more.",
-      "match3Moves": "Moves: {current}/{total}",
-      "match3Cleared": "Confections cleared: {current}/{total}",
+      "puzzleRetry": "Coba lagi",
+      "puzzleTimer": "{seconds}d",
+      "puzzleTimerAria": "Waktu tersisa: {seconds} detik",
+      "startQuest": "Mulai Pencarian Dunia",
+      "startEscort": "Mulai Pengawalan",
+      "escortTitle": "Karavan",
+      "alreadyCompleted": "Kamu sudah menyelesaikan Misi Dunia ini untuk siklus ini.",
+      "replay": "Mainkan lagi",
+      "practiceRewards": "Praktik: mainkan lagi tanpa menghasilkan lebih banyak koin, pengalaman atau reputasi.",
+      "inProgress": "Misi Dunia ini sudah sedang berjalan.",
+      "match3Title": "Kaskade Permen",
+      "match3Instructions": "Pilih dua permen yang berdekatan. Pertukaran hanya dihitung ketika menciptakan garis tiga atau lebih.",
+      "match3Moves": "Langkah: {current}/{total}",
+      "match3Cleared": "Permen jernih: {current}/{total}",
       "match3Announcement": "{moves}. {cleared}.",
-      "match3Cell": "Row {row}, column {column}: {candy}",
-      "match3Selected": "Selected",
-      "match3Reset": "Restart level",
-      "match3Close": "Close confection puzzle",
-      "match3OutOfMoves": "No moves remain. Restart the level to try again.",
-      "match3VictoryTitle": "Sweet victory",
-      "match3VictoryDetail": "The enchanted collection is complete.",
-      "match3DefeatTitle": "Bitter defeat",
-      "match3DefeatDetail": "Your moves are spent. A fresh collection awaits.",
-      "match3TryAgain": "Try again",
+      "match3Cell": "Baris {row}, kolom {column}: {candy}",
+      "match3Selected": "Dipilih",
+      "match3Reset": "Mulai ulang level",
+      "match3Close": "Tutup teka-teki permen",
+      "match3OutOfMoves": "Tidak ada langkah yang tersisa. Mulai ulang level untuk mencoba lagi.",
+      "match3VictoryTitle": "Kemenangan manis",
+      "match3VictoryDetail": "Koleksi yang dipesona sudah lengkap.",
+      "match3DefeatTitle": "Kekalahan pahit",
+      "match3DefeatDetail": "Langkah-langkahmu habis. Koleksi segar menanti.",
+      "match3TryAgain": "Coba lagi",
       "match3ResultAnnouncement": "{title}. {detail} {moves}. {cleared}.",
       "match3ResultSummary": "{title}. {detail} {cleared}.",
       "semanticSummary": "{name}. {progress}. {reward}.",
       "semanticSummaryTimed": "{name}. {progress}. {reward}. {time}.",
       "match3Candy": {
-        "berry": "berry crystal",
-        "citrus": "citrus orb",
-        "mint": "mint triangle",
-        "grape": "grape square",
-        "star": "sugar star"
+        "berry": "kristal beri",
+        "citrus": "bola sitrus",
+        "mint": "segitiga mint",
+        "grape": "persegi anggur",
+        "star": "bintang gula"
       }
     },
     "logs": {
       "accepted": "Misi diterima: {name}",
-      "worldQuestStarted": "World quest started: {name}",
+      "worldQuestStarted": "Misi dunia dimulai: {name}",
       "abandoned": "Misi ditinggalkan: {name}",
       "completed": "Misi tuntas: {name}",
       "ready": "{name} ({status})",
       "progress": "{label}: {current}/{total}",
-      "clueScrollEarned": "Every world quest of the day is done: a Clue Scroll is yours.",
-      "clueScrollLost": "Every world quest of the day is done, but you cannot hold another Clue Scroll.",
-      "clueHuntStarted": "Treasure hunt begun: {title}",
-      "clueHuntStep": "Clue {step} of {total} solved: {title}",
-      "clueHuntDone": "Treasure hunt complete: {title}. The casket is yours.",
-      "clueHuntAbandoned": "Treasure hunt abandoned: {title}",
-      "clueCasketOpened": "The casket holds {money} and {items}.",
+      "clueScrollEarned": "Setiap misi dunia hari ini selesai: Gulir Petunjuk adalah milikmu.",
+      "clueScrollLost": "Setiap misi dunia hari ini selesai, tapi kamu tidak bisa memegang Gulir Petunjuk lain.",
+      "clueHuntStarted": "Perburuan harta karun dimulai: {title}",
+      "clueHuntStep": "Petunjuk {step} dari {total} terpecahkan: {title}",
+      "clueHuntDone": "Perburuan harta karun selesai: {title}. Peti adalah milikmu.",
+      "clueHuntAbandoned": "Perburuan harta karun ditinggalkan: {title}",
+      "clueCasketOpened": "Peti memuat {money} dan {items}.",
       "treasureMapEarned": "Every world quest of the day is done: you found a {map}.",
       "treasureMapLost": "Every world quest of the day is done, but your bags have no room for the treasure map.",
       "treasureMapRead": "You study the {map}. The X lies somewhere in {zone}.",
@@ -12150,9 +12922,12 @@ export const id_ID: EnTranslations = {
       "reclaim": "Tarik Kembali",
       "buyAria": "Beli {item} seharga {price}",
       "reclaimAria": "Tarik kembali {item}",
+      "buyQuantityAria": "Berapa banyak {item} untuk dibeli (dari {total})",
+      "buyQuantityBtnAria": "Beli jumlah ini dari {item}",
       "buyConfirmTitle": "Konfirmasi Pembelian",
       "buyConfirmBody": "Beli {item} seharga {price}?",
       "buyConfirmBodyStack": "Beli {item} x{count} seharga {price} ({each} per buah)?",
+      "buyConfirmBodyPartial": "Beli {count} dari {item} (dari {total} yang terdaftar) untuk {price} ({each} masing-masing)?",
       "buyConfirmAccept": "Beli",
       "buyConfirmCancel": "Batal",
       "buyChanged": "Daftar itu berubah sebelum kamu mengonfirmasi. Periksa harganya dan coba lagi.",
@@ -12181,9 +12956,45 @@ export const id_ID: EnTranslations = {
       "collectEmpty": "Tidak ada yang menunggu. Hasil penjualan dan daftar kedaluwarsa terkumpul di sini.",
       "collectNote": "Pendapatan dan barang kembalian yang disimpan Pedagang untukmu.",
       "saleProceeds": "Hasil penjualan",
+      "collectAll": "Ambil Semua",
+      "history": "Riwayat",
+      "historyEmpty": "Belum ada penjualan. Item yang kamu jual di Pasar Dunia muncul di sini.",
+      "historyNote": "Penjualan terbaru mu di Pasar Dunia.",
       "saleBuyer": "Terjual kepada {buyer}",
       "saleOlder": "Ditambah {count} penjualan sebelumnya, termasuk dalam total.",
-      "collectAll": "Ambil Semua"
+      "ordersTab": "Diinginkan",
+      "ordersNote": "Posting apa yang kamu inginkan dan emas ditahan di Pedagang. Penawaran pada atau di bawah hargamu terpenuhi seketika; sisanya menunggu penjual. Pedagang mengambil {cut}% dari siapa pun yang mengisinya. Kamu memiliki {used}/{max} pesanan terbuka.",
+      "ordersListAria": "Pesanan pembelian terbuka",
+      "ordersEmpty": "Belum ada pesanan terbuka. Posting satu dan pengumpul akan melihat apa yang kamu butuhkan.",
+      "orderCardTitle": "Tempatkan pesanan",
+      "orderPickLabel": "Barang yang diinginkan",
+      "orderPickEmpty": "Cari barang di bawah, atau pilih satu dari strip di bagian bawah.",
+      "orderSearchPlaceholder": "Cari barang...",
+      "orderSearchAria": "Cari barang untuk dipesan",
+      "orderPickNone": "Tidak ada barang yang cocok.",
+      "orderQuantity": "Unit yang diinginkan",
+      "orderPriceEach": "Harga masing-masing",
+      "orderEscrowLine": "Emas yang ditahan di Pedagang: {total}",
+      "orderCannotAfford": "Kamu tidak bisa membayar {total} untuk pesanan ini.",
+      "orderAtCap": "Kamu tidak punya slot pesanan gratis. Tarik satu dulu.",
+      "orderPlaceButton": "Tempatkan Pesanan",
+      "orderConfirmTitle": "Konfirmasi Pesanan",
+      "orderConfirmBody": "Pesan {item} x{count} pada {each} masing-masing? {total} ditahan di Pedagang sampai pesanan terpenuhi atau kedaluwarsa.",
+      "orderWanted": "x{count} diinginkan",
+      "orderBy": "Diinginkan oleh {buyer}",
+      "orderMine": "Pesanan mu",
+      "orderEach": "masing-masing",
+      "orderDeliver": "Kirim",
+      "orderDeliverAria": "Kirim {item} ke {buyer}",
+      "orderDeliverNone": "Tidak ada barang ini di tas mu.",
+      "orderWithdraw": "Tarik",
+      "orderWithdrawAria": "Tarik pesanan mu untuk {item}",
+      "orderDeliverConfirmTitle": "Konfirmasi Pengiriman",
+      "orderDeliverConfirmBody": "Kirim {item} x{count} ke {buyer} untuk {total} ({each} masing-masing)? Kamu mengumpulkan {proceeds}.",
+      "unlistedTitle": "Tidak di pasar",
+      "unlistedNote": "Bahan tanpa daftar sama sekali. Tempatkan pesanan untuk satu, atau kumpulkan dan daftarkan.",
+      "unlistedNone": "Setiap bahan memiliki setidaknya satu daftar sekarang.",
+      "unlistedStageAria": "Pesan {item}"
     },
     "logs": {
       "listedItem": "Mendaftarkan {item} di Pasar Dunia seharga {money}.",
@@ -12192,6 +13003,11 @@ export const id_ID: EnTranslations = {
       "collectedMoney": "Kamu mengambil {money} dari Pedagang.",
       "reclaimedItem": "Mengambil kembali {item} dari pasar.",
       "expiredListing": "Daftar pasarmu untuk {item} kedaluwarsa dan menunggu di Pedagang.",
+      "orderPlaced": "Menempatkan pesanan untuk {item} x{count} pada {each} masing-masing.",
+      "orderDelivered": "Dikirim {item} x{count} ke {buyer} untuk {money}. Kumpulkan {proceeds} dari Pedagang.",
+      "orderReceived": "{seller} mengirim {item} x{count} ke pesanan mu. Kumpulkan dari Pedagang.",
+      "orderWithdrawn": "Menarik pesanan mu untuk {item}; {money} dikembalikan.",
+      "orderExpired": "Pesanan mu untuk {item} kedaluwarsa; {money} menunggu di Pedagang.",
       "boughtBackItem": "Membeli kembali {item} seharga {money}."
     },
     "errors": {
@@ -12210,7 +13026,12 @@ export const id_ID: EnTranslations = {
       "notYourListing": "Itu bukan daftar jualanmu.",
       "nothingToCollect": "Tidak ada yang bisa kamu ambil.",
       "sweepNoListings": "Tidak ada daftar item tersebut yang tersedia untuk disapu.",
-      "sweepPriceChanged": "Harga berubah sebelum sapuan Anda mendarat. Periksa penawarannya dan coba lagi."
+      "sweepPriceChanged": "Harga berubah sebelum sapuan Anda mendarat. Periksa penawarannya dan coba lagi.",
+      "orderCountNeeded": "Sebutkan berapa banyak yang kamu inginkan.",
+      "tooManyOrders": "Kamu bisa menyimpan paling banyak {count} pesanan terbuka sekaligus.",
+      "orderClosed": "Pesanan itu tidak lagi terbuka.",
+      "orderOwn": "Itu pesanan mu sendiri. Batalkan untuk menariknya.",
+      "orderNotYours": "Itu bukan pesanan mu."
     },
     "loot": {
       "takeAll": "Ambil Semua",
@@ -12719,7 +13540,7 @@ export const id_ID: EnTranslations = {
       },
       "final_edict": {
         "name": "Titah Terakhir",
-        "description": "Melancarkan serangan senjata yang menghancurkan dan menghasilkan 1 Pengabdian saat memberi kerusakan. Pukulan yang berhasil memangkas sisa jeda Runtuhnya Fajar sebesar 2 dtk. Serangan otomatis yang berhasil dan pukulan Titah Terakhir berpeluang 15% memberi Murka Fajar selama 8 dtk. Kenaikan juga melepaskan ledakan Suci di sekitarmu."
+        "description": "Melancarkan serangan senjata yang menghancurkan dan menghasilkan 1 Pengabdian saat memberi kerusakan. Pukulan yang berhasil memangkas sisa jeda Runtuhnya Fajar sebesar 2 dtk. Serangan otomatis yang berhasil dan pukulan Titah Terakhir berpeluang 15% memberi Murka Fajar selama 8 dtk. Kenaikan juga melepaskan ledakan di sekitarmu yang memberi kerusakan Fisik."
       },
       "dawnfall": {
         "name": "Runtuhnya Fajar",
@@ -12947,16 +13768,16 @@ export const id_ID: EnTranslations = {
         "description": "Pasif: Sambaran Busur dan Petir Bercabang memberi Guruh, hingga 5. Pada 5 Guruh, Sentakan Bumi memberi 125% lebih banyak kerusakan atau Gempa Bumi 100% lebih banyak, lalu menghabiskan seluruh Guruh. (Panggilan Guruh)"
       },
       "lightning_overload": {
-        "name": "Arc Overload",
-        "description": "Passive: Arc Bolt and Skybranch have a 20% chance to Overload, striking their first target again for 50% of the damage dealt and granting 1 Thunder. (Thundercall)"
+        "name": "Beban Busur",
+        "description": "Pasif: Sambaran Busur dan Petir Bercabang memiliki 20% kemungkinan untuk Beban Berlebih, menyerang target pertama mereka lagi karena 50% dari kerusakan yang dihadapi dan memberikan 1 Guntur."
       },
       "lava_burst": {
-        "name": "Magma Burst",
-        "description": "Deal {damage} Fire damage. Always critically strikes a target burning with your Cinder Jolt. Magma Surge: each Cinder Jolt tick has a 20% chance to reset this cooldown and make your next Magma Burst within 10 sec instant. Damage increases with Spell Power. (Thundercall)"
+        "name": "Ledakan Magma",
+        "description": "Berikan {damage} kerusakan Api. Selalu membuat serangan kritis pada target yang terbakar dengan Sentakan Bara-mu. Gelombang Magma: setiap tik Sentakan Bara-mu memiliki 20% kemungkinan untuk mengatur ulang jeda ini dan membuat Ledakan Magma berikutnya dalam 10 detik instan. Kerusakan meningkat dengan Kekuatan Mantra."
       },
       "thunderstorm": {
-        "name": "Stormbreak",
-        "description": "Call down a thunderclap, dealing {damage} Nature damage to enemies within 10 yards and slowing them by 50% for 5 sec. Restores 8% of your maximum Mana. Damage increases with Spell Power. (Thundercall)"
+        "name": "Putus Badai",
+        "description": "Panggil sambaran petir, berikan {damage} kerusakan Alam kepada musuh dalam 10 yard dan perlambat mereka sebesar 50% selama 5 detik. Pulihkan 8% dari Mana maksimal-mu. Kerusakan meningkat dengan Kekuatan Mantra."
       },
       "rockbiter_weapon": {
         "name": "Senjata Stonebound",
@@ -15306,16 +16127,16 @@ export const id_ID: EnTranslations = {
         "name": "Jerat Rawa yang Terpicu"
       },
       "leyline_cache": {
-        "name": "Miniature Ley Cache"
+        "name": "Lumbung Ley Kecil"
       },
       "confection_game_box": {
-        "name": "Confectioner's Game Box"
+        "name": "Kotak Permainan Penjual Permen"
       },
       "eastbrook_freight_crate": {
-        "name": "Eastbrook Freight Crate"
+        "name": "Peti Kargo Eastbrook"
       },
       "eastbrook_freight_wagon": {
-        "name": "Eastbrook Freight Wagon"
+        "name": "Gerobak Kargo Eastbrook"
       },
       "hearthlined_treads": {
         "name": "Alas Kaki Berlapis Perapian"
@@ -15483,7 +16304,7 @@ export const id_ID: EnTranslations = {
         "name": "Kunci Penyalaan: Pengguncang Tanah Percik Teror"
       },
       "reins_avian_strider": {
-        "name": "Reins of the Viridian Valestrider"
+        "name": "Tali Kekang Pejalan Lembah Zamrud"
       },
       "reins_goblin_rocket_sled": {
         "name": "Kunci kontak: Kereta Luncur Roket Goblin"
@@ -17213,6 +18034,423 @@ export const id_ID: EnTranslations = {
       "legendary_riptide_handwraps": {
         "name": "Sovereign Riptide Handwraps"
       },
+      "vanguard_warrior_arms_helmet": {
+        "name": "Helm Agung Segar Mata Pedang"
+      },
+      "vanguard_warrior_arms_shoulder": {
+        "name": "Perisai Bahu Bladewake"
+      },
+      "vanguard_warrior_arms_chest": {
+        "name": "Baju Zirah Segar Mata Pedang"
+      },
+      "vanguard_warrior_arms_legs": {
+        "name": "Perisai Kaki Bladewake"
+      },
+      "vanguard_warrior_arms_gloves": {
+        "name": "Penghancur Segar Mata Pedang"
+      },
+      "vanguard_warrior_fury_helmet": {
+        "name": "Wajah Bloodmarch"
+      },
+      "vanguard_warrior_fury_shoulder": {
+        "name": "Perisai Bahu Bloodmarch"
+      },
+      "vanguard_warrior_fury_chest": {
+        "name": "Baju Rantai Bloodmarch"
+      },
+      "vanguard_warrior_fury_legs": {
+        "name": "Celana Bloodmarch"
+      },
+      "vanguard_warrior_fury_gloves": {
+        "name": "Sarung Tangan Bloodmarch"
+      },
+      "vanguard_warrior_prot_helmet": {
+        "name": "Helm Ironmarch"
+      },
+      "vanguard_warrior_prot_shoulder": {
+        "name": "Perisai Bahu Ironmarch"
+      },
+      "vanguard_warrior_prot_chest": {
+        "name": "Perisai Dada Ironmarch"
+      },
+      "vanguard_warrior_prot_legs": {
+        "name": "Perisai Kaki Ironmarch"
+      },
+      "vanguard_warrior_prot_gloves": {
+        "name": "Sarung Tangan Ironmarch"
+      },
+      "vanguard_paladin_holy_helmet": {
+        "name": "Lingkar Pengawas Matahari"
+      },
+      "vanguard_paladin_holy_shoulder": {
+        "name": "Mantel Pengawas Matahari"
+      },
+      "vanguard_paladin_holy_chest": {
+        "name": "Baju Zirah Pengawas Matahari"
+      },
+      "vanguard_paladin_holy_legs": {
+        "name": "Baju Zirah Paha Pengawas Matahari"
+      },
+      "vanguard_paladin_holy_gloves": {
+        "name": "Sarung Tangan Pengawas Matahari"
+      },
+      "vanguard_paladin_protection_helmet": {
+        "name": "Helm Perjanjian Perisai"
+      },
+      "vanguard_paladin_protection_shoulder": {
+        "name": "Pauldron Perjanjian Perisai"
+      },
+      "vanguard_paladin_protection_chest": {
+        "name": "Baju Zirah Perjanjian Perisai"
+      },
+      "vanguard_paladin_protection_legs": {
+        "name": "Plat Paha Perjanjian Perisai"
+      },
+      "vanguard_paladin_protection_gloves": {
+        "name": "Sarung Tangan Perjanjian Perisai"
+      },
+      "vanguard_paladin_retribution_helmet": {
+        "name": "Mahkota Merek Cahaya"
+      },
+      "vanguard_paladin_retribution_shoulder": {
+        "name": "Pauldron Merek Cahaya"
+      },
+      "vanguard_paladin_retribution_chest": {
+        "name": "Baju Zirah Merek Cahaya"
+      },
+      "vanguard_paladin_retribution_legs": {
+        "name": "Celana Merek Cahaya"
+      },
+      "vanguard_paladin_retribution_gloves": {
+        "name": "Sarung Tangan Merek Cahaya"
+      },
+      "vanguard_hunter_beast_mastery_helmet": {
+        "name": "Helm Penjaga Kawanan"
+      },
+      "vanguard_hunter_beast_mastery_shoulder": {
+        "name": "Pauldron Penjaga Kawanan"
+      },
+      "vanguard_hunter_beast_mastery_chest": {
+        "name": "Rompi Penjaga Kawanan"
+      },
+      "vanguard_hunter_beast_mastery_legs": {
+        "name": "Celana Penjaga Kawanan"
+      },
+      "vanguard_hunter_beast_mastery_gloves": {
+        "name": "Sarung Tangan Penjaga Kawanan"
+      },
+      "vanguard_hunter_marksmanship_helmet": {
+        "name": "Helm Penglihatan Jauh"
+      },
+      "vanguard_hunter_marksmanship_shoulder": {
+        "name": "Pauldron Penglihatan Jauh"
+      },
+      "vanguard_hunter_marksmanship_chest": {
+        "name": "Rompi Penglihatan Jauh"
+      },
+      "vanguard_hunter_marksmanship_legs": {
+        "name": "Celana Penglihatan Jauh"
+      },
+      "vanguard_hunter_marksmanship_gloves": {
+        "name": "Sarung Tangan Penglihatan Jauh"
+      },
+      "vanguard_hunter_survival_helmet": {
+        "name": "Helm Gigi Jerat"
+      },
+      "vanguard_hunter_survival_shoulder": {
+        "name": "Pauldron Gigi Jerat"
+      },
+      "vanguard_hunter_survival_chest": {
+        "name": "Rompi Gigi Jerat"
+      },
+      "vanguard_hunter_survival_legs": {
+        "name": "Celana Gigi Jerat"
+      },
+      "vanguard_hunter_survival_gloves": {
+        "name": "Sarung Tangan Gigi Jerat"
+      },
+      "vanguard_rogue_assassination_helmet": {
+        "name": "Tudung Sayatan Malam"
+      },
+      "vanguard_rogue_assassination_shoulder": {
+        "name": "Pauldron Sayatan Malam"
+      },
+      "vanguard_rogue_assassination_chest": {
+        "name": "Tunik Sayatan Malam"
+      },
+      "vanguard_rogue_assassination_legs": {
+        "name": "Celana Sayatan Malam"
+      },
+      "vanguard_rogue_assassination_gloves": {
+        "name": "Sarung Tangan Sayatan Malam"
+      },
+      "vanguard_rogue_combat_helmet": {
+        "name": "Tudung Merek Pertarungan"
+      },
+      "vanguard_rogue_combat_shoulder": {
+        "name": "Pauldron Merek Pertarungan"
+      },
+      "vanguard_rogue_combat_chest": {
+        "name": "Tunik Merek Pertarungan"
+      },
+      "vanguard_rogue_combat_legs": {
+        "name": "Celana Merek Pertarungan"
+      },
+      "vanguard_rogue_combat_gloves": {
+        "name": "Sarung Tangan Merek Pertarungan"
+      },
+      "vanguard_rogue_subtlety_helmet": {
+        "name": "Tudung Berjalan Bayang"
+      },
+      "vanguard_rogue_subtlety_shoulder": {
+        "name": "Pauldron Berjalan Bayang"
+      },
+      "vanguard_rogue_subtlety_chest": {
+        "name": "Tunik Berjalan Bayang"
+      },
+      "vanguard_rogue_subtlety_legs": {
+        "name": "Celana Berjalan Bayang"
+      },
+      "vanguard_rogue_subtlety_gloves": {
+        "name": "Sarung Tangan Berjalan Bayang"
+      },
+      "vanguard_priest_discipline_helmet": {
+        "name": "Tudung Nyanyian Tabir"
+      },
+      "vanguard_priest_discipline_shoulder": {
+        "name": "Mantel Nyanyian Tabir"
+      },
+      "vanguard_priest_discipline_chest": {
+        "name": "Jubah Nyanyian Tabir"
+      },
+      "vanguard_priest_discipline_legs": {
+        "name": "Celana Nyanyian Tabir"
+      },
+      "vanguard_priest_discipline_gloves": {
+        "name": "Lilitan Tangan Nyanyian Tabir"
+      },
+      "vanguard_priest_holy_helmet": {
+        "name": "Tudung Sayap Karunia"
+      },
+      "vanguard_priest_holy_shoulder": {
+        "name": "Mantel Sayap Karunia"
+      },
+      "vanguard_priest_holy_chest": {
+        "name": "Jubah Sayap Karunia"
+      },
+      "vanguard_priest_holy_legs": {
+        "name": "Celana Sayap Karunia"
+      },
+      "vanguard_priest_holy_gloves": {
+        "name": "Lilitan Tangan Sayap Karunia"
+      },
+      "vanguard_priest_shadow_helmet": {
+        "name": "Tudung Nyanyian Senja"
+      },
+      "vanguard_priest_shadow_shoulder": {
+        "name": "Mantel Nyanyian Senja"
+      },
+      "vanguard_priest_shadow_chest": {
+        "name": "Jubah Nyanyian Senja"
+      },
+      "vanguard_priest_shadow_legs": {
+        "name": "Celana Nyanyian Senja"
+      },
+      "vanguard_priest_shadow_gloves": {
+        "name": "Lilitan Tangan Nyanyian Senja"
+      },
+      "vanguard_shaman_elemental_helmet": {
+        "name": "Helm Tertulis Badai"
+      },
+      "vanguard_shaman_elemental_shoulder": {
+        "name": "Pauldron Tertulis Badai"
+      },
+      "vanguard_shaman_elemental_chest": {
+        "name": "Baju Zirah Tertulis Badai"
+      },
+      "vanguard_shaman_elemental_legs": {
+        "name": "Baju Zirah Paha Tertulis Badai"
+      },
+      "vanguard_shaman_elemental_gloves": {
+        "name": "Sarung Tangan Tertulis Badai"
+      },
+      "vanguard_shaman_enhancement_helmet": {
+        "name": "Helm Berga"
+      },
+      "vanguard_shaman_enhancement_shoulder": {
+        "name": "Pauldron Berga"
+      },
+      "vanguard_shaman_enhancement_chest": {
+        "name": "Baju Zirah Rantai Berga"
+      },
+      "vanguard_shaman_enhancement_legs": {
+        "name": "Celana Berga"
+      },
+      "vanguard_shaman_enhancement_gloves": {
+        "name": "Tangan Berga"
+      },
+      "vanguard_shaman_restoration_helmet": {
+        "name": "Lingkar Penjaga Asam Laut"
+      },
+      "vanguard_shaman_restoration_shoulder": {
+        "name": "Mantel Penjaga Asam Laut"
+      },
+      "vanguard_shaman_restoration_chest": {
+        "name": "Baju Zirah Penjaga Asam Laut"
+      },
+      "vanguard_shaman_restoration_legs": {
+        "name": "Rok Penjaga Asam Laut"
+      },
+      "vanguard_shaman_restoration_gloves": {
+        "name": "Lilitan Tangan Penjaga Asam Laut"
+      },
+      "vanguard_mage_arcane_helmet": {
+        "name": "Tudung Pengikat Jam"
+      },
+      "vanguard_mage_arcane_shoulder": {
+        "name": "Amis Pengikat Jam"
+      },
+      "vanguard_mage_arcane_chest": {
+        "name": "Jubah Pengikat Jam"
+      },
+      "vanguard_mage_arcane_legs": {
+        "name": "Celana Pengikat Jam"
+      },
+      "vanguard_mage_arcane_gloves": {
+        "name": "Sarung Tangan Pengikat Jam"
+      },
+      "vanguard_mage_fire_helmet": {
+        "name": "Tudung Pelepas Bara"
+      },
+      "vanguard_mage_fire_shoulder": {
+        "name": "Mantel Pelepas Bara"
+      },
+      "vanguard_mage_fire_chest": {
+        "name": "Jubah Pelepas Bara"
+      },
+      "vanguard_mage_fire_legs": {
+        "name": "Celana Pelepas Bara"
+      },
+      "vanguard_mage_fire_gloves": {
+        "name": "Sarung Tangan Pelepas Bara"
+      },
+      "vanguard_mage_frost_helmet": {
+        "name": "Tudung Penjaga Embun Beku"
+      },
+      "vanguard_mage_frost_shoulder": {
+        "name": "Pauldron Penjaga Embun Beku"
+      },
+      "vanguard_mage_frost_chest": {
+        "name": "Jubah Penjaga Embun Beku"
+      },
+      "vanguard_mage_frost_legs": {
+        "name": "Lilitan Kaki Penjaga Embun Beku"
+      },
+      "vanguard_mage_frost_gloves": {
+        "name": "Sarung Tangan Penjaga Embun Beku"
+      },
+      "vanguard_warlock_affliction_helmet": {
+        "name": "Tudung Bulu Minim"
+      },
+      "vanguard_warlock_affliction_shoulder": {
+        "name": "Mantel Bulu Minim"
+      },
+      "vanguard_warlock_affliction_chest": {
+        "name": "Jubah Bulu Minim"
+      },
+      "vanguard_warlock_affliction_legs": {
+        "name": "Celana Bulu Minim"
+      },
+      "vanguard_warlock_affliction_gloves": {
+        "name": "Lilitan Tangan Bulu Minim"
+      },
+      "vanguard_warlock_demonology_helmet": {
+        "name": "Tudung Terikat Sumsum"
+      },
+      "vanguard_warlock_demonology_shoulder": {
+        "name": "Pauldron Terikat Sumsum"
+      },
+      "vanguard_warlock_demonology_chest": {
+        "name": "Jubah Terikat Sumsum"
+      },
+      "vanguard_warlock_demonology_legs": {
+        "name": "Celana Terikat Sumsum"
+      },
+      "vanguard_warlock_demonology_gloves": {
+        "name": "Tangan Terikat Sumsum"
+      },
+      "vanguard_warlock_destruction_helmet": {
+        "name": "Tudung Mahkota Terak"
+      },
+      "vanguard_warlock_destruction_shoulder": {
+        "name": "Mantel Mahkota Terak"
+      },
+      "vanguard_warlock_destruction_chest": {
+        "name": "Jubah Mahkota Terak"
+      },
+      "vanguard_warlock_destruction_legs": {
+        "name": "Celana Mahkota Terak"
+      },
+      "vanguard_warlock_destruction_gloves": {
+        "name": "Sarung Tangan Mahkota Terak"
+      },
+      "vanguard_druid_balance_helmet": {
+        "name": "Mahkota Penjaga Bintang"
+      },
+      "vanguard_druid_balance_shoulder": {
+        "name": "Pauldron Penjaga Bintang"
+      },
+      "vanguard_druid_balance_chest": {
+        "name": "Rompi Penjaga Bintang"
+      },
+      "vanguard_druid_balance_legs": {
+        "name": "Celana Penjaga Bintang"
+      },
+      "vanguard_druid_balance_gloves": {
+        "name": "Sarung Tangan Penjaga Bintang"
+      },
+      "vanguard_druid_feral_helmet": {
+        "name": "Helm Surai Darah"
+      },
+      "vanguard_druid_feral_shoulder": {
+        "name": "Pauldron Surai Darah"
+      },
+      "vanguard_druid_feral_chest": {
+        "name": "Tunik Surai Darah"
+      },
+      "vanguard_druid_feral_legs": {
+        "name": "Celana Surai Darah"
+      },
+      "vanguard_druid_feral_gloves": {
+        "name": "Tangan Surai Darah"
+      },
+      "vanguard_druid_restoration_helmet": {
+        "name": "Mahkota Bunga Thistle"
+      },
+      "vanguard_druid_restoration_shoulder": {
+        "name": "Mantel Bunga Thistle"
+      },
+      "vanguard_druid_restoration_chest": {
+        "name": "Rompi Bunga Thistle"
+      },
+      "vanguard_druid_restoration_legs": {
+        "name": "Celana Bunga Thistle"
+      },
+      "vanguard_druid_restoration_gloves": {
+        "name": "Sarung Tangan Bunga Thistle"
+      },
+      "vanguard_verdict_greatsword": {
+        "name": "Vonis Penjaga"
+      },
+      "vanguard_oath_blade": {
+        "name": "Sumpah Penjaga"
+      },
+      "vanguard_fang_dagger": {
+        "name": "Taring Penjaga"
+      },
+      "vanguard_warstaff": {
+        "name": "Tongkat Perang Vanguard"
+      },
       "conjured_water4": {
         "name": "Air Mata Air Sihir"
       },
@@ -17693,11 +18931,14 @@ export const id_ID: EnTranslations = {
       "event_skin_token": {
         "name": "Peti Kosmetik Misterius"
       },
+      "emissary_cache": {
+        "name": "Simpanan Utusan"
+      },
       "clue_scroll": {
-        "name": "Clue Scroll"
+        "name": "Gulir Petunjuk"
       },
       "treasure_casket": {
-        "name": "Treasure Casket"
+        "name": "Peti Harta"
       },
       "heroic_mark": {
         "name": "Tanda Heroik"
@@ -18011,50 +19252,155 @@ export const id_ID: EnTranslations = {
       "varkhul_emberward": {
         "name": "Emberward, Benteng Varkhul"
       },
+      "bastion_sigil": {
+        "name": "Sigil Benteng"
+      },
+      "mooring_stone": {
+        "name": "Batu Penambat"
+      },
+      "menders_hourglass": {
+        "name": "Jam Pasir Penyembuh"
+      },
+      "wellspring_seed": {
+        "name": "Benih Mata Air"
+      },
+      "paired_talons": {
+        "name": "Cakar Berpasangan"
+      },
+      "hunters_tally": {
+        "name": "Catatan Pemburu"
+      },
+      "stormjar": {
+        "name": "Guci Badai"
+      },
+      "echoing_lens": {
+        "name": "Lensa Bergema"
+      },
+      "gamblers_die": {
+        "name": "Dadu Penjudi"
+      },
+      "sundered_prism": {
+        "name": "Prisma Terbelah"
+      },
+      "wayfarers_lodestone": {
+        "name": "Batu Penunjuk Pengelana"
+      },
+      "medallion_of_defiance": {
+        "name": "Medali Pembangkangan"
+      },
+      "duelists_brand": {
+        "name": "Merek Penantang Duel"
+      },
+      "forgefathers_temper": {
+        "name": "Kemarahan Pembuat Tempa"
+      },
+      "kindling_orb": {
+        "name": "Bola Menyala"
+      },
+      "molten_fletching": {
+        "name": "Bulu Cair"
+      },
+      "last_flame_lantern": {
+        "name": "Lentera Nyala Terakhir"
+      },
+      "heart_of_the_crucible": {
+        "name": "Jantung Perapian"
+      },
       "rift_watchers_band": {
-        "name": "Rift Watcher's Band"
+        "name": "Sabuk Penjaga Retak"
       },
       "rift_surveyors_satchel": {
-        "name": "Rift Surveyor's Satchel"
+        "name": "Tas Penyidik Retak"
       },
       "riftwalkers_tunic": {
-        "name": "Riftwalker's Tunic"
+        "name": "Tunik Pejalan Retak"
       },
       "riftwarden_voidblade": {
-        "name": "Riftwarden's Voidblade"
+        "name": "Pedang Kekosongan Penjaga Retak"
       },
       "champion_rift_band": {
-        "name": "Champion's Rift Band"
+        "name": "Pita Celah Juara"
       },
       "order_prayer_beads": {
-        "name": "Order Prayer Beads"
+        "name": "Manik Doa Ordo"
       },
       "vestments_of_the_acolyte": {
-        "name": "Vestments of the Acolyte"
+        "name": "Jubah Akolit"
       },
       "templar_dawn_shield": {
-        "name": "Templar's Dawn Shield"
+        "name": "Perisai Fajar Templar"
       },
       "dawnkeeper_consecrated_mace": {
-        "name": "Dawnkeeper's Consecrated Mace"
+        "name": "Gada Berkonsekrasi Penjaga Fajar"
       },
       "champion_dawn_medallion": {
-        "name": "Champion's Dawn Medallion"
+        "name": "Medali Fajar Juara"
       },
       "automaton_cog_ring": {
-        "name": "Automaton Cog Ring"
+        "name": "Cincin Roda Gigi Automaton"
       },
       "clockwork_tinkers_pack": {
-        "name": "Clockwork Tinker's Pack"
+        "name": "Pakan Tukang Jam"
       },
       "artificers_welding_cowl": {
-        "name": "Artificer's Welding Cowl"
+        "name": "Cowl Pengelasan Pengrajin"
       },
       "forgemaster_crag_cleaver": {
-        "name": "Forgemaster's Crag Cleaver"
+        "name": "Belah Tebing Penjuru Logam"
       },
       "champion_forged_loop": {
-        "name": "Champion's Forged Loop"
+        "name": "Cincin Tempa Juara"
+      },
+      "tidewatchers_locket": {
+        "name": "Medali Penjaga Pasang"
+      },
+      "riftwalkers_cord": {
+        "name": "Tali Pejalan Retak"
+      },
+      "riftwalkers_treads": {
+        "name": "Langkah Pejalan Retak"
+      },
+      "formula_riftwalkers_grace": {
+        "name": "Formula: Keanggunan Pejalan Retak"
+      },
+      "riftwardens_pendant": {
+        "name": "Kalung Penjaga Retak"
+      },
+      "acolytes_signet": {
+        "name": "Signet Akolit"
+      },
+      "cord_of_the_dawn": {
+        "name": "Tali Fajar"
+      },
+      "dawnlit_slippers": {
+        "name": "Sandal Berterangi Fajar"
+      },
+      "formula_dawnfire_etching": {
+        "name": "Formula: Ukiran Fajar Berapi"
+      },
+      "formula_dawns_benediction": {
+        "name": "Formula: Berkah Fajar"
+      },
+      "champions_dawn_loop": {
+        "name": "Cincin Fajar Juara"
+      },
+      "dawnkeepers_circle": {
+        "name": "Lingkaran Penjaga Fajar"
+      },
+      "cogwork_choker": {
+        "name": "Kalung Mekanisme"
+      },
+      "forgemasters_girdle": {
+        "name": "Ikat Pinggang Penjuru Logam"
+      },
+      "forgemasters_sabatons": {
+        "name": "Sepatu Perang Penjuru Logam"
+      },
+      "formula_piston_drive": {
+        "name": "Formula: Dorong Piston"
+      },
+      "forgewall_gorget": {
+        "name": "Gorget Tembok Logam"
       }
     },
     "mobs": {
@@ -18083,13 +19429,13 @@ export const id_ID: EnTranslations = {
         "name": "Bandit Lembah"
       },
       "eastbrook_freight_caravan": {
-        "name": "Eastbrook Freight Caravan"
+        "name": "Kafilah Pengangkut Eastbrook"
       },
       "willowfen_remedy_caravan": {
-        "name": "Willowfen Remedy Caravan"
+        "name": "Kafilah Obat Willowfen"
       },
       "frostveil_supply_caravan": {
-        "name": "Frostveil Supply Caravan"
+        "name": "Kafilah Pasokan Frostveil"
       },
       "restless_bones": {
         "name": "Tulang Gelisah"
@@ -18113,7 +19459,7 @@ export const id_ID: EnTranslations = {
         "name": "Mayat Tenggelam"
       },
       "fenbridge_infiltrator": {
-        "name": "The Borrowed Face"
+        "name": "Wajah Pinjam"
       },
       "fen_troll": {
         "name": "Troll Mirefen"
@@ -18871,109 +20217,114 @@ export const id_ID: EnTranslations = {
     },
     "npcs": {
       "glider_instructor": {
-        "name": "Flightmaster Zephyr",
-        "title": "Windrider Instructor",
-        "greeting": "The thermals howling off the cliffs of The Shear are fierce today. Ready to strap into the mechanical glider and test your wings through the slalom course?"
+        "name": "Komandan Penerbangan Zephyr",
+        "title": "Instruktur Pengendali Angin",
+        "greeting": "Udara panas yang mengaum dari tebing The Shear sangat ganas hari ini. Siap mengikat diri ke peluncur mekanis dan menguji sayapmu melalui jalur slalom?"
       },
       "glider_apprentice": {
         "name": "Skye",
-        "title": "Zephyrs Apprentice",
-        "greeting": "Great flight down the canyon. Speak with me whenever you need a magical updraft back to Zephyr at The Shear."
+        "title": "Murid Zephyr",
+        "greeting": "Penerbangan indah menuruni jurang. Bicaralah kepadaku kapan pun engkau membutuhkan angin darat ajaib kembali ke Zephyr di The Shear."
       },
       "shadow_cloak_scout": {
-        "name": "Scout Valerie",
-        "title": "Covert Operations",
-        "greeting": "Borrow my duskweave cloak. Slip in behind each dispatch carrier and lift his orders. Stay out of the lantern beams: a lantern guard sees straight through the enchantment, and a carrier feels you if you brush against him."
+        "name": "Pengintai Valerie",
+        "title": "Operasi Rahasia",
+        "greeting": "Pinjam jubah duskweave milikku. Selip di belakang setiap pembawa depesan dan angkat pesannya. Tinggal jauh dari sinar lentera: penjaga lentera melihat langsung menembus sihir itu, dan pembawa merasa jika engkau menyentuhnya."
       },
       "shadow_guard_north": {
-        "name": "Dispatch Guard",
-        "title": "Dispatch Carrier",
-        "greeting": "These sealed orders are for the captain. Keep your distance."
+        "name": "Penjaga Depesan",
+        "title": "Pembawa Depesan",
+        "greeting": "Perintah tersegel ini untuk kapten. Jaga jarakmu."
       },
       "shadow_guard_south": {
-        "name": "Dispatch Guard",
-        "title": "Dispatch Carrier",
-        "greeting": "I have a dispatch to deliver. Move along."
+        "name": "Penjaga Depesan",
+        "title": "Pembawa Depesan",
+        "greeting": "Aku memiliki depesan untuk dikirim. Minggir."
       },
       "shadow_guard_east": {
-        "name": "Dispatch Guard",
-        "title": "Dispatch Carrier",
-        "greeting": "No delays. The watch is waiting for these orders."
+        "name": "Penjaga Depesan",
+        "title": "Pembawa Depesan",
+        "greeting": "Tidak ada penundaan. Pengawal menunggu perintah ini."
       },
       "shadow_guard_west": {
-        "name": "Dispatch Guard",
-        "title": "Dispatch Carrier",
-        "greeting": "Official business. Keep the path clear."
+        "name": "Penjaga Depesan",
+        "title": "Pembawa Depesan",
+        "greeting": "Bisnis resmi. Jaga jalannya tetap jernih."
       },
       "shadow_sentry_south": {
-        "name": "Lantern Sentry",
-        "title": "True Sight",
-        "greeting": "My lantern reveals more than shadows. Stay where I can see you."
+        "name": "Penjaga Lentera",
+        "title": "Penglihatan Sejati",
+        "greeting": "Lentera milikku mengungkap lebih dari sekadar bayangan. Tinggal di tempat yang bisa kulihat."
       },
       "shadow_sentry_north": {
-        "name": "Lantern Sentry",
-        "title": "True Sight",
-        "greeting": "Nothing slips past the lantern watch."
+        "name": "Penjaga Lentera",
+        "title": "Penglihatan Sejati",
+        "greeting": "Tidak ada yang lolos dari pengawasan lentera."
       },
       "shadow_watch_west": {
-        "name": "Lantern Watchman",
-        "title": "True Sight",
-        "greeting": "Hold there. The lantern sees what the eye misses."
+        "name": "Penjaga Lentera",
+        "title": "Penglihatan Sejati",
+        "greeting": "Tunggu di sana. Lentera melihat apa yang mata lewatkan."
       },
       "shadow_watch_east": {
-        "name": "Lantern Watchman",
-        "title": "True Sight",
-        "greeting": "Nobody crosses my light unseen."
+        "name": "Penjaga Lentera",
+        "title": "Penglihatan Sejati",
+        "greeting": "Tidak ada yang menyeberang cahayaku tanpa terlihat."
       },
       "forge_instructor": {
-        "name": "Smith Mara",
-        "title": "Wyrmwatch Smith",
-        "greeting": "Help me finish a shield! Click the supplies I call for. Quick hands earn a better medal."
+        "name": "Pandai Mara",
+        "title": "Pandai Wyrmwatch",
+        "greeting": "Bantu aku menyelesaikan perisai! Klik persediaan yang aku panggil. Tangan cepat menghasilkan medali lebih bagus."
       },
       "infiltrator_captain": {
-        "name": "Sergeant Alric",
-        "title": "Fenbridge Watch",
-        "greeting": "A creature has stolen a soldier's face. Read the standing orders and the watch ledger, question all four guards, then come back and name the one whose story contradicts our records."
+        "name": "Sersan Alric",
+        "title": "Pengawal Fenbridge",
+        "greeting": "Sebuah makhluk telah mencuri wajah prajurit. Baca perintah dinas dan buku catatan pengawal, tanyai keempat penjaga, kemudian kembali dan sebutkan siapa yang ceritanya bertentangan dengan catatan kami."
       },
       "infiltrator_nella": {
-        "name": "Guard Nella",
-        "title": "Fenbridge Watch",
-        "greeting": "Reporting for duty."
+        "name": "Penjaga Nella",
+        "title": "Pengawal Fenbridge",
+        "greeting": "Melaporkan diri untuk tugas."
       },
       "infiltrator_orin": {
-        "name": "Guard Orin",
-        "title": "Fenbridge Watch",
-        "greeting": "Reporting for duty."
+        "name": "Penjaga Orin",
+        "title": "Pengawal Fenbridge",
+        "greeting": "Melaporkan diri untuk tugas."
       },
       "infiltrator_bram": {
-        "name": "Guard Bram",
-        "title": "Fenbridge Watch",
-        "greeting": "Reporting for duty."
+        "name": "Penjaga Bram",
+        "title": "Pengawal Fenbridge",
+        "greeting": "Melaporkan diri untuk tugas."
       },
       "infiltrator_tessa": {
-        "name": "Guard Tessa",
-        "title": "Fenbridge Watch",
-        "greeting": "Reporting for duty."
+        "name": "Penjaga Tessa",
+        "title": "Pengawal Fenbridge",
+        "greeting": "Melaporkan diri untuk tugas."
       },
       "wisp_maze_keeper": {
-        "name": "Keeper Liora",
-        "title": "Warden of the Hedge Maze",
-        "greeting": "Thieves hid their stolen gold all through my maze, and the shadows guard it now. Recover every coin purse. Avoid the guardians, or take a radiant wisp to banish them. Three lost lives return you to the entrance, but the purses you gathered remain safe."
+        "name": "Penjaga Liora",
+        "title": "Pengawas Labirin Pohon Willow",
+        "greeting": "Pencuri menyembunyikan emas curian mereka di seluruh labirin milikku, dan bayangan menjaganya sekarang. Kumpulkan setiap dompet koin. Hindari penjaga atau ambil cahaya bersinar untuk menyingkirkan mereka. Tiga nyawa yang hilang mengembalikanmu ke pintu masuk, tetapi dompet yang telah kamu kumpulkan tetap aman."
+      },
+      "weekly_emissary": {
+        "name": "Cham Pete",
+        "title": "Utusan",
+        "greeting": "Vale menyimpan catatan perbuatan, dan aku menyimpan buku catatan itu. Pilih satu tugas untuk minggu ini, lihat selesai, dan dompet itu milikmu."
       },
       "calligraphy_instructor": {
-        "name": "Instructor Elian",
-        "title": "Arcane Calligraphy",
-        "greeting": "A steady step makes a steady line. Teach my apprentices a triangle, a square, and an advanced rune."
+        "name": "Instruktur Elian",
+        "title": "Kaligrafi Mistis",
+        "greeting": "Satu langkah tegap membuat satu garis tegap. Ajarkan murid-muridku sebuah segitiga, persegi, dan rune tingkat lanjut."
       },
       "calligraphy_apprentice_1": {
-        "name": "Apprentice Tessa",
-        "title": "Student of Calligraphy",
-        "greeting": "I keep turning too soon. Will you show me where the corners belong?"
+        "name": "Murid Tessa",
+        "title": "Pelajar Kaligrafi",
+        "greeting": "Aku selalu berbalik terlalu cepat. Maukah engkau menunjukkan kepadaku di mana sudut-sudut itu seharusnya berada?"
       },
       "calligraphy_apprentice_2": {
-        "name": "Apprentice Pip",
-        "title": "Student of Calligraphy",
-        "greeting": "A triangle first, then a square, then a rune. One steady step at a time!"
+        "name": "Murid Pip",
+        "title": "Pelajar Kaligrafi",
+        "greeting": "Segitiga lebih dulu, kemudian persegi, kemudian rune. Satu langkah tegap pada satu waktu!"
       },
       "the_merchant": {
         "name": "Sang Saudagar",
@@ -19099,6 +20450,11 @@ export const id_ID: EnTranslations = {
         "name": "Bendahara Fernando",
         "title": "Brankas Bersepuh Emas",
         "greeting": "Selamat datang di Brankas Bersepuh Emas. Barang-barangmu tersimpan aman di balik kunci-kunci kami."
+      },
+      "eastbrook_vault_keeper": {
+        "name": "Penjaga Lemari Besi",
+        "title": "Hadiah Mingguan",
+        "greeting": "Hadiah mingguan menunggu. Pilih satu barang dari pilihan yang telah kamu peroleh setelah Crucible direset."
       },
       "card_master": {
         "name": "Ahli Kartu",
@@ -19234,6 +20590,11 @@ export const id_ID: EnTranslations = {
         "name": "Perintis Yerrin",
         "title": "Pengawas Gumuk Pasir Jauh",
         "greeting": "Tetap merunduk. Suara merambat aneh dari kaca itu, dan gerbang di bawah sana punya telinga."
+      },
+      "harbormaster_tamsin": {
+        "name": "Harbormaster Tamsin",
+        "title": "Penjaga Dermaga Wyrmwatch",
+        "greeting": "Masuk dari dermaga dan hangatkan tanganmu. Kapal di dermaga kami berlayar ke atas pantai timur yang panjang ke Wickharbor dan kembali lagi. Jauh ke barat, feri lain berlayar antara Eastbrook dan Nightbloom. Peta di dinding menunjukkan kedua penyeberangan itu. Istirahat di perapian sebelum pendakian ke Wyrmwatch."
       },
       "reeve_ottoline": {
         "name": "Demang Ottoline",
@@ -19411,24 +20772,24 @@ export const id_ID: EnTranslations = {
         "greeting": "Sebuah band Riftbound mengingat terobosan yang membuatnya, {className}. Bawakan saya bandnya, dan inti dari jeda tersebut, dan saya akan mengajarinya untuk mengingat lebih banyak."
       },
       "npc_rift_watch_quartermaster": {
-        "name": "Quartermaster Vaelen",
-        "title": "Rift Watch Provisioner",
-        "greeting": "The Rift Watch protects the shore and watches the deep tears. Our stores are open to those of recognized standing."
+        "name": "Kepala Perbekalan Vaelen",
+        "title": "Penyedia Pengawal Celah",
+        "greeting": "Pengawal Celah melindungi pantai dan mengawasi air mata dalam yang dalam. Toko kami terbuka bagi mereka yang memiliki reputasi terkenal."
       },
       "npc_church_order_quartermaster": {
         "name": "Templar Althea",
-        "title": "Church Order Quartermaster",
-        "greeting": "Walk in the Light of the Dawn. The Church Order supplies those who stand with us in service."
+        "title": "Kepala Perbekalan Ketertiban Gereja",
+        "greeting": "Berjalanlah dalam Cahaya Fajar. Ketertiban Gereja menyuplai mereka yang berdiri bersama kami dalam pelayanan."
       },
       "npc_automaton_quartermaster": {
-        "name": "Artificer Tobrin",
-        "title": "Automaton Requisitioner",
-        "greeting": "Precision gears, forged steel, and calibrated power. Authorized operators may draw from our inventory."
+        "name": "Pengrajin Tobrin",
+        "title": "Perekrut Otomaton",
+        "greeting": "Roda gigi presisi, baja tempa, dan kekuatan ter calibrasi. Operator berwenang boleh mengambil dari inventaris kami."
       },
       "npc_wq_taskmaster": {
-        "name": "Taskmaster Kaelen",
-        "title": "World Quest Taskmaster",
-        "greeting": "The allied factions post assignments across the realm every day. If an assignment does not suit your skills, you may request one daily reassignment."
+        "name": "Kepala Tugas Kaelen",
+        "title": "Kepala Tugas Pencarian Dunia",
+        "greeting": "Faksi sekutu memposting penugasan di seluruh realm setiap hari. Jika penugasan tidak sesuai dengan keahlianmu, engkau boleh meminta satu pengubahan penugasan harian."
       },
       "forgemistress_darva": {
         "name": "Empu Tempa Darva",
@@ -21866,7 +23227,7 @@ export const id_ID: EnTranslations = {
       "eastbrook_vale": {
         "name": "Lembah Eastbrook",
         "welcome": "Temui Marsekal Redbrook di kota, ia punya tugas untukmu.",
-        "welcomeDone": "Marshal Redbrook has no more work for you - the quaint seaside town where your journey began rests easier for it.",
+        "welcomeDone": "Marshal Redbrook tidak memiliki pekerjaan lagi untukmu, kota tepi laut yang mungil tempat perjalananmu dimulai sekarang lebih tenang.",
         "pois": {
           "0": {
             "label": "Eastbrook"
@@ -21912,7 +23273,7 @@ export const id_ID: EnTranslations = {
       "mirefen_marsh": {
         "name": "Rawa Mirefen",
         "welcome": "Lapor pada Warden Fenwick di gerbang Jembatan Rawa.",
-        "welcomeDone": "Warden Fenwick has no more orders for you - the settlement deep within the marshy swamplands stands safer for it.",
+        "welcomeDone": "Warden Fenwick tidak memiliki pesanan lagi untukmu, permukiman di dalam tanah rawa yang berlumpur sekarang lebih aman.",
         "pois": {
           "0": {
             "label": "Jembatan Rawa"
@@ -21943,7 +23304,7 @@ export const id_ID: EnTranslations = {
       "thornpeak_heights": {
         "name": "Dataran Tinggi Thornpeak",
         "welcome": "Kapten Thessaly mempertahankan tembok di Menara Pengawas, nyaris saja.",
-        "welcomeDone": "Captain Thessaly holds the wall at Highwatch - it's never easy, but with the help of adventurers like you it's now manageable.",
+        "welcomeDone": "Kapten Thessaly memegang pertahanan di Highwatch, tidak pernah mudah, tetapi dengan bantuan petualang seperti dirimu sekarang dapat dikelola.",
         "pois": {
           "0": {
             "label": "Menara Pengawas"
@@ -22270,7 +23631,7 @@ export const id_ID: EnTranslations = {
             "label": "Ladang Rift"
           },
           "5": {
-            "label": "The Wreck"
+            "label": "Bangkai Kapal"
           }
         }
       },
@@ -22595,8 +23956,8 @@ export const id_ID: EnTranslations = {
       },
       "benison_dawnweave": {
         "name": "Tenunan Fajar Berkah",
-        "bonus2": "Penyelamatan Kewaspadaan Serafim menyembuhkan 270, naik dari 180. Kerusakan yang diterima tidak lagi menunda perapalan mantra Anda.",
-        "bonus4": "Saat Kewaspadaan Serafim terpicu, sekutunya juga dipulihkan sebesar 15 persen dari kesehatan maksimum mereka selama 10 detik."
+        "bonus2": "Memulihkan kesehatan dengan Doa Berbisik, Doa Khidmat, atau Doa Mendesak meningkatkan penyembuhan Penyembuhan Koor berikutnya sebesar 10%, hingga 3 tumpukan. Setiap perapalan memberikan paling banyak satu tumpukan. Penyembuhan Koor menghabiskan semua tumpukan setelah selesai dirapal. Kerusakan yang diterima tidak lagi menunda perapalan mantra.",
+        "bonus4": "Menyelesaikan Penyembuhan Koor dengan 3 tumpukan membuat Doa Berbisik berikutnya yang digunakan dalam 60 detik menjadi instan dan meningkatkan penyembuhannya sebesar 100%. Efek ini tidak dapat ditumpuk; memperolehnya lagi memperbarui durasinya."
       },
       "boundstone_vanguard": {
         "name": "Garda Depan Batu Terikat",
@@ -22810,6 +24171,141 @@ export const id_ID: EnTranslations = {
       "vale_arcanist": {
         "name": "Perlengkapan Arkanis Lembah",
         "bonus3": "Meningkatkan kecepatan serangan dan rapal sebesar 15%."
+      },
+      "vanguard_druid_balance": {
+        "name": "Gaun Penjaga Bintang",
+        "bonus2": "Waktu jentikan Akar Cengkeram dikurangi 0.5 detik.",
+        "bonus4": "Melempar Akar Cengkeram membiarkanmu menyampaikan sambil bergerak dan meningkatkan kecepatan gerakmu sebesar 20 persen selama 4 detik. Tidak dapat terjadi lebih dari sekali setiap 20 detik."
+      },
+      "vanguard_druid_feral": {
+        "name": "Kulit Bersurai Darah",
+        "bonus2": "Jeda Terjangan Bruin dikurangi 3 detik.",
+        "bonus4": "Terjangan Bruin melindungimu sebesar 6 persen dari kesehatan maksimal-mu selama 6 detik."
+      },
+      "vanguard_druid_restoration": {
+        "name": "Jubah Mekar Thistle",
+        "bonus2": "Jeda Pemulihan Cepat dikurangi 1 detik.",
+        "bonus4": "Pemulihan Cepat juga meningkatkan kecepatan gerakmu sebesar 30 persen selama 3 detik."
+      },
+      "vanguard_hunter_beast_mastery": {
+        "name": "Pengaman Penjaga Kawanan",
+        "bonus2": "Jeda Tembakan Pengguncang dikurangi 4 detik.",
+        "bonus4": "Tembakan Pengguncang mengurangi jeda tersisa Murka Buas sebesar 1 detik."
+      },
+      "vanguard_hunter_marksmanship": {
+        "name": "Pengaman Penglihatan Jauh",
+        "bonus2": "Jeda Putus Jejak dikurangi 4 detik.",
+        "bonus4": "Putus Jejak membuat Tarikan Panjang berikutnya dalam 6 detik instan. Tidak dapat terjadi lebih dari sekali setiap 15 detik."
+      },
+      "vanguard_hunter_survival": {
+        "name": "Pengaman Gigi Jebakan",
+        "bonus2": "Jeda Kait Darah dikurangi 3 detik.",
+        "bonus4": "Kait Darah memberikan 1 Momentum Berburu."
+      },
+      "vanguard_mage_arcane": {
+        "name": "Gaun Pengikatan Jam",
+        "bonus2": "Jeda Penghalang Waktu dikurangi 2 detik.",
+        "bonus4": "Penghalang Waktu juga meningkatkan kecepatan gerak target yang dilindungi sebesar 20 persen selama 3 detik."
+      },
+      "vanguard_mage_fire": {
+        "name": "Perhiasan Cambuk Bara",
+        "bonus2": "Guguran Bara diisi ulang 3 detik lebih cepat.",
+        "bonus4": "Melempar Guguran Bara mengurangi jeda tersisa Penghalang Membara sebesar 2 detik."
+      },
+      "vanguard_mage_frost": {
+        "name": "Pakaian Penjaga Rime",
+        "bonus2": "Jeda Belenggu Es dikurangi 2 detik.",
+        "bonus4": "Melempar Belenggu Es mengurangi jeda tersisa Langkah Lincah sebesar 5 detik."
+      },
+      "vanguard_paladin_holy": {
+        "name": "Perhiasan Vigil Surya",
+        "bonus2": "Jeda Perjanjian Kehidupan dikurangi 30 detik.",
+        "bonus4": "Perjanjian Kehidupan juga melindungi sekutu sebesar 8 persen dari kesehatan maksimal mereka selama 6 detik."
+      },
+      "vanguard_paladin_protection": {
+        "name": "Benteng Janji Perisai",
+        "bonus2": "Jeda Rantai Sumpah dikurangi 2 detik.",
+        "bonus4": "Musuh ditarik oleh Rantai Sumpah melempar mantra 30 persen lebih lambat selama 4 detik, dan Rantai Sumpah memberikan Penyangkalan Matahari ketika ia mengikat musuh yang dapat ditarik."
+      },
+      "vanguard_paladin_retribution": {
+        "name": "Pelat Perang Merek Cahaya",
+        "bonus2": "Jeda Panggilan Valkyrie dikurangi 15 detik.",
+        "bonus4": "Panggilan Valkyrie mengatur ulang jeda Titah Terakhir, dan Titah Terakhir berikutnya dalam 6 detik pendaratan memberikan 15 persen lebih banyak kerusakan."
+      },
+      "vanguard_priest_discipline": {
+        "name": "Gaun Mazmur Veil",
+        "bonus2": "Jeda Jerit Psikis dikurangi 3 detik.",
+        "bonus4": "Ketika Mazmur Penangkal-mu sepenuhnya dikonsumsi, sekutu yang dilindungi mendapat 20 persen kecepatan gerak selama 3 detik. Tidak dapat terjadi lebih dari sekali setiap 8 detik."
+      },
+      "vanguard_priest_holy": {
+        "name": "Gaun Bersayap Karunia",
+        "bonus2": "Jeda Langkah Tabir dikurangi 6 detik.",
+        "bonus4": "Langkah Tabir juga melindungimu sebesar 8 persen dari kesehatan maksimal-mu selama 6 detik."
+      },
+      "vanguard_priest_shadow": {
+        "name": "Perhiasan Himne Senja",
+        "bonus2": "Litani Nestapa juga memperlambat gerakan target 30 persen saat kamu menyalurkannya.",
+        "bonus4": "Panggil Iblis Persepuluhan juga melindungimu sebesar 10 persen dari kesehatan maksimal-mu selama 8 detik."
+      },
+      "vanguard_rogue_assassination": {
+        "name": "Kulit Potong Malam",
+        "bonus2": "Pukulan Curang biaya 10 lebih sedikit Energi.",
+        "bonus4": "Pukulan Curang juga membuat serangan berikutnya dalam 6 detik serangan kritis."
+      },
+      "vanguard_rogue_combat": {
+        "name": "Kulit Merek Pertarungan",
+        "bonus2": "Jeda Tumit Gesit dikurangi 60 detik.",
+        "bonus4": "Sementara Tumit Gesit aktif, Tebasan Keji dan Pukulan Tubuh memberikan 1 poin combo tambahan."
+      },
+      "vanguard_rogue_subtlety": {
+        "name": "Kulit Berjalan Bayangan",
+        "bonus2": "Jeda Luruh Asap dikurangi 60 detik.",
+        "bonus4": "Pukulan Ulu Hati memberikan 2 poin combo tambahan saat digunakan dari Luruh Asap."
+      },
+      "vanguard_shaman_elemental": {
+        "name": "Perang Tulis Badai",
+        "bonus2": "Jeda Lepaskan Senjata dikurangi 3 detik.",
+        "bonus4": "Lepaskan Senjata membiarkanmu menyampaikan sambil bergerak dan meningkatkan kecepatan gerakmu sebesar 20 persen selama 4 detik. Tidak dapat terjadi lebih dari sekali setiap 20 detik."
+      },
+      "vanguard_shaman_enhancement": {
+        "name": "Perang Berasal Badai",
+        "bonus2": "Serangan Leluhur memperlambat kecepatan gerak target 30 persen selama 4 detik.",
+        "bonus4": "Serangan Leluhur mengurangi jeda tersisa Elemental Trance sebesar 4 detik."
+      },
+      "vanguard_shaman_restoration": {
+        "name": "Perang Garam Brineward",
+        "bonus2": "Air Pemulih melempar 0.5 detik lebih cepat pada sekutu di bawah 50 persen kesehatan.",
+        "bonus4": "Panggilan Pasang juga melindungi targetnya sebesar 5 persen dari kesehatan maksimal-mu selama 6 detik."
+      },
+      "vanguard_warlock_affliction": {
+        "name": "Gaun Bulu Dread",
+        "bonus2": "Waktu jentikan Cekaman dikurangi 0.3 detik.",
+        "bonus4": "Melahap menyembuhkan 30 persen lebih banyak dan dapat disalurkan sambil bergerak."
+      },
+      "vanguard_warlock_demonology": {
+        "name": "Perhiasan Terikat Sumsum",
+        "bonus2": "Jeda Bone Armor dikurangi 10 detik.",
+        "bonus4": "Reaping Command mengurangi jeda tersisa Bone Armor sebesar 2 detik."
+      },
+      "vanguard_warlock_destruction": {
+        "name": "Gaun Mahkota Terak",
+        "bonus2": "Jeda Cinderhide dikurangi 30 detik.",
+        "bonus4": "Setiap Kobaran Api kedua membuat Baut Reruntuhan berikutnya dalam 8 detik instan."
+      },
+      "vanguard_warrior_arms": {
+        "name": "Peralatan Pertempuran Pelepasan Blade",
+        "bonus2": "Serangan Pelukai mengurangi jeda tersisa Serbuan sebesar 1 detik.",
+        "bonus4": "Serbuan juga memberdayakan Serangan Pelukai berikutnya sebesar 20 persen (satu tumpukan pemberdayaan Tangan Merah)."
+      },
+      "vanguard_warrior_fury": {
+        "name": "Peralatan Murka Perjalanan Darah",
+        "bonus2": "Jeda Lompatan Perang dikurangi 8 detik.",
+        "bonus4": "Pendaratan Lompatan Perang Mengamuk dirimu."
+      },
+      "vanguard_warrior_prot": {
+        "name": "Benteng Perjalanan Besi",
+        "bonus2": "Jeda Garis Patahan dikurangi 5 detik.",
+        "bonus4": "Garis Patahan juga mengurangi kerusakan yang kamu terima sebesar 10 persen selama 6 detik."
       },
       "vesperash": {
         "name": "Selubung Abu Senja",

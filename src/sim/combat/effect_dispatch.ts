@@ -1,3 +1,4 @@
+import { buildBenisonPrayer, consumeBenisonPrayers } from './priest/benison_dawnweave';
 // Effect dispatch (C4b): the per-effect switch that fans a RESOLVED ability's
 // `effects[]` into damage, auras, CC, threat, combo, pets, healing, ground-AoE,
 // charge, and stat-recalc. Lifted verbatim out of the 17.5k-line `Sim` monolith
@@ -22,6 +23,7 @@ import {
   setBonusFlag,
 } from '../content/ignivar_set_bonuses';
 import { ABILITIES, isDelvePos, MOBS } from '../data';
+import { dawnreaverDamageMultiplier } from '../dawnreaver_damage';
 import { logCascadeCast, recordCascadeInitial } from '../dev/cascade_playtest';
 import { recalcPlayerStats } from '../entity';
 import type { GroundAoE } from '../entity_roster';
@@ -43,6 +45,7 @@ import {
 import { PLAYER_BODY_RADIUS } from '../pathfind';
 import { scalePrimaryHealing } from '../primary_healing';
 import { scheduleProjectile } from '../projectile_travel';
+import { worldPvpOnPlayerAided } from '../pvp';
 import type { PlayerMeta, ResolvedAbility } from '../sim';
 import type { SimContext } from '../sim_context';
 import { duelJustEndedBetween } from '../social/duel';
@@ -209,7 +212,7 @@ import {
   repeatDawnEcho,
   unleashPerpetualSun,
 } from './paladin_talents';
-import { armValkyrsCalling } from './paladin_valkyrs_calling';
+import { armValkyrsCalling, consumeLightbrandEdict } from './paladin_valkyrs_calling';
 import { activateVeilboundMarch } from './paladin_veilbound_march';
 import {
   captureDirgeReapplication,
@@ -231,6 +234,7 @@ import {
   knockoutRedlineMult,
   rogueEngineOnFinisher,
   rogueGloamDetonation,
+  rogueSetComboBonus,
 } from './rogue_engines';
 import {
   capturedTrueStealthAmbush,
@@ -473,6 +477,8 @@ export function runEffects(
   facingOverride?: number,
 ): void {
   const ability = res.def;
+  const benisonChoirMult = consumeBenisonPrayers(ctx, p, ability.id);
+  let benisonPrayerBuilt = false;
   // The cast-scoped heal multiplier the heal and hot arms below apply to the
   // WHOLE resolved amount: the caller's mark times the Nature's Boon power the
   // resolved copy carries (combat/druid_natures_boon.ts, stamped in
@@ -494,6 +500,7 @@ export function runEffects(
   const isSpell = ability.school !== 'physical';
   const mods = ctx.playerMods(meta);
   const primaryHealMult = primaryHealingMultiplier(meta.cls, mods.spec);
+  const primaryDamageMult = dawnreaverDamageMultiplier(meta.cls, mods.spec, ability.id);
   // The resolved mastery/talent damage and heal multiplier for this ability
   // (talent_hit_mult.ts): the SAME number applyTalentMods already baked into
   // its authored base magnitudes, reused here to scale the SP/AP rider a
@@ -529,6 +536,9 @@ export function runEffects(
   // cast's effects resolve, so the detonating Lurker's Strike is the doubled
   // one. Checked before breakStealth: a true-stealth opener banks instead.
   const trueStealthOpener = capturedTrueStealthAmbush(ctx, p, ability.id);
+  // Warfare Season 2 rogue set combo bends, snapshotted before breakStealth
+  // (the Shadewalk 4pc reads the Smokefade stealth this cast breaks).
+  const setComboBonus = rogueSetComboBonus(ctx, p, ability.id);
   rogueGloamDetonation(ctx, p, ability.id);
   // acting breaks stealth (the opener itself still lands first inside the swing).
   // Stealth toggles and Rogue Sprint are allowed while remaining hidden.
@@ -674,6 +684,14 @@ export function runEffects(
           weaponMult *= 1.15;
           bonus = Math.round(bonus * 1.15);
         }
+        // Lightbrand Warplate 4pc: the Valkyr's Calling landing armed a
+        // one-shot empower (combat/paladin_valkyrs_calling.ts); the whole
+        // strike scales, weapon and flat bonus alike. No rng.
+        if (ability.id === FINAL_EDICT_ID) {
+          const edictMult = consumeLightbrandEdict(ctx, p);
+          weaponMult *= edictMult;
+          bonus = Math.round(bonus * edictMult);
+        }
         const hunterStrike =
           meta.cls === 'hunter' &&
           (ability.id === 'raptor_strike' || ability.id === 'mongoose_bite');
@@ -694,6 +712,7 @@ export function runEffects(
           cannotBeDodged: eff.cannotBeDodged,
           normalizedInstant: eff.normalized,
           weaponMult,
+          primaryDamageMult,
           threatFlat: res.threatFlat,
           threatMult: res.threatMult,
           forceCrit: sureCrit,
@@ -780,7 +799,7 @@ export function runEffects(
           advanceSunGodVerdictForHit(ctx, p, strikeTarget, ability.id, sunVerdictMark);
         }
         if (hit && ability.awardsCombo) {
-          ctx.awardCombo(p, target, ability.awardsCombo);
+          ctx.awardCombo(p, target, ability.awardsCombo + setComboBonus);
           comboAwarded = true;
         }
         if (ability.requiresDodgeProc) p.overpowerUntil = -1;
@@ -894,7 +913,7 @@ export function runEffects(
         if (ability.id === ARCANE_SURGE_ID) dmg *= aetherSurgeDamageMult(p);
         dmg *= thundercallDamageMultiplier(ctx, p, ability.id);
         dmg *= druidApexPayoffMult(ctx, p, ability.id);
-        const finalDamage = Math.round(dmg);
+        const finalDamage = Math.round(dmg * primaryDamageMult);
         lastDirectDamage = finalDamage;
         const targetHpBefore = target.hp;
         const resolvedDamage = ctx.dealDamage(
@@ -1048,7 +1067,7 @@ export function runEffects(
         // recast can read the count (combat/chronomancy.ts).
         if (ability.id === ARCANE_SURGE_ID) aetherSurgeAddStack(ctx, p);
         if (!target.dead && ability.awardsCombo && !comboAwarded) {
-          ctx.awardCombo(p, target, ability.awardsCombo);
+          ctx.awardCombo(p, target, ability.awardsCombo + setComboBonus);
           comboAwarded = true;
         }
         // Legendary on-spell-damage weapon procs (e.g. Deathless Heartwood's
@@ -1383,6 +1402,8 @@ export function runEffects(
         // other derived/chained/procced applyHeal call, none of which run
         // through this case) from ever double-crediting a single real cast.
         creditHubHealingDrill(ctx, p, healTarget, healed, ability.id);
+        if (!benisonPrayerBuilt)
+          benisonPrayerBuilt = buildBenisonPrayer(ctx, p, ability.id, healed);
         if (ability.id === 'scouring_mercy') {
           doctrineScouringMercyRescue(ctx, p, meta, healTarget, healed);
         }
@@ -1588,6 +1609,9 @@ export function runEffects(
       }
       case 'absorb': {
         const shieldTarget = target ?? p;
+        // World PvP: a shield on a flagged ally mid-fight is aid (the heal rule).
+        if (shieldTarget.kind === 'player' && shieldTarget.id !== p.id)
+          worldPvpOnPlayerAided(ctx, shieldTarget, p);
         ctx.applyAura(shieldTarget, {
           id: absorbAuraId(ability, eff),
           name: ability.name,
@@ -1806,11 +1830,14 @@ export function runEffects(
       case 'clearCooldowns': {
         for (const abilityId of eff.abilities) {
           p.cooldowns.delete(abilityId);
-          // A charge-limited ability resets to a full pool (Preparation).
+          // A charge-limited ability resets to a full pool (Preparation, Winter's
+          // Recall), exactly a fresh one: the spent charges' parallel timers go
+          // too, or each would pay out another charge on top of the refill.
           const chargeState = p.abilityCharges?.[abilityId];
           if (chargeState) {
             chargeState.charges = chargeState.maxCharges;
             chargeState.recharge = 0;
+            delete chargeState.recharges;
           }
         }
         break;
@@ -1924,6 +1951,8 @@ export function runEffects(
         targetBuffIndex += 1;
         const applyBuff = (e: Entity) => {
           const lifetime = eff.permanent ? Number.POSITIVE_INFINITY : eff.duration;
+          // World PvP: a buff on a flagged ally mid-fight is aid (the heal rule).
+          if (e.kind === 'player' && e.id !== p.id) worldPvpOnPlayerAided(ctx, e, p);
           ctx.applyAura(e, {
             id: auraId,
             name: ability.name,
@@ -2264,7 +2293,7 @@ export function runEffects(
         // arm's rule; the comboAwarded latch keeps a strike-plus-stun ability
         // at one point per cast.
         if (ability.awardsCombo && !comboAwarded) {
-          ctx.awardCombo(p, target, ability.awardsCombo);
+          ctx.awardCombo(p, target, ability.awardsCombo + setComboBonus);
           comboAwarded = true;
         }
         // Same moment, same rule for the feral Old Blood bank: Slinkstrike's
@@ -2355,7 +2384,7 @@ export function runEffects(
         // incapacitate this same cast just applied.
         if (ability.id === 'gouge') resetSwingTimer(ctx, p, meta);
         if (ability.awardsCombo && !comboAwarded) {
-          ctx.awardCombo(p, target, ability.awardsCombo);
+          ctx.awardCombo(p, target, ability.awardsCombo + setComboBonus);
           comboAwarded = true;
         }
         // Sap (noCombatEntry) is the classic out-of-combat setup tool: it must
@@ -2537,7 +2566,7 @@ export function runEffects(
           if (!isSpell) dmg *= 1 - armorReduction(ctx.effectiveArmor(m), p.level);
           // Soft-cap scale (Revenge above 5 targets): applied after the roll and
           // armor so the total, not any single hit, is what the cap bounds.
-          dmg *= capScale;
+          dmg *= capScale * primaryDamageMult;
           const hpBefore = m.hp;
           ctx.dealDamage(
             p,
@@ -2794,8 +2823,9 @@ export function runEffects(
         for (const m of friendliesInRadius(ctx, center, eff.radius)) {
           if (eff.playersOnly && m.kind !== 'player') continue;
           if (!ctx.hasLineOfSight(center, m)) continue;
+          const rolledHeal = ctx.rng.range(eff.min, eff.max) + aoeHealBonus;
           const healAmount = scalePrimaryHealing(
-            ctx.rng.range(eff.min, eff.max) + aoeHealBonus,
+            benisonChoirMult === 1 ? rolledHeal : Math.round(rolledHeal * benisonChoirMult),
             primaryHealMult,
           );
           const missingBefore = m.maxHp - m.hp;

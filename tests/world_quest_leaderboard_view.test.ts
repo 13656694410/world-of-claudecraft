@@ -14,7 +14,9 @@ import {
 describe('board chips', () => {
   it('lists every scoreboard once with its localized quest name and marks the active one', () => {
     const chips = worldQuestBoardChips('forge');
-    expect(chips.map((c) => c.id)).toEqual(WORLD_QUEST_SCOREBOARDS.map((b) => b.id));
+    expect(chips.map((c) => c.id)).toEqual(
+      WORLD_QUEST_SCOREBOARDS.filter((b) => !b.id.startsWith('glider_')).map((b) => b.id),
+    );
     expect(chips.filter((c) => c.active).map((c) => c.id)).toEqual(['forge']);
     expect(chips.find((c) => c.id === 'forge')?.label).toBe('A Helping Hammer');
     for (const chip of chips) expect(chip.label).not.toMatch(/^wq_|Unknown/);

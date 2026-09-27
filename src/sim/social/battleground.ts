@@ -49,7 +49,9 @@ import type { SimContext } from '../sim_context';
 import { settleTeleportArrival } from '../teleport_arrival';
 import { type Aura, DT, type Entity, type Vec3 } from '../types';
 import { restoreCooldownsPreservingUnstuck } from '../unstuck_cooldown';
-import { eloDelta, snapshotArenaReturnPools } from './arena';
+import { onBattlegroundMatchForWeeklyQuests } from '../weekly_quests';
+import { recordWeeklyPvpWin } from '../weekly_rewards';
+import { cloneAbilityCharges, eloDelta, snapshotArenaReturnPools } from './arena';
 import { bgBackfillSeat, pickBgBackfillGroup } from './battleground_backfill';
 import { recordBgOutcome } from './battleground_outcomes';
 import {
@@ -2028,6 +2030,8 @@ function resolveBgResult(
         else if (won) meta.bgWins++;
         else meta.bgLosses++;
       }
+      if (won && match.rated && !match.devEnded && reason !== 'forfeit')
+        recordWeeklyPvpWin(ctx, pid);
       let firstWinBonus = 0;
       if (match.rated && reason !== 'forfeit') {
         firstWinBonus = awardBattlegroundHonor(
@@ -2038,6 +2042,7 @@ function resolveBgResult(
         ).firstWinBonus;
       }
       ctx.markDeedsDirty(pid);
+      onBattlegroundMatchForWeeklyQuests(ctx, meta);
       ctx.emit({
         type: 'bgEnd',
         pid,
@@ -2091,7 +2096,7 @@ function releaseBgFighters(ctx: SimContext, match: BgMatch): void {
         e.cooldowns = restoreCooldownsPreservingUnstuck(e.cooldowns, pools.cooldowns);
         e.abilityCharges =
           Object.keys(pools.abilityCharges).length > 0
-            ? clonePools(pools.abilityCharges)
+            ? cloneAbilityCharges(pools.abilityCharges)
             : undefined;
         e.ccDr = new Map([...pools.ccDr].map(([k, v]) => [k, { ...v }]));
         e.hp = Math.max(1, Math.min(pools.hp, e.maxHp));
@@ -2117,12 +2122,6 @@ function releaseBgFighters(ctx: SimContext, match: BgMatch): void {
       ctx.emit({ type: 'respawn', pid });
     }
   }
-}
-
-function clonePools(src: ArenaReturnPools['abilityCharges']): ArenaReturnPools['abilityCharges'] {
-  const out: ArenaReturnPools['abilityCharges'] = {};
-  for (const [id, state] of Object.entries(src)) out[id] = { ...state };
-  return out;
 }
 
 /** Live standings of the rated champions currently online, best first. The

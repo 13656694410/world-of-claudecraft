@@ -134,7 +134,7 @@ export class VehicleActionBarController {
     const slots: ActionBarSlotElements[] = VEHICLE_ACTION_SLOTS.map((_, index) => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'action-btn vehicle-action';
+      btn.className = 'action-btn vehicle-action ui-socket';
       this.actionButtons.push(btn);
       const label = document.createElement('span');
       const countEl = document.createElement('span');
@@ -142,10 +142,11 @@ export class VehicleActionBarController {
       const cdOverlay = document.createElement('span');
       const cdText = document.createElement('span');
       const rechargeOverlay = document.createElement('span');
-      label.className = 'icon-label';
-      keybindEl.className = 'keybind';
-      cdOverlay.className = 'cd-overlay';
-      cdText.className = 'cdtext';
+      label.className = 'icon-label ui-socket-art';
+      countEl.className = 'item-count ui-socket-count';
+      keybindEl.className = 'keybind ui-socket-key';
+      cdOverlay.className = 'cd-overlay ui-socket-cd';
+      cdText.className = 'cdtext ui-socket-cd-text';
       rechargeOverlay.className = 'recharge-overlay';
       btn.append(label, countEl, keybindEl, cdOverlay, cdText, rechargeOverlay);
       btn.addEventListener('click', () => {

@@ -31,7 +31,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1020,
-      "state": "383b0043",
+      "state": "30ea90aa",
       "events": "bc873d79",
       "rng": {
         "draws": 1,
@@ -89,6 +89,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -170,6 +171,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -251,6 +253,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -332,6 +335,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -413,6 +417,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -755,7 +760,7 @@
       "tick": 1,
       "time": 0.05,
       "nextId": 1020,
-      "state": "a7e5dc0a",
+      "state": "445286af",
       "events": "3b126ae3",
       "rng": {
         "draws": 14,
@@ -889,6 +894,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -945,6 +951,22 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 2
+            },
+            "raidUnlocks": [
+              2,
+              0,
+              0
+            ],
+            "raids": [
+              2,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -1069,6 +1091,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1125,6 +1148,22 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 2
+            },
+            "raidUnlocks": [
+              2,
+              0,
+              0
+            ],
+            "raids": [
+              2,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -1249,6 +1288,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1305,6 +1345,22 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 2
+            },
+            "raidUnlocks": [
+              2,
+              0,
+              0
+            ],
+            "raids": [
+              2,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -1429,6 +1485,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1485,6 +1542,22 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 2
+            },
+            "raidUnlocks": [
+              2,
+              0,
+              0
+            ],
+            "raids": [
+              2,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -1609,6 +1682,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1665,6 +1739,22 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 2
+            },
+            "raidUnlocks": [
+              2,
+              0,
+              0
+            ],
+            "raids": [
+              2,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -1973,11 +2063,20 @@
               },
               {
                 "count": 1,
-                "itemId": "stormcallers_focus"
+                "itemId": "hunters_tally"
               }
             ]
           },
           "lootFfaTimer": 59.95,
+          "lootPartyTradeEligibility": {
+            "names": [
+              "HeroicTank",
+              "HeroicDps0",
+              "HeroicDps1",
+              "HeroicDps2",
+              "HeroicDps3"
+            ]
+          },
           "lootRecipientIds": [
             1010,
             1011,
@@ -2021,7 +2120,7 @@
       "tick": 1,
       "time": 0.05,
       "nextId": 1020,
-      "state": "a7e5dc0a",
+      "state": "445286af",
       "events": "741638a5",
       "rng": {
         "draws": 14,
@@ -2155,6 +2254,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2211,6 +2311,22 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 2
+            },
+            "raidUnlocks": [
+              2,
+              0,
+              0
+            ],
+            "raids": [
+              2,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -2335,6 +2451,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2391,6 +2508,22 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 2
+            },
+            "raidUnlocks": [
+              2,
+              0,
+              0
+            ],
+            "raids": [
+              2,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -2515,6 +2648,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2571,6 +2705,22 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 2
+            },
+            "raidUnlocks": [
+              2,
+              0,
+              0
+            ],
+            "raids": [
+              2,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -2695,6 +2845,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2751,6 +2902,22 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 2
+            },
+            "raidUnlocks": [
+              2,
+              0,
+              0
+            ],
+            "raids": [
+              2,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -2875,6 +3042,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2931,6 +3099,22 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 2
+            },
+            "raidUnlocks": [
+              2,
+              0,
+              0
+            ],
+            "raids": [
+              2,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -3239,11 +3423,20 @@
               },
               {
                 "count": 1,
-                "itemId": "stormcallers_focus"
+                "itemId": "hunters_tally"
               }
             ]
           },
           "lootFfaTimer": 59.95,
+          "lootPartyTradeEligibility": {
+            "names": [
+              "HeroicTank",
+              "HeroicDps0",
+              "HeroicDps1",
+              "HeroicDps2",
+              "HeroicDps3"
+            ]
+          },
           "lootRecipientIds": [
             1010,
             1011,

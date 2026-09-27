@@ -59,6 +59,7 @@ export interface GliderFlightResult {
 export interface GliderFlightState {
   /** Session-only authored route; absent means the original daily course. */
   courseId?: string;
+  scoreReported?: true;
   /** Dev replay of an already claimed daily quest must never award another reward. */
   practiceOnly?: true;
   phase: 'countdown' | 'flying' | 'won' | 'failed';
@@ -229,8 +230,9 @@ export function tickGliderFlight(
   state.speed = wind.speed;
   state.windBoosts = wind.windBoosts;
 
-  for (const ring of course.rings) {
-    if (!state.passedRings.includes(ring.id) && segmentTouchesRing(previous, player.pos, ring)) {
+  const ring = course.rings.find((candidate) => !state.passedRings.includes(candidate.id));
+  if (ring) {
+    if (segmentTouchesRing(previous, player.pos, ring)) {
       state.passedRings.push(ring.id);
       state.recentRingPassed = { id: ring.id, tick: state.tick };
     }

@@ -32,7 +32,7 @@
       "tick": 20,
       "time": 1,
       "nextId": 1015,
-      "state": "77da7181",
+      "state": "884fe125",
       "events": "dca267fc",
       "rng": {
         "draws": 0,
@@ -43,7 +43,7 @@
       "tick": 40,
       "time": 2,
       "nextId": 1015,
-      "state": "8b553dd3",
+      "state": "1f130637",
       "events": "704382e7",
       "rng": {
         "draws": 4,
@@ -54,7 +54,7 @@
       "tick": 60,
       "time": 3,
       "nextId": 1015,
-      "state": "3def7f13",
+      "state": "6a07fc77",
       "events": "741638a5",
       "rng": {
         "draws": 155,
@@ -65,7 +65,7 @@
       "tick": 80,
       "time": 4,
       "nextId": 1015,
-      "state": "e08b455c",
+      "state": "9e69e904",
       "events": "741638a5",
       "rng": {
         "draws": 325,
@@ -76,7 +76,7 @@
       "tick": 100,
       "time": 5,
       "nextId": 1015,
-      "state": "c1c5b4a3",
+      "state": "fd9f7107",
       "events": "546846b7",
       "rng": {
         "draws": 506,
@@ -87,7 +87,7 @@
       "tick": 100,
       "time": 5,
       "nextId": 1015,
-      "state": "c1c5b4a3",
+      "state": "fd9f7107",
       "events": "741638a5",
       "rng": {
         "draws": 506,
@@ -178,6 +178,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -292,6 +293,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -406,6 +408,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -517,6 +520,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -854,7 +858,7 @@
       "tick": 120,
       "time": 6,
       "nextId": 1015,
-      "state": "ab5e5bc1",
+      "state": "4050cb2f",
       "events": "d1b1934a",
       "rng": {
         "draws": 697,
@@ -865,7 +869,7 @@
       "tick": 140,
       "time": 7,
       "nextId": 1015,
-      "state": "e28a18de",
+      "state": "425ece10",
       "events": "741638a5",
       "rng": {
         "draws": 918,
@@ -876,7 +880,7 @@
       "tick": 160,
       "time": 8,
       "nextId": 1015,
-      "state": "5055f38f",
+      "state": "7a4c1c11",
       "events": "e63ad5da",
       "rng": {
         "draws": 1144,
@@ -887,7 +891,7 @@
       "tick": 180,
       "time": 9,
       "nextId": 1015,
-      "state": "d0bda613",
+      "state": "8bb385b5",
       "events": "741638a5",
       "rng": {
         "draws": 1406,
@@ -898,7 +902,7 @@
       "tick": 182,
       "time": 9.1,
       "nextId": 1015,
-      "state": "5e6aaf0b",
+      "state": "f07019cd",
       "events": "741638a5",
       "rng": {
         "draws": 1435,
@@ -989,6 +993,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1108,6 +1113,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1222,6 +1228,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1333,6 +1340,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1739,7 +1747,7 @@
       "tick": 200,
       "time": 10,
       "nextId": 1015,
-      "state": "98e7d484",
+      "state": "5716d216",
       "events": "e3fc51f7",
       "rng": {
         "draws": 1697,
@@ -1750,7 +1758,7 @@
       "tick": 220,
       "time": 11,
       "nextId": 1015,
-      "state": "8016b733",
+      "state": "7e7b8159",
       "events": "741638a5",
       "rng": {
         "draws": 1856,
@@ -1761,7 +1769,7 @@
       "tick": 224,
       "time": 11.2,
       "nextId": 1015,
-      "state": "fe479576",
+      "state": "f7e07af8",
       "events": "741638a5",
       "rng": {
         "draws": 1891,
@@ -1852,6 +1860,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1971,6 +1980,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2085,6 +2095,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2196,6 +2207,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2622,7 +2634,7 @@
       "tick": 240,
       "time": 12,
       "nextId": 1015,
-      "state": "ebeafc91",
+      "state": "cfc03d6f",
       "events": "372486ae",
       "rng": {
         "draws": 2007,
@@ -2633,7 +2645,7 @@
       "tick": 260,
       "time": 13,
       "nextId": 1015,
-      "state": "2090695d",
+      "state": "f623077f",
       "events": "d46b925c",
       "rng": {
         "draws": 2151,
@@ -2644,7 +2656,7 @@
       "tick": 280,
       "time": 14,
       "nextId": 1015,
-      "state": "b5d8c58e",
+      "state": "18b97bdc",
       "events": "77e2b39e",
       "rng": {
         "draws": 2323,
@@ -2655,7 +2667,7 @@
       "tick": 300,
       "time": 15,
       "nextId": 1015,
-      "state": "d386a2a7",
+      "state": "ec831275",
       "events": "fc7cc123",
       "rng": {
         "draws": 2524,
@@ -2666,7 +2678,7 @@
       "tick": 306,
       "time": 15.3,
       "nextId": 1015,
-      "state": "039720ec",
+      "state": "342ab97e",
       "events": "741638a5",
       "rng": {
         "draws": 2573,
@@ -2757,6 +2769,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2876,6 +2889,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2990,6 +3004,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -3101,6 +3116,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -3526,7 +3542,7 @@
       "tick": 306,
       "time": 15.3,
       "nextId": 1015,
-      "state": "039720ec",
+      "state": "342ab97e",
       "events": "741638a5",
       "rng": {
         "draws": 2573,
@@ -3617,6 +3633,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -3736,6 +3753,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -3850,6 +3868,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -3961,6 +3980,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

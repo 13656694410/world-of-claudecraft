@@ -16,7 +16,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "1c4d1f2c",
+      "state": "438b0c23",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -71,6 +71,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -162,7 +163,7 @@
       "tick": 20,
       "time": 1,
       "nextId": 1012,
-      "state": "be2a3ba7",
+      "state": "18a4805c",
       "events": "83d03f60",
       "rng": {
         "draws": 1,
@@ -173,7 +174,7 @@
       "tick": 40,
       "time": 2,
       "nextId": 1012,
-      "state": "b04cb6c3",
+      "state": "25e236e8",
       "events": "06d8aa46",
       "rng": {
         "draws": 2,
@@ -184,7 +185,7 @@
       "tick": 60,
       "time": 3,
       "nextId": 1012,
-      "state": "7fe40f7e",
+      "state": "cc73992b",
       "events": "9364a499",
       "rng": {
         "draws": 150,
@@ -195,7 +196,7 @@
       "tick": 80,
       "time": 4,
       "nextId": 1012,
-      "state": "a811c55b",
+      "state": "43879580",
       "events": "a15e8a4a",
       "rng": {
         "draws": 316,
@@ -206,7 +207,7 @@
       "tick": 84,
       "time": 4.2,
       "nextId": 1012,
-      "state": "e3c99a89",
+      "state": "84a43b76",
       "events": "667f5ae2",
       "rng": {
         "draws": 356,
@@ -298,6 +299,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -484,7 +486,7 @@
       "tick": 84,
       "time": 4.2,
       "nextId": 1012,
-      "state": "e3c99a89",
+      "state": "84a43b76",
       "events": "741638a5",
       "rng": {
         "draws": 356,
@@ -576,6 +578,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

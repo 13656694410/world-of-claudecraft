@@ -1,11 +1,12 @@
 import { describe, expect, it } from 'vitest';
+import { QuestWorldWireState } from '../src/net/quest_world_wire_state';
 import { Sim } from '../src/sim/sim';
 import {
   canRerollWorldQuest,
   playerActiveWorldQuests,
   rerollWorldQuest,
 } from '../src/sim/world_quest_reroll';
-import { activeWorldQuestsForCycle } from '../src/sim/world_quest_rotation';
+import { activeWorldQuestsForCycle, WORLD_QUESTS_BY_ZONE } from '../src/sim/world_quest_rotation';
 import { restoreWorldQuestState, savedWorldQuestState } from '../src/sim/world_quest_state';
 import { awardWorldQuest } from '../src/sim/world_quests';
 
@@ -49,10 +50,27 @@ describe('World Quest Reroll Mechanism', () => {
     const checkCompleted = canRerollWorldQuest(meta, eastbrookQuest.id, cycle, 20);
     expect(checkCompleted.canReroll).toBe(false);
     expect(checkCompleted.reason).toBe('Completed world quests cannot be rerolled.');
+    meta.worldQuestLog.set(eastbrookQuest.id, {
+      questId: eastbrookQuest.id,
+      count: 0,
+      state: 'active',
+      practiceOnly: true,
+    });
+    expect(canRerollWorldQuest(meta, eastbrookQuest.id, cycle, 20)).toEqual(checkCompleted);
+    const client = new QuestWorldWireState();
+    client.applyQuestSelfSnapshot({ wqday: cycle, wqlog: [...meta.worldQuestLog.values()] });
+    expect(client.worldQuestLog.get(eastbrookQuest.id)?.practiceOnly).toBe(true);
+    expect(client.canRerollWorldQuest(eastbrookQuest.id).canReroll).toBe(false);
 
-    // Single-quest zone without replacements reports honest unavailable state
+    // A zone with no alternative left reports the honest unavailable state.
+    // Thornpeak's pool is four deep since the round-2 zone hunts, so the other
+    // three are turned in first (a completed quest is never a reroll target).
     const thornpeakQuest = active.find((q) => q.zoneId === 'thornpeak_heights');
     if (!thornpeakQuest) throw new Error('Expected Thornpeak quest');
+    for (const id of WORLD_QUESTS_BY_ZONE.thornpeak_heights) {
+      if (id === thornpeakQuest.id) continue;
+      meta.worldQuestLog.set(id, { questId: id, count: 0, state: 'completed' });
+    }
     const checkSingle = canRerollWorldQuest(meta, thornpeakQuest.id, cycle, 20);
     expect(checkSingle.canReroll).toBe(false);
     expect(checkSingle.reason).toBe('No alternative assignments available in this zone today.');

@@ -190,6 +190,12 @@ describe('worldQuestSlateComplete', () => {
     const slots = rotatingSlots(slateMeta([]), 20).map((quest) => quest.id);
     expect(slots.length).toBeGreaterThan(3);
     expect(worldQuestSlateComplete(slateMeta(slots), 20)).toBe(true);
+    const practice = slateMeta(slots);
+    const row = practice.worldQuestLog.get(slots[0])!;
+    row.state = 'active';
+    row.count = 0;
+    row.practiceOnly = true;
+    expect(worldQuestSlateComplete(practice, 20)).toBe(true);
     // One slot short, any slot: false.
     for (const missing of slots) {
       const rest = slots.filter((id) => id !== missing);
@@ -264,9 +270,13 @@ function slateSim(level: number, seed = 4711): Sim {
   return sim;
 }
 
-/** Turns Thornpeak in through the real kill-credit path. */
+/** Turns the Thornpeak slot in through the real kill-credit path. On the
+ *  fixture day that is the Stormcrag quest; on a later cycle the zone's pool
+ *  (round 2 widened it) rotates to another Thornpeak kill quest, so the helper
+ *  completes whichever one the board offers that day. */
 function completeThornpeak(sim: Sim): SimEvent[] {
-  const quest = WORLD_QUESTS_BY_ID[THORNPEAK];
+  const active = rotatingSlots(metaOf(sim), 20).find((slot) => slot.zoneId === 'thornpeak_heights');
+  const quest = WORLD_QUESTS_BY_ID[active?.id ?? THORNPEAK];
   if (quest.objective.type !== 'kill') throw new Error('Expected a kill objective');
   const targetMobId = quest.objective.targetMobId;
   const target = [...sim.entities.values()].find(
@@ -276,8 +286,15 @@ function completeThornpeak(sim: Sim): SimEvent[] {
   target.pos.x = quest.area.x;
   target.pos.z = quest.area.z;
   const meta = metaOf(sim);
+  // Stand in the quest's own ring first: a world quest only takes credit once
+  // the player has entered it (updateWorldQuests on the tick), and the day's
+  // Thornpeak slot may sit in a different ring from the fixture's.
+  placeAt(sim, quest.area.x, quest.area.z);
+  sim.tick();
+  sim.drainEvents();
+  expect(meta.worldQuestLog.get(quest.id)?.state).toBe('active');
   for (let i = 0; i < quest.count; i++) onMobKilledForWorldQuests(sim.ctx, target, meta);
-  expect(meta.worldQuestLog.get(THORNPEAK)?.state).toBe('completed');
+  expect(meta.worldQuestLog.get(quest.id)?.state).toBe('completed');
   return sim.drainEvents();
 }
 
@@ -352,8 +369,10 @@ describe('the slate entitlement (creditWorldQuest completion arm)', () => {
     sim.tick();
     expect(meta.worldQuestCycle).toBe(worldQuestCycleForResetDay('2026-09-01'));
     expect(meta.clueScrollCycle).toBe(firstCycle);
+    // The next day's Thornpeak slot is a different pool entry (round 2 widened
+    // the pool), so leave the ZONE's slot open, whichever quest fills it.
     for (const slot of rotatingSlots(meta, 20)) {
-      if (slot.id === THORNPEAK) continue;
+      if (slot.zoneId === 'thornpeak_heights') continue;
       meta.worldQuestLog.set(slot.id, { questId: slot.id, count: slot.count, state: 'completed' });
     }
     sim.drainEvents();
@@ -604,6 +623,27 @@ describe('the deliver step (Sim.talkToNpc)', () => {
     evs = sim.drainEvents();
     expect(meta.clueHunt?.step).toBe(4);
     expect(sim.countItem('baked_bread')).toBe(1);
+    expect(ofType(evs, 'clueHuntStep').map((ev) => ev.step)).toEqual([3]);
+  });
+
+  it('the interact command path (target the NPC, Sim.interact) reaches the hand-over', () => {
+    // What the client actually sends: the gossip menu's clue row targets the
+    // NPC and sends interact (online, the interact command), never talkToNpc
+    // directly. Pinned so the hand-over stays reachable from the wire path.
+    const sim = huntSim();
+    const meta = metaOf(sim);
+    startHunt(sim);
+    advanceTo(sim, 3);
+    sim.removeItem('baked_bread', sim.countItem('baked_bread'));
+    sim.addItem('baked_bread', 2);
+    const sela = npcByTemplate(sim, 'quartermaster_sela');
+    placeAt(sim, sela.pos.x + 1, sela.pos.z + 1);
+    sim.drainEvents();
+    sim.targetEntity(sela.id);
+    sim.interact();
+    const evs = sim.drainEvents();
+    expect(meta.clueHunt?.step).toBe(4);
+    expect(sim.countItem('baked_bread')).toBe(0);
     expect(ofType(evs, 'clueHuntStep').map((ev) => ev.step)).toEqual([3]);
   });
 });

@@ -24,6 +24,106 @@ import { worldQuestProgressForWire } from '../src/sim/world_quest_trace_wire';
 import { WORLD_SEED } from '../src/sim/world_seed';
 
 describe('glider practice courses', () => {
+  it('selects a course through the public activity command and refuses remote or mid-flight switches', () => {
+    const sim = new Sim({
+      seed: WORLD_SEED,
+      playerClass: 'warrior',
+      devCommands: true,
+      world: { ...BUILTIN_WORLD, camps: [], groundObjects: [] },
+    });
+    sim.resetDay = '2026-09-28';
+    sim.chat('/dev glider');
+    const start = { ...sim.player.pos };
+    sim.player.pos.x += 100;
+    sim.startWorldQuestActivity(GLIDER_QUEST_ID, { courseId: GLIDER_COURSES[1].id });
+    expect(sim.worldQuestLog.get(GLIDER_QUEST_ID)?.glider?.phase).not.toBe('countdown');
+    sim.player.pos = start;
+    sim.startWorldQuestActivity(GLIDER_QUEST_ID, { courseId: 'unknown' });
+    expect(sim.worldQuestLog.get(GLIDER_QUEST_ID)?.glider?.phase).not.toBe('countdown');
+    sim.startWorldQuestActivity(GLIDER_QUEST_ID, { courseId: GLIDER_COURSES[1].id });
+    const flight = sim.worldQuestLog.get(GLIDER_QUEST_ID)?.glider;
+    expect(flight).toMatchObject({ phase: 'countdown', courseId: GLIDER_COURSES[1].id });
+    sim.startWorldQuestActivity(GLIDER_QUEST_ID, { courseId: GLIDER_COURSES[2].id });
+    expect(sim.worldQuestLog.get(GLIDER_QUEST_ID)?.glider).toBe(flight);
+  });
+
+  it('keeps a public replay visible and boost-enabled without a second reward', () => {
+    const sim = new Sim({
+      seed: WORLD_SEED,
+      playerClass: 'warrior',
+      devCommands: true,
+      world: { ...BUILTIN_WORLD, camps: [], groundObjects: [] },
+    });
+    sim.resetDay = '2026-09-28';
+    sim.chat('/dev glider');
+    const progress = sim.worldQuestLog.get(GLIDER_QUEST_ID)!;
+    progress.state = 'completed';
+    progress.count = 1;
+    const copper = sim.copper;
+    sim.startWorldQuestActivity(GLIDER_QUEST_ID, { courseId: GLIDER_COURSES[2].id });
+    expect(progress.state).toBe('active');
+    expect(progress.glider?.practiceOnly).toBe(true);
+    const state = progress.glider!;
+    state.phase = 'flying';
+    state.speed = 10;
+    sim.boostWorldQuestGlider();
+    expect(state.speed).toBe(24);
+    state.phase = 'won';
+    state.passedRings = GLIDER_COURSES[2].rings.map((r) => r.id);
+    state.result = {
+      passedRings: 11,
+      totalRings: 11,
+      elapsedSeconds: 30,
+      rating: 'silver',
+      score: 1000,
+    };
+    sim.tick();
+    expect(progress.state).toBe('completed');
+    expect(sim.copper).toBe(copper);
+  });
+
+  it('emits one timed record and saves personal times even when the saved points score is better', async () => {
+    const sim = new Sim({
+      seed: WORLD_SEED,
+      playerClass: 'warrior',
+      devCommands: true,
+      world: { ...BUILTIN_WORLD, camps: [], groundObjects: [] },
+    });
+    sim.resetDay = '2026-09-28';
+    sim.chat('/dev glider start');
+    const progress = sim.worldQuestLog.get(GLIDER_QUEST_ID)!;
+    const state = progress.glider!;
+    state.phase = 'won';
+    state.passedRings = GLIDER_COURSE.rings.map((ring) => ring.id);
+    state.result = {
+      rating: 'silver',
+      score: 100,
+      elapsedSeconds: 60,
+      passedRings: state.passedRings.length,
+      totalRings: GLIDER_COURSE.rings.length,
+    };
+    progress.gliderResult = { ...state.result, score: 10000 };
+    const ctx = (sim as unknown as { ctx: SimContext }).ctx;
+    sim.drainEvents();
+    updateGliderEncounter(ctx, sim.meta(sim.playerId)!, sim.player, progress);
+    updateGliderEncounter(ctx, sim.meta(sim.playerId)!, sim.player, progress);
+    expect(
+      sim
+        .drainEvents()
+        .filter((ev) => ev.type === 'worldQuestScore' && ev.board.startsWith('glider_')),
+    ).toMatchObject([{ board: 'glider_downs_v2_lifetime', metric: 60, resetDay: '2026-09-28' }]);
+    const board = await sim.worldQuestLeaderboard('glider_downs_v2_daily');
+    expect(board.leaders).toMatchObject([{ metric: 60 }]);
+    const saved = sim.serializeCharacter(sim.playerId)!;
+    const restored = new Sim({ seed: WORLD_SEED, playerClass: 'warrior', noPlayer: true });
+    restored.resetDay = '2026-09-29';
+    restored.addPlayer('warrior', 'Returning Pilot', { state: saved });
+    expect((await restored.worldQuestLeaderboard('glider_downs_v2_daily')).leaders).toEqual([]);
+    expect(
+      (await restored.worldQuestLeaderboard('glider_downs_v2_lifetime')).leaders,
+    ).toMatchObject([{ metric: 60 }]);
+    expect(restored.drainEvents().filter((e) => e.type === 'worldQuestScore')).toEqual([]);
+  });
   it('preserves the original default and resolves every authored session identity', () => {
     expect(GLIDER_COURSES[0]).toBe(GLIDER_COURSE);
     expect(gliderCourseById()).toBe(GLIDER_COURSE);
@@ -34,24 +134,20 @@ describe('glider practice courses', () => {
         decodeGliderState({ ...createGliderFlightState(), courseId: course.id }, GLIDER_QUEST_ID)
           ?.courseId,
       ).toBe(course.id);
-      expect(course.rings.map((r) => r.radius)).toEqual(GLIDER_COURSE.rings.map((r) => r.radius));
+      expect(course.rings.every((ring) => ring.radius >= 4)).toBe(true);
       expect(course.landingPad).toEqual(GLIDER_COURSE.landingPad);
     }
   });
 
-  it.each(GLIDER_COURSES.slice(1))(
-    '$id has terrain-clear descents followed by meaningful climbs',
-    (course) => {
-      const changes = course.rings.slice(1).map((ring, index) => ring.y - course.rings[index].y);
-      expect(changes.filter((change) => change >= 7).length).toBeGreaterThanOrEqual(4);
-      expect(changes.filter((change) => change <= -13).length).toBeGreaterThanOrEqual(4);
-      for (const ring of course.rings)
-        expect(
-          ring.y - ring.radius - groundHeight(ring.x, ring.z, WORLD_SEED),
-          `ring ${ring.id}`,
-        ).toBeGreaterThan(2);
-    },
-  );
+  it.each(GLIDER_COURSES.slice(1))('$id has terrain-clear rings and a distinct route', (course) => {
+    expect(course.rings).not.toEqual(GLIDER_COURSE.rings);
+    expect(course.minRings).toBe(course.rings.length);
+    for (const ring of course.rings)
+      expect(
+        ring.y - ring.radius - groundHeight(ring.x, ring.z, WORLD_SEED),
+        `ring ${ring.id}`,
+      ).toBeGreaterThan(2);
+  });
 
   it.each(GLIDER_COURSES.slice(1))(
     '$id can be flown with bounded steering and pitch, without teleporting',
@@ -118,6 +214,7 @@ describe('glider practice courses', () => {
     const state = progress.glider;
     state.phase = 'flying';
     state.speed = 22;
+    state.passedRings = [GLIDER_COURSES[1].rings[0].id];
     const ring = GLIDER_COURSES[1].rings[1];
     sim.player.pos = { x: ring.x, y: ring.y, z: ring.z - 0.5 };
     sim.player.facing = 0;

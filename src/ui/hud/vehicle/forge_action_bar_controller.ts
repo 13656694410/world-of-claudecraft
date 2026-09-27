@@ -55,8 +55,18 @@ export class ForgeActionBarController {
     private readonly padKind: () => GamepadKind = () => 'generic',
     private readonly now: () => number = () => performance.now(),
   ) {
+    // A `.panel` overlay centred in the upper third of the screen (styles/hud.css
+    // owns the position), above the HUD bars. It used to be a `.vehicle-bar`,
+    // the bottom-pinned family the cannon and glider bars use, which sat on the
+    // unit frames and the action bar (2026-09-22 playtest). Deliberately NOT a
+    // `.window` family member: the HUD's Escape / closeAll and the touch
+    // chrome's backdrop scan every visible `.window.panel` (hud.ts
+    // topmostOpenWindow, window_open_state.ts), and a live workshop session
+    // hidden that way has no way back (the smith refuses a second start while
+    // one runs), nor should the touch controls drop into menu mode for a
+    // reaction game. It shows and hides with the session alone (update below).
     this.root.id = 'forge-action-bar';
-    this.root.className = 'vehicle-bar forge-action-bar';
+    this.root.className = 'panel forge-action-bar';
     this.title.className = 'vehicle-bar-title';
     this.status.className = 'vehicle-bar-status';
     this.hint.className = 'vehicle-bar-hint';
@@ -78,17 +88,18 @@ export class ForgeActionBarController {
     const slots: ActionBarSlotElements[] = [0, 1].map((index) => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'action-btn vehicle-action';
+      btn.className = 'action-btn vehicle-action ui-socket';
       const label = document.createElement('span'),
         countEl = document.createElement('span'),
         keybindEl = document.createElement('span'),
         cdOverlay = document.createElement('span'),
         cdText = document.createElement('span'),
         rechargeOverlay = document.createElement('span');
-      label.className = 'icon-label';
-      keybindEl.className = 'keybind';
-      cdOverlay.className = 'cd-overlay';
-      cdText.className = 'cdtext';
+      label.className = 'icon-label ui-socket-art';
+      countEl.className = 'item-count ui-socket-count';
+      keybindEl.className = 'keybind ui-socket-key';
+      cdOverlay.className = 'cd-overlay ui-socket-cd';
+      cdText.className = 'cdtext ui-socket-cd-text';
       rechargeOverlay.className = 'recharge-overlay';
       btn.append(label, countEl, keybindEl, cdOverlay, cdText, rechargeOverlay);
       btn.addEventListener('click', () => {
@@ -136,9 +147,11 @@ export class ForgeActionBarController {
     if (active !== this.active) {
       this.active = active;
       if (active) for (const controller of this.cancelOnEnter) controller.cancel();
-      this.writers.toggleClass(document.body, 'working-forge', active);
-      this.writers.setDisplay(this.root, active ? 'grid' : 'none');
     }
+    // Level-triggered, not edge-triggered: the writer facet elides a repeat to
+    // zero DOM work, and a stale edge could never re-establish the display if
+    // another writer ever hid the panel.
+    this.writers.setDisplay(this.root, active ? 'grid' : 'none');
     if (!active) return;
     const progress = this.world.worldQuestLog.get(FORGE_QUEST_ID);
     const session = progress?.forging;

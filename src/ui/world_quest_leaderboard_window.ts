@@ -9,10 +9,13 @@
 // for a board or page the player has already left. It is cold: it paints on
 // open, a card pick, and a page change, never from the per-frame path. It holds
 // no Sim reference and reaches Hud only through its deps.
+
+import { gliderScoreboardInfo } from '../sim/glider_scoreboards';
 import { LEADERBOARD_PAGE_SIZE } from '../sim/leaderboard_page';
 import type { IWorld, WorldQuestLeaderboardPage } from '../world_api';
 import { markDialogRoot } from './dialog_root';
 import { esc } from './esc';
+import { t } from './i18n';
 import { type PodiumSlotHtml, podiumHtml } from './leaderboard_podium_html';
 import { svgIcon } from './ui_icons';
 import {
@@ -127,6 +130,14 @@ export class WorldQuestLeaderboardWindow {
       this.boardHtml(view) +
       this.selfHtml(view.self);
     root.querySelector('[data-close]')?.addEventListener('click', () => this.close());
+    root.querySelector('[data-glider-start]')?.addEventListener('click', () => {
+      const course = gliderScoreboardInfo(this.board);
+      if (!course) return;
+      this.deps
+        .world()
+        .startWorldQuestActivity('wq_galecrest_slalom', { courseId: course.courseId });
+      this.close();
+    });
     root.querySelectorAll<HTMLButtonElement>('[data-wql-board]').forEach((button) => {
       button.addEventListener('click', () => {
         const next = button.dataset.wqlBoard ?? '';
@@ -168,7 +179,10 @@ export class WorldQuestLeaderboardWindow {
           `<span class="wql-card-metric">${esc(card.metricHeader)}</span></button>`,
       )
       .join('');
-    return `<div class="wql-cards" role="group" aria-label="${esc(view.boardsLabel)}">${cards}</div>`;
+    const start = gliderScoreboardInfo(view.boardId)
+      ? `<button type="button" class="wql-page-btn" data-glider-start>${esc(t('hudChrome.leaderboard.gliderStart'))}</button>`
+      : '';
+    return `<div class="wql-cards" role="group" aria-label="${esc(view.boardsLabel)}">${cards}</div>${start}`;
   }
 
   private boardHtml(view: WorldQuestLadderView): string {

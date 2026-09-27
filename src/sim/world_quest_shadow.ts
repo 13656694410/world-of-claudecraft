@@ -11,6 +11,7 @@ import { hasShadowCloak, SHADOW_CLOAK_AURA_ID } from './shadow_action_lock';
 import type { PlayerMeta } from './sim';
 import type { SimContext } from './sim_context';
 import { DT, type Entity, INTERACT_RANGE, type WorldQuestProgress } from './types';
+import { beginWorldQuestPractice } from './world_quest_practice';
 import {
   shadowBehindCarrier,
   shadowGuardDetects,
@@ -84,7 +85,6 @@ export function startShadowEncounter(
     npc.templateId !== SHADOW_NPC_DEF.id ||
     npc.dead ||
     Math.abs(player.pos.y - npc.pos.y) > 3 ||
-    progress.state !== 'active' ||
     progress.shadow?.phase === 'cloaked' ||
     player.dead ||
     player.inCombat ||
@@ -100,6 +100,7 @@ export function startShadowEncounter(
     Math.hypot(npc.pos.x - SHADOW_NPC_DEF.pos.x, npc.pos.z - SHADOW_NPC_DEF.pos.z) > 0.1
   )
     return;
+  beginWorldQuestPractice(progress);
   ctx.cancelCast(player);
   player.autoAttack = false;
   player.followTargetId = null;

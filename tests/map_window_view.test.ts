@@ -458,6 +458,10 @@ describe('buildOverworldMapModel (pure draw model)', () => {
     ).toEqual([
       ...EASTBROOK_LAYOUT.preservedBuildings.map((building) => building.id),
       ...EASTBROOK_LAYOUT.buildings.map((building) => building.id),
+      // The Weekly Vault hall (PR 4052) is authored as its own layout site and
+      // appended to ZONE1_PROPS.buildings after the town list, so its footprint
+      // draws last.
+      EASTBROOK_LAYOUT.weeklyVault.id,
     ]);
     expect(
       detail.props.filter((marker) => marker.kind === 'well').map((marker) => marker.id),

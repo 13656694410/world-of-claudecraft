@@ -30,7 +30,7 @@
       "tick": 25,
       "time": 1.25,
       "nextId": 1014,
-      "state": "c09c9d63",
+      "state": "01c2d4a5",
       "events": "5a383747",
       "rng": {
         "draws": 0,
@@ -41,7 +41,7 @@
       "tick": 50,
       "time": 2.5,
       "nextId": 1014,
-      "state": "08b4571e",
+      "state": "82ac53b4",
       "events": "3a5da579",
       "rng": {
         "draws": 66,
@@ -52,7 +52,7 @@
       "tick": 75,
       "time": 3.75,
       "nextId": 1014,
-      "state": "9fd6bcbc",
+      "state": "87f4ffca",
       "events": "70150bad",
       "rng": {
         "draws": 247,
@@ -63,7 +63,7 @@
       "tick": 100,
       "time": 5,
       "nextId": 1014,
-      "state": "6584557b",
+      "state": "9649525d",
       "events": "f35a0f3d",
       "rng": {
         "draws": 485,
@@ -74,7 +74,7 @@
       "tick": 125,
       "time": 6.25,
       "nextId": 1014,
-      "state": "cd3e580c",
+      "state": "9263cf50",
       "events": "156bef56",
       "rng": {
         "draws": 756,
@@ -85,7 +85,7 @@
       "tick": 150,
       "time": 7.5,
       "nextId": 1014,
-      "state": "f112edaf",
+      "state": "518c781f",
       "events": "741638a5",
       "rng": {
         "draws": 1041,
@@ -96,7 +96,7 @@
       "tick": 163,
       "time": 8.15,
       "nextId": 1014,
-      "state": "abe64039",
+      "state": "5a969d59",
       "events": "f14382e0",
       "rng": {
         "draws": 1178,
@@ -161,6 +161,7 @@
             }
           },
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -251,6 +252,7 @@
             }
           },
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -348,6 +350,7 @@
             }
           },
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -435,6 +438,7 @@
             }
           },
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },

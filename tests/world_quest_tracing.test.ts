@@ -71,6 +71,7 @@ function prepareRound(sim: Sim, shapeIndex: number) {
 
 function finishLesson(sim: Sim, reverse = false) {
   const xp = sim.meta(sim.playerId)!.xp;
+  const completions = sim.meta(sim.playerId)!.counters.questsCompleted;
   for (const shapeIndex of SHAPES.keys()) {
     const shape = worldQuestTraceShape(QUEST, shapeIndex, sim.worldQuestLog.get(ID)?.traceVariant)!;
     if (shapeIndex > 0) prepareRound(sim, shapeIndex);
@@ -86,12 +87,50 @@ function finishLesson(sim: Sim, reverse = false) {
         segment: 0,
       });
       expect(sim.meta(sim.playerId)!.xp).toBe(xp);
-      expect(sim.meta(sim.playerId)!.counters.questsCompleted).toBe(0);
+      expect(sim.meta(sim.playerId)!.counters.questsCompleted).toBe(completions);
     }
   }
 }
 
 describe('authoritative calligraphy world quest', () => {
+  it('replays every shape after completion without paying again or losing the saved completion', () => {
+    const sim = setup();
+    beginDrawing(sim);
+    finishLesson(sim);
+    const meta = sim.meta(sim.playerId)!;
+    const rewards = {
+      copper: meta.copper,
+      xp: meta.lifetimeXp,
+      factions: { ...meta.factions },
+      completions: meta.counters.questsCompleted,
+    };
+    const earnedResult = { ...sim.worldQuestLog.get(ID)!.traceResult };
+    sim.player.pos = sim.groundPos(172, -35);
+    beginDrawing(sim);
+    const saved = sim.serializeCharacter(sim.playerId)!;
+    expect(saved.worldQuests?.progress.find((row) => row.questId === ID)).toMatchObject({
+      state: 'completed',
+      count: QUEST.count,
+    });
+    const restored = new Sim({
+      seed: WORLD_SEED,
+      playerClass: 'warrior',
+      noPlayer: true,
+      world: WORLD,
+    });
+    restored.resetDay = sim.resetDay;
+    const restoredId = restored.addPlayer('warrior', 'Replay', { state: saved });
+    expect(restored.meta(restoredId)!.worldQuestLog.get(ID)?.traceResult).toEqual(earnedResult);
+    expect(restored.meta(restoredId)!.worldQuestLog.get(ID)?.practiceOnly).toBeUndefined();
+    finishLesson(sim);
+    expect(sim.worldQuestLog.get(ID)?.state).toBe('completed');
+    expect({
+      copper: meta.copper,
+      xp: meta.lifetimeXp,
+      factions: meta.factions,
+      completions: meta.counters.questsCompleted,
+    }).toEqual(rewards);
+  });
   it.each(WORLD_QUEST_CALLIGRAPHY_ADVANCED)(
     'walks the selected $kind variant both ways with final-only rewards',
     (advanced) => {
@@ -348,7 +387,9 @@ describe('authoritative calligraphy world quest', () => {
 describe('calligraphy content placement and rotation', () => {
   it('offers calligraphy in its zone rotation cycle', () => {
     expect(activeWorldQuestsForCycle('wq1_2').some((q) => q.id === ID)).toBe(true);
-    expect(activeWorldQuestsForCycle('wq3_6').some((q) => q.id === ID)).toBe(true);
+    // A legacy three-day id canonicalises to day 3N: wq3_3 is day 9, and the
+    // round-2 Eastbrook pool is seven deep, so day 9 is slot 2 (calligraphy).
+    expect(activeWorldQuestsForCycle('wq3_3').some((q) => q.id === ID)).toBe(true);
     expect(activeWorldQuestsForCycle('wq1_1').some((q) => q.id === 'wq_willowfen_caravan')).toBe(
       true,
     );

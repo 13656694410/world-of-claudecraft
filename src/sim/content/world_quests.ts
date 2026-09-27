@@ -6,6 +6,7 @@ import type {
   WorldQuestBeamPuzzleDef,
   WorldQuestDef,
 } from '../types';
+import { FARSHORE_SALVAGE_PLACEMENTS } from './farshore_shipwreck_layout';
 import { WORLD_QUEST_CANNON, WORLD_QUEST_LAST_KEEP_CANNON } from './vehicle_stations';
 import { WORLD_QUEST_CALLIGRAPHY_QUEST } from './world_quest_calligraphy';
 import { WORLD_QUEST_FORGING } from './world_quest_forging';
@@ -13,9 +14,23 @@ import { WORLD_QUEST_GLIDER } from './world_quest_glider';
 import { WORLD_QUEST_INVESTIGATION } from './world_quest_investigation';
 import { WORLD_QUEST_SHADOW } from './world_quest_shadow';
 import { WORLD_QUEST_WISP_MAZE } from './world_quest_wisp_maze';
+import { WORLD_QUEST_ZONE_HUNTS } from './world_quest_zone_hunts';
 
 export const WORLD_QUEST_MIN_LEVEL = 5;
 export const WORLD_QUEST_DEFAULT_MIN_LEVEL = 10;
+
+// The shared reward schedule (docs/prd/world-quests/rewards-brief.md, section 8).
+// Every world quest pays XP at this share of the level's XP bar and copper on
+// this level-scaled purse; a def's `reward` only overrides them. The purse is
+// sized so a whole day's circuit at the cap, with every bonus purse on top
+// (a champion encore on most quests, the salvage ambush, the hard wisp maze and
+// both ley boards), stays under WORLD_QUEST_DAILY_COPPER_BUDGET (pinned by
+// tests/world_quest_rewards.test.ts): 31 silver a quest at level 20, about
+// 9.9 gold for the worst-case day.
+export const WORLD_QUEST_XP_RATE = 0.12;
+export const WORLD_QUEST_COPPER = Object.freeze({ base: 700, perLevel: 120 });
+/** Ten gold: the owner's ceiling for completing every world quest in one day at the cap. */
+export const WORLD_QUEST_DAILY_COPPER_BUDGET = 100_000;
 
 export const EASTBROOK_FREIGHT_CARAVAN_MOB_ID = 'eastbrook_freight_caravan';
 export const EASTBROOK_FREIGHT_CARAVAN_ESCORT_ID = 'esc_wq_eastbrook_caravan';
@@ -239,54 +254,17 @@ export const WORLD_QUEST_ESCORTS: Record<string, EscortDef> = {
 };
 
 export const FARSHORE_SALVAGE_OBJECT_ITEM_ID = 'wreckfield_flotsam_crate';
-export const FARSHORE_SALVAGE_ENTITY_ID_START = 2_147_100_100;
+// Retire 2147100100 (the decorative hull), preserving every other pickup ID.
+export const FARSHORE_SALVAGE_ENTITY_ID_START = 2_147_100_101;
 
-// Every piece lies on the dry strand (7 to 13 yd above the waterline, walkable
-// slope), at least 6 yd from any other piece and clear of every Gullhaven NPC and
-// prop, chosen by farthest-point sampling from the wreck at (270, 106) so each
-// weekly layout spans the whole beach from the hull to the town's north edge
-// (about 50 by 40 yd) instead of one tight grid. The strand is boxed by the
-// Riftfields hostiles to the east (tests/world_quests.test.ts pins a quiet
-// shoreline), so the scatter runs west and south of the hull instead.
-// tests/world_quest_salvage.test.ts pins the band, spacing and spread.
-const FARSHORE_SALVAGE_POSITIONS = [
-  // Layout 1: from the hull along the high-tide line to the town's north edge.
-  { x: 281, z: 86 },
-  { x: 252, z: 72 },
-  { x: 279, z: 67 },
-  { x: 288, z: 80 },
-  { x: 304, z: 85 },
-  { x: 303, z: 102 },
-  { x: 299, z: 108 },
-  { x: 287, z: 99 },
-  // Layout 2: debris washed farther along after a change in current.
-  { x: 267, z: 81 },
-  { x: 270, z: 72 },
-  { x: 283, z: 73 },
-  { x: 305, z: 75 },
-  { x: 304, z: 95 },
-  { x: 305, z: 112 },
-  { x: 288, z: 91 },
-  { x: 279, z: 94 },
-  // Layout 3: a broad scatter from the Landing road to the northern strand.
-  { x: 259, z: 77 },
-  { x: 277, z: 78 },
-  { x: 290, z: 69 },
-  { x: 295, z: 85 },
-  { x: 298, z: 93 },
-  { x: 295, z: 99 },
-  { x: 292, z: 105 },
-  { x: 272, z: 88 },
-] as const;
-
-const FARSHORE_SALVAGE_ENTITY_IDS = FARSHORE_SALVAGE_POSITIONS.map(
+// One approved scatter replaces the former rotating layouts. The objective
+// still requires eight distinct recoveries, with every placed debris available.
+const FARSHORE_SALVAGE_ENTITY_IDS = FARSHORE_SALVAGE_PLACEMENTS.map(
   (_, index) => FARSHORE_SALVAGE_ENTITY_ID_START + index,
 );
 
 export const FARSHORE_SALVAGE_LAYOUTS: readonly (readonly number[])[] = [
-  FARSHORE_SALVAGE_ENTITY_IDS.slice(0, 8),
-  FARSHORE_SALVAGE_ENTITY_IDS.slice(8, 16),
-  FARSHORE_SALVAGE_ENTITY_IDS.slice(16, 24),
+  FARSHORE_SALVAGE_ENTITY_IDS,
 ];
 
 export const WORLD_QUEST_ITEMS: Record<string, ItemDef> = {
@@ -359,7 +337,13 @@ export const WORLD_QUEST_OBJECTS: GroundObjectDef[] = [
     // ids select the bespoke model and personal weekly visibility.
     itemId: FARSHORE_SALVAGE_OBJECT_ITEM_ID,
     name: 'Shipwreck Debris',
-    positions: [...FARSHORE_SALVAGE_POSITIONS],
+    positions: FARSHORE_SALVAGE_PLACEMENTS.map(({ x, y, z, rot, scale }) => ({
+      x,
+      y,
+      z,
+      facing: (rot * Math.PI) / 180,
+      scale,
+    })),
     entityIds: [...FARSHORE_SALVAGE_ENTITY_IDS],
   },
 ];
@@ -488,7 +472,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
       deliveryObjectItemId: 'eastbrook_freight_wagon',
     },
     count: 6,
-    reward: { type: 'xp', rate: 0.12 },
   },
   {
     id: 'wq_eastbrook_caravan',
@@ -499,7 +482,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: -92, z: -32, radius: 110 },
     objective: { type: 'escort', escortId: EASTBROOK_FREIGHT_CARAVAN_ESCORT_ID },
     count: 1,
-    reward: { type: 'copper', base: 2_500, perLevel: 175 },
   },
   {
     id: 'wq_mirefen_gravecallers',
@@ -508,7 +490,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: 0, z: 485, radius: 46 },
     objective: { type: 'kill', targetMobId: 'gravecaller_cultist' },
     count: 6,
-    reward: { type: 'copper', base: 2_500, perLevel: 175 },
   },
   {
     id: 'wq_thornpeak_stormcrag',
@@ -517,7 +498,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: 122, z: 778, radius: 46 },
     objective: { type: 'kill', targetMobId: 'stormcrag_elemental' },
     count: 6,
-    reward: { type: 'xp', rate: 0.12 },
   },
   {
     id: 'wq_hollow_sporelings',
@@ -526,7 +506,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: -42, z: 1222, radius: 38 },
     objective: { type: 'kill', targetMobId: 'corrupted_sporeling' },
     count: 5,
-    reward: { type: 'copper', base: 2_500, perLevel: 175 },
   },
   {
     id: 'wq_drakelands_brood',
@@ -535,20 +514,21 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: 382, z: 2310, radius: 132 },
     objective: { type: 'kill', targetMobId: 'dragonkin_broodguard' },
     count: 5,
-    reward: { type: 'item', itemId: 'rift_essence', count: 1 },
+    // Rift-forge currency on top of the bundle, never equipment (the day's item slots own gear).
+    reward: { extraItem: { itemId: 'rift_essence', count: 1 } },
   },
   {
     id: 'wq_frostveil_howlers',
     zoneId: 'frostveil',
     minLevel: 17,
-    // Covers Brosk's four authored traps plus their interact reach: the west
-    // trap stands up the bank at (-116, 1756), 24 yd from this centre, so the
-    // ring reaches it with 5 yd to spare and never counts the Shiverfen pool
+    // Covers Brosk's four authored traps plus their interact reach: the traps
+    // ring the Shiverfen pool on its flat reed shelves (frostveil.ts), the
+    // farthest the north one at (-90, 1733), 25 yd from this centre, so the
+    // ring reaches every trap with 5 yd to spare and never counts the pool
     // floor as a trap site.
     area: { x: -92, z: 1758, radius: 30 },
     objective: { type: 'interact', targetObjectItemId: 'sprung_trap' },
     count: 4,
-    reward: { type: 'xp', rate: 0.12 },
   },
   {
     id: 'wq_amberfall_lurkers',
@@ -557,7 +537,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: -298, z: 2192, radius: 46 },
     objective: { type: 'kill', targetMobId: 'mere_lurker' },
     count: 3,
-    reward: { type: 'copper', base: 2_500, perLevel: 175 },
   },
   {
     id: 'wq_willowfen_ore',
@@ -566,7 +545,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: -370, z: 355, radius: 108 },
     objective: { type: 'gather', nodeType: 'ore' },
     count: 3,
-    reward: { type: 'xp', rate: 0.12 },
   },
   {
     id: 'wq_willowfen_caravan',
@@ -575,7 +553,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: -412, z: 442, radius: 145 },
     objective: { type: 'escort', escortId: WILLOWFEN_REMEDY_CARAVAN_ESCORT_ID },
     count: 1,
-    reward: { type: 'copper', base: 2_500, perLevel: 175 },
   },
   {
     id: 'wq_frostveil_caravan',
@@ -584,7 +561,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: -12, z: 1578, radius: 190 },
     objective: { type: 'escort', escortId: FROSTVEIL_SUPPLY_CARAVAN_ESCORT_ID },
     count: 1,
-    reward: { type: 'copper', base: 2_500, perLevel: 175 },
   },
   {
     id: 'wq_nightbloom_barrow',
@@ -593,7 +569,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: -354, z: 1648, radius: 48 },
     objective: { type: 'kill', targetMobId: 'barrow_wight' },
     count: 4,
-    reward: { type: 'copper', base: 2_500, perLevel: 175 },
   },
   {
     id: 'wq_wraithwood_restless',
@@ -602,7 +577,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: 360, z: 1592, radius: 72 },
     objective: { type: 'kill', targetMobId: 'wood_wraith' },
     count: 4,
-    reward: { type: 'xp', rate: 0.12 },
   },
   {
     id: 'wq_palmreach_confections',
@@ -615,7 +589,8 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
       levels: PALMREACH_MATCH3_LEVELS,
     },
     count: 72,
-    reward: { type: 'item', itemId: 'rift_essence', count: 1 },
+    // Rift-forge currency on top of the bundle, never equipment (the day's item slots own gear).
+    reward: { extraItem: { itemId: 'rift_essence', count: 1 } },
   },
   {
     id: 'wq_evergarden_watch',
@@ -624,7 +599,6 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
     area: { x: 410, z: 1110, radius: 42 },
     objective: { type: 'kill', targetMobId: 'hedge_knight' },
     count: 3,
-    reward: { type: 'copper', base: 2_500, perLevel: 175 },
   },
   {
     id: 'wq_galecrest_wisps',
@@ -637,23 +611,23 @@ export const WORLD_QUESTS: readonly WorldQuestDef[] = [
       puzzles: GALECREST_LEY_PUZZLES,
     },
     count: 1,
-    reward: { type: 'xp', rate: 0.12 },
   },
   {
     id: 'wq_farshore_salvage',
     zoneId: 'farshore_isle',
     minLevel: WORLD_QUEST_MIN_LEVEL,
-    // Covers every authored piece plus its interact reach (farthest 37 + 5 yd)
-    // and the wreck itself (25 yd).
-    area: { x: 286, z: 87, radius: 44 },
+    // Covers the full approved scatter and its interact reach, including the hull.
+    area: { x: 347.6, z: 126.45, radius: 54 },
     objective: {
       type: 'salvage',
       objectItemId: FARSHORE_SALVAGE_OBJECT_ITEM_ID,
       layouts: FARSHORE_SALVAGE_LAYOUTS,
     },
     count: 8,
-    reward: { type: 'copper', base: 2_500, perLevel: 175 },
   },
+  // The round-2 zone hunts: kill quests against each zone's existing camps
+  // (world_quest_zone_hunts.ts), so every rotation pool holds real variety.
+  ...WORLD_QUEST_ZONE_HUNTS,
   WORLD_QUEST_CALLIGRAPHY_QUEST,
   WORLD_QUEST_CANNON,
   WORLD_QUEST_LAST_KEEP_CANNON,

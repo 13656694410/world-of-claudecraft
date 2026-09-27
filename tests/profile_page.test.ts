@@ -193,12 +193,13 @@ describe('profile page Reliquary pair + Curator rank lines', () => {
     // 415 at the faction standing deeds: the three Champion titles
     // (Riftwarden, Dawnkeeper, Forgemaster) take their slots on the same page.
     // 416 at the Clue Scroll casket deeds: the Treasure Hunter title's slot.
-    // 448 with the 32 Buried Hoard pieces (character-scoped items), the same
-    // +32 as reliquary_content.test.ts's character pair.
-    // 449 at the release/v0.44.0 merge into feature/buried-hoards: the
-    // Viridian Valestrider takes a horizons_mounts slot
-    // (RELIQUARY_HORIZON_MOUNTS, src/sim/content/reliquary.ts).
-    expect(catalogTotal).toBe(449);
+    // 417 with the Viridian Valestrider's reins (PR 4175, release/v0.44.0 base merge) on the Horizons mounts page.
+    // 434 with the trinket slot's seventeen character-scoped relics (PR 4173).
+    // 466 at the release/v0.44.0 merge into feature/buried-hoards (2026-09-28): the 32 Buried Hoard pieces
+    // (character-scoped items), the same +32 as reliquary_content.test.ts's pair.
+    expect(catalogTotal).toBe(466);
+    // The Warfare Season 2 Vanguard Gallery is class-personal and sits outside
+    // completion, so it moves nothing here.
   });
 
   it('renders the owned/total pair and the English rank name for a ranked character', async () => {

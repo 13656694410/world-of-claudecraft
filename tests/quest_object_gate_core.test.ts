@@ -56,23 +56,23 @@ describe('makeQuestObjectGate', () => {
   });
 
   it('admits only the current personal shipwreck-salvage pieces', () => {
-    const cycle = worldQuestCycleForResetDay('2026-09-06');
+    const cycle = worldQuestCycleForResetDay('2026-09-04');
     const worldQuestLog = new Map<string, WorldQuestProgress>();
     const gate = makeQuestObjectGate({}, { worldQuestCycle: cycle, worldQuestLog });
     const piece = {
       ...crate(),
-      id: 2_147_100_100,
+      id: 2_147_100_101,
       objectItemId: 'wreckfield_flotsam_crate',
       pos: { x: 277, y: 0, z: 82 },
     };
-    const rotatedOut = {
+    const lastPiece = {
       ...piece,
-      id: 2_147_100_108,
-      pos: { x: 273, y: 0, z: 78 },
+      id: 2_147_100_111,
+      pos: { x: 392.5, y: -4.5, z: 125.3 },
     };
 
     expect(gate(piece, new Map())).toBe(false);
-    expect(gate(rotatedOut, new Map())).toBe(true);
+    expect(gate(lastPiece, new Map())).toBe(false);
 
     worldQuestLog.set('wq_farshore_salvage', {
       questId: 'wq_farshore_salvage',
@@ -82,6 +82,9 @@ describe('makeQuestObjectGate', () => {
       creditedObjects: [interactObjectCreditKey(0, piece.pos)],
     });
     expect(gate(piece, new Map())).toBe(true);
+    expect(gate(lastPiece, new Map())).toBe(false);
+    worldQuestLog.get('wq_farshore_salvage')!.state = 'completed';
+    expect(gate(lastPiece, new Map())).toBe(true);
   });
 });
 

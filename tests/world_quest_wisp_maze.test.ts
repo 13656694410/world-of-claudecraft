@@ -120,6 +120,17 @@ describe('private world-space wisp trial', () => {
         .serializeCharacter(sim.playerId)
         ?.worldQuests?.progress.find((row) => row.questId === WISP_MAZE_QUEST_ID),
     ).not.toHaveProperty('wispMaze');
+    const copper = meta.copper;
+    const factions = { ...meta.factions };
+    sim.startWorldQuestActivity(WISP_MAZE_QUEST_ID, 'hard');
+    expect(progress.wispMaze).not.toBe(state);
+    expect(progress.wispMaze?.difficulty).toBe('hard');
+    progress.wispMaze!.phase = 'won';
+    sim.tick();
+    expect(meta.copper).toBe(copper);
+    expect(meta.factions).toEqual(factions);
+    expect(meta.lifetimeXp).toBe(earnedXp);
+    expect(meta.counters.questsCompleted).toBe(earned);
   });
   it('bounds poisoned owner frames and copies collection without aliasing', () => {
     const { state } = setup();

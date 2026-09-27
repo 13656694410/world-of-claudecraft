@@ -26,7 +26,11 @@
 
 import { afflictionPossessionEmpowers } from '../../../sim/combat/affliction';
 import { aetherDartsProcGlowActive } from '../../../sim/combat/chronomancy';
-import { destructionProcGlowActive, ruinAmountFromAuras } from '../../../sim/combat/destruction';
+import {
+  destructionProcGlowActive,
+  hasBurningPact,
+  ruinAmountFromAuras,
+} from '../../../sim/combat/destruction';
 import {
   NATURES_BOON_ID,
   naturesBoonArmedFor,
@@ -36,8 +40,15 @@ import {
   freeCostAuraActive,
   nextCastCheapMultiplierFromAuras,
 } from '../../../sim/combat/empower_next';
+import {
+  effectsRequireDagger,
+  shieldEquipped,
+  wieldsDagger,
+} from '../../../sim/combat/equipment_requirement';
+import { executeWindowBlocksCast } from '../../../sim/combat/execute_threshold';
 import type { MeleeReachActor } from '../../../sim/combat/feral_reach';
 import { willAutoUnshift } from '../../../sim/combat/form_auto_unshift';
+import { formRequirementMet } from '../../../sim/combat/form_requirement';
 import { frostProcGlowActive } from '../../../sim/combat/frost_mage';
 import { packlordActionGlowActive } from '../../../sim/combat/hunter_packlord';
 import {
@@ -59,13 +70,16 @@ import { priestActionGlowActive } from '../../../sim/combat/priest/presentation'
 import { mendingCurrentTargetCapped } from '../../../sim/combat/shaman_spiritmend';
 import { flowStateDiscountedCost } from '../../../sim/combat/shaman_talents';
 import { thundercallPayoffGlowActive } from '../../../sim/combat/shaman_thundercall';
+import { leavingRestrictedToggle } from '../../../sim/combat/toggle_buff';
 import { getItemCooldownDuration } from '../../../sim/content/item_cooldowns';
 import { countRawInSlots } from '../../../sim/item_lock';
 import { isAscensionEmpoweredAbility } from '../../../sim/paladin_devotion';
 import {
   type AbilityDef,
+  type AbilityEffect,
   type AuraKind,
   dist2d,
+  type EquipSlot,
   GCD,
   type ItemDef,
   type PlayerClass,
@@ -74,6 +88,7 @@ import {
   type Vec3,
 } from '../../../sim/types';
 import type { InterpolationValues, TranslationKey } from '../../i18n';
+import { trinketSlotState } from './trinket_slot_core';
 
 // The four slot kinds (a discriminated tag the painter maps to DOM classes).
 export type ActionBarSlotKind = 'attack' | 'empty' | 'item' | 'ability';
@@ -118,6 +133,9 @@ const FATE_SENTENCE_READY_ARIA_KEY: TranslationKey = 'hudChrome.warlock.fateThre
 export interface ActionBarAbility {
   def: AbilityDef;
   cost: number;
+  /** Rank-resolved effects (the list the cast gate walks); absent falls back to
+   *  the def's authored effects. */
+  effects?: readonly AbilityEffect[];
   /** Talent-resolved stored uses (Double Charge); undefined = 1. */
   charges?: number;
   /** Extra stored uses on the abilityCharges recharge model (e.g. Frost's second
@@ -156,6 +174,8 @@ export interface ActionBarAuraInput {
   empowerAbilities?: readonly string[];
   /** Stacks, for a stack-gated ability (Rimeneedle needs 5 Icicles). */
   stacks?: number;
+  /** Seconds left; a target aura's own clock (Burning Pact must still be ticking). */
+  remaining?: number;
 }
 
 /** One slot of the bar descriptor: slot identity plus host-resolved accessors to the
@@ -231,6 +251,16 @@ export interface ActionBarPlayerInput {
   potionCdRemaining: number;
   queuedOnSwing: string | null;
   pos: Vec3;
+  /** The combat flag (mirrored online as the self snapshot's `cbt` key): an
+   *  out-of-combat-only ability greys out while it is set. */
+  inCombat?: boolean;
+  /** Character-bound combo points (mirrored online as `combo`): a finisher that
+   *  needs them greys out at zero. Absent reads as zero. */
+  comboPoints?: number;
+  /** Level and worn item ids (the identity wire's `eq` online): the shield and
+   *  dagger requirements read the worn gear, never the sim-only weapon stat. */
+  level?: number;
+  equippedItems?: Partial<Record<EquipSlot, string>>;
   /** The player's worn auras: the free-cost proc read (Battle Trance /
    *  next_cast_free) that drives the slot glow and usable state, the kill-window
    *  gate, and the next-cast empowerment read. Both worlds expose the live aura
@@ -264,6 +294,9 @@ export interface ActionBarTargetInput {
   kind: string;
   templateId: string;
   pos: Vec3;
+  /** Current and max health: an execute-window ability (Execute, Duskfire, Hammer
+   *  of Wrath) greys out while the target sits above its threshold. */
+  hp?: number;
   maxHp?: number;
   auras: readonly ActionBarAuraInput[];
 }
@@ -274,6 +307,9 @@ export interface ActionBarWorldInput {
   player: ActionBarPlayerInput;
   target: ActionBarTargetInput | null;
   inventory: readonly { itemId: string; count: number }[];
+  /** The item id in the player's trinket slot (IWorld equipment.trinket), or
+   *  null/absent when none: a trinket slot is usable only while it is worn. */
+  wornTrinketId?: string | null;
   /** Aura-derived because the online player entity's local cache is not wired. */
   stealthed: boolean;
   /** The committed spec of EVERY class (the HUD hands in `IWorld.talentSpec`,
@@ -453,6 +489,61 @@ export function actionBarCooldownRemaining(
 }
 
 /**
+ * The cast gate's situational requirements beyond cost and cooldown, each asked
+ * through the same predicate or field the sim's gate reads (combat/
+ * casting_lifecycle.ts), so a slot greys out exactly when pressing it would be
+ * refused: the target's execute window, combat state, combo points, a druid
+ * form, a worn shield or dagger, and Conflagrate's Burning Pact. The
+ * target-dependent checks only run against a live target (with health known,
+ * for the execute window); with no target the gate auto-acquires one, so the
+ * slot stays lit rather than guessing.
+ */
+export function secondaryRequirementsMet(
+  world: Pick<ActionBarWorldInput, 'player' | 'target'>,
+  ability: ActionBarAbility,
+): boolean {
+  const { player, target } = world;
+  const def = ability.def;
+  if (
+    def.requiresOutOfCombat &&
+    player.inCombat === true &&
+    !leavingRestrictedToggle(def, player.auras)
+  ) {
+    return false;
+  }
+  if (def.spendsCombo && !def.comboOptional && (player.comboPoints ?? 0) <= 0) return false;
+  if (def.requiresForm !== undefined && !formRequirementMet(player.auras, def)) return false;
+  const worn = player.equippedItems;
+  if (worn !== undefined) {
+    if (def.requiresShield && !shieldEquipped(worn)) return false;
+    if (
+      effectsRequireDagger(ability.effects ?? def.effects) &&
+      !wieldsDagger(worn, player.level ?? 1)
+    ) {
+      return false;
+    }
+  }
+  if (
+    def.id === 'conflagrate' &&
+    target !== null &&
+    !target.dead &&
+    !hasBurningPact(player, target)
+  ) {
+    return false;
+  }
+  if (
+    target !== null &&
+    !target.dead &&
+    target.hp !== undefined &&
+    target.maxHp !== undefined &&
+    executeWindowBlocksCast(def, player, target.hp, target.maxHp)
+  ) {
+    return false;
+  }
+  return true;
+}
+
+/**
  * Build an action-bar view bound to one descriptor. The per-slot state array is
  * preallocated once here; tick() mutates it in place and returns the SAME references
  * every call. Each createActionBarView yields an INDEPENDENT view: a
@@ -580,35 +671,50 @@ export function createActionBarView(
 
         if (item !== null) {
           const count = countRawInSlots(world.inventory, item.id);
+          // A trinket is used where it is worn: its slot reads the equipment and
+          // its own use cooldown instead of the bag count (trinket_slot_core.ts).
+          const trinket = trinketSlotState(item.id, world.wornTrinketId, player.cooldowns);
+          // Potions share one global cooldown; an item with its own use cooldown
+          // (the allied hearthstone, the toys) reads it from content/item_cooldowns.
           const potionCd = item.kind === 'potion' ? player.potionCdRemaining : 0;
           const directCd = player.cooldowns.get(item.id) ?? 0;
-          const cdRemaining = potionCd > 0 ? potionCd : directCd;
           const baseCd = getItemCooldownDuration(item.id);
-          const totalCd = potionCd > 0 ? POTION_COOLDOWN : baseCd > 0 ? baseCd : cdRemaining;
-
+          const itemCd = trinket ? trinket.cooldownRemaining : potionCd > 0 ? potionCd : directCd;
+          const itemCdTotal = trinket
+            ? trinket.cooldownTotal
+            : potionCd > 0
+              ? POTION_COOLDOWN
+              : baseCd > 0
+                ? baseCd
+                : itemCd;
           slot.kind = 'item';
           slot.abilityId = null;
           slot.itemId = item.id;
           slot.iconKey = `${ITEM_ICON_PREFIX}${item.id}`;
-          slot.cooldownRemaining = cdRemaining;
-          slot.cooldownTotal = cdRemaining > 0 ? totalCd : 0;
+          slot.cooldownRemaining = itemCd;
+          slot.cooldownTotal = itemCd > 0 ? itemCdTotal : 0;
           slot.cooldownPercent =
-            cdRemaining > 0
+            itemCd > 0
               ? Math.min(
                   MAX_COOLDOWN_PERCENT,
-                  (cdRemaining / Math.max(COOLDOWN_DENOM_FLOOR, totalCd)) * MAX_COOLDOWN_PERCENT,
+                  (itemCd / Math.max(COOLDOWN_DENOM_FLOOR, itemCdTotal)) * MAX_COOLDOWN_PERCENT,
                 )
               : 0;
           slot.cdText =
-            cdRemaining > COOLDOWN_TEXT_THRESHOLD
-              ? cdRemaining >= 60
-                ? `${Math.ceil(cdRemaining / 60)}m`
-                : deps.formatCount(Math.ceil(cdRemaining))
+            itemCd > COOLDOWN_TEXT_THRESHOLD
+              ? itemCd >= 60
+                ? deps.t('abilityUi.actionBar.cooldownMinutes', {
+                    minutes: deps.formatCount(Math.ceil(itemCd / 60)),
+                  })
+                : deps.formatCount(Math.ceil(itemCd))
               : '';
-          slot.count = deps.formatCount(count);
+          // The worn trinket shows no bag count (a "0" would read as "none left").
+          slot.count = trinket?.worn ? '' : deps.formatCount(count);
           slot.isCharges = false;
           slot.rechargePercent = 0;
-          slot.usable = !(count <= 0 || player.dead || cdRemaining > 0);
+          slot.usable = trinket
+            ? trinket.worn && !player.dead
+            : !(count <= 0 || player.dead || itemCd > 0);
           slot.outOfRange = false;
           slot.queued = false;
           slot.procGlow = false;
@@ -787,6 +893,7 @@ export function createActionBarView(
             ? player.savedMana
             : player.resource;
         slot.usable =
+          secondaryRequirementsMet(world, ability) &&
           (!(castingPool < payableCost) || freeByProc || freeBySolarReprisal) &&
           (def.ruinCost ?? 0) <= ruin &&
           soulFragments >= (def.soulFragmentCost ?? 0) &&

@@ -31,7 +31,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1037,
-      "state": "4a05f1d1",
+      "state": "51878938",
       "events": "d25cd5af",
       "rng": {
         "draws": 21,
@@ -89,6 +89,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -167,6 +168,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -248,6 +250,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -329,6 +332,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -410,6 +414,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -766,7 +771,7 @@
       "tick": 1,
       "time": 0.05,
       "nextId": 1037,
-      "state": "c7917e23",
+      "state": "87fecd66",
       "events": "cf99e425",
       "rng": {
         "draws": 63,
@@ -901,6 +906,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -954,6 +960,25 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "korzul_the_gravewyrm": 2
+            },
+            "dungeons": [
+              2
+            ],
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -1086,6 +1111,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1142,6 +1168,25 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "korzul_the_gravewyrm": 2
+            },
+            "dungeons": [
+              2
+            ],
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -1267,6 +1312,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1323,6 +1369,25 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "korzul_the_gravewyrm": 2
+            },
+            "dungeons": [
+              2
+            ],
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -1448,6 +1513,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1504,6 +1570,25 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "korzul_the_gravewyrm": 2
+            },
+            "dungeons": [
+              2
+            ],
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -1629,6 +1714,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1685,6 +1771,25 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "korzul_the_gravewyrm": 2
+            },
+            "dungeons": [
+              2
+            ],
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -2044,7 +2149,7 @@
       "tick": 1,
       "time": 0.05,
       "nextId": 1037,
-      "state": "c7917e23",
+      "state": "87fecd66",
       "events": "741638a5",
       "rng": {
         "draws": 63,
@@ -2179,6 +2284,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2232,6 +2338,25 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "korzul_the_gravewyrm": 2
+            },
+            "dungeons": [
+              2
+            ],
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -2364,6 +2489,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2420,6 +2546,25 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "korzul_the_gravewyrm": 2
+            },
+            "dungeons": [
+              2
+            ],
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -2545,6 +2690,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2601,6 +2747,25 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "korzul_the_gravewyrm": 2
+            },
+            "dungeons": [
+              2
+            ],
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -2726,6 +2891,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2782,6 +2948,25 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "korzul_the_gravewyrm": 2
+            },
+            "dungeons": [
+              2
+            ],
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [
@@ -2907,6 +3092,7 @@
           "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2963,6 +3149,25 @@
             "stock": {}
           },
           "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {
+              "korzul_the_gravewyrm": 2
+            },
+            "dungeons": [
+              2
+            ],
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604800000
+          },
           "worldQuestReplacements": {},
           "wyrmfallDaily": {
             "sources": [

@@ -134,6 +134,10 @@ export class LeaderboardWindow {
   private rankings: WorldQuestLeaderboardWindow | null = null;
   constructor(private readonly deps: LeaderboardWindowDeps) {}
 
+  openGliderRankings(): void {
+    this.worldQuestRankings()?.open('glider_downs_v2_daily');
+  }
+
   private worldQuestRankings(): WorldQuestLeaderboardWindow | null {
     if (this.rankings) return this.rankings;
     const focusFor = this.deps.windowFocusFor;
