@@ -2209,7 +2209,7 @@
     top: var(--spacing-sm);
     bottom: var(--paperdoll-stage-foot-h);
     justify-content: space-evenly;
-    z-index: 2;
+    z-index: 1;
     flex: none;
     width: auto;
     padding: var(--spacing-xs);

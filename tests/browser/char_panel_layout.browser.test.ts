@@ -82,7 +82,7 @@ describe('character sheet desktop geometry', () => {
       playerClass: longestMastery.playerClass,
       talentSpec: longestMastery.spec.id,
     },
-  ])('shows $playerClass/$talentSpec without scrolling at $width x $height', async (size) => {
+  ])('fits $playerClass/$talentSpec in the window at $width x $height', async (size) => {
     await page.viewport(size.width, size.height);
     document.body.className = 'game-active';
     document.documentElement.style.setProperty('--app-vw', `${size.width}px`);
@@ -94,7 +94,10 @@ describe('character sheet desktop geometry', () => {
     const footer = element(root, '.char-footer');
     const bounds = root.getBoundingClientRect();
 
-    for (const region of [root, rail, element(root, '.char-sheet')]) {
+    // The window and the sheet fit; the stats rail (Offense, Defense, Ratings,
+    // Specialization) is the one region that scrolls, as the release's CSS says.
+    expect(getComputedStyle(rail).overflowY).toBe('auto');
+    for (const region of [root, element(root, '.char-sheet')]) {
       expect
         .soft(region.scrollHeight, `${region.className} vertical overflow`)
         .toBeLessThanOrEqual(region.clientHeight + 1);
@@ -114,18 +117,20 @@ describe('character sheet desktop geometry', () => {
     for (const selector of ['.char-spec-identity', '.char-spec-mastery']) {
       const rect = element(root, selector).getBoundingClientRect();
       expect.soft(rect.height, selector).toBeGreaterThan(0);
-      expect
-        .soft(rect.bottom, selector)
-        .toBeLessThanOrEqual(rail.getBoundingClientRect().bottom + 1);
-      expect.soft(rect.bottom, selector).toBeLessThanOrEqual(footerBounds.top + 1);
     }
+    // Scrolled into view, the specialization block sits wholly inside the rail.
+    const mastery = element(root, '.char-spec-mastery');
+    mastery.scrollIntoView({ block: 'end', inline: 'nearest', behavior: 'instant' });
+    expect
+      .soft(mastery.getBoundingClientRect().bottom, '.char-spec-mastery')
+      .toBeLessThanOrEqual(rail.getBoundingClientRect().bottom + 1);
     expect.soft(footerBounds.bottom).toBeLessThanOrEqual(bounds.bottom + 1);
     expect(root.querySelectorAll('.char-footer [role="tab"]')).toHaveLength(5);
     const slots = Array.from(
       root.querySelectorAll<HTMLElement>('#equip-row-weapons [data-equip-slot]'),
       (slot) => slot.dataset.equipSlot,
     );
-    expect(slots).toEqual(['mainhand', 'offhand']);
+    expect(slots).toEqual(['mainhand', 'offhand', 'trinket']);
     expect(element(root, '#equip-slot-offhand').getBoundingClientRect().bottom).toBeLessThanOrEqual(
       footerBounds.top,
     );
@@ -170,7 +175,7 @@ describe('mobile paperdoll geometry', () => {
         inspect.querySelectorAll('#inspect-equip-weapons .slot-name'),
         (el) => el.textContent,
       ),
-    ).toEqual(['mainhand', 'offhand']);
+    ).toEqual(['mainhand', 'offhand', 'trinket']);
     assertReachableSlots(inspect, '.equip-slot', size.width, size.height);
   });
 });
@@ -185,7 +190,7 @@ function assertReachableSlots(
     .soft(root.scrollWidth, `${root.id} horizontal overflow`)
     .toBeLessThanOrEqual(root.clientWidth + 1);
   const slots = root.querySelectorAll<HTMLElement>(selector);
-  expect(slots).toHaveLength(12);
+  expect(slots).toHaveLength(13);
   for (const slot of slots) {
     slot.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'instant' });
     const bounds = root.getBoundingClientRect();

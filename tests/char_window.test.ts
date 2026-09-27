@@ -262,7 +262,7 @@ describe('char_window: profession art placements', () => {
     );
     expect(specPanel?.querySelector('.char-spec-class')?.textContent).toBe('Warrior');
     expect(specPanel?.previousElementSibling?.querySelector('.sp-title')?.textContent).toBe(
-      'Defense',
+      'Ratings',
     );
     const tabs = [...root.querySelectorAll<HTMLElement>('.char-sidebar-tab')];
     expect(tabs.map((tab) => [tab.dataset.tab, tab.getAttribute('aria-selected')])).toEqual([
