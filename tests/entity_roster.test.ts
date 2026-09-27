@@ -75,6 +75,7 @@ function makeCtx() {
     riftEvents: [],
     nextRiftInstanceId: 1,
     riftPortalNextAt: 120,
+    transportClockOffset: 0,
     riftPortalSpawnCount: 0,
     get rng() {
       return rng;
@@ -247,9 +248,15 @@ function makeCtx() {
     dropPartyMarkers: vi.fn(),
     formDungeonFinderGroup: vi.fn(() => null),
     onMobKilledForQuests: vi.fn(),
+    onMobKilledForWorldQuests: vi.fn(),
     onRecipeCraftedForQuests: vi.fn(),
     onNodeGatheredForQuests: vi.fn(),
     onCropFarmedForQuests: vi.fn(),
+    onNodeGatheredForWorldQuests: vi.fn(),
+    onObjectInteractedForWorldQuests: vi.fn(() => false),
+    currentWorldQuestRotation: vi.fn(() => ({ cycle: '', quests: [] })),
+    hasActiveWorldQuest: vi.fn(() => false),
+    completeWorldQuestEscort: vi.fn(),
     onInventoryChangedForQuests: vi.fn(),
     checkQuestReady: vi.fn(),
     countItem: vi.fn(() => 0),

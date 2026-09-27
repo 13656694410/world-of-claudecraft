@@ -194,20 +194,20 @@ export const ru_RU: EnTranslations = {
         "description": "Создать сценарий объявления готовой группы."
       },
       "hillwarn": {
-        "label": "Hill countdown",
-        "description": "Announce a hill now; it rises after the full warning."
+        "label": "Отсчёт холма",
+        "description": "Объявить холм сейчас: он поднимется после полного предупреждения."
       },
       "hillnow": {
-        "label": "Raise hill now",
-        "description": "Raise a hill at once and stand on it."
+        "label": "Поднять холм сейчас",
+        "description": "Поднять холм немедленно и встать на нём."
       },
       "hillrise": {
-        "label": "Skip hill countdown",
-        "description": "Raise the announced hill right away."
+        "label": "Пропустить отсчёт холма",
+        "description": "Поднять объявленный холм немедленно."
       },
       "hillend": {
-        "label": "End hill",
-        "description": "Make the current hill fall now."
+        "label": "Завершить холм",
+        "description": "Немедленно обрушить текущий холм."
       }
     }
   },
@@ -348,46 +348,46 @@ export const ru_RU: EnTranslations = {
   },
   "hudChrome": {
     "framePresets": {
-      "apply": "Apply",
-      "pickerLabel": "Frame Presets: {name}",
-      "overwrite": "Overwrite Preset",
-      "overwriteBody": "Replace the saved preset \"{name}\" with your current layout?",
-      "current": "Current Layout",
-      "new": "New Preset",
-      "empty": "No saved presets",
-      "deleteNamed": "Delete {name}",
-      "deleteBody": "Delete the frame preset \"{name}\"?",
-      "title": "Frame Presets",
-      "name": "Preset Name",
-      "slot": "Preset {slot}",
-      "remove": "Delete",
-      "saved": "Done.",
-      "failed": "Could not save or load the preset."
+      "apply": "Применить",
+      "pickerLabel": "Профили рамок: {name}",
+      "overwrite": "Перезаписать профиль",
+      "overwriteBody": "Заменить сохранённый профиль «{name}» текущим расположением?",
+      "current": "Текущая раскладка",
+      "new": "Новый набор",
+      "empty": "Нет сохранённых наборов",
+      "deleteNamed": "Удалить {name}",
+      "deleteBody": "Удалить набор рамок «{name}»?",
+      "title": "Наборы рамок",
+      "name": "Название набора",
+      "slot": "Набор {slot}",
+      "remove": "Удалить",
+      "saved": "Готово.",
+      "failed": "Не удалось сохранить или загрузить набор."
     },
     "frameMenus": {
-      "hide": "Hide Frame",
-      "units": "Unit Frames",
-      "bars": "Action Bars",
-      "trackers": "Trackers",
-      "auras": "Auras",
-      "combat": "Combat Displays",
-      "other": "Other HUD Elements",
-      "options": "Frame Options",
-      "allOptions": "All Frame Options",
-      "independentTarget": "Lock Target of Target to Target"
+      "hide": "Скрыть рамку",
+      "units": "Рамки персонажей",
+      "bars": "Панели действий",
+      "trackers": "Отслеживание",
+      "auras": "Ауры",
+      "combat": "Боевые индикаторы",
+      "other": "Другие элементы интерфейса",
+      "options": "Настройки рамки",
+      "allOptions": "Все настройки рамок",
+      "independentTarget": "Закрепить цель цели за целью"
     },
     "focusTargets": {
-      "showEmpty": "Show Empty Focus Frames",
-      "assignHint": "Select a target. Press {key} or click {button}.",
-      "assignClickHint": "Select a target. Click {button}.",
-      "ally": "Ally",
-      "enemy": "Enemy",
-      "unset": "Unset Focus",
-      "frame1": "Focus 1",
-      "frame2": "Focus 2",
-      "frame3": "Focus 3",
-      "assign": "Set focus {slot}",
-      "target": "Target focus {slot}"
+      "showEmpty": "Показывать пустые рамки фокуса",
+      "assignHint": "Выберите цель. Нажмите {key} или кнопку «{button}».",
+      "assignClickHint": "Выберите цель. Нажмите кнопку «{button}».",
+      "ally": "Союзник",
+      "enemy": "Враг",
+      "unset": "Снять фокус",
+      "frame1": "Фокус 1",
+      "frame2": "Фокус 2",
+      "frame3": "Фокус 3",
+      "assign": "Запомнить цель {slot}",
+      "target": "Выбрать цель {slot}"
     },
     "professionTrainers": {
       "blacksmithing": "Учитель кузнечного дела",
@@ -401,7 +401,155 @@ export const ru_RU: EnTranslations = {
       "hobby": "Учитель увлечений",
       "nameplate": "<{title}>"
     },
+    "weeklyRewards": {
+      "title": "Еженедельное хранилище",
+      "tab": "Еженедельные награды",
+      "intro": "Каждая достигнутая веха дает одно хранилище. После сброса Горнила откройте каждое хранилище, чтобы разыграть его добычу, затем выберите один предмет за неделю. Открытые награды сохраняются, а неполученные недели остаются доступными.",
+      "approachKeeper": "Встаньте рядом со смотрителем хранилища, чтобы посмотреть еженедельные награды.",
+      "nextReset": "Еженедельный сброс Горнила",
+      "countdown": "{days}д {hours}ч {minutes}м {seconds}с",
+      "progress": "{count} / {max}",
+      "milestone": "1 бросок по таблице добычи",
+      "lockedRoll": "Открывает 1 бросок по таблице добычи",
+      "earned": "Хранилищ после следующего сброса: {count}",
+      "normal": "Обычная",
+      "heroic": "Героическая",
+      "mixedClears": "Героических: {heroic} / Обычных: {normal}",
+      "heroicClears": "Героических: {count}",
+      "normalClears": "Обычных: {count}",
+      "viewPossibleLoot": "Посмотреть возможную добычу",
+      "chooseTable": "Выберите таблицу добычи для розыгрыша",
+      "selectAllTables": "Выбрать все",
+      "selectedTables": "Выбрано таблиц: {count}",
+      "selectedTable": "Выбрана {count} таблица",
+      "noLevelLoot": "На вашем текущем уровне нет подходящей добычи.",
+      "tableItemCount": "Предметов: {count}",
+      "tableItem": "{count} предмет",
+      "previouslyRolled": "Ранее разыгранная награда",
+      "noTables": "Среди записанных побед над боссами на этой сложности нет подходящего снаряжения.",
+      "tablesExhausted": "Все подходящие предметы уже разыграны. Выберите одну из открытых наград.",
+      "heroicUpgradeOne": "Еще {count} героическое подземелье до повышения",
+      "heroicUpgradeMany": "Еще {count} героических подземелий до повышения",
+      "completedTask": {
+        "raidOne": "Побежден {count} рейдовый босс",
+        "raidMany": "Побеждено рейдовых боссов: {count}",
+        "dungeonOne": "Пройдено {count} подземелье",
+        "dungeonMany": "Пройдено подземелий: {count}",
+        "worldOne": "Выполнено {count} локальное задание",
+        "worldMany": "Выполнено локальных заданий: {count}",
+        "pvpOne": "Выигран {count} рейтинговый матч",
+        "pvpMany": "Выиграно рейтинговых матчей: {count}"
+      },
+      "requiredTask": {
+        "raidOne": "Победите {count} рейдового босса",
+        "raidMany": "Победите рейдовых боссов: {count}",
+        "dungeonOne": "Пройдите {count} подземелье",
+        "dungeonMany": "Пройдите подземелий: {count}",
+        "worldOne": "Выполните {count} локальное задание",
+        "worldMany": "Выполните локальных заданий: {count}",
+        "pvpOne": "Выиграйте {count} рейтинговый матч",
+        "pvpMany": "Выиграйте рейтинговых матчей: {count}"
+      },
+      "readyWeeks": "Неполученных недель: {count}. Сначала получите награду за самую раннюю завершенную неделю.",
+      "claimLastWeek": "Получить награду за прошлую неделю",
+      "readyTitle": "Ваши еженедельные награды готовы",
+      "readyDescription": "Награды за завершенную неделю ждут вас. Откройте заработанные хранилища и выберите один предмет.",
+      "notNow": "Не сейчас",
+      "completedWeek": "Неделя завершилась {date}",
+      "currentWeek": "Вернуться к прогрессу этой недели",
+      "openRewards": "Открыть заработанные хранилища",
+      "openedCount": "Открыто хранилищ: {count} из {total}. Откройте все, чтобы выбрать награду.",
+      "openingSavedReward": "Открываем хранилище и сохраняем вашу награду...",
+      "rewardNumber": "Награда {count}",
+      "openVault": "Открыть хранилище: {name}",
+      "inspectItem": "Осмотреть {name}",
+      "selectItem": "Выбрать {name}",
+      "revealed": "Открыто",
+      "revealedItem": "Открыто: {name}",
+      "chooseReward": "Выберите одну награду",
+      "confirmTitle": "Получить {name}?",
+      "confirmClaim": "Подтвердить получение",
+      "backToChoices": "Назад к выбору",
+      "claimRequested": "Запрос на получение отправлен. Если сумки полны, освободите место и выберите снова.",
+      "waiting": "Готовых наград пока нет. Хранилища, заработанные на этой неделе, откроются после следующего сброса.",
+      "chooseOne": "Выбирайте внимательно: взяв один предмет, вы отказываетесь от всех остальных вариантов за эту неделю.",
+      "itemLevel": "Уровень предмета {level}",
+      "backlogFull": "Сохраненные недели заполнены. Получите награды, чтобы освободить место для будущих недель.",
+      "claim": "Взять выбранный предмет",
+      "poolSize": "Посмотреть предметы: {count}",
+      "worldPoolRule": "Снаряжение Nythraxis обычной сложности. Прохождение рейдов не требуется.",
+      "poolRule": "Каждый предмет из списка выпадает с равной вероятностью. Предметы соответствуют ограничениям вашего класса. Побежденные рейды открывают свою добычу на этой сложности. Легендарные предметы исключены.",
+      "selectionPoolRule": "Для наград за рейды и подземелья перед открытием выберите одну или несколько таблиц. Таблицы подземелий объединяют добычу боссов, которых вы победили на этой сложности. Из розыгрыша исключены дубликаты, легендарные предметы и снаряжение, требуемый уровень которого превышает ваш более чем на {maxLevelOffset}.",
+      "rare": "Редкое",
+      "epic": "Эпическое",
+      "unavailable": "Пока недоступно",
+      "worldUnavailable": "Награды за локальные задания станут доступны, когда появятся сменяющиеся локальные задания.",
+      "category": {
+        "raid": "Рейды",
+        "dungeon": "Подземелья",
+        "world": "Локальные задания",
+        "pvp": "PvP"
+      },
+      "task": {
+        "raid": "Побеждайте разных рейдовых боссов. Каждый босс засчитывается один раз; победа в героическом режиме повышает его зачет.",
+        "dungeon": "Проходите подземелья. Ваши лучшие прохождения определяют сложность награды на каждой вехе.",
+        "world": "Выполняйте сменяющиеся локальные задания. Сюжетные задания не засчитываются.",
+        "pvp": "Побеждайте в рейтинговых матчах на арене или на полях боя. Тренировочные матчи и сдачи не засчитываются."
+      },
+      "pool": {
+        "raid": "Добыча из обычных рейдов",
+        "raid_heroic": "Добыча из героических рейдов",
+        "dungeon": "Добыча из обычных подземелий",
+        "dungeon_heroic": "Добыча из героических подземелий",
+        "world": "Добыча за локальные задания",
+        "pvp": "Снаряжение Боевой мощи"
+      }
+    },
+    "ferry": {
+      "regionLabel": "Расписание парома",
+      "departsIn": "Паром на {dest}: отправление через {time}",
+      "castingOff": "Паром на {dest} отчаливает",
+      "boardHint": "Стойте на палубе в момент отплытия. Переправа бесплатна.",
+      "sailing": "Курс на {dest}"
+    },
     "materialStackSelectionUnavailable": "Этот выбор материалов больше недоступен.",
+    "vehicle": {
+      "title": "Пушка Северного Дозора",
+      "objective": "Защитите Северный Дозор",
+      "lastKeepTitle": "Пушка Последнего оплота",
+      "lastKeepObjective": "Защитите подступы к Последнему оплоту",
+      "cannonball": "Ядро",
+      "grapeshot": "Картечь",
+      "incendiary": "Зажигательный выстрел",
+      "integrity": "Прочность пушки",
+      "exit": "Покинуть пушку",
+      "wave": "Волна {wave}/{total}",
+      "endlessWave": "Бесконечная волна {wave} (раунд {round})",
+      "resultWaves": "Отбито волн: {waves}.",
+      "enemies": "Осталось врагов: {count}",
+      "countdown": "Приготовьтесь: {seconds}",
+      "hint": "Выберите выстрел, затем щёлкните по земле, чтобы открыть огонь.",
+      "aim": "Щёлкните, чтобы выстрелить. Правая кнопка мыши или Esc отменяет прицеливание.",
+      "sapperWarning": "Идёт сапёр! Остановите подрывника, пока он не добрался до линии обороны.",
+      "chargeWarning": "Командир приказывает атаковать! Все уцелевшие враги движутся быстрее.",
+      "armorHint": "Разбейте серебряные щиты Ядром, затем используйте Зажигательный выстрел.",
+      "exposedHint": "Броня разбита: Зажигательный выстрел наносит двойной урон.",
+      "barrelHint": "Стреляйте по отмеченным пороховым бочкам, когда рядом с ними соберутся враги.",
+      "barrelRules": "Прямое попадание поджигает пороховую бочку: {damage} ед. урона в радиусе {radius} м, с цепными взрывами.",
+      "armorRules": "Бронированные войска получают на {reduction} меньше урона, пока Ядро не разобьёт их броню. Разбитая броня получает на {bonus} больше урона от огня.",
+      "shake": "Тряска камеры",
+      "gold": "Золотая медаль",
+      "silver": "Серебряная медаль",
+      "bronze": "Бронзовая медаль",
+      "failed": "Оборона провалена",
+      "result": "{medal}: прочность {integrity}, точность {accuracy}.",
+      "medalRules": "Золото: прочность не ниже {goldIntegrity} и точность не ниже {goldAccuracy}. Серебро: {silverIntegrity} и {silverAccuracy}. Любая другая победа приносит бронзу. Засчитываются попадания по врагам и бочкам; каждый выстрел учитывается один раз. Медали не дают дополнительных денег.",
+      "shotDamage": "Наносит {damage} ед. урона каждому врагу в радиусе {radius} м от места попадания.",
+      "shotSlow": "Замедляет поражённых врагов на {amount} на {seconds} сек.",
+      "shotBurn": "Оставляет огонь на {seconds} сек., который наносит {damage} ед. урона в секунду врагам, стоящим в нём.",
+      "shotTiming": "Восстановление: {cooldown} сек. Попадание через {flight} сек. Общее восстановление всех выстрелов: {recovery} сек.",
+      "shotRules": "Цельтесь внутри отмеченного поля. Не расходует ману. Урон не зависит от снаряжения и талантов."
+    },
     "warlock": {
       "doomLabel": "Осуждение",
       "fateThreadsLabel": "Нити судьбы",
@@ -1340,9 +1488,56 @@ export const ru_RU: EnTranslations = {
       "devTierCol": "Значок",
       "mergedPrs": "Слито PR",
       "devEmpty": "Пока нет участников в рейтинге.",
+      "tabWorldQuests": "Локальные задания",
+      "wqBoardsLabel": "Таблицы рекордов локальных заданий",
+      "wqMedal": "Медаль",
+      "wqWaves": "Отбито волн",
+      "wqTime": "Время",
+      "gliderCourseNames": {
+        "downs": "Прибрежный круг",
+        "valleys": "Круг по долине",
+        "switchbacks": "Повороты хребта"
+      },
+      "gliderDaily": "{course}: сегодня",
+      "gliderLifetime": "{course}: за всё время",
+      "gliderStart": "Лететь по этому маршруту",
+      "gliderRankings": "Рекорды полётов",
+      "gliderPersonalRules": "Ваши офлайн-рекорды сохраняются с этим персонажем. Пройдите все кольца по порядку. Дневные рекорды сбрасываются каждый день.",
+      "gliderRules": "Побеждает самое быстрое полное прохождение. Пройдите все кольца. Дневные рекорды сбрасываются вместе с миром. Рекорды обновляются в течение 30 секунд.",
+      "wqPoints": "Счёт",
+      "wqSeconds": "{seconds} с",
+      "wqNoMedal": "Нет",
+      "wqMedals": {
+        "gold": "Золото",
+        "silver": "Серебро",
+        "bronze": "Бронза"
+      },
+      "wqEmpty": "В этой таблице пока нет результатов. Выполните локальное задание, чтобы занять место.",
       "podiumLabel": "Тройка лучших",
       "unclaimed": "Свободно",
       "prestigeTitle": "Престиж {rank}"
+    },
+    "wqLadder": {
+      "title": "Рейтинг локальных заданий",
+      "subtitle": "Лучшая попытка каждого героя, отдельный рейтинг для каждого задания с медалями.",
+      "close": "Закрыть рейтинг локальных заданий",
+      "rankedBy": {
+        "waves": "По числу отбитых волн",
+        "seconds": "По лучшему времени",
+        "points": "По наибольшему счёту"
+      },
+      "rankedByMedal": {
+        "waves": "По медали, затем по числу отбитых волн",
+        "seconds": "По медали, затем по лучшему времени",
+        "points": "По медали, затем по наибольшему счёту"
+      },
+      "podiumLabel": "Тройка лучших",
+      "unclaimed": "Свободно",
+      "totalOne": "В рейтинге один герой",
+      "totalMany": "Героев в рейтинге: {count}",
+      "selfLabel": "Ваш рекорд",
+      "selfRank": "Место {rank}",
+      "selfNone": "У вас пока нет результата в этом рейтинге. Выполните задание, чтобы попасть в рейтинг."
     },
     "pledge": {
       "open": "Принимает присяги",
@@ -1510,7 +1705,7 @@ export const ru_RU: EnTranslations = {
       "breakdownSummary": "{tab}: {value}",
       "breakdownRow": "{value} ({percent})",
       "breakdownOther": "Прочее ({count})",
-      "targetsHeader": "Targets",
+      "targetsHeader": "Цели",
       "percent": "{value}%",
       "petAbility": "{pet}: {ability}",
       "melee": "Ближний бой",
@@ -1519,150 +1714,150 @@ export const ru_RU: EnTranslations = {
       "dock": "Вернуть счётчик в окно счётчиков",
       "separate": "Отделить: {meter}",
       "regroup": "Вернуть: {meter}",
-      "settingsTitle": "Details / Meter Settings",
-      "optionsEngineBadge": "WoC Details! Engine",
-      "resetDefaults": "Reset to Defaults",
-      "closeSettings": "Close",
-      "densityCompact": "Density: Compact (16px)",
-      "densityStandard": "Density: Standard (20px)",
-      "bgGlass": "Background: Glass (76%)",
-      "bgSolid": "Background: Solid (98%)",
-      "bgMinimal": "Background: Minimal (45%)",
-      "numDetailed": "Numbers: Detailed",
-      "numCompact": "Numbers: Abbreviated (k/M)",
-      "raidTotalsOn": "Header group total: Yes",
-      "raidTotalsOff": "Header group total: No",
-      "tabGeneral": "Window & Background",
-      "tabGeneralDesc": "Opacity, scale, lock",
-      "tabBars": "Bars & Textures",
-      "tabBarsDesc": "Height, spacing, animation",
-      "tabText": "Text & Typography",
-      "tabTextDesc": "Fonts, k/M, DPS, rank",
-      "tabHeader": "Header & Title",
-      "tabHeaderDesc": "Group total, title bar",
-      "tabCombat": "Combat & Limits",
-      "tabCombatDesc": "Max rows, shields",
-      "tabPresets": "Quick Themes",
-      "tabPresetsDesc": "One-click presets",
-      "tabProfiles": "Profiles & Import",
-      "tabProfilesDesc": "Export, import, and profiles",
-      "groupWindow": "Window Appearance & Background",
-      "bgMode": "Background Mode",
-      "bgModeDesc": "Visual styling for the meter panel.",
-      "optGlass": "Glass (Blur)",
-      "optGlassDesc": "Frosted blur effect",
-      "optSolid": "Solid",
-      "optSolidDesc": "Dark high-contrast panel",
-      "optMinimal": "Minimal",
-      "optMinimalDesc": "Faint translucent",
-      "optTransparent": "Transparent",
-      "optTransparentDesc": "No background, bars only",
-      "bgOpacity": "Background Opacity",
-      "bgOpacityDesc": "Opacity percentage for the window background.",
-      "windowScale": "Window Scale",
-      "windowScaleDesc": "Increase or decrease the overall meter scale.",
-      "lockPosition": "Lock Position",
-      "lockPositionDesc": "Lock the window to prevent accidental dragging or resizing in combat.",
-      "groupBars": "Bar Geometry & Texture",
-      "barHeight": "Bar Height",
-      "barHeightDesc": "Vertical thickness of each combat row (14px compact to 26px spacious).",
-      "barSpacing": "Bar Spacing",
-      "barSpacingDesc": "Vertical pixel gap between adjacent rows.",
-      "barTexture": "Bar Texture",
-      "barTextureDesc": "Visual finish and shading over the class color.",
-      "texSpecular": "Glossy (Specular)",
-      "texSpecularDesc": "Top highlight reflection with bevel",
-      "texSmooth": "Smooth (Flat)",
-      "texSmoothDesc": "Clean flat class color",
-      "texGradient": "Gradient",
-      "texGradientDesc": "Smooth horizontal color gradient",
-      "barAnimation": "Smooth Bar Animation",
-      "barAnimationDesc": "Fluidly interpolates bar growth and decay in real time.",
-      "alwaysShowMe": "Always Show Me",
-      "alwaysShowMeDesc": "Pins your player bar to the bottom if ranked outside visible rows.",
-      "groupText": "Text Formatting & Telemetry",
-      "numFormat": "Number Format",
-      "numFormatDesc": "Display style for totals.",
-      "optNumCompact": "Abbreviated (k / M)",
-      "optNumCompactDesc": "Example: 145.2k, 1.2M",
-      "optNumDetailed": "Full Detailed",
-      "optNumDetailedDesc": "Example: 145,200, 1,240,500",
-      "optNumDamageDps": "Damage | DPS",
-      "optNumDamageDpsDesc": "Example: 239.2k | 18.4k (clean telemetry bar)",
-      "showDps": "Show Rate per Second (DPS / HPS)",
-      "showDpsDesc": "Shows damage or healing rate per second on each bar.",
-      "showPercent": "Show Percentage (%)",
-      "showPercentDesc": "Shows percent contribution of total group output.",
-      "showRank": "Show Rank (#1, #2...)",
-      "showRankDesc": "Shows ordinal rank number beside the name.",
-      "showClassIcon": "Show Class Icon",
-      "showClassIconDesc": "Displays class or role icon next to each player.",
-      "groupFont": "Combat Typography (Font Family)",
-      "groupHeader": "Header Customization",
-      "showTitleBar": "Show Title Bar",
-      "showTitleBarDesc": "Displays top bar with combat segment name and controls.",
-      "showRaidTotals": "Group Summary in Subtitle",
-      "showRaidTotalsDesc": "Displays cumulative group DPS/HPS in the header subtitle.",
-      "groupCombat": "Combat Rules & Limits",
-      "maxRows": "Maximum Visible Rows",
-      "maxRowsDesc": "Simultaneous bars (0 = unlimited, auto-fit to window height).",
-      "autoRows": " (Auto)",
-      "barsUnit": " bars",
-      "includeShields": "Count Absorbs as Healing",
-      "includeShieldsDesc": "Adds absorbed shield damage (Psalm of Warding, etc.) to Healing meter.",
-      "groupPresets": "One-Click Quick Themes",
-      "applyPreset": "Apply Theme",
-      "presetDetailsName": "Modern Glass",
-      "presetDetailsDesc": "Frosted blur background, specular glossy bars, abbreviated numbers, and full telemetry.",
-      "presetDetailsBadge": "Recommended",
-      "presetClassicName": "Classic Solid",
-      "presetClassicDesc": "Dark high-contrast solid panel, flat class bars, uncompressed detailed numbers in classic layout.",
-      "presetClassicBadge": "Classic",
-      "presetMinimalName": "Pure Minimal",
-      "presetMinimalDesc": "Nearly transparent background, compact 16px bars without gaps, direct text without percentages.",
-      "presetMinimalBadge": "Clean",
-      "presetRaidName": "Raid Focus",
-      "presetRaidDesc": "Designed for raids: compact 18px density, 10-bar limit, visible group total, and pinned player bar.",
-      "presetRaidBadge": "Raid",
-      "presetProGradientName": "Pro Gradient",
-      "presetProGradientDesc": "Floating transparent panel, horizontal gradient bars, spec icons, and Damage | DPS telemetry.",
-      "presetProGradientBadge": "Pro",
-      "groupManageProfiles": "Profile Management",
-      "activeProfile": "Active Profile",
-      "activeProfileDesc": "Select or manage independent profiles for different gameplay scenarios.",
-      "saveAs": "Save As...",
-      "duplicate": "Duplicate",
-      "deleteProfile": "Delete",
-      "cannotDeleteDefault": "The Default profile cannot be deleted",
-      "promptNewProfile": "Name of the new profile:",
-      "profileCopySuffix": " (Copy)",
-      "groupExport": "Export Current Profile",
-      "exportDesc": "Encoded profile string of your current configuration. Copy it to share or backup.",
-      "copyString": "Copy Profile String",
-      "copiedFeedback": "Copied to clipboard!",
-      "groupImport": "Import Profile",
-      "importDesc": "Paste a profile string (!WoC-Details:... or JSON) to apply and save.",
-      "importPlaceholder": "Paste profile string here (!WoC-Details:...)",
-      "importNamePlaceholder": "Profile name (optional)",
-      "importApply": "Import & Apply",
-      "errEmptyProfile": "Please paste a profile string.",
-      "errInvalidProfile": "Error: Invalid or corrupt profile string.",
-      "importSuccess": "Profile \"{name}\" imported successfully!",
-      "reportSent": "Report copied and sent to chat",
-      "reportNoData": "No data recorded.",
-      "noDetailedData": "No detailed data",
-      "noDeathEvents": "No events logged before death",
-      "killedBy": "Killed by {killer} ({ability})",
-      "lethalHit": "Lethal Hit",
-      "recentCombatEvents": "Last {count} combat events",
-      "backComparison": "Comparison",
-      "comparisonNeedTwo": "At least 2 fights are required to compare",
-      "backTimeline": "Timeline",
-      "timelineCombatEvents": "Combat events: {count}",
-      "backDev": "Balance / Dev",
-      "balanceAbilitiesCount": "Logged abilities: {count}",
-      "targetSubtitle": "Target: {target}",
-      "noTargetData": "No player data for this target"
+      "settingsTitle": "Настройки счётчика Details!",
+      "optionsEngineBadge": "Движок WoC Details!",
+      "resetDefaults": "Сбросить к значениям по умолчанию",
+      "closeSettings": "Закрыть",
+      "densityCompact": "Плотность: компактная (16 пикс.)",
+      "densityStandard": "Плотность: стандартная (20 пикс.)",
+      "bgGlass": "Фон: стекло (76%)",
+      "bgSolid": "Фон: сплошной (98%)",
+      "bgMinimal": "Фон: минимальный (45%)",
+      "numDetailed": "Числа: подробные",
+      "numCompact": "Числа: сокращённые (тыс./млн)",
+      "raidTotalsOn": "Групповой итог в заголовке: да",
+      "raidTotalsOff": "Групповой итог в заголовке: нет",
+      "tabGeneral": "Окно и фон",
+      "tabGeneralDesc": "Прозрачность, масштаб, блокировка",
+      "tabBars": "Полосы и текстуры",
+      "tabBarsDesc": "Высота, промежутки, анимация",
+      "tabText": "Текст и типографика",
+      "tabTextDesc": "Шрифты, тыс./млн, DPS, место",
+      "tabHeader": "Заголовок и название",
+      "tabHeaderDesc": "Групповой итог, заголовок окна",
+      "tabCombat": "Бой и ограничения",
+      "tabCombatDesc": "Макс. строк, щиты",
+      "tabPresets": "Быстрые темы",
+      "tabPresetsDesc": "Готовые темы в один клик",
+      "tabProfiles": "Профили и импорт",
+      "tabProfilesDesc": "Экспорт, импорт и профили",
+      "groupWindow": "Вид окна и фон",
+      "bgMode": "Режим фона",
+      "bgModeDesc": "Визуальное оформление панели счётчика.",
+      "optGlass": "Стекло (размытие)",
+      "optGlassDesc": "Эффект матового размытия",
+      "optSolid": "Сплошной",
+      "optSolidDesc": "Тёмная контрастная панель",
+      "optMinimal": "Минимальный",
+      "optMinimalDesc": "Едва заметная прозрачность",
+      "optTransparent": "Прозрачный",
+      "optTransparentDesc": "Без фона, только полосы",
+      "bgOpacity": "Прозрачность фона",
+      "bgOpacityDesc": "Процент непрозрачности фона окна.",
+      "windowScale": "Масштаб окна",
+      "windowScaleDesc": "Увеличивает или уменьшает общий масштаб счётчика.",
+      "lockPosition": "Заблокировать положение",
+      "lockPositionDesc": "Блокирует окно, чтобы случайно не переместить или не изменить его размер в бою.",
+      "groupBars": "Форма и текстура полос",
+      "barHeight": "Высота полос",
+      "barHeightDesc": "Вертикальная толщина каждой боевой строки (от 14 пикс. компактно до 26 пикс. просторно).",
+      "barSpacing": "Расстояние между полосами",
+      "barSpacingDesc": "Вертикальный зазор в пикселях между соседними строками.",
+      "barTexture": "Текстура полос",
+      "barTextureDesc": "Визуальная отделка и тонировка поверх цвета класса.",
+      "texSpecular": "Глянцевый (блик)",
+      "texSpecularDesc": "Блик сверху со скосом",
+      "texSmooth": "Гладкий (плоский)",
+      "texSmoothDesc": "Чистый плоский цвет класса",
+      "texGradient": "Градиент",
+      "texGradientDesc": "Плавный горизонтальный цветовой градиент",
+      "barAnimation": "Плавная анимация полос",
+      "barAnimationDesc": "Плавно интерполирует рост и уменьшение полос в реальном времени.",
+      "alwaysShowMe": "Всегда показывать меня",
+      "alwaysShowMeDesc": "Закрепляет вашу строку внизу, если ваше место выходит за пределы видимых строк.",
+      "groupText": "Форматирование текста и телеметрия",
+      "numFormat": "Формат чисел",
+      "numFormatDesc": "Стиль отображения итоговых значений.",
+      "optNumCompact": "Сокращённые (тыс. / млн)",
+      "optNumCompactDesc": "Например: 145.2 тыс., 1.2 млн",
+      "optNumDetailed": "Полностью подробные",
+      "optNumDetailedDesc": "Например: 145 200, 1 240 500",
+      "optNumDamageDps": "Урон | DPS",
+      "optNumDamageDpsDesc": "Например: 239.2 тыс. | 18.4 тыс. (чистая панель телеметрии)",
+      "showDps": "Показывать скорость в секунду (DPS / HPS)",
+      "showDpsDesc": "Показывает скорость урона или исцеления в секунду на каждой полосе.",
+      "showPercent": "Показывать проценты (%)",
+      "showPercentDesc": "Показывает процентный вклад в общий показатель группы.",
+      "showRank": "Показывать место (№1, №2...)",
+      "showRankDesc": "Показывает порядковый номер места рядом с именем.",
+      "showClassIcon": "Показывать значок класса",
+      "showClassIconDesc": "Отображает значок класса или роли рядом с каждым игроком.",
+      "groupFont": "Шрифт боевых данных (семейство шрифта)",
+      "groupHeader": "Настройка заголовка",
+      "showTitleBar": "Показывать заголовок окна",
+      "showTitleBarDesc": "Отображает верхнюю панель с названием боевого сегмента и элементами управления.",
+      "showRaidTotals": "Сводка по группе в подзаголовке",
+      "showRaidTotalsDesc": "Отображает суммарный DPS/HPS группы в подзаголовке.",
+      "groupCombat": "Правила и ограничения боя",
+      "maxRows": "Максимум видимых строк",
+      "maxRowsDesc": "Одновременно отображаемые полосы (0 = без ограничений, автоподбор по высоте окна).",
+      "autoRows": " (авто)",
+      "barsUnit": " полос",
+      "includeShields": "Учитывать поглощение как исцеление",
+      "includeShieldsDesc": "Добавляет урон, поглощённый щитами («Псалом ограждения» и другие), к счётчику исцеления.",
+      "groupPresets": "Быстрые темы в один клик",
+      "applyPreset": "Применить тему",
+      "presetDetailsName": "Современное стекло",
+      "presetDetailsDesc": "Матовый размытый фон, глянцевые полосы с бликом, сокращённые числа и полная телеметрия.",
+      "presetDetailsBadge": "Рекомендуется",
+      "presetClassicName": "Классика (сплошной)",
+      "presetClassicDesc": "Тёмная контрастная сплошная панель, плоские полосы цвета класса, подробные числа без сокращений в классическом расположении.",
+      "presetClassicBadge": "Классика",
+      "presetMinimalName": "Чистый минимализм",
+      "presetMinimalDesc": "Почти прозрачный фон, компактные полосы 16 пикс. без промежутков, прямой текст без процентов.",
+      "presetMinimalBadge": "Чистый",
+      "presetRaidName": "Рейдовый фокус",
+      "presetRaidDesc": "Создано для рейдов: компактная плотность 18 пикс., лимит 10 полос, видимый групповой итог и закреплённая строка игрока.",
+      "presetRaidBadge": "Рейд",
+      "presetProGradientName": "Про Градиент",
+      "presetProGradientDesc": "Плавающая прозрачная панель, горизонтальные градиентные полосы, значки специализаций и телеметрия «Урон | DPS».",
+      "presetProGradientBadge": "Про",
+      "groupManageProfiles": "Управление профилями",
+      "activeProfile": "Активный профиль",
+      "activeProfileDesc": "Выбирайте или управляйте независимыми профилями для разных игровых сценариев.",
+      "saveAs": "Сохранить как...",
+      "duplicate": "Дублировать",
+      "deleteProfile": "Удалить",
+      "cannotDeleteDefault": "Профиль по умолчанию нельзя удалить",
+      "promptNewProfile": "Название нового профиля:",
+      "profileCopySuffix": " (копия)",
+      "groupExport": "Экспорт текущего профиля",
+      "exportDesc": "Закодированная строка профиля вашей текущей конфигурации. Скопируйте её, чтобы поделиться или сохранить резервную копию.",
+      "copyString": "Скопировать строку профиля",
+      "copiedFeedback": "Скопировано в буфер обмена!",
+      "groupImport": "Импорт профиля",
+      "importDesc": "Вставьте строку профиля (!WoC-Details:... или JSON), чтобы применить и сохранить.",
+      "importPlaceholder": "Вставьте сюда строку профиля (!WoC-Details:...)",
+      "importNamePlaceholder": "Название профиля (необязательно)",
+      "importApply": "Импортировать и применить",
+      "errEmptyProfile": "Вставьте строку профиля.",
+      "errInvalidProfile": "Ошибка: недействительная или повреждённая строка профиля.",
+      "importSuccess": "Профиль «{name}» успешно импортирован!",
+      "reportSent": "Отчёт скопирован и отправлен в чат",
+      "reportNoData": "Данные не записаны.",
+      "noDetailedData": "Нет подробных данных",
+      "noDeathEvents": "Перед гибелью не записано событий",
+      "killedBy": "Убит: {killer} ({ability})",
+      "lethalHit": "Смертельный удар",
+      "recentCombatEvents": "Последние {count} боевых событий",
+      "backComparison": "Сравнение",
+      "comparisonNeedTwo": "Для сравнения нужно как минимум 2 боя",
+      "backTimeline": "Хронология",
+      "timelineCombatEvents": "Боевые события: {count}",
+      "backDev": "Баланс / Разработка",
+      "balanceAbilitiesCount": "Записано способностей: {count}",
+      "targetSubtitle": "Цель: {target}",
+      "noTargetData": "Нет данных об игроках по этой цели"
     },
     "auraTooltip": {
       "caster": "Применил: {name}"
@@ -1920,7 +2115,7 @@ export const ru_RU: EnTranslations = {
       "clickMoveLeft": "Левая кнопка",
       "clickMoveRight": "Правая кнопка",
       "version": "v{version} ({build})",
-      "overlays": "Overlays",
+      "overlays": "Оверлеи",
       "browserEffects": "Эффекты браузера",
       "browserEffectsAuto": "Авто",
       "browserEffectsFull": "Полные",
@@ -1950,9 +2145,9 @@ export const ru_RU: EnTranslations = {
       "gfxBloom": "Свечение",
       "gfxAntiAliasing": "Сглаживание",
       "gfxDynamicLights": "Динамические источники света",
-      "gfxGhostFade": "Camera Ghost",
-      "gfxGhostFadeDithered": "Dithered",
-      "gfxGhostFadeSmooth": "Smooth",
+      "gfxGhostFade": "Просвечивание препятствий",
+      "gfxGhostFadeDithered": "Дизеринг",
+      "gfxGhostFadeSmooth": "Плавно",
       "gfxParticleEffects": "Эффекты частиц",
       "gfxHalf": "Наполовину",
       "gfxCustomNote": "Изменение любого регулятора переключает пресет качества на «Расширенное»: собственный набор на основе базы «Высокое», начинающийся с уровней, показанных для текущего пресета.",
@@ -2013,7 +2208,7 @@ export const ru_RU: EnTranslations = {
       "targetHealthText": "Текст здоровья цели",
       "aurasOnPlayerFrame": "Баффы у рамки игрока",
       "auraBarBelowFrame": "Баффы под рамкой игрока",
-      "targetAurasBelowFrame": "Target Auras Below the Frame",
+      "targetAurasBelowFrame": "Ауры цели под рамкой",
       "alwaysShowAllBuffs": "Всегда показывать все баффы",
       "showAuraCaster": "Показывать применившего эффект в подсказке",
       "highContrastBackground": "Фон высокой контрастности",
@@ -2373,78 +2568,78 @@ export const ru_RU: EnTranslations = {
       }
     },
     "cooldownManager": {
-      "title": "Cooldown Manager",
-      "intro": "Floating buttons for the spells you pick. They cannot be clicked: each one shows its cooldown, dims while you cannot cast it, and lights up when it is ready.",
-      "generalTitle": "General",
-      "enabled": "Show Cooldown Manager",
-      "idleOpacity": "Opacity While Not Ready",
-      "combatOnly": "Sounds Only in Combat",
-      "dragHint": "While this menu is open, every group shows on screen and you can drag it to move it.",
-      "addSingle": "Add Single Button",
-      "addGrid": "Add Button Group",
-      "addLine": "Add Line of Spells",
-      "groupsFull": "You have the most groups allowed. Delete one to add another.",
-      "noGroups": "Add a single button, a group of buttons or a line of spells to get started.",
-      "groupSingle": "Single Button {index}",
-      "groupGrid": "Button Group {index}",
-      "groupLine": "Line of Spells {index}",
-      "groupName": "Group Name",
-      "spellCount": "{count} / {max} spells",
-      "orientation": "Orientation",
-      "horizontal": "Horizontal",
-      "vertical": "Vertical",
-      "columns": "# Columns",
-      "rows": "# Rows",
-      "direction": "Icon Direction",
-      "dirRight": "Right",
-      "dirLeft": "Left",
-      "dirDown": "Down",
-      "dirUp": "Up",
-      "iconSize": "Icon Size",
-      "iconPadding": "Icon Padding",
-      "opacity": "Opacity",
-      "visibility": "Visibility",
-      "visAlways": "Always Visible",
-      "visCombat": "In Combat",
-      "visHidden": "Hidden",
-      "visHiddenHint": "A hidden group still plays its sounds and lights your action bar.",
-      "showTimer": "Show Timer",
-      "positionX": "Horizontal Position",
-      "positionY": "Vertical Position",
-      "resetPosition": "Reset to Default Position",
-      "deleteGroup": "Delete Group",
-      "deleteGroupAria": "Delete {group}",
-      "trackedTitle": "Tracked Spells",
-      "trackedHint": "Drag a spell onto a group, or select it to choose its group and alerts. A button follows its spell when it changes into another one, and lights up when it does.",
-      "search": "Search spells",
-      "searchPlaceholder": "Search",
-      "notDisplayed": "Not Displayed",
-      "otherSpells": "Other Spells",
-      "otherSpellsHint": "Spells from your other specializations, talent choices and higher levels. Place one now and its button appears once you know it.",
-      "notKnown": "{spell} (not known yet)",
-      "aurasTitle": "Procs, Engines and Buffs",
-      "aurasHint": "Engine resources and their stacks, procs, and the buffs your spells put on you. Anything else that has been on you shows up here too.",
-      "auraFallback": "Aura",
-      "onlyWhileActive": "Only Show While Active",
-      "alertStacks": "Alert at Stacks",
-      "alertStacksAny": "On gain",
-      "alertStacksHint": "The button lights, pulses and chimes once the aura reaches this many stacks. On gain means as soon as it appears.",
-      "auraSoundHint": "Plays when the aura comes up, or when it reaches your stack goal.",
-      "emptySection": "Drop a spell here.",
-      "spellsEmpty": "You do not know any spells yet.",
-      "selectSpell": "Select {spell}",
-      "group": "Group",
-      "groupFullOption": "{group} (full)",
-      "notInGroupHint": "Put this spell in a group to show its button.",
-      "moveEarlier": "Move {spell} earlier",
-      "moveLater": "Move {spell} later",
-      "glowWhenReady": "Light Up When Ready",
-      "glowWhenReadyHint": "Brightens and outlines the button while the spell can be cast.",
-      "hotbarGlow": "Hotbar Glow",
-      "hotbarGlowHint": "Also lights this spell on your action bar while it is ready.",
-      "onlyWhenReady": "Only Show When Ready",
-      "sound": "Ready Sound",
-      "soundHint": "Plays when the spell becomes ready, or when its button changes into another spell while ready."
+      "title": "Менеджер восстановления",
+      "intro": "Плавающие кнопки для выбранных вами заклинаний. По ним нельзя щёлкать: каждая показывает время восстановления, тускнеет, когда заклинание нельзя применить, и загорается, когда оно готово.",
+      "generalTitle": "Общее",
+      "enabled": "Показывать менеджер восстановления",
+      "idleOpacity": "Прозрачность при неготовности",
+      "combatOnly": "Звуки только в бою",
+      "dragHint": "Пока это меню открыто, все группы отображаются на экране, и вы можете перетаскивать их для перемещения.",
+      "addSingle": "Добавить одну кнопку",
+      "addGrid": "Добавить группу кнопок",
+      "addLine": "Добавить ряд заклинаний",
+      "groupsFull": "У вас максимально допустимое количество групп. Удалите одну, чтобы добавить другую.",
+      "noGroups": "Чтобы начать, добавьте одну кнопку, группу кнопок или ряд заклинаний.",
+      "groupSingle": "Одна кнопка {index}",
+      "groupGrid": "Группа кнопок {index}",
+      "groupLine": "Ряд заклинаний {index}",
+      "groupName": "Название группы",
+      "spellCount": "{count} / {max} заклинаний",
+      "orientation": "Ориентация",
+      "horizontal": "Горизонтально",
+      "vertical": "Вертикально",
+      "columns": "Кол-во столбцов",
+      "rows": "Кол-во строк",
+      "direction": "Направление значков",
+      "dirRight": "Вправо",
+      "dirLeft": "Влево",
+      "dirDown": "Вниз",
+      "dirUp": "Вверх",
+      "iconSize": "Размер значков",
+      "iconPadding": "Отступы значков",
+      "opacity": "Прозрачность",
+      "visibility": "Видимость",
+      "visAlways": "Всегда видно",
+      "visCombat": "В бою",
+      "visHidden": "Скрыто",
+      "visHiddenHint": "Скрытая группа по-прежнему проигрывает звуки и подсвечивает панель действий.",
+      "showTimer": "Показывать таймер",
+      "positionX": "Положение по горизонтали",
+      "positionY": "Положение по вертикали",
+      "resetPosition": "Сбросить положение по умолчанию",
+      "deleteGroup": "Удалить группу",
+      "deleteGroupAria": "Удалить {group}",
+      "trackedTitle": "Отслеживаемые заклинания",
+      "trackedHint": "Перетащите заклинание в группу или выберите его, чтобы задать группу и оповещения. Кнопка следует за своим заклинанием, если оно меняется на другое, и загорается при этом.",
+      "search": "Поиск заклинаний",
+      "searchPlaceholder": "Поиск",
+      "notDisplayed": "Не отображается",
+      "otherSpells": "Другие заклинания",
+      "otherSpellsHint": "Заклинания из других ваших специализаций, выборов талантов и более высоких уровней. Разместите заклинание сейчас, и его кнопка появится, как только вы его изучите.",
+      "notKnown": "{spell} (ещё не изучено)",
+      "aurasTitle": "Проки, ресурсы и баффы",
+      "aurasHint": "Ресурсы движка и их заряды, прок-эффекты и баффы от ваших заклинаний. Здесь же показано всё остальное, что действует на вас.",
+      "auraFallback": "Аура",
+      "onlyWhileActive": "Показывать только пока активно",
+      "alertStacks": "Заряды для оповещения",
+      "alertStacksAny": "При получении",
+      "alertStacksHint": "Кнопка загорается, пульсирует и подаёт звук, когда аура достигает этого количества зарядов. «При получении» означает, что это происходит сразу же, как только аура появляется.",
+      "auraSoundHint": "Звук проигрывается, когда аура появляется или достигает выбранного количества зарядов.",
+      "emptySection": "Перетащите сюда заклинание.",
+      "spellsEmpty": "Вы пока не знаете ни одного заклинания.",
+      "selectSpell": "Выбрать {spell}",
+      "group": "Группа",
+      "groupFullOption": "{group} (заполнена)",
+      "notInGroupHint": "Добавьте это заклинание в группу, чтобы показать его кнопку.",
+      "moveEarlier": "Переместить {spell} раньше",
+      "moveLater": "Переместить {spell} позже",
+      "glowWhenReady": "Подсвечивать при готовности",
+      "glowWhenReadyHint": "Делает кнопку ярче и обводит её контуром, пока заклинание можно применить.",
+      "hotbarGlow": "Подсветка панели действий",
+      "hotbarGlowHint": "Также подсвечивает это заклинание на панели действий, пока оно готово к использованию.",
+      "onlyWhenReady": "Показывать только когда готово",
+      "sound": "Звук готовности",
+      "soundHint": "Звук проигрывается, когда заклинание становится готовым, либо когда его кнопка меняется на другое готовое заклинание."
     },
     "auraOverlay": {
       "title": "Ауры",
@@ -2570,79 +2765,79 @@ export const ru_RU: EnTranslations = {
         "battlegroundComplete": "Битва в Терновой Лощине",
         "battlegroundKill": "Почётное убийство",
         "battlegroundAssist": "Помощь в убийстве",
-        "worldKill": "world kill",
-        "worldAssist": "world kill assisted",
-        "hillHold": "holding the hill"
+        "worldKill": "Мировое убийство",
+        "worldAssist": "Помощь в мировом убийстве",
+        "hillHold": "Удержание холма"
       },
       "floatReasons": {
         "kill": "Убийство",
         "assist": "Помощь",
         "firstWin": "Первая победа",
-        "hill": "Hill"
+        "hill": "Холм"
       }
     },
     "worldPvp": {
-      "tab": "World PvP",
-      "title": "World PvP",
-      "blurb": "Raise your flag to fight other flagged players anywhere in the open world. Defeat one and take a share of their purse, plus Honor toward Warfare gear. Battlegrounds and Arenas still pay more.",
-      "statusOn": "Your PvP flag is up. Flagged players can attack you.",
-      "statusOff": "Your PvP flag is down. You cannot attack or be attacked in the open world.",
-      "statusOffFfa": "Your PvP flag is down, but on free-for-all ground you can still attack and be attacked.",
-      "statusDisarming": "Your flag drops in {time}, or when your current fight ends.",
-      "zoneSanctuary": "Sanctuary: no world PvP here.",
-      "zoneContested": "Contested ground: only flagged players fight here.",
-      "zoneFfa": "Free-for-all ground: everyone here is fair game.",
-      "realmDisabled": "World PvP is disabled on this realm.",
-      "groundSanctuary": "The Proving Shore and Eastbrook Vale are sanctuaries: no world PvP at all.",
-      "groundContested": "Everywhere else is contested: only two flagged players can fight.",
-      "groundFfa": "The Drakelands, the Frostveil Reach and the Amberfall are free-for-all: everyone there can fight, flag or not.",
-      "groupLine": "Party and raid members are never hostile to each other. Guildmates outside your group can fight.",
-      "markLine": "Attacking an unflagged player there raises your own flag; attacking a flagged one never does.",
-      "aidLine": "Healing, shielding or buffing a flagged player in a world fight raises your flag.",
-      "stakeLine": "The loser pays {cap} or {percent} of their purse, whichever is less.",
-      "noStakeLine": "An unflagged player killed on free-for-all ground loses no gold.",
-      "noTakeLine": "An unflagged fighter takes no gold either: it only moves between two flagged players.",
-      "honorLine": "{honor} Honor per kill, split between everyone who helped.",
-      "splitLine": "A clean 1v1 pays the whole pot; helpers and their healers share it.",
-      "repeatLine": "Repeat kills of one player pay {second}, then {third}, then nothing; the count clears {reset} after the first kill.",
-      "greyLine": "Players more than {levels} levels below you pay nothing.",
-      "disarmLine": "Switching off takes {minutes} minutes and waits for combat to end.",
-      "record": "Record: {kills} kills, {deaths} deaths",
-      "enable": "Enable World PvP",
-      "disable": "Disable World PvP",
-      "keepUp": "Keep Flag Up",
-      "confirmBody": "Other flagged players will be able to attack you anywhere and take up to {cap} from your purse when they win. You can switch off again, but it takes {minutes} minutes.",
-      "confirmAccept": "Raise Flag",
-      "confirmCancel": "Cancel",
-      "levelReq": "Requires level {level}.",
-      "pending": "Waiting for your PvP status from the realm.",
-      "commandHint": "Chat: /pvp toggles the flag, /pvp on and /pvp off set it."
+      "tab": "Мировое PvP",
+      "title": "Мировое PvP",
+      "blurb": "Поднимите флаг, чтобы сражаться с другими игроками с флагом в любой точке открытого мира. Победите противника и заберите часть его кошелька, а также получите Честь на снаряжение Боевой мощи. Поля боя и арены по-прежнему платят больше.",
+      "statusOn": "Ваш флаг PvP поднят. Игроки с флагом могут атаковать вас.",
+      "statusOff": "Ваш флаг PvP опущен. Вы не можете атаковать и не можете быть атакованы в открытом мире.",
+      "statusOffFfa": "Ваш флаг PvP опущен, но на территории свободного боя вы всё равно можете атаковать и быть атакованным.",
+      "statusDisarming": "Ваш флаг опустится через {time} или когда закончится ваш текущий бой.",
+      "zoneSanctuary": "Святилище: здесь не бывает мирового PvP.",
+      "zoneContested": "Спорная территория: здесь сражаются только игроки с флагом.",
+      "zoneFfa": "Территория свободного боя: здесь законной целью является каждый.",
+      "realmDisabled": "Мировое PvP отключено в этом мире.",
+      "groundSanctuary": "Берег Испытаний и Истврукская долина являются святилищами: мирового PvP там не бывает совсем.",
+      "groundContested": "Все остальные земли являются спорной территорией: там могут сражаться только два игрока с флагом.",
+      "groundFfa": "Земли Драконов, Морозный Предел и Янтарная Падь являются территориями свободного боя: там может сражаться каждый, с флагом или без.",
+      "groupLine": "Участники группы и рейда никогда не враждебны друг другу. Согильдийцы вне вашей группы могут сражаться с вами.",
+      "markLine": "Атака игрока без флага поднимает ваш собственный флаг; атака игрока с флагом не поднимает его никогда.",
+      "aidLine": "Исцеление, щит или усиление игрока с флагом в мировом бою поднимает и ваш флаг.",
+      "stakeLine": "Проигравший платит {cap} или {percent}% от своего кошелька, в зависимости от того, что меньше.",
+      "noStakeLine": "Игрок без флага, погибший на территории свободного боя, не теряет золота.",
+      "noTakeLine": "Боец без флага тоже не получает золота: оно переходит только между двумя игроками с флагом.",
+      "honorLine": "{honor} Чести за убийство, разделённых между всеми, кто помог.",
+      "splitLine": "Чистый бой один на один приносит всю награду целиком; помощники и их лекари делят её между собой.",
+      "repeatLine": "Повторные убийства одного и того же игрока приносят {second}, затем {third}, а потом ничего; счётчик сбрасывается через {reset} после первого убийства.",
+      "greyLine": "Игроки более чем на {levels} уровней ниже вас не приносят награды.",
+      "disarmLine": "Отключение занимает {minutes} минут и ждёт окончания боя.",
+      "record": "Счёт: {kills} убийств, {deaths} смертей",
+      "enable": "Включить мировое PvP",
+      "disable": "Отключить мировое PvP",
+      "keepUp": "Оставить флаг поднятым",
+      "confirmBody": "Другие игроки с флагом смогут атаковать вас где угодно и забрать до {cap} из вашего кошелька, если победят. Вы сможете снова отключить флаг, но это займёт {minutes} минут.",
+      "confirmAccept": "Поднять флаг",
+      "confirmCancel": "Отмена",
+      "levelReq": "Требуется уровень {level}.",
+      "pending": "Ожидание статуса PvP от мира.",
+      "commandHint": "Чат: /pvp переключает флаг, /pvp on и /pvp off задают его."
     },
     "hill": {
-      "title": "King of the Hill",
-      "rising": "The hill has not risen yet",
-      "heldYou": "Your group holds the hill",
-      "heldOther": "Another group holds the hill",
-      "heldNone": "Nobody holds the hill",
-      "counts": "Inside: you {yours}, holder {theirs}",
-      "countsUnheld": "Inside: you {yours}, largest rival {theirs}",
-      "countsHolding": "Inside: you {yours}, rival {theirs}",
-      "contestYou": "Taking the hill: {seconds} of {total}",
-      "contestOther": "Losing the hill: {seconds} of {total}",
-      "contestNone": "Hold a majority inside for {total} to take it",
-      "inside": "You are inside the circle",
-      "distance": "{yards} yd to the circle",
-      "rises": "Rises in {minutes}",
-      "falls": "Falls in {minutes}",
-      "standingRaid": "Raid members do not count: only parties can hold the hill"
+      "title": "Король горы",
+      "rising": "Холм ещё не появился",
+      "heldYou": "Холм удерживает ваша группа",
+      "heldOther": "Холм удерживает другая группа",
+      "heldNone": "Никто не удерживает холм",
+      "counts": "Внутри: вы {yours}, владелец {theirs}",
+      "countsUnheld": "Внутри: вы {yours}, сильнейший соперник {theirs}",
+      "countsHolding": "Внутри: вы {yours}, соперник {theirs}",
+      "contestYou": "Вы захватываете холм: {seconds} из {total}",
+      "contestOther": "Вы теряете холм: {seconds} из {total}",
+      "contestNone": "Чтобы захватить холм, удерживайте большинство внутри {total}.",
+      "inside": "Вы внутри круга",
+      "distance": "{yards} ярдов до круга",
+      "rises": "Появится через {minutes}",
+      "falls": "Падёт через {minutes}",
+      "standingRaid": "Участники рейда не учитываются: удерживать холм могут только группы"
     },
     "warfareShop": {
       "gossipOption": "Просмотреть комплекты Боевой мощи",
       "gossipOptionAria": "Просмотреть магазин комплектов Боевой мощи у {name}",
       "jewelry": "Украшения",
       "weapons": "Оружие",
-      "groupSeason2": "Warfare Season 2: Vanguard",
-      "groupEntry": "Warfare Season 1",
+      "groupSeason2": "Боевой сезон 2: Авангард",
+      "groupEntry": "Боевой сезон 1",
       "owned": "Получено",
       "buyAria": "Купить {item} за {honor}",
       "buyOwnedAria": "Купить {item} за {honor}, уже получено",
@@ -2667,9 +2862,94 @@ export const ru_RU: EnTranslations = {
       "stats": "Характеристики",
       "progression": "Прогресс",
       "skills": "Навыки",
+      "reputation": "Репутация",
+      "currencies": "Валюты",
+      "character": "Персонаж",
+      "professions": "Профессии",
       "gathering": "Сбор",
       "crafting": "Ремесло",
       "openProfessions": "Открыть профессии"
+    },
+    "currencies": {
+      "intro": "Ничто из этого не занимает место в сумке. Монеты остаются в сумке, как и раньше.",
+      "activities": "Активности",
+      "factions": "Фракции",
+      "honor": "Честь",
+      "delveMark": "Знак вылазки",
+      "wocToken": "Токен WoC",
+      "heroicMarkNote": "Героические подземелья . тратится у героического интенданта",
+      "honorNote": "Поля боя и арена",
+      "delveMarkNote": "Пройденные вылазки",
+      "wocTokenNote": "Баланс привязанного кошелька",
+      "walletNotLinked": "Кошелёк не привязан",
+      "wocPreview": "Предварительный баланс, ещё не подтверждён",
+      "lifetime": "Всего {amount}",
+      "factionPending": "Валюта фракции: ожидает этапа 2"
+    },
+    "reputation": {
+      "intro": "Все три фракции развиваются одновременно: каждое мировое задание идёт в зачёт фракции своей зоны.",
+      "faction": {
+        "rift_watch": "Дозор Разлома",
+        "church_order": "Церковный орден",
+        "automatons": "Автоматоны"
+      },
+      "hub": {
+        "rift_watch": "Дрифтхейвен",
+        "church_order": "Брат Олдрик",
+        "automatons": "Вирмвотч"
+      },
+      "hubLine": "{hub} . {zone}",
+      "tier": {
+        "unknown": "Незнакомец",
+        "recognized": "Признанный",
+        "trusted": "Доверенный",
+        "proven": "Проверенный",
+        "vanguard": "Авангард",
+        "champion": "Чемпион"
+      },
+      "factionTitle": {
+        "rift_watch": {
+          "unknown": "Чужак",
+          "recognized": "Дозорный",
+          "trusted": "Странник Разлома",
+          "proven": "Хранитель",
+          "vanguard": "Страж Разлома",
+          "champion": "Чемпион"
+        },
+        "church_order": {
+          "unknown": "Чужак",
+          "recognized": "Послушник",
+          "trusted": "Хранитель",
+          "proven": "Храмовник",
+          "vanguard": "Хранитель Рассвета",
+          "champion": "Чемпион"
+        },
+        "automatons": {
+          "unknown": "Чужак",
+          "recognized": "Оператор",
+          "trusted": "Механик",
+          "proven": "Мастер",
+          "vanguard": "Кузнец-мастер",
+          "champion": "Чемпион"
+        }
+      },
+      "progress": "{current} / {next}",
+      "next": "Далее: {tier}",
+      "maxed": "Достигнута высшая репутация",
+      "cappedByLevel": "Репутация остаётся на уровне {tier} до 16-го уровня",
+      "today": "Сегодня",
+      "questsDone": "Выполнено мировых заданий",
+      "questsDoneValue": "{done} / {total}",
+      "resetsIn": "Доска",
+      "resetsUnknown": "Сегодня доски нет",
+      "title": "Титул фракции",
+      "titleLine": "{faction} . {tier}",
+      "legend": "Ступени репутации",
+      "vendorGate": "Требуется {tier} с фракцией {faction}.",
+      "standingGained": "Репутация с фракцией {faction}: +{amount}.",
+      "tierReachedBanner": "Теперь {tier} с фракцией {faction}",
+      "tierReachedSubtext": "Титул фракции: {title}",
+      "tierReachedLine": "Теперь у вас {tier} с фракцией {faction}. Ваш титул фракции: {title}."
     },
     "questLog": {
       "completed": "Завершённые",
@@ -2681,7 +2961,7 @@ export const ru_RU: EnTranslations = {
       "names": {
         "spellPower": "Сила заклинаний",
         "healPower": "Сила исцеления",
-        "spellCrit": "Spell Crit",
+        "spellCrit": "Крит. заклинаний",
         "critRating": "Рейтинг крит. удара",
         "hasteRating": "Рейтинг ускорения",
         "parry": "Парирование",
@@ -2698,17 +2978,17 @@ export const ru_RU: EnTranslations = {
         "armor": "Смягчает входящие физические удары. Снижение урона тем больше, чем ниже уровень атакующего, и не превышает 75%.",
         "attackPower": "Усиливает атаки вашим оружием. Каждые 14 ед. силы атаки добавляют 1 ед. урона в секунду.",
         "spellPower": "Увеличивает урон ваших заклинаний и силу исцелений. Каждая единица интеллекта дает немного силы заклинаний, вдобавок к получаемой от снаряжения и усилений.",
-        "healPower": "Increases the healing of your heals and heal-over-time effects, and the size of your absorb shields. It is your Spell Power plus the Healing Power from your gear and set bonuses, which adds to healing but never to damage.",
+        "healPower": "Увеличивает силу ваших исцелений и эффектов исцеления с течением времени, а также размер ваших поглощающих щитов. Складывается из вашей силы заклинаний и силы исцеления от снаряжения и бонусов комплектов, что добавляет только к исцелению, но никогда не к урону.",
         "dps": "Приблизительный урон вашего оружия в секунду с учетом урона и скорости оружия, а также вашей силы атаки.",
         "critChance": "Ваш шанс нанести критический удар, наносящий двойной урон.",
-        "spellCrit": "Your chance for a spell or heal to strike critically, dealing 150% damage or healing. Spells and heals roll this instead of Crit Chance: Intellect raises only this chance, while crit rating, talents, and set bonuses raise both.",
+        "spellCrit": "Ваш шанс на критическое попадание заклинанием или исцелением, наносящее или восстанавливающее на 150% больше. Заклинания и исцеления используют этот шанс вместо шанса критического удара: интеллект повышает только его, а рейтинг критического удара, таланты и бонусы комплектов повышают оба показателя.",
         "dodge": "Ваш шанс полностью уклониться от входящей атаки в ближнем бою, не получив урона.",
         "critRating": "Рейтинг критического удара от снаряжения и бонусов комплекта повышает шанс критического удара. Примерно 10 рейтинга дают 1% крит. удара.",
         "hasteRating": "Рейтинг ускорения от снаряжения и бонусов комплекта ускоряет ваши атаки и заклинания. Примерно 10 рейтинга дают 1% ускорения.",
         "parry": "Ваш шанс полностью парировать фронтальную атаку в ближнем бою и не получить урона. Удар со спины парировать нельзя.",
         "hitRating": "Рейтинг меткости от снаряжения и бонусов комплекта снижает частоту промахов ваших атак и сопротивления вашим заклинаниям, особенно против противников более высокого уровня. Примерно 10 рейтинга дают 1% меткости.",
         "warfare": "Увеличивает урон по игрокам на {increase}% и снижает получаемый от игроков урон на {reduction}%.",
-        "warfareWithHealth": "Increases damage dealt to players by {increase}% and reduces damage taken from players by {reduction}%. Also raises your maximum health by {health}% everywhere except dungeons, raids, delves and rifts."
+        "warfareWithHealth": "Увеличивает урон по игрокам на {increase}% и снижает получаемый от игроков урон на {reduction}%. Также повышает максимальное здоровье на {health}% везде, кроме подземелий, рейдов, вылазок и разломов."
       },
       "effects": {
         "attackPower": "+{value} к силе атаки",
@@ -2776,6 +3056,47 @@ export const ru_RU: EnTranslations = {
       "attackSlow": "и снижает скорость атаки цели на {pct}% на {duration} сек",
       "dot": "вызывает «{name}», периодический урон ({school}), нанося {total} за {duration} сек",
       "hot": "распускает «{name}», периодическое исцеление, восполняя {total} за {duration} сек"
+    },
+    "trinkets": {
+      "equipLine": "Если на персонаже: {effect}",
+      "scaled": "{base} (+{bonus})",
+      "useLine": "Использование: {effect} (восстановление {cooldown})",
+      "cooldownMinutes": "{minutes} мин.",
+      "cooldownSeconds": "{seconds} сек.",
+      "gambleResult": "{item}: {fortune}!",
+      "snakeEyes": "Змеиные глаза",
+      "equippedLine": "Надето",
+      "equipLockout": "При надевании его использование уходит на восстановление на {seconds} сек. или на оставшееся время восстановления заменяемого аксессуара, если оно дольше.",
+      "equip": {
+        "lastStand": "Получая урон при здоровье ниже {threshold}%, вы получаете щит, поглощающий {absorb} ед. урона ({absorbPct}% от максимального здоровья), на {duration} сек. Срабатывает не чаще раза в {icd} сек.",
+        "hourglass": "Избыточное исцеление от ваших прямых исцелений копится в песочных часах, вплоть до {cap} ед. ({capPct}% от максимального здоровья). Накопленное исцеление исчезает через {fade} сек. после последнего пополнения.",
+        "twinStrike": "Ваши попадания автоатакой с вероятностью {chance}% вызывают дополнительный удар ближнего боя правой рукой. Срабатывает не чаще раза в {icd} сек.",
+        "tally": "Каждый ваш критический удар автоатакой и каждый добивающий удар добавляют метку счета, вплоть до {max}. Метки держатся {duration} сек. и обновляются при получении новой.",
+        "storm": "Каждое произнесенное вами заклинание добавляет заряд, вплоть до {max}. Заряды держатся {duration} сек. и обновляются при получении нового.",
+        "heat": "Каждое ваше попадание оружием ближнего или дальнего боя добавляет стак жара, вплоть до {max}. Жар держится {duration} сек. и обновляется при получении нового стака.",
+        "ignite": "Ваши критические удары оружием ближнего или дальнего боя поджигают цель, нанося {tick} ед. урона от огня каждые {every} сек. в течение {duration} сек. Новый критический удар обновляет эффект. Урон растет с силой атаки или силой атаки дальнего боя, в зависимости от того, что выше.",
+        "guardHeat": "Каждая парированная, уклоненная или заблокированная вами атака добавляет стак жара, вплоть до {max}. Жар держится {duration} сек. и обновляется при получении нового стака."
+      },
+      "use": {
+        "retaliate": "В течение {duration} сек. враг, напрямую поразивший вас, получает физический урон, равный {pct}% здоровья, которое у вас отнял этот удар. Периодический урон эффект не вызывает.",
+        "anchor": "В течение {duration} сек. вы получаете на {reduction}% меньше урона, но двигаетесь со скоростью {speed}%. Снимает с вас оглушение, обездвиживание, замедление, страх, превращение, немоту, ослепление, сглаз, разоружение и эффекты выведения из строя, а пока эффект действует, вы игнорируете новые такие эффекты и отбрасывание.",
+        "hourglass": "Превращает все накопленное исцеление в щит на члене группы в пределах {range} м с наименьшим процентом здоровья, включая вас. Щит держится {duration} сек. Требуется накопленное исцеление.",
+        "wellspring": "Исцеляет вас и членов группы в пределах {radius} м на {tick} ед. здоровья каждые {every} сек. в течение {duration} сек. Исцеление растет с силой исцеления.",
+        "bleedEdge": "В течение {duration} сек. ваши попадания автоатакой накладывают эффект «Рана от когтя», наносящий {tick} ед. физического урона за каждый стак каждые {every} сек. в течение {bleedDuration} сек. и складывающийся до {stacks} раз. Урон растет с силой атаки.",
+        "tallyStrike": "Тратит все метки счета на удар по цели в пределах {range} м, нанося {perMark} ед. физического урона за метку ({max} ед. при {maxMarks} метках). Урон растет с силой атаки. Требуется метка счета.",
+        "stormjar": "Высвобождает все заряды молнией в цель в пределах {range} м, которая перескакивает еще на {extra} врагов в пределах {jumpRange} м. Каждый враг получает {perCharge} ед. урона от сил природы за заряд ({max} ед. при {maxCharges} зарядах). Урон растет с силой заклинаний. Требуется заряд.",
+        "echo": "В течение {duration} сек. ваши следующие {casts} прямых исцеления или прямых нефизических попадания повторяются с силой {pct}% от их величины.",
+        "gamble": "Бросает одну из четырех удач на {duration} сек.: {keenEdge} (вы наносите на {keenPct}% больше урона), {luckyStreak} (исцеляет {heal} ед. за время действия), {gildedGuard} (щит, поглощающий {absorb} ед. урона) или {snakeEyes} (без эффекта, но это время восстановления сокращается вдвое).",
+        "blink": "Вы переноситесь на {yards} м вперед, затем {guard} сек. получаете на {reduction}% меньше урона.",
+        "sprint": "Увеличивает скорость передвижения на {speed}% на {duration} сек. Не суммируется с другими эффектами ускорения.",
+        "defiance": "Снимает с вас все эффекты оглушения, обездвиживания, замедления, страха, превращения, немоты, ослепления, сглаза, разоружения и выведения из строя. Можно использовать под оглушением.",
+        "brand": "Клеймит вражеского игрока в пределах {range} м, снижая получаемое им исцеление на {cut}% на {duration} сек.",
+        "temper": "Тратит все стаки жара, чтобы закалить ваше оружие на {duration} сек. Ваши попадания оружием ближнего или дальнего боя наносят дополнительно {damage} ед. урона от огня, увеличенного на {perHeat}% за каждый потраченный стак жара (до {maxBonus}% при {maxHeat} стаках). Каждый добивающий удар продлевает эффект на {killExtend} сек., всего не более {maxDuration} сек. Урон растет с силой атаки или силой атаки дальнего боя, в зависимости от того, что выше.",
+        "kindlingOrb": "Призывает рядом с вами тлеющую сферу на {duration} сек. Каждое ваше заклинание, произнесенное на врага, заставляет ее выпустить снаряд в этого врага, нанося {damage} ед. урона от огня. Урон растет с силой заклинаний.",
+        "pierce": "В течение {duration} сек. ваши автоатаки, выстрелы и физические способности (кроме кровотечений) также поражают ближайшего к вашей цели врага в пределах {reach} м, нанося {share}% от нанесенного урона.",
+        "lantern": "Ставит у ваших ног фонарь на {duration} сек. Прямое исцеление от кого угодно на вас или члена группы в пределах {radius} м от фонаря также исцеляет самого раненого другого члена группы в его свете на {share}% от объема исцеления.",
+        "heartNova": "Тратит все стаки жара на огненную вспышку, которая наносит {perHeat} ед. урона от огня за стак ({max} ед. при {maxHeat} стаках) каждому врагу в пределах {radius} м и провоцирует каждое задетое существо. Урон растет с силой атаки. Требуется стак жара."
+      }
     },
     "questShare": {
       "notShareable": "Этим заданием нельзя поделиться.",
@@ -2955,6 +3276,7 @@ export const ru_RU: EnTranslations = {
       "failed": "Не удалось создать отчет. Повторите попытку."
     },
     "paperdoll": {
+      "trinketSlot": "Аксессуар",
       "unequipAria": "Снять {item}",
       "unequipHint": "Нажмите ×, ПКМ или перетащите в сумку, чтобы снять",
       "hideHelmAria": "Скрыть шлем",
@@ -3126,8 +3448,8 @@ export const ru_RU: EnTranslations = {
       "hint": "Очки фокуса добавляют бонус поверх базового выхода каждого компонента. Компоненты без фокуса остаются на базовом уровне.",
       "tierHint": "Каждые {points} очков на компоненте повышают уровень его добычи на одну ступень, максимум на {steps} ступени; меньше {points} очков по-прежнему увеличивают выход.",
       "townOnlyHint": "Фокус можно менять только в городе.",
-      "preferenceHint": "Focus raises the grade and amount of what you harvest. To harvest only one material, set a Harvest Preference from your Field Kit or the Professions window.",
-      "pendingLine": "Saved. Your re-spec to this allocation completes in {time}.",
+      "preferenceHint": "Фокус повышает сорт и количество добываемого сырья. Чтобы собирать только один материал, задайте предпочтение сбора через полевой набор или окно «Профессии».",
+      "pendingLine": "Сохранено. Перераспределение фокуса завершится через {time}.",
       "budgetLabel": "Осталось очков: {remaining} / {budget}",
       "saveButton": "Сохранить фокус",
       "notInTownHint": "Чтобы задать фокус, нужно находиться в городе.",
@@ -3537,8 +3859,8 @@ export const ru_RU: EnTranslations = {
         "kingsWrathSummary": "Нитраксис наносит на {bonusNormal} больше урона на обычном режиме или на {bonusHeroic} на героическом до конца боя. Могильное извержение происходит каждые {eruptionEveryNormal} сек. ({eruptionEveryHeroic} на героическом).",
         "kingsWrathResponse": "Используйте оставшиеся защитные способности от неизбежного урона. Продолжайте чисто выполнять все прежние механики, пока рейд не закончит бой.",
         "boneStormName": "Костяная буря",
-        "boneStormSummary": "Начиная с {first} сек. после начала Королевского гнева и затем каждые {everyNormal} сек., Нитраксис начинает Костяную бурю на {duration} сек. Он игнорирует угрозу, двигается в {speed} раза быстрее обычного и совершает {charges} рывков по {chargeSeconds} сек. каждый. Его вихрь наносит {whirlNormal} максимального здоровья каждую секунду в радиусе {radius} м. Каждый рывок завершается Костяным ударом в том же радиусе на {slamNormal} максимального здоровья. Первый удар каждой бури наносит вместо этого {openingSlamNormal}. Гробокрушитель снова активируется через {rearm} сек. после её окончания.",
-        "boneStormHeroicSummary": "Начиная с {first} сек. после начала Королевского гнева и затем каждые {everyHeroic} сек., Нитраксис начинает Костяную бурю на {duration} сек. Он игнорирует угрозу, двигается в {speed} раза быстрее обычного и совершает {charges} рывков по {chargeSeconds} сек. каждый. Его вихрь наносит {whirlHeroic} максимального здоровья каждую секунду в радиусе {radius} м. Каждый рывок завершается Костяным ударом в том же радиусе на {slamHeroic} максимального здоровья. Первый удар каждой бури наносит вместо этого {openingSlamHeroic}. Гробокрушитель снова активируется через {rearm} сек. после её окончания.",
+        "boneStormSummary": "Начиная с {first} сек. после начала Королевского гнева и затем каждые {everyNormal} сек., Нитраксис начинает Костяную бурю на {duration} сек. Он игнорирует угрозу, двигается в {speed} раза быстрее обычного и совершает {charges} рывков по {chargeSeconds} сек. каждый. Его вихрь наносит {whirlNormal} максимального здоровья каждую секунду в радиусе {radius} м. Каждый рывок завершается Костяным ударом в том же радиусе на {slamNormal} максимального здоровья. В момент начала бури все действующие метки Разрыва души сбрасываются без разрешения, и буря никогда не начинается сразу после детонации Разрыва души. Гробокрушитель снова активируется через {rearm} сек. после её окончания.",
+        "boneStormHeroicSummary": "Начиная с {first} сек. после начала Королевского гнева и затем каждые {everyHeroic} сек., Нитраксис начинает Костяную бурю на {duration} сек. Он игнорирует угрозу, двигается в {speed} раза быстрее обычного и совершает {charges} рывков по {chargeSeconds} сек. каждый. Его вихрь наносит {whirlHeroic} максимального здоровья каждую секунду в радиусе {radius} м. Каждый рывок завершается Костяным ударом в том же радиусе на {slamHeroic} максимального здоровья. В момент начала бури все действующие метки Разрыва души сбрасываются без разрешения, и буря никогда не начинается сразу после детонации Разрыва души. Гробокрушитель снова активируется через {rearm} сек. после её окончания.",
         "boneStormResponse": "Рассредоточьтесь и продолжайте убегать от Нитраксиса. Рейдер, которого он преследует рывком, убегает, а все остальные освобождают место вокруг пути рывка, затем танки принимают его на себя, когда буря заканчивается.",
         "crownEnduresName": "Корона выстоит",
         "crownEnduresSummary": "Через {enrageNormal} сек. после пула (таймер приостанавливается на время появления Брата Алдрика на 70% здоровья) срабатывает жёсткий энрейдж «Корона выстоит». Нитраксис получает на {damage} больше урона и на {haste} более быстрые атаки, а затем ещё на {rampStep} урона каждые {rampEveryNormal} сек. Полосы таймера нет. Предупреждения приходят выкриками за {warn60}, {warn30} и {warn10} сек. до срабатывания.",
@@ -3596,6 +3918,7 @@ export const ru_RU: EnTranslations = {
       "forbiddenReflectionLock": "Запретное отражение пока нельзя подготовить снова",
       "internalCooldown": "Эффект не сработает снова до окончания таймера",
       "carriedFlag": "Вы несете вражеский флаг. Отмените этот эффект, чтобы бросить его.",
+      "carryingFreight": "Вы несёте груз. Скорость передвижения снижена на {pct}%.",
       "battleStance": "Боевая стойка: на 10% больше создания ярости",
       "berserkerStance": "Стойка берсерка: крит. удары на 3% чаще и на 3% сильнее",
       "crit": "Повышает шанс критического удара на {pct}%",
@@ -3624,8 +3947,8 @@ export const ru_RU: EnTranslations = {
       "iceFloesCasts": "Следующие {n} заклинаний с временем чтения можно читать на бегу",
       "freeCast": "Следующее заклинание ничего не стоит",
       "instantCast": "Следующее заклинание с временем чтения станет мгновенным",
-      "benisonPrayers": "Your next Choirmend heals for {pct}% more and consumes all stacks.",
-      "benisonWhisper": "Your next Whispered Prayer is instant and heals for {pct}% more. Use it before this effect expires.",
+      "benisonPrayers": "Ваше следующее «Хоровое исцеление» лечит на {pct}% сильнее и расходует все заряды.",
+      "benisonWhisper": "Ваша следующая «Тихая молитва» становится мгновенной и лечит на {pct}% сильнее. Успейте применить её, пока не закончится действие эффекта.",
       "cheapCast": "Следующее заклинание стоит на {pct}% меньше",
       "radiantResonance": "Следующий «Целительный свет» применяется мгновенно, либо следующие «Объятия рассвета» требуют на {pct}% меньше маны и применяются за {castTime} сек.",
       "solarReprisal": "Следующий «Солнечный диск» не требует маны, игнорирует время восстановления и наносит на {pct}% больше урона; «Молот благодати» игнорирует время восстановления и исцеляет на 100% нанесенного урона; либо «Целительный свет» применяется мгновенно",
@@ -3645,6 +3968,40 @@ export const ru_RU: EnTranslations = {
       "resourceSap": "Восстанавливает {value} текущего ресурса раз в {interval} сек.",
       "nextAttackCrit": "Следующая атака гарантированно станет критической",
       "healEcho": "При падении здоровья ниже {threshold}% восстанавливает {value} здоровья",
+      "trinket": {
+        "lastStandCooldown": "Щит «Последний бастион» от Печати бастиона уже использован. Пока этот эффект не истечет, падение здоровья ниже {threshold}% не создаст его снова.",
+        "lastBastion": "Поглощает {value} ед. урона. Печать бастиона создала этот щит, когда вы получили урон при здоровье ниже {threshold}%.",
+        "retaliate": "Враги, напрямую поражающие вас, получают физический урон, равный {pct}% здоровья, которое у вас отнял этот удар. Периодический урон эффект не вызывает.",
+        "moored": "Вы получаете на {reduction}% меньше урона, но двигаетесь со скоростью {speed}%. Вы игнорируете оглушение, обездвиживание, замедление, страх, превращение, немоту, ослепление, сглаз, разоружение, эффекты выведения из строя и отбрасывание.",
+        "hourglassStored": "Хранит {stored} ед. исцеления, накопленного из вашего избыточного исцеления. Используйте Песочные часы целителя, чтобы превратить его в щит на члене группы в пределах {range} м с наименьшим процентом здоровья, включая вас.",
+        "hourglassShield": "Поглощает {value} ед. урона. Создан из исцеления, накопленного Песочными часами целителя.",
+        "wellspring": "Восстанавливает {tick} ед. здоровья каждые {every} сек.",
+        "twinStrikeCooldown": "Парные когти только что нанесли дополнительный удар. Следующий возможен только после окончания этого эффекта.",
+        "bleedEdge": "Ваши автоатаки накладывают «Рану от когтя»: {tick} ед. физического урона за стак каждые {every} сек. в течение {duration} сек., до {max} стаков.",
+        "bleedEdgeOther": "Автоатаки накладывают «Рану от когтя», физическое кровотечение до {max} стаков. Урон растет с силой атаки.",
+        "talonWound": "Наносит {damage} ед. физического урона каждые {every} сек. ({stacks}/{max} стаков). Каждый новый стак добавляет урон и обновляет длительность.",
+        "tally": "Метки счета: {stacks}/{max}. Используйте Счёт охотника, чтобы потратить их все на удар по цели, наносящий {damage} ед. физического урона ({perMark} ед. за метку).",
+        "tallyOther": "Метки счета: {stacks}/{max}. Счёт охотника тратит их все на физический удар, урон которого растет с каждой меткой.",
+        "storm": "Заряды: {stacks}/{max}. Используйте Грозовой сосуд, чтобы высвободить их молнией, которая поражает вашу цель и еще до {extra} врагов в пределах {jumpRange} м друг от друга, нанося каждому {damage} ед. урона от сил природы ({perCharge} ед. за заряд).",
+        "stormOther": "Заряды: {stacks}/{max}. Грозовой сосуд высвобождает их молнией природы, которая поражает цель и еще до {extra} врагов; урон растет с каждым зарядом.",
+        "echo": "Ваши следующие {casts} прямых исцеления или прямых нефизических попадания повторяются с силой {pct}% от их величины.",
+        "keenEdge": "Удача Игральной кости игрока: вы наносите на {pct}% больше урона.",
+        "luckyStreak": "Удача Игральной кости игрока: восстанавливает {tick} ед. здоровья каждые {every} сек.",
+        "gildedGuard": "Удача Игральной кости игрока: поглощает {value} ед. урона.",
+        "riftGuard": "Вы получаете на {pct}% меньше урона.",
+        "sprint": "Скорость передвижения увеличена на {pct}%. Не суммируется с другими эффектами увеличения скорости.",
+        "brand": "Получаемое исцеление уменьшено на {pct}%.",
+        "forgeHeat": "Жар: {stacks}/{max}. Закалка Отца Кузни тратит его весь, и ее огонь оружия наносит на {pct}% больше урона.",
+        "tempered": "Ваши попадания оружием ближнего и дальнего боя наносят дополнительно {damage} ед. урона от огня (на {pct}% больше за потраченный жар). Каждый добивающий удар продлевает эффект на {killExtend} сек., всего не более {maxDuration} сек.",
+        "temperedOther": "Попадания оружием ближнего и дальнего боя наносят дополнительный урон от огня, на {pct}% больше за потраченный жар. Урон растет с силой атаки или силой атаки дальнего боя, в зависимости от того, что выше.",
+        "kindlingOrb": "Каждое ваше заклинание, произнесенное на врага, заставляет сферу выпустить в этого врага снаряд, наносящий {damage} ед. урона от огня. Сфера не стреляет во врага под превращением, выведением из строя или ослеплением.",
+        "kindlingOrbOther": "Каждое заклинание, произнесенное на врага, заставляет сферу выпустить в него огненный снаряд. Урон растет с силой заклинаний.",
+        "moltenIgnite": "Наносит {damage} ед. урона от огня каждые {every} сек. Новый критический удар оружием обновляет эффект.",
+        "pierce": "Ваши автоатаки, выстрелы и физические способности (кроме кровотечений) также поражают ближайшего к вашей цели врага в пределах {reach} м, нанося {pct}% от нанесенного урона.",
+        "lantern": "Прямое исцеление от кого угодно на вас или члена группы в пределах {radius} м от фонаря также исцеляет самого раненого другого члена группы в его свете на {pct}% от объема исцеления.",
+        "crucibleHeat": "Жар: {stacks}/{max}. Используйте Сердце горнила, чтобы потратить его весь на огненную вспышку, которая наносит {damage} ед. урона от огня каждому врагу в пределах {radius} м и провоцирует каждое задетое существо.",
+        "crucibleHeatOther": "Жар: {stacks}/{max}. Сердце горнила тратит его весь на огненную вспышку в пределах {radius} м, урон от огня которой растет с каждым стаком; она провоцирует каждое задетое существо."
+      },
       "increase": {
         "ap": "Повышает силу атаки на {value}",
         "str": "Повышает силу на {value}",
@@ -3776,7 +4133,7 @@ export const ru_RU: EnTranslations = {
       "resetErrInvalid": "Эта ссылка для сброса недействительна или истекла. Запросите новую."
     },
     "loot": {
-      "rollWon": "Congratulations! You won {item} with a roll of {roll}",
+      "rollWon": "Поздравляем! Вы выиграли {item} с броском {roll}",
       "chestTitle": "Сундук",
       "takeLootButton": "Взять добычу",
       "takeLootTooltip": "Забирает монеты и выпавшие предметы. Возможность сбора не расходуется.",
@@ -3876,8 +4233,8 @@ export const ru_RU: EnTranslations = {
       "label": "Сбросить положение рамок"
     },
     "interfaceUnlock": {
-      "combineTrackers": "Combine Tracker Frames",
-      "combineAuras": "Combine Aura Frames",
+      "combineTrackers": "Объединить рамки отслеживания",
+      "combineAuras": "Объединить рамки аур",
       "label": "Редактирование фреймов",
       "unlock": "Разблокировать интерфейс",
       "lock": "Заблокировать интерфейс",
@@ -3888,8 +4245,8 @@ export const ru_RU: EnTranslations = {
       "lockFrame": "Заблокировать эту рамку",
       "resizeFrame": "Изменить размер этой рамки",
       "frameNames": {
-        "trackerGroup": "Trackers",
-        "auraGroup": "Aura trackers",
+        "trackerGroup": "Отслеживание задач",
+        "auraGroup": "Ауры и эффекты цели",
         "actionBar1": "Панель команд",
         "actionBar2": "Панель команд 2",
         "actionBar3": "Панель команд 3",
@@ -4466,8 +4823,8 @@ export const ru_RU: EnTranslations = {
       "vaultTab": "Хранилище",
       "vaultCapacityNote": "Каждый материал можно хранить в количестве до {cap} шт.",
       "vaultEmpty": "Ваше хранилище пусто. Щелкните по материалу в сумке, чтобы поместить его сюда.",
-      "vaultSearchAria": "Search vault materials by name",
-      "vaultSearchNoMatch": "No material in your vault matches your search.",
+      "vaultSearchAria": "Поиск материалов хранилища по названию",
+      "vaultSearchNoMatch": "В вашем хранилище нет материалов, подходящих под запрос.",
       "vaultRowAria": "{item}: хранится {count} из {cap}",
       "vaultLockedIntro": "Откройте хранилище материалов, чтобы запасать ремесленные материалы рядом с банком. У каждого материала свое место, до {cap} шт.",
       "vaultUnlockButton": "Открыть хранилище материалов",
@@ -4935,10 +5292,18 @@ export const ru_RU: EnTranslations = {
       "enchant_weapon_lucent_spellpower": "Травление оружия: Светозарная сила заклинаний",
       "enchant_chest_lucent_stamina": "Травление нагрудника: Светозарная выносливость",
       "enchant_feet_lucent_agility": "Травление сапог: Светозарная ловкость",
-      "enchant_lucent_infusion": "Светозарное вливание"
+      "enchant_lucent_infusion": "Светозарное вливание",
+      "enchant_weapon_riftwalkers_grace": "Грация Странника Разлома",
+      "enchant_weapon_dawnfire_etching": "Травление оружия: Рассветное пламя",
+      "enchant_weapon_dawns_benediction": "Травление оружия: Благословение Рассвета",
+      "enchant_weapon_piston_drive": "Травление оружия: Поршневой привод"
     },
     "enchantDescription": {
-      "enchant_weapon_lastflame_zeal": "Попавшие в цель атаки ближнего боя могут повысить силу на 50 на 15 сек. и восстановить вам 200 ед. здоровья. Действуют модификаторы исцеления. При каждом попадании шанс срабатывания равен 1% за каждые 0,6 сек. базовой скорости атакующего оружия. Внутренней перезарядки нет. Обе руки дают одно общее усиление; любое срабатывание обновляет его, и оно никогда не суммируется. Дальние атаки не вызывают этот эффект. В облике волка вместо этого используется базовая скорость атаки в 1 сек."
+      "enchant_weapon_lastflame_zeal": "Попавшие в цель атаки ближнего боя могут повысить силу на 50 на 15 сек. и восстановить вам 200 ед. здоровья. Действуют модификаторы исцеления. При каждом попадании шанс срабатывания равен 1% за каждые 0,6 сек. базовой скорости атакующего оружия. Внутренней перезарядки нет. Обе руки дают одно общее усиление; любое срабатывание обновляет его, и оно никогда не суммируется. Дальние атаки не вызывают этот эффект. В облике волка вместо этого используется базовая скорость атаки в 1 сек.",
+      "enchant_weapon_riftwalkers_grace": "Попавшие в цель атаки ближнего боя могут повысить ловкость на 60 и ускорить атаки ближнего боя на 2% на 15 сек. При каждом попадании шанс срабатывания равен 1% за каждые 0,6 сек. базовой скорости атакующего оружия. Внутренней перезарядки нет. Обе руки дают одно общее усиление; любое срабатывание обновляет его, и оно никогда не суммируется. Дальние атаки не вызывают этот эффект. В облике кота вместо этого используется базовая скорость атаки в 1 сек.",
+      "enchant_weapon_dawnfire_etching": "Навсегда наносит на оружие травление, дающее 18 к силе заклинаний. Сила заклинаний также учитывается в силе исцеления. Фиксированный бонус, он не масштабируется.",
+      "enchant_weapon_dawns_benediction": "Навсегда наносит на оружие травление, дающее 34 к силе исцеления. Сила исцеления усиливает только исцеление, но никогда не урон от заклинаний. Фиксированный бонус, он не масштабируется.",
+      "enchant_weapon_piston_drive": "Навсегда наносит на двуручное оружие травление, дающее 12 к силе и 25 к рейтингу критического удара. Нельзя применить к одноручному оружию. Фиксированный бонус, он не масштабируется."
     },
     "professions": {
       "title": "Профессии",
@@ -5130,7 +5495,7 @@ export const ru_RU: EnTranslations = {
         "dormantKnowledge": "Знания ремесла {craft} сохранены, но неактивны, пока не выбрана его пара или увлечение."
       },
       "stationRequired": "Для изготовления нужно находиться у станции \"{station}\".",
-      "mobileStationTitle": "{name}'s {station}",
+      "mobileStationTitle": "{station} {name}",
       "stationName": {
         "forge": "Кузница",
         "kitchens": "Кухни",
@@ -5860,6 +6225,32 @@ export const ru_RU: EnTranslations = {
       "showRoute": "Показать маршрут",
       "untrack": "Не отслеживать",
       "track": "Отследить",
+      "worldQuests": {
+        "heading": "Мировые задания на сегодня",
+        "count": "{done} / {total}",
+        "empty": "Сегодня мировых заданий нет",
+        "replacement": "Замена",
+        "state": {
+          "active": "В процессе",
+          "completed": "Выполнено"
+        },
+        "reroll": "Заменить задание",
+        "rerollNote": "Сегодня доступна одна замена",
+        "rerollUsed": "Замена на сегодня использована",
+        "rerollReason": {
+          "noCycle": "Сегодня доски нет",
+          "usedToday": "Замена на сегодня использована",
+          "completed": "Выполненное задание нельзя заменить",
+          "inProgress": "Задание в процессе нельзя заменить",
+          "notActive": "Этого задания нет на вашей доске",
+          "noAlternative": "В этой зоне сегодня нет других заданий",
+          "unknown": "Это задание сегодня нельзя заменить"
+        },
+        "confirmTitle": "Заменить это мировое задание?",
+        "confirmBody": "Заменить можно только одно мировое задание в день, и отменить это нельзя. {quest} будет заменено другим заданием в его зоне.",
+        "confirmOk": "Заменить",
+        "confirmCancel": "Отмена"
+      },
       "legend": {
         "dungeon": "Подземелье",
         "ore": "Руда",
@@ -5867,8 +6258,8 @@ export const ru_RU: EnTranslations = {
         "mail": "Почта",
         "passage": "Проход"
       },
-      "collapseHint": "Collapse map sidebar",
-      "expandHint": "Expand map sidebar"
+      "collapseHint": "Свернуть боковую панель карты",
+      "expandHint": "Развернуть боковую панель карты"
     },
     "arenaGate": {
       "minLevelNote": "Требуется уровень {level}"
@@ -6143,6 +6534,61 @@ export const ru_RU: EnTranslations = {
       "gatedByQuest": "Во время задания: {quest}",
       "empty": "Нет добычи, соответствующей этим фильтрам.",
       "resultCount": "Результатов: {count}"
+    },
+    "weekly": {
+      "title": "Еженедельные задания",
+      "close": "Закрыть еженедельные задания",
+      "subtitle": "Выберите одно из четырёх поручений. Оно",
+      "resetsIn": "обновится через {time}.",
+      "anyDifficulty": "Любая сложность",
+      "choose": "Выбрать задание",
+      "inProgress": "В процессе ({count}/{required})",
+      "completed": "Выполнено на этой неделе",
+      "lockedThisWeek": "Закрыто на этой неделе",
+      "footerPick": "Одновременно можно держать только одно еженедельное поручение. Выберите карточку, чтобы прочитать условия.",
+      "footerHeld": "Поручение на неделю выбрано. Остальные три откроются после обновления.",
+      "dialogHeading": "Еженедельное задание: {category}",
+      "objectives": "Цели задания",
+      "rewards": "Награды",
+      "alsoReceive": "Вы также получите:",
+      "tally": "{count} / {required}",
+      "cacheDesc": "Открывается в один предмет из обычного рейда для вашего класса (никогда не часть комплекта), плюс {item} x {count}.",
+      "dialogNote": "Активным может быть только одно еженедельное поручение. Оно {reset}",
+      "accept": "Принять",
+      "decline": "Отклонить",
+      "kinds": {
+        "dungeons": {
+          "category": "Подземелья",
+          "lore": "Глубины королевства не знают покоя: Брошенный Мех снова шевелится, а Пустой Склеп пробуждается. Соберите союзников и очистите подземелья от скверны.",
+          "goal": "Пройдите {count} подземелья на любой сложности.",
+          "goalLabel": "Пройдено подземелий"
+        },
+        "raid": {
+          "category": "Рейд",
+          "lore": "Древние силы пробуждаются в Горниле Последнего Пламени и на высотах Тернистого пика. Встретьте Игнивара или Нитраксиса и сразите вражеского командира.",
+          "goal": "Примите участие в {count} рейде на любой сложности.",
+          "goalLabel": "Пройдено рейдов"
+        },
+        "battlegrounds": {
+          "category": "Поля боя",
+          "lore": "Над Тернистой лощиной реют боевые знамёна. Сражайтесь бок о бок со своей фракцией, удерживайте флаг и докажите свою доблесть; каждый матч засчитывается, выигран он или проигран.",
+          "goal": "Завершите {count} поля боя.",
+          "goalLabel": "Завершено полей боя"
+        },
+        "worldboss": {
+          "category": "Мировой босс",
+          "lore": "По диким землям бродят могучие враги, каждый способен противостоять целым армиям. Присоединитесь к тем, кто рядом, и сразите одно исполинское чудовище.",
+          "goal": "Победите {count} мирового босса в диких землях.",
+          "goalLabel": "Побеждено мировых боссов"
+        }
+      },
+      "commendHeading": "Рекомендация эмиссара",
+      "commendNote": "{amount} репутации одной фракции на ваш выбор, раз в неделю.",
+      "commendClaimed": "Рекомендация этой недели досталась фракции {faction}.",
+      "commendRewardLine": "{amount} репутации с фракцией на ваш выбор",
+      "chosen": "Взято еженедельное задание: {category}",
+      "progress": "{label}: {count}/{required}",
+      "done": "Еженедельное задание выполнено: {category}"
     }
   },
   "gatherEvent": {
@@ -6252,6 +6698,9 @@ export const ru_RU: EnTranslations = {
       "invalid_roster_name": "Недопустимое название гильдии.",
       "unknown": "Гильдии с таким названием нет."
     },
+    "world_quests": {
+      "unknown_board": "Таблицы рекордов с таким названием нет."
+    },
     "steam": {
       "disabled": "Привязка Steam сейчас недоступна.",
       "invalid_ticket": "Steam не смог подтвердить этот запрос на привязку. Повторите попытку из настольного приложения.",
@@ -6351,6 +6800,70 @@ export const ru_RU: EnTranslations = {
       "stepup_signature_invalid": "Подпись кошелька не прошла проверку. Начните продажу заново."
     }
   },
+  "clues": {
+    "items": {
+      "clue_scroll": {
+        "desc": "Запечатанная загадка, заработанная за все закрытые за день зональные ячейки. Используйте его, чтобы начать охоту за сокровищами, и используйте снова на тайном месте, когда последняя подсказка велит копать."
+      },
+      "treasure_casket": {
+        "desc": "Запертый ларец, выкопанный в конце охоты за сокровищами. Используйте его, чтобы открыть и забрать то, что охота зарыла."
+      }
+    },
+    "hunt_drakelands_gate_ashes": {
+      "0": "Дорога из Змеиного дозора уходит на запад, в старую рощу, что стережёт врата. Встаньте под сенью Привратного леса, и след начнётся.",
+      "1": "Дозорная дальних дюн держится восточных песков, к северу от гарнизона. Найдите разведчицу Йеррин и спросите, что принёс ветер.",
+      "2": "Хранительница гарнизонных складов не ела с прошлого патруля. Принесите интенданту Селе 2 x Деревенский каравай.",
+      "3": "К востоку и чуть южнее того места, где угли сползают в дюны, выжженный клочок земли прячет то, что засыпал пепел. Используйте там свиток и копайте.",
+      "title": "Пепел у врат"
+    },
+    "hunt_frostveil_aurora_vigil": {
+      "0": "Там, где террасы поднимаются к огням, что пляшут по ночам, преклоните колени на Ступенях Сияния, и пусть небо вас заметит.",
+      "1": "Та, что читает огни, ждёт у самых ступеней. Поговорите с чтицей сияния Вейлой о том, что вывело небо.",
+      "2": "К востоку от Воющих террас, чуть южнее, снег лежит ровнее, чем должен. Используйте там свиток и копайте.",
+      "title": "Огни над ступенями"
+    },
+    "hunt_amberfall_lantern_ferry": {
+      "0": "У кромки воды к северу от Лантанмира хранитель фонарных паромов знает, какой огонь погас. Поговорите с паромщиком Каддоу.",
+      "1": "К северо-востоку от Великого озера одинокий камень, что старше города, привалился к небу. Встаньте у Кренящегося монолита.",
+      "2": "Хранительница золочёных рядов поливает свой сад своими руками и сама изнывает от жажды. Принесите садовнице Помелине 3 x Холодная колодезная вода.",
+      "3": "К северо-востоку от взгорка, где клёны горят красным, листья лежат кругом, какого не выложил бы ни один ветер. Используйте там свиток и копайте.",
+      "title": "Фонари на озере"
+    },
+    "hunt_willowfen_fenwitch_salt": {
+      "0": "Болотная ведьма из Плакучей заводи не станет говорить с тем, кто пришёл с пустыми руками. Принесите Матушке Осоке 1 x Поваренная соль.",
+      "1": "Там, где топь становится ровной, а воздух клонит всех в дрёму, встаньте на Дремотных отмелях и вздохните, как велела ведьма.",
+      "2": "К юго-востоку от бочагов, что светятся в болоте, есть бугорок сухой земли, который остаётся сухим круглый год. Используйте там свиток и копайте.",
+      "title": "Соль болотной ведьмы"
+    },
+    "hunt_nightbloom_sleepless_vigil": {
+      "0": "К северо-востоку от Лунного Приюта, где камни несут дозор, которому нет конца, встаньте у Стоячего Дозора.",
+      "1": "Наблюдатель при дозоре считает звёзды, как другие считают монеты. Поговорите с астрономом Кассианом о той, что упала.",
+      "2": "К северу от города лежит курган, чей спящий никогда не находит покоя. Отдайте честь Кургану Неспящего, чтобы спящий знал: пришёл друг.",
+      "3": "К юго-востоку от поля, где собираются сумерки, лунный свет скапливается на одном голом клочке земли. Используйте там свиток и копайте.",
+      "title": "Дозор неспящего"
+    },
+    "hunt_wraithwood_mournstone_candles": {
+      "0": "Свечница из Гиббетмира продаёт свет тем, кто боится темноты. Поговорите с вдовой Пижмой о свече, за которую так и не заплатили.",
+      "1": "Последний викарий Скорбного Камня постится на одних молитвах. Принесите викарию Крилу 2 x Солёное вяленое мясо.",
+      "2": "К северо-востоку от города, за воронами, поляна вешает собственные странные плоды. Встаньте на Висельной Поляне.",
+      "3": "К юго-востоку от поляны, где ловчий ставил силки, палую листву недавно переворошили. Используйте там свиток и копайте.",
+      "title": "Свечи для Скорбного Камня"
+    },
+    "hunt_palmreach_sunken_idol": {
+      "0": "В глубине зарослей, к северо-западу от лагуны, лианы льются вниз, как водопад. Встаньте у Лианопада.",
+      "1": "Отшельник, который ушёл в заросли и вернулся, живёт рядом с падающими лианами. Поговорите с Окримом о том, что он видел там внизу.",
+      "2": "К востоку наполовину затопленный идол всё ещё смотрит. Съёжьтесь от страха перед Затонувшим Идолом, как, по словам отшельника, делают ныряльщики.",
+      "3": "К северо-востоку от того места, где заросли открывают устье морю, песок нагребли выше, чем достаёт прилив. Используйте там свиток и копайте.",
+      "title": "Тайна идола"
+    },
+    "hunt_evergarden_beacon_road": {
+      "0": "Садовница цветников на аллее к северу от Хеджвика клянётся, что её грядки голодают. Принесите фермеру Вербене 2 x Компост.",
+      "1": "В дальнем юго-восточном углу сада старая мельница всё ещё крутится без мельника. Встаньте у Старой Мельницы.",
+      "2": "Ступайте по дороге на юг через границу в Гейлкрест и выходите к побережью. Последнее слово за хранителем старого маяка, смотрителем Брамом.",
+      "3": "К северо-западу от Старого Маяка, у самой тропы, что спускается от огня, дёрн срезали и уложили обратно. Используйте там свиток и копайте.",
+      "title": "Маяк и цветы"
+    }
+  },
   "guide": {
     "brand": "World of ClaudeCraft",
     "brandShort": "ClaudeCraft",
@@ -6373,6 +6886,7 @@ export const ru_RU: EnTranslations = {
       "progression": "Уровни и развитие",
       "world": "Мир",
       "quests": "Задания",
+      "factions": "Фракции и репутация",
       "dungeons": "Подземелья и рейды",
       "delves": "Вылазки",
       "rifts": "Разломы",
@@ -6387,7 +6901,7 @@ export const ru_RU: EnTranslations = {
       "talents": "Таланты",
       "arena": "Арена и PvP",
       "thornhollow": "Терновая Лощина",
-      "worldPvp": "World PvP",
+      "worldPvp": "Мировое PvP",
       "deeds": "Книга деяний",
       "reliquary": "Реликварий",
       "glossary": "Глоссарий",
@@ -6455,7 +6969,7 @@ export const ru_RU: EnTranslations = {
     "home": {
       "eyebrow": "Классическая браузерная MMO",
       "title": "World of ClaudeCraft",
-      "subtitle": "Выполняйте задания, объединяйтесь в группы и исследуйте созданный вручную мир бесплатно прямо в браузере.",
+      "subtitle": "Исследуйте мир, выполняйте задания и проходите подземелья с друзьями.",
       "ctaPlay": "Играть",
       "ctaLearn": "Как играть",
       "what": {
@@ -6728,7 +7242,7 @@ export const ru_RU: EnTranslations = {
       "ifHudOpacity": "Насколько плотны панели интерфейса поверх мира за ними.",
       "ifTooltipScale": "Размер текста подсказок, удобно и на маленьком экране, и на очень большом.",
       "ifHighContrastText": "Более плотный и контрастный текст интерфейса. В первую очередь настройка доступности, и очень удачная на ярком экране.",
-      "ifColorblindMode": "Recolors the Nythraxis floor hazards (the Grave Eruption strike ring, the Grave Flame and Soulfire pools, the Gravefire line, and the Soul Rend marks) onto a colorblind-safe palette with distinct hues and brightness, so overlapping circles keep their edges. Sizes, timers, and positions never change.",
+      "ifColorblindMode": "Перекрашивает опасные зоны на полу у Нитраксиса (кольцо удара Могильного извержения, лужи Могильного пламени и Пламени души, линию Могильного огня и метки Разрыва души) в безопасную для дальтоников палитру с различными оттенками и яркостью, чтобы перекрывающиеся круги сохраняли свои края. Размеры, таймеры и положения никогда не меняются.",
       "ifHighContrastBackground": "Более простой и контрастный фон за стартовым экраном и экраном выбора персонажа.",
       "ifInvertLookY": "Переворачивает направление обзора мышью вверх и вниз.",
       "ifShowItemLevel": "Добавляет строку с уровнем предмета в подсказку каждой вещи. По умолчанию выключено, что сохраняет классическую подсказку с одними характеристиками.",
@@ -6748,7 +7262,7 @@ export const ru_RU: EnTranslations = {
       "ifPartyShowAuras": "Показывать ли усиления и ослабления на рамках группы. Такие же переключатели отвечают за полоски ресурса, поглощение, питомцев и за то, показываетесь ли вы сами в своём списке группы.",
       "ifAurasOnPlayerFrame": "Показывает ваши усиления и ослабления не только на панели аур, но и на вашей собственной рамке персонажа.",
       "ifAuraBarBelowFrame": "Перемещает полосу усилений под рамку персонажа вместо над ней. Действует, только когда усиления отображаются на рамке игрока.",
-      "ifTargetAurasBelowFrame": "Hangs the target frame's buff and debuff strip below the frame instead of above it, the classic layout. Off by default, since the stock target frame sits directly above the action bar; turn it on once you have moved the frame somewhere with room beneath it.",
+      "ifTargetAurasBelowFrame": "Располагает полосу усилений и ослаблений рамки цели под рамкой вместо классического расположения над ней. По умолчанию выключено, поскольку стандартная рамка цели стоит прямо над панелью действий; включите эту опцию, когда переместите рамку туда, где под ней есть место.",
       "ifAlwaysShowAllBuffs": "Показывает все активные баффы даже на низком графическом пресете, обходя его обычное ограничение на количество значков баффов.",
       "ifShowAuraCaster": "Добавляет строку \"Применил\" в подсказку каждого баффа/дебаффа с именем того, кто его наложил. Удобно, чтобы отличить одинаковые баффы от разных персонажей, например благословения нескольких паладинов.",
       "ifTargetOfTarget": "Показывает, кого держит целью ваша цель, — классический способ понять, удерживает ли её ещё танк.",
@@ -6827,7 +7341,7 @@ export const ru_RU: EnTranslations = {
       "framesMoveBodyEditFrames": "Вашу рамку, рамку цели и рамки группы можно двигать. У каждой в углу есть маленькая кнопка перемещения: снимите блокировку, перетащите рамку туда, где хотите её видеть, и заблокируйте снова, чтобы случайный клик её не сдвинул. «Редактирование фреймов» в верхней части вкладки «Рамки» раздела «Интерфейс» в настройках разом отпускает весь остальной интерфейс (а с ним и эти три рамки): панели способностей, полосу чтения, полосу замаха, полосу опыта, миникарту, ряд кнопок, рамку питомца, панель стоек, ряды усилений и ослаблений и плашку «Напоминание о списке желаемого», причём на каждой, пока она отпущена, висит ярлычок с её названием. Если они оказались там, где вам не нравится, кнопка «Сбросить настройки» внизу той же вкладки «Рамки» вернёт их все туда, где они были изначально.",
       "framesGovernedExtra": "«Редактирование фреймов» также отпускает стопку трекеров под ним (отслеживаемые задания и их цели, ход ваших деяний, ваши страницы Реликвария, рецепты, закреплённые вами при крафте, вылазка, в которой вы находитесь, любой разлом, в котором вы участвуете, и рецепт или заказ, который вы отслеживаете), панель действий питомца рядом с рамкой питомца, рамку «Эффекты на целях» для ваших ослабляющих эффектов на ближних врагах, медальон «Преданность» паладина, «Шкалу ресурсов Колдовства» чернокнижника, оверлей срабатывания заклинаний, полосу замаха оружия в левой руке для тех, кто дерётся с оружием в каждой руке, и окно счётчика урона с вкладками, и у каждого из них, пока он отпущен, есть ярлычок с его названием.",
       "framesGovernedAuraTracks": "«Редактирование фреймов» также отпускает шесть необязательных дорожек эффектов, если вы включили их на вкладке «Бой» тех же настроек интерфейса: дорожки «Мои эффекты», «Защитные умения», «Мои щиты», «Атакующие умения», «Движение и скрытность» и «Мои эффекты на союзниках». По умолчанию все они выключены, а пока дорожка отпущена, на ней висит ярлык с её названием.",
-      "frameGroups": "{trackers} can combine quests, deeds, rifts, delves, gathering goals, and Reliquary tracking. {auras} can combine Target dots and the six aura tracks. Enable either group in Frames Settings, or leave it off to move each frame separately. {tot} includes a resource bar. {focus} has three independently movable targets: Shift+F1 through Shift+F3 assigns them; Ctrl+F1 through Ctrl+F3 selects them. Drag the damage or threat meter anywhere outside its buttons to move it, and drag its edges to resize it, even while frames are locked. While frames are unlocked, Show or Hide Frames has its own grouped menu. Right-click an unlocked frame for Reset size or Frame Options. Interface > Frames also contains Frame Settings and collapsible Party Frame Options. Lock Target of Target to Target keeps those frames together. Turn it off to move Target of Target separately; turning it back on preserves the separate position for later. Assigned focus frames hide their setup controls; right-click and choose Unset Focus to restore them. Mouseover casting also works on focus frames.",
+      "frameGroups": "{trackers} объединяет задания, достижения, разломы, вылазки, цели сбора и Реликварий. {auras} объединяет периодический урон по цели и шесть полос аур. Включите нужное объединение в настройках рамок или оставьте рамки раздельными. У {tot} есть полоса ресурса. Три цели {focus} перемещаются отдельно: Shift+F1–F3 назначает их, Ctrl+F1–F3 выбирает. Счётчики урона и угрозы можно перемещать за любую область вне кнопок и менять размер за края даже при заблокированных рамках. После разблокировки доступно отдельное меню видимости с группами. Правый щелчок по рамке открывает сброс размера и её настройки. В разделе «Интерфейс → Рамки» также есть общие настройки и сворачиваемые настройки группы. Отключите привязку цели цели к цели, чтобы перемещать её отдельно; повторное включение сохраняет отдельную позицию на будущее. После назначения фокуса кнопка и подсказка скрываются. Правый щелчок и пункт «Снять фокус» возвращают исходный вид. Применение при наведении работает и на рамках фокуса.",
       "framesGovernedTalkingHead": "«Редактировать фреймы» также освобождает панель диалога: она показывает реплику NPC, пока тот находится вне вашего поля зрения, и носит свою табличку с именем, пока откреплена.",
       "framesGovernedUnitTooltip": "«Редактирование фреймов» также освобождает фрейм подсказки: место, где появляется карточка того, на что наведён курсор. Для существа это уровень и вид, для другого игрока: звание, гильдия, уровень и класс, а также специализация с её ролью. Перетащите фрейм куда угодно, и карточка будет раскрываться оттуда в сторону от ближайших краёв экрана. Снимите флажок «Подсказка» в разделе «Показать или скрыть фреймы» в «Настройках фреймов», чтобы совсем скрыть эту карточку.",
       "barsTitle": "Полосы, таймеры и боевой текст",
@@ -6940,8 +7454,8 @@ export const ru_RU: EnTranslations = {
       "completed": "Задания, которые вы уже сдали, в порядке завершения.",
       "session": "Что вы успели с момента входа в игру: убийства, смерти, урон и опыт.",
       "arena": "Ваше положение в Пепельном Колизее в обеих категориях: рейтинг, победы, поражения и доля побед для боёв один на один и два на два.",
-      "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
-      "pvpZones": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other on contested ground, sanctuaries allow no world fighting at all, and the free-for-all zones allow it with or without a flag; switching off takes 5 minutes.",
+      "pvp": "Флаг мирового PvP: /pvp переключает его, /pvp on и /pvp off задают. Игроки с флагом могут сражаться друг с другом где угодно; отключение занимает 5 минут.",
+      "pvpZones": "Флаг мирового PvP: /pvp переключает его, /pvp on и /pvp off задают. Игроки с флагом могут сражаться друг с другом на спорной территории, в святилищах мировые бои не разрешены вовсе, а на территориях свободного боя сражаться можно и с флагом, и без него; отключение занимает 5 минут.",
       "listings": "Ваши собственные лоты на Мировом рынке с запрошенной ценой, оставшимся у каждого временем и тем, сколько у вас есть места под новые.",
       "buyback": "Что вы недавно продали торговцу и ещё можете выкупить обратно.",
       "groupState": "Как вы сейчас",
@@ -7543,6 +8057,14 @@ export const ru_RU: EnTranslations = {
       "sideWardenBody": "Помимо сюжета, маршалы и стражи Vale и топи выдают постоянную лестницу наград за головы. Поднимайтесь по ней, враг за врагом, так же, как заслуживал своё место каждый охотник за головами до вас. Это честная прокачка и обход худших смутьянов каждой зоны.",
       "sideCryptTitle": "Забытый король",
       "sideCryptBody": "Высоко в горах вьётся загадка потише: старые могилы, помеченные венцом, которого не помнит ни одна запись. Прочтите мёртвых, соберите то, что они стерегли, и распечатайте гробницу, которой положено было оставаться закрытой. Это путь сыщика, что открывает дорогу к финальному рейду королевства на десять игроков.",
+      "cluesTitle": "Свитки с подсказками",
+      "cluesBody": "В дальних зонах ежедневная доска мировых заданий прячет ещё одну награду для тех, кто закрывает всю доску: свиток с подсказкой и записанную на нём охоту за сокровищами.",
+      "cluesEarnTitle": "Как получить свиток",
+      "cluesEarnBody": "Когда ваш персонаж достаточно продвинется, выполнение каждой зональной ячейки на ежедневной доске мировых заданий приносит свиток с подсказкой сверх обычных наград. Перевыбранная ячейка засчитывается, как только выполнена; всегда открытые ежедневные задания не требуются. Свитков можно держать несколько, так что тратить свиток в день получения не обязательно.",
+      "cluesHuntTitle": "По следу подсказок",
+      "cluesHuntBody": "Использование свитка начинает охоту: короткую цепочку загадок, которые появляются в трекере заданий по одной. Каждая загадка указывает на что-то настоящее в мире: ориентир, у которого нужно встать, человека, с которым нужно поговорить, эмоцию, которую нужно показать в определённом месте, или небольшое поручение, а последняя всегда велит копать. Одновременно идёт только одна охота, и она сохраняет ваш прогресс через ежедневный сброс и между сеансами, так что не торопитесь.",
+      "cluesCasketTitle": "Ларец",
+      "cluesCasketBody": "Разгадайте последнюю подсказку и используйте свиток в указанном месте, чтобы выкопать ларец с сокровищами; завершив охоту, вы также получите репутацию у фракции, на чьей земле он был спрятан. В ларце вас ждут монеты и связка отличных материалов для собирательства. Иногда в нём попадается предмет экипировки или несколько героических знаков, а совсем редко Грумбол Фонареносец, ездовое животное, которого больше нигде не найти. Ваш первый ларец и десятый заносятся в Книгу деяний.",
       "sideTempleTitle": "Утонувший храм",
       "sideTempleBody": "Врата бледного света над высоким горным озером на пиках открываются в затонувшее святилище, где всё ещё поёт утонувший культ. Эта короткая цепочка стоит особняком от основного сюжета, самодостаточная загадка для всякого, кто доберётся до берега, прочтёт высеченные на камнях предостережения и спустится узнать, для чего они были.",
       "availableTitle": "Почему у NPC для вас ничего нет",
@@ -7695,29 +8217,29 @@ export const ru_RU: EnTranslations = {
       "warfareBodyStatsStay": "На каждой вещи Боевой мощи есть рейтинг атаки и рейтинг защиты Боевой мощи, и против чудовищ эти два рейтинга не делают ровным счётом ничего. Они работают лишь тогда, когда вы сражаетесь с другим игроком: на дуэли, на арене или на поле боя, где атака добавляет урона вашим ударам, а защита срезает урон по вам, и каждая до своего предела. Каждое семейство брони к тому же и комплект, а его бонусы — снова рейтинг Боевой мощи или эффекты, что работают только против игроков, так что бонусы комплекта у полного набора за честь ничего не стоят против босса подземелья. Сами же вещи по-прежнему несут обычные характеристики, броню и урон оружия, и всё это работает везде; против чудовища замолкают лишь рейтинги Боевой мощи и бонусы комплекта.",
       "warfareTradeBody": "Такова осознанная плата. Снаряжение Боевой мощи создано для боёв с игроками, а не как обходной путь мимо ступеней подземелий: вещь Боевой мощи никогда не несёт тех боевых характеристик, что несёт эпическая вещь из подземелья в том же слоте, и всё, что она всё-таки даёт, тратится на других игроков. Хотите держаться на арене — покупайте её. Хотите быстрее проходить героические подземелья — добывайте снаряжение в подземельях.",
       "warfareTradeBodyRatingSpent": "Такова осознанная плата. Снаряжение Боевой мощи создано для боёв с игроками, а не как обходной путь мимо ступеней подземелий: вещь Боевой мощи никогда не несёт тех боевых характеристик, что несёт эпическая вещь из подземелья в том же слоте, а рейтинг Боевой мощи и бонусы комплекта, которые она несёт взамен, целиком тратятся на других игроков. Хотите держаться на арене — покупайте её. Хотите быстрее проходить героические подземелья — добывайте снаряжение в подземельях.",
-      "vanguardHeading": "Vanguard gear: Warfare Season 2",
-      "vanguardBody": "Vanguard gear is the second season of Warfare gear, sold by the same two quartermasters above the original tier, which stays on sale. Every spec has its own Vanguard set of five pieces, for the head, shoulders, chest, legs and hands, and the shop lists only the three sets your class can wear, followed by the Vanguard weapons you can wield. A Vanguard piece carries the same Warfare ratings as the original tier at a higher item level, and each set has two bonuses, at two and four pieces, that change one of your spec's abilities. Unlike the original sets, those bonuses work everywhere, monsters included, but they are built for fighting players, so a raid set stays the better choice inside a raid."
+      "vanguardHeading": "Снаряжение Авангарда: Боевая мощь, сезон 2",
+      "vanguardBody": "Снаряжение Авангарда является вторым сезоном снаряжения Боевой мощи, его продают те же два квартирмейстера чести, что и исходный комплект, который остаётся в продаже. У каждой специализации есть собственный комплект Авангарда из пяти предметов: на голову, плечи, грудь, ноги и руки, а магазин показывает только три комплекта, которые может носить ваш класс, а следом идёт оружие Авангарда, доступное вам. Предмет Авангарда несёт те же рейтинги Боевой мощи, что и исходный комплект, но с более высоким уровнем предмета, а у каждого комплекта есть два бонуса, за два и за четыре предмета, меняющие одно из умений вашей специализации. В отличие от исходных комплектов, эти бонусы действуют везде, включая бои с монстрами, но созданы они для боя с игроками, так что рейдовый комплект остаётся лучшим выбором внутри рейда."
     },
     "worldPvpPage": {
-      "heading": "World PvP",
-      "intro": "Open-world player-versus-player is opt-in. Raise your PvP flag and every other flagged player who is not in your party, raid or guild becomes an enemy anywhere in the open world; lower it and, after a short delay, you are a bystander again. Nobody who has not raised the flag can attack or be attacked.",
-      "flagHeading": "Raising and lowering the flag",
-      "flagBody": "Type /pvp in chat, or open the PvP window on G and use the World PvP tab, which also shows your record and the stakes. Raising the flag is instant once you are past the starting levels. Lowering it starts a countdown of a few minutes, and the flag will not drop while you are still fighting, so switching off is never an escape from a fight you started. Healing a flagged player who is in a fight raises your own flag.",
-      "stakesHeading": "What a kill is worth",
-      "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
-      "limitsHeading": "Fair play rules",
-      "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. Two zones are sanctuaries where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
-      "zonesHeading": "Where world PvP happens",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore and Eastbrook Vale are sanctuaries: no world PvP happens there at all, flagged or not, so a new character can never be fought before they know what the flag is. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
-      "flagBodyAid": "Type /pvp in chat, or open the PvP window on G and use the World PvP tab, which also shows your record and the stakes. Raising the flag is instant once you are past the starting levels. Lowering it starts a countdown of a few minutes, and the flag will not drop while you are still fighting, so switching off is never an escape from a fight you started. Healing, shielding or buffing a flagged player who is in a fight raises your own flag as well, so nobody sustains a fighter from behind a flag they do not wear; aiding a player who is not flagged raises nothing.",
-      "stakesUnflaggedTake": "Nor does an unflagged fighter take any: gold only changes hands between two flagged players, though everyone who helped still earns the Honor.",
-      "stakesBodyFlagged": "When a flagged player is defeated by another player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. A player who was not flagged pays no gold at all, even when they fall in a free-for-all zone. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
-      "hillHeading": "King of the Hill",
-      "hillBody": "Once every three hours, at a moment nobody can predict, the whole realm is told that a hill will rise in one of the free-for-all zones in fifteen minutes, and the circle where it will stand is marked on open ground. When it rises it stands for forty-five minutes, then falls. The party with the most players standing inside contests the hill, and after a minute of unbroken majority the hill is theirs; a lone player counts as a party of one, but raid members do not count at all. While a party holds the hill, each of its members standing inside earns a little Honor every minute, so a full party holding an uncontested hill for its whole stand earns a little less than one battleground win pays. A bar over the field shows who holds it, your numbers against theirs, and the contest clock; /hill in chat says where it stands.",
-      "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "hillBodyRamp": "Once every three hours, at a moment nobody can predict, the whole realm is told that a hill will rise in one of the free-for-all zones in fifteen minutes, and the circle where it will stand is marked on open ground. When it rises it stands for forty-five minutes, then falls. The party with the most players standing inside contests the hill, and after a minute of unbroken majority the hill is theirs; a lone player counts as a party of one, but raid members do not count at all. While a party holds the hill, each of its members standing inside earns Honor every minute, and the longer the same party holds it, the more each minute pays: a full party holding an uncontested hill for its whole stand earns about as much as three battleground wins. When the hill changes hands, the new holders start the count from the beginning. A bar over the field shows who holds it, your numbers against theirs, and the contest clock; /hill in chat says where it stands.",
-      "limitsBodyRaids": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor. Raids earn nothing from world kills: a raid member takes no Honor or gold and does not shrink anyone else's share, so fight as a party to be paid."
+      "heading": "Мировое PvP",
+      "intro": "Сражения между игроками в открытом мире доступны только по желанию. Поднимите флаг PvP, и каждый игрок с флагом, не состоящий в вашей группе, рейде или гильдии, станет врагом в любом месте открытого мира; опустите его, и через короткое время вы снова станете сторонним наблюдателем. Тот, кто не поднял флаг, не может атаковать и не может быть атакован.",
+      "flagHeading": "Как поднять и опустить флаг",
+      "flagBody": "Введите /pvp в чате или откройте окно PvP клавишей G и перейдите на вкладку мирового PvP, где также показаны ваш счёт и ставки. Поднятие флага происходит мгновенно после начальных уровней. Опускание запускает отсчёт в несколько минут, и флаг не опустится, пока вы ещё сражаетесь, так что отключение никогда не станет способом сбежать из боя, который вы начали. Исцеление игрока с флагом, находящегося в бою, поднимает и ваш флаг.",
+      "stakesHeading": "Чего стоит убийство",
+      "stakesBody": "Когда игроки с флагом побеждают игрока с флагом, проигравший платит небольшую долю золота из своего кошелька (с умеренным пределом), а победители получают Честь на PvP-снаряжение. Всё это делят все, кто помог: нанёсший последний удар, те, кто незадолго до этого наносил урон цели, и лекари, державшие этих бойцов на ногах. Чистый бой один на один приносит всю награду; группа делит её.",
+      "limitsHeading": "Правила честной игры",
+      "limitsBody": "Повторные победы над одним и тем же игроком приносят всё меньше и вскоре ничего, а счётчик обнуляется с ежедневным сбросом. Цель, намного ниже вас по уровню, не приносит ничего. На полях боя и аренах действуют собственные правила, пока вы внутри, и они платят больше Чести, чем открытый мир, так что мировое PvP является более медленным путём к тому же торговцу.",
+      "introZones": "Сражения между игроками в открытом мире доступны только по желанию, и то, что это значит, решает земля у вас под ногами. Поднимите флаг PvP, и каждый игрок с флагом, не состоящий в вашей группе или рейде, станет врагом на спорной территории; опустите его, и через короткое время вы снова станете сторонним наблюдателем. Две зоны являются святилищами, где мировых боёв не бывает совсем, а три самые северные зоны являются территориями свободного боя, где законной целью является каждый присутствующий, с флагом или без. Товарищи по группе и рейду нигде не станут вашими врагами, а согильдийцы вне вашей группы являются законной целью, как и все остальные.",
+      "zonesHeading": "Где происходит мировое PvP",
+      "zonesBody": "В мире есть три вида земли. Берег Испытаний и Истврукская долина являются святилищами: мирового PvP там не бывает совсем, с флагом или без, так что нового персонажа никогда не вызовут на бой раньше, чем он узнает, что такое флаг. Большая часть мира является спорной территорией, где правило флага, описанное выше, и есть вся история. Земли Драконов, Морозный Предел и Янтарная Падь являются территориями свободного боя: каждый, кто в них стоит, может атаковать любого другого, кто в них стоит, с флагом или без, и вам сообщают и при входе, и при выходе. Атака игрока без флага там поднимает ваш собственный флаг, так что риск в итоге всегда несёт нападающий. Удар по игроку, у которого флаг уже поднят, не поднимает его никогда, а значит, защищать себя или защищать того, у кого флага нет, не стоит вам ничего.",
+      "flagBodyAid": "Введите /pvp в чате или откройте окно PvP клавишей G и перейдите на вкладку мирового PvP, где также показаны ваш счёт и ставки. Поднятие флага происходит мгновенно после начальных уровней. Опускание запускает отсчёт в несколько минут, и флаг не опустится, пока вы ещё сражаетесь, так что отключение никогда не станет способом сбежать из боя, который вы начали. Исцеление, щит или усиление игрока с флагом, находящегося в бою, поднимает и ваш флаг, так что никто не поддерживает бойца, не нося флага сам; помощь игроку без флага не поднимает ничего.",
+      "stakesUnflaggedTake": "Боец без флага золота тоже не получает: оно переходит только между двумя игроками с флагом, но Честь получают все, кто помог.",
+      "stakesBodyFlagged": "Когда игрока с флагом побеждает другой игрок, проигравший платит небольшую долю золота из своего кошелька (с умеренным пределом), а победители получают Честь на PvP-снаряжение. Игрок, у которого флага не было, не платит золота вовсе, даже когда падает в зоне свободного боя. Всё это делят все, кто помог: нанёсший последний удар, те, кто незадолго до этого наносил урон цели, и лекари, державшие этих бойцов на ногах. Чистый бой один на один приносит всю награду; группа делит её.",
+      "hillHeading": "Король горы",
+      "hillBody": "Раз в три часа, в момент, который никто не может предсказать, всему миру объявляют, что через пятнадцать минут в одной из зон свободного боя поднимется холм, и круг, где он встанет, отмечается на открытой местности. Поднявшись, холм стоит сорок пять минут, а затем исчезает. Холм оспаривает та группа, у которой внутри круга стоит больше всего игроков, и после минуты непрерывного большинства холм становится её; игрок в одиночку считается группой из одного человека, а участники рейда не учитываются вовсе. Пока группа удерживает холм, каждый её участник внутри круга каждую минуту получает немного Чести, так что полная группа, без боя удерживающая холм всё время, пока он стоит, получает чуть меньше, чем приносит одна победа на поле боя. Полоса над полем показывает, кто удерживает холм, ваши силы против чужих и отсчёт захвата; команда /hill в чате подскажет, где он стоит.",
+      "limitsBodyHour": "Повторные победы над одним и тем же игроком приносят всё меньше и вскоре ничего, а ваш счёт против этого игрока начинается заново лишь примерно через час после первого из таких убийств, так что караулить одну жертву никогда не стоит ожидания. Цель, намного ниже вас по уровню, не приносит ничего. На полях боя и аренах действуют собственные правила, пока вы внутри, и они платят больше Чести, чем открытый мир, так что мировое PvP является более медленным путём к тому же торговцу.",
+      "hillBodyRamp": "Раз в три часа, в момент, который никто не может предсказать, всему миру объявляют, что через пятнадцать минут в одной из зон свободного боя поднимется холм, и круг, где он встанет, отмечается на открытой местности. Поднявшись, холм стоит сорок пять минут, а затем исчезает. Холм оспаривает та группа, у которой внутри круга стоит больше всего игроков, и после минуты непрерывного большинства холм становится её; игрок в одиночку считается группой из одного человека, а участники рейда не учитываются вовсе. Пока группа удерживает холм, каждый её участник внутри круга каждую минуту получает Честь, и чем дольше холм удерживает одна и та же группа, тем больше приносит каждая минута: полная группа, без боя удерживающая холм всё время, пока он стоит, получает примерно столько же, сколько три победы на поле боя. Когда холм переходит к другим, новые владельцы начинают отсчёт заново. Полоса над полем показывает, кто удерживает холм, ваши силы против чужих и отсчёт захвата; команда /hill в чате подскажет, где он стоит.",
+      "limitsBodyRaids": "Повторные победы над одним и тем же игроком приносят всё меньше и вскоре ничего, а ваш счёт против этого игрока начинается заново лишь примерно через час после первого из таких убийств, так что караулить одну жертву никогда не стоит ожидания. Цель, намного ниже вас по уровню, не приносит ничего. На полях боя и аренах действуют собственные правила, пока вы внутри, и они платят больше Чести, чем открытый мир, так что мировое PvP является более медленным путём к тому же торговцу. Рейды ничего не получают за убийства в мире: участник рейда не получает ни Чести, ни золота и не уменьшает долю остальных, так что сражайтесь группой, чтобы получать награду."
     },
     "thornhollowPage": {
       "heading": "Терновая Лощина",
@@ -7740,6 +8262,30 @@ export const ru_RU: EnTranslations = {
       "ladderBody": "Каждый матч двигает стойкий рейтинг поля боя, привязанный к персонажу, при победе и при поражении, а таблица всех времён выстраивает чемпионов мира.",
       "rewardsHeading": "Что приносит матч",
       "rewardsBody": "Каждый доигранный матч приносит Честь: больше за победу, утешение за поражение или ничью, плюс немного за каждый убийственный удар, что вы нанесли, и за каждый, в котором помогли, так что драться в стороне от флагов всё равно стоит. Первая победа за день платит сверху, и панель подсказывает, пока эта надбавка вас ещё ждёт. День у Чести свой собственный, и он переворачивается по своим часам, а не вместе со сбросом инстансов королевства. Встреча с одной и той же командой раз за разом платит за сам матч меньше начиная со второй, быстро останавливаясь на нижней границе, а не сходя на нет, а за брошенный матч не платят вовсе. Тратьте заработанное у любого интенданта Боевой мощи."
+    },
+    "factionsPage": {
+      "heading": "Фракции и репутация",
+      "intro": "Три союзные фракции присматривают каждая за своим уголком королевства, и каждое мировое задание, выполненное на их землях, повышает вашу репутацию у них. Репутация проходит шесть ступеней, у каждой есть свой титул, и по мере роста она по одному открывает товары интенданта.",
+      "whoHeading": "Три фракции",
+      "whoBody": "Каждая фракция привязана к группе зон, поэтому то, где вы выполняете мировые задания, определяет, какой фракции идёт заслуга. Выбирать сторону не нужно: все три ведут свой счёт, и ни одна не требует выступить против другой.",
+      "riftWatchBody": "Дозор Разлома охраняет побережье и следит за глубокими разрывами. Их земли на побережье: Дальний берег, Пальмовый край, Штормовой гребень, Ивовая топь и Скрытая лощина. Их оплот, Дрифтхейвен, стоит в Пальмовом крае.",
+      "churchOrderBody": "Церковный орден держит сердце королевства: Истбрукскую долину, Мирфенские болота, Тернистые высоты, Ночной цвет и Призрачный лес. От их имени говорит брат Олдрик из Истбрукской долины.",
+      "automatonsBody": "Автоматоны хранят кузницы дальних пределов: Драконьи земли, Морозную пустошь, Янтарный водопад и Вечный сад. Их оплот, Вирмвотч, стоит в Драконьих землях.",
+      "earningHeading": "Как заработать репутацию",
+      "earningBody": "Репутация приходит с мировыми заданиями. Каждое мировое задание засчитывается фракции той зоны, где оно проходит, а поскольку три фракции держат разные зоны, все три растут одновременно, пока вы обходите карту. Надсмотрщик Кэлен в Истбруке открывает доску мировых заданий на карте, и там же можно раз в день заменить одно мировое задание, если дневной набор не по душе.",
+      "weeklyBody": "Еженедельный эмиссар в Истбрукской долине открывает второй путь: выполнив поручение недели, вы можете раз в неделю назвать одну фракцию, которая получит его рекомендацию, в том же окне, где брали поручение.",
+      "lowLevelNote": "У персонажей низкого уровня репутация останавливается на одной из ступеней и продолжает расти с уровнем, так что молодой персонаж может начать копить рано, не упираясь в потолок.",
+      "tiersHeading": "Ступени репутации",
+      "tiersBody": "Каждая фракция проходит те же шесть ступеней: Неизвестный, Признанный, Доверенный, Испытанный, Авангард и Чемпион. Каждая фракция даёт ступеням свои названия, и это название становится вашим титулом у неё.",
+      "riftWatchTitles": "У Дозора Разлома вы Чужак, затем Дозорный, Странник Разлома, Страж, Хранитель Разлома и наконец Чемпион.",
+      "churchOrderTitles": "У Церковного ордена вы Чужак, затем Послушник, Хранитель, Храмовник, Хранитель Рассвета и наконец Чемпион.",
+      "automatonsTitles": "У Автоматонов вы Чужак, затем Оператор, Механик, Механик-мастер, Мастер Кузни и наконец Чемпион.",
+      "quartermastersHeading": "Интенданты",
+      "quartermastersBody": "У каждой фракции в оплоте есть интендант: интендант Вейлен от Дозора Разлома в Дрифтхейвене, храмовница Альтея от Церковного ордена в Истбрукской часовне и механик Тобрин от Автоматонов в Вирмвотче. Каждый продаёт небольшой набор украшений, доспехов, оружия и сумок, который открывается ступень за ступенью по мере роста вашей репутации у этой фракции, за обычные монеты.",
+      "readingHeading": "Где это посмотреть",
+      "readingBody": "Вкладка Репутация окна персонажа (C) показывает каждую фракцию с текущей репутацией, полосу до следующей ступени и титул, который она вам принесла. Журнал чата сообщает о каждом приросте репутации, а достижение новой ступени показывает праздничный баннер на экране.",
+      "deedsHeading": "Деяния",
+      "deedsBody": "Книга деяний тоже ведёт счёт вашей репутации: Доверенный у фракции и Чемпион у фракции записываются как отдельные деяния, а Чемпион у всех трёх сразу есть своё деяние. Как и все деяния, они лишь украшение и никогда не сила, а деяния Чемпиона дают титул, который можно носить."
     },
     "deedsPage": {
       "intro": "Книга деяний ведет счет всему, что вы совершили в этом мире, от первых шагов из начальной долины до самых тяжелых сражений, какие только может предложить королевство. Зарабатывайте деяния по ходу игры, носите дарованные ими звания и смотрите, как растет ваша Известность.",
@@ -8521,7 +9067,7 @@ export const ru_RU: EnTranslations = {
       "parryBody": "Парирование — собственная защита воина: шанс полностью отвести удар ближнего боя и не получить урона вовсе, и растёт оно от Силы. Парировать можно лишь атаку, идущую спереди, и это ещё одна причина держаться лицом к тому, кто вас бьёт. У прочих классов эта строка на листе стоит на нуле.",
       "warfareTitle": "Боевая мощь",
       "warfareBody": "Боевая мощь — единственная характеристика, что считается только против других игроков: она повышает урон, который вы им наносите, и снижает урон, который получаете от них, а лист персонажа показывает обе половины в одной строке. Против существ она не делает ровным счётом ничего. Берётся она со снаряжения Боевой мощи, которое покупают за честь, так что это награда за игру в PvP, а не то, за чем стоит гнаться, пока вы растёте в уровнях.",
-      "warfareBodyPets": "Warfare is the stat honor gear carries for fighting players. In fights between players it raises the damage you and your pet deal to other players and their pets, and lowers the damage you and your pet take from them. It also raises your maximum health everywhere except dungeons, raids, delves and rifts, so a player in honor gear is far harder to kill than one without it. Your sheet shows all of it on one line. It comes from the Warfare gear you buy with honor, so it is a reward for playing PvP rather than something to chase while leveling."
+      "warfareBodyPets": "Боевая мощь является характеристикой снаряжения чести для боя с игроками. В боях между игроками она повышает урон, который вы и ваш питомец наносите другим игрокам и их питомцам, и снижает урон, который вы и ваш питомец получаете от них. Она также повышает ваше максимальное здоровье везде, кроме подземелий, рейдов, вылазок и разломов, поэтому игрок в снаряжении чести гораздо труднее убить, чем игрока без него. Ваш лист персонажа показывает всё это одной строкой. Она берётся от снаряжения Боевой мощи, которое вы покупаете за честь, так что это награда за игру в PvP, а не то, к чему нужно стремиться во время получения уровней."
     },
     "progression": {
       "intro": "Каждая схватка, задание и шаг на север делает вашего героя сильнее. Вот как работает повышение уровней и что поддерживает ваш рост, когда вы добираетесь до вершины.",
@@ -9064,8 +9610,8 @@ export const ru_RU: EnTranslations = {
     "viewAll": "Смотреть все обновления на GitHub"
   },
   "download": {
-    "title": "Скачать загрузчик для ПК",
-    "desc": "Загрузите отдельный клиент для оптимальной производительности и игры на весь экран.",
+    "title": "Скачать приложение для ПК",
+    "desc": "Играйте на Windows, macOS или Linux с той же учётной записью и теми же персонажами.",
     "macCta": "Скачать для macOS",
     "windowsCta": "Скачать для Windows",
     "linuxCta": "Скачать для Linux",
@@ -9084,7 +9630,7 @@ export const ru_RU: EnTranslations = {
     "offlineDesc": "Мгновенный одиночный мир прямо в браузере. Прогресс не сохраняется: идеально для быстрой драки или тестирования.",
     "offlineAria": "Играть вне сети: запуск мгновенного локального одиночного сеанса",
     "tipTitle": "СОВЕТ:",
-    "tipText": "Для максимально плавной игры отключите блокировщики рекламы на этом сайте. По отзывам сообщества, некоторые блокировщики могут вызывать задержки.",
+    "tipText": "Игра работает медленно? Попробуйте отключить блокировщик рекламы для этого сайта.",
     "serverOnline": "В сети",
     "serverOffline": "Не в сети",
     "play": "Играть",
@@ -10252,15 +10798,23 @@ export const ru_RU: EnTranslations = {
       "dodge": "УКЛОНЕНИЕ!"
     }
   },
+  "landing": {
+    "headline": "Приключения вместе с друзьями.",
+    "contribute": "Участвовать в разработке игры",
+    "tools": "Инструменты",
+    "records": "WoC Рекорды",
+    "scout": "WoC Разведка",
+    "parseService": "WoC Боевые отчёты"
+  },
   "seo": {
     "title": "World of ClaudeCraft: веб-MMO в классическом стиле",
-    "description": "Отправьтесь в эпическое приключение в World of ClaudeCraft, микро-MMO в классическом стиле прямо в браузере. Присоединяйтесь к постоянному общему миру, развивайте классы и побеждайте врагов.",
+    "description": "Играйте в World of ClaudeCraft, бесплатную браузерную MMO. Исследуйте мир, выполняйте задания и проходите подземелья с друзьями. Без скачивания.",
     "genre": "MMORPG",
     "playMode": "Многопользовательская игра",
     "applicationCategory": "Игра",
     "operatingSystem": "Веб-браузер",
     "officialLabel": "Официальный сайт World of ClaudeCraft",
-    "officialBody": "worldofclaudecraft.com - официальная бесплатная браузерная MMO для мира Claudemoon. Играйте онлайн с постоянным персонажем, исследуйте мир в одиночку офлайн, читайте wiki и переходите по проверенным ссылкам сообщества с этого сайта."
+    "officialBody": "Официальный сайт World of ClaudeCraft. Играйте онлайн, читайте wiki и находите здесь ссылки сообщества."
   },
   "a11y": {
     "goHome": "Перейти на главную",
@@ -10575,16 +11129,16 @@ export const ru_RU: EnTranslations = {
       "xpGainRested": "Вы получаете {amount} опыта (из них {rested} за отдых).",
       "deathTitle": "Вы погибли.",
       "releaseSpirit": "Освободить дух",
-      "deathRecap": "Recap",
-      "deathRecapTitle": "Death Recap",
-      "deathRecapKiller": "Killing blow: {killer} ({ability})",
-      "deathRecapNoKiller": "Combat events leading to death",
-      "deathRecapLethal": "Killing Blow",
-      "deathRecapClose": "Close",
-      "deathRecapNoEvents": "No combat events recorded.",
-      "deathRecapCrit": "Crit",
-      "deathRecapDamage": "Damage",
-      "deathRecapHeal": "Healing",
+      "deathRecap": "Итог",
+      "deathRecapTitle": "Итог гибели",
+      "deathRecapKiller": "Смертельный удар: {killer} ({ability})",
+      "deathRecapNoKiller": "События боя перед гибелью",
+      "deathRecapLethal": "Смертельный удар",
+      "deathRecapClose": "Закрыть",
+      "deathRecapNoEvents": "Боевые события не записаны.",
+      "deathRecapCrit": "Крит.",
+      "deathRecapDamage": "Урон",
+      "deathRecapHeal": "Исцеление",
       "chatTab": "Чат",
       "combatLogTab": "Журнал боя",
       "chatPlaceholder": "Напишите сообщение... (/w имя шепот, /r ответ, /p группа, /gu гильдия, /o офицеры, /general общий, ! команды сообщества)",
@@ -10653,6 +11207,9 @@ export const ru_RU: EnTranslations = {
         "readyQuest": "Задание готово к сдаче",
         "repeatQuest": "Повторяемое задание",
         "cooldownQuest": "Задание восстанавливается",
+        "availableWorldQuest": "Доступное локальное задание: {name}",
+        "activeWorldQuest": "Активное локальное задание: {name}",
+        "worldBoss": "Мировой босс: {name}",
         "questObjective": "Область цели задания",
         "readyOre": "Доступная залежь руды",
         "readyWood": "Доступная древесина",
@@ -10793,7 +11350,7 @@ export const ru_RU: EnTranslations = {
       "compactChat": "Компактный чат",
       "frostedPanels": "Матовые панели",
       "highContrastText": "Высококонтрастный текст",
-      "colorblindMode": "Colorblind Mode",
+      "colorblindMode": "Режим для дальтоников",
       "reduceMotion": "Уменьшить анимацию",
       "showFps": "Показывать FPS",
       "invertLookY": "Инверсия обзора (Y)",
@@ -10855,19 +11412,19 @@ export const ru_RU: EnTranslations = {
       "threat": "Угроза",
       "damageShort": "Урон",
       "healingShort": "Исц.",
-      "damageTaken": "Damage Taken",
-      "damageTakenShort": "Taken",
-      "avoidableDmg": "Avoidable Damage",
-      "avoidableDmgShort": "Avoid.",
-      "interrupts": "Interrupts",
-      "interruptsShort": "Int",
-      "dispels": "Dispels",
-      "dispelsShort": "Disp",
-      "deaths": "Deaths",
-      "deathsShort": "Dead",
-      "reset": "Reset meters",
-      "resetHint": "Reset combat data",
-      "groupTotal": "Total: {total} ({rate})",
+      "damageTaken": "Полученный урон",
+      "damageTakenShort": "Получено",
+      "avoidableDmg": "Предотвратимый урон",
+      "avoidableDmgShort": "Предотвр.",
+      "interrupts": "Прерывания",
+      "interruptsShort": "Прер.",
+      "dispels": "Рассеивания",
+      "dispelsShort": "Расс.",
+      "deaths": "Смерти",
+      "deathsShort": "Смерт.",
+      "reset": "Сбросить счётчики",
+      "resetHint": "Сбросить данные боя",
+      "groupTotal": "Итого: {total} ({rate})",
       "current": "Текущий",
       "lastFight": "Последний бой",
       "fightIndex": "Бой -{index}",
@@ -10879,16 +11436,16 @@ export const ru_RU: EnTranslations = {
       "segmentSummary": "{label} - {duration}",
       "olderSegment": "Предыдущий сегмент",
       "newerSegment": "Следующий сегмент",
-      "selectSegment": "Select fight segment",
-      "selectMode": "Select meter mode",
-      "back": "Back",
-      "resetFight": "Reset current fight",
-      "resetAll": "Reset all data",
-      "criticals": "Criticals: {count}",
-      "hits": "Hits: {count}",
-      "topAbility": "Top: {name}",
-      "activity": "Activity: {pct}",
-      "newWindow": "New window",
+      "selectSegment": "Выбрать отрезок боя",
+      "selectMode": "Выбрать режим счётчика",
+      "back": "Назад",
+      "resetFight": "Сбросить текущий бой",
+      "resetAll": "Сбросить все данные",
+      "criticals": "Критических ударов: {count}",
+      "hits": "Попаданий: {count}",
+      "topAbility": "Топ: {name}",
+      "activity": "Активность: {pct}",
+      "newWindow": "Новое окно",
       "close": "Закрыть счетчики"
     },
     "chat": {
@@ -11371,9 +11928,9 @@ export const ru_RU: EnTranslations = {
       "anyTarget": "Вражеская или дружественная цель",
       "selfOnly": "Только на себя",
       "damageRange": "от {min} до {max}",
-      "edictExplosion": "While Ascension is active, the explosion deals {damage} Physical damage within {radius} m, reduced beyond {cap} targets. This damage increases with Attack Power.",
-      "edictDamage": "Strike for {weaponPercent}% weapon damage plus {damage} Physical damage. Weapon damage includes Attack Power.",
-      "verdictDamage": "Final Edict detonates for {verdictSingleDamage} Holy damage. Dawnfall detonates for {verdictAreaDamage} Holy damage within {verdictAreaRadius} m, reduced beyond {verdictAreaCap} targets. Neither detonation scales with Spell Power. Only one enemy can bear your mark.",
+      "edictExplosion": "Пока активно Вознесение, взрыв наносит {damage} физического урона в радиусе {radius} м; при более чем {cap} целях урон снижается. Этот урон растёт с силой атаки.",
+      "edictDamage": "Бьёт на {weaponPercent}% урона оружием плюс {damage} физического урона. Урон оружием уже включает силу атаки.",
+      "verdictDamage": "«Последний эдикт» взрывается, нанося {verdictSingleDamage} светлого урона. «Падение рассвета» взрывается, нанося {verdictAreaDamage} светлого урона в радиусе {verdictAreaRadius} м; при более чем {verdictAreaCap} целях урон снижается. Ни один из взрывов не растёт от силы заклинаний. Только один враг может нести вашу метку.",
       "finisherDamage": "{base} плюс {perCombo} за прием серии"
     },
     "resources": {
@@ -11419,6 +11976,7 @@ export const ru_RU: EnTranslations = {
   },
   "questUi": {
     "tracker": {
+      "clueHuntTitle": "{title} (подсказка {step} из {total})",
       "title": "Задания",
       "complete": "Готово",
       "showOnMap": "Показать {name} на карте",
@@ -11453,12 +12011,18 @@ export const ru_RU: EnTranslations = {
       "repeatableQuestAria": "Повторяемое задание: {name}",
       "discussQuest": "Обсудить {name}.",
       "discussQuestAria": "Обсудить задание: {name}",
+      "clueTalk": "Спросить о подсказке.",
+      "clueTalkAria": "Спросить о подсказке: {name}",
+      "clueDeliver": "Отдать {item} ({count} шт.).",
+      "clueDeliverAria": "Отдать {item} ({count} шт.) персонажу {name}",
       "profIntroHint": "Обратитесь к {name} за заданием «{quest}».",
       "nythraxisDeathlessKingWarning": "Три реликвии рассказывают одну историю: Алдрен сражался, защищая своего короля, Малрик нарушил границу смерти, а Восс пытался остановить то, что последовало. Печать слабеет, и заброшенная крипта ведет вниз.",
       "browseGoods": "Покажите ваши товары.",
       "browseGoodsAria": "Посмотреть товары у {name}",
       "worldMarket": "Покажите мне мировой рынок.",
       "worldMarketAria": "Открыть мировой рынок",
+      "worldQuestBoard": "Покажи мне доску мировых заданий.",
+      "worldQuestBoardAria": "Открыть доску мировых заданий на карте",
       "accept": "Принять",
       "decline": "Отклонить",
       "continue": "Продолжить",
@@ -11478,12 +12042,363 @@ export const ru_RU: EnTranslations = {
       "objectiveProgress": "{label}: {current}/{total}",
       "requiresLevel": "Требуется уровень {level}"
     },
+    "worldQuest": {
+      "title": "{zone}: {target}",
+      "unknown": "Неизвестное локальное задание ({id})",
+      "itemReward": "Предметная награда: {name}",
+      "itemRewardWithLevels": "{name} (уровень предмета {itemLevel}, надевается с {requiredLevel} уровня)",
+      "factionLine": "Фракция: {faction}",
+      "standingReward": "Репутация с фракцией {faction}: +{amount}",
+      "rewardLine": "Награды: {reward}",
+      "availableStatus": "Доступное локальное задание",
+      "activeStatus": "Активное локальное задание",
+      "expiresIn": "Истекает через {time}",
+      "mineOre": "Добыть медную руду",
+      "recoverObject": "Вернуть: {name}",
+      "redirectLeyBeam": "Направить силовой луч",
+      "matchConfections": "Собрать зачарованные сладости",
+      "loadFreight": "Загрузить груз в повозку",
+      "escortCaravan": "Сопроводить караван: {zone}",
+      "salvageWreckage": "Собрать обломки кораблекрушения",
+      "banner": {
+        "riftOpens": "На берегу разверзается разлом! Налётчики идут за добычей с обломков.",
+        "captainSteps": "Капитан налётчиков выходит из разлома!",
+        "riftRouted": "Налётчики разбиты. Берег снова ваш.",
+        "championRises": "Дополнительная добыча! На месте появляется чемпион. Одолейте его вместе.",
+        "championFallen": "Дополнительная добыча! Чемпион пал: бонусный кошель для каждого, кто с ним сражался.",
+        "endlessBegins": "Линия устояла! Начинаются бесконечные волны, каждая сложнее прежней. Покиньте пушку, когда пожелаете."
+      },
+      "shadow": {
+        "title": "Под покровом тени",
+        "objective": "Похитьте четыре запечатанных приказа, не попавшись",
+        "cloak": "Сумеречнотканый плащ",
+        "pickpocket": "Обшарить карманы",
+        "leave": "Снять плащ",
+        "stealTip": "Подойдите сзади и не двигайтесь, пока забираете приказы. Держитесь подальше от лучей фонарей.",
+        "leaveTip": "Снять плащ. Добытые приказы останутся у вас.",
+        "documents": "Добыто приказов: {count}/4",
+        "suspicion": "Подозрение: {value}",
+        "safe": "Крадите со спины. Стражи с фонарями водят широкими лучами, которые видят сквозь плащ; дождитесь удобного момента.",
+        "behind": "Зайдите стражнику за спину, прежде чем красть.",
+        "danger": "Вас замечают! Скройтесь из виду!",
+        "channel": "Кража... {seconds} сек.",
+        "noTarget": "Подойдите к стражнику с приказами.",
+        "start": "Поговорите с разведчицей Валери, чтобы одолжить её плащ.",
+        "caught": "Вас поймали! Вернитесь к разведчице Валери за новым плащом. Ваши приказы в сохранности.",
+        "complete": "Все четыре приказа добыты."
+      },
+      "investigation": {
+        "title": "Чужое лицо",
+        "objective": "Разоблачите и уничтожьте лазутчика",
+        "briefing": "Какое-то существо похитило лицо солдата. Прочтите постоянные приказы и журнал дозора, допросите всех четырёх стражников, затем вернитесь и назовите того, чей рассказ противоречит нашим записям.",
+        "instructions": "Прочтите постоянные приказы и журнал дозора, затем допросите всех четырёх стражников. Сравните их рассказы с записями.",
+        "confront": "Доложите сержанту Алрику и назовите стражника, чей рассказ противоречит записям.",
+        "name": "Кто из моих стражников носит чужое лицо?",
+        "accuseOption": "Обвинить: {name}",
+        "cleared": "Сержант Алрик: Этот солдат вне подозрений. Сравните другие рассказы с нашими записями и попробуйте снова.",
+        "guardCleared": "Сержант Алрик уже снял подозрения с этого солдата.",
+        "revealed": "Существо сбросило это лицо. Уничтожьте его.",
+        "defeat": "Уничтожьте разоблачённого лазутчика.",
+        "heard": "Допрошено стражников: {count}/4",
+        "clues": "Изучено записей: {count}/2",
+        "clueNames": {
+          "c0": "Постоянные приказы",
+          "c1": "Журнал дозора"
+        },
+        "variants": {
+          "v0": {
+            "clue0": "Южный мост закрыт с рассвета. Все патрули должны идти по западной дороге.",
+            "clue1": "Орин назначен на пост у ворот. Нелла, Брам и Тесса патрулировали западную дорогу.",
+            "guard0": "Сегодня утром мой патруль шёл по западной дороге.",
+            "guard1": "Во время утреннего патруля я перешёл южный мост.",
+            "guard2": "Я патрулировал западную дорогу вместе с Неллой и Тессой.",
+            "guard3": "Южный мост закрыт. Мы шли по западной дороге."
+          },
+          "v1": {
+            "clue0": "Сегодняшний пароль: «Камышовый дозор». Вчерашний пароль, «Фонарь», больше не действует.",
+            "clue1": "Все четыре стражника узнали новый пароль на рассветном инструктаже.",
+            "guard0": "«Камышовый дозор». Я узнала новый пароль на рассвете.",
+            "guard1": "«Фонарь» был вчерашним паролем. Сегодня у нас «Камышовый дозор».",
+            "guard2": "Мы все четверо были на рассветном инструктаже.",
+            "guard3": "Сегодняшний пароль: «Фонарь». Я слышала его на рассветном инструктаже."
+          },
+          "v2": {
+            "clue0": "Все ящики с припасами гарнизона должны быть запечатаны синим воском. Ящики с красной печатью не принимать.",
+            "clue1": "Сегодняшняя поставка проверена: на каждом ящике была целая печать из синего воска.",
+            "guard0": "Я проверила сегодняшнюю поставку. На каждом ящике была печать из красного воска.",
+            "guard1": "Мы принимаем только ящики, запечатанные синим воском.",
+            "guard2": "В журнале записаны синие печати на сегодняшней поставке.",
+            "guard3": "Сегодня не приняли ни одного ящика с красной печатью."
+          },
+          "v3": {
+            "clue0": "Ночной дозор зажигает восточный маяк в сумерках. Западный маяк остаётся тёмным, пока не подаст сигнал паром.",
+            "clue1": "Нелла и Орин всю ночь охраняли ворота. Брам и Тесса обходили дамбу и зажгли восточный маяк в сумерках.",
+            "guard0": "Мы с Орином всю ночь стояли у ворот. Ничего, кроме тумана, не проходило.",
+            "guard1": "Пост у ворот вместе с Неллой. Мы видели, как в сумерках загорелся восточный маяк, как и приказано.",
+            "guard2": "Мы с Тессой обходили дамбу. В сумерках мы зажгли западный маяк, чтобы паром нас видел.",
+            "guard3": "Патруль на дамбе вместе с Брамом. Мы снова зажгли восточный маяк, как только село солнце."
+          },
+          "v4": {
+            "clue0": "Повозка интенданта приходит в полдень по северной дороге. Пока топь затоплена, припасы по воде не доставляют.",
+            "clue1": "Полуденная поставка получена с северной дороги. Тесса расписалась в приёме; Брам и Нелла разгружали; Орин был у колодца.",
+            "guard0": "Я помогала Браму разгружать повозку в полдень. Солонина и лампадное масло, как обычно.",
+            "guard1": "Я сам разгрузил полуденную поставку, прямо с баржи с припасами.",
+            "guard2": "Мы с Неллой заносили ящики. Тесса расписалась в журнале.",
+            "guard3": "Повозка пришла по северной дороге в полдень. Я расписалась в приёме."
+          },
+          "v5": {
+            "clue0": "Павшие в последнем набеге покоятся в склепе часовни. Никто не входит в склеп без ключа сержанта.",
+            "clue1": "Ключ сержанта не покидал его пояса со времён набега. Нелла, Орин и Брам стояли на стене; Тесса охраняла двор.",
+            "guard0": "Я стояла на стене. Склеп заперт со времён набега; ключ есть только у сержанта.",
+            "guard1": "Дежурство на стене с Неллой и Брамом. Тихо, если не считать лягушек.",
+            "guard2": "Весь день на стене. Никто не подходил к склепу.",
+            "guard3": "Я охраняла двор и утром заглянула в склеп. Павшие покоятся с миром."
+          }
+        }
+      },
+      "horde": {
+        "title": "Последняя баррикада",
+        "objective": "Защитите баррикаду и одолейте командира орды",
+        "ready": "Поговорите с капитаном баррикады, чтобы начать.",
+        "countdown": "Орда будет здесь через {seconds} сек.!",
+        "status": "Осталось {seconds} сек. Убито: {kills}. Баррикада: {barrier}%.",
+        "upgrade": "Оружие: {weapon}",
+        "loadout": "Выстрелы: {count} | +{speed}% скорости | {weapon}",
+        "exit": "Покинуть оборону",
+        "gained": "Улучшение: {upgrade}",
+        "killBurst": "+{count} повержено!",
+        "choices": {
+          "projectile": "+1 выстрел",
+          "haste": "+25% скорострельности",
+          "pierce": "Пробивающие выстрелы",
+          "explosive": "Разрывные выстрелы",
+          "double": "Выстрелы x2"
+        },
+        "weapons": {
+          "0": "Многозарядник",
+          "1": "Двойной выстрел",
+          "2": "Пробивающий выстрел",
+          "3": "Разрывной выстрел"
+        },
+        "controls": "Автоогонь. A/D, стрелки или джойстик. Назад: выйти.",
+        "supplies": "Разбейте один ящик, чтобы выбрать. Второй исчезнет!",
+        "result": "{rating}! Счёт: {score}.",
+        "resultStats": "Убито: {kills}. Баррикада: {barrier}%.",
+        "failed": "Оборона провалена. Попробуйте снова!",
+        "replay": "Поговорите с капитаном, чтобы повторить. Награда раз за цикл.",
+        "medals": {
+          "gold": "Золото",
+          "silver": "Серебро",
+          "bronze": "Бронза"
+        }
+      },
+      "wispMaze": {
+        "leave": "Покинуть лабиринт",
+        "title": "Лабиринт Огонькового леса",
+        "objective": "Верните из лабиринта все украденные кошели с монетами",
+        "ready": "Поговорите со смотрительницей лабиринта, чтобы начать.",
+        "controls": "Передвигайтесь по лабиринту и подбирайте кошели с монетами. Избегайте теней. Сияющие огоньки ненадолго позволяют изгонять тени.",
+        "collected": "Кошели: {count}/{total}",
+        "lives": "Жизни: {count}/3",
+        "power": "Сила огонька: {seconds} сек.",
+        "countdown": "Начало через {seconds} сек.",
+        "collect": "Подбирайте кошели. Избегайте теней.",
+        "powered": "Прилив силы! Коснитесь теней, чтобы изгнать их.",
+        "finished": "Все кошели возвращены!",
+        "retry": "Три жизни восстановлены. Попробуйте пройти лабиринт снова.",
+        "startNormal": "Войти в лабиринт: обычный (теней: {shadows})",
+        "startHard": "Войти в лабиринт: сложно (теней: {shadows})"
+      },
+      "forge": {
+        "title": "Молот в помощь",
+        "objective": "Помогите кузнецу Маре выковать щит",
+        "ready": "Поговорите с кузнецом Марой, чтобы начать.",
+        "countdown": "Приготовьтесь! Начало через {seconds} сек.",
+        "preparing": "Отлично! Следующая просьба...",
+        "fuel": "Поленница",
+        "metal": "Ящик со слитками",
+        "water": "Колодец",
+        "tools": "Наковальня",
+        "request": {
+          "fuel": "Раздуйте огонь! Подбросьте дров!",
+          "metal": "Больше металла! Откройте ящик со слитками!",
+          "water": "Остудите! Воды из колодца!",
+          "tools": "Придайте форму молотом! К наковальне!"
+        },
+        "sequence": "{instruction} Затем щёлкните: {next}.",
+        "round": "Просьба {round}/{total}: шаг {step}/{steps}",
+        "thresholds": "Золото: {gold} сек. или меньше. Серебро: {silver} сек. или меньше.",
+        "starting": "Подготовка...",
+        "finished": "Отличная работа! Щит, достойный гарнизона!",
+        "failed": "Слишком много ошибок! Металл треснул. Поговорите с Марой, чтобы попробовать снова.",
+        "wrong": "Не тот инструмент! +{penalty} сек. Используйте запрошенный предмет.",
+        "correct": "То, что нужно! Продолжайте.",
+        "result": "{rating}! {seconds} сек. Ошибок: {mistakes}.",
+        "replay": "Поговорите с Марой, чтобы попробовать снова. Награды выдаются раз за цикл.",
+        "medals": {
+          "gold": "Золото",
+          "silver": "Серебро",
+          "bronze": "Бронза"
+        },
+        "strike": "Удар",
+        "strikeTip": "Бейте молотом по заготовке. Нажимайте, когда стрелка пересекает тёмную полосу; с каждым удачным ударом полоса сужается, а стрелка ускоряется. Удар мимо полосы или по остывшему горну стоит три секунды.",
+        "stoke": "Раздуть",
+        "stokeTip": "Подбросьте дров в огонь. Горн постоянно остывает; держите жар выше {floor}, иначе удары придутся по холодному металлу.",
+        "strikes": "Удары: {count}/{total}",
+        "heat": "Жар горна: {value} (держите выше {floor})",
+        "mistakes": "Ошибки: {count}",
+        "meterAria": "Шкала точности удара молотом",
+        "hintStrike": "Следите за стрелкой. Бейте внутри тёмной полосы!",
+        "hintStoke": "Горн остывает! Раздуйте огонь, прежде чем бить.",
+        "hit": "Чистый удар! Полоса сужается.",
+        "miss": "Мимо полосы! +{penalty} сек.",
+        "cold": "Холодный удар! Сначала раздуйте огонь. +{penalty} сек."
+      },
+      "glider": {
+        "title": "Слалом Ветрокрылых",
+        "boost": "Ускорение",
+        "boostTip": "Увеличивает скорость полёта на {speed} м/с, но не выше {maximum} м/с. Доступно в полёте. Перезарядка: {seconds} сек.",
+        "objective": "Пролетите сквозь кольца ветра и приземлитесь в отмеченной зоне",
+        "ready": "Поговорите с мастером полётов Зефиром, чтобы взлететь.",
+        "replay": "Лететь снова",
+        "practiceRewards": "Тренировочный полёт: улучшайте время без дополнительных монет, опыта и репутации.",
+        "countdown": "Взлёт через {count}... Держитесь крепче!",
+        "flying": "Кольца: {rings}/{total} | Время: {time} сек. | Скорость: {speed} м/с",
+        "climb": "Набор высоты",
+        "climbTip": "Удерживайте, чтобы поднять нос и обменять скорость на высоту. Короткое нажатие слегка поправляет курс. При медленном полёте теряется подъёмная сила.",
+        "dive": "Пике",
+        "diveTip": "Удерживайте, чтобы опустить нос и набрать скорость. Короткое нажатие слегка поправляет курс.",
+        "controls": "Удерживайте правую кнопку мыши и смотрите вверх, чтобы набирать высоту ценой скорости; смотрите вниз, чтобы нырять и разгоняться. При медленном полёте теряется подъёмная сила. Влево и вправо: поворот; назад: торможение. Прыжок и всплытие или погружение тоже управляют тангажом. Пролетайте сквозь ветровые туннели, чтобы ускориться: один раз на каждый туннель за попытку.",
+        "landed": "{rating}! Пройдено колец: {rings}/{total} за {time} сек.",
+        "failed": "Спуск не удался! Посадка вне трассы или пропущено слишком много колец.",
+        "retry": "Поговорите с Зефиром, чтобы повторить, или со Скай у зоны посадки, чтобы вернуться к точке взлёта.",
+        "nextRing": "Летите сквозь следующее кольцо ветра вдоль каньона. Пройдите не менее {minimum} колец, затем приземлитесь в отмеченной зоне.",
+        "landing": "Все кольца пройдены! Правьте к зоне посадки впереди.",
+        "complete": "Посадка завершена!",
+        "score": "Счёт: {score}.",
+        "medals": {
+          "gold": "Золото",
+          "silver": "Серебро",
+          "bronze": "Бронза"
+        }
+      },
+      "calligraphyTitle": "Тайная каллиграфия",
+      "traceOutline": "Обведите контур своими шагами",
+      "traceRoundInstruction": "Раунд {round}/{total}: {shape}. {instruction}",
+      "traceShape": {
+        "triangle": "Треугольник",
+        "square": "Квадрат",
+        "star": "Звезда",
+        "hourglass": "Песочные часы",
+        "lightning": "Руна молнии",
+        "spiral": "Угловая спираль",
+        "double-triangle": "Двойной треугольник",
+        "diamond": "Ромб",
+        "pentagon": "Пятиугольник",
+        "arrow": "Руна стрелы",
+        "zigzag": "Зигзагообразный знак",
+        "cross": "Руна креста"
+      },
+      "traceRating": {
+        "bronze": "Бронза",
+        "silver": "Серебро",
+        "gold": "Золото"
+      },
+      "traceScoreResult": "Готово! {rating}: {score}/{total}. Базовая награда прежняя. Золото: достижение, титул, +10 славы.",
+      "traceCompletionLog": "{completion} {result}",
+      "traceUnavailable": "Для этой руны нужна новая версия игры.",
+      "traceReaction": {
+        "tessaTriangle": "Три угла, и каждый на своём месте!",
+        "pipSquare": "Четыре стороны! Думаю, я тоже так смогу!",
+        "elianFinal": "Последняя руна. Линия может пересечь или повторно пройти точку; следуйте яркой метке к следующему углу.",
+        "elianGold": "Прекрасно начертано! Ваши шаги заслужили золотую оценку.",
+        "elianComplete": "Руна завершена! Старательная практика сделает следующую ещё лучше."
+      },
+      "traceReady": "Поговорите с наставником, чтобы начать.",
+      "tracePreview": "Посмотрите на контур. Золотые искры укажут путь.",
+      "traceStart": "Встаньте на стартовую метку. Выберите любое направление.",
+      "traceDrawing": "Золотые искры ведут к яркому углу. Ваш след синий.",
+      "traceSuccess": "Контур завершён!",
+      "traceRetry": "Поговорите с наставником, чтобы повторить попытку.",
+      "traceOffPath": "Вы вне контура. Повтор: у наставника.",
+      "traceMovement": "Спешьтесь, идите по земле. Повтор: у наставника.",
+      "traceTimeout": "Время вышло. Повтор: у наставника.",
+      "traceCombat": "Выйдите из боя. Повтор: у наставника.",
+      "puzzleTitle": "Настройка силового луча",
+      "puzzleBeamReach": "Соединено кристаллов: {count}",
+      "puzzleVictoryTitle": "Идеальная настройка",
+      "puzzleVictoryDetail": "Силовой луч достиг цели.",
+      "puzzleDefeatTitle": "Настройка сбилась",
+      "puzzleDefeatDetail": "Поток угас. Ритуал не завершён.",
+      "puzzleReturn": "Вернуться в мир",
+      "puzzleResultAnnouncement": "{title}. {detail} {reach}.",
+      "puzzleLevel": "Ежедневный уровень {level}",
+      "puzzleBonusLevel": "Бонусный уровень {level} из {total}",
+      "puzzleBonusCharged": "Доступен тренировочный уровень {level} из {total}. Снова коснитесь тайника силовых линий. Повторные раунды не дают наград.",
+      "puzzleBonusPaid": "Тренировочный уровень пройден!",
+      "puzzleBonusDone": "Все тренировочные уровни пройдены. Коснитесь тайника силовых линий, чтобы сыграть снова.",
+      "puzzleInstructions": "Поворачивайте плитки, чтобы провести луч от источника к цели.",
+      "puzzleRotateTile": "Повернуть плитку {tile}",
+      "puzzleConnectors": "Соединения: {connectors}.",
+      "puzzlePowered": "Луч достигает этой плитки.",
+      "puzzleUnpowered": "Луч не достигает этой плитки.",
+      "puzzleClose": "Закрыть головоломку с лучом",
+      "puzzleSource": "Источник",
+      "puzzleTarget": "Цель",
+      "puzzleSourceEndpoint": "Источник: {direction}.",
+      "puzzleTargetEndpoint": "Цель: {direction}.",
+      "puzzleTileAria": "{rotation} {connectors} {power} {source} {target}",
+      "puzzleRetry": "Повторить",
+      "puzzleTimer": "{seconds} с",
+      "puzzleTimerAria": "Осталось времени: {seconds} сек.",
+      "startQuest": "Начать локальное задание",
+      "startEscort": "Начать сопровождение",
+      "escortTitle": "Караван",
+      "alreadyCompleted": "Вы уже выполнили это локальное задание в текущем цикле.",
+      "replay": "Играть снова",
+      "practiceRewards": "Тренировка: играйте снова без дополнительных монет, опыта и репутации.",
+      "inProgress": "Это локальное задание уже выполняется.",
+      "match3Title": "Каскад сладостей",
+      "match3Instructions": "Выберите две соседние сладости. Ход засчитывается, только если обмен создаёт ряд из трёх или более.",
+      "match3Moves": "Ходы: {current}/{total}",
+      "match3Cleared": "Убрано сладостей: {current}/{total}",
+      "match3Announcement": "{moves}. {cleared}.",
+      "match3Cell": "Строка {row}, столбец {column}: {candy}",
+      "match3Selected": "Выбрано",
+      "match3Reset": "Начать уровень заново",
+      "match3Close": "Закрыть головоломку со сладостями",
+      "match3OutOfMoves": "Ходы закончились. Начните уровень заново, чтобы попробовать ещё раз.",
+      "match3VictoryTitle": "Сладкая победа",
+      "match3VictoryDetail": "Все волшебные сладости собраны.",
+      "match3DefeatTitle": "Горькое поражение",
+      "match3DefeatDetail": "Ходы закончились. Новые сладости уже ждут.",
+      "match3TryAgain": "Попробовать снова",
+      "match3ResultAnnouncement": "{title}. {detail} {moves}. {cleared}.",
+      "match3ResultSummary": "{title}. {detail} {cleared}.",
+      "semanticSummary": "{name}. {progress}. {reward}.",
+      "semanticSummaryTimed": "{name}. {progress}. {reward}. {time}.",
+      "match3Candy": {
+        "berry": "ягодный кристалл",
+        "citrus": "цитрусовая сфера",
+        "mint": "мятный треугольник",
+        "grape": "виноградный квадрат",
+        "star": "сахарная звезда"
+      }
+    },
     "logs": {
       "accepted": "Задание принято: {name}",
+      "worldQuestStarted": "Локальное задание началось: {name}",
       "abandoned": "Задание отменено: {name}",
       "completed": "Задание завершено: {name}",
       "ready": "{name} ({status})",
-      "progress": "{label}: {current}/{total}"
+      "progress": "{label}: {current}/{total}",
+      "clueScrollEarned": "Все мировые задания дня выполнены: вы получаете Свиток с подсказкой.",
+      "clueScrollLost": "Все мировые задания дня выполнены, но ещё один Свиток с подсказкой вам не унести.",
+      "clueHuntStarted": "Охота за сокровищем началась: {title}",
+      "clueHuntStep": "Подсказка {step} из {total} разгадана: {title}",
+      "clueHuntDone": "Охота за сокровищем завершена: {title}. Сундук ваш.",
+      "clueHuntAbandoned": "Охота за сокровищем оставлена: {title}",
+      "clueCasketOpened": "В сундуке {money} и {items}."
     },
     "errors": {
       "unavailable": "Это задание недоступно.",
@@ -11767,39 +12682,39 @@ export const ru_RU: EnTranslations = {
       "historyNote": "Ваши недавние продажи на Мировом рынке.",
       "saleBuyer": "Продано: {buyer}",
       "saleOlder": "Ещё {count} более ранних продаж, включены в общую сумму.",
-      "ordersTab": "Wanted",
-      "ordersNote": "Post what you want and the gold is held at the Merchant. Listings at or under your price fill at once; the rest waits for a seller. The Merchant takes a {cut}% cut from whoever delivers. You have {used}/{max} orders open.",
-      "ordersListAria": "Open buy orders",
-      "ordersEmpty": "No open orders yet. Post one and gatherers will see what you need.",
-      "orderCardTitle": "Place an order",
-      "orderPickLabel": "Item wanted",
-      "orderPickEmpty": "Search for an item below, or pick one from the strip at the bottom.",
-      "orderSearchPlaceholder": "Search items...",
-      "orderSearchAria": "Search for an item to order",
-      "orderPickNone": "No item matches.",
-      "orderQuantity": "Units wanted",
-      "orderPriceEach": "Price each",
-      "orderEscrowLine": "Gold held at the Merchant: {total}",
-      "orderCannotAfford": "You cannot afford {total} for this order.",
-      "orderAtCap": "You have no free order slots. Withdraw one first.",
-      "orderPlaceButton": "Place Order",
-      "orderConfirmTitle": "Confirm Order",
-      "orderConfirmBody": "Order {item} x{count} at {each} each? {total} is held at the Merchant until the order is filled or withdrawn.",
-      "orderWanted": "x{count} wanted",
-      "orderBy": "Wanted by {buyer}",
-      "orderMine": "Your order",
-      "orderEach": "each",
-      "orderDeliver": "Deliver",
-      "orderDeliverAria": "Deliver {item} to {buyer}",
-      "orderDeliverNone": "None of this item in your bags.",
-      "orderWithdraw": "Withdraw",
-      "orderWithdrawAria": "Withdraw your order for {item}",
-      "orderDeliverConfirmTitle": "Confirm Delivery",
-      "orderDeliverConfirmBody": "Deliver {item} x{count} to {buyer} for {total} ({each} each)? You collect {proceeds} after the Merchant's cut.",
-      "unlistedTitle": "Not on the market",
-      "unlistedNote": "Materials with no listing at all. Post an order for one, or gather and list it.",
-      "unlistedNone": "Every material has at least one listing right now.",
-      "unlistedStageAria": "Order {item}"
+      "ordersTab": "Куплю",
+      "ordersNote": "Разместите заказ, и золото будет храниться у Торговца. Лоты по вашей цене или ниже исполняются сразу; остальные ждут продавца. Торговец берёт {cut}% с того, кто доставит товар. Открыто заказов: {used}/{max}.",
+      "ordersListAria": "Открытые заказы на покупку",
+      "ordersEmpty": "Пока нет открытых заказов. Разместите заказ, и сборщики увидят, что вам нужно.",
+      "orderCardTitle": "Разместить заказ",
+      "orderPickLabel": "Нужный предмет",
+      "orderPickEmpty": "Найдите предмет ниже или выберите его из полосы внизу.",
+      "orderSearchPlaceholder": "Поиск предметов...",
+      "orderSearchAria": "Поиск предмета для заказа",
+      "orderPickNone": "Совпадений не найдено.",
+      "orderQuantity": "Нужное количество",
+      "orderPriceEach": "Цена за штуку",
+      "orderEscrowLine": "Золото у Торговца: {total}",
+      "orderCannotAfford": "У вас недостаточно денег на {total} для этого заказа.",
+      "orderAtCap": "У вас нет свободных мест для заказов. Сначала отмените один из них.",
+      "orderPlaceButton": "Разместить заказ",
+      "orderConfirmTitle": "Подтвердить заказ",
+      "orderConfirmBody": "Заказать {item} x{count} по {each} за штуку? {total} будет храниться у Торговца, пока заказ не будет выполнен или отменён.",
+      "orderWanted": "нужно x{count}",
+      "orderBy": "Заказчик: {buyer}",
+      "orderMine": "Ваш заказ",
+      "orderEach": "за штуку",
+      "orderDeliver": "Доставить",
+      "orderDeliverAria": "Доставить {item} игроку {buyer}",
+      "orderDeliverNone": "У вас в сумках нет этого предмета.",
+      "orderWithdraw": "Отменить",
+      "orderWithdrawAria": "Отменить ваш заказ на {item}",
+      "orderDeliverConfirmTitle": "Подтвердить доставку",
+      "orderDeliverConfirmBody": "Доставить {item} x{count} игроку {buyer} за {total} ({each} за штуку)? Вы получите {proceeds} после вычета доли Торговца.",
+      "unlistedTitle": "Нет на рынке",
+      "unlistedNote": "Материалы, на которые вообще нет лотов. Разместите на них заказ или соберите и выставьте сами.",
+      "unlistedNone": "Сейчас на каждый материал есть хотя бы один лот.",
+      "unlistedStageAria": "Заказать {item}"
     },
     "logs": {
       "listedItem": "{item} выставлен на мировой рынок за {money}.",
@@ -11808,11 +12723,11 @@ export const ru_RU: EnTranslations = {
       "collectedMoney": "Вы забираете {money} у Торговца.",
       "reclaimedItem": "{item} возвращен с рынка.",
       "expiredListing": "Ваш лот {item} истек и ждет у Торговца.",
-      "orderPlaced": "Placed an order for {item} x{count} at {each} each.",
-      "orderDelivered": "Delivered {item} x{count} to {buyer} for {money}. Collect {proceeds} from the Merchant.",
-      "orderReceived": "{seller} delivered {item} x{count} to your order. Collect it from the Merchant.",
-      "orderWithdrawn": "Withdrew your order for {item}; {money} returned.",
-      "orderExpired": "Your order for {item} expired; {money} waits at the Merchant.",
+      "orderPlaced": "Вы разместили заказ на {item} x{count} по {each} за штуку.",
+      "orderDelivered": "Вы доставили {item} x{count} игроку {buyer} за {money}. Заберите {proceeds} у Торговца.",
+      "orderReceived": "{seller} доставил {item} x{count} по вашему заказу. Заберите это у Торговца.",
+      "orderWithdrawn": "Вы отменили заказ на {item}; {money} возвращено.",
+      "orderExpired": "Ваш заказ на {item} истёк; {money} ждёт у Торговца.",
       "boughtBackItem": "Вы выкупили {item} за {money}."
     },
     "errors": {
@@ -11832,11 +12747,11 @@ export const ru_RU: EnTranslations = {
       "nothingToCollect": "Вам нечего забирать.",
       "sweepNoListings": "Нет лотов этого предмета для скупки.",
       "sweepPriceChanged": "Цены изменились до завершения скупки. Проверьте расчёт и попробуйте снова.",
-      "orderCountNeeded": "Name how many you want.",
-      "tooManyOrders": "You may keep at most {count} orders open at once.",
-      "orderClosed": "That order is no longer open.",
-      "orderOwn": "That is your own order. Cancel it to withdraw it.",
-      "orderNotYours": "That is not your order."
+      "orderCountNeeded": "Укажите, сколько вам нужно.",
+      "tooManyOrders": "Одновременно можно держать открытыми не более {count} заказов.",
+      "orderClosed": "Этот заказ больше не открыт.",
+      "orderOwn": "Это ваш собственный заказ. Отмените его, чтобы вернуть средства.",
+      "orderNotYours": "Это не ваш заказ."
     },
     "loot": {
       "takeAll": "Взять все",
@@ -12569,16 +13484,16 @@ export const ru_RU: EnTranslations = {
         "description": "Пассивно: Дуга молнии и Небесная ветвь накапливают Гром, максимум 5. При 5 зарядах Земной толчок наносит на 125% больше урона, а Разлом земли на 100%, затем расходуется весь Гром. (Громовержец)"
       },
       "lightning_overload": {
-        "name": "Arc Overload",
-        "description": "Passive: Arc Bolt and Skybranch have a 20% chance to Overload, striking their first target again for 50% of the damage dealt and granting 1 Thunder. (Thundercall)"
+        "name": "Дуговая перегрузка",
+        "description": "Пассивно: Дуговая стрела и Разветвленная молния с вероятностью 20% вызывают Перегрузку, поражая первую цель повторно на 50% нанесённого урона и даруя 1 Гром. (Стихии)"
       },
       "lava_burst": {
-        "name": "Magma Burst",
-        "description": "Deal {damage} Fire damage. Always critically strikes a target burning with your Cinder Jolt. Magma Surge: each Cinder Jolt tick has a 20% chance to reset this cooldown and make your next Magma Burst within 10 sec instant. Damage increases with Spell Power. (Thundercall)"
+        "name": "Взрыв магмы",
+        "description": "Наносит {damage} урона от огня. Всегда наносит критический удар по цели, охваченной вашим Тлеющим разрядом. Прилив магмы: каждый тик Тлеющего разряда с вероятностью 20% сбрасывает время восстановления этого умения и делает следующий Взрыв магмы в течение 10 сек. мгновенным. Урон растёт с силой заклинаний. (Стихии)"
       },
       "thunderstorm": {
-        "name": "Stormbreak",
-        "description": "Call down a thunderclap, dealing {damage} Nature damage to enemies within 10 yards and slowing them by 50% for 5 sec. Restores 8% of your maximum Mana. Damage increases with Spell Power. (Thundercall)"
+        "name": "Раскол бури",
+        "description": "Призывает раскат грома, нанося {damage} урона от природы врагам в пределах 10 м и замедляя их на 50% на 5 сек. Восстанавливает 8% от максимального запаса маны. Урон растёт с силой заклинаний. (Стихии)"
       },
       "rockbiter_weapon": {
         "name": "Оружие каменных уз",
@@ -14927,6 +15842,18 @@ export const ru_RU: EnTranslations = {
       "sprung_trap": {
         "name": "Захлопнувшийся топяной капкан"
       },
+      "leyline_cache": {
+        "name": "Миниатюрный тайник силовой линии"
+      },
+      "confection_game_box": {
+        "name": "Игровая шкатулка кондитера"
+      },
+      "eastbrook_freight_crate": {
+        "name": "Грузовой ящик Истбрука"
+      },
+      "eastbrook_freight_wagon": {
+        "name": "Грузовая повозка Истбрука"
+      },
       "hearthlined_treads": {
         "name": "Прогретые у очага боты"
       },
@@ -16467,421 +17394,421 @@ export const ru_RU: EnTranslations = {
         "name": "Кольчужные сапоги Штормового гимна"
       },
       "vanguard_warrior_arms_helmet": {
-        "name": "Bladewake Greathelm"
+        "name": "Великий шлем следа клинка"
       },
       "vanguard_warrior_arms_shoulder": {
-        "name": "Bladewake Pauldrons"
+        "name": "Наплечники следа клинка"
       },
       "vanguard_warrior_arms_chest": {
-        "name": "Bladewake Hauberk"
+        "name": "Хауберк следа клинка"
       },
       "vanguard_warrior_arms_legs": {
-        "name": "Bladewake Legplates"
+        "name": "Поножи следа клинка"
       },
       "vanguard_warrior_arms_gloves": {
-        "name": "Bladewake Crushers"
+        "name": "Дробители следа клинка"
       },
       "vanguard_warrior_fury_helmet": {
-        "name": "Bloodmarch Visage"
+        "name": "Лик кровавого похода"
       },
       "vanguard_warrior_fury_shoulder": {
-        "name": "Bloodmarch Shoulderguards"
+        "name": "Наплечники кровавого похода"
       },
       "vanguard_warrior_fury_chest": {
-        "name": "Bloodmarch Chainmail"
+        "name": "Кольчуга кровавого похода"
       },
       "vanguard_warrior_fury_legs": {
-        "name": "Bloodmarch Leggings"
+        "name": "Поножи кровавого похода"
       },
       "vanguard_warrior_fury_gloves": {
-        "name": "Bloodmarch Grips"
+        "name": "Хваты кровавого похода"
       },
       "vanguard_warrior_prot_helmet": {
-        "name": "Ironmarch Helm"
+        "name": "Шлем железного похода"
       },
       "vanguard_warrior_prot_shoulder": {
-        "name": "Ironmarch Spaulders"
+        "name": "Наплечники железного похода"
       },
       "vanguard_warrior_prot_chest": {
-        "name": "Ironmarch Chestguard"
+        "name": "Нагрудник железного похода"
       },
       "vanguard_warrior_prot_legs": {
-        "name": "Ironmarch Legguards"
+        "name": "Поножи железного похода"
       },
       "vanguard_warrior_prot_gloves": {
-        "name": "Ironmarch Handguards"
+        "name": "Наручи железного похода"
       },
       "vanguard_paladin_holy_helmet": {
-        "name": "Sunvigil Circlet"
+        "name": "Венец солнечного дозора"
       },
       "vanguard_paladin_holy_shoulder": {
-        "name": "Sunvigil Mantle"
+        "name": "Мантия солнечного дозора"
       },
       "vanguard_paladin_holy_chest": {
-        "name": "Sunvigil Hauberk"
+        "name": "Хауберк солнечного дозора"
       },
       "vanguard_paladin_holy_legs": {
-        "name": "Sunvigil Legmail"
+        "name": "Поножи солнечного дозора"
       },
       "vanguard_paladin_holy_gloves": {
-        "name": "Sunvigil Gloves"
+        "name": "Перчатки солнечного дозора"
       },
       "vanguard_paladin_protection_helmet": {
-        "name": "Shieldvow Helm"
+        "name": "Шлем клятвы щита"
       },
       "vanguard_paladin_protection_shoulder": {
-        "name": "Shieldvow Pauldrons"
+        "name": "Наплечники клятвы щита"
       },
       "vanguard_paladin_protection_chest": {
-        "name": "Shieldvow Breastplate"
+        "name": "Нагрудник клятвы щита"
       },
       "vanguard_paladin_protection_legs": {
-        "name": "Shieldvow Legplates"
+        "name": "Поножи клятвы щита"
       },
       "vanguard_paladin_protection_gloves": {
-        "name": "Shieldvow Gauntlets"
+        "name": "Перчатки клятвы щита"
       },
       "vanguard_paladin_retribution_helmet": {
-        "name": "Lightbrand Crown"
+        "name": "Венец клейма света"
       },
       "vanguard_paladin_retribution_shoulder": {
-        "name": "Lightbrand Spaulders"
+        "name": "Наплечники клейма света"
       },
       "vanguard_paladin_retribution_chest": {
-        "name": "Lightbrand Cuirass"
+        "name": "Кираса клейма света"
       },
       "vanguard_paladin_retribution_legs": {
-        "name": "Lightbrand Legguards"
+        "name": "Поножи клейма света"
       },
       "vanguard_paladin_retribution_gloves": {
-        "name": "Lightbrand Gauntlets"
+        "name": "Перчатки клейма света"
       },
       "vanguard_hunter_beast_mastery_helmet": {
-        "name": "Packwarden Coif"
+        "name": "Капюшон стража стаи"
       },
       "vanguard_hunter_beast_mastery_shoulder": {
-        "name": "Packwarden Spaulders"
+        "name": "Наплечники стража стаи"
       },
       "vanguard_hunter_beast_mastery_chest": {
-        "name": "Packwarden Jerkin"
+        "name": "Куртка стража стаи"
       },
       "vanguard_hunter_beast_mastery_legs": {
-        "name": "Packwarden Legguards"
+        "name": "Поножи стража стаи"
       },
       "vanguard_hunter_beast_mastery_gloves": {
-        "name": "Packwarden Gauntlets"
+        "name": "Перчатки стража стаи"
       },
       "vanguard_hunter_marksmanship_helmet": {
-        "name": "Farsight Coif"
+        "name": "Капюшон дальновидящего"
       },
       "vanguard_hunter_marksmanship_shoulder": {
-        "name": "Farsight Spaulders"
+        "name": "Наплечники дальновидящего"
       },
       "vanguard_hunter_marksmanship_chest": {
-        "name": "Farsight Jerkin"
+        "name": "Куртка дальновидящего"
       },
       "vanguard_hunter_marksmanship_legs": {
-        "name": "Farsight Legguards"
+        "name": "Поножи дальновидящего"
       },
       "vanguard_hunter_marksmanship_gloves": {
-        "name": "Farsight Gauntlets"
+        "name": "Перчатки дальновидящего"
       },
       "vanguard_hunter_survival_helmet": {
-        "name": "Snaretooth Coif"
+        "name": "Капюшон клыкосилка"
       },
       "vanguard_hunter_survival_shoulder": {
-        "name": "Snaretooth Spaulders"
+        "name": "Наплечники клыкосилка"
       },
       "vanguard_hunter_survival_chest": {
-        "name": "Snaretooth Jerkin"
+        "name": "Куртка клыкосилка"
       },
       "vanguard_hunter_survival_legs": {
-        "name": "Snaretooth Legguards"
+        "name": "Поножи клыкосилка"
       },
       "vanguard_hunter_survival_gloves": {
-        "name": "Snaretooth Gauntlets"
+        "name": "Перчатки клыкосилка"
       },
       "vanguard_rogue_assassination_helmet": {
-        "name": "Nightcut Hood"
+        "name": "Капюшон ночереза"
       },
       "vanguard_rogue_assassination_shoulder": {
-        "name": "Nightcut Shoulderpads"
+        "name": "Наплечья ночереза"
       },
       "vanguard_rogue_assassination_chest": {
-        "name": "Nightcut Tunic"
+        "name": "Туника ночереза"
       },
       "vanguard_rogue_assassination_legs": {
-        "name": "Nightcut Breeches"
+        "name": "Бриджи ночереза"
       },
       "vanguard_rogue_assassination_gloves": {
-        "name": "Nightcut Gloves"
+        "name": "Перчатки ночереза"
       },
       "vanguard_rogue_combat_helmet": {
-        "name": "Brawlmark Hood"
+        "name": "Капюшон клейма стычки"
       },
       "vanguard_rogue_combat_shoulder": {
-        "name": "Brawlmark Shoulderpads"
+        "name": "Наплечья клейма стычки"
       },
       "vanguard_rogue_combat_chest": {
-        "name": "Brawlmark Tunic"
+        "name": "Туника клейма стычки"
       },
       "vanguard_rogue_combat_legs": {
-        "name": "Brawlmark Breeches"
+        "name": "Бриджи клейма стычки"
       },
       "vanguard_rogue_combat_gloves": {
-        "name": "Brawlmark Gloves"
+        "name": "Перчатки клейма стычки"
       },
       "vanguard_rogue_subtlety_helmet": {
-        "name": "Shadewalk Hood"
+        "name": "Капюшон поступи тени"
       },
       "vanguard_rogue_subtlety_shoulder": {
-        "name": "Shadewalk Shoulderpads"
+        "name": "Наплечья поступи тени"
       },
       "vanguard_rogue_subtlety_chest": {
-        "name": "Shadewalk Tunic"
+        "name": "Туника поступи тени"
       },
       "vanguard_rogue_subtlety_legs": {
-        "name": "Shadewalk Breeches"
+        "name": "Бриджи поступи тени"
       },
       "vanguard_rogue_subtlety_gloves": {
-        "name": "Shadewalk Gloves"
+        "name": "Перчатки поступи тени"
       },
       "vanguard_priest_discipline_helmet": {
-        "name": "Veilpsalm Cowl"
+        "name": "Капюшон псалма завесы"
       },
       "vanguard_priest_discipline_shoulder": {
-        "name": "Veilpsalm Mantle"
+        "name": "Мантия псалма завесы"
       },
       "vanguard_priest_discipline_chest": {
-        "name": "Veilpsalm Robe"
+        "name": "Роба псалма завесы"
       },
       "vanguard_priest_discipline_legs": {
-        "name": "Veilpsalm Leggings"
+        "name": "Штаны псалма завесы"
       },
       "vanguard_priest_discipline_gloves": {
-        "name": "Veilpsalm Handwraps"
+        "name": "Обмотки псалма завесы"
       },
       "vanguard_priest_holy_helmet": {
-        "name": "Gracewing Cowl"
+        "name": "Капюшон крыла милости"
       },
       "vanguard_priest_holy_shoulder": {
-        "name": "Gracewing Mantle"
+        "name": "Мантия крыла милости"
       },
       "vanguard_priest_holy_chest": {
-        "name": "Gracewing Robe"
+        "name": "Роба крыла милости"
       },
       "vanguard_priest_holy_legs": {
-        "name": "Gracewing Leggings"
+        "name": "Штаны крыла милости"
       },
       "vanguard_priest_holy_gloves": {
-        "name": "Gracewing Handwraps"
+        "name": "Обмотки крыла милости"
       },
       "vanguard_priest_shadow_helmet": {
-        "name": "Duskhymn Cowl"
+        "name": "Капюшон гимна сумерек"
       },
       "vanguard_priest_shadow_shoulder": {
-        "name": "Duskhymn Mantle"
+        "name": "Мантия гимна сумерек"
       },
       "vanguard_priest_shadow_chest": {
-        "name": "Duskhymn Robe"
+        "name": "Роба гимна сумерек"
       },
       "vanguard_priest_shadow_legs": {
-        "name": "Duskhymn Leggings"
+        "name": "Штаны гимна сумерек"
       },
       "vanguard_priest_shadow_gloves": {
-        "name": "Duskhymn Handwraps"
+        "name": "Обмотки гимна сумерек"
       },
       "vanguard_shaman_elemental_helmet": {
-        "name": "Tempestwrit Coif"
+        "name": "Капюшон завета бури"
       },
       "vanguard_shaman_elemental_shoulder": {
-        "name": "Tempestwrit Pauldrons"
+        "name": "Наплечники завета бури"
       },
       "vanguard_shaman_elemental_chest": {
-        "name": "Tempestwrit Hauberk"
+        "name": "Хауберк завета бури"
       },
       "vanguard_shaman_elemental_legs": {
-        "name": "Tempestwrit Legmail"
+        "name": "Поножи завета бури"
       },
       "vanguard_shaman_elemental_gloves": {
-        "name": "Tempestwrit Gauntlets"
+        "name": "Перчатки завета бури"
       },
       "vanguard_shaman_enhancement_helmet": {
-        "name": "Galeborn Helm"
+        "name": "Шлем рождённого вихрем"
       },
       "vanguard_shaman_enhancement_shoulder": {
-        "name": "Galeborn Spaulders"
+        "name": "Наплечники рождённого вихрем"
       },
       "vanguard_shaman_enhancement_chest": {
-        "name": "Galeborn Chainmail"
+        "name": "Кольчуга рождённого вихрем"
       },
       "vanguard_shaman_enhancement_legs": {
-        "name": "Galeborn Legguards"
+        "name": "Поножи рождённого вихрем"
       },
       "vanguard_shaman_enhancement_gloves": {
-        "name": "Galeborn Grips"
+        "name": "Хваты рождённого вихрем"
       },
       "vanguard_shaman_restoration_helmet": {
-        "name": "Brineward Circlet"
+        "name": "Венец стража солёных вод"
       },
       "vanguard_shaman_restoration_shoulder": {
-        "name": "Brineward Mantle"
+        "name": "Мантия стража солёных вод"
       },
       "vanguard_shaman_restoration_chest": {
-        "name": "Brineward Hauberk"
+        "name": "Хауберк стража солёных вод"
       },
       "vanguard_shaman_restoration_legs": {
-        "name": "Brineward Kilt"
+        "name": "Килт стража солёных вод"
       },
       "vanguard_shaman_restoration_gloves": {
-        "name": "Brineward Handwraps"
+        "name": "Обмотки стража солёных вод"
       },
       "vanguard_mage_arcane_helmet": {
-        "name": "Hourbinder's Hood"
+        "name": "Капюшон Повелителя часов"
       },
       "vanguard_mage_arcane_shoulder": {
-        "name": "Hourbinder's Amice"
+        "name": "Оплечье Повелителя часов"
       },
       "vanguard_mage_arcane_chest": {
-        "name": "Hourbinder's Robe"
+        "name": "Роба Повелителя часов"
       },
       "vanguard_mage_arcane_legs": {
-        "name": "Hourbinder's Trousers"
+        "name": "Штаны Повелителя часов"
       },
       "vanguard_mage_arcane_gloves": {
-        "name": "Hourbinder's Gloves"
+        "name": "Перчатки Повелителя часов"
       },
       "vanguard_mage_fire_helmet": {
-        "name": "Emberlash Cowl"
+        "name": "Капюшон углебича"
       },
       "vanguard_mage_fire_shoulder": {
-        "name": "Emberlash Mantle"
+        "name": "Мантия углебича"
       },
       "vanguard_mage_fire_chest": {
-        "name": "Emberlash Robes"
+        "name": "Роба углебича"
       },
       "vanguard_mage_fire_legs": {
-        "name": "Emberlash Leggings"
+        "name": "Штаны углебича"
       },
       "vanguard_mage_fire_gloves": {
-        "name": "Emberlash Gloves"
+        "name": "Перчатки углебича"
       },
       "vanguard_mage_frost_helmet": {
-        "name": "Rimewarden Hood"
+        "name": "Капюшон стража инея"
       },
       "vanguard_mage_frost_shoulder": {
-        "name": "Rimewarden Shoulderpads"
+        "name": "Наплечья стража инея"
       },
       "vanguard_mage_frost_chest": {
-        "name": "Rimewarden Vestment"
+        "name": "Облачение стража инея"
       },
       "vanguard_mage_frost_legs": {
-        "name": "Rimewarden Legwraps"
+        "name": "Обмотки стража инея"
       },
       "vanguard_mage_frost_gloves": {
-        "name": "Rimewarden Mitts"
+        "name": "Рукавицы стража инея"
       },
       "vanguard_warlock_affliction_helmet": {
-        "name": "Dreadquill Hood"
+        "name": "Капюшон пера ужаса"
       },
       "vanguard_warlock_affliction_shoulder": {
-        "name": "Dreadquill Mantle"
+        "name": "Мантия пера ужаса"
       },
       "vanguard_warlock_affliction_chest": {
-        "name": "Dreadquill Robe"
+        "name": "Роба пера ужаса"
       },
       "vanguard_warlock_affliction_legs": {
-        "name": "Dreadquill Leggings"
+        "name": "Штаны пера ужаса"
       },
       "vanguard_warlock_affliction_gloves": {
-        "name": "Dreadquill Handwraps"
+        "name": "Обмотки пера ужаса"
       },
       "vanguard_warlock_demonology_helmet": {
-        "name": "Marrowbound Cowl"
+        "name": "Капюшон костевяза"
       },
       "vanguard_warlock_demonology_shoulder": {
-        "name": "Marrowbound Spaulders"
+        "name": "Наплечники костевяза"
       },
       "vanguard_warlock_demonology_chest": {
-        "name": "Marrowbound Robe"
+        "name": "Роба костевяза"
       },
       "vanguard_warlock_demonology_legs": {
-        "name": "Marrowbound Leggings"
+        "name": "Штаны костевяза"
       },
       "vanguard_warlock_demonology_gloves": {
-        "name": "Marrowbound Grips"
+        "name": "Хваты костевяза"
       },
       "vanguard_warlock_destruction_helmet": {
-        "name": "Slagcrown Hood"
+        "name": "Капюшон шлаковой короны"
       },
       "vanguard_warlock_destruction_shoulder": {
-        "name": "Slagcrown Mantle"
+        "name": "Мантия шлаковой короны"
       },
       "vanguard_warlock_destruction_chest": {
-        "name": "Slagcrown Robes"
+        "name": "Роба шлаковой короны"
       },
       "vanguard_warlock_destruction_legs": {
-        "name": "Slagcrown Leggings"
+        "name": "Штаны шлаковой короны"
       },
       "vanguard_warlock_destruction_gloves": {
-        "name": "Slagcrown Gloves"
+        "name": "Перчатки шлаковой короны"
       },
       "vanguard_druid_balance_helmet": {
-        "name": "Starwarden Headdress"
+        "name": "Убор звёздного стража"
       },
       "vanguard_druid_balance_shoulder": {
-        "name": "Starwarden Spaulders"
+        "name": "Наплечники звёздного стража"
       },
       "vanguard_druid_balance_chest": {
-        "name": "Starwarden Vest"
+        "name": "Жилет звёздного стража"
       },
       "vanguard_druid_balance_legs": {
-        "name": "Starwarden Breeches"
+        "name": "Бриджи звёздного стража"
       },
       "vanguard_druid_balance_gloves": {
-        "name": "Starwarden Gloves"
+        "name": "Перчатки звёздного стража"
       },
       "vanguard_druid_feral_helmet": {
-        "name": "Bloodmane Helm"
+        "name": "Шлем кровавой гривы"
       },
       "vanguard_druid_feral_shoulder": {
-        "name": "Bloodmane Shoulderpads"
+        "name": "Наплечья кровавой гривы"
       },
       "vanguard_druid_feral_chest": {
-        "name": "Bloodmane Tunic"
+        "name": "Туника кровавой гривы"
       },
       "vanguard_druid_feral_legs": {
-        "name": "Bloodmane Legguards"
+        "name": "Поножи кровавой гривы"
       },
       "vanguard_druid_feral_gloves": {
-        "name": "Bloodmane Grips"
+        "name": "Хваты кровавой гривы"
       },
       "vanguard_druid_restoration_helmet": {
-        "name": "Thistlebloom Crown"
+        "name": "Венец цветущего чертополоха"
       },
       "vanguard_druid_restoration_shoulder": {
-        "name": "Thistlebloom Mantle"
+        "name": "Мантия цветущего чертополоха"
       },
       "vanguard_druid_restoration_chest": {
-        "name": "Thistlebloom Vest"
+        "name": "Жилет цветущего чертополоха"
       },
       "vanguard_druid_restoration_legs": {
-        "name": "Thistlebloom Leggings"
+        "name": "Штаны цветущего чертополоха"
       },
       "vanguard_druid_restoration_gloves": {
-        "name": "Thistlebloom Gloves"
+        "name": "Перчатки цветущего чертополоха"
       },
       "vanguard_verdict_greatsword": {
-        "name": "Vanguard's Verdict"
+        "name": "Приговор Авангарда"
       },
       "vanguard_oath_blade": {
-        "name": "Vanguard's Oath"
+        "name": "Клятва Авангарда"
       },
       "vanguard_fang_dagger": {
-        "name": "Vanguard's Fang"
+        "name": "Клык Авангарда"
       },
       "vanguard_warstaff": {
-        "name": "Vanguard's Warstaff"
+        "name": "Боевой посох Авангарда"
       },
       "conjured_water4": {
         "name": "Сотворённая родниковая вода"
@@ -17363,6 +18290,15 @@ export const ru_RU: EnTranslations = {
       "event_skin_token": {
         "name": "Загадочный косметический тайник"
       },
+      "emissary_cache": {
+        "name": "Тайник эмиссара"
+      },
+      "clue_scroll": {
+        "name": "Свиток с подсказкой"
+      },
+      "treasure_casket": {
+        "name": "Ларец с сокровищами"
+      },
       "heroic_mark": {
         "name": "Героический знак"
       },
@@ -17674,6 +18610,156 @@ export const ru_RU: EnTranslations = {
       },
       "varkhul_emberward": {
         "name": "Углестраж, бастион Варкула"
+      },
+      "bastion_sigil": {
+        "name": "Печать бастиона"
+      },
+      "mooring_stone": {
+        "name": "Швартовый камень"
+      },
+      "menders_hourglass": {
+        "name": "Песочные часы целителя"
+      },
+      "wellspring_seed": {
+        "name": "Семя родника"
+      },
+      "paired_talons": {
+        "name": "Парные когти"
+      },
+      "hunters_tally": {
+        "name": "Счёт охотника"
+      },
+      "stormjar": {
+        "name": "Грозовой сосуд"
+      },
+      "echoing_lens": {
+        "name": "Отзывающаяся линза"
+      },
+      "gamblers_die": {
+        "name": "Игральная кость игрока"
+      },
+      "sundered_prism": {
+        "name": "Расколотая призма"
+      },
+      "wayfarers_lodestone": {
+        "name": "Магнитный камень странника"
+      },
+      "medallion_of_defiance": {
+        "name": "Медальон непокорности"
+      },
+      "duelists_brand": {
+        "name": "Клеймо дуэлянта"
+      },
+      "forgefathers_temper": {
+        "name": "Закалка Отца Кузни"
+      },
+      "kindling_orb": {
+        "name": "Сфера растопки"
+      },
+      "molten_fletching": {
+        "name": "Расплавленное оперение"
+      },
+      "last_flame_lantern": {
+        "name": "Фонарь последнего пламени"
+      },
+      "heart_of_the_crucible": {
+        "name": "Сердце горнила"
+      },
+      "rift_watchers_band": {
+        "name": "Кольцо Стража Разлома"
+      },
+      "rift_surveyors_satchel": {
+        "name": "Сумка Разведчика Разлома"
+      },
+      "riftwalkers_tunic": {
+        "name": "Туника Странника Разлома"
+      },
+      "riftwarden_voidblade": {
+        "name": "Клинок Пустоты Хранителя Разлома"
+      },
+      "champion_rift_band": {
+        "name": "Кольцо Разлома Чемпиона"
+      },
+      "order_prayer_beads": {
+        "name": "Молитвенные Чётки Ордена"
+      },
+      "vestments_of_the_acolyte": {
+        "name": "Облачение Послушника"
+      },
+      "templar_dawn_shield": {
+        "name": "Щит Рассвета Храмовника"
+      },
+      "dawnkeeper_consecrated_mace": {
+        "name": "Освящённая Булава Хранителя Рассвета"
+      },
+      "champion_dawn_medallion": {
+        "name": "Медальон Рассвета Чемпиона"
+      },
+      "automaton_cog_ring": {
+        "name": "Кольцо-Шестерня Автоматона"
+      },
+      "clockwork_tinkers_pack": {
+        "name": "Ранец Заводного Механика"
+      },
+      "artificers_welding_cowl": {
+        "name": "Сварочный Капюшон Механика"
+      },
+      "forgemaster_crag_cleaver": {
+        "name": "Утёсный Колун Мастера-Кузнеца"
+      },
+      "champion_forged_loop": {
+        "name": "Кованое Кольцо Чемпиона"
+      },
+      "tidewatchers_locket": {
+        "name": "Медальон Стража приливов"
+      },
+      "riftwalkers_cord": {
+        "name": "Кушак Странника Разлома"
+      },
+      "riftwalkers_treads": {
+        "name": "Поступь Странника Разлома"
+      },
+      "formula_riftwalkers_grace": {
+        "name": "Формула: Грация Странника Разлома"
+      },
+      "riftwardens_pendant": {
+        "name": "Подвеска Хранителя Разлома"
+      },
+      "acolytes_signet": {
+        "name": "Печатка Послушника"
+      },
+      "cord_of_the_dawn": {
+        "name": "Кушак Рассвета"
+      },
+      "dawnlit_slippers": {
+        "name": "Туфли Рассветного Сияния"
+      },
+      "formula_dawnfire_etching": {
+        "name": "Формула: Травление Рассветного пламени"
+      },
+      "formula_dawns_benediction": {
+        "name": "Формула: Благословение Рассвета"
+      },
+      "champions_dawn_loop": {
+        "name": "Кольцо Рассвета Чемпиона"
+      },
+      "dawnkeepers_circle": {
+        "name": "Круг Хранителя Рассвета"
+      },
+      "cogwork_choker": {
+        "name": "Шестерёнчатое Ожерелье"
+      },
+      "forgemasters_girdle": {
+        "name": "Пояс Мастера-Кузнеца"
+      },
+      "forgemasters_sabatons": {
+        "name": "Сабатоны Мастера-Кузнеца"
+      },
+      "formula_piston_drive": {
+        "name": "Формула: Поршневой привод"
+      },
+      "forgewall_gorget": {
+        "name": "Горжет Кузнечной Стены"
       }
     },
     "mobs": {
@@ -17701,6 +18787,15 @@ export const ru_RU: EnTranslations = {
       "vale_bandit": {
         "name": "Долинный бандит"
       },
+      "eastbrook_freight_caravan": {
+        "name": "Грузовой караван Истврука"
+      },
+      "willowfen_remedy_caravan": {
+        "name": "Караван лекарств Ивовой Топи"
+      },
+      "frostveil_supply_caravan": {
+        "name": "Караван припасов Морозного Предела"
+      },
       "restless_bones": {
         "name": "Беспокойные кости"
       },
@@ -17721,6 +18816,9 @@ export const ru_RU: EnTranslations = {
       },
       "drowned_dead": {
         "name": "Утопший мертвец"
+      },
+      "fenbridge_infiltrator": {
+        "name": "Чужое Лицо"
       },
       "fen_troll": {
         "name": "Мирефенский тролль"
@@ -18429,6 +19527,116 @@ export const ru_RU: EnTranslations = {
       }
     },
     "npcs": {
+      "glider_instructor": {
+        "name": "Мастер полётов Зефир",
+        "title": "Наставник Ветрокрылых",
+        "greeting": "Потоки воздуха, что воют у утёсов Отвесного Среза, сегодня свирепы. Готовы пристегнуться к механическому планеру и испытать крылья на трассе слалома?"
+      },
+      "glider_apprentice": {
+        "name": "Скай",
+        "title": "Подмастерье Зефира",
+        "greeting": "Отличный полёт по каньону. Обращайтесь ко мне, когда понадобится волшебный восходящий поток обратно к Зефиру на Отвесном Срезе."
+      },
+      "shadow_cloak_scout": {
+        "name": "Разведчица Валери",
+        "title": "Тайные операции",
+        "greeting": "Возьмите мой сумеречнотканый плащ. Подкрадитесь сзади к каждому гонцу и стащите его приказы. Держитесь подальше от лучей фонарей: страж с фонарём видит зачарование насквозь, а гонец почувствует вас, если вы его заденете."
+      },
+      "shadow_guard_north": {
+        "name": "Страж донесений",
+        "title": "Гонец с донесениями",
+        "greeting": "Эти запечатанные приказы для капитана. Держитесь подальше."
+      },
+      "shadow_guard_south": {
+        "name": "Страж донесений",
+        "title": "Гонец с донесениями",
+        "greeting": "Мне нужно доставить донесение. Проходите."
+      },
+      "shadow_guard_east": {
+        "name": "Страж донесений",
+        "title": "Гонец с донесениями",
+        "greeting": "Никаких задержек. Дозор ждёт эти приказы."
+      },
+      "shadow_guard_west": {
+        "name": "Страж донесений",
+        "title": "Гонец с донесениями",
+        "greeting": "Служебное дело. Не загораживайте дорогу."
+      },
+      "shadow_sentry_south": {
+        "name": "Часовой с фонарём",
+        "title": "Истинное зрение",
+        "greeting": "Мой фонарь открывает больше, чем тени. Оставайтесь там, где я вас вижу."
+      },
+      "shadow_sentry_north": {
+        "name": "Часовой с фонарём",
+        "title": "Истинное зрение",
+        "greeting": "Ничто не проскользнёт мимо фонарного дозора."
+      },
+      "shadow_watch_west": {
+        "name": "Дозорный с фонарём",
+        "title": "Истинное зрение",
+        "greeting": "Стойте. Фонарь видит то, что упускает глаз."
+      },
+      "shadow_watch_east": {
+        "name": "Дозорный с фонарём",
+        "title": "Истинное зрение",
+        "greeting": "Никто не пересечёт мой свет незамеченным."
+      },
+      "forge_instructor": {
+        "name": "Кузнец Мара",
+        "title": "Кузнец Змеиного дозора",
+        "greeting": "Помогите мне закончить щит! Щёлкайте по припасам, которые я называю. Проворные руки заслужат медаль получше."
+      },
+      "infiltrator_captain": {
+        "name": "Сержант Алрик",
+        "title": "Дозор Фенбриджа",
+        "greeting": "Какое-то существо похитило лицо солдата. Прочтите постоянные приказы и журнал дозора, допросите всех четырёх стражников, затем вернитесь и назовите того, чей рассказ противоречит нашим записям."
+      },
+      "infiltrator_nella": {
+        "name": "Стражница Нелла",
+        "title": "Дозор Фенбриджа",
+        "greeting": "Прибыла на службу."
+      },
+      "infiltrator_orin": {
+        "name": "Стражник Орин",
+        "title": "Дозор Фенбриджа",
+        "greeting": "Прибыл на службу."
+      },
+      "infiltrator_bram": {
+        "name": "Стражник Брам",
+        "title": "Дозор Фенбриджа",
+        "greeting": "Прибыл на службу."
+      },
+      "infiltrator_tessa": {
+        "name": "Стражница Тесса",
+        "title": "Дозор Фенбриджа",
+        "greeting": "Прибыла на службу."
+      },
+      "wisp_maze_keeper": {
+        "name": "Смотрительница Лиора",
+        "title": "Смотрительница живого лабиринта",
+        "greeting": "Воры спрятали украденное золото по всему моему лабиринту, и теперь его стерегут тени. Верните все кошели с монетами. Избегайте стражей или возьмите сияющий огонёк, чтобы изгнать их. Потеряв три жизни, вы вернётесь ко входу, но собранные кошели останутся при вас."
+      },
+      "weekly_emissary": {
+        "name": "Чам Пит",
+        "title": "Эмиссар",
+        "greeting": "Долина ведёт книгу деяний, а книгу веду я. Выбери одно поручение на неделю, доведи его до конца, и кошель твой."
+      },
+      "calligraphy_instructor": {
+        "name": "Наставник Элиан",
+        "title": "Тайная каллиграфия",
+        "greeting": "Ровный шаг рождает ровную линию. Научите моих учеников рисовать треугольник, квадрат и сложную руну."
+      },
+      "calligraphy_apprentice_1": {
+        "name": "Ученица Тесса",
+        "title": "Ученица каллиграфии",
+        "greeting": "Я всё время поворачиваю слишком рано. Покажете, где должны быть углы?"
+      },
+      "calligraphy_apprentice_2": {
+        "name": "Ученик Пип",
+        "title": "Ученик каллиграфии",
+        "greeting": "Сначала треугольник, потом квадрат, потом руна. Шаг за шагом!"
+      },
       "the_merchant": {
         "name": "Торговец",
         "title": "Хранитель мирового рынка",
@@ -18553,6 +19761,11 @@ export const ru_RU: EnTranslations = {
         "name": "Казначей Фернандо",
         "title": "Золочёный сундук",
         "greeting": "Добро пожаловать в Золочёный сундук. Ваше добро надёжно хранится за нашими замками."
+      },
+      "eastbrook_vault_keeper": {
+        "name": "Смотритель хранилища",
+        "title": "Еженедельные награды",
+        "greeting": "Ваши еженедельные награды ждут. После сброса Горнила выберите один предмет из заработанных вариантов."
       },
       "card_master": {
         "name": "Карточный мастер",
@@ -18688,6 +19901,11 @@ export const ru_RU: EnTranslations = {
         "name": "Разведчица Йеррин",
         "title": "Дозорная дальних дюн",
         "greeting": "Пригнись. Звук странно отражается от стекла, а у врат внизу есть уши."
+      },
+      "harbormaster_tamsin": {
+        "name": "Начальница гавани Тамсин",
+        "title": "Смотрительница причалов Змеиного дозора",
+        "greeting": "Заходите с причала, погрейте руки. Корабль у нашего пирса идёт вдоль длинного восточного берега до Викхарбора и обратно. Далеко на западе другой паром ходит между пристанями Истврука и Ночецветья. На карте на стене видны оба маршрута. Отдохните у огня, прежде чем подниматься к Змеиному дозору."
       },
       "reeve_ottoline": {
         "name": "Староста Оттолина",
@@ -18863,6 +20081,26 @@ export const ru_RU: EnTranslations = {
         "name": "Кузнец разлома Маэлис",
         "title": "Мастер горна разлома",
         "greeting": "Кольцо разлома помнит разлом, что его создал, {className}. Принесите мне кольцо и эссенцию, что роняют разломы, и я научу его помнить больше."
+      },
+      "npc_rift_watch_quartermaster": {
+        "name": "Интендант Ваэлен",
+        "title": "Снабженец Стражи Разлома",
+        "greeting": "Стража Разлома охраняет берег и следит за глубокими разрывами. Наши склады открыты для тех, чья репутация признана."
+      },
+      "npc_church_order_quartermaster": {
+        "name": "Храмовница Альтея",
+        "title": "Интендант Церковного Ордена",
+        "greeting": "Ступай в Свете Рассвета. Церковный Орден снабжает тех, кто служит вместе с нами."
+      },
+      "npc_automaton_quartermaster": {
+        "name": "Механик Тобрин",
+        "title": "Снабженец Автоматонов",
+        "greeting": "Точные шестерни, кованая сталь и выверенная мощь. Допущенные операторы могут получать снаряжение с наших складов."
+      },
+      "npc_wq_taskmaster": {
+        "name": "Надзиратель Каэлен",
+        "title": "Надзиратель Мировых Заданий",
+        "greeting": "Союзные фракции каждый день размещают задания по всему королевству. Если задание не подходит твоим навыкам, раз в день можно запросить его замену."
       },
       "forgemistress_darva": {
         "name": "Мастерица кузни Дарва",
@@ -21702,6 +22940,9 @@ export const ru_RU: EnTranslations = {
           },
           "4": {
             "label": "Поля Разломов"
+          },
+          "5": {
+            "label": "Место крушения"
           }
         }
       },

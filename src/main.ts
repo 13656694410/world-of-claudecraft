@@ -108,6 +108,7 @@ import { createGamepadSettingApplier } from './game/gamepad_settings';
 import { isGameplayInputBlocked } from './game/gameplay_input_gate';
 import { handleGatherNodeInteract } from './game/gather_node_interact';
 import { gatherToolProfessionFor, nearestGatherNodeForProfession } from './game/gather_tool_use';
+import * as glider from './game/glider_controls';
 import { publishGpuHitchRuntimeReceipt } from './game/gpu_hitch_receipt';
 import { GraphicsRebuildCoordinator } from './game/graphics_rebuild_coordinator';
 import {
@@ -144,6 +145,7 @@ import {
 import { createIntroLogoOverlay } from './game/intro_logo_overlay';
 import { Keybinds } from './game/keybinds';
 import {
+  applyKeyboardTurnInput,
   type KeyboardTurnArgs,
   newKeyboardTurnState,
   seedKeyboardTurnRelease,
@@ -175,10 +177,9 @@ import { applyMobileHudLayout } from './game/mobile_hud_layout_applier';
 import { watchMobileMoreState } from './game/mobile_more_diagnostics';
 import { mobilePlatform, mobilePreflightCopy } from './game/mobile_preflight';
 import { mouselookReleaseFacing } from './game/mouselook_release';
-import { diagonalMovementVisualFacing } from './game/movement_visual';
 import { music } from './game/music';
 import { tryNearbyInteraction } from './game/nearby_interaction';
-import { nextNpcTarget } from './game/npc_cycle';
+import { nextNpcTargetForWorld } from './game/npc_cycle';
 import { isOfflineModeAvailable } from './game/offline_mode_gate';
 import { offlineWorldConfig } from './game/offline_world_config';
 import { interpolatedOnlineSelfFacing } from './game/online_facing_mirror';
@@ -227,6 +228,7 @@ import {
   spawnCinematicPose,
 } from './game/spawn_cinematic';
 import { markSpawnIntroSeen, readSpawnIntroSeen } from './game/spawn_intro_seen';
+import { createStartPanelNavigation } from './game/start_panel_navigation';
 import { safeStartupGraphicsPreset } from './game/startup_graphics_safety';
 import { shouldClearTargetOnGroundClick } from './game/target_click';
 import { dispatchTargetingAction, targetingInputCallbacks } from './game/targeting_actions';
@@ -245,6 +247,8 @@ import {
 import { loadingCurtainFadeMs, resolveUiEffectsProfile } from './game/ui_effects_profile';
 import { feedSimCalendar } from './game/utc_day';
 import { voice } from './game/voice';
+import { openHeaderWiki } from './game/website_navigation';
+import { createWebsiteViewNavigation } from './game/website_view_navigation';
 import { attachWocMarketExchange } from './game/woc_market_wiring';
 import { telemetryZoneId } from './game/world_telemetry';
 import { zoneWarmupMode } from './game/zone_transition';
@@ -1739,7 +1743,7 @@ async function startGame(
       // that channel without the player retyping "/world" etc.
       const raw = chatInput.value;
       // dev-only chat interceptors (day/night scrub, the placer rig)
-      if (tryDevChatHooks(raw, { hud, scene: renderer.scene, world })) {
+      if (tryDevChatHooks(raw, { hud, renderer, world })) {
         chatInput.value = '';
         closeChat();
         return;
@@ -1896,6 +1900,7 @@ async function startGame(
       canUseGameKeys: () => !gameplayInputBlocked(),
       // The "Unlock interface" arrange mode claims the mouse for frame drags.
       isCameraLocked: () => hud.isInterfaceUnlocked(),
+      ...glider.activityInputLocks(world),
     },
     keybinds,
   );
@@ -2113,12 +2118,7 @@ async function startGame(
       // no way to pick one; targetEntity is the seam that already exists for it.
       case 'targetNpcNext':
       case 'targetNpcPrev': {
-        const next = nextNpcTarget(
-          world.entities.values(),
-          world.player.pos,
-          world.player.targetId ?? null,
-          id === 'targetNpcNext' ? 1 : -1,
-        );
+        const next = nextNpcTargetForWorld(world, id === 'targetNpcNext' ? 1 : -1);
         if (next !== null) world.targetEntity(next);
         break;
       }
@@ -2897,6 +2897,7 @@ async function startGame(
   // the options menu drives logout + key-capture + settings, all of which need
   // refs that only exist now (input/renderer) or are page-level (reload)
   hud.attachOptions({
+    gliderPitchHold: (value) => input.setGliderPitchHold(value),
     logout: () => {
       // Signal the server to leave immediately, skipping the linkdead grace, so
       // the character is not held in-world after a deliberate logout.
@@ -3905,6 +3906,8 @@ async function startGame(
     playerFacing: number,
     latencyMs = 0,
   ): { mi: ReturnType<typeof input.readMoveInput>; facing: number | null } {
+    const flight = glider.resolveGliderMove(world, input);
+    if (flight) return flight;
     attackMoveTick();
     const mi = input.readMoveInput();
     let facing: number | null = mouselook ? input.camYaw : null;
@@ -4123,6 +4126,7 @@ async function startGame(
   });
 
   function renderFacingOverride(): number | null {
+    if (glider.gliderControlsActive(world)) return glider.gliderCameraFacing(input);
     // A ghost (dead && ghost) is not movement-frozen and keeps camera-driven
     // facing; only a corpse-bound dead player loses it, so pass movementFrozen().
     return isCameraDrivenFacingActive(
@@ -4136,7 +4140,7 @@ async function startGame(
   }
 
   function cameraMoveActive(): boolean {
-    if (!input.isMouseCameraMode()) return false;
+    if (!input.isMouseCameraMode() || glider.gliderControlsActive(world)) return false;
     const mi = input.readMoveInput();
     return !!(mi.forward || mi.back || mi.strafeLeft || mi.strafeRight) && !movementFrozen();
   }
@@ -4170,7 +4174,7 @@ async function startGame(
     mi: ReturnType<typeof input.readMoveInput>,
     baseFacing: number,
   ): number | null {
-    return !movementFrozen() ? diagonalMovementVisualFacing(mi, baseFacing) : null;
+    return !movementFrozen() ? glider.gliderAwareVisualFacing(world, mi, baseFacing) : null;
   }
   const perfNetworkStats = {
     connected: false,
@@ -4256,7 +4260,7 @@ async function startGame(
     // the camera prompt, and through the race countdown. The sim independently
     // enforces the same countdown lock, so online latency cannot move the
     // authoritative rider.
-    const raceMovementLocked = world.mountRaceView()?.phase === 'countdown';
+    const raceMovementLocked = glider.raceOrVehicleMovementLocked(world);
     if (raceMovementLocked && !raceMovementWasLocked) {
       input.clearClickMove();
       input.setAutorun(false);
@@ -4320,7 +4324,7 @@ async function startGame(
       input.camYaw,
     );
     prevCameraDrivenFacing = cameraDrivenFacing;
-    if (renderFacing !== null || controllerFacing !== null) {
+    if (renderFacing !== null || controllerFacing !== null || glider.gliderControlsActive(world)) {
       pendingReleaseFacing = null;
     } else if (edgeReleaseFacing !== null) {
       pendingReleaseFacing = edgeReleaseFacing;
@@ -4499,6 +4503,7 @@ async function startGame(
     const interpServerFacing = interpolatedOnlineSelfFacing(net, pe, alpha);
     const foreignFacing = movementFacing ?? resolved.facing;
     if (edgeReleaseFacing !== null) seedKeyboardTurnRelease(kbTurn, edgeReleaseFacing);
+    kbTurnArgs.rawTurnIntent = glider.scriptedMovementActive(world);
     kbTurnArgs.turnLeft = resolved.mi.turnLeft;
     kbTurnArgs.turnRight = resolved.mi.turnRight;
     kbTurnArgs.turnAllowed = net.spectating === null && !movementFrozen() && !isStunned(pe);
@@ -4519,13 +4524,9 @@ async function startGame(
       kbFacing !== null &&
       (resolved.mi.turnLeft || resolved.mi.turnRight) &&
       !kbTurn.suppressTurnFlags;
-    Object.assign(net.moveInput, resolved.mi);
-    if (kbTurn.suppressTurnFlags) {
-      net.moveInput.turnLeft = false;
-      net.moveInput.turnRight = false;
-    }
+    applyKeyboardTurnInput(net.moveInput, resolved.mi, kbTurn);
     selfMotionGateArgs.spectating = net.spectating;
-    selfMotionGateArgs.movementFrozen = movementFrozen();
+    selfMotionGateArgs.movementFrozen = movementFrozen() || glider.scriptedMovementActive(world);
     selfMotionGateArgs.playerImmobilized = playerImmobilized();
     selfMotionGateArgs.posX = pe.pos.x;
     selfMotionGateArgs.climbing = pe.climbing;
@@ -5249,8 +5250,7 @@ const RESET_TOKEN = (() => {
   return /^[a-f0-9]{64}$/.test(raw.trim()) ? raw.trim() : '';
 })();
 
-let activeTransitionTimeout: number | null = null;
-let activeTransitionCleanup: (() => void) | null = null;
+const showStartPanel = createStartPanelNavigation();
 let characterPreview: CharacterPreview | null = null;
 let authModeApply: ((mode: 'login' | 'register') => void) | null = null;
 let offlineSkin = 0; // chosen appearance skin for the offline quick-start character
@@ -5664,88 +5664,7 @@ const hoverTimeouts: Record<string, number | null> = {
   'charcreate-class-details': null,
 };
 
-function switchMainView(targetId: string): void {
-  const views = ['#hero-view', '#highscores-view', '#news-view', '#download-view', '#account-view'];
-  const currentViewId = views.find((id) => {
-    const el = $(id);
-    return el && !el.hasAttribute('hidden');
-  });
-
-  if (currentViewId === targetId) return;
-
-  const navMap: Record<string, string> = {
-    '#hero-view': 'nav-btn-play',
-    '#highscores-view': 'nav-btn-highscores',
-    '#news-view': 'nav-btn-news',
-    '#download-view': 'nav-btn-download',
-    '#account-view': 'nav-btn-account',
-  };
-
-  const activeNavId = navMap[targetId];
-  document.querySelectorAll('.nav-link').forEach((link) => {
-    const isActive = link.id === activeNavId;
-    link.classList.toggle('active', isActive);
-    link.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-  });
-
-  const fromView = currentViewId ? $(currentViewId) : null;
-  const toView = $(targetId);
-
-  if (!toView) return;
-
-  const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const performSwitch = () => {
-    views.forEach((id) => {
-      const el = $(id);
-      if (el) {
-        const isTarget = id === targetId;
-        el.toggleAttribute('hidden', !isTarget);
-        el.setAttribute('aria-hidden', isTarget ? 'false' : 'true');
-      }
-    });
-
-    // The key-art backdrop is for the Play page only; hide it on other views.
-    const onPlayPage = targetId === '#hero-view';
-    const backdrop = document.getElementById('start-screen-backdrop');
-    if (backdrop) backdrop.classList.toggle('trailer-off', !onPlayPage);
-
-    if (targetId === '#hero-view') {
-      const activePlayPanel = ['#charselect-panel', '#charcreate-panel', '#offline-select'].find(
-        (id) => {
-          const el = $(id);
-          return el && !el.hasAttribute('hidden');
-        },
-      );
-      if (activePlayPanel) {
-        updatePreviewContainer(activePlayPanel);
-      }
-    }
-  };
-
-  if (isReducedMotion || !fromView) {
-    performSwitch();
-    return;
-  }
-
-  // Visual cross-fade and slide
-  fromView.style.opacity = '0';
-  fromView.style.transform = 'translateY(-8px)';
-
-  const handleTransitionEnd = () => {
-    performSwitch();
-
-    toView.style.opacity = '0';
-    toView.style.transform = 'translateY(8px)';
-
-    void toView.offsetHeight; // force reflow
-
-    toView.style.opacity = '1';
-    toView.style.transform = 'translateY(0)';
-  };
-
-  window.setTimeout(handleTransitionEnd, 150);
-}
+const switchMainView = createWebsiteViewNavigation(updatePreviewContainer);
 
 function show(el: string): void {
   // Ensure the main view is switched to hero-view so play sub-panels are visible
@@ -5792,96 +5711,9 @@ function show(el: string): void {
     }
   }
 
-  const panels = [
-    '#mode-select',
-    '#login-panel',
-    '#forgot-panel',
-    '#reset-panel',
-    '#discord-choice-panel',
-    '#realm-panel',
-    '#charselect-panel',
-    '#charcreate-panel',
-    '#offline-select',
-  ];
-  document.body.dataset.startPanel = el.slice(1);
-
-  // Find currently visible panel. Not every entry carries every panel: play.html omits
-  // #discord-choice-panel (the chooser is an index.html-only flow), so resolve each id
-  // defensively and skip a missing one rather than dereferencing null.
-  const currentActiveId = panels.find((id) => {
-    const panel = document.querySelector(id);
-    return panel !== null && !panel.hasAttribute('hidden');
+  showStartPanel(el, () => {
+    if (isPlayPanel) updatePreviewContainer(el);
   });
-
-  if (!currentActiveId || currentActiveId === el) {
-    // Show instantly on initial load or same panel
-    for (const id of panels) {
-      document.querySelector(id)?.toggleAttribute('hidden', id !== el);
-    }
-    if (isPlayPanel) updatePreviewContainer(el);
-    return;
-  }
-
-  // Clear active transition
-  if (activeTransitionTimeout !== null) {
-    window.clearTimeout(activeTransitionTimeout);
-    activeTransitionTimeout = null;
-  }
-  if (activeTransitionCleanup) {
-    activeTransitionCleanup();
-    activeTransitionCleanup = null;
-  }
-
-  const fromPanel = $(currentActiveId);
-  const toPanel = $(el);
-
-  const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (isReducedMotion) {
-    fromPanel.toggleAttribute('hidden', true);
-    toPanel.toggleAttribute('hidden', false);
-    if (isPlayPanel) updatePreviewContainer(el);
-    return;
-  }
-
-  // Fade out using CSS classes
-  fromPanel.classList.add('panel-transition', 'panel-fade-out');
-
-  const cleanupFrom = () => {
-    fromPanel.toggleAttribute('hidden', true);
-    fromPanel.classList.remove('panel-transition', 'panel-fade-out');
-  };
-
-  activeTransitionCleanup = cleanupFrom;
-
-  activeTransitionTimeout = window.setTimeout(() => {
-    cleanupFrom();
-    activeTransitionCleanup = null;
-    activeTransitionTimeout = null;
-
-    // Set initial state for fade-in
-    toPanel.classList.add('panel-transition', 'panel-fade-in-start');
-    toPanel.toggleAttribute('hidden', false);
-    if (isPlayPanel) updatePreviewContainer(el);
-
-    // Force layout reflow
-    void toPanel.offsetHeight;
-
-    // Trigger fade-in
-    toPanel.classList.remove('panel-fade-in-start');
-    toPanel.classList.add('panel-fade-in');
-
-    const cleanupTo = () => {
-      toPanel.classList.remove('panel-transition', 'panel-fade-in');
-    };
-
-    activeTransitionCleanup = cleanupTo;
-
-    activeTransitionTimeout = window.setTimeout(() => {
-      cleanupTo();
-      activeTransitionCleanup = null;
-      activeTransitionTimeout = null;
-    }, 150);
-  }, 150);
 }
 
 function loginError(text: string): void {
@@ -9214,7 +9046,7 @@ function applyLandingBackdrop(highContrast: boolean): void {
   backdrop.classList.toggle('backdrop-static', useStatic);
 
   if (!video) return;
-  if (useStatic) {
+  if (useStatic || (!NATIVE_APP && !DESKTOP_APP && 'websiteRedesign' in document.body.dataset)) {
     // Keep the poster only; tear down any playing trailer and release the buffer.
     backdrop.classList.remove('trailer-ready', 'trailer-playing');
     if (video.src) {
@@ -10343,10 +10175,8 @@ function wireStartScreens(): void {
     void loadHighscores();
   });
   // The wiki is the curated guide SPA at /wiki (its own page), so this nav item
-  // navigates there rather than switching an in-page view.
-  setupNavBtn(navBtnWiki, '', () => {
-    window.location.href = '/wiki';
-  });
+  // opens separately so the player's login state remains in this tab.
+  setupNavBtn(navBtnWiki, '', () => openHeaderWiki(NATIVE_APP || DESKTOP_APP));
   setupNavBtn(navBtnNews, '#news-view', () => {
     switchMainView('#news-view');
     void loadNews();

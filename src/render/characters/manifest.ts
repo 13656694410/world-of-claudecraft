@@ -1183,6 +1183,8 @@ const FORMS = 'models/chars/forms';
 const CREATURES = 'models/creatures';
 const PROPS = 'models/props';
 const WEAPONS = 'models/weapons';
+/** Worn NPC gear, attached to a body bone rather than held (npc_looks.ts `harbormaster`). */
+const NPC_GEAR = 'models/chars/npc_gear';
 const MOUNTS_DIR = 'models/mounts';
 
 /** Exported for the authored-surface guard (tests/authored_surfaces.test.ts),
@@ -1206,6 +1208,7 @@ export const ITEM_OFFHAND_MODELS: Readonly<Record<string, string>> = {
   bulwark_of_the_inner_crucible: 'shield_square',
   ember_wardens_barrier: 'shield_round',
   votive_ward_of_the_deathless_court: 'shield_round', // Nythraxis gap-fill healer shield
+  templar_dawn_shield: 'shield_square', // Church Order quartermaster's mail shield (faction_vendors.ts)
   varkhul_emberward: 'varkhul_emberward', // Ignivar raid legendary (Varkhul drop)
 };
 
@@ -1224,11 +1227,16 @@ export const ITEM_OFFHAND_MODELS: Readonly<Record<string, string>> = {
 export const AUTHORED_HELD_MODELS: ReadonlySet<string> = new Set([
   'hammer_varkhul', // Varkhul Forgebreaker (Ignivar raid legendary)
   'varkhul_emberward', // Varkhul Emberward (Ignivar raid legendary)
+  // Harbormaster Tamsin's worn gear (scripts/assets/harbormaster_gear/): felt, brass and
+  // leather authored per material, which the weapon polish would glaze to one sheen
+  'harbormaster_tricorne',
+  'harbormaster_spyglass',
 ]);
 
-/** True when a held-prop GLB url resolves to one of AUTHORED_HELD_MODELS. */
+/** True when a held-prop GLB url resolves to one of AUTHORED_HELD_MODELS (a held weapon
+ *  under models/weapons/, or worn NPC gear under models/chars/npc_gear/). */
 export function isAuthoredHeldModelUrl(url: string): boolean {
-  const m = /^models\/weapons\/([^/]+)\.glb$/.exec(url);
+  const m = /^models\/(?:weapons|chars\/npc_gear)\/([^/]+)\.glb$/.exec(url);
   return m !== null && AUTHORED_HELD_MODELS.has(m[1]);
 }
 
@@ -3862,6 +3870,12 @@ const NPC_MODULAR_PROP_ATTACH: Record<NpcPropSet, AttachDef[]> = {
   scythe: [{ url: `${WEAPONS}/scythe.glb`, bone: 'handslot.r' }],
   knife: [{ url: `${WEAPONS}/whittler_s_knife.glb`, bone: 'handslot.r' }],
   spear: [{ url: `${WEAPONS}/spear_a.glb`, bone: 'handslot.r' }],
+  // worn, not held: each GLB is authored in its bone's bind frame and rides it with an
+  // identity transform (scripts/assets/harbormaster_gear/build_harbormaster_gear.py)
+  harbormaster: [
+    { url: `${NPC_GEAR}/harbormaster_tricorne.glb`, bone: 'head' },
+    { url: `${NPC_GEAR}/harbormaster_spyglass.glb`, bone: 'hips' },
+  ],
 };
 
 for (const propSet of NPC_PROP_SET_IDS) {
@@ -4127,6 +4141,14 @@ const FAMILY_KEYS: Record<string, string> = {
 };
 
 const NPC_KEYS: Record<string, string> = {
+  infiltrator_captain: 'npc_knight',
+  infiltrator_nella: 'npc_knight',
+  infiltrator_orin: 'npc_knight',
+  infiltrator_bram: 'npc_knight',
+  infiltrator_tessa: 'npc_knight',
+  calligraphy_instructor: 'npc_villager_robed',
+  calligraphy_apprentice_1: 'npc_villager',
+  calligraphy_apprentice_2: 'npc_villager',
   bursar_fernando: 'npc_fernando',
   card_master: 'npc_villager_robed',
   marshal_redbrook: 'npc_knight',
