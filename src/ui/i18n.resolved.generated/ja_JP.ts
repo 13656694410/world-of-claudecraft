@@ -12125,6 +12125,7 @@ export const ja_JP: EnTranslations = {
       "cooldownMinutes": "{minutes}分",
       "attackTooltip": "対象への自動攻撃を切り替えます。敵を右クリックしても攻撃します。",
       "attackRemoveHint": "右クリックでバーから外し、スロットを空けます。",
+      "moveHint": "Shift-drag to move",
       "emptySlot": "空きスロット",
       "slotAria": "アクションスロット {slot}: {ability}",
       "emptySlotAria": "アクションスロット {slot}: 空き",

@@ -12125,6 +12125,7 @@ export const sv_SE: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Växla automatiskt anfall mot ditt mål. Att högerklicka på en fiende anfaller också.",
       "attackRemoveHint": "Högerklicka för att ta bort det från fältet och frigöra platsen.",
+      "moveHint": "Shift-drag to move",
       "emptySlot": "Tom plats",
       "slotAria": "Handlingsplats {slot}: {ability}",
       "emptySlotAria": "Handlingsplats {slot}: tom",

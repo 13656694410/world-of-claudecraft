@@ -12125,6 +12125,7 @@ export const fr_FR: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Active ou désactive l'attaque automatique sur votre cible. Un clic droit sur un ennemi attaque aussi.",
       "attackRemoveHint": "Clic droit pour le retirer de la barre et libérer l'emplacement.",
+      "moveHint": "Shift-drag to move",
       "emptySlot": "Emplacement vide",
       "slotAria": "Emplacement d'action {slot}: {ability}",
       "emptySlotAria": "Emplacement d'action {slot}: vide",

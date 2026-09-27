@@ -12125,6 +12125,7 @@ export const en_XA: EnTranslations = {
       "cooldownMinutes": "[{minutes}ɱ]",
       "attackTooltip": "[Ţóĝĝļé áúţó-áţţáçķ óñ ýóúŕ ţáŕĝéţ. Ŕíĝĥţ-çļíçķíñĝ áñ éñéɱý áļšó áţţáçķš.]",
       "attackRemoveHint": "[Ŕíĝĥţ-çļíçķ ţó ŕéɱóʋé íţ ƒŕóɱ ţĥé ƀáŕ áñð ƒŕéé ţĥé šļóţ.]",
+      "moveHint": "[Šĥíƒţ-ðŕáĝ ţó ɱóʋé]",
       "emptySlot": "[Éɱþţý šļóţ]",
       "slotAria": "[Áçţíóñ šļóţ {slot}: {ability}]",
       "emptySlotAria": "[Áçţíóñ šļóţ {slot}: éɱþţý]",

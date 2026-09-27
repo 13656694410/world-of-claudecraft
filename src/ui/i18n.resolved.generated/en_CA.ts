@@ -12125,6 +12125,7 @@ export const en_CA: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Toggle auto-attack on your target. Right-clicking an enemy also attacks.",
       "attackRemoveHint": "Right-click to remove it from the bar and free the slot.",
+      "moveHint": "Shift-drag to move",
       "emptySlot": "Empty slot",
       "slotAria": "Action slot {slot}: {ability}",
       "emptySlotAria": "Action slot {slot}: empty",
