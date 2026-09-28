@@ -388,7 +388,6 @@ import {
   type GroundAimReticleView,
 } from './hud/action_bar/ground_aim_controller';
 import {
-  applyLoadoutBar as applyLoadoutBarActions,
   assignAttackSlotAction,
   attackDragDisposition,
   clearHotbarSlot,
@@ -396,7 +395,6 @@ import {
   freedAttackSlotDisplayAbility,
   type HotbarAction,
   isAbilityActionBarEligible,
-  loadoutKnownAbilityIds,
   placeAbilityOnSlot,
   placeItemOnSlot,
   readHotbarDragData,
@@ -2325,6 +2323,7 @@ export class Hud {
       playerName: this.sim.player.name,
       playerLevel: () => this.sim.player.level,
       talentSpec: () => this.sim.talentSpec,
+      talentAllocation: () => this.sim.talents,
       knownAbilityIds: () => this.sim.known.map((known) => known.def.id),
       hasAura: (kind) => this.sim.player.auras.some((aura) => aura.kind === kind),
       showAttackButton: () => this.optionsHooks?.settings.get('showAttackButton') ?? true,
@@ -16933,29 +16932,11 @@ export class Hud {
     this.talentsWindow.open();
   }
 
-  // Restore a saved loadout's action bar into the per-class slot map (reuses the
-  // existing hotbar persistence; only places ids the TARGET build's own allocation
-  // actually grants). A SavedLoadout's bar is ability ids only (currentBar strips
-  // item shortcuts before saving, see the talentsWindow deps below), so this must
-  // not replace the WHOLE bar wholesale: that would also silently clear any
-  // potion/food/drink shortcut the player had placed, since the loadout never
-  // recorded it either way (#1889). applyLoadoutBarActions keeps an existing item
-  // slot wherever the loadout leaves that slot blank.
-  //
-  // The ability predicate is resolved from `alloc` (the loadout's own talent
-  // allocation), not `!!ABILITIES[id]`: two builds on one class can grant disjoint
-  // ability sets (e.g. a shaman's Enhancement vs. Restoration loadout), and
-  // checking global existence let a stale/foreign-spec id survive a switch and
-  // scramble the bar. Resolving from `alloc` also sidesteps switchLoadout's server
-  // round trip, which has not necessarily landed in `this.sim.known` yet when this
-  // runs (see the talentsWindow dropdown handler, which calls switchLoadout and
-  // applyLoadoutBar back to back).
+  // Restore a saved loadout's action bar into the per-class slot map. The rule
+  // (target-allocation ability set, kept item shortcuts, the granted-spell heal)
+  // lives in ActionBarController.applyLoadout; this only persists the result.
   private applyLoadoutBar(bar: (string | null)[], alloc: TalentAllocation): void {
-    const known = loadoutKnownAbilityIds(this.sim.cfg.playerClass, alloc, this.sim.player.level);
-    this.actionBarController.replaceActionsForLoadout(
-      applyLoadoutBarActions(this.hotbarActions, bar, Hud.BAR_ABILITY_SLOTS, (id) => known.has(id)),
-      known,
-    );
+    this.actionBarController.applyLoadout(bar, alloc);
     this.saveSlotMap();
   }
 
