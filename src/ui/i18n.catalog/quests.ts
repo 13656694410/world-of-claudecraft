@@ -464,6 +464,23 @@ const questStringsEn = {
       clueHuntDone: 'Treasure hunt complete: {title}. The casket is yours.',
       clueHuntAbandoned: 'Treasure hunt abandoned: {title}',
       clueCasketOpened: 'The casket holds {money} and {items}.',
+      // Treasure maps and vaults (src/sim/treasure_vault.ts). {map} is the
+      // map item's name, {zone} the zone the X lies in.
+      treasureMapEarned: 'Every world quest of the day is done: you found a {map}.',
+      treasureMapLost:
+        'Every world quest of the day is done, but your bags have no room for the treasure map.',
+      treasureMapRead: 'You study the {map}. The X lies somewhere in {zone}.',
+      treasureMapUpgraded: 'The map is redrawn in finer ink: it is now a {map}.',
+      treasureVaultOpened: 'The ground gives way. A buried hoard lies open before you.',
+      treasureVaultLooted: 'The hoard holds {money} and {items}.',
+      treasureVaultCapped: 'You have shared in enough hoards today; this one pays you nothing.',
+      // The goblin thief (src/sim/rift/hoard_goblin.ts): a banner, its line, and
+      // the rule in the chat. {seconds} is its escape bar, {minutes} how long
+      // it lingers untouched.
+      hoardGoblinSighted: 'A goblin thief appears!',
+      hoardGoblinSightedHint: 'Kill it before it escapes with the gold!',
+      hoardGoblinExplain:
+        'A goblin thief is hiding in this hoard with a sack of stolen gold. It never fights back, it only runs. Your first hit starts a {seconds}-second escape bar: if it is still alive when the bar runs out, it opens a portal and is gone with the gold. Left alone, it slips away after {minutes} minutes. Kill it in time and everyone in the room is paid in gold.',
     },
     errors: {
       unavailable: 'That quest is not available.',
@@ -541,11 +558,11 @@ export const questStrings = {
       },
       worldQuest: {
         title: '{zone}: {target}',
-        unknown: 'MisiÃ³n de mundo desconocida ({id})',
+        unknown: 'Misión de mundo desconocida ({id})',
         itemReward: 'Recompensa de objeto: {name}',
         rewardLine: 'Recompensas: {reward}',
-        availableStatus: 'MisiÃ³n de mundo disponible',
-        activeStatus: 'MisiÃ³n de mundo activa',
+        availableStatus: 'Misión de mundo disponible',
+        activeStatus: 'Misión de mundo activa',
         expiresIn: 'Caduca en {time}',
         mineOre: 'Extrae mineral de cobre',
         recoverObject: 'Recupera {name}',

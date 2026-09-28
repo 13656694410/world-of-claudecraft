@@ -4417,6 +4417,31 @@
     width: 34px;
     height: 34px;
   }
+  /* The world quest entry plate on touch: smaller type and padding, and a
+     tighter gap, but the same bottom anchor above the subzone line (the token
+     is re-pinned per orientation, never the plate), so it cannot collide there
+     either. This layer already beats the hud.css variant; inside it, the class
+     compound outranks the landscape block's plain `body.mobile-touch #banner`
+     restatement, whatever the source order. The title stays on ONE line
+     (ellipsis past the width): the plate grows upward from its anchor, so a
+     wrapped title on a short phone would climb off the top edge. */
+  body.mobile-touch #banner.banner-world-quest {
+    --banner-stack-gap: 6px;
+    top: calc(var(--subzone-banner-top) - var(--banner-stack-gap));
+    min-width: 0;
+    padding: 6px 30px 12px;
+    font-size: calc(22px * var(--mobile-chrome-scale, 1));
+  }
+  body.mobile-touch #banner.banner-world-quest .banner-subtext {
+    font-size: calc(13px * var(--mobile-chrome-scale, 1));
+  }
+  body.mobile-touch #banner.banner-world-quest .banner-title {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   body.mobile-touch .window {
     max-width: calc(var(--app-vw, 100vw) / var(--window-scale, 1) - 20px);
     /* --window-scale, never --ui-scale: this generic rule also governs the
@@ -4741,6 +4766,24 @@
     right: 10px;
     top: 10px;
     width: auto;
+    transform: none;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  /* The Buried Hoard treasure map parchment: the same inset sheet as the
+     world-quest puzzle window, so it never overflows a phone. */
+  body.mobile-touch #treasure-map-window {
+    left: calc(max(10px, env(safe-area-inset-left)) / var(--ui-scale, 1));
+    right: calc(max(10px, env(safe-area-inset-right)) / var(--ui-scale, 1));
+    top: calc(max(10px, env(safe-area-inset-top)) / var(--ui-scale, 1));
+    width: auto;
+    max-width: none;
+    max-height: calc(
+      var(--app-vh) /
+      var(--ui-scale, 1) -
+      (max(10px, env(safe-area-inset-top)) / var(--ui-scale, 1)) -
+      (max(10px, env(safe-area-inset-bottom)) / var(--ui-scale, 1))
+    );
     transform: none;
     box-sizing: border-box;
     overflow-y: auto;
@@ -5575,6 +5618,9 @@
     gap: 8px;
     padding: 2px 2px 8px;
   }
+  body.mobile-touch #inspect-window .equip-row-weapons {
+    flex-wrap: wrap;
+  }
   body.mobile-touch #inspect-window .inspect-heraldry-banner,
   body.mobile-touch #inspect-window .inspect-standing-row {
     width: 100%;
@@ -5585,6 +5631,14 @@
     min-height: 220px;
   }
   @media (max-width: 520px) {
+    /* Narrow inspect sheets show the model above the two socket columns;
+       squeezing the columns beside a 230px stage makes their labels overflow. */
+    body.mobile-touch #inspect-window .inspect-model-panel {
+      order: -1;
+      flex-basis: 100%;
+      width: 100%;
+      height: 260px;
+    }
     body.mobile-touch #inspect-window .inspect-heraldry-banner {
       padding-left: 38px;
     }
@@ -6200,6 +6254,106 @@
   body.mobile-touch #char-window .char-model-panel {
     min-width: 0;
   }
+  /* The Reputation tab's crest on touch: the window scales down to fit a phone,
+     so the faction emblem gets a larger frame to stay recognizable there. */
+  body.mobile-touch #char-window .char-rep-crest {
+    flex-basis: 40px;
+    width: 40px;
+    height: 44px;
+    border-radius: 5px 5px 19px 19px;
+  }
+  body.mobile-touch #char-window .paperdoll {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr) 88px;
+    grid-template-rows: minmax(390px, auto) auto;
+    gap: 8px;
+  }
+  body.mobile-touch #char-window .paperdoll .char-model-panel {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    min-height: 0;
+    height: 390px;
+  }
+  body.mobile-touch #char-window .equip-col {
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 2;
+    justify-content: space-evenly;
+    padding: 4px;
+  }
+  body.mobile-touch #char-window .equip-col-right {
+    grid-column: 3;
+  }
+  body.mobile-touch #char-window .equip-col .equip-slot {
+    flex-direction: column;
+    text-align: center;
+    gap: 2px;
+  }
+  body.mobile-touch #char-window .equip-slot > div {
+    flex: 0 1 auto;
+    max-width: 82px;
+  }
+  body.mobile-touch #char-window .equip-col .equip-slot > div {
+    width: 100%;
+  }
+  body.mobile-touch #char-window .equip-col .equip-slot :is(.equip-unequip-btn, .equip-helm-eye) {
+    left: calc(50% - 30px);
+    right: auto;
+  }
+  body.mobile-touch
+    #char-window
+    .equip-col-right
+    .equip-slot
+    :is(.equip-unequip-btn, .equip-helm-eye) {
+    left: auto;
+    right: calc(50% - 30px);
+  }
+  body.mobile-touch #char-window .equip-col .equip-helm-eye {
+    top: 24px;
+    bottom: auto;
+  }
+  body.mobile-touch #char-window .equip-row-weapons {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    flex-wrap: wrap;
+  }
+  body.mobile-touch #char-window .equip-slot .slot-name,
+  body.mobile-touch #char-window .equip-slot .slot-item,
+  body.mobile-touch #char-window .stat-panel .stat-cell {
+    font-size: 12px;
+  }
+  body.mobile-touch #char-window .equip-slot .item-icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+  body.mobile-touch #char-window .char-attr-row {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  body.mobile-touch #char-window .char-title-portrait {
+    height: auto;
+    min-height: 64px;
+    flex-wrap: wrap;
+  }
+  body.mobile-touch #char-window .char-footer .char-sidebar-tabs {
+    flex-wrap: wrap;
+  }
+  body.mobile-touch #char-window .char-sidebar-tab {
+    min-height: 40px;
+  }
+  @media (max-width: 720px) {
+    body.mobile-touch #char-window .char-skills,
+    body.mobile-touch #char-window .char-skill-list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    body.mobile-touch #char-window .char-skill-name {
+      font-size: 16px;
+    }
+    body.mobile-touch #char-window .char-open-professions {
+      justify-self: stretch;
+    }
+  }
   @media (orientation: landscape) {
     body.mobile-touch #char-window {
       padding-left: calc(var(--window-pad) + env(safe-area-inset-left));
@@ -6208,6 +6362,35 @@
       flex: 0 0 230px;
       width: 230px;
       min-height: 220px;
+    }
+    body.mobile-touch #char-window .paperdoll {
+      grid-template-columns: 150px minmax(0, 1fr) 150px;
+      grid-template-rows: minmax(280px, auto) auto;
+    }
+    body.mobile-touch #char-window .paperdoll .char-model-panel {
+      min-height: 0;
+      height: 280px;
+    }
+    body.mobile-touch #char-window .equip-col .equip-slot {
+      flex-direction: row;
+      text-align: left;
+      gap: 8px;
+    }
+    body.mobile-touch #char-window .equip-col-right .equip-slot {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+    body.mobile-touch #char-window .equip-col .equip-slot :is(.equip-unequip-btn, .equip-helm-eye) {
+      left: 0;
+      right: auto;
+    }
+    body.mobile-touch
+      #char-window
+      .equip-col-right
+      .equip-slot
+      :is(.equip-unequip-btn, .equip-helm-eye) {
+      left: auto;
+      right: 0;
     }
     body.mobile-touch #char-window .char-model-preview {
       min-height: 0;
@@ -7261,6 +7444,31 @@
   }
   body.mobile-touch #cosmetics-window .cos-grid {
     grid-template-columns: 1fr;
+  }
+  body.mobile-touch #cosmetics-window .cos-legend {
+    margin-block: var(--spacing-xs) var(--spacing-sm);
+    font-size: 12px;
+  }
+  body.mobile-touch #cosmetics-window .cos-tabs {
+    margin-bottom: var(--spacing-sm);
+  }
+  body.mobile-touch #cosmetics-window .cos-tab {
+    padding-inline: var(--spacing-sm);
+    font-size: 14px;
+  }
+  @media (orientation: landscape) {
+    body.mobile-touch #cosmetics-window .cos-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    body.mobile-touch #cosmetics-window .cos-card-art {
+      height: 140px;
+    }
+    body.mobile-touch #cosmetics-window .cos-legend {
+      margin: 0;
+    }
+    body.mobile-touch #cosmetics-window .cos-tab {
+      min-height: 40px;
+    }
   }
   body.mobile-touch #reliquary-window {
     position: fixed;
@@ -9261,8 +9469,10 @@
       white-space: normal;
       overflow-wrap: anywhere;
     }
+    body.mobile-touch {
+      --subzone-banner-top: 25%;
+    }
     body.mobile-touch #subzone-banner {
-      top: 25%;
       font-size: 18px;
     }
     body.mobile-touch #error-msg {

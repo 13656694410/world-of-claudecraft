@@ -21,7 +21,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "606d970e",
+      "state": "4b385e97",
       "events": "741638a5",
       "rng": {
         "draws": 0,
@@ -73,6 +73,7 @@
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
           "gliderRecords": {},
@@ -100,6 +101,7 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
           "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         }
@@ -175,7 +177,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "d2b88de5",
+      "state": "355bf3b4",
       "events": "73d5e097",
       "rng": {
         "draws": 0,
@@ -227,6 +229,7 @@
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
           "gliderRecords": {},
@@ -258,6 +261,7 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
           "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         }
@@ -333,7 +337,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "03ed34c7",
+      "state": "e1e9e55e",
       "events": "eeb84322",
       "rng": {
         "draws": 1,
@@ -395,6 +399,7 @@
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
           "gliderRecords": {},
@@ -434,6 +439,7 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
           "worldQuestReplacements": {},
           "wyrmfallDaily": {},
           "xp": 24
@@ -511,7 +517,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "cf006f83",
+      "state": "cdce55d2",
       "events": "18a2dff4",
       "rng": {
         "draws": 2,
@@ -589,6 +595,7 @@
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
           "gliderRecords": {},
@@ -689,6 +696,7 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
           "worldQuestReplacements": {},
           "wyrmfallDaily": {},
           "xp": 24
@@ -766,7 +774,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "0078b828",
+      "state": "6f03dc0b",
       "events": "eeb84322",
       "rng": {
         "draws": 3,
@@ -844,6 +852,7 @@
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
           "gliderRecords": {},
@@ -942,6 +951,7 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
           "worldQuestReplacements": {},
           "wyrmfallDaily": {},
           "xp": 48
@@ -1019,7 +1029,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "b0f830ad",
+      "state": "f819496e",
       "events": "659364bb",
       "rng": {
         "draws": 4,
@@ -1108,6 +1118,7 @@
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
           "gliderRecords": {},
@@ -1239,6 +1250,7 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
           "worldQuestReplacements": {},
           "wyrmfallDaily": {},
           "xp": 48
@@ -1316,7 +1328,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "e9e15b92",
+      "state": "f1b8611d",
       "events": "4abd7a40",
       "rng": {
         "draws": 4,
@@ -1405,6 +1417,7 @@
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
           "gliderRecords": {},
@@ -1533,6 +1546,7 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
           "worldQuestReplacements": {},
           "wyrmfallDaily": {},
           "xp": 48
@@ -1610,7 +1624,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "f11dad48",
+      "state": "ae8126c5",
       "events": "94e8a079",
       "rng": {
         "draws": 4,
@@ -1699,6 +1713,7 @@
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
           "gliderRecords": {},
@@ -1857,6 +1872,7 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
           "worldQuestReplacements": {},
           "wyrmfallDaily": {},
           "xp": 48
@@ -1939,7 +1955,7 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "f11dad48",
+      "state": "ae8126c5",
       "events": "741638a5",
       "rng": {
         "draws": 4,
@@ -2028,6 +2044,7 @@
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
           "factions": {},
           "gatheringProficiency": {},
           "gliderRecords": {},
@@ -2186,6 +2203,7 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
           "worldQuestReplacements": {},
           "wyrmfallDaily": {},
           "xp": 48

@@ -1,10 +1,14 @@
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { GLIDER_QUEST_ID } from '../src/sim/content/world_quest_glider';
 import {
   FACTION_IDS,
   LOW_LEVEL_MAX_STANDING,
   MAX_STANDING,
   STANDING_THRESHOLDS,
 } from '../src/sim/factions';
+import { createGliderFlightState } from '../src/sim/minigames/glider_flight';
 import type { WorldQuestProgress } from '../src/sim/types';
 import { buildReputationRow, buildReputationView } from '../src/ui/hud/reputation/reputation_view';
 
@@ -67,6 +71,36 @@ describe('reputation view: one row per allied faction', () => {
 });
 
 describe('reputation view: the day summary', () => {
+  it('counts a rewarded quest during a practice replay', () => {
+    const view = buildReputationView({
+      factions: {},
+      level: 20,
+      worldQuestLog: new Map([
+        [
+          'wq_palmreach_confections',
+          {
+            questId: 'wq_palmreach_confections',
+            count: 0,
+            state: 'active',
+            practiceOnly: true,
+          } satisfies WorldQuestProgress,
+        ],
+        [
+          GLIDER_QUEST_ID,
+          {
+            questId: GLIDER_QUEST_ID,
+            count: 0,
+            state: 'active',
+            glider: { ...createGliderFlightState(), practiceOnly: true },
+          } satisfies WorldQuestProgress,
+        ],
+      ]),
+      worldQuestExpiresAtMs: 0,
+      nowMs: 0,
+    });
+    expect(view.day.completed).toBe(2);
+  });
+
   it('counts completed quests against the board and the time until the reset', () => {
     const view = buildReputationView({
       factions: { rift_watch: 30 },
@@ -107,5 +141,29 @@ describe('reputation view: the day summary', () => {
       nowMs: 5_000,
     });
     expect(unknown.day.resetsInMs).toBe(0);
+  });
+});
+
+describe('reputation view: faction emblem art', () => {
+  it('gives each faction its own emblem, the committed currency art the WQ card shows', () => {
+    const view = buildReputationView({
+      factions: {},
+      level: 20,
+      worldQuestLog: new Map(),
+      worldQuestExpiresAtMs: 0,
+      nowMs: 0,
+    });
+    const byFaction = Object.fromEntries(view.rows.map((row) => [row.factionId, row.emblemUrl]));
+    // Literal pins: the art path is what the page requests, so a resolver that
+    // drifts to another faction's image (or to null) must fail here.
+    expect(byFaction).toEqual({
+      rift_watch: '/ui/currency/rift_watch_mark.webp',
+      church_order: '/ui/currency/church_order_crest.webp',
+      automatons: '/ui/currency/automaton_cog.webp',
+    });
+    expect(new Set(Object.values(byFaction)).size).toBe(FACTION_IDS.length);
+    for (const url of Object.values(byFaction)) {
+      expect(existsSync(path.join(process.cwd(), 'public', String(url)))).toBe(true);
+    }
   });
 });

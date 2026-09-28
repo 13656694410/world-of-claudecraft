@@ -130,19 +130,28 @@ const build = await buildItemArtAudit({
     // + the World Quests branch merge (release/v0.43.0 sync): its two painted
     // puzzle activators and two Eastbrook freight icons join both counts.
     // + the 15 faction quartermaster items (faction-vendor-icons-2026-09-16),
-    // which landed without moving this block (1302 / 1320), + the weekly
-    // emissary's cache chest (feature/weekly-quests: 1303 / 1321), + the two
-    // Clue Scroll items (clue_scroll, treasure_casket; clue-scroll-icons-2026-09-17):
-    // 1305 / 1323 on the quests integration branch, measured with
-    // `node scripts/item_art_audit.mjs --verify-only`. + the faction ladder
-    // rework's 17 rows (faction-ladder-icons-2026-09-23): 1322 / 1340. + the Viridian Valestrider's reins (release/v0.44.0 base merge): 1323 / 1341. + the trinket slot's 18 trinkets (PR 4173) landed on the integration branch: 1341 / 1359.
-    catalogCount: 1345,
-    liveItemCount: 1363,
+    // which landed without moving this block (1302 / 1320), + the two Clue
+    // Scroll items (clue_scroll, treasure_casket; clue-scroll-icons-2026-09-17):
+    // 1304 / 1322, measured with `node scripts/item_art_audit.mjs --verify-only`.
+    // + the 18 faction reward paintings and the five Buried Hoard map-family
+    // paintings: 1327 catalog records and 1345 live definitions, measured with
+    // the same verifier run.
+    // + the 96 Buried Hoard boss loot paintings (hoard-boss-loot-icons-2026-09-20)
+    // and, at the release/v0.44.0 merge into feature/buried-hoards, the
+    // release's Viridian Valestrider reins (1284 / 1302 on its own arm):
+    // 1424 catalog records and 1442 live definitions on 34 sheet pages,
+    // measured with the same verifier run on the merged tree.
+    // Re-measured at the 2026-09-28 release/v0.44.0 merge into
+    // feature/buried-hoards: the release's faction ladder, trinket slot and
+    // Warfare Season 2 compose with the hoard paintings: 1464 / 1482, with the
+    // release's 135 pending rows (trinkets and Season 2), on 36 sheet pages.
+    catalogCount: 1464,
+    liveItemCount: 1482,
     pendingArtCount: 135,
     generatedHeroicDefinitions: 78,
     heroicDefinitionsWithOwnWebp: 59,
     heroicWeaponArtAliases: 19,
-    sheetPageCount: 32,
+    sheetPageCount: 36,
     groupCount: 26,
   },
 });

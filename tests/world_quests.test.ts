@@ -143,14 +143,16 @@ function finishQuest(sim: Sim, quest: WorldQuestDef): void {
   }
   if (quest.objective.type === 'delivery') {
     const objective = quest.objective;
-    const pickup = [...sim.entities.values()].find(
+    const pickups = [...sim.entities.values()].filter(
       (entity) => entity.objectItemId === objective.pickupObjectItemId,
     );
     const destination = [...sim.entities.values()].find(
       (entity) => entity.objectItemId === objective.deliveryObjectItemId,
     );
-    if (!pickup || !destination) throw new Error(`Missing delivery objects for ${quest.id}`);
+    if (pickups.length < quest.count || !destination)
+      throw new Error(`Missing delivery objects for ${quest.id}`);
     for (let i = 0; i < quest.count; i++) {
+      const pickup = pickups[i];
       sim.player.pos.x = pickup.pos.x;
       sim.player.pos.z = pickup.pos.z;
       expect(sim.pickUpObject(pickup.id)).toBe(true);
@@ -485,32 +487,50 @@ describe('world quest content', () => {
   it('places the freight yard on safe walkable ground outside roads and hostile aggro', () => {
     const quest = WORLD_QUESTS_BY_ID.wq_eastbrook_bandits;
     if (quest.objective.type !== 'delivery') throw new Error('Expected delivery fixture');
+    const objective = quest.objective;
     const sim = new Sim({
       seed: WORLD_SEED,
       playerClass: 'warrior',
       noPlayer: true,
     });
-    const expected = new Map([
-      [quest.objective.pickupObjectItemId, { x: -63, z: -90 }],
-      [quest.objective.deliveryObjectItemId, { x: -80, z: -82 }],
-    ]);
+    const pickupPositions = [
+      { x: -63, z: -90 },
+      { x: -66, z: -94 },
+      { x: -70, z: -89 },
+      { x: -76, z: -95 },
+      { x: -86, z: -90 },
+      { x: -68, z: -78 },
+    ];
+    const pickups = [...sim.entities.values()].filter(
+      (entity) => entity.objectItemId === objective.pickupObjectItemId,
+    );
+    const destination = [...sim.entities.values()].find(
+      (entity) => entity.objectItemId === objective.deliveryObjectItemId,
+    );
+    expect(pickups.map((pickup) => ({ x: pickup.pos.x, z: pickup.pos.z }))).toEqual(
+      pickupPositions,
+    );
+    expect(destination?.pos).toMatchObject({ x: -80, z: -82 });
+    if (!destination) throw new Error('Missing freight wagon');
 
-    for (const [itemId, position] of expected) {
-      const object = [...sim.entities.values()].find((entity) => entity.objectItemId === itemId);
-      expect(object, itemId).toBeDefined();
-      expect(object?.pos, itemId).toMatchObject(position);
-      expect(isBlocked(WORLD_SEED, position.x, position.z, PLAYER_BODY_RADIUS), itemId).toBe(false);
-      expect(terrainSteepnessAt(position.x, position.z, WORLD_SEED), itemId).toBeLessThanOrEqual(
-        PLAYER_MAX_CLIMB_SLOPE,
-      );
+    for (const object of [...pickups, destination]) {
+      const position = object.pos;
+      expect(
+        isBlocked(WORLD_SEED, position.x, position.z, PLAYER_BODY_RADIUS),
+        String(object.id),
+      ).toBe(false);
+      expect(
+        terrainSteepnessAt(position.x, position.z, WORLD_SEED),
+        String(object.id),
+      ).toBeLessThanOrEqual(PLAYER_MAX_CLIMB_SLOPE);
       expect(
         groundHeight(position.x, position.z, WORLD_SEED) - waterLevel(),
-        itemId,
+        String(object.id),
       ).toBeGreaterThanOrEqual(1);
-      expect(roadDistance(position.x, position.z), itemId).toBeGreaterThanOrEqual(5);
+      expect(roadDistance(position.x, position.z), String(object.id)).toBeGreaterThanOrEqual(5);
       expect(
         Math.hypot(position.x - quest.area.x, position.z - quest.area.z) + INTERACT_RANGE,
-        `${itemId} interaction clearance`,
+        `${object.id} interaction clearance`,
       ).toBeLessThanOrEqual(quest.area.radius);
     }
 
@@ -536,18 +556,21 @@ describe('world quest content', () => {
     );
     expect(hostileSafetyClearance).toBeGreaterThan(30);
 
-    const pickupPosition = expected.get(quest.objective.pickupObjectItemId);
-    const destinationPosition = expected.get(quest.objective.deliveryObjectItemId);
-    if (!pickupPosition || !destinationPosition) throw new Error('Missing freight route anchors');
-    expect(
-      Math.hypot(
-        pickupPosition.x - destinationPosition.x,
-        pickupPosition.z - destinationPosition.z,
-      ),
-    ).toBeGreaterThanOrEqual(18);
+    for (let index = 0; index < pickups.length; index++) {
+      const pickup = pickups[index];
+      expect(
+        Math.hypot(pickup.pos.x - destination.pos.x, pickup.pos.z - destination.pos.z),
+      ).toBeGreaterThanOrEqual(9);
+      for (const other of pickups.slice(index + 1))
+        expect(
+          Math.hypot(pickup.pos.x - other.pos.x, pickup.pos.z - other.pos.z),
+        ).toBeGreaterThanOrEqual(5);
+    }
     for (const [from, to, label] of [
-      [PLAYER_START, pickupPosition, 'Eastbrook start to crates'],
-      [pickupPosition, destinationPosition, 'crates to wagon'],
+      [PLAYER_START, pickups[0].pos, 'Eastbrook start to crates'],
+      ...pickups.map(
+        (pickup) => [pickup.pos, destination.pos, `crate ${pickup.id} to wagon`] as const,
+      ),
     ] as const) {
       let current = { x: from.x, z: from.z };
       for (const waypoint of findPlayerPath(WORLD_SEED, from, to, 128)) {
@@ -930,24 +953,33 @@ describe('world quest lifecycle', () => {
     expect(sim.pickUpObject(pickup.id)).toBe(true);
     sim.player.pos = { ...destination.pos };
     expect(sim.pickUpObject(destination.id)).toBe(true);
-    expect(sim.worldQuestLog.get(quest.id)).toEqual({
+    expect(sim.worldQuestLog.get(quest.id)).toMatchObject({
       questId: quest.id,
       count: 1,
       state: 'active',
+      creditedObjects: [interactObjectCreditKey(0, pickup.pos)],
     });
 
     sim.player.pos = { ...pickup.pos };
     expect(sim.pickUpObject(pickup.id)).toBe(true);
+    expect(hasWorldQuestDeliveryCargo(sim.player)).toBe(false);
+    const nextPickup = [...sim.entities.values()].find(
+      (entity) => entity.objectItemId === objective.pickupObjectItemId && entity.id !== pickup.id,
+    );
+    if (!nextPickup) throw new Error('Missing next freight crate');
+    sim.player.pos = { ...nextPickup.pos };
+    expect(sim.pickUpObject(nextPickup.id)).toBe(true);
     sim.player.pos.x = quest.area.x + quest.area.radius + 5;
     sim.player.prevPos = { ...sim.player.pos };
     sim.tick();
     expect(hasWorldQuestDeliveryCargo(sim.player)).toBe(false);
-    expect(sim.worldQuestLog.get(quest.id)).toEqual({
+    expect(sim.worldQuestLog.get(quest.id)).toMatchObject({
       questId: quest.id,
       count: 1,
       state: 'active',
+      creditedObjects: [interactObjectCreditKey(0, pickup.pos)],
     });
-    sim.player.pos = { ...pickup.pos };
+    sim.player.pos = { ...nextPickup.pos };
     sim.player.prevPos = { ...sim.player.pos };
     sim.tick();
     expect(sim.worldQuestLog.get(quest.id)?.count).toBe(1);
@@ -963,6 +995,63 @@ describe('world quest lifecycle', () => {
     expect(sim.pickUpObject(pickup.id, otherPid)).toBe(true);
     expect(hasWorldQuestDeliveryCargo(other)).toBe(true);
     expect(hasWorldQuestDeliveryCargo(sim.player)).toBe(false);
+  });
+
+  it('requires six separate freight pickups while sharing untouched crates with other players', () => {
+    const quest = WORLD_QUESTS_BY_ID.wq_eastbrook_bandits;
+    const sim = new Sim({ seed: 422, playerClass: 'warrior', autoEquip: true });
+    enterQuest(sim, quest);
+    if (quest.objective.type !== 'delivery') throw new Error('Expected delivery fixture');
+    const objective = quest.objective;
+    const crates = [...sim.entities.values()].filter(
+      (entity) => entity.objectItemId === objective.pickupObjectItemId,
+    );
+    const wagon = [...sim.entities.values()].find(
+      (entity) => entity.objectItemId === objective.deliveryObjectItemId,
+    );
+    expect(crates).toHaveLength(quest.count);
+    expect(new Set(crates.map((crate) => `${crate.pos.x},${crate.pos.z}`)).size).toBe(quest.count);
+    if (!wagon) throw new Error('Missing freight wagon');
+
+    const first = crates[0];
+    sim.player.pos = { ...first.pos };
+    expect(sim.pickUpObject(first.id)).toBe(true);
+    sim.player.pos = { ...wagon.pos };
+    expect(sim.pickUpObject(wagon.id)).toBe(true);
+    expect(sim.worldQuestLog.get(quest.id)?.count).toBe(1);
+    const savedProgress = sim
+      .serializeCharacter(sim.playerId)
+      ?.worldQuests?.progress.find((row) => row.questId === quest.id);
+    expect(savedProgress?.creditedObjects).toEqual([interactObjectCreditKey(0, first.pos)]);
+    expect(sanitizeWorldQuestProgress([savedProgress])[0]?.creditedObjects).toEqual(
+      savedProgress?.creditedObjects,
+    );
+    sim.player.pos = { ...first.pos };
+    sim.pickUpObject(first.id);
+    expect(hasWorldQuestDeliveryCargo(sim.player)).toBe(false);
+
+    const otherPid = sim.addPlayer('mage', 'Another Loader');
+    const other = sim.entities.get(otherPid);
+    const otherMeta = sim.meta(otherPid);
+    if (!other || !otherMeta) throw new Error('Missing second loader');
+    other.level = quest.minLevel;
+    other.pos = { ...first.pos };
+    other.prevPos = { ...other.pos };
+    updateWorldQuests(sim.ctx, otherMeta, other);
+    expect(sim.pickUpObject(first.id, otherPid)).toBe(true);
+    expect(hasWorldQuestDeliveryCargo(other)).toBe(true);
+
+    for (const crate of crates.slice(1)) {
+      sim.player.pos = { ...crate.pos };
+      expect(sim.pickUpObject(crate.id)).toBe(true);
+      expect(hasWorldQuestDeliveryCargo(sim.player)).toBe(true);
+      sim.player.pos = { ...wagon.pos };
+      expect(sim.pickUpObject(wagon.id)).toBe(true);
+    }
+    expect(sim.worldQuestLog.get(quest.id)).toMatchObject({
+      count: quest.count,
+      state: 'completed',
+    });
   });
 
   it('makes freight public, foot-carried, and ephemeral across death and disconnect', () => {

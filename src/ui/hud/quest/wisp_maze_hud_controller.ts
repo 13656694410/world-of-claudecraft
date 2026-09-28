@@ -65,8 +65,8 @@ export class WispMazeHudController {
     document.getElementById('ui')?.append(this.root);
   }
 
-  update(progress?: WorldQuestProgress, ownsControls?: boolean): void {
-    const view = this.view.tick(progress);
+  update(progress?: WorldQuestProgress, ownsControls?: boolean, nowMs?: number): void {
+    const view = this.view.tick(progress, nowMs);
     const w = this.writers;
     this.active = view.active;
     w.toggleClass(this.root.ownerDocument.body, 'playing-wisp-maze', ownsControls ?? view.active);

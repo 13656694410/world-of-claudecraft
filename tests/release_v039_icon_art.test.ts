@@ -516,11 +516,14 @@ describe('release v0.39 icon-art second-pass lineage', () => {
     // The Viridian Valestrider's reins ship painted art the same way: 102.
     // The trinket slot (PR 4173) admits its 18 usable trinkets to the hotbar
     // (isHotbarItemId), each with committed painted art: 120.
-    expect(liveHotbarItemIds, 'production isHotbarItemId inventory').toHaveLength(120);
+    // The Buried Hoards quartermaster consumables (the 2026-09-28 release/v0.44.0
+    // merge into feature/buried-hoards: potion_of_invisibility and
+    // elixir_of_mana_regeneration) ship committed painted art: 122.
+    expect(liveHotbarItemIds, 'production isHotbarItemId inventory').toHaveLength(122);
     expect(
       artSubjectHotbarItemIds,
       'production isHotbarItemId art-subject inventory (live minus ITEM_ART_PENDING)',
-    ).toHaveLength(120);
+    ).toHaveLength(122);
     expect(pendingHotbarItemIds, 'ITEM_ART_PENDING hotbar items').toHaveLength(0);
     expect(
       pendingHotbarItemIds.filter((id) => shippingImageExists(`/ui/items/${id}.webp`)),

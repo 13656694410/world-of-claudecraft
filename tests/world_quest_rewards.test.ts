@@ -6,7 +6,7 @@
 // the whole day's circuit at the cap under ten gold with every purse on top.
 import { describe, expect, it } from 'vitest';
 import { bagPools, bagsFullErrorText, canAddItem } from '../src/sim/bags';
-import { CLUE_SCROLL_ITEM_ID } from '../src/sim/content/clue_hunts';
+import { TREASURE_MAP_ITEM_IDS, TREASURE_MAP_RARITIES } from '../src/sim/content/treasure_maps';
 import { WORLD_QUEST_CLASS_LOOT } from '../src/sim/content/world_quest_loot';
 import {
   WORLD_QUEST_COPPER,
@@ -238,9 +238,10 @@ describe("the day's item", () => {
     expect(error?.type === 'error' ? error.text : '').toBe(bagsFullErrorText(meta, expected));
   });
 
-  it("with one free bag slot on the slate's last quest, the day's piece lands and the Clue Scroll is lost for the day", () => {
-    // The quest's own reward pays first (the order the Clue Scroll test pins),
-    // so the scroll meets the bag-capacity rule that already governs it: lost
+  it("with one free bag slot on the slate's last quest, the day's piece lands and the treasure map is lost for the day", () => {
+    // The quest's own reward pays first (the order tests/clue_scrolls.test.ts pins),
+    // so the slate's treasure map (the Buried Hoards payout that replaced the
+    // Clue Scroll) meets the bag-capacity rule that already governs it: lost
     // for the day, the cycle marked, never re-rolled on a later turn-in.
     // 2026-08-31 is cycle wq1_0, whose slots include thornpeak_heights
     // (pinned in tests/world_quest_item_slots.test.ts).
@@ -258,9 +259,10 @@ describe("the day's item", () => {
     expect(canAddItem(meta.inventory, bagPools(meta.bags), expected, 1)).toBe(true);
     const events = complete(sim, quest);
     expect(sim.countItem(expected)).toBe(1);
-    expect(sim.countItem(CLUE_SCROLL_ITEM_ID)).toBe(0);
-    expect(events.some((ev) => ev.type === 'clueScrollLost')).toBe(true);
-    expect(events.some((ev) => ev.type === 'clueScrollEarned')).toBe(false);
+    for (const rarity of TREASURE_MAP_RARITIES)
+      expect(sim.countItem(TREASURE_MAP_ITEM_IDS[rarity])).toBe(0);
+    expect(events.some((ev) => ev.type === 'treasureMapLost')).toBe(true);
+    expect(events.some((ev) => ev.type === 'treasureMapEarned')).toBe(false);
     expect(meta.clueScrollCycle).toBe(meta.worldQuestCycle);
   });
 });

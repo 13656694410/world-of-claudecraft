@@ -16,10 +16,15 @@ import {
   standingProgress,
 } from '../../../sim/factions';
 import type { WorldQuestProgress } from '../../../sim/types';
+import { worldQuestCompletedForBoard } from '../../../sim/world_quest_practice';
+import { factionEmblemImageUrl } from '../../currency_art';
 
 export interface ReputationRowView {
   readonly factionId: FactionId;
   readonly hubZoneId: string;
+  /** The faction's emblem art for the row's crest (`factionEmblemImageUrl`, the
+   *  same art the world quest card shows for standing); null paints the bare frame. */
+  readonly emblemUrl: string | null;
   readonly tier: StandingTier;
   /** The tier the bar fills toward; null at Champion. */
   readonly nextTier: StandingTier | null;
@@ -70,6 +75,7 @@ export function buildReputationRow(
   return {
     factionId,
     hubZoneId: FACTIONS[factionId].hub.zoneId,
+    emblemUrl: factionEmblemImageUrl(factionId),
     tier: progress.tier,
     nextTier:
       progress.tierNext === null
@@ -90,7 +96,7 @@ export function buildReputationView(input: ReputationViewInput): ReputationView 
   );
   let completed = 0;
   for (const progress of input.worldQuestLog.values()) {
-    if (progress.state === 'completed') completed++;
+    if (worldQuestCompletedForBoard(progress)) completed++;
   }
   const expires = input.worldQuestExpiresAtMs;
   const resetsInMs =

@@ -503,7 +503,8 @@ export const id_ID: EnTranslations = {
         "dungeon_heroic": "Jarahan dungeon Heroik",
         "world": "Jarahan misi dunia",
         "pvp": "Perlengkapan PEPERANGAN"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Jadwal feri",
@@ -1166,7 +1167,10 @@ export const id_ID: EnTranslations = {
       "count": "({count})",
       "objectiveValue": "{current} / {total}",
       "collapseHint": "Ciutkan pelacak misi",
-      "expandHint": "Bentangkan pelacak misi"
+      "expandHint": "Bentangkan pelacak misi",
+      "worldQuests": "Misi Dunia",
+      "worldQuestsCollapseHint": "Tutup misi dunia",
+      "worldQuestsExpandHint": "Buka misi dunia"
     },
     "interfaceTabs": {
       "general": "Umum",
@@ -1661,6 +1665,10 @@ export const id_ID: EnTranslations = {
     },
     "riftTracker": {
       "title": "Rift",
+      "hoardTitle": "Harta Karun Terpendam",
+      "hoardGoal": "Kalahkan penjaga harta karun",
+      "hoardChestGoal": "Buka peti harta karun",
+      "hoardClaimedGoal": "Harta karun adalah milik Anda",
       "floor": "Lantai {current} dari {total}",
       "closesIn": "Tutup dalam {time}",
       "clockMs": "{minutes}:{seconds}",
@@ -2870,6 +2878,19 @@ export const id_ID: EnTranslations = {
       "crafting": "kerajinan",
       "openProfessions": "Profesi Terbuka"
     },
+    "treasureMap": {
+      "close": "Tutup peta harta karun",
+      "zone": "Suatu tempat di {zone}",
+      "hint": "Temukan medan yang ditunjukkan peta ini, berdiri di X, dan gali. Gunakan sekop dari inventaris Anda.",
+      "upgradeNote": "Menggambar ulangnya sebagai peta {rarity} memerlukan {inks} Tinta Peta dan {held} tempat di tas Anda.",
+      "upgradeMaxed": "Tidak ada ahli peta yang bisa memperbaiki peta ini lebih lanjut.",
+      "rarity": {
+        "common": "Umum",
+        "rare": "Langka",
+        "epic": "Epik",
+        "legendary": "Legendaris"
+      }
+    },
     "currencies": {
       "intro": "Tidak satu pun dari ini menggunakan ruang tas. Koin tetap di tas seperti biasanya.",
       "activities": "Aktivitas",
@@ -2884,7 +2905,24 @@ export const id_ID: EnTranslations = {
       "walletNotLinked": "Tidak ada dompet yang ditautkan",
       "wocPreview": "Saldo pratinjau, belum diverifikasi",
       "lifetime": "Seumur hidup {amount}",
-      "factionPending": "Mata uang faksi: menunggu Tahap 2"
+      "factionPending": "Mata uang faksi: menunggu Tahap 2",
+      "riftWatchMark": "Tanda Pengawas Celah",
+      "riftWatchMarkNote": "Misi Dunia di zona Pengawas Celah",
+      "churchOrderCrest": "Lencana Ordo",
+      "churchOrderCrestNote": "Misi Dunia di zona Tatanan Gereja",
+      "automatonCog": "Roda Gigi Automaton",
+      "automatonCogNote": "Misi Dunia di zona Automaton"
+    },
+    "worldQuestTooltip": {
+      "factionLine": "Faksi: {faction}",
+      "timeRemaining": "Waktu tersisa:",
+      "standingAmount": "{amount} {faction}",
+      "currencyAmount": "{amount} {currency}",
+      "standingReward": "+{amount} Reputasi {faction}",
+      "currencyReward": "+{amount} {currency}"
+    },
+    "worldQuestBanner": {
+      "subtitle": "Misi Dunia"
     },
     "reputation": {
       "intro": "Ketiga faksi maju bersamaan: setiap misi dunia menghitung untuk faksi zonanya.",
@@ -5293,6 +5331,9 @@ export const id_ID: EnTranslations = {
       "enchant_chest_lucent_stamina": "Ukiran Dada: Stamina Bercahaya",
       "enchant_feet_lucent_agility": "Ukiran Sepatu: Kelincahan Bercahaya",
       "enchant_lucent_infusion": "Infusi Bercahaya",
+      "enchant_offhand_spirit": "Pengukiran Tangan Tidak Utama: Roh",
+      "enchant_feet_shadowstride": "Pengukiran Sepatu: Langkah Bayang",
+      "enchant_gloves_forged_might": "Pengukiran Sarung Tangan: Kekuatan Tempa",
       "enchant_weapon_riftwalkers_grace": "Karunia Pejalan Celah",
       "enchant_weapon_dawnfire_etching": "Ukiran Senjata: Dawnfire",
       "enchant_weapon_dawns_benediction": "Ukiran Senjata: Berkah Fajar",
@@ -5304,6 +5345,22 @@ export const id_ID: EnTranslations = {
       "enchant_weapon_dawnfire_etching": "Mengukir permanen senjata dengan 18 Kekuatan Mantra. Kekuatan Mantra juga dihitung ke arah Kekuatan Penyembuhan. Bonus datar; tidak terskalakan.",
       "enchant_weapon_dawns_benediction": "Mengukir permanen senjata dengan 34 Kekuatan Penyembuhan. Kekuatan Penyembuhan meningkatkan penyembuhan saja, tidak pernah kerusakan mantra. Bonus datar; tidak terskalakan.",
       "enchant_weapon_piston_drive": "Mengukir permanen senjata dua tangan dengan 12 Kekuatan dan 25 Peringkat Serangan Kritis. Tidak dapat diterapkan pada senjata satu tangan. Bonus datar; tidak terskalakan."
+    },
+    "factionRewards": {
+      "alliedHearthstoneUse": "Gunakan: Teleportasi Anda ke pusat faksi yang diselaraskan. (Waktu tunggu 1 jam)",
+      "alliedHearthstoneAttuned": "Diselaraskan dengan: {hub}",
+      "hub_none": "Tidak Ada (Gunakan dekat pusat faksi untuk diselaraskan)",
+      "hub_rift_watch": "Drifthaven (Pengawas Celah)",
+      "hub_church_order": "Lembah Eastbrook (Tatanan Gereja)",
+      "hub_automatons": "Jangkauan Selatan (Pendiri Automaton)",
+      "riftGliderUse": "Gunakan: Membuka peluncur, memperlambat kecepatan jatuh Anda selama 10 detik. (Tidak dapat digunakan dalam pertempuran)",
+      "targetDummyUse": "Gunakan: Menerapkan boneka target mekanis di area terbuka untuk 1 menit. Punya 50 kesehatan.",
+      "battleStandardUse": "Gunakan: Menanam Bendera Pertempuran Fajar yang Ditahbiskan selama 10 detik, meningkatkan Kekuatan Serangan untuk semua pemain terdekat sebesar 10% selama 1 menit.",
+      "shockBombUse": "Gunakan: Melempar bom kejut hingga 30 yard, menimbulkan 150 kerusakan Alam dan melumpuhkan target selama 3 detik. (Waktu tunggu 30 detik)",
+      "invisibilityUse": "Gunakan: Membungkus Anda dalam ketapian selama 6 detik. (Waktu tunggu 2 menit)",
+      "armorKitUse": "Gunakan: Memperkuat baju zirah dada Anda, meningkatkan Pertahanan sebesar 50 untuk 1 jam.",
+      "sharpeningStoneUse": "Gunakan: Menajamkan senjata tangan Anda, meningkatkan Kekuatan Serangan sebesar 25 selama 1 jam.",
+      "manaElixirUse": "Gunakan: Meningkatkan Roh sebesar 6 selama 1 jam."
     },
     "professions": {
       "title": "Profesi",
@@ -6076,6 +6133,7 @@ export const id_ID: EnTranslations = {
       "sourceActivityCorpseHarvest": "Didapat saat memanen bangkai makhluk",
       "sourceActivityMasterworkCraft": "Diraih dengan membuat sebuah karya besar",
       "sourceActivityRiftFirstClear": "Diberikan kepada setiap anggota kelompok yang meraih penyelesaian pertama sebuah Rift berperingkat",
+      "sourceActivityBuriedHoard": "Ditemukan dalam peti hadiah Harta Karun Terpendam, pencarian sulit dari struktur angin topan bawah tanah di Drifthaven.",
       "cellMissingSourceAria": "{name}, belum ditemukan, {source}",
       "cellOwnedClearsAria": "{name}, terkatalog, pertama ditemukan pada penyelesaian ke-{count}",
       "searchPlaceholder": "Cari relik",
@@ -6814,54 +6872,82 @@ export const id_ID: EnTranslations = {
       "1": "Pengamat jauh-dune tetap tinggal di pasir timur, utara garnis. Temukan Scout Yerrin dan tanya apa yang dibawa angin.",
       "2": "Penjaga gudang garnis tidak makan sejak patroli terakhir. Bawa ke Quartermaster Sela 2 x Roti Cottage.",
       "3": "Timur dan sedikit selatan di mana abu melayang ke duna, bidang tanah yang terbakar menyembunyikan apa yang dimakamkan abu. Gunakan gulir di sana dan gali.",
-      "title": "Abu di Pintu"
+      "title": "Abu di Pintu",
+      "reply": {
+        "1": "Angin datang dari pasir timur membawa abu, dan abu tidak berhembus dari pasir yang kosong. Sela di pangkalan penyimpanan mencatat setiap patroli. Dia akan berbicara, begitu seseorang memberinya makan.",
+        "2": "Akhirnya roti, berkah untuk Anda. Patroli bersumpah melihat asap membumbung dari pasir kosong, ke timur dan sedikit ke selatan bukit-bukit pasir, tempat tidak ada yang tertinggal untuk dibakar."
+      }
     },
     "hunt_frostveil_aurora_vigil": {
       "0": "Di mana teras naik menuju cahaya yang menari di malam hari, berlutut di Aurora Steps dan biarkan langit memperhatikanmu.",
       "1": "Yang membaca cahaya menunggu dekat dengan tangga. Berbicara dengan Aurorist Veyla tentang apa yang dieja langit.",
       "2": "Timur dari teras yang melolong, sedikit ke selatan, salju berbaring lebih datar dari yang seharusnya. Gunakan gulir di sana dan gali.",
-      "title": "Cahaya di atas Tangga"
+      "title": "Cahaya di atas Tangga",
+      "reply": {
+        "1": "Anda berlutut, dan cahaya menjawab. Malam ini mereka bengkok ke timur melampaui terasering dan menunjuk lurus ke bawah pada salju."
+      }
     },
     "hunt_amberfall_lantern_ferry": {
       "0": "Di tepi air sebelah utara Lanternmere, penjaga feri lampu mengerti cahaya mana yang padam. Berbicara dengan Ferrymaster Caddow.",
       "1": "Sebuah batu berdiri menghadap langit di timur laut besar mere, lebih tua dari kota. Berdiri di Monolith Miring.",
       "2": "Penjaga barisan berlapis emas menyiram kebun dengan tangan dan haus akan itu. Bawa ke Pomeline Orchardist 3 x Air Sumur Dingin.",
       "3": "Di timur laut naik di mana cindermaples terbakar merah, daun berbaring dalam lingkaran yang tidak dibuat angin. Gunakan gulir di sana dan gali.",
-      "title": "Lentera di Mere"
+      "title": "Lentera di Mere",
+      "reply": {
+        "0": "Satu lentera padam malam ini, yang menghadap batu tua di seberang air. Ferimen saya tidak mau mendekatinya. Mungkin Anda akan.",
+        "2": "Air sumur dingin, persis yang diinginkan pohon-pohon. Melewati pohon-pohon maple merah, dedaunan telah berjatuhan dalam satu lingkaran, dan tidak ada pohon milik saya yang merontokkan daunnya serapi itu."
+      }
     },
     "hunt_willowfen_fenwitch_salt": {
       "0": "Penyihir fen dari Willowweep tidak akan berbicara dengan siapa pun yang datang tangan kosong. Bawa ke Mother Sedge 1 x Garam Masak.",
       "1": "Di mana fen menjadi datar dan udara membuat semua orang mengantuk, berdiri di Drowsy Flats dan mendesah, seperti penyihir bilang.",
       "2": "Tenggara dari kolam yang bersinar di rawa, sebuah tumpukan tanah kering tetap kering sepanjang tahun. Gunakan gulir di sana dan gali.",
-      "title": "Garam Penyihir Fen"
+      "title": "Garam Penyihir Fen",
+      "reply": {
+        "0": "Garam. Baik, Anda mendengarkan. Dataran di luar tebu membuat semua orang mengantuk. Pergi dan mendesah di sana seperti Anda berarti, dan rawa akan menunjukkan Anda sisanya."
+      }
     },
     "hunt_nightbloom_sleepless_vigil": {
       "0": "Timur laut Moonrest, di mana batu menjaga vigil yang tidak pernah berakhir, berdiri di Vigil yang Berdiri.",
       "1": "Pengawas di vigil menghitung bintang seperti yang lain menghitung koin. Berbicara dengan Astronomer Cassian tentang yang jatuh.",
       "2": "Utara kota terletak barrow yang tidurnya tidak pernah istirahat. Hormat Barrow Tidur Tanpa Henti sehingga tidur tahu teman telah tiba.",
       "3": "Tenggara dari lapangan di mana gloam berkumpul, cahaya bulan mengumpul di satu patch tanah kosong. Gunakan gulir di sana dan gali.",
-      "title": "Vigil dari yang Tidur Tanpa Henti"
+      "title": "Vigil dari yang Tidur Tanpa Henti",
+      "reply": {
+        "1": "Bintang berjatuhan tiga malam lalu, dan jatuh menuju bukit penguburan tua di utara kota. Yang mati di sana tidak pernah tidur. Sapai mereka seperti prajurit."
+      }
     },
     "hunt_wraithwood_mournstone_candles": {
       "0": "Pembuat lilin dari Gibbetmere menjual cahaya kepada orang yang takut gelap. Berbicara dengan Widow Tansy tentang lilin yang tidak pernah dibayar.",
       "1": "Vikaris terakhir dari Mournstone telah berpuasa doa saja. Bawa ke Vicar Creel 2 x Daging Asin.",
       "2": "Timur laut kota, melewati gagak, sebuah jerami menggantung buah aneh. Berdiri di Jerami Gantung.",
       "3": "Tenggara dari pembukaan di mana pemburu menaruh jerat-jeratnya, sampah daun telah dibalik baru-baru ini. Gunakan gulir di sana dan gali.",
-      "title": "Lilin untuk Mournstone"
+      "title": "Lilin untuk Mournstone",
+      "reply": {
+        "0": "Vicar memesan lilin itu dan tidak pernah membayarnya. Dia telah berpuasa sejak saat itu, berdoa dan tidak ada yang lain. Bawalah dia sesuatu untuk dikunyah dan tanya mengapa.",
+        "1": "Terima kasih, teman. Saya tidak pernah menyalakan lilin itu. Sesuatu berjalan di glen melampaui gagak di malam hari, dan saya tidak bisa menghadapinya. Pergi dan berdiri di sana, jika Anda bisa."
+      }
     },
     "hunt_palmreach_sunken_idol": {
       "0": "Dalam jerat, barat laut laguna, anggur turun seperti air terjun. Berdiri di Vinefall.",
       "1": "Seorang pertapa yang pergi ke jerat dan keluar tinggal dekat dengan anggur yang jatuh. Berbicara dengan Okrim tentang apa yang dia lihat di sana.",
       "2": "Ke timur, sebuah patung setengah tenggelam dan masih menonton. Berapa pun terhadap Patung Tenggelam, caranya si selam bilang mereka lakukan.",
       "3": "Timur laut di mana jerat membuka mulutnya ke laut, pasir telah ditumpuk lebih tinggi dari jangkauan pasang. Gunakan gulir di sana dan gali.",
-      "title": "Rahasia Patung"
+      "title": "Rahasia Patung",
+      "reply": {
+        "1": "Di bawah tanaman merambat para penyelam menemukan patung, dan patung tidak menyukai mereka. Siapa pun yang berdiri tegak di depannya tidak kembali. Jadilah kecil di hadapannya."
+      }
     },
     "hunt_evergarden_beacon_road": {
       "0": "Tukang parterre taman di sepanjang jalan utara Hedgewick bersumpah tempat tidurnya kelaparan. Bawa ke Farmer Verbena 2 x Kompos.",
       "1": "Di sudut jauh tenggara taman, sebuah pabrik tua masih berputar untuk tidak ada penggilingan. Berdiri di Pabrik Tua.",
       "2": "Ikuti jalan selatan melampaui perbatasan ke Galecrest dan keluar ke pantai. Penjaga mercusuar tua, Keeper Bram, memiliki kata-kata terakhir.",
       "3": "Barat laut dari mercusuar tua, tepat di luar jalan turun dari cahaya, rumput telah dipotong dan diletakkan kembali. Gunakan gulir di sana dan gali.",
-      "title": "Mercusuar dan Bunga"
+      "title": "Mercusuar dan Bunga",
+      "reply": {
+        "0": "Kompos yang tepat, tempat tidur akan hidup. Pedagang tua mengubur sesuatu sebelum pergi. Pabrik biarpun masih berputar di sudut jauh taman-taman. Pergi dan berdiri di sampingnya.",
+        "2": "Jadi pabrik mengirim Anda ke pantai jalan. Mercusuar menyimpan satu rahasia terakhir: barat laut darinya, hanya di luar jejak, rumput dipotong dan diletakkan kembali. Gali di sana."
+      }
     }
   },
   "guide": {
@@ -10164,6 +10250,11 @@ export const id_ID: EnTranslations = {
       "pylonLit": "Sebuah pilar rune menyala hidup ({lit}/{total}).",
       "wayDownOpens": "Jalan turun terkoyak terbuka.",
       "exitOpens": "Rift itu berguncang. Sebuah jalan pulang terkoyak terbuka di belakang yang tumbang.",
+      "hoardEnter": "Anda turun ke dalam {name}.",
+      "hoardExitOpens": "Harta karun adalah milik Anda. Kembali ke pintu masuk untuk naik ke atas.",
+      "hoardStepBack": "Anda naik kembali melalui pintu masuk harta karun.",
+      "hoardNotYours": "Harta karun ini digali oleh pihak lain.",
+      "hoardEntrantsFull": "Harta karun ini telah mengakui lima petualang.",
       "portalOpens": "Sebuah rift peringkat {tier} terkoyak terbuka di {zone}!",
       "portalSealed": "Rift peringkat {tier} di {zone} telah tersegel.",
       "portalCollapses": "Rift peringkat {tier} di {zone} runtuh.",
@@ -10203,7 +10294,152 @@ export const id_ID: EnTranslations = {
       "detonateLightningRod": "Penangkal Petir menyambar!",
       "detonateStormcallersWrath": "Amarah Sang Pemanggil Badai meletus!",
       "detonateAbyssalMaw": "Rahang Jurang menutup!",
-      "detonateCrushingDepth": "Kedalaman Penghancur menghancurkan!"
+      "detonateCrushingDepth": "Kedalaman Penghancur menghancurkan!",
+      "yell": {
+        "mushroomEngage": "Spora akan menelanmu.",
+        "mushroomSummon": "Tumbuhlah, anak-anakku!",
+        "moleEngage": "Tanah ini milikku.",
+        "moleSummon": "Turun kau!",
+        "batEngage": "Ciiiiiit!",
+        "batSummon": "Kemari, kawananku!",
+        "mimicEngage": "Lapar... sangat lapar.",
+        "mimicSummon": "Lebih banyak emas, lebih banyak emas!",
+        "frostBigCast": "Angin putih bangkit.",
+        "frostDeathZoneCast": "Es beku menelanmu.",
+        "frostDeathZoneStrike": "Tak ada yang selamat dari dingin yang dalam.",
+        "frostEngage": "Pada akhirnya, dingin merenggut segalanya.",
+        "frostEnrage": "MEMBEKULAH!",
+        "emberBigCast": "TERBAKARLAH.",
+        "emberDeathZoneCast": "Magma naik.",
+        "emberDeathZoneStrike": "TEMPAAN MELAHAP SEGALANYA.",
+        "emberEngage": "Tempaan ini lapar.",
+        "emberSummon": "Bangkitlah dari terak!",
+        "emberEnrage": "ABU DAN BARA!",
+        "venomBigCast": "Tenggelamlah dalam bisa!",
+        "venomDeathZoneCast": "Tenggelamlah dalam racun.",
+        "venomDeathZoneStrike": "KAU TAK BISA LARI DARI ANAK-ANAKKU.",
+        "venomEngage": "Anak-anakku selalu lapar.",
+        "venomSummon": "Berpestalah, anak-anakku!",
+        "necroBigCast": "Jiwa kalian kini milikku.",
+        "necroDeathZoneCast": "Jiwamu kini milikku.",
+        "necroDeathZoneStrike": "KEMATIAN MERENGGUT SEGALANYA.",
+        "necroEngage": "Kematian hanyalah permulaan.",
+        "necroSummon": "Bangkitlah!",
+        "bruteBigCast": "KUHANCURKAN KAU!",
+        "bruteDeathZoneCast": "BUMI TERBELAH.",
+        "bruteDeathZoneStrike": "KAU TUMBANG DI SINI.",
+        "bruteEngage": "Akan kulumat kau!",
+        "bruteEnrage": "GRAAAAH!",
+        "arcaneBigCast": "Saksikan kekuatan sejati.",
+        "arcaneDeathZoneCast": "Realitas terkoyak.",
+        "arcaneDeathZoneStrike": "MUSNAH.",
+        "arcaneEngage": "Seharusnya kau tidak datang.",
+        "arcaneEnrage": "BERLUTUT!",
+        "stormBigCast": "Langit menjawab!",
+        "stormDeathZoneCast": "Langit menjawab panggilanmu.",
+        "stormDeathZoneStrike": "BADAI MELAHAP SEGALANYA.",
+        "stormEngage": "Badai tunduk padaku!",
+        "stormEnrage": "LANGIT RUNTUH!",
+        "tideDeathZoneCast": "Kedalaman membawamu pergi.",
+        "tideDeathZoneStrike": "TERSERET KE JURANG.",
+        "tideEngage": "Kedalaman menuntut dirimu.",
+        "tideSummon": "Bangkitlah dari kedalaman!",
+        "ritualistBigCast": "Pakta telah disegel dengan api!",
+        "ritualistEngage": "Kau menerobos tanah yang terikat.",
+        "ritualistSummon": "Jawab aku, makhluk-makhluk di bawah sana!",
+        "pitlordBigCast": "JURANG MENELANMU.",
+        "pitlordEngage": "Berlututlah, atau terbakar.",
+        "pitlordEnrage": "BENTENG INI MELAHAP SEGALANYA!"
+      },
+      "place": {
+        "hoardFloor": "Harta Terpendam {theme}",
+        "sanctumFloor": "Sanktum {theme}: Kedalaman {depth}",
+        "reachesFloor": "Wilayah {theme}: Kedalaman {depth}",
+        "upgradedFloor": "{title}: {theme} Kedalaman {depth}",
+        "hoardPlan": "Harta {noun} yang Terpendam",
+        "riftPlan": "{suffix} {noun}",
+        "citadelPlan": "Benteng {noun}",
+        "infernalCitadel": "Benteng Neraka",
+        "hoardEntrance": "Pintu masuk Harta Terpendam",
+        "theme": {
+          "frost": "Belenggu Es",
+          "ember": "Tempaan Bara",
+          "venom": "Rimba Racun",
+          "bone": "Kuburan Tulang",
+          "brute": "Perkemahan Perang",
+          "void": "Parut Hampa",
+          "storm": "Menara Badai",
+          "tide": "Karam",
+          "spore": "Rongga Spora",
+          "burrow": "Liang Dalam",
+          "roost": "Sarang Kelelawar",
+          "mimic": "Brankas Palsu",
+          "infernal": "Benteng Neraka"
+        },
+        "noun": {
+          "rime": "Bunga Es",
+          "hoarfrost": "Embun Beku",
+          "glacier": "Gletser",
+          "frost": "Es",
+          "ember": "Bara",
+          "cinder": "Arang",
+          "magma": "Lava Pijar",
+          "ash": "Abu",
+          "venom": "Bisa",
+          "thorn": "Duri",
+          "bramble": "Semak Duri",
+          "spider": "Laba-laba",
+          "bone": "Tulang",
+          "marrow": "Sumsum",
+          "ossuary": "Osarium",
+          "grave": "Makam",
+          "war": "Perang",
+          "skull": "Tengkorak",
+          "iron": "Besi",
+          "blood": "Darah",
+          "void": "Hampa",
+          "shadow": "Bayangan",
+          "umbral": "Kelam",
+          "dusk": "Senja",
+          "storm": "Badai",
+          "tempest": "Prahara",
+          "thunder": "Guntur",
+          "gale": "Taufan",
+          "sunken": "Karam",
+          "abyssal": "Jurang Maut",
+          "drowned": "Tenggelam",
+          "tide": "Pasang",
+          "spore": "Spora",
+          "toadstool": "Jamur Payung",
+          "mould": "Kapang",
+          "mycelium": "Miselium",
+          "burrow": "Liang",
+          "tunnel": "Terowongan",
+          "delve": "Galian",
+          "loam": "Lempung",
+          "roost": "Tenggeran",
+          "echo": "Gema",
+          "guano": "Kotoran Kelelawar",
+          "hollow": "Rongga",
+          "coffer": "Peti Harta",
+          "strongbox": "Kotak Besi",
+          "tithe": "Upeti",
+          "gilt": "Sepuhan Emas",
+          "brimstone": "Belerang",
+          "pitfire": "Api Lubuk",
+          "pactbound": "Terikat Pakta"
+        },
+        "suffix": {
+          "abyss": "Jurang",
+          "depths": "Kedalaman",
+          "descent": "Turunan",
+          "hollow": "Lembah",
+          "labyrinth": "Labirin",
+          "warren": "Sarang",
+          "sanctum": "Sanktum",
+          "rift": "Retakan"
+        }
+      }
     },
     "delve": {
       "cannotEnterNow": "Kamu tidak dapat memasuki delve saat ini.",
@@ -10273,6 +10509,9 @@ export const id_ID: EnTranslations = {
       "moveCloserStairs": "Mendekatlah ke tangga.",
       "nhaliaCantorShield": "Para Pelantun, tahan nadanya!",
       "nhaliaBlackwaterMark": "{name} menandai {player} dengan Air Hitam!"
+    },
+    "factionVendor": {
+      "currencyRequired": "Anda memerlukan {amount} {currency} untuk membeli itu."
     },
     "lockpick": {
       "lockYields": "Kunci terbuka! Rampasan {tier}.",
@@ -10894,6 +11133,7 @@ export const id_ID: EnTranslations = {
       "alreadyInWorld": "Karakter sudah berada di dalam dunia.",
       "accountSessionLimit": "Terlalu banyak karakter dari akun ini yang sudah berada di dalam dunia.",
       "takenOver": "Karakter Anda telah diambil alih oleh sesi lain.",
+      "vaultMailRecovering": "Surat hadiah peti Anda sedang dipulihkan. Coba lagi nanti.",
       "renameBeforeEntering": "Karakter ini harus diganti namanya sebelum memasuki dunia.",
       "renameNotPermitted": "Mengganti nama karakter ini tidak diperbolehkan.",
       "unsupportedMediaType": "Format permintaan tidak didukung.",
@@ -11237,6 +11477,8 @@ export const id_ID: EnTranslations = {
         "dungeonExit": "Pintu keluar dungeon",
         "delveEntrance": "Pintu masuk delve: {name}",
         "worldPassage": "Jalur menuju {zone}",
+        "hoardEntrance": "Pintu masuk Harta Karun Terpendam",
+        "hoardReturnEntrance": "Pintu masuk kembali Harta Karun",
         "riftEntrance": "Pintu masuk Rift: {name}",
         "hostileEnemy": "Musuh yang siap menyerang",
         "aggressiveEnemy": "Musuh yang menyerangmu",
@@ -11880,6 +12122,7 @@ export const id_ID: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "Serang",
+      "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Alihkan serangan otomatis pada targetmu. Klik kanan pada musuh juga menyerang.",
       "attackRemoveHint": "Klik kanan untuk menghapusnya dari bilah dan mengosongkan slot.",
       "emptySlot": "Slot kosong",
@@ -11971,7 +12214,35 @@ export const id_ID: EnTranslations = {
       "rift_storm_execution": "Penangkal Petir",
       "rift_storm_strike": "Amarah Sang Pemanggil Badai",
       "rift_tide_execution": "Rahang Jurang",
-      "rift_tide_strike": "Kedalaman Penghancur"
+      "rift_tide_strike": "Kedalaman Penghancur",
+      "hoard_cast_fear": "Auman Mengerikan",
+      "hoard_cast_stun": "Pukulan Puyuh",
+      "hoard_cast_drowning_hook": "Kait Lemas",
+      "hoard_cast_rime_beam": "Sinar Beku",
+      "hoard_cast_cinder_bolt": "Panah Bara",
+      "hoard_cast_void_empower": "Pemberdayaan Kekosongan",
+      "hoard_cast_webbing": "Jerat Laba-laba",
+      "hoard_cast_doom_ritual": "Ritual Malapetaka",
+      "hoard_cast_charge": "Menyerbu Bergerak Cepat",
+      "hoard_cast_silk_snare": "Jerat Sutra",
+      "hoard_cast_silence": "Jeritan Peredam",
+      "hoard_cast_hex": "Kutuk",
+      "hoard_lightning_strike": "Hantaman Kilat",
+      "hoard_ice_age": "Zaman Es",
+      "hoard_pulsar_overload": "Kelebihan Beban Pulsar",
+      "hoard_rolling_boulder": "Batu Berguling",
+      "hoard_goblin_escape": "Meloloskan Diri",
+      "hoard_cast_mole_rake": "Cakaran Tikus Tanah",
+      "hoard_cast_burrow": "Menggali Liang",
+      "hoard_cast_tunnel": "Penggalian",
+      "hoard_cast_emerge": "Letusan",
+      "hoard_cast_collapse": "Keruntuhan Atap",
+      "hoard_cast_bat_dive_aim": "Menyelam Dalam",
+      "hoard_cast_bat_dive": "Menyelam",
+      "hoard_cast_screech": "Jeritan Membising",
+      "hoard_cast_mimic_bite": "Gigitan Serakah",
+      "hoard_cast_mimic_leap": "Lompatan Menghancurkan",
+      "hoard_cast_coin_spit": "Koin Terkutuk"
     }
   },
   "questUi": {
@@ -12398,7 +12669,17 @@ export const id_ID: EnTranslations = {
       "clueHuntStep": "Petunjuk {step} dari {total} terpecahkan: {title}",
       "clueHuntDone": "Perburuan harta karun selesai: {title}. Peti adalah milikmu.",
       "clueHuntAbandoned": "Perburuan harta karun ditinggalkan: {title}",
-      "clueCasketOpened": "Peti memuat {money} dan {items}."
+      "clueCasketOpened": "Peti memuat {money} dan {items}.",
+      "treasureMapEarned": "Setiap misi dunia hari ini selesai: Anda menemukan {map}.",
+      "treasureMapLost": "Setiap misi dunia hari ini selesai, tetapi tas Anda penuh. Peta ini dijatuhkan.",
+      "treasureMapRead": "Anda mempelajari {map}. X terletak di suatu tempat di {zone}.",
+      "treasureMapUpgraded": "Peta digambar ulang dalam tinta yang lebih halus: peta ini sekarang {map}.",
+      "treasureVaultOpened": "Tanah bergerak. Harta karun yang terkubur terletak terbuka di depan Anda.",
+      "treasureVaultLooted": "Harta karun menampung {money} dan {items}.",
+      "treasureVaultCapped": "Anda telah berbagi dalam cukup banyak harta karun hari ini; harta karun ini hanya memberikan pengalaman.",
+      "hoardGoblinSighted": "Maling goblin muncul!",
+      "hoardGoblinSightedHint": "Bunuh sebelum dia meloloskan diri dengan emas!",
+      "hoardGoblinExplain": "Maling goblin bersembunyi dalam harta karun ini dengan karung emas. Anda memiliki {minutes} menit {seconds} detik untuk menangkapnya sebelum melarikan diri dengan seluruh harta karun."
     },
     "errors": {
       "unavailable": "Misi itu tidak tersedia.",
@@ -12811,6 +13092,10 @@ export const id_ID: EnTranslations = {
       "sport_second_wind": {
         "name": "Kaki Segar",
         "description": "Temukan kembali tenagamu: bergerak 50% lebih cepat selama 4 detik."
+      },
+      "clockwork_shock_bomb": {
+        "name": "Bom Kejut Mekanis",
+        "description": "Melempar Bom Kejut Mekanis ke lokasi sasaran, memberikan 120 hingga 160 kerusakan Alam kepada musuh dalam radius 5 meter."
       },
       "flamestrike": {
         "name": "Hantaman Api",
@@ -17393,6 +17678,363 @@ export const id_ID: EnTranslations = {
       "stormhymn_chain_treads": {
         "name": "Tapak Rantai Himne Badai"
       },
+      "allied_hearthstone": {
+        "name": "Batu Api Sekutu"
+      },
+      "allied_vanguard_duffel": {
+        "name": "Tas Rombongan Sekutu"
+      },
+      "rift_feather_glider": {
+        "name": "Peluncur Bulu Retak"
+      },
+      "formula_enchant_feet_shadowstride": {
+        "name": "Formula: Pesona Sepatu - Langkah Bayangan"
+      },
+      "recipe_potion_of_invisibility": {
+        "name": "Resep: Ramuan Ketaklihatan"
+      },
+      "potion_of_invisibility": {
+        "name": "Ramuan Ketaklihatan"
+      },
+      "pattern_reinforced_armor_kit": {
+        "name": "Pola: Paket Zirah Diperkuat"
+      },
+      "reinforced_armor_kit": {
+        "name": "Paket Zirah Diperkuat"
+      },
+      "dawn_battle_standard": {
+        "name": "Bendera Perang Fajar"
+      },
+      "formula_enchant_offhand_spirit": {
+        "name": "Formula: Pesona Tangan Kedua - Roh"
+      },
+      "recipe_elixir_of_mana_regeneration": {
+        "name": "Resep: Elixir Regenerasi Mana"
+      },
+      "elixir_of_mana_regeneration": {
+        "name": "Elixir Regenerasi Mana"
+      },
+      "clockwork_target_dummy": {
+        "name": "Boneka Target Mekanis"
+      },
+      "schematic_clockwork_shock_bomb": {
+        "name": "Skema: Bom Kejut Mekanis"
+      },
+      "clockwork_shock_bomb": {
+        "name": "Bom Kejut Mekanis"
+      },
+      "plans_dense_sharpening_stone": {
+        "name": "Rencana: Batu Asah Padat"
+      },
+      "dense_sharpening_stone": {
+        "name": "Batu Asah Padat"
+      },
+      "formula_enchant_gloves_forged_might": {
+        "name": "Formula: Pesona Sarung Tangan - Kekuatan Tekap"
+      },
+      "treasure_map_common": {
+        "name": "Peta Harta Terhapus"
+      },
+      "treasure_map_rare": {
+        "name": "Peta Harta Bertinta"
+      },
+      "treasure_map_epic": {
+        "name": "Peta Harta Berlapis Emas"
+      },
+      "treasure_map_legendary": {
+        "name": "Peta Harta Berdaulat"
+      },
+      "cartographers_ink": {
+        "name": "Tinta Kartografer"
+      },
+      "collapsar_band_of_nyxaris": {
+        "name": "Sabuk Runtuh Nyxaris"
+      },
+      "rare_collapsar_band_of_nyxaris": {
+        "name": "Sabuk Tarnish Runtuh Nyxaris"
+      },
+      "legendary_collapsar_band_of_nyxaris": {
+        "name": "Sabuk Berdaulat Runtuh Nyxaris"
+      },
+      "orb_collapsing_void": {
+        "name": "Bola Kehampaan Runtuh"
+      },
+      "rare_orb_collapsing_void": {
+        "name": "Bola Tarnish Kehampaan Runtuh"
+      },
+      "legendary_orb_collapsing_void": {
+        "name": "Bola Berdaulat Kehampaan Runtuh"
+      },
+      "cowl_of_event_horizon": {
+        "name": "Cowl Cakrawala Peristiwa"
+      },
+      "rare_cowl_of_event_horizon": {
+        "name": "Cowl Tarnish Cakrawala Peristiwa"
+      },
+      "legendary_cowl_of_event_horizon": {
+        "name": "Cowl Berdaulat Cakrawala Peristiwa"
+      },
+      "mantle_of_singularity": {
+        "name": "Mantel Keunikan"
+      },
+      "rare_mantle_of_singularity": {
+        "name": "Mantel Tarnish Keunikan"
+      },
+      "legendary_mantle_of_singularity": {
+        "name": "Mantel Berdaulat Keunikan"
+      },
+      "glacier_hewn_bulwark": {
+        "name": "Benteng Pahat Es Abadi"
+      },
+      "rare_glacier_hewn_bulwark": {
+        "name": "Benteng Tarnish Pahat Es Abadi"
+      },
+      "legendary_glacier_hewn_bulwark": {
+        "name": "Benteng Berdaulat Pahat Es Abadi"
+      },
+      "permafrost_legguards": {
+        "name": "Pelindung Kaki Permafrost"
+      },
+      "rare_permafrost_legguards": {
+        "name": "Pelindung Kaki Tarnish Permafrost"
+      },
+      "legendary_permafrost_legguards": {
+        "name": "Pelindung Kaki Berdaulat Permafrost"
+      },
+      "frostbitten_rime_slippers": {
+        "name": "Sandal Rima Cacat Es"
+      },
+      "rare_frostbitten_rime_slippers": {
+        "name": "Sandal Tarnish Rima Cacat Es"
+      },
+      "legendary_frostbitten_rime_slippers": {
+        "name": "Sandal Berdaulat Rima Cacat Es"
+      },
+      "rime_crusted_grips": {
+        "name": "Pegangan Berkrusta Rima"
+      },
+      "rare_rime_crusted_grips": {
+        "name": "Pegangan Tarnish Berkrusta Rima"
+      },
+      "legendary_rime_crusted_grips": {
+        "name": "Pegangan Berdaulat Berkrusta Rima"
+      },
+      "ember_wrought_crown": {
+        "name": "Mahkota Tekap Bara"
+      },
+      "rare_ember_wrought_crown": {
+        "name": "Mahkota Tarnish Tekap Bara"
+      },
+      "legendary_ember_wrought_crown": {
+        "name": "Mahkota Berdaulat Tekap Bara"
+      },
+      "cinder_stitched_robes": {
+        "name": "Jubah Dijahit Bara"
+      },
+      "rare_cinder_stitched_robes": {
+        "name": "Jubah Tarnish Dijahit Bara"
+      },
+      "legendary_cinder_stitched_robes": {
+        "name": "Jubah Berdaulat Dijahit Bara"
+      },
+      "chained_ember_choker": {
+        "name": "Kalung Berantai Bara"
+      },
+      "rare_chained_ember_choker": {
+        "name": "Kalung Tarnish Berantai Bara"
+      },
+      "legendary_chained_ember_choker": {
+        "name": "Kalung Berdaulat Berantai Bara"
+      },
+      "molten_clinker_girdle": {
+        "name": "Ikat Pinggang Terak Lelehan"
+      },
+      "rare_molten_clinker_girdle": {
+        "name": "Ikat Pinggang Tarnish Terak Lelehan"
+      },
+      "legendary_molten_clinker_girdle": {
+        "name": "Ikat Pinggang Berdaulat Terak Lelehan"
+      },
+      "storm_tuned_buckler": {
+        "name": "Perisai Bakat Badai"
+      },
+      "rare_storm_tuned_buckler": {
+        "name": "Perisai Tarnish Bakat Badai"
+      },
+      "legendary_storm_tuned_buckler": {
+        "name": "Perisai Berdaulat Bakat Badai"
+      },
+      "hauberk_tempest_gale": {
+        "name": "Baju Rantai Badai Angin"
+      },
+      "rare_hauberk_tempest_gale": {
+        "name": "Baju Rantai Tarnish Badai Angin"
+      },
+      "legendary_hauberk_tempest_gale": {
+        "name": "Baju Rantai Berdaulat Badai Angin"
+      },
+      "gale_strider_boots": {
+        "name": "Sepatu Pejalan Angin"
+      },
+      "rare_gale_strider_boots": {
+        "name": "Sepatu Tarnish Pejalan Angin"
+      },
+      "legendary_gale_strider_boots": {
+        "name": "Sepatu Berdaulat Pejalan Angin"
+      },
+      "tempest_strike_grips": {
+        "name": "Pegangan Pukulan Badai"
+      },
+      "rare_tempest_strike_grips": {
+        "name": "Pegangan Tarnish Pukulan Badai"
+      },
+      "legendary_tempest_strike_grips": {
+        "name": "Pegangan Berdaulat Pukulan Badai"
+      },
+      "breastplate_tectonic_might": {
+        "name": "Pelat Dada Kekuatan Tektonik"
+      },
+      "rare_breastplate_tectonic_might": {
+        "name": "Pelat Dada Tarnish Kekuatan Tektonik"
+      },
+      "legendary_breastplate_tectonic_might": {
+        "name": "Pelat Dada Berdaulat Kekuatan Tektonik"
+      },
+      "band_mountains_weight": {
+        "name": "Sabuk Berat Gunung"
+      },
+      "rare_band_mountains_weight": {
+        "name": "Sabuk Tarnish Berat Gunung"
+      },
+      "legendary_band_mountains_weight": {
+        "name": "Sabuk Berdaulat Berat Gunung"
+      },
+      "monolithic_shoulderguards": {
+        "name": "Pelindung Bahu Monolit"
+      },
+      "rare_monolithic_shoulderguards": {
+        "name": "Pelindung Bahu Tarnish Monolit"
+      },
+      "legendary_monolithic_shoulderguards": {
+        "name": "Pelindung Bahu Berdaulat Monolit"
+      },
+      "earthshaker_warboots": {
+        "name": "Sepatu Perang Penggetar Bumi"
+      },
+      "rare_earthshaker_warboots": {
+        "name": "Sepatu Perang Tarnish Penggetar Bumi"
+      },
+      "legendary_earthshaker_warboots": {
+        "name": "Sepatu Perang Berdaulat Penggetar Bumi"
+      },
+      "silkstalker_woven_vest": {
+        "name": "Rompi Tenunan Pemburu Sutra"
+      },
+      "rare_silkstalker_woven_vest": {
+        "name": "Rompi Tarnish Tenunan Pemburu Sutra"
+      },
+      "legendary_silkstalker_woven_vest": {
+        "name": "Rompi Berdaulat Tenunan Pemburu Sutra"
+      },
+      "spun_venom_spaulders": {
+        "name": "Pauldron Bisa Berputar"
+      },
+      "rare_spun_venom_spaulders": {
+        "name": "Pauldron Tarnish Bisa Berputar"
+      },
+      "legendary_spun_venom_spaulders": {
+        "name": "Pauldron Berdaulat Bisa Berputar"
+      },
+      "broodmother_chitin_cowl": {
+        "name": "Cowl Kitin Ibu Kawanan"
+      },
+      "rare_broodmother_chitin_cowl": {
+        "name": "Cowl Tarnish Kitin Ibu Kawanan"
+      },
+      "legendary_broodmother_chitin_cowl": {
+        "name": "Cowl Berdaulat Kitin Ibu Kawanan"
+      },
+      "venom_etched_waistcord": {
+        "name": "Tali Terukir Bisa"
+      },
+      "rare_venom_etched_waistcord": {
+        "name": "Tali Tarnish Terukir Bisa"
+      },
+      "legendary_venom_etched_waistcord": {
+        "name": "Tali Berdaulat Terukir Bisa"
+      },
+      "bone_studded_pauldrons": {
+        "name": "Pauldron Bergambar Tulang"
+      },
+      "rare_bone_studded_pauldrons": {
+        "name": "Pauldron Tarnish Bergambar Tulang"
+      },
+      "legendary_bone_studded_pauldrons": {
+        "name": "Pauldron Berdaulat Bergambar Tulang"
+      },
+      "legguards_of_the_ossuary": {
+        "name": "Pelindung Kaki Ossuary"
+      },
+      "rare_legguards_of_the_ossuary": {
+        "name": "Pelindung Kaki Tarnish Ossuary"
+      },
+      "legendary_legguards_of_the_ossuary": {
+        "name": "Pelindung Kaki Berdaulat Ossuary"
+      },
+      "seal_of_the_cryptwalker": {
+        "name": "Segel Pejalan Krypta"
+      },
+      "rare_seal_of_the_cryptwalker": {
+        "name": "Segel Tarnish Pejalan Krypta"
+      },
+      "legendary_seal_of_the_cryptwalker": {
+        "name": "Segel Berdaulat Pejalan Krypta"
+      },
+      "ossuary_bone_crown": {
+        "name": "Mahkota Tulang Ossuary"
+      },
+      "rare_ossuary_bone_crown": {
+        "name": "Mahkota Tarnish Tulang Ossuary"
+      },
+      "legendary_ossuary_bone_crown": {
+        "name": "Mahkota Berdaulat Tulang Ossuary"
+      },
+      "chalice_of_living_tides": {
+        "name": "Piala Pasang Hidup"
+      },
+      "rare_chalice_of_living_tides": {
+        "name": "Piala Tarnish Pasang Hidup"
+      },
+      "legendary_chalice_of_living_tides": {
+        "name": "Piala Berdaulat Pasang Hidup"
+      },
+      "pendant_continuous_flow": {
+        "name": "Liontin Aliran Terus"
+      },
+      "rare_pendant_continuous_flow": {
+        "name": "Liontin Tarnish Aliran Terus"
+      },
+      "legendary_pendant_continuous_flow": {
+        "name": "Liontin Berdaulat Aliran Terus"
+      },
+      "coral_encrusted_girdle": {
+        "name": "Ikat Pinggang Berkoral Tebal"
+      },
+      "rare_coral_encrusted_girdle": {
+        "name": "Ikat Pinggang Tarnish Berkoral Tebal"
+      },
+      "legendary_coral_encrusted_girdle": {
+        "name": "Ikat Pinggang Berdaulat Berkoral Tebal"
+      },
+      "riptide_handwraps": {
+        "name": "Pembungkus Tangan Arus Rip"
+      },
+      "rare_riptide_handwraps": {
+        "name": "Pembungkus Tangan Tarnish Arus Rip"
+      },
+      "legendary_riptide_handwraps": {
+        "name": "Pembungkus Tangan Berdaulat Arus Rip"
+      },
       "vanguard_warrior_arms_helmet": {
         "name": "Helm Agung Segar Mata Pedang"
       },
@@ -19090,6 +19732,51 @@ export const id_ID: EnTranslations = {
       "stable_horse": {
         "name": "Kuda Kandang"
       },
+      "hoard_brood_egg": {
+        "name": "Genggam Kawanan"
+      },
+      "hoard_brood_hatchling": {
+        "name": "Anak Ayam Vysska"
+      },
+      "hoard_healing_tide_totem": {
+        "name": "Totem Pasang Penyembuhan"
+      },
+      "hoard_bound_pulsar": {
+        "name": "Pulsar Terikat"
+      },
+      "hoard_abyssal_tentacle": {
+        "name": "Tentakel Mulut Jurang"
+      },
+      "hoard_silk_cocoon": {
+        "name": "Kepompong Sutra"
+      },
+      "hoard_brood_cocoon": {
+        "name": "Kepompong Kawanan"
+      },
+      "hoard_coinsack_scurrier": {
+        "name": "Penari Mata Uang"
+      },
+      "hoard_boss_mushroom": {
+        "name": "Ibu Jamur"
+      },
+      "hoard_sporeling": {
+        "name": "Spora Muda"
+      },
+      "hoard_bloat_cap": {
+        "name": "Topi Membengkak"
+      },
+      "hoard_boss_mole": {
+        "name": "Penggali Dalam"
+      },
+      "hoard_boss_bat": {
+        "name": "Kelelawar Kolosal"
+      },
+      "hoard_boss_mimic": {
+        "name": "Peti Rakus"
+      },
+      "hoard_bat_swarmling": {
+        "name": "Penyebar Gua"
+      },
       "rift_spawnling": {
         "name": "Anak Rift"
       },
@@ -19119,6 +19806,9 @@ export const id_ID: EnTranslations = {
       },
       "rift_marrow_troll": {
         "name": "Troll Sumsum"
+      },
+      "rift_marrow_golem": {
+        "name": "Golem Sumsum"
       },
       "rift_void_acolyte": {
         "name": "Akolit Voidscar"
@@ -23252,6 +23942,11 @@ export const id_ID: EnTranslations = {
         "sender": "Perantara Bursa",
         "subject": "Daftar Bursa Anda terjual",
         "body": "Daftar Anda terjual dan pembeli telah melunasi seluruhnya. Buku besar Bursa menyimpan catatan penjualan ini, dan aktivitas Bursa Anda menampilkan jumlah yang dilunasi beserta rinciannya.\n\n- Perantara Bursa"
+      },
+      "hoard_vault_reward": {
+        "sender": "Pos Gagak",
+        "subject": "Hadiah lemari besi Anda",
+        "body": "Lemari besi dibersihkan, tetapi bagian Anda tidak diambil dari peti. Burung gagak telah membawanya ke Anda di sini, dengan barang dan koin yang Anda peroleh.\n\n- Pos Gagak"
       }
     },
     "itemSets": {

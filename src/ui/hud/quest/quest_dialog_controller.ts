@@ -14,10 +14,11 @@ import { markDialogRoot } from '../../dialog_root';
 import { itemDisplayName } from '../../entity_i18n';
 import { esc } from '../../esc';
 import type { FocusTrapHandle } from '../../focus_manager';
-import { t } from '../../i18n';
+import { type TranslationKey, t } from '../../i18n';
 import { QUALITY_COLOR } from '../../icons';
 import { NPC_WINDOW_CLOSE_RANGE } from '../../npc_service_range';
 import type { PainterHostPresentation } from '../../painter_host';
+import { clueHuntTitle } from '../../quest_event_view';
 import { svgIcon } from '../../ui_icons';
 import {
   isWorldQuestInstructorOrEscort,
@@ -33,6 +34,7 @@ import { buildAttunementPreview } from '../professions/profession_identity_view'
 import { isStationMasterNpc } from '../vendor/train_view';
 import { isWarfareVendorNpc } from '../vendor/warfare_vendor_view';
 import { clueStepRowFor, clueStepRowSig } from './clue_step_row_view';
+import { clueReplyKey, clueTalkFor } from './clue_talk_row_core';
 import { gossipMenuIsEmpty } from './gossip_menu';
 import { masterCraftTarget } from './master_craft_core';
 import { PROF_INTRO_QUEST_ID, professionIntroHintVisible } from './prof_intro_hint_core';
@@ -120,6 +122,7 @@ export class QuestDialogController {
   // signature (a cadence lapse re-offers a work order by a pure
   // tick-threshold crossing, with NO quest event to repaint through).
   private lastIntroHintVisible: boolean | null = null;
+  private clueReplyOpen = false;
   private lastGossipRowSig: string | null = null;
   // The Clue Scroll row's staleness signature (clue_step_row_view.ts): the row reads
   // LIVE hunt state, so it joins the refreshIfChanged watch (a step can advance
@@ -227,6 +230,7 @@ export class QuestDialogController {
   close(restoreFocus = true): void {
     this.deps.element.style.display = 'none';
     this.npcId = null;
+    this.clueReplyOpen = false;
     this.detailQuestId = null;
     this.investigationSig = null;
     this.lastIntroHintVisible = null;
@@ -243,6 +247,9 @@ export class QuestDialogController {
 
   refresh(): void {
     if (this.npcId === null || this.deps.element.style.display !== 'block') return;
+    // The clue reply stays up until the player moves on (the step advance that
+    // follows it would otherwise repaint the gossip list over it).
+    if (this.clueReplyOpen) return;
     const npc = this.deps.world().entities.get(this.npcId);
     if (npc) this.renderGossip(npc);
     else this.close();
@@ -260,6 +267,7 @@ export class QuestDialogController {
    *  (the dialog holds focus-trapped buttons). */
   refreshIfChanged(): void {
     if (this.npcId === null || this.deps.element.style.display !== 'block') return;
+    if (this.clueReplyOpen) return;
     if (this.investigationSig !== null) {
       if (investigationSignature(this.deps.world()) !== this.investigationSig) this.refresh();
       return;
@@ -370,6 +378,7 @@ export class QuestDialogController {
     if (this.renderInvestigation(npc)) return;
     this.investigationSig = null;
     if (this.renderWorldQuestInstructor(npc)) return;
+    this.clueReplyOpen = false;
     const definition = NPCS[npc.templateId];
     const interesting = this.offerableRows(npc);
     this.lastGossipRowSig = gossipRowSig(interesting);
@@ -596,6 +605,7 @@ export class QuestDialogController {
     this.deps.element.querySelectorAll<HTMLElement>('[data-quest]').forEach((item) => {
       item.addEventListener('click', () => this.renderQuestDetail(npc, item.dataset.quest ?? ''));
     });
+    // The clue talk and the quest discussion send the same sim talk.
     this.deps.element.querySelectorAll<HTMLButtonElement>('[data-discuss]').forEach((item) => {
       item.addEventListener('click', () => {
         const liveWorld = this.deps.world();
@@ -634,14 +644,17 @@ export class QuestDialogController {
     });
     // The Clue Scroll row sends the SAME authoritative interact the discuss
     // row does (sim talkToNpc runs onNpcTalkedForClueHunt first on every
-    // host; online it is the interact command). Like the husk trade it opens
-    // no successor window (the sim's clue log line or refusal is the
-    // feedback), so it closes WITH the trap's own focus restore.
+    // host; online it is the interact command). A talk step the sim will
+    // accept is answered in the NPC's own voice (clue_talk_row_core.ts);
+    // anything else opens no successor window (the sim's clue log line or
+    // refusal is the feedback), so it closes WITH the trap's focus restore.
     this.deps.element.querySelector('[data-clue-step]')?.addEventListener('click', () => {
       const liveWorld = this.deps.world();
+      const talk = clueTalkFor(liveWorld.clueHunt, npc.templateId, liveWorld.inventory ?? []);
       liveWorld.targetEntity(npc.id);
       liveWorld.interact();
-      this.close(true);
+      if (talk?.ready) this.renderClueReply(npc, talk.huntId, talk.step);
+      else this.close(true);
     });
     this.bindClose();
     this.showAndFocus();
@@ -923,6 +936,26 @@ export class QuestDialogController {
     this.bindClose();
     this.showAndFocus();
     return true;
+  }
+
+  /** The NPC's answer to a solved clue talk or delivery, then back to the gossip
+   *  list (or closed, if nothing else is left to say). */
+  private renderClueReply(npc: Entity, huntId: string, step: number): void {
+    this.clueReplyOpen = true;
+    const definition = NPCS[npc.templateId];
+    const npcName = definition
+      ? this.deps.text.npcName(npc.templateId)
+      : this.deps.text.mobName(npc.templateId);
+    const npcTitle = definition ? this.deps.text.npcTitle(definition.id) : '';
+    let html = `<div class="panel-title ui-win-head"><span class="ui-win-title" id="quest-dialog-title">${esc(npcName)}<span class="quest-muted ui-win-sub"> &lt;${esc(npcTitle)}&gt;</span></span><button type="button" class="x-btn ui-x-btn" data-close aria-label="${esc(t('questUi.dialog.close'))}">${svgIcon('close')}</button></div>`;
+    html += `<div class="qd-sub">${esc(clueHuntTitle(huntId))}</div>`;
+    html += `<div class="qd-text" data-clue-reply="1">"${esc(t(clueReplyKey(huntId, step) as TranslationKey))}"</div>`;
+    this.deps.element.innerHTML = html;
+    const button = this.makeButton(t('questUi.dialog.continue'));
+    button.addEventListener('click', () => this.renderGossip(npc, true));
+    this.deps.element.appendChild(button);
+    this.bindClose();
+    this.showAndFocus();
   }
 
   private makeButton(label: string): HTMLButtonElement {

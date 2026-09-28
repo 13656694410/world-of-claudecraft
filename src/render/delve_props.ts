@@ -883,13 +883,14 @@ export function syncDelveInteractableVisibility(
   questLog: ReadonlyMap<string, OpenedObjectQuestRow>,
   compilePending: boolean,
   withinPortalRange = true,
+  worldQuestLog?: ReadonlyMap<string, OpenedObjectQuestRow>,
 ): boolean {
   const visible =
     !compilePending &&
     !isWorldQuestPlacerSourceHidden(group) &&
     delveInteractableVisible(entity.templateId ?? null, entity.lootable) &&
     withinPortalRange &&
-    !isObjectOpenedByViewer(entity, questLog);
+    !isObjectOpenedByViewer(entity, questLog, worldQuestLog);
   group.visible = visible;
   return visible;
 }

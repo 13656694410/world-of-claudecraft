@@ -68,6 +68,21 @@ describe('reputation tab html', () => {
     expect(html).not.toContain('Watcher');
   });
 
+  it('frames each faction emblem inside its crest as decorative art', () => {
+    const html = reputationTabHtml(worldStub({}), 0);
+    const crests = html.match(/<span class="char-rep-crest" aria-hidden="true">(.*?)<\/span>/g);
+    expect(crests).toHaveLength(3);
+    for (const [index, art] of [
+      'rift_watch_mark',
+      'church_order_crest',
+      'automaton_cog',
+    ].entries()) {
+      expect(crests?.[index]).toContain(
+        `<img class="char-rep-emblem" src="/ui/currency/${art}.webp" alt="" draggable="false">`,
+      );
+    }
+  });
+
   it('escapes nothing it does not own: every dynamic value passes through esc()', () => {
     const html = reputationTabHtml(worldStub({}), 0);
     expect(html).not.toContain('<script');

@@ -62,20 +62,42 @@ describe('Faction Vendors & Reroll NPC content', () => {
     expect(Object.keys(FACTION_VENDOR_NPCS)).toHaveLength(4);
   });
 
-  it('the stock lists and the gate table name the same 33 rows; the item table authors all but the reins', () => {
+  it('the stock lists and the gate table name the same 47 rows, all priced in marks but the reins', () => {
     const stockIds = FACTION_IDS.flatMap((f) => [...FACTION_VENDOR_STOCK[f]]);
-    expect(stockIds).toHaveLength(33);
-    expect(new Set(stockIds).size).toBe(33);
-    expect([...stockIds].sort()).toEqual(Object.keys(FACTION_VENDOR_GATES).sort());
-    // The Valestrider reins def lives with the other reins in content/items.ts.
-    expect([...stockIds].filter((id) => id !== 'reins_avian_strider').sort()).toEqual(
-      Object.keys(FACTION_VENDOR_ITEMS).sort(),
-    );
+    const unique = new Set(stockIds);
+    // The three allied rows stand on every ladder; every other row on one.
+    expect(stockIds).toHaveLength(53);
+    expect(unique.size).toBe(47);
+    expect([...unique].sort()).toEqual(Object.keys(FACTION_VENDOR_GATES).sort());
+    // The Valestrider reins sit with the other reins and the Ink with the quest
+    // items (content/items.ts); the item table also authors what the sold
+    // recipes craft, which no vendor stocks.
+    const CRAFTED = [
+      'potion_of_invisibility',
+      'reinforced_armor_kit',
+      'elixir_of_mana_regeneration',
+      'clockwork_shock_bomb',
+      'dense_sharpening_stone',
+    ];
+    expect(
+      [...unique]
+        .filter((id) => id !== 'reins_avian_strider' && id !== 'cartographers_ink')
+        .concat(CRAFTED)
+        .sort(),
+    ).toEqual(Object.keys(FACTION_VENDOR_ITEMS).sort());
     for (const factionId of FACTION_IDS) {
       for (const id of FACTION_VENDOR_STOCK[factionId]) {
-        expect(FACTION_VENDOR_GATES[id].factionId, id).toBe(factionId);
+        const gate = FACTION_VENDOR_GATES[id];
+        // An allied row carries no faction: every quartermaster sells it.
+        if (gate.factionId !== undefined) expect(gate.factionId, id).toBe(factionId);
         expect(ITEMS[id], id).toBeDefined();
-        expect(ITEMS[id].buyValue, id).toBeGreaterThan(0);
+        if (id === 'reins_avian_strider') {
+          expect(ITEMS[id].buyValue, id).toBeGreaterThan(0);
+          expect(gate.currencyCost, id).toBe(0);
+        } else {
+          expect(ITEMS[id].buyValue, id).toBe(0);
+          expect(gate.currencyCost, id).toBeGreaterThan(0);
+        }
         // Formulas are bind-on-pickup knowledge and mount reins never vendor
         // back (the mount contract in tests/mounts.test.ts); every other row sells.
         if (ITEMS[id].kind === 'recipe' || ITEMS[id].kind === 'mount') {
@@ -97,7 +119,8 @@ describe('Faction Vendors & Reroll NPC content', () => {
     // tests/recipe_pattern_items.test.ts: learning spends the copy).
     for (const [id, def] of Object.entries(FACTION_VENDOR_ITEMS)) {
       if (def.kind === 'recipe') expect(def.soulbound, `${id} is a pattern`).toBeFalsy();
-      else expect(def.soulbound, `${id} binds`).toBe(true);
+      else if (def.kind === 'armor' || def.kind === 'weapon' || def.kind === 'bag')
+        expect(def.soulbound, `${id} binds`).toBe(true);
       if (def.kind === 'armor' || def.kind === 'weapon') {
         expect(def.requiredLevel, `${id} pins its level`).toBe(20);
         expect(requiredLevelFor(def), `${id} gates at 20`).toBe(20);
@@ -130,7 +153,8 @@ describe('Faction Vendors & Reroll NPC content', () => {
         .map((id) => (ITEMS[id].kind === 'recipe' ? 'formula' : (ITEMS[id].slot ?? ITEMS[id].kind)))
         .sort();
     for (const factionId of FACTION_IDS) {
-      expect(slotsAt(factionId, 'recognized'), factionId).toEqual(['neck']);
+      // The allied Cartographer's Ink (a quest item) joins every Recognized neck.
+      expect(slotsAt(factionId, 'recognized'), factionId).toEqual(['neck', 'quest']);
       expect(slotsAt(factionId, 'trusted'), factionId).toContain('ring');
       expect(slotsAt(factionId, 'proven'), factionId).toEqual(
         expect.arrayContaining(['waist', 'feet', 'formula']),
@@ -142,32 +166,45 @@ describe('Faction Vendors & Reroll NPC content', () => {
     }
     // The one mount a faction sells: the Rift Watch's Champion reward.
     expect(slotsAt('rift_watch', 'champion')).toEqual(['mount', 'neck', 'ring']);
-    expect(slotsAt('rift_watch', 'trusted')).toEqual(['bag', 'ring']);
-    expect(slotsAt('automatons', 'trusted')).toEqual(['bag', 'ring']);
+    // Trusted adds a toy (the glider, the target dummy, the battle standard).
+    expect(slotsAt('rift_watch', 'trusted')).toEqual(['bag', 'ring', 'tool']);
+    expect(slotsAt('automatons', 'trusted')).toEqual(['bag', 'ring', 'tool']);
   });
 
   it('correctly maps FACTION_VENDOR_GATES to the exact standing thresholds', () => {
     for (const [_itemId, gate] of Object.entries(FACTION_VENDOR_GATES)) {
       expect(gate.requiredStanding).toBe(STANDING_THRESHOLDS[gate.standingTier]);
-      expect(FACTION_IDS).toContain(gate.factionId);
+      if (gate.factionId) {
+        expect(FACTION_IDS).toContain(gate.factionId);
+      }
       expect(STANDING_TIERS).toContain(gate.standingTier);
     }
   });
 
-  it('prices climb the tier ladder and sell back at a quarter (formulas and the mount excepted)', () => {
-    const PRICE = {
-      recognized: 5_000,
-      trusted: 15_000,
-      proven: 35_000,
-      vanguard: 80_000,
-      champion: 150_000,
+  it('prices every row in marks on the tier scale; gear sells back for coin; the reins keep 100 gold', () => {
+    const MARKS = { recognized: 15, trusted: 35, proven: 75, vanguard: 150, champion: 200 };
+    const SELL = {
+      recognized: 1_250,
+      trusted: 3_750,
+      proven: 8_750,
+      vanguard: 20_000,
+      champion: 37_500,
     };
     for (const [id, gate] of Object.entries(FACTION_VENDOR_GATES)) {
       if (id === 'reins_avian_strider') continue;
-      const tier = gate.standingTier as keyof typeof PRICE;
-      expect(ITEMS[id].buyValue, id).toBe(PRICE[tier]);
-      if (ITEMS[id].kind !== 'recipe') expect(ITEMS[id].sellValue, id).toBe(PRICE[tier] / 4);
+      const def = ITEMS[id];
+      const tier = gate.standingTier as keyof typeof MARKS;
+      expect(def.buyValue, id).toBe(0);
+      if (gate.factionId === undefined) continue; // the allied rows, pinned below
+      if (def.kind === 'recipe') expect(gate.currencyCost, id).toBe(50);
+      else if (def.kind === 'tool') expect(gate.currencyCost, id).toBe(40);
+      else expect(gate.currencyCost, id).toBe(MARKS[tier]);
+      if (def.kind === 'armor' || def.kind === 'weapon' || def.kind === 'bag')
+        expect(def.sellValue, id).toBe(SELL[tier]);
     }
+    expect(FACTION_VENDOR_GATES.cartographers_ink.currencyCost).toBe(60);
+    expect(FACTION_VENDOR_GATES.allied_hearthstone.currencyCost).toBe(100);
+    expect(FACTION_VENDOR_GATES.allied_vanguard_duffel.currencyCost).toBe(120);
     // The mount: ten times the Valorsteed's 10 gold (the classic epic-mount
     // ratio), an ordinary player reins that never vendor-sells back.
     const reins = ITEMS.reins_avian_strider;
@@ -377,13 +414,14 @@ describe('faction ladder budgets mirror the raid and heroic tables', () => {
 });
 
 describe('Faction vendor purchase authoritative simulation & UI', () => {
-  it('enforces standing gates during sim.buyItem authoritative purchase', () => {
+  it('enforces standing gates and currency costs during sim.buyItem authoritative purchase', () => {
     const sim = new Sim({ seed: 777, playerClass: 'warrior', autoEquip: false });
     const meta = sim.meta(sim.playerId);
     expect(meta).toBeDefined();
     if (!meta) return;
-    meta.copper = 100_000; // 10 gold, plenty of copper
+    meta.copper = 100_000;
     meta.factions.church_order = 500; // Not yet Recognized (requires 1,000)
+    meta.factionCurrencies.church_order = 100; // Plenty of faction marks
 
     // Find the Church Quartermaster in Eastbrook Vale and move player into range
     const qm = [...sim.entities.values()].find(
@@ -403,30 +441,44 @@ describe('Faction vendor purchase authoritative simulation & UI', () => {
     ).toBe(true);
     expect(sim.countItem('order_prayer_beads')).toBe(0);
     expect(meta.copper).toBe(100_000);
+    expect(meta.factionCurrencies.church_order).toBe(100);
 
     // Increase standing to Recognized (1,000)
     meta.factions.church_order = 1_000;
     sim.buyItem(qm.id, 'order_prayer_beads');
     expect(sim.countItem('order_prayer_beads')).toBe(1);
-    expect(meta.copper).toBe(95_000); // 100,000 - 5,000 buyValue
+    // Tier 1 costs 15 Order Crests, 0 copper
+    expect(meta.factionCurrencies.church_order).toBe(85);
+    expect(meta.copper).toBe(100_000);
 
     // Attempting to buy Trusted (3,000) still fails
     sim.buyItem(qm.id, 'acolytes_signet');
     expect(sim.countItem('acolytes_signet')).toBe(0);
 
-    // Elevate to Trusted (3,000)
+    // Elevate standing to Trusted (3,000), but hold fewer crests than the ring (35)
     meta.factions.church_order = 3_000;
+    meta.factionCurrencies.church_order = 10;
+    sim.drainEvents();
+    sim.buyItem(qm.id, 'acolytes_signet');
+    expect(
+      sim.drainEvents().some((e) => e.type === 'error' && e.text.includes('Order Crest')),
+    ).toBe(true);
+    expect(sim.countItem('acolytes_signet')).toBe(0);
+    meta.factionCurrencies.church_order = 50;
     sim.buyItem(qm.id, 'acolytes_signet');
     expect(sim.countItem('acolytes_signet')).toBe(1);
-    expect(meta.copper).toBe(80_000); // 95,000 - 15,000 buyValue
+    expect(meta.factionCurrencies.church_order).toBe(15); // 50 - 35
+    expect(meta.copper).toBe(100_000);
 
-    // A Proven formula is refused at Trusted and sold at Proven.
+    // A Proven formula is refused at Trusted and sold at Proven for 50 crests.
     sim.buyItem(qm.id, 'formula_dawnfire_etching');
     expect(sim.countItem('formula_dawnfire_etching')).toBe(0);
     meta.factions.church_order = 7_000;
+    meta.factionCurrencies.church_order = 60;
     sim.buyItem(qm.id, 'formula_dawnfire_etching');
     expect(sim.countItem('formula_dawnfire_etching')).toBe(1);
-    expect(meta.copper).toBe(45_000); // 80,000 - 35,000 buyValue
+    expect(meta.factionCurrencies.church_order).toBe(10); // 60 - 50
+    expect(meta.copper).toBe(100_000);
   });
 
   it('sells the Valestrider reins at Champion behind the riding and one-per-account gates', () => {

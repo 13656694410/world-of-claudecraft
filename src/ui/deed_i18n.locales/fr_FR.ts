@@ -1246,6 +1246,10 @@ export const table: DeedLocaleTable = {
     name: 'De port en port',
     desc: "Naviguez sur les deux bacs aller-retour : d'Eastbrook à Moonrest, et de Wickharbor à Wyrmwatch.",
   },
+  cmb_coinsack_caught: {
+    name: 'Pris en flagrant délit',
+    desc: "Capturez un Escroc Sacpiéces dans un Trésor enterré avant qu'il ne s'échappe avec l'or.",
+  },
 };
 
 // fr_CA rides this base table plus the delve-vocabulary override layer

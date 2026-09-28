@@ -657,4 +657,30 @@ describe('map semantic accessibility core', () => {
       }),
     ).toBe('Rift entrance: Storm Rift (S)');
   });
+
+  it('names a Buried Hoard entrance without Rift language', () => {
+    const view = core();
+    const marker = { kind: 'hoard-entrance', mx: 120, my: 120 } as const;
+    expect(view.navigationText(marker)).toBe('Buried Hoard entrance');
+    const description = view.updateOverworld(
+      {
+        ...crowdedOverworldModel(),
+        questAreas: [],
+        npcs: [],
+        gatherNodes: [],
+        stations: [],
+        services: [],
+        farmPatches: [],
+        navigation: [marker],
+        allies: [],
+        party: [],
+        portals: [],
+        pois: [],
+      },
+      'Eastbrook Vale',
+      560,
+    );
+    expect(description).toContain('Buried Hoard entrance');
+    expect(description).not.toContain('Rift entrance');
+  });
 });

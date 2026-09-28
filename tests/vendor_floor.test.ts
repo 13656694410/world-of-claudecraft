@@ -831,9 +831,15 @@ describe('stock rows: the phase 11n pulls', () => {
       wardsmith_orun: 3,
       // The three faction quartermasters (faction_vendors.ts): the standing
       // ladder, ten to twelve rows each (FACTION_VENDOR_STOCK).
-      npc_rift_watch_quartermaster: 11,
-      npc_church_order_quartermaster: 12,
-      npc_automaton_quartermaster: 10,
+      // Re-measured at the 2026-09-28 release/v0.44.0 merge into
+      // feature/buried-hoards: each quartermaster gained the three allied rows
+      // (cartographers_ink, allied_hearthstone, allied_vanguard_duffel), its
+      // faction toy, and its Buried Hoards recipes and formulas (Rift Watch 3,
+      // Church Order 2, Automatons 3): 11 to 18, 12 to 18, 10 to 17. No row
+      // was lost (verified against the merged lists by id).
+      npc_rift_watch_quartermaster: 18,
+      npc_church_order_quartermaster: 18,
+      npc_automaton_quartermaster: 17,
     });
   });
 });

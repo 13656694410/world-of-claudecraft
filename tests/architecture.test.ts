@@ -241,6 +241,8 @@ const UI_PURE_CORES = [
   'src/ui/collection_actions_core.ts',
   'src/ui/hud/cosmetics/cosmetics_cards_view.ts',
   'src/ui/hud/cosmetics/cosmetics_view.ts',
+  'src/ui/hud/faction_reward_tooltip_view.ts',
+  'src/ui/hud/treasure/treasure_map_view.ts',
   'src/ui/hud/vehicle/vehicle_aim_core.ts',
   'src/ui/hud/vehicle/vehicle_action_bar_view.ts',
   'src/ui/hud/vehicle/glider_action_bar_view.ts',
@@ -265,6 +267,10 @@ const UI_PURE_CORES = [
   // The map rail's world-quest section: the character's board, the shared
   // selection and the daily replacement's availability (src/ui/hud/map/).
   'src/ui/hud/map/world_quest_rail_view.ts',
+  // The world quest hover card model (title, faction, time left, objective, and
+  // the standing / currency / money / XP / item rewards); world_quest_tooltip_html
+  // paints it into the shared #tooltip.
+  'src/ui/hud/map/world_quest_tooltip_view.ts',
   // Which zone the overworld map frames (dungeon door, frozen last zone,
   // committed zone, override), lifted out of Hud.updateMapWindow.
   'src/ui/hud/map/map_zone_focus_core.ts',
@@ -343,6 +349,7 @@ const UI_PURE_CORES = [
   'src/ui/hud/quest/quest_tracker.ts',
   'src/ui/hud/quest/quest_strip_core.ts',
   'src/ui/hud/action_bar/item_bags_line_core.ts',
+  'src/ui/hud/quest/clue_talk_row_core.ts',
   'src/ui/hud/action_bar/trinket_slot_core.ts',
   'src/ui/hud/quest/prof_intro_hint_core.ts',
   'src/ui/hud/quest/clue_step_row_view.ts',
@@ -352,6 +359,8 @@ const UI_PURE_CORES = [
   'src/ui/hud/aura_tracks/aura_track_descriptors.ts',
   'src/ui/hud/aura_tracks/aura_track_view.ts',
   'src/ui/hud/quest/master_craft_core.ts',
+  // The world quest entry banner model (the #banner 'worldQuest' plate).
+  'src/ui/hud/quest/world_quest_banner_view.ts',
   'src/ui/quest_marker_tags.ts',
   'src/ui/hud/delve/delve_map.ts',
   'src/ui/hud/rift/rift_map_core.ts',
@@ -725,6 +734,7 @@ const UI_PURE_CORES = [
   'src/ui/host_diag_view.ts',
   'src/ui/dpad_nav_core.ts',
   'src/game/graphics_rebuild_core.ts',
+  'src/game/hoard_mechanic_audio_core.ts',
   'src/game/presentation_gate.ts',
   'src/game/stale_chrome_focus.ts',
   'src/game/perf_diagnosis_core.ts',
@@ -794,6 +804,32 @@ const RENDER_PURE_CORES = [
   'src/render/warrior_fury_state_core.ts',
   'src/render/warrior_power_core.ts',
   'src/render/warrior_readiness_core.ts',
+  'src/render/hoard_orbital_lightning_core.ts',
+  'src/render/hoard_bone_reaper_core.ts',
+  'src/render/hoard_ice_age_core.ts',
+  'src/render/hoard_pulsars_core.ts',
+  'src/render/hoard_forge_hammer_core.ts',
+  'src/render/hoard_tentacles_core.ts',
+  'src/render/hoard_boulder_core.ts',
+  'src/render/hoard_cocoon_core.ts',
+  'src/render/hoard_goblin_coins_core.ts',
+  'src/render/hoard_mimic_coins_core.ts',
+  'src/render/hoard_boss_dressing_core.ts',
+  'src/render/hoard_cliff_mass_core.ts',
+  'src/render/hoard_encounter_accents_core.ts',
+  'src/render/hoard_reward_chest_core.ts',
+  'src/render/hoard_spell_fx_core.ts',
+  'src/render/hoard_boss_fx_core.ts',
+  'src/render/hoard_boss_gestures_core.ts',
+  'src/render/hoard_forge_gate_core.ts',
+  'src/render/hoard_room_kit_core.ts',
+  'src/render/hoard_room_themes_core.ts',
+  'src/render/hoard_tide_wave_fx_core.ts',
+  'src/render/hoard_entrance_core.ts',
+  'src/render/hoard_valley_core.ts',
+  'src/render/hoard_cavern_core.ts',
+  'src/render/hoard_cavern_ground_core.ts',
+  'src/render/hoard_cavern_foliage_core.ts',
   'src/render/tree_hide_index_core.ts',
   'src/render/transport_ship_core.ts',
   'src/render/harbor_route_marker_core.ts',
@@ -805,6 +841,8 @@ const RENDER_PURE_CORES = [
   'src/render/water_approach_core.ts',
   'src/render/view_candidate_scan_core.ts',
   'src/render/wisp_maze_core.ts',
+  // the maze kit's dressing plan (hedge piece per wall cell, gates, lanterns)
+  'src/render/wisp_maze_kit_core.ts',
   'src/render/glider_course_core.ts',
   'src/render/glider_flight_pose_core.ts',
   'src/render/shadow_detection_core.ts',
@@ -1464,15 +1502,15 @@ describe('Reliquary sparse-state writes stay inside their owning module', () => 
     ).toEqual([]);
   });
 
-  it('noteRelicObtain is called from exactly the two grant hubs (caller-set pin)', () => {
+  it('noteRelicObtain is called from the grant hubs and the atomic vault-save projector', () => {
     // The tally writer takes `meta` directly (no SimContext hop), so a NEW
     // caller adopts whatever movement policy it likes with no seam forcing
     // the question, and the line-regex ban above cannot see it (the write
     // happens inside the owning module on the caller's behalf). Pin the
-    // caller set AND the call text: both call sites must be the hub line
-    // with its movement gate intact, so a dropped `!opts?.movement` prefix,
-    // a changed copies argument, or a replacement arm elsewhere in sim.ts
-    // all red here, not just a third file. A new caller is not banned, it is
+    // caller set AND call text: both grant hubs keep their movement gate.
+    // The vault projector is the third approved caller: it commits world-sourced
+    // finds in the same transaction as the immutable direct claim marker.
+    // A new caller is not banned, it is
     // a REVIEW ITEM: extend this pin only after classifying the new site
     // against the movement rule. Scope: all of src/ (ClientWorld and the UI
     // import from the owning module already, so a caller there is one import
@@ -1489,10 +1527,15 @@ describe('Reliquary sparse-state writes stay inside their owning module', () => 
     const callers = scanLines(callerScanned, /\bnoteRelicObtain\s*\(/);
     const files = [...new Set(callers.map((v) => v.split(':')[0]))].sort();
     expect(files, `unexpected noteRelicObtain callers:\n${callers.join('\n')}`).toEqual([
+      relative(repoRoot, join(simRoot, 'rift', 'hoard_reward_save.ts')),
       relative(repoRoot, join(simRoot, 'sim.ts')),
     ]);
     const texts = callers.map((v) => v.slice(v.indexOf('  ') + 2));
-    expect(texts, 'both hub arms carry the movement gate and per-copy count').toEqual([
+    expect(
+      texts,
+      'the projector is world-sourced; both hub arms retain their movement gate',
+    ).toEqual([
+      'noteRelicObtain(meta, item.itemId, item.count);',
       'if (!opts?.movement) noteRelicObtain(meta, itemId, count);',
       'if (!opts?.movement) noteRelicObtain(meta, itemId, count);',
     ]);
@@ -2617,6 +2660,7 @@ const UI_DOM_MODULES = [
   'src/ui/mobile_frame_long_press.ts',
   'src/ui/hud/vehicle/vehicle_action_bar_controller.ts',
   'src/ui/hud/map/minimap_objective_tap.ts',
+  'src/ui/hud/treasure/treasure_map_window.ts',
   'src/ui/hud/vehicle/shadow_action_bar_controller.ts',
   'src/ui/hud/vehicle/forge_action_bar_controller.ts',
   'src/ui/account_portal_dom.ts',

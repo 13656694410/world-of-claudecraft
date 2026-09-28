@@ -282,34 +282,40 @@ describe('i18n whole-catalog completeness', () => {
   it('keeps every localized marker accessibility meaning pinned per locale', () => {
     // The release fill translates mapMarkerLabels.farmPatch in the Latin locales.
     // Re-derived after inspecting those labels and regenerating the resolved tables.
-    // Keep literal digests over the 104 marker rows so unintended copy changes fail.
+    // Keep literal digests over the 106 marker rows so unintended copy changes fail.
     // Recipe: sha256(JSON.stringify(Object.entries(flatten(TABLES[lang]))
     //   .filter(([key]) => key.startsWith('hud.core.mapMarker')))).
     // Re-minted at the v0.44.0 release fill (2026-09-27): the world-quest marker
     // labels (activeWorldQuest, availableWorldQuest, worldBoss) were pending in
     // every locale and are now translated, so all twenty digests move; recomputed
     // with the recipe above over the regenerated tables.
+    // Re-minted at the 2026-09-28 Buried Hoards merge: the two hoard entrance
+    // marker labels join (translated in the non-Latin locales, English in the
+    // Latin ones until the release fill), recomputed with the same recipe.
+    // Re-minted at the Buried Hoards release fill (2026-09-28): the two hoard
+    // entrance labels are now translated in the Latin locales, so those fifteen
+    // digests move; the non-Latin five are unchanged.
     const expected = {
-      es: 'c69eaf5d6ba5971203b96b74508c273e4472a4de2b250f1dc8549ce5c7108f90',
-      es_ES: 'c69eaf5d6ba5971203b96b74508c273e4472a4de2b250f1dc8549ce5c7108f90',
-      fr_FR: '237adb036a254bf3c2b77544804bd0c582cbf6f8e942337dfae203d1c2f20796',
-      fr_CA: '237adb036a254bf3c2b77544804bd0c582cbf6f8e942337dfae203d1c2f20796',
-      it_IT: 'f759b8856361c9d74f04a21e8473b7d40b74123f2256fadf4710ee6c59cfa0e7',
-      de_DE: '62ab491f523993e5cc353db76098ea20d37a257b095d1d9cbc02e61672415df0',
-      zh_CN: '2dadd5833c54018a95fb86cc09c251f8bbdefd84c59e7e425cd4828369d8fa64',
-      zh_TW: '2f5faeaead3450e2cd61cc3374f674e1831a1fbd80f9a1d66b7a54f61b143ea6',
-      ko_KR: '761c4b1bbad1b0c40023c198022edf33f84b54235826ed16759f2fd362e7bfbb',
-      ja_JP: '5cc3263072b51a78324d07d1f3a7c0c0b194857a51758037b5207b91295e4dfc',
-      pt_BR: '9ef461731adef6efda45007e5aa27cfd44d9758bf3fd1ea36e7e1b04c219a1ea',
-      ru_RU: 'cc9ee4d8070a4533ab958c883ccf7c22c3c43870cbeddcfa93e4d3d554a82b19',
-      cs_CZ: '21d2150557f5177168168ff30fc08608866ffc2974eaf304646bd3a85069573d',
-      nl_NL: '6da086f7a9723fb714a5d4a9714e51d73284df62a78b80c124c128cc6d02fac0',
-      pl_PL: 'bc457837c42a59049509b85716169bba8bef7a3beec84ad3a664688eadb14d4a',
-      id_ID: 'e8d14c46b89747bdb84f7470cbba88bc9ac86136483907ce2b7ace1495c52a9a',
-      tr_TR: '7e02a4c63d7a8c7f513d4305e869a46717322c4fcd431a0e0887280e6e434034',
-      sv_SE: '81bffba1f21fe2b01293e33186ccce4001228ff293c127c2eca317f724130a29',
-      vi_VN: 'fe3aa798370be294218235f64d595978c1d8b1e23fa6742ed4fafc195df43921',
-      da_DK: '5cf82206c6d987da3cbdaee84d05ea89a31cce052fb339a24ffc6c1db2b60845',
+      es: '00e5c704dcd2633f9640f9bd038bd4ef3a19b940fc6b2a61ab8bbc35a71fe613',
+      es_ES: '00e5c704dcd2633f9640f9bd038bd4ef3a19b940fc6b2a61ab8bbc35a71fe613',
+      fr_FR: 'b311b529e3e718b396be21a86fed197df457eae7a4e33ed6b1fb840fb3db4e37',
+      fr_CA: 'b311b529e3e718b396be21a86fed197df457eae7a4e33ed6b1fb840fb3db4e37',
+      it_IT: '0c4ad2e3b2a21b11e7de5f1d8ed4b5731efb15e823f6f68861ebae566ee2d03a',
+      de_DE: 'd9b5edaa38fcb851a462088b8fd9eab1c03df3a5e8a342462e432496f93fbb4d',
+      zh_CN: '25a4447107be04d07da7839ea1f771572b70118ec1992f2cfabb447c0f774297',
+      zh_TW: '55598183fde49ce0a991f382968b45b49317fb42e58eebdcefa574dd96a364bf',
+      ko_KR: 'f85a6cdaf3fbcb285417d26ecd4720702530530f5b421e47db820e31987a8149',
+      ja_JP: '693f803807ac6d828a1d9f8bd156c10c913a1969df785b90ebcd06523b1283a5',
+      pt_BR: '6e50559c9066e4dfbfd76da4e47a87556c4334ccf7d01ade6a0aaed24049e055',
+      ru_RU: '6996bb8a44dfea40d44f884bb25651f0e18ce49e551547072917a4f096a972bd',
+      cs_CZ: 'c903e5c4d40e1eec3ac5ad062c5e854a4d9c4e23649884e2e7aa150359bd773b',
+      nl_NL: '109292f3d2ef6ebf99514351fc60dd6b25ce4f1452000e7b9228fe4bfb2a3fd1',
+      pl_PL: '64f5962e2719ea293155b60105067cf6f5a82755e551af2d79ed6c577c815186',
+      id_ID: '0edea36250a9fcf77a5bb6184610438e2b2eb862a79360655439bbea2f7eba13',
+      tr_TR: '32c221f59d9507528a1111960a95a9f7f9a687c0e26c922986420a842133b69f',
+      sv_SE: '1d024cf9fbdecd77ae9fd0b93bad3b958540eb70a0a20e7b456e3efb3303409f',
+      vi_VN: '7533ac03cbe1be269531a0e6c43939417cacda85bd3e96e9d22d401eca58cc2e',
+      da_DK: 'c5fb6b4cd9586ce1ca7e098f1306c6f5350b6eeb75185b88c5045aa12b9617fa',
     } as const satisfies Partial<Record<SupportedLanguage, string>>;
 
     for (const [lang, digest] of Object.entries(expected) as Array<
@@ -326,7 +332,11 @@ describe('i18n whole-catalog completeness', () => {
       // 104 at the release/v0.43.0 merge into feature/world-quests: plus the
       // branch's activeWorldQuest, availableWorldQuest and worldBoss marker
       // labels, re-measured for all twenty locales on the merged tree.
-      expect(markerRows).toHaveLength(104);
+      // One additional row identifies the Buried Hoard entrance.
+      // 106 with mapMarkerLabels.hoardReturnEntrance (the hoard's way back out,
+      // 9b7ac4d5fe); every digest was re-derived and checked to reproduce the
+      // prior 105-row digest with only that row removed.
+      expect(markerRows).toHaveLength(106);
       expect(createHash('sha256').update(JSON.stringify(markerRows)).digest('hex'), lang).toBe(
         digest,
       );

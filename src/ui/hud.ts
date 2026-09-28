@@ -55,6 +55,7 @@ import { isOwnAura } from '../sim/aura_classify';
 import { bagPools } from '../sim/bags';
 import { DEEDS } from '../sim/content/deeds';
 import { HEROIC_MARK_ITEM_ID } from '../sim/content/dungeon_difficulty';
+import { vendorFactionForNpc } from '../sim/content/faction_vendors';
 import { HEROIC_VENDOR_STOCK } from '../sim/content/heroic_vendor';
 import { CRUCIBLE_VENDOR_STOCK } from '../sim/content/ignivar_loot';
 import { isOnMountRaceStartPlatform, MOUNTS } from '../sim/content/mounts';
@@ -190,7 +191,7 @@ import { CalendarWindow } from './calendar_window';
 import { require2dContext } from './canvas_context';
 import { CardDuelWindow } from './card_duel_window';
 import { CastBarPainter, type CastBarPaintInput } from './cast_bar_painter';
-import { castDisplayName } from './cast_display_name';
+import { castDisplayName, targetCastDisplayName } from './cast_display_name';
 import { charBagsPaired } from './char_bags_pairing_core';
 import { charSheetRefreshSigFor } from './char_sheet_sig_core';
 import { type CharSkinPainterHost, paintCharSkinPicker } from './char_skin_window';
@@ -377,6 +378,7 @@ import { bindEmpoweredActionHold } from './hud/action_bar/empowered_hold';
 import {
   type AimPoint,
   quickGroundTarget,
+  resolveGroundAimAbility,
   selectedGroundAimPoint,
   shouldUseGroundAim,
   XHB_ONLY_AIM_SLOT,
@@ -459,6 +461,7 @@ import { DelveMapPainter } from './hud/delve/delve_map_painter';
 import { DelveTrackerController } from './hud/delve/delve_tracker_controller';
 import { LockpickController } from './hud/delve/lockpick_controller';
 import { RiteController } from './hud/delve/rite_controller';
+import { factionRewardTooltipLines } from './hud/faction_reward_tooltip_view';
 import { FiestaController } from './hud/fiesta/fiesta_controller';
 import { GuildBoardWindow } from './hud/guild_board';
 import { buildHillBarView, HillBar } from './hud/hill';
@@ -587,6 +590,7 @@ import { StanceBarController } from './hud/stance';
 import { closeOpenTouchMenu } from './hud/tap_menu';
 import { createTargetDotsView, type TargetDotsInput, TargetDotsPainter } from './hud/target_dots';
 import { FerryHudPainter } from './hud/transport';
+import { TreasureMapWindow } from './hud/treasure';
 import { createHudVehicleBar, VehicleActionBarController } from './hud/vehicle';
 import { dismissBuyQuantityPrompts } from './hud/vendor/buy_quantity_prompt_window';
 import { buildCrucibleVendorView } from './hud/vendor/crucible_vendor_view';
@@ -1143,7 +1147,7 @@ const PET_MODE_DESC_KEYS: Record<PetMode, TranslationKey> = {
  *  players reading routine gathering progress as leveling. 'skill' is the
  *  gathering skill milestone plate: copper craft framing with the profession
  *  crest, so a Mining 50 plate can never steal the character level-up reading. */
-export type BannerVariant = 'default' | 'deed' | 'skill';
+export type BannerVariant = 'default' | 'deed' | 'skill' | 'worldQuest';
 
 /** Everything one banner paint needs, held whole so a queued banner (R38)
  *  renders later exactly as it would have rendered immediately. */
@@ -1370,7 +1374,7 @@ export class Hud {
   }
   private readonly playerGroundAim = new GroundAimController({
     player: () => this.sim.player,
-    resolveAbility: (id) => this.sim.known.find((k) => k.def.id === id) ?? null,
+    resolveAbility: (id) => resolveGroundAimAbility(this.sim.known, id),
     seedTargetPoint: () =>
       selectedGroundAimPoint(
         this.sim.player,
@@ -1378,7 +1382,10 @@ export class Hud {
         this.optionsHooks?.groundAimTargetAttackable,
       ),
     fallbackPoint: () => quickGroundTarget(this.sim.player, this.sim.entities),
-    castAt: (id, point) => this.sim.castAbilityAt(id, point),
+    castAt: (id, pt) =>
+      id === 'clockwork_shock_bomb'
+        ? this.sim.useItem(id, { aim: pt })
+        : this.sim.castAbilityAt(id, pt),
     clearReticle: () => this.renderer.setGroundAimReticle(null),
     projectPlacement: (id, point) => this.sim.groundAimPlacementPreview(id, point),
   });
@@ -1388,12 +1395,7 @@ export class Hud {
     sourceIndex: number | null;
     sourceAttackSlot?: boolean;
   } | null = null;
-  // Set while dragging an equipped piece out of the paperdoll onto the bags window.
   private dragUnequipSlot: EquipSlot | null = null;
-  // The mirror gesture: the bag stack currently being dragged OUT of the bags, read
-  // by its two drop targets (a paperdoll socket equips it, the world destroys it).
-  // The windows publish and read it through their deps; the state itself is a shared
-  // module, not another cross-window field cluster on this coordinator.
   private readonly itemDragState = new ItemDragState();
   private suppressNextActionClick = false;
   private optionsHooks: OptionsHooks | null = null;
@@ -2192,7 +2194,10 @@ export class Hud {
     private readonly features: HudFeatures = { dailyRewardsEnabled: true },
   ) {
     hydrateCrestImageFallbacks(document);
-    this.mapMarkerTooltipContent = new MapMarkerTooltipContent(this.sim);
+    // A world quest's item reward embeds the same card the bags show.
+    this.mapMarkerTooltipContent = new MapMarkerTooltipContent(this.sim, {
+      itemTooltip: (item) => this.itemTooltip(item, false),
+    });
     this.mapMarkerInteraction = new MapMarkerInteractionController({
       names: {
         zone: zoneDisplayName,
@@ -2426,7 +2431,13 @@ export class Hud {
       element: $('#qt-body'),
       document,
       world: () => this.sim,
-      settings: trackerCollapseSettings(() => this.optionsHooks, 'questTrackerCollapsed'),
+      settings: {
+        ...trackerCollapseSettings(() => this.optionsHooks, 'questTrackerCollapsed'),
+        worldQuestsCollapsed: () =>
+          (this.optionsHooks?.settings.get('worldQuestTrackerCollapsed') ?? false) === true,
+        setWorldQuestsCollapsed: (collapsed) =>
+          this.optionsHooks?.settings.set('worldQuestTrackerCollapsed', collapsed),
+      },
       questTitle,
       objectiveLabel: questObjectiveLabel,
       click: () => audio.click(),
@@ -2911,7 +2922,7 @@ export class Hud {
     // on touch.
     wireTrackerHeader($('#quest-tracker'), {
       header: '.qt-header',
-      toggle: () => this.toggleQuestTrackerCollapsed(),
+      toggle: (header) => this.questTracker.toggleHeader(header),
       rows: {
         selector: '.qt-title',
         activate: (row) => {
@@ -4727,11 +4738,11 @@ export class Hud {
       timer: this.targetCastbarTimerEl,
     },
     {
-      // The release's Ignivar raid pass localizes every cast through
-      // abilityDisplayNameFromSource (the boss mechanic names ride the
-      // aura/mechanic matcher there). The Phase 14 farming arm that used to
-      // sit in front of it went with the farming plant cast itself.
-      resolveCastLabel: (s) => abilityDisplayNameFromSource(s.label),
+      // Hoard and rift boss cast IDs resolve to their localized wind-up name,
+      // then every other label through abilityDisplayNameFromSource (the boss
+      // mechanic names ride the aura/mechanic matcher there), so a cave boss
+      // never shows its raw cast id (cast_display_name.ts).
+      resolveCastLabel: (s) => targetCastDisplayName(s.label),
     },
   );
   // Second unit-frame painter instance; heraldry hosts are player identity only.
@@ -5226,6 +5237,14 @@ export class Hud {
     sellConfirmPolicy: () => vendorSellConfirmPolicyFrom((k) => this.optionsHooks?.settings.get(k)),
     isHotbarItemId: (itemId) => this.isHotbarItemId(itemId),
     useGatherTool: (item) => this.gatherToolUseHook?.(item) ?? false,
+    startGroundAimForItem: (itemId) => {
+      const resolved = resolveGroundAimAbility(this.sim.known, itemId);
+      if (resolved && itemId === 'clockwork_shock_bomb') {
+        this.castPositionAbility(itemId, resolved, XHB_ONLY_AIM_SLOT);
+        return true;
+      }
+      return false;
+    },
     setDragAction: (action) => {
       this.dragAction = action ? { action, sourceIndex: null } : null;
     },
@@ -5981,6 +6000,7 @@ export class Hud {
     insertQuestChatLink: (questId) => this.insertQuestChatLink(questId),
     showOnMap: (x, z) => this.showFinderOnMap(x, z),
   });
+  private readonly treasureMapWindow = new TreasureMapWindow({ world: () => this.sim });
   private readonly worldQuestPuzzleWindow = new WorldQuestPuzzleWindow({
     document,
     world: () => this.sim,
@@ -6602,15 +6622,11 @@ export class Hud {
     // useItem), from the pure sibling view so bags, bank, crafting, vendor,
     // and market all state what the elixir does.
     html += elixirTooltipLines(item);
-    // Recipe patterns (kind 'recipe'): what the pattern teaches, the craft
-    // skill it wants (red when unmet), and the trainer's own already-known
-    // line when this character has learned it. The viewer state is the
-    // existing craftingIdentity read, so bags, bank, mail, and market all
-    // state the same three lines offline and online. The read is gated on the
-    // kind rather than left to the core's own guard: the offline Sim rebuilds
-    // craftingIdentity (a copied skill record and a SORTED known-recipe list)
-    // on every call, so no other kind's hover should pay for it; the online
-    // ClientWorld read is a plain mirrored field and free either way.
+    html += factionRewardTooltipLines(
+      item,
+      (this.sim as { alliedHearthstoneAttunement?: FactionId }).alliedHearthstoneAttunement,
+    );
+    // Recipe patterns (kind 'recipe'): what the pattern teaches, skill req, and already-known line.
     if (item.kind === 'recipe') {
       html += recipePatternTooltipLines(item, this.sim.craftingIdentity);
     }
@@ -7335,10 +7351,7 @@ export class Hud {
     this.flashActionSlot(0);
   }
 
-  // Pad press edge for a cross hotbar cell. Routed through pressSlot when the bar
-  // holds the action, so a pad press gets the SAME semantics a key press does
-  // (reticle, empower charge, mouseover cast, the auto-attack QoL) rather than a
-  // second cast path that would drift from it; the release edge is releaseCrossHotbarAction.
+  // Pad press edge for a cross hotbar cell. Routed through pressSlot when the bar holds the action.
   pressCrossHotbarAction(action: { type: 'ability' | 'item'; id: string }): void {
     if (VehicleActionBarController.blocksPlayerActions(this.sim)) return;
     if (action.id === CROSS_HOTBAR_ATTACK_ID || action.type === 'item') {
@@ -7362,10 +7375,7 @@ export class Hud {
     this.empowerHold.releaseAction(action, this.sim, (slot) => this.flashActionSlot(slot));
   }
 
-  // Tap-shaped cross hotbar fire (no hold edge available). The bar is seeded from
-  // the action bar, so the slot lookup almost always hits; an action arranged onto
-  // the pad and nowhere else falls back to a plain cast (position abilities keep
-  // the reticle via the ability-id aim identity) or the shared item-use seam.
+  // Tap-shaped cross hotbar fire (no hold edge available).
   castCrossHotbarAction(action: { type: 'ability' | 'item'; id: string }): void {
     if (VehicleActionBarController.blocksPlayerActions(this.sim)) return;
     // Attack is the fixed slot-0 toggle, not something the sim can cast by id.
@@ -7404,26 +7414,24 @@ export class Hud {
       this.useHotbarItem(action.id);
       return;
     }
-    // A cell left holding an item this client cannot use is a stale binding, so
-    // refuse it out loud rather than eating the press.
+    // A cell holding an unusable item refuses out loud.
     this.showError(tSim('error.noItem'));
   }
 
-  // One decision for a position press (bar slots and the XHB-only fallback):
-  // enter aim when the reticle applies and the cast could start (alive, off
-  // cooldown; resources and the GCD change while aiming, so they never gate
-  // entry), else cast instantly. slotForAim is the re-press commit identity.
+  // Position press: enter aim when reticle applies and cast could start, else cast instantly.
   private castPositionAbility(
     abilityId: string,
     resolved: ResolvedAbility,
     slotForAim: number,
   ): void {
+    const cdReady =
+      abilityId === 'clockwork_shock_bomb'
+        ? (this.sim.player.cooldowns.get(abilityId) ?? 0) <= 0
+        : actionBarCooldownRemaining(this.sim.player, resolved) <= 0;
     this.playerGroundAim.pressPosition(
       abilityId,
       slotForAim,
-      this.groundReticleEnabled() &&
-        !this.sim.player.dead &&
-        actionBarCooldownRemaining(this.sim.player, resolved) <= 0,
+      this.groundReticleEnabled() && !this.sim.player.dead && cdReady,
       document.body.classList.contains('mobile-touch'),
     );
   }
@@ -7487,11 +7495,7 @@ export class Hud {
             pressStartsAutoAttack(resolved.effects, mouseoverPid !== null) &&
             hasAutoAttackTarget(target, isPvpHostileTargetId(this.sim, tid))
           ) {
-            // A TIMED cast must not engage yet (the aggro-before-damage bug). The
-            // recorded id only ARMS once castStart below confirms this exact cast
-            // began (a refused cast never reaches it); see
-            // confirmPendingAutoAttackEngage for why that matters. Instants still
-            // engage at once since their damage lands this same tick.
+            // Timed casts defer engage until cast begins; instants start immediately.
             if (deferAutoAttackUntilCastEnd(resolved.castTime)) {
               this.pendingAutoAttackAbilityId = action.id;
             } else {
@@ -7501,22 +7505,32 @@ export class Hud {
         }
         this.flashActionSlot(barSlot);
       } else if (barSlot === 0 && this.freedAttackSlotAbility()) {
-        // The freed slot now visibly shows an assigned, named icon (dimmed) even
-        // while unusable, so a press must refuse out loud rather than eating the
-        // click silently, the same courtesy a stale item binding already gets
-        // (castCrossHotbarAction's tSim('error.noItem') a few dozen lines up).
         this.showError(t('abilityUi.tooltip.unavailable'));
       }
     } else if (action?.type === 'item' && this.isHotbarItemId(action.id)) {
       if (this.tradeOpen) return;
+      if (action.id === 'clockwork_shock_bomb') {
+        const resolved = resolveGroundAimAbility(this.sim.known, action.id);
+        if (resolved) {
+          if (this.isGroundAimActive()) {
+            if (this.groundAim.activeSlot() === barSlot) {
+              this.commitGroundAimAt();
+              this.flashActionSlot(barSlot);
+              return;
+            }
+            this.cancelGroundAim();
+          }
+          this.castPositionAbility(action.id, resolved, barSlot);
+          this.flashActionSlot(barSlot);
+          return;
+        }
+      }
       this.useHotbarItem(action.id);
       this.flashActionSlot(barSlot);
     }
   }
 
-  // The one item-use path a bar press takes, keyboard or pad: gathering tools
-  // route through the interact-style handler first (#2343); everything else
-  // (and fishing implements) keeps the plain useItem command.
+  // Item use path for bar presses: gathering tools route to handler, else plain useItem.
   private useHotbarItem(itemId: string): void {
     if (!this.tryGatherToolUse(itemId)) this.sim.useItem(itemId);
     if ($('#bags').style.display !== 'none') this.renderBags();
@@ -9798,12 +9812,6 @@ export class Hud {
   private updateQuestTracker(now: number): void {
     this.questTracker.update(now);
     this.worldQuestPuzzleWindow.refreshIfChanged();
-  }
-
-  /** Flip the persisted tracker-collapsed preference (the header click/keyboard
-   *  activation), preserving keyboard focus across the innerHTML rebuild. */
-  private toggleQuestTrackerCollapsed(): void {
-    this.questTracker.toggleCollapsed();
   }
 
   // -------------------------------------------------------------------------
@@ -14449,6 +14457,8 @@ export class Hud {
     // would otherwise inherit the previous one's visual language.
     this.bannerEl.classList.toggle('banner-deed', variant === 'deed');
     this.bannerEl.classList.toggle('banner-skill', variant === 'skill');
+    this.bannerEl.classList.toggle('banner-world-quest', variant === 'worldQuest');
+    if (variant === 'worldQuest') this.questBanner.yieldToPlate(durationMs);
     this.bannerEl.classList.toggle('banner-loot', payload.bannerClass === 'loot');
     // Reduced-motion celebrations (craft plan.motion) show and hide the
     // banner without the fade transition: identical text and duration, no
@@ -14672,6 +14682,8 @@ export class Hud {
           // from the mirrored clears map.
           gatheringProficiency: this.sim.gatheringProficiency,
           factions: this.sim.factions,
+          factionCurrencies: this.sim.factionCurrencies,
+          vendorFactionId: vendorFactionForNpc(npc.templateId),
         },
         this.vendorQtyMultiple,
       ),

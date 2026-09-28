@@ -1,3 +1,5 @@
+import { isHoardRewardChestTemplate, openHoardRewardChest } from './rift/hoard_reward_chest';
+import { isRiftEntranceTemplate } from './rift/vault_seed';
 import { vehicleStationByEntityId } from './vehicle_stations';
 import { enterVehicle } from './vehicles';
 // Interaction: looting, quest NPCs, ground objects. The three IWorldInteraction
@@ -283,6 +285,12 @@ export function pickUpObject(
   }
   const obj = ctx.entities.get(objId);
   if (obj?.kind !== 'object' || !obj.lootable) return false;
+  // The hoard reward chest holds no ground item, but it IS what the interact
+  // key and a click on it reach (both arrive here, offline and over the wire).
+  if (isHoardRewardChestTemplate(obj.templateId)) {
+    openHoardRewardChest(ctx, obj.id, p.id);
+    return true;
+  }
   const vehicleStation = vehicleStationByEntityId(obj.id);
   if (vehicleStation) return enterVehicle(ctx, vehicleStation.id, p.id);
   const noticeboardDef = noticeboardDefByEntityId(noticeboardDefinitions, obj.id);
@@ -473,7 +481,7 @@ export function interact(
           ctx.leaveDungeon(p.id);
           return;
         }
-        if (target.templateId === 'rift_portal' && target.riftSeed !== undefined) {
+        if (isRiftEntranceTemplate(target.templateId) && target.riftSeed !== undefined) {
           ctx.enterRift(target.riftSeed, target.riftBaseLevel ?? p.level, p.id, undefined, target);
           return;
         }
@@ -488,6 +496,10 @@ export function interact(
             p.riftLockpickOfferAt = ctx.time;
             ctx.emit({ type: 'lockpickOffer', objectId: target.id, bountiful: false, pid: p.id });
           }
+          return;
+        }
+        if (isHoardRewardChestTemplate(target.templateId)) {
+          openHoardRewardChest(ctx, target.id, p.id);
           return;
         }
         if (target.templateId === 'rift_treasure') {
@@ -590,7 +602,7 @@ export function interact(
       ctx.leaveDungeon(p.id);
       return;
     }
-    if (obj.templateId === 'rift_portal' && obj.riftSeed !== undefined) {
+    if (isRiftEntranceTemplate(obj.templateId) && obj.riftSeed !== undefined) {
       ctx.enterRift(obj.riftSeed, obj.riftBaseLevel ?? p.level, p.id, undefined, obj);
       return;
     }
@@ -603,6 +615,10 @@ export function interact(
         p.riftLockpickOfferAt = ctx.time;
         ctx.emit({ type: 'lockpickOffer', objectId: obj.id, bountiful: false, pid: p.id });
       }
+      return;
+    }
+    if (isHoardRewardChestTemplate(obj.templateId)) {
+      openHoardRewardChest(ctx, obj.id, p.id);
       return;
     }
     if (obj.templateId === 'rift_treasure') {

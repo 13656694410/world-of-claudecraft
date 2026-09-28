@@ -1236,6 +1236,10 @@ export const table: DeedLocaleTable = {
     name: 'De Puerto a Puerto',
     desc: 'Navega en ambos transbordadores de ida y vuelta: de Eastbrook a Moonrest, y de Wickharbor a Wyrmwatch.',
   },
+  cmb_coinsack_caught: {
+    name: 'Atrapada con las manos en la masa',
+    desc: 'Atrapa una Rata de Bolsa de Monedas en un Tesoro Enterrado antes de que escape con el oro.',
+  },
 };
 
 // es_ES rides this base table plus the delve-vocabulary override layer

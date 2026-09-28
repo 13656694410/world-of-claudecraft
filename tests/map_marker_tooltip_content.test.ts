@@ -204,14 +204,41 @@ describe('MapMarkerTooltipContent', () => {
 
     const html = content.worldQuest(marker, Date.UTC(2026, 7, 31, 12, 0));
 
+    expect(html).toContain('<div class="wq-tt">');
     expect(html).toContain('Eastbrook Vale: Load freight into the wagon');
+    expect(html).toContain('<div class="wq-tt-faction">Church Order</div>');
     expect(html).toContain(`Load freight into the wagon: 2/${quest.count}`);
-    expect(html).toContain('Rewards:');
-    expect(html).toContain('experience');
-    expect(html).toContain('Expires in 2 days, 14 hours, and 16 minutes');
+    expect(html).toContain('<div class="wq-tt-rewards-head">Rewards</div>');
+    expect(html).toContain('912 experience');
+    expect(html).toContain('30 Church Order');
+    expect(html).toContain('5 Order Crest');
+    expect(html).toContain(
+      '<span class="wq-tt-label">Time remaining:</span><span>2 days, 14 hours, and 16 minutes</span>',
+    );
     const semantic = content.worldQuestSemantic(quest.id, Date.UTC(2026, 7, 31, 12, 0));
     expect(semantic).toContain(`Load freight into the wagon: 2/${quest.count}`);
-    expect(semantic).toContain('Rewards:');
+    expect(semantic).toContain(
+      'Rewards: 912 experience · 19s · +30 Church Order standing · +5 Order Crest',
+    );
     expect(semantic).toContain('Expires in 2 days, 14 hours, and 16 minutes');
+  });
+
+  it('embeds the host item card for an item-reward world quest', () => {
+    const quest = WORLD_QUESTS.find((row) => row.reward?.extraItem !== undefined);
+    const extra = quest?.reward?.extraItem;
+    if (!quest || !extra) throw new Error('no item-reward world quest');
+    const itemIds: string[] = [];
+    const content = new MapMarkerTooltipContent(makeWorld(), {
+      itemTooltip: (item) => {
+        itemIds.push(item.id);
+        return '<div class="tt-title">host card</div>';
+      },
+    });
+    const html = content.worldQuest(
+      { questId: quest.id, mx: 0, my: 0, radius: 40, state: 'available' },
+      Date.UTC(2026, 7, 31, 12, 0),
+    );
+    expect(itemIds).toEqual([extra.itemId]);
+    expect(html).toContain('<div class="wq-tt-item-card"><div class="tt-title">host card</div>');
   });
 });

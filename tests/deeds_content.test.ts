@@ -146,8 +146,8 @@ describe('audited launch totals (literals: update deliberately with the catalog)
     // 10 and the tenth at 25: +35).
     // 318 / 3535 with the release's Eastbrook ferry round trip
     // (exp_harbor_to_harbor at renown 5) at the fourth release/v0.44.0 base merge.
-    expect(DEED_ORDER.length).toBe(318);
-    expect(ALL.reduce((sum, d) => sum + d.renown, 0)).toBe(3535);
+    expect(DEED_ORDER.length).toBe(319);
+    expect(ALL.reduce((sum, d) => sum + d.renown, 0)).toBe(3545);
   });
 
   it('ships the audited per-category counts', () => {
@@ -167,7 +167,8 @@ describe('audited launch totals (literals: update deliberately with the catalog)
       // +7 the faction standing ladder (a Trusted and a Champion deed per
       // allied faction plus the all-factions meta).
       progression: 75,
-      combat: 10,
+      // +1 the Buried Hoard goblin catch (cmb_coinsack_caught).
+      combat: 11,
       // +2 Rift coverage deeds (dgn_rift, dgn_rift_s_rank), +5 Crucible raid
       // deeds (per-boss clear pairs plus the Varkhul flawless task).
       dungeon: 36,
@@ -403,6 +404,8 @@ describe('audited launch totals (literals: update deliberately with the catalog)
       // (the first casket and the tenth, which grants Treasure Hunter).
       'exp_clue_first_casket',
       'exp_clue_ten_caskets',
+      // The Buried Hoard's Coinsack Scurrier, caught once (hoardGoblinKills).
+      'cmb_coinsack_caught',
       // The release's Eastbrook ferry round trip, appended last at the fourth
       // release/v0.44.0 base merge.
       'exp_harbor_to_harbor',
@@ -1035,7 +1038,9 @@ describe('frozen trigger + renown catalog (design rule 9: never retro-edit a tri
   // re-minted THE AUDITABLE WAY: the 0d91bc68... literal rotated down into
   // PRE_APPEND_CATALOG_SHA256 and the proof below reproduces it exactly. No
   // shipped trigger or renown value was touched.
-  const FROZEN_CATALOG_SHA256 = '8749b988a2135b7b3c0dee2065b54e6491660e86ce51bf7880924ff763ae1a25';
+  // Re-baselined at the 2026-09-28 release merge into feature/buried-hoards: one NEW
+  // deed (cmb_coinsack_caught) joins; no existing trigger or renown changed.
+  const FROZEN_CATALOG_SHA256 = '765c2ea13a8a87d5b43a3f725ab56e1c58464f850dc2ec0e10048adc12f67829';
 
   it('every shipped deed keeps its trigger and renown unchanged', () => {
     const canonical = JSON.stringify(
@@ -1104,7 +1109,7 @@ describe('frozen trigger + renown catalog (design rule 9: never retro-edit a tri
   // and stripping the one id must reproduce it exactly.
   const PRE_APPEND_CATALOG_SHA256 =
     '0d91bc68e18b88a6b0c4dc7088c118d556b3bbec0be1617506b36b8172123eb6';
-  const APPENDED_SINCE: readonly string[] = ['exp_harbor_to_harbor'];
+  const APPENDED_SINCE: readonly string[] = ['cmb_coinsack_caught', 'exp_harbor_to_harbor'];
 
   it('the catalog minus the ids appended since the previous mint reproduces the previous digest', () => {
     const appended = new Set(APPENDED_SINCE);

@@ -503,7 +503,8 @@ export const pt_BR: EnTranslations = {
         "dungeon_heroic": "Saque de masmorra Heroica",
         "world": "Saque de missão mundial",
         "pvp": "Equipamento de GUERRA"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Horário das balsas",
@@ -1166,7 +1167,10 @@ export const pt_BR: EnTranslations = {
       "count": "({count})",
       "objectiveValue": "{current} / {total}",
       "collapseHint": "Recolher missões",
-      "expandHint": "Expandir missões"
+      "expandHint": "Expandir missões",
+      "worldQuests": "Missões de Mundo",
+      "worldQuestsCollapseHint": "Recolher missões de mundo",
+      "worldQuestsExpandHint": "Expandir missões de mundo"
     },
     "interfaceTabs": {
       "general": "Geral",
@@ -1661,6 +1665,10 @@ export const pt_BR: EnTranslations = {
     },
     "riftTracker": {
       "title": "Fenda",
+      "hoardTitle": "Tesouro Enterrado",
+      "hoardGoal": "Derrote o guardião do tesouro",
+      "hoardChestGoal": "Abrir o cofre do tesouro",
+      "hoardClaimedGoal": "O tesouro é seu",
       "floor": "Andar {current} de {total}",
       "closesIn": "Fecha em {time}",
       "clockMs": "{minutes}:{seconds}",
@@ -2870,6 +2878,19 @@ export const pt_BR: EnTranslations = {
       "crafting": "Artesanato",
       "openProfessions": "Profissões abertas"
     },
+    "treasureMap": {
+      "close": "Fechar mapa do tesouro",
+      "zone": "Em algum lugar em {zone}",
+      "hint": "Encontre o terreno que este mapa mostra, fique em pé no X e use o mapa novamente para cavar. Um tesouro enterrado se abre para você e seu grupo.",
+      "upgradeNote": "Redesenhá-lo como um mapa {rarity} leva {inks} Tinta do Cartógrafo (você possui {held}). Os quartéis-mestres das facções a vendem.",
+      "upgradeMaxed": "Nenhum cartógrafo poderia melhorar este mapa.",
+      "rarity": {
+        "common": "Comum",
+        "rare": "Raro",
+        "epic": "Épico",
+        "legendary": "Lendário"
+      }
+    },
     "currencies": {
       "intro": "Nenhuma delas ocupa espaço na mochila. As moedas continuam na sua mochila como sempre.",
       "activities": "Atividades",
@@ -2884,7 +2905,24 @@ export const pt_BR: EnTranslations = {
       "walletNotLinked": "Nenhuma carteira vinculada",
       "wocPreview": "Saldo de pré-visualização, ainda não verificado",
       "lifetime": "Acumulado: {amount}",
-      "factionPending": "Moeda de facção: Estágio 2 pendente"
+      "factionPending": "Moeda de facção: Estágio 2 pendente",
+      "riftWatchMark": "Marca da Vigília das Fissuras",
+      "riftWatchMarkNote": "Missões de mundo em zonas da Vigília das Fissuras",
+      "churchOrderCrest": "Brasão da Ordem",
+      "churchOrderCrestNote": "Missões de mundo em zonas da Ordem da Igreja",
+      "automatonCog": "Engrenagem Autômata",
+      "automatonCogNote": "Missões de mundo em zonas autômatas"
+    },
+    "worldQuestTooltip": {
+      "factionLine": "Facção: {faction}",
+      "timeRemaining": "Tempo restante:",
+      "standingAmount": "{amount} {faction}",
+      "currencyAmount": "{amount} {currency}",
+      "standingReward": "+{amount} de Reputação com {faction}",
+      "currencyReward": "+{amount} {currency}"
+    },
+    "worldQuestBanner": {
+      "subtitle": "Missão de Mundo"
     },
     "reputation": {
       "intro": "As três facções avançam ao mesmo tempo: toda missão mundial conta para a facção da sua zona.",
@@ -5293,6 +5331,9 @@ export const pt_BR: EnTranslations = {
       "enchant_chest_lucent_stamina": "Gravura de peito: Vigor Luminoso",
       "enchant_feet_lucent_agility": "Gravura de botas: Agilidade Luminosa",
       "enchant_lucent_infusion": "Infusão Luminosa",
+      "enchant_offhand_spirit": "Gravação de Mão Secundária: Espírito",
+      "enchant_feet_shadowstride": "Gravação de Bota: Passada Sombria",
+      "enchant_gloves_forged_might": "Gravação de Luva: Força Forjada",
       "enchant_weapon_riftwalkers_grace": "Graça do Caminhante das Fendas",
       "enchant_weapon_dawnfire_etching": "Gravura de arma: Fogo da Alvorada",
       "enchant_weapon_dawns_benediction": "Gravura de arma: Bênção da Alvorada",
@@ -5304,6 +5345,22 @@ export const pt_BR: EnTranslations = {
       "enchant_weapon_dawnfire_etching": "Grava permanentemente uma arma com 18 de poder de feitiço. O poder de feitiço também conta para o poder de cura. Um bônus fixo, que não escala.",
       "enchant_weapon_dawns_benediction": "Grava permanentemente uma arma com 34 de poder de cura. O poder de cura aumenta apenas curas, nunca dano de feitiço. Um bônus fixo, que não escala.",
       "enchant_weapon_piston_drive": "Grava permanentemente uma arma de duas mãos com 12 de Força e 25 de índice de crítico. Não pode ser aplicado a uma arma de uma mão. Um bônus fixo, que não escala."
+    },
+    "factionRewards": {
+      "alliedHearthstoneUse": "Usar: Teleporta você para o seu centro da facção sintonizado. (10 s de lançamento, 15 min de recarga)",
+      "alliedHearthstoneAttuned": "Sintonizado a: {hub}",
+      "hub_none": "Nenhum (Use perto de um centro de facção para sintonizar)",
+      "hub_rift_watch": "Drifthaven (A Vigília das Fissuras)",
+      "hub_church_order": "Vale de Eastbrook (A Ordem da Igreja)",
+      "hub_automatons": "South Reach (A Fundição Autômata)",
+      "riftGliderUse": "Usar: Desdobra o planador, diminuindo a velocidade de queda por 30 s. Pousar ou tomar dano cancela o efeito. (2 min de recarga)",
+      "targetDummyUse": "Usar: Implanta um boneco de treinamento mecânico no mundo aberto por 2 minutos para praticar habilidades de combate. (5 min de recarga)",
+      "battleStandardUse": "Usar: Planta o Estandarte de Batalha da Alvorada Consagrada por 5 minutos, aumentando significativamente a regeneração de vida e mana fora de combate para todos os aliados próximos. Permanecer perto dele por 10 segundos também concede Bênção da Alvorada (+5% para todas as estatísticas por 30 min). (5 min de recarga)",
+      "shockBombUse": "Usar: Lança uma bomba de choque até 30 metros de distância, causando 120 a 160 de dano de Natureza para todos os inimigos dentro de 5 metros. (1 min de recarga)",
+      "invisibilityUse": "Usar: Envolve você em furtividade por 6 s. (2 min de recarga)",
+      "armorKitUse": "Usar: Reforça sua armadura de peito, aumentando Armadura em 12 por 1 hora.",
+      "sharpeningStoneUse": "Usar: Afila sua arma de mão principal, aumentando Poder de Ataque em 6 por 30 min.",
+      "manaElixirUse": "Usar: Aumenta Espírito em 6 por 1 hora."
     },
     "professions": {
       "title": "Profissões",
@@ -6076,6 +6133,7 @@ export const pt_BR: EnTranslations = {
       "sourceActivityCorpseHarvest": "Recuperada ao colher carcaças de criaturas",
       "sourceActivityMasterworkCraft": "Conquistada ao criar uma obra-prima",
       "sourceActivityRiftFirstClear": "Concedida a todos os membros do grupo que vence a primeira conquista de uma Fenda classificada",
+      "sourceActivityBuriedHoard": "Encontrado no cofre de recompensa de um Tesouro Enterrado, o cofre para o qual um mapa do tesouro leva",
       "cellMissingSourceAria": "{name}, ainda não encontrada, {source}",
       "cellOwnedClearsAria": "{name}, catalogada, encontrada pela primeira vez na conquista {count}",
       "searchPlaceholder": "Pesquisar relíquias",
@@ -6814,54 +6872,82 @@ export const pt_BR: EnTranslations = {
       "1": "Um vigia das dunas distantes se mantém nas areias do leste, ao norte da guarnição. Encontre o Batedor Yerrin e pergunte o que o vento trouxe.",
       "2": "O guardião dos suprimentos da guarnição não come desde a última patrulha. Leve 2 x Pão Caseiro para a Intendente Sela.",
       "3": "A leste e um pouco ao sul de onde as cinzas se acumulam em dunas, uma mancha de terra chamuscada esconde o que as cinzas enterraram. Use o pergaminho ali e cave.",
-      "title": "Cinzas no Portão"
+      "title": "Cinzas no Portão",
+      "reply": {
+        "1": "O vento vinha das dunas orientais carregando cinzas, e cinzas não sopram de areia vazia. Sela no quartel registra cada patrulha. Ela falará, desde que alguém a alimente.",
+        "2": "Pão afinal, abençoe-o. A patrulha jura ter visto fumaça subindo da areia nua, leste e um pouco ao sul das dunas, onde não há nada que possa queimar."
+      }
     },
     "hunt_frostveil_aurora_vigil": {
       "0": "Onde os terraços sobem em direção às luzes que dançam à noite, ajoelhe-se nos Degraus da Aurora e deixe o céu notar você.",
       "1": "Quem lê as luzes espera perto dos degraus. Fale com a Auróloga Veyla sobre o que o céu revelou.",
       "2": "A leste dos terraços uivantes, um pouco ao sul, a neve está mais lisa do que deveria. Use o pergaminho ali e cave.",
-      "title": "Luzes sobre os Degraus"
+      "title": "Luzes sobre os Degraus",
+      "reply": {
+        "1": "Você se ajoelhou, e as luzes responderam. Na noite passada elas se dobraram para leste além dos terraços e apontaram direto para a neve."
+      }
     },
     "hunt_amberfall_lantern_ferry": {
       "0": "Na beira da água ao norte de Lanternmere, o guardião das balsas de lanterna sabe qual luz se apagou. Fale com o Mestre da Balsa Caddow.",
       "1": "Uma única pedra se inclina contra o céu a nordeste do grande lago, mais antiga que a cidade. Fique parado no Monólito Inclinado.",
       "2": "A guardiã das fileiras douradas rega seu pomar à mão, e ele está sedento por mais. Leve 3 x Água do Poço Frio para a Pomicultora Pomeline.",
       "3": "A nordeste da elevação onde os bordos ardem em vermelho, as folhas repousam em um círculo que nenhum vento formou. Use o pergaminho ali e cave.",
-      "title": "Lanternas no Lago"
+      "title": "Lanternas no Lago",
+      "reply": {
+        "0": "Uma lanterna apagou-se na noite passada, aquela que enfrenta a velha pedra do outro lado da água. Meus barqueiros não se aproximam dela. Talvez você o faça.",
+        "2": "Água fria do poço, exatamente o que as árvores queriam. Acima dos bordos vermelhos as folhas caem num círculo, e nenhuma árvore minha solta suas folhas tão regularmente."
+      }
     },
     "hunt_willowfen_fenwitch_salt": {
       "0": "A bruxa do pântano de Willowweep não fala com ninguém que chegue de mãos vazias. Leve 1 x Sal de Cozinha para Mãe Sedge.",
       "1": "Onde o pântano se torna plano e o ar deixa todos sonolentos, fique parado na Planície Sonolenta e suspire, como a bruxa disse.",
       "2": "A sudeste das poças que brilham no brejo, um montículo de terra seca permanece seco o ano todo. Use o pergaminho ali e cave.",
-      "title": "O Sal da Bruxa do Pântano"
+      "title": "O Sal da Bruxa do Pântano",
+      "reply": {
+        "0": "Sal. Bom, você ouve. Os planos além dos juncos deixam todos sonolentos. Vá e suspire ali como se quisesse de verdade, e o pântano mostrará o resto."
+      }
     },
     "hunt_nightbloom_sleepless_vigil": {
       "0": "A nordeste de Moonrest, onde as pedras mantêm uma vigília que nunca termina, fique parado na Vigília Permanente.",
       "1": "O vigia na vigília conta estrelas como outros contam moedas. Fale com o Astrônomo Cassian sobre a que caiu.",
       "2": "Ao norte da cidade fica um túmulo cujo adormecido nunca descansa. Saúde o Túmulo Insone para que o adormecido saiba que um amigo chegou.",
       "3": "A sudeste do campo onde o gloam se reúne, o luar se acumula em uma mancha de terra nua. Use o pergaminho ali e cave.",
-      "title": "Vigília dos Insones"
+      "title": "Vigília dos Insones",
+      "reply": {
+        "1": "Uma estrela caiu três noites atrás, e caiu em direção ao velho túmulo ao norte da cidade. Os mortos ali nunca dormem. Cumprimente-os como um soldado faria."
+      }
     },
     "hunt_wraithwood_mournstone_candles": {
       "0": "A fabricante de velas de Gibbetmere vende luz para quem teme o escuro. Fale com a Viúva Tansy sobre uma vela que nunca foi paga.",
       "1": "O último vigário da Pedra Fúnebre está jejuando só com preces. Leve 2 x Carne-seca Salgada para o Vigário Creel.",
       "2": "A nordeste da cidade, além dos corvos, uma clareira pendura seu próprio fruto estranho. Fique parado na Clareira Suspensa.",
       "3": "A sudeste da clareira onde o caçador armou suas armadilhas, a serrapilheira foi revirada recentemente. Use o pergaminho ali e cave.",
-      "title": "Velas para a Pedra Fúnebre"
+      "title": "Velas para a Pedra Fúnebre",
+      "reply": {
+        "0": "O vigário encomendou aquela vela e nunca pagou por ela. Ele tem se alimentado mal desde então, rezando e nada mais. Leve-lhe algo para mastigar e pergunte por que.",
+        "1": "Obrigado, amigo. Eu nunca acendi aquela vela. Algo caminha pela clareira além dos corvos à noite, e não consegui enfrentá-lo. Vá e fique ali, se conseguir."
+      }
     },
     "hunt_palmreach_sunken_idol": {
       "0": "Nas profundezas da mata emaranhada, a noroeste da lagoa, as vinhas descem como uma cachoeira. Fique parado na Cachoeira de Vinhas.",
       "1": "Um eremita que entrou na mata emaranhada e voltou vive perto das vinhas que caem. Fale com Okrim sobre o que ele viu lá embaixo.",
       "2": "A leste, um ídolo permanece meio submerso e ainda observando. Encolha-se diante do Ídolo Afundado, do jeito que o eremita disse que os mergulhadores fazem.",
       "3": "A nordeste de onde a mata emaranhada abre sua boca para o mar, a areia foi empilhada mais alto do que a maré alcança. Use o pergaminho ali e cave.",
-      "title": "O Segredo do Ídolo"
+      "title": "O Segredo do Ídolo",
+      "reply": {
+        "1": "Abaixo das vinhas os mergulhadores encontraram um ídolo, e o ídolo não gostou deles. Qualquer um que se ergueu diante dele não voltou. Seja pequeno diante dele."
+      }
     },
     "hunt_evergarden_beacon_road": {
       "0": "A jardineira do jardim ornamental ao longo do caminho ao norte de Hedgewick jura que seus canteiros estão morrendo de fome. Leve 2 x Composto para a Fazendeira Verbena.",
       "1": "No canto mais a sudeste do jardim, um moinho velho ainda gira sem nenhum moleiro. Fique parado no Moinho Velho.",
       "2": "Siga a estrada para o sul, cruzando a fronteira até Galecrest, e saia até a costa. O guardião do farol antigo, Guardião Bram, tem a última palavra.",
       "3": "A noroeste do farol antigo, logo fora do caminho que desce da luz, a grama foi cortada e recolocada. Use o pergaminho ali e cave.",
-      "title": "Farol e Flor"
+      "title": "Farol e Flor",
+      "reply": {
+        "0": "Adubo apropriado, os canteiros viverão. O velho moleiro enterrou algo antes de partir. Seu moinho ainda funciona no canto distante do jardim. Vá e fique ao lado dele.",
+        "2": "Então o moinho o enviou pela estrada costeira. O farol guarda um último segredo: ao noroeste dele, bem fora do caminho, a relva foi cortada e recolocada. Cave ali."
+      }
     }
   },
   "guide": {
@@ -10164,6 +10250,11 @@ export const pt_BR: EnTranslations = {
       "pylonLit": "Um pilar rúnico se acende ({lit}/{total}).",
       "wayDownOpens": "O caminho para baixo se abre com um rasgão.",
       "exitOpens": "A fenda estremece. Um caminho para casa se abre atrás dos caídos.",
+      "hoardEnter": "Você desce para dentro de {name}.",
+      "hoardExitOpens": "O tesouro é seu. Retorne à entrada para subir.",
+      "hoardStepBack": "Você sobe de volta através da entrada do tesouro.",
+      "hoardNotYours": "Este tesouro foi desenterrado por outro grupo.",
+      "hoardEntrantsFull": "Este tesouro já admitiu cinco aventureiros.",
       "portalOpens": "Uma fenda de nível {tier} se abre em {zone}!",
       "portalSealed": "A fenda de nível {tier} em {zone} foi selada.",
       "portalCollapses": "A fenda de nível {tier} em {zone} entra em colapso.",
@@ -10203,7 +10294,152 @@ export const pt_BR: EnTranslations = {
       "detonateLightningRod": "O Para-raios atinge!",
       "detonateStormcallersWrath": "A Fúria do Invocador de Tempestades explode!",
       "detonateAbyssalMaw": "Fauces Abissais se fecham!",
-      "detonateCrushingDepth": "Profundeza Esmagadora esmaga!"
+      "detonateCrushingDepth": "Profundeza Esmagadora esmaga!",
+      "yell": {
+        "mushroomEngage": "Os esporos vão te pegar.",
+        "mushroomSummon": "Cresçam, meus pequenos!",
+        "moleEngage": "O chão é meu.",
+        "moleSummon": "Pra baixo com você!",
+        "batEngage": "Iiiiiiih!",
+        "batSummon": "A mim, meu bando!",
+        "mimicEngage": "Fome... tanta fome.",
+        "mimicSummon": "Mais ouro, mais ouro!",
+        "frostBigCast": "O vento branco se ergue.",
+        "frostDeathZoneCast": "A geada te reclama.",
+        "frostDeathZoneStrike": "Nada sobrevive ao frio profundo.",
+        "frostEngage": "No fim, o frio leva tudo.",
+        "frostEnrage": "CONGELEM!",
+        "emberBigCast": "QUEIMEM.",
+        "emberDeathZoneCast": "O magma sobe.",
+        "emberDeathZoneStrike": "A FORJA CONSOME TUDO.",
+        "emberEngage": "A forja tem fome.",
+        "emberSummon": "Ergam-se da escória!",
+        "emberEnrage": "CINZA E BRASA!",
+        "venomBigCast": "Afoguem-se em peçonha!",
+        "venomDeathZoneCast": "Afoguem-se em veneno.",
+        "venomDeathZoneStrike": "VOCÊS NÃO PODEM FUGIR DOS MEUS FILHOS.",
+        "venomEngage": "Meus filhos estão sempre famintos.",
+        "venomSummon": "Banqueteiem-se, pequenos!",
+        "necroBigCast": "Suas almas estão perdidas.",
+        "necroDeathZoneCast": "Sua alma está perdida.",
+        "necroDeathZoneStrike": "A MORTE RECLAMA TUDO.",
+        "necroEngage": "A morte é só o começo.",
+        "necroSummon": "Ergam-se!",
+        "bruteBigCast": "EU VOU QUEBRAR VOCÊS!",
+        "bruteDeathZoneCast": "A TERRA SE ESTILHAÇA.",
+        "bruteDeathZoneStrike": "VOCÊS CAEM AQUI.",
+        "bruteEngage": "Eu vou esmagar vocês!",
+        "bruteEnrage": "GRAAAH!",
+        "arcaneBigCast": "Contemplem o verdadeiro poder.",
+        "arcaneDeathZoneCast": "A realidade se rasga.",
+        "arcaneDeathZoneStrike": "ANIQUILADOS.",
+        "arcaneEngage": "Vocês não deviam ter vindo.",
+        "arcaneEnrage": "AJOELHEM-SE!",
+        "stormBigCast": "O céu responde!",
+        "stormDeathZoneCast": "O céu responde ao seu chamado.",
+        "stormDeathZoneStrike": "A TEMPESTADE DEVORA.",
+        "stormEngage": "A tempestade me obedece!",
+        "stormEnrage": "O CÉU DESABA!",
+        "tideDeathZoneCast": "As profundezas te levam.",
+        "tideDeathZoneStrike": "ARRASTADOS PARA O ABISMO.",
+        "tideEngage": "As profundezas te reclamam.",
+        "tideSummon": "Ergam-se das profundezas!",
+        "ritualistBigCast": "O pacto está selado em fogo!",
+        "ritualistEngage": "Vocês invadem solo vinculado.",
+        "ritualistSummon": "Respondam-me, coisas lá de baixo!",
+        "pitlordBigCast": "O FOSSO TE RECLAMA.",
+        "pitlordEngage": "Ajoelhem-se, ou queimem.",
+        "pitlordEnrage": "A CIDADELA DEVORA!"
+      },
+      "place": {
+        "hoardFloor": "{theme}: Tesouro Enterrado",
+        "sanctumFloor": "{theme}: Santuário, profundidade {depth}",
+        "reachesFloor": "{theme}: Confins, profundidade {depth}",
+        "upgradedFloor": "{title}: {theme}, profundidade {depth}",
+        "hoardPlan": "O Tesouro Enterrado de {noun}",
+        "riftPlan": "{suffix} de {noun}",
+        "citadelPlan": "Cidadela de {noun}",
+        "infernalCitadel": "A Cidadela Infernal",
+        "hoardEntrance": "Entrada do Tesouro Enterrado",
+        "theme": {
+          "frost": "Gelo Eterno",
+          "ember": "Forja de Brasa",
+          "venom": "Bosque Peçonhento",
+          "bone": "Cemitério de Ossos",
+          "brute": "Acampamento de Guerra",
+          "void": "Cicatriz do Vazio",
+          "storm": "Pináculo da Tempestade",
+          "tide": "Fundo Submerso",
+          "spore": "Vale dos Esporos",
+          "burrow": "Toca Profunda",
+          "roost": "Ninho de Morcegos",
+          "mimic": "Cofre Falso",
+          "infernal": "Cidadela Infernal"
+        },
+        "noun": {
+          "rime": "Geada",
+          "hoarfrost": "Sincelo",
+          "glacier": "Geleira",
+          "frost": "Gelo",
+          "ember": "Brasa",
+          "cinder": "Borralho",
+          "magma": "Magma",
+          "ash": "Cinzas",
+          "venom": "Veneno",
+          "thorn": "Espinhos",
+          "bramble": "Sarças",
+          "spider": "Aranhas",
+          "bone": "Ossos",
+          "marrow": "Medula",
+          "ossuary": "Ossário",
+          "grave": "Túmulos",
+          "war": "Guerra",
+          "skull": "Caveiras",
+          "iron": "Ferro",
+          "blood": "Sangue",
+          "void": "Vazio",
+          "shadow": "Sombras",
+          "umbral": "Penumbra",
+          "dusk": "Crepúsculo",
+          "storm": "Tempestade",
+          "tempest": "Tormenta",
+          "thunder": "Trovão",
+          "gale": "Vendaval",
+          "sunken": "Naufrágio",
+          "abyssal": "Pélago",
+          "drowned": "Afogados",
+          "tide": "Maré",
+          "spore": "Esporos",
+          "toadstool": "Cogumelos",
+          "mould": "Mofo",
+          "mycelium": "Micélio",
+          "burrow": "Tocas",
+          "tunnel": "Túneis",
+          "delve": "Escavação",
+          "loam": "Barro",
+          "roost": "Poleiro",
+          "echo": "Ecos",
+          "guano": "Guano",
+          "hollow": "Grotas",
+          "coffer": "Cofres",
+          "strongbox": "Arcas",
+          "tithe": "Dízimo",
+          "gilt": "Ouropel",
+          "brimstone": "Enxofre",
+          "pitfire": "Fogo do Fosso",
+          "pactbound": "Pacto"
+        },
+        "suffix": {
+          "abyss": "Abismo",
+          "depths": "Profundezas",
+          "descent": "Descida",
+          "hollow": "Cavidade",
+          "labyrinth": "Labirinto",
+          "warren": "Covil",
+          "sanctum": "Santuário",
+          "rift": "Fenda"
+        }
+      }
     },
     "delve": {
       "cannotEnterNow": "Você não pode entrar em uma incursão agora.",
@@ -10273,6 +10509,9 @@ export const pt_BR: EnTranslations = {
       "moveCloserStairs": "Aproxime-se das escadas.",
       "nhaliaCantorShield": "Cantores, sustentem a nota!",
       "nhaliaBlackwaterMark": "{name} marca {player} com Água Negra!"
+    },
+    "factionVendor": {
+      "currencyRequired": "Você precisa de {amount} de {currency} para comprar isso."
     },
     "lockpick": {
       "lockYields": "A fechadura cede! Espólios {tier}.",
@@ -10894,6 +11133,7 @@ export const pt_BR: EnTranslations = {
       "alreadyInWorld": "O personagem já está no mundo.",
       "accountSessionLimit": "Personagens demais desta conta já estão no mundo.",
       "takenOver": "Seu personagem foi assumido por outra sessão.",
+      "vaultMailRecovering": "Seu correio de recompensa do cofre está sendo restaurado. Tente novamente em breve.",
       "renameBeforeEntering": "Este personagem precisa ser renomeado antes de entrar no mundo.",
       "renameNotPermitted": "Não é permitido renomear este personagem.",
       "unsupportedMediaType": "Formato de solicitação não suportado.",
@@ -11237,6 +11477,8 @@ export const pt_BR: EnTranslations = {
         "dungeonExit": "Saída da masmorra",
         "delveEntrance": "Entrada da incursão: {name}",
         "worldPassage": "Passagem para {zone}",
+        "hoardEntrance": "Entrada do Tesouro Enterrado",
+        "hoardReturnEntrance": "Entrada de Retorno do Tesouro",
         "riftEntrance": "Entrada da fenda: {name}",
         "hostileEnemy": "Inimigo hostil",
         "aggressiveEnemy": "Inimigo atacando você",
@@ -11880,6 +12122,7 @@ export const pt_BR: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "Atacar",
+      "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Ativa ou desativa o autoataque no alvo. Clicar com o botão direito em um inimigo também ataca.",
       "attackRemoveHint": "Clique com o botão direito para removê-lo da barra e liberar o espaço.",
       "emptySlot": "Espaço vazio",
@@ -11971,7 +12214,35 @@ export const pt_BR: EnTranslations = {
       "rift_storm_execution": "Para-raios",
       "rift_storm_strike": "Fúria do Invocador de Tempestades",
       "rift_tide_execution": "Fauces Abissais",
-      "rift_tide_strike": "Profundeza Esmagadora"
+      "rift_tide_strike": "Profundeza Esmagadora",
+      "hoard_cast_fear": "Rugido Aterrorizante",
+      "hoard_cast_stun": "Golpe Desconcertante",
+      "hoard_cast_drowning_hook": "Gancho Afogador",
+      "hoard_cast_rime_beam": "Raio de Geada",
+      "hoard_cast_cinder_bolt": "Raio de Brasa",
+      "hoard_cast_void_empower": "Fortalecimento do Vazio",
+      "hoard_cast_webbing": "Tecer Teias",
+      "hoard_cast_doom_ritual": "Ritual da Perdição",
+      "hoard_cast_charge": "Investida Desenfreada",
+      "hoard_cast_silk_snare": "Armadilha de Seda",
+      "hoard_cast_silence": "Grito Silenciador",
+      "hoard_cast_hex": "Maldição",
+      "hoard_lightning_strike": "Raio",
+      "hoard_ice_age": "Era do Gelo",
+      "hoard_pulsar_overload": "Sobrecarga do Púlsar",
+      "hoard_rolling_boulder": "Pedra Rolante",
+      "hoard_goblin_escape": "Fugindo",
+      "hoard_cast_mole_rake": "Arrastão de Garras",
+      "hoard_cast_burrow": "Cavando",
+      "hoard_cast_tunnel": "Escavando Túneis",
+      "hoard_cast_emerge": "Erupção",
+      "hoard_cast_collapse": "Colapso do Teto",
+      "hoard_cast_bat_dive_aim": "Mergulho em Profundidade",
+      "hoard_cast_bat_dive": "Mergulhando",
+      "hoard_cast_screech": "Grito Ensurdecedor",
+      "hoard_cast_mimic_bite": "Mordida Voraz",
+      "hoard_cast_mimic_leap": "Salto Esmagador",
+      "hoard_cast_coin_spit": "Moedas Amaldiçoadas"
     }
   },
   "questUi": {
@@ -12398,7 +12669,17 @@ export const pt_BR: EnTranslations = {
       "clueHuntStep": "Pista {step} de {total} resolvida: {title}",
       "clueHuntDone": "Caça ao tesouro concluída: {title}. O baú é seu.",
       "clueHuntAbandoned": "Caça ao tesouro abandonada: {title}",
-      "clueCasketOpened": "O baú guarda {money} e {items}."
+      "clueCasketOpened": "O baú guarda {money} e {items}.",
+      "treasureMapEarned": "Todas as missões de mundo do dia estão feitas: você encontrou um {map}.",
+      "treasureMapLost": "Todas as missões de mundo do dia estão feitas, mas suas bolsas não têm espaço para o mapa do tesouro.",
+      "treasureMapRead": "Você estuda o {map}. O X está em algum lugar em {zone}.",
+      "treasureMapUpgraded": "O mapa é redesenhado em tinta mais fina: agora é um {map}.",
+      "treasureVaultOpened": "O chão cede. Um tesouro enterrado fica aberto diante de você.",
+      "treasureVaultLooted": "O tesouro contém {money} e {items}.",
+      "treasureVaultCapped": "Você partilhou de tesouros suficientes hoje; este não te paga nada.",
+      "hoardGoblinSighted": "Um ladrão goblin aparece!",
+      "hoardGoblinSightedHint": "Mate-o antes que escape com o ouro!",
+      "hoardGoblinExplain": "Um ladrão goblin está se escondendo neste tesouro com um saco de ouro roubado. Nunca luta contra, apenas corre. Seu primeiro golpe inicia uma barra de fuga de {seconds} segundos: se ainda estiver vivo quando a barra terminar, ele abre um portal e foge com o ouro. Deixado sozinho, ele desaparece depois de {minutes} minutos. Mate-o a tempo e todos na sala ganham ouro."
     },
     "errors": {
       "unavailable": "Essa missão não está disponível.",
@@ -12811,6 +13092,10 @@ export const pt_BR: EnTranslations = {
       "sport_second_wind": {
         "name": "Pernas Novas",
         "description": "Recupere as pernas: mova-se 50% mais rápido por 4 s."
+      },
+      "clockwork_shock_bomb": {
+        "name": "Bomba de Choque Mecânica",
+        "description": "Arremessa uma Bomba de Choque Mecânica no local alvo, causando de 120 a 160 de dano de Natureza aos inimigos a até 5 metros."
       },
       "flamestrike": {
         "name": "Golpe Flamejante",
@@ -17393,6 +17678,363 @@ export const pt_BR: EnTranslations = {
       "stormhymn_chain_treads": {
         "name": "Botas de malha Hino da tempestade"
       },
+      "allied_hearthstone": {
+        "name": "Pedra de Lareira Aliada"
+      },
+      "allied_vanguard_duffel": {
+        "name": "Bolsa da Vanguarda Aliada"
+      },
+      "rift_feather_glider": {
+        "name": "Planador de Pena de Fenda"
+      },
+      "formula_enchant_feet_shadowstride": {
+        "name": "Fórmula: Encantar Botas - Passada-Sombra"
+      },
+      "recipe_potion_of_invisibility": {
+        "name": "Receita: Poção de Invisibilidade"
+      },
+      "potion_of_invisibility": {
+        "name": "Poção de Invisibilidade"
+      },
+      "pattern_reinforced_armor_kit": {
+        "name": "Padrão: Kit de Armadura Reforçada"
+      },
+      "reinforced_armor_kit": {
+        "name": "Kit de Armadura Reforçada"
+      },
+      "dawn_battle_standard": {
+        "name": "Estandarte de Batalha da Alvorada"
+      },
+      "formula_enchant_offhand_spirit": {
+        "name": "Fórmula: Encantar Arma Secundária - Espírito"
+      },
+      "recipe_elixir_of_mana_regeneration": {
+        "name": "Receita: Elixir de Regeneração de Mana"
+      },
+      "elixir_of_mana_regeneration": {
+        "name": "Elixir de Regeneração de Mana"
+      },
+      "clockwork_target_dummy": {
+        "name": "Manequim Alvo Mecânico"
+      },
+      "schematic_clockwork_shock_bomb": {
+        "name": "Esquema: Bomba de Choque Mecânica"
+      },
+      "clockwork_shock_bomb": {
+        "name": "Bomba de Choque Mecânica"
+      },
+      "plans_dense_sharpening_stone": {
+        "name": "Planos: Pedra de Amolação Densa"
+      },
+      "dense_sharpening_stone": {
+        "name": "Pedra de Amolação Densa"
+      },
+      "formula_enchant_gloves_forged_might": {
+        "name": "Fórmula: Encantar Luvas - Poder Forjado"
+      },
+      "treasure_map_common": {
+        "name": "Mapa de Tesouro Desgastado"
+      },
+      "treasure_map_rare": {
+        "name": "Mapa de Tesouro Tintado"
+      },
+      "treasure_map_epic": {
+        "name": "Mapa de Tesouro Dourado"
+      },
+      "treasure_map_legendary": {
+        "name": "Mapa de Tesouro Soberano"
+      },
+      "cartographers_ink": {
+        "name": "Tinta do Cartógrafo"
+      },
+      "collapsar_band_of_nyxaris": {
+        "name": "Anel Colapsar de Nyxaris"
+      },
+      "rare_collapsar_band_of_nyxaris": {
+        "name": "Anel Raro Colapsar de Nyxaris"
+      },
+      "legendary_collapsar_band_of_nyxaris": {
+        "name": "Anel Soberano Colapsar de Nyxaris"
+      },
+      "orb_collapsing_void": {
+        "name": "Orbe do Vazio Colapsante"
+      },
+      "rare_orb_collapsing_void": {
+        "name": "Orbe Raro do Vazio Colapsante"
+      },
+      "legendary_orb_collapsing_void": {
+        "name": "Orbe Soberano do Vazio Colapsante"
+      },
+      "cowl_of_event_horizon": {
+        "name": "Capuz do Horizonte de Evento"
+      },
+      "rare_cowl_of_event_horizon": {
+        "name": "Capuz Raro do Horizonte de Evento"
+      },
+      "legendary_cowl_of_event_horizon": {
+        "name": "Capuz Soberano do Horizonte de Evento"
+      },
+      "mantle_of_singularity": {
+        "name": "Manto da Singularidade"
+      },
+      "rare_mantle_of_singularity": {
+        "name": "Manto Raro da Singularidade"
+      },
+      "legendary_mantle_of_singularity": {
+        "name": "Manto Soberano da Singularidade"
+      },
+      "glacier_hewn_bulwark": {
+        "name": "Baluarte Esculpido em Geleira"
+      },
+      "rare_glacier_hewn_bulwark": {
+        "name": "Baluarte Raro Esculpido em Geleira"
+      },
+      "legendary_glacier_hewn_bulwark": {
+        "name": "Baluarte Soberano Esculpido em Geleira"
+      },
+      "permafrost_legguards": {
+        "name": "Proteção de Pernas de Permafrost"
+      },
+      "rare_permafrost_legguards": {
+        "name": "Proteção Rara de Pernas de Permafrost"
+      },
+      "legendary_permafrost_legguards": {
+        "name": "Proteção Soberana de Pernas de Permafrost"
+      },
+      "frostbitten_rime_slippers": {
+        "name": "Chinelos de Geada Queimada de Frio"
+      },
+      "rare_frostbitten_rime_slippers": {
+        "name": "Chinelos Raros de Geada Queimada de Frio"
+      },
+      "legendary_frostbitten_rime_slippers": {
+        "name": "Chinelos Soberanos de Geada Queimada de Frio"
+      },
+      "rime_crusted_grips": {
+        "name": "Pegadeiras Crostadas de Geada"
+      },
+      "rare_rime_crusted_grips": {
+        "name": "Pegadeiras Raras Crostadas de Geada"
+      },
+      "legendary_rime_crusted_grips": {
+        "name": "Pegadeiras Soberanas Crostadas de Geada"
+      },
+      "ember_wrought_crown": {
+        "name": "Coroa Forjada em Brasa"
+      },
+      "rare_ember_wrought_crown": {
+        "name": "Coroa Rara Forjada em Brasa"
+      },
+      "legendary_ember_wrought_crown": {
+        "name": "Coroa Soberana Forjada em Brasa"
+      },
+      "cinder_stitched_robes": {
+        "name": "Vestes Costuradas com Brasas"
+      },
+      "rare_cinder_stitched_robes": {
+        "name": "Vestes Raras Costuradas com Brasas"
+      },
+      "legendary_cinder_stitched_robes": {
+        "name": "Vestes Soberanas Costuradas com Brasas"
+      },
+      "chained_ember_choker": {
+        "name": "Coleira de Brasa Acorrentada"
+      },
+      "rare_chained_ember_choker": {
+        "name": "Coleira Rara de Brasa Acorrentada"
+      },
+      "legendary_chained_ember_choker": {
+        "name": "Coleira Soberana de Brasa Acorrentada"
+      },
+      "molten_clinker_girdle": {
+        "name": "Cintura de Escória Derretida"
+      },
+      "rare_molten_clinker_girdle": {
+        "name": "Cintura Rara de Escória Derretida"
+      },
+      "legendary_molten_clinker_girdle": {
+        "name": "Cintura Soberana de Escória Derretida"
+      },
+      "storm_tuned_buckler": {
+        "name": "Broquel Afinado para Tempestade"
+      },
+      "rare_storm_tuned_buckler": {
+        "name": "Broquel Raro Afinado para Tempestade"
+      },
+      "legendary_storm_tuned_buckler": {
+        "name": "Broquel Soberano Afinado para Tempestade"
+      },
+      "hauberk_tempest_gale": {
+        "name": "Cota de Malha da Tempestade Ventania"
+      },
+      "rare_hauberk_tempest_gale": {
+        "name": "Cota Rara de Malha da Tempestade Ventania"
+      },
+      "legendary_hauberk_tempest_gale": {
+        "name": "Cota Soberana de Malha da Tempestade Ventania"
+      },
+      "gale_strider_boots": {
+        "name": "Botas Marchador-de-Vendavais"
+      },
+      "rare_gale_strider_boots": {
+        "name": "Botas Raras Marchador-de-Vendavais"
+      },
+      "legendary_gale_strider_boots": {
+        "name": "Botas Soberanas Marchador-de-Vendavais"
+      },
+      "tempest_strike_grips": {
+        "name": "Pegadeiras de Golpe de Tempestade"
+      },
+      "rare_tempest_strike_grips": {
+        "name": "Pegadeiras Raras de Golpe de Tempestade"
+      },
+      "legendary_tempest_strike_grips": {
+        "name": "Pegadeiras Soberanas de Golpe de Tempestade"
+      },
+      "breastplate_tectonic_might": {
+        "name": "Peitoral do Poder Tectônico"
+      },
+      "rare_breastplate_tectonic_might": {
+        "name": "Peitoral Raro do Poder Tectônico"
+      },
+      "legendary_breastplate_tectonic_might": {
+        "name": "Peitoral Soberano do Poder Tectônico"
+      },
+      "band_mountains_weight": {
+        "name": "Anel do Peso da Montanha"
+      },
+      "rare_band_mountains_weight": {
+        "name": "Anel Raro do Peso da Montanha"
+      },
+      "legendary_band_mountains_weight": {
+        "name": "Anel Soberano do Peso da Montanha"
+      },
+      "monolithic_shoulderguards": {
+        "name": "Proteção de Ombros Monolítica"
+      },
+      "rare_monolithic_shoulderguards": {
+        "name": "Proteção Rara de Ombros Monolítica"
+      },
+      "legendary_monolithic_shoulderguards": {
+        "name": "Proteção Soberana de Ombros Monolítica"
+      },
+      "earthshaker_warboots": {
+        "name": "Botas de Guerra Abaladoras"
+      },
+      "rare_earthshaker_warboots": {
+        "name": "Botas Raras de Guerra Abaladoras"
+      },
+      "legendary_earthshaker_warboots": {
+        "name": "Botas Soberanas de Guerra Abaladoras"
+      },
+      "silkstalker_woven_vest": {
+        "name": "Colete Tecido do Caçador-de-Seda"
+      },
+      "rare_silkstalker_woven_vest": {
+        "name": "Colete Raro Tecido do Caçador-de-Seda"
+      },
+      "legendary_silkstalker_woven_vest": {
+        "name": "Colete Soberano Tecido do Caçador-de-Seda"
+      },
+      "spun_venom_spaulders": {
+        "name": "Espadeiras Fiadas de Veneno"
+      },
+      "rare_spun_venom_spaulders": {
+        "name": "Espadeiras Raras Fiadas de Veneno"
+      },
+      "legendary_spun_venom_spaulders": {
+        "name": "Espadeiras Soberanas Fiadas de Veneno"
+      },
+      "broodmother_chitin_cowl": {
+        "name": "Coifa de Quitina da Mãe-Ninhada"
+      },
+      "rare_broodmother_chitin_cowl": {
+        "name": "Coifa Rara de Quitina da Mãe-Ninhada"
+      },
+      "legendary_broodmother_chitin_cowl": {
+        "name": "Coifa Soberana de Quitina da Mãe-Ninhada"
+      },
+      "venom_etched_waistcord": {
+        "name": "Corda de Cintura Gravada em Veneno"
+      },
+      "rare_venom_etched_waistcord": {
+        "name": "Corda Rara de Cintura Gravada em Veneno"
+      },
+      "legendary_venom_etched_waistcord": {
+        "name": "Corda Soberana de Cintura Gravada em Veneno"
+      },
+      "bone_studded_pauldrons": {
+        "name": "Espadeiras Cravejadas de Osso"
+      },
+      "rare_bone_studded_pauldrons": {
+        "name": "Espadeiras Raras Cravejadas de Osso"
+      },
+      "legendary_bone_studded_pauldrons": {
+        "name": "Espadeiras Soberanas Cravejadas de Osso"
+      },
+      "legguards_of_the_ossuary": {
+        "name": "Proteção de Pernas do Ossário"
+      },
+      "rare_legguards_of_the_ossuary": {
+        "name": "Proteção Rara de Pernas do Ossário"
+      },
+      "legendary_legguards_of_the_ossuary": {
+        "name": "Proteção de Pernas Soberana do Ossário"
+      },
+      "seal_of_the_cryptwalker": {
+        "name": "Selo do Caminhante da Cripta"
+      },
+      "rare_seal_of_the_cryptwalker": {
+        "name": "Selo Raro do Caminhante da Cripta"
+      },
+      "legendary_seal_of_the_cryptwalker": {
+        "name": "Selo Soberano do Caminhante da Cripta"
+      },
+      "ossuary_bone_crown": {
+        "name": "Coroa de Osso do Ossário"
+      },
+      "rare_ossuary_bone_crown": {
+        "name": "Coroa Rara de Osso do Ossário"
+      },
+      "legendary_ossuary_bone_crown": {
+        "name": "Coroa Soberana de Osso do Ossário"
+      },
+      "chalice_of_living_tides": {
+        "name": "Cálice das Marés Vivas"
+      },
+      "rare_chalice_of_living_tides": {
+        "name": "Cálice Raro das Marés Vivas"
+      },
+      "legendary_chalice_of_living_tides": {
+        "name": "Cálice Soberano das Marés Vivas"
+      },
+      "pendant_continuous_flow": {
+        "name": "Pingente do Fluxo Contínuo"
+      },
+      "rare_pendant_continuous_flow": {
+        "name": "Pingente Raro do Fluxo Contínuo"
+      },
+      "legendary_pendant_continuous_flow": {
+        "name": "Pingente Soberano do Fluxo Contínuo"
+      },
+      "coral_encrusted_girdle": {
+        "name": "Cintura Incrustada de Coral"
+      },
+      "rare_coral_encrusted_girdle": {
+        "name": "Cintura Rara Incrustada de Coral"
+      },
+      "legendary_coral_encrusted_girdle": {
+        "name": "Cintura Soberana Incrustada de Coral"
+      },
+      "riptide_handwraps": {
+        "name": "Ataduras de Mão da Maré de Ressaca"
+      },
+      "rare_riptide_handwraps": {
+        "name": "Ataduras Raras de Mão da Maré de Ressaca"
+      },
+      "legendary_riptide_handwraps": {
+        "name": "Ataduras Soberanas de Mão da Maré de Ressaca"
+      },
       "vanguard_warrior_arms_helmet": {
         "name": "Elmo Maior do Rastro da Lâmina"
       },
@@ -19090,6 +19732,51 @@ export const pt_BR: EnTranslations = {
       "stable_horse": {
         "name": "Cavalo de estábulo"
       },
+      "hoard_brood_egg": {
+        "name": "Embreagem de Ninhada"
+      },
+      "hoard_brood_hatchling": {
+        "name": "Filhote de Vysska"
+      },
+      "hoard_healing_tide_totem": {
+        "name": "Totem da Maré de Cura"
+      },
+      "hoard_bound_pulsar": {
+        "name": "Pulsar Aprisionado"
+      },
+      "hoard_abyssal_tentacle": {
+        "name": "Tentáculo da Masmorra"
+      },
+      "hoard_silk_cocoon": {
+        "name": "Casulo de Seda"
+      },
+      "hoard_brood_cocoon": {
+        "name": "Casulo de Ninhada"
+      },
+      "hoard_coinsack_scurrier": {
+        "name": "Corredor Bolsa-de-moedas"
+      },
+      "hoard_boss_mushroom": {
+        "name": "Mãe dos Cogumelos"
+      },
+      "hoard_sporeling": {
+        "name": "Esporela"
+      },
+      "hoard_bloat_cap": {
+        "name": "Cogumelo Inchado"
+      },
+      "hoard_boss_mole": {
+        "name": "Escavador-Profundo"
+      },
+      "hoard_boss_bat": {
+        "name": "Morcego Colossal"
+      },
+      "hoard_boss_mimic": {
+        "name": "Baú Voraz"
+      },
+      "hoard_bat_swarmling": {
+        "name": "Enxame de Caverna"
+      },
       "rift_spawnling": {
         "name": "Prole da Fenda"
       },
@@ -19119,6 +19806,9 @@ export const pt_BR: EnTranslations = {
       },
       "rift_marrow_troll": {
         "name": "Troll da Medula"
+      },
+      "rift_marrow_golem": {
+        "name": "Golem de Medula"
       },
       "rift_void_acolyte": {
         "name": "Acólito da Cicatriz do Vazio"
@@ -23252,6 +23942,11 @@ export const pt_BR: EnTranslations = {
         "sender": "O Corretor da Bolsa",
         "subject": "Seu anúncio na Bolsa foi vendido",
         "body": "Seu anúncio foi vendido e o comprador pagou o valor total. O livro-razão da Bolsa traz o registro da venda, e sua atividade na Bolsa mostra o valor recebido e seu detalhamento.\n\n- O Corretor da Bolsa"
+      },
+      "hoard_vault_reward": {
+        "sender": "O Correio dos Corvos",
+        "subject": "Sua recompensa de cofre",
+        "body": "O cofre foi esvaziado, mas sua parte não foi coletada do baú. Os corvos a trouxeram para você aqui, com os bens e moedas que você conquistou.\n\n- O Correio dos Corvos"
       }
     },
     "itemSets": {

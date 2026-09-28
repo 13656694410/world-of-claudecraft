@@ -5992,6 +5992,13 @@ export const GUIDE_DEEDS: GuideDeed[] = [
     "rewardTitle": "Treasure Hunter"
   },
   {
+    "id": "cmb_coinsack_caught",
+    "name": "Caught Red-Handed",
+    "category": "combat",
+    "renown": 10,
+    "feat": false
+  },
+  {
     "id": "exp_harbor_to_harbor",
     "name": "Harbor to Harbor",
     "category": "exploration",
@@ -7441,6 +7448,141 @@ export const GUIDE_RELIQUARY: GuideReliquaryPage[] = [
       {
         "kind": "item",
         "name": "Voidsong, Dirk of the Sundered Veil"
+      }
+    ]
+  },
+  {
+    "id": "conquerors_buried_hoards",
+    "shelf": "conquerors",
+    "name": "The Buried Hoards",
+    "relics": [
+      {
+        "kind": "item",
+        "name": "Collapsar Band of Nyxaris"
+      },
+      {
+        "kind": "item",
+        "name": "Orb of Collapsing Void"
+      },
+      {
+        "kind": "item",
+        "name": "Cowl of the Event Horizon"
+      },
+      {
+        "kind": "item",
+        "name": "Mantle of Singularity"
+      },
+      {
+        "kind": "item",
+        "name": "Glacier-Hewn Bulwark"
+      },
+      {
+        "kind": "item",
+        "name": "Permafrost Legguards"
+      },
+      {
+        "kind": "item",
+        "name": "Frostbitten Rime Slippers"
+      },
+      {
+        "kind": "item",
+        "name": "Rime-Crusted Grips"
+      },
+      {
+        "kind": "item",
+        "name": "Ember-Wrought Crown"
+      },
+      {
+        "kind": "item",
+        "name": "Cinder-Stitched Robes"
+      },
+      {
+        "kind": "item",
+        "name": "Chained Ember Choker"
+      },
+      {
+        "kind": "item",
+        "name": "Molten Clinker Girdle"
+      },
+      {
+        "kind": "item",
+        "name": "Storm-Tuned Buckler"
+      },
+      {
+        "kind": "item",
+        "name": "Hauberk of the Tempest Gale"
+      },
+      {
+        "kind": "item",
+        "name": "Gale-Strider Boots"
+      },
+      {
+        "kind": "item",
+        "name": "Tempest-Strike Grips"
+      },
+      {
+        "kind": "item",
+        "name": "Breastplate of Tectonic Might"
+      },
+      {
+        "kind": "item",
+        "name": "Band of the Mountain's Weight"
+      },
+      {
+        "kind": "item",
+        "name": "Monolithic Shoulderguards"
+      },
+      {
+        "kind": "item",
+        "name": "Earthshaker Warboots"
+      },
+      {
+        "kind": "item",
+        "name": "Woven Vest of the Silkstalker"
+      },
+      {
+        "kind": "item",
+        "name": "Spun-Venom Spaulders"
+      },
+      {
+        "kind": "item",
+        "name": "Chitin Cowl of the Broodmother"
+      },
+      {
+        "kind": "item",
+        "name": "Venom-Etched Waistcord"
+      },
+      {
+        "kind": "item",
+        "name": "Bone-Studded Pauldrons"
+      },
+      {
+        "kind": "item",
+        "name": "Legguards of the Ossuary"
+      },
+      {
+        "kind": "item",
+        "name": "Seal of the Cryptwalker"
+      },
+      {
+        "kind": "item",
+        "name": "Ossuary Bone Crown"
+      },
+      {
+        "kind": "item",
+        "name": "Chalice of the Living Tides"
+      },
+      {
+        "kind": "item",
+        "name": "Pendant of Continuous Flow"
+      },
+      {
+        "kind": "item",
+        "name": "Coral-Encrusted Girdle"
+      },
+      {
+        "kind": "item",
+        "name": "Riptide Handwraps"
       }
     ]
   },
@@ -9523,6 +9665,39 @@ export const GUIDE_PROF_CRAFTS: GuideProfCraft[] = [
           "minimalAt": 75,
           "zeroAt": 100
         }
+      },
+      {
+        "id": "schematic_clockwork_shock_bomb",
+        "name": "Clockwork Shock Bomb",
+        "skillReq": 40,
+        "tier": 1,
+        "station": "toolworks",
+        "acquisition": "drop",
+        "feeCopper": 0,
+        "materials": [
+          {
+            "itemId": "iron_ore",
+            "name": "Iron Ore",
+            "count": 3
+          },
+          {
+            "itemId": "copper_ore",
+            "name": "Copper Ore",
+            "count": 4
+          }
+        ],
+        "output": {
+          "name": "Clockwork Shock Bomb",
+          "count": 1,
+          "quality": "rare"
+        },
+        "combo": null,
+        "oncePerDay": false,
+        "gain": {
+          "reducedAt": 50,
+          "minimalAt": 75,
+          "zeroAt": 100
+        }
       }
     ]
   },
@@ -10295,6 +10470,77 @@ export const GUIDE_PROF_CRAFTS: GuideProfCraft[] = [
           "name": "Lesser Healing Potion",
           "count": 1,
           "quality": "common"
+        },
+        "combo": null,
+        "oncePerDay": false,
+        "gain": {
+          "reducedAt": 50,
+          "minimalAt": 75,
+          "zeroAt": 100
+        }
+      },
+      {
+        "id": "recipe_elixir_of_mana_regeneration",
+        "name": "Elixir of Mana Regeneration",
+        "skillReq": 40,
+        "tier": 1,
+        "station": "apothecary",
+        "acquisition": "drop",
+        "feeCopper": 0,
+        "materials": [
+          {
+            "itemId": "silverleaf_herb",
+            "name": "Sheenleaf Herb",
+            "count": 3
+          },
+          {
+            "itemId": "glass_vial",
+            "name": "Glass Vial",
+            "count": 1
+          }
+        ],
+        "output": {
+          "name": "Elixir of Mana Regeneration",
+          "count": 1,
+          "quality": "uncommon"
+        },
+        "combo": null,
+        "oncePerDay": false,
+        "gain": {
+          "reducedAt": 50,
+          "minimalAt": 75,
+          "zeroAt": 100
+        }
+      },
+      {
+        "id": "recipe_potion_of_invisibility",
+        "name": "Potion of Invisibility",
+        "skillReq": 40,
+        "tier": 1,
+        "station": "apothecary",
+        "acquisition": "drop",
+        "feeCopper": 0,
+        "materials": [
+          {
+            "itemId": "goldleaf_herb",
+            "name": "Goldleaf Herb",
+            "count": 3
+          },
+          {
+            "itemId": "silverleaf_herb",
+            "name": "Sheenleaf Herb",
+            "count": 3
+          },
+          {
+            "itemId": "glass_vial",
+            "name": "Glass Vial",
+            "count": 1
+          }
+        ],
+        "output": {
+          "name": "Potion of Invisibility",
+          "count": 1,
+          "quality": "rare"
         },
         "combo": null,
         "oncePerDay": false,
@@ -13465,6 +13711,39 @@ export const GUIDE_PROF_CRAFTS: GuideProfCraft[] = [
           "minimalAt": 150,
           "zeroAt": 175
         }
+      },
+      {
+        "id": "pattern_reinforced_armor_kit",
+        "name": "Reinforced Armor Kit",
+        "skillReq": 40,
+        "tier": 1,
+        "station": "tannery",
+        "acquisition": "drop",
+        "feeCopper": 0,
+        "materials": [
+          {
+            "itemId": "rough_hide",
+            "name": "Rough Hide",
+            "count": 5
+          },
+          {
+            "itemId": "iron_ore",
+            "name": "Iron Ore",
+            "count": 3
+          }
+        ],
+        "output": {
+          "name": "Reinforced Armor Kit",
+          "count": 1,
+          "quality": "uncommon"
+        },
+        "combo": null,
+        "oncePerDay": false,
+        "gain": {
+          "reducedAt": 50,
+          "minimalAt": 75,
+          "zeroAt": 100
+        }
       }
     ]
   },
@@ -16389,6 +16668,34 @@ export const GUIDE_PROF_CRAFTS: GuideProfCraft[] = [
           "reducedAt": 150,
           "minimalAt": 175,
           "zeroAt": 200
+        }
+      },
+      {
+        "id": "plans_dense_sharpening_stone",
+        "name": "Dense Sharpening Stone",
+        "skillReq": 40,
+        "tier": 1,
+        "station": "forge",
+        "acquisition": "drop",
+        "feeCopper": 0,
+        "materials": [
+          {
+            "itemId": "iron_ore",
+            "name": "Iron Ore",
+            "count": 4
+          }
+        ],
+        "output": {
+          "name": "Dense Sharpening Stone",
+          "count": 1,
+          "quality": "common"
+        },
+        "combo": null,
+        "oncePerDay": false,
+        "gain": {
+          "reducedAt": 50,
+          "minimalAt": 75,
+          "zeroAt": 100
         }
       }
     ]
@@ -20399,6 +20706,87 @@ export const GUIDE_PROF_ENCHANTING: GuideProfEnchanting = {
         {
           "stat": "sta",
           "value": 13
+        }
+      ]
+    },
+    {
+      "id": "enchant_offhand_spirit",
+      "slot": "offhand",
+      "tier": "base",
+      "skillReq": 40,
+      "perfectedOnly": false,
+      "requiresFormula": true,
+      "hasDescription": false,
+      "reagents": [
+        {
+          "itemId": "arcane_dust",
+          "name": "Chime Dust",
+          "count": 3
+        },
+        {
+          "itemId": "arcane_essence",
+          "name": "Chime Essence",
+          "count": 1
+        }
+      ],
+      "bonus": [
+        {
+          "stat": "spi",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "enchant_feet_shadowstride",
+      "slot": "feet",
+      "tier": "base",
+      "skillReq": 40,
+      "perfectedOnly": false,
+      "requiresFormula": true,
+      "hasDescription": false,
+      "reagents": [
+        {
+          "itemId": "arcane_dust",
+          "name": "Chime Dust",
+          "count": 2
+        },
+        {
+          "itemId": "arcane_essence",
+          "name": "Chime Essence",
+          "count": 1
+        }
+      ],
+      "bonus": [
+        {
+          "stat": "agi",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "enchant_gloves_forged_might",
+      "slot": "gloves",
+      "tier": "base",
+      "skillReq": 40,
+      "perfectedOnly": false,
+      "requiresFormula": true,
+      "hasDescription": false,
+      "reagents": [
+        {
+          "itemId": "arcane_dust",
+          "name": "Chime Dust",
+          "count": 3
+        },
+        {
+          "itemId": "arcane_essence",
+          "name": "Chime Essence",
+          "count": 1
+        }
+      ],
+      "bonus": [
+        {
+          "stat": "str",
+          "value": 3
         }
       ]
     },

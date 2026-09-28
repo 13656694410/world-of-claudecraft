@@ -19,6 +19,7 @@ describe('quest snapshot wire', () => {
       worldQuestCycle: '2030-01-02',
       worldQuestLog: new Map([['wq_test', worldQuest]]),
       factions: { rift_watch: 30, church_order: 0, automatons: 0 },
+      factionCurrencies: { rift_watch: 10, church_order: 5, automatons: 0 },
       worldQuestRerollCycle: 'wq1_1',
       worldQuestReplacements: { wq_test: 'wq_other' },
       weeklyQuest: null,
@@ -38,7 +39,10 @@ describe('quest snapshot wire', () => {
       ['wqexp', 1_893_542_400_000],
       ['wqlog', [worldQuest]],
       ['fac', meta.factions],
+      ['facCur', meta.factionCurrencies],
       ['cluh', { huntId: 'hunt_test', step: 2 }],
+      // The Buried Hoard treasure map (null until one is read).
+      ['tmap', null],
       ['wqrr', meta.worldQuestRerollCycle],
       ['wqrep', { wq_test: 'wq_other' }],
       ['wkq', null],

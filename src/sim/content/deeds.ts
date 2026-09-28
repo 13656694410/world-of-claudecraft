@@ -3565,6 +3565,17 @@ export const DEEDS: Record<string, DeedDef> = {
     trigger: { kind: 'meter', meter: 'clueCasketsOpened', amount: 10 },
     reward: { kind: 'title', text: 'Treasure Hunter' },
   },
+  // Buried Hoards: the Coinsack Scurrier (src/sim/rift/hoard_goblin.ts) that
+  // sometimes runs through a room with a sack of stolen gold. Every player paid
+  // off one is credited (the hoardGoblinKills stat).
+  cmb_coinsack_caught: {
+    id: 'cmb_coinsack_caught',
+    name: 'Caught Red-Handed',
+    desc: 'Catch a Coinsack Scurrier in a Buried Hoard before it escapes with the gold.',
+    category: 'combat',
+    renown: 10,
+    trigger: { kind: 'stat', stat: 'hoardGoblinKills', count: 1 },
+  },
   // The scheduled ferries (sim/transport_ferry.ts): one crossing in each
   // direction on every route, the visit marks written when a living passenger
   // steps off at the far pier. Cosmetic exploration at the castle-visit value

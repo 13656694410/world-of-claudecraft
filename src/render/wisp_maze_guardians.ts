@@ -2,129 +2,102 @@ import * as THREE from 'three';
 import { surfaceMat } from './gfx';
 import { cloneMaterialWithHooks } from './material_clone_hooks';
 import { markOwnedMaterial } from './shared_resource';
+import type { WispMazeKit } from './wisp_maze_kit';
+import { WISP_GUARDIAN_CRESTS, wispGuardianMotion, wispGuardianScale } from './wisp_maze_kit_core';
 
 export const WISP_GUARDIAN_COLORS = [0xeb6354, 0xb879ec, 0x59baff, 0x70dba4, 0xf0c04a] as const;
 /** One actor per authored spawn post; the hard profile fills all of them. */
 export const WISP_GUARDIAN_COUNT = WISP_GUARDIAN_COLORS.length;
 
 /** The colour the hunters turn while the wisp's light frightens them. */
-const FRIGHTENED_COLOR = 0xd9f8ff;
+export const WISP_GUARDIAN_FRIGHTENED_COLOR = 0xd9f8ff;
 const EYE_COLOR = 0xfff1c4;
 
 type GuardianMaterial = THREE.MeshLambertMaterial | THREE.MeshStandardMaterial;
 
 /**
- * The maze hunters: hooded wraiths that drift after the thief, one per spawn
- * post. Every actor shares one silhouette language (a tapering cloak, a hood,
- * two lit eyes, reaching arms) so "that thing is chasing me" reads at a glance,
- * and each carries one distinguishing crest so the five stay tellable apart
- * without relying on tint alone. Frightened hunters blanch and their eyes dim.
+ * The maze hunters: garden spirits of leaves, twigs and withered flowers that
+ * drift after the thief, one per spawn post. Every actor shares one body from
+ * the maze kit (a hunched cloak of leaves over trailing vines, a leaf hood
+ * around a hollow face with two lit eyes, twig arms reaching forward), its
+ * leaves dyed in the hunter's own colour, and each wears its own crest
+ * (antlers, a withered bloom, a twig hoop, a crown of thorns, a great leaf
+ * fan) so the five stay tellable apart without relying on tint alone.
+ * Frightened hunters blanch and their eyes dim. Every part draws on every
+ * graphics tier: where a hunter is, and which one, is what the player acts on.
  */
 export class WispMazeGuardians {
   readonly group = new THREE.Group();
   readonly actors: THREE.Group[] = [];
-  private readonly cloak = new THREE.ConeGeometry(0.5, 1.5, 7, 1, true);
-  private readonly hood = new THREE.SphereGeometry(0.4, 9, 7);
-  private readonly eye = new THREE.SphereGeometry(0.085, 6, 5);
-  private readonly arm = new THREE.BoxGeometry(0.16, 0.16, 0.7);
-  private readonly horn = new THREE.ConeGeometry(0.12, 0.45, 5);
-  private readonly ring = new THREE.TorusGeometry(0.62, 0.06, 5, 14);
-  private readonly materials: GuardianMaterial[] = [];
+  private readonly bodies: THREE.Group[] = [];
+  private readonly tints: GuardianMaterial[] = [];
   private readonly eyes: GuardianMaterial[] = [];
+  private readonly motion = { hover: 0, sway: 0 };
 
-  constructor() {
+  constructor(kit: WispMazeKit, solid: THREE.Material) {
+    const spirit = kit.get('Spirit');
     for (let index = 0; index < WISP_GUARDIAN_COUNT; index++) {
       const color = WISP_GUARDIAN_COLORS[index];
-      const material = markOwnedMaterial(
-        cloneMaterialWithHooks(surfaceMat({ color, emissive: color, emissiveIntensity: 0.35 })),
+      const tint = markOwnedMaterial(
+        cloneMaterialWithHooks(
+          surfaceMat({ color, emissive: color, emissiveIntensity: 0.35, vertexColors: true }),
+        ),
       ) as GuardianMaterial;
       const eyeMaterial = markOwnedMaterial(
         cloneMaterialWithHooks(
           surfaceMat({ color: EYE_COLOR, emissive: EYE_COLOR, emissiveIntensity: 1 }),
         ),
       ) as GuardianMaterial;
-      this.materials.push(material);
+      this.tints.push(tint);
       this.eyes.push(eyeMaterial);
       const root = new THREE.Group();
       root.name = `wisp-guardian-${index}`;
-      const part = (
-        geometry: THREE.BufferGeometry,
-        x: number,
-        y: number,
-        z: number,
-        sx = 1,
-        sy = 1,
-        sz = 1,
-        mat: GuardianMaterial = material,
+      // The sway and the hard hunter's size ride an inner group, so the root
+      // carries only the sim's position and facing.
+      const body = new THREE.Group();
+      body.scale.setScalar(wispGuardianScale(index));
+      root.add(body);
+      const add = (
+        geometry: THREE.BufferGeometry | null | undefined,
+        material: THREE.Material,
+        name: string,
       ) => {
-        const mesh = new THREE.Mesh(geometry, mat);
-        mesh.position.set(x, y, z);
-        mesh.scale.set(sx, sy, sz);
-        root.add(mesh);
-        return mesh;
+        if (!geometry) return;
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.name = name;
+        body.add(mesh);
       };
-      // The shared body: an inverted cloak that tapers to nothing above the
-      // ground, a hood, two eyes set into its shadow, and arms reaching forward.
-      part(this.cloak, 0, 0.95, 0).rotation.x = Math.PI;
-      part(this.hood, 0, 1.72, 0, 1, 0.92, 1);
-      for (const side of [-1, 1]) {
-        part(this.eye, side * 0.15, 1.7, 0.32, 1, 1, 1, eyeMaterial);
-        const arm = part(this.arm, side * 0.42, 1.25, 0.38);
-        arm.rotation.y = side * -0.35;
-        arm.rotation.x = -0.25;
-      }
-      // One crest per hunter.
-      if (index === 0) {
-        for (const side of [-1, 1]) {
-          part(this.horn, side * 0.28, 2.08, 0).rotation.z = side * -0.45;
-        }
-      } else if (index === 1) {
-        part(this.horn, 0, 2.25, 0, 1.6, 1.4, 1.6);
-      } else if (index === 2) {
-        part(this.ring, 0, 1.55, 0, 1.15, 1.15, 1.15).rotation.x = Math.PI / 2;
-      } else if (index === 3) {
-        for (const angle of [0, 1.05, 2.1, 3.14, 4.19, 5.24]) {
-          const spike = part(
-            this.horn,
-            Math.sin(angle) * 0.3,
-            2.02,
-            Math.cos(angle) * 0.3,
-            0.7,
-            0.6,
-            0.7,
-          );
-          spike.rotation.z = -Math.sin(angle) * 0.6;
-          spike.rotation.x = Math.cos(angle) * 0.6;
-        }
-      } else {
-        // The hard-profile hunter: broader, taller, and ringed twice at the hem.
-        root.scale.setScalar(1.18);
-        for (const y of [0.35, 0.6]) {
-          part(this.ring, 0, y, 0, 0.9, 0.9, 0.9).rotation.x = Math.PI / 2;
-        }
-      }
+      add(spirit?.tint, tint, `wisp-guardian-leaves-${index}`);
+      add(spirit?.solid, solid, `wisp-guardian-twigs-${index}`);
+      add(spirit?.glow, eyeMaterial, `wisp-guardian-eyes-${index}`);
+      const crest = kit.get(WISP_GUARDIAN_CRESTS[index]);
+      add(crest?.tint, tint, `wisp-guardian-crest-${index}`);
+      add(crest?.solid, solid, `wisp-guardian-crest-twigs-${index}`);
+      this.bodies.push(body);
       this.actors.push(root);
       this.group.add(root);
     }
   }
 
+  /** The drift the sim does not own: sets the sway, returns the hover height. */
+  pose(index: number, tick: number, reducedMotion: boolean): number {
+    const motion = wispGuardianMotion(tick, index, reducedMotion, this.motion);
+    this.bodies[index].rotation.z = motion.sway;
+    return motion.hover;
+  }
+
   setFrightened(index: number, frightened: boolean): void {
-    const material = this.materials[index];
-    const color = frightened ? FRIGHTENED_COLOR : WISP_GUARDIAN_COLORS[index];
+    const material = this.tints[index];
+    const color = frightened ? WISP_GUARDIAN_FRIGHTENED_COLOR : WISP_GUARDIAN_COLORS[index];
     material.color.setHex(color);
     material.emissive.setHex(color);
     material.emissiveIntensity = frightened ? 0.7 : 0.35;
     this.eyes[index].emissiveIntensity = frightened ? 0.2 : 1;
   }
 
+  /** The kit geometry is shared; only the per-hunter materials are this owner's. */
   dispose(): void {
-    this.cloak.dispose();
-    this.hood.dispose();
-    this.eye.dispose();
-    this.arm.dispose();
-    this.horn.dispose();
-    this.ring.dispose();
-    for (const material of this.materials) material.dispose();
+    for (const material of this.tints) material.dispose();
     for (const material of this.eyes) material.dispose();
   }
 }

@@ -503,7 +503,8 @@ export const fr_CA: EnTranslations = {
         "dungeon_heroic": "Butin de donjon Héroïque",
         "world": "Butin de quête mondiale",
         "pvp": "ÉQUIPEMENT DE GUERRE"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Horaires des bacs",
@@ -1166,7 +1167,10 @@ export const fr_CA: EnTranslations = {
       "count": "({count})",
       "objectiveValue": "{current} / {total}",
       "collapseHint": "Réduire le suivi des quêtes",
-      "expandHint": "Développer le suivi des quêtes"
+      "expandHint": "Développer le suivi des quêtes",
+      "worldQuests": "Quêtes mondiales",
+      "worldQuestsCollapseHint": "Réduire les quêtes mondiales",
+      "worldQuestsExpandHint": "Développer les quêtes mondiales"
     },
     "interfaceTabs": {
       "general": "Général",
@@ -1661,6 +1665,10 @@ export const fr_CA: EnTranslations = {
     },
     "riftTracker": {
       "title": "Faille",
+      "hoardTitle": "Butin enfoui",
+      "hoardGoal": "Vaincre le gardien du butin",
+      "hoardChestGoal": "Ouvrir le coffre du butin",
+      "hoardClaimedGoal": "Le butin est à vous",
       "floor": "Étage {current} sur {total}",
       "closesIn": "Se ferme dans {time}",
       "clockMs": "{minutes}:{seconds}",
@@ -2870,6 +2878,19 @@ export const fr_CA: EnTranslations = {
       "crafting": "Artisanat",
       "openProfessions": "Métiers ouverts"
     },
+    "treasureMap": {
+      "close": "Fermer la carte au trésor",
+      "zone": "Quelque part dans {zone}",
+      "hint": "Trouvez le terrain que cette carte montre, tenez-vous sur le X et utilisez la carte à nouveau pour creuser. Un butin enfoui s'ouvre pour vous et votre groupe.",
+      "upgradeNote": "La redessiner en tant que carte {rarity} prend {inks} Encres du Cartographe (vous en tenez {held}). Les intendants des factions les vendent.",
+      "upgradeMaxed": "Aucun cartographe ne pourrait mieux affiner cette carte.",
+      "rarity": {
+        "common": "Commun",
+        "rare": "Rare",
+        "epic": "Épique",
+        "legendary": "Légendaire"
+      }
+    },
     "currencies": {
       "intro": "Aucune de ces monnaies n'occupe de place dans vos sacs. Les pièces restent dans votre sac comme toujours.",
       "activities": "Activités",
@@ -2884,7 +2905,24 @@ export const fr_CA: EnTranslations = {
       "walletNotLinked": "Aucun portefeuille lié",
       "wocPreview": "Solde d'aperçu, pas encore vérifié",
       "lifetime": "À vie : {amount}",
-      "factionPending": "Monnaie de faction : en attente de l'étape 2"
+      "factionPending": "Monnaie de faction : en attente de l'étape 2",
+      "riftWatchMark": "Marque de la Vigie des Failles",
+      "riftWatchMarkNote": "Quêtes mondiales dans les zones de la Vigie des Failles",
+      "churchOrderCrest": "Insigne de l'Ordre",
+      "churchOrderCrestNote": "Quêtes mondiales dans les zones de l'Ordre de l'Église",
+      "automatonCog": "Rouage d'Automate",
+      "automatonCogNote": "Quêtes mondiales dans les zones Automate"
+    },
+    "worldQuestTooltip": {
+      "factionLine": "Faction : {faction}",
+      "timeRemaining": "Temps restant :",
+      "standingAmount": "{amount} {faction}",
+      "currencyAmount": "{amount} {currency}",
+      "standingReward": "+{amount} de réputation {faction}",
+      "currencyReward": "+{amount} {currency}"
+    },
+    "worldQuestBanner": {
+      "subtitle": "Quête mondiale"
     },
     "reputation": {
       "intro": "Les trois factions progressent en même temps : chaque quête mondiale compte pour la faction de sa zone.",
@@ -5293,6 +5331,9 @@ export const fr_CA: EnTranslations = {
       "enchant_chest_lucent_stamina": "Gravure de torse : Endurance lumineuse",
       "enchant_feet_lucent_agility": "Gravure de bottes : Agilité lumineuse",
       "enchant_lucent_infusion": "Infusion lumineuse",
+      "enchant_offhand_spirit": "Gravure secondaire : Esprit",
+      "enchant_feet_shadowstride": "Gravure de bottes : Ombre galoppante",
+      "enchant_gloves_forged_might": "Gravure de gants : Force forgée",
       "enchant_weapon_riftwalkers_grace": "Grâce du Marcheur des Failles",
       "enchant_weapon_dawnfire_etching": "Gravure d'arme : Feu de l'aube",
       "enchant_weapon_dawns_benediction": "Gravure d'arme : Bénédiction de l'aube",
@@ -5304,6 +5345,22 @@ export const fr_CA: EnTranslations = {
       "enchant_weapon_dawnfire_etching": "Grave une arme de façon permanente avec 18 points de Puissance des sorts. La Puissance des sorts compte aussi dans la Puissance des soins. Un bonus fixe : il n'évolue pas.",
       "enchant_weapon_dawns_benediction": "Grave une arme de façon permanente avec 34 points de Puissance des soins. La Puissance des soins augmente uniquement les soins, jamais les dégâts des sorts. Un bonus fixe : il n'évolue pas.",
       "enchant_weapon_piston_drive": "Grave une arme à deux mains de façon permanente avec 12 points de Force et 25 de Score de critique. Ne peut pas être appliqué à une arme à une main. Un bonus fixe : il n'évolue pas."
+    },
+    "factionRewards": {
+      "alliedHearthstoneUse": "Utilisation : Vous téléporte à votre refuge de faction accordé. (10 sec d'incantation, 15 min de délai)",
+      "alliedHearthstoneAttuned": "Accordé à : {hub}",
+      "hub_none": "Aucun (Utilisez près d'un refuge de faction pour s'accorder)",
+      "hub_rift_watch": "Drifthaven (La Vigie des Failles)",
+      "hub_church_order": "Val d'Eastbrook (L'Ordre de l'Église)",
+      "hub_automatons": "South Reach (Fonderie Automate)",
+      "riftGliderUse": "Utilisation : Déplie le planeur, ralentissant la vitesse de chute pendant 30 sec. L'atterrissage ou les dégâts annulent l'effet. (2 min de délai)",
+      "targetDummyUse": "Utilisation : Déploie une cible d'entraînement mécanique dans le monde ouvert pendant 2 minutes pour pratiquer les capacités de combat. (5 min de délai)",
+      "battleStandardUse": "Utilisation : Plante l'Étendard du Combat de l'Aube pendant 5 minutes, augmentant considérablement la régénération de la santé et du mana hors combat pour tous les alliés proches. Rester près pendant 10 secondes accorde aussi la Bénédiction de l'Aube (+5% à toutes les statistiques pendant 30 min). (5 min de délai)",
+      "shockBombUse": "Utilisation : Lance une bombe à choc jusqu'à 30 mètres, infligeant 120 à 160 points de dégâts de Nature à tous les ennemis à 5 mètres. (1 min de délai)",
+      "invisibilityUse": "Utilisation : Vous enveloppe dans la furtivité pendant 6 sec. (2 min de délai)",
+      "armorKitUse": "Utilisation : Renforce votre armure thoracique, augmentant l'Armure de 12 pendant 1 heure.",
+      "sharpeningStoneUse": "Utilisation : Aiguise votre arme principale, augmentant la Puissance d'attaque de 6 pendant 30 min.",
+      "manaElixirUse": "Utilisation : Augmente l'Esprit de 6 pendant 1 heure."
     },
     "professions": {
       "title": "Métiers",
@@ -6076,6 +6133,7 @@ export const fr_CA: EnTranslations = {
       "sourceActivityCorpseHarvest": "Récupérée en récoltant des cadavres de créatures",
       "sourceActivityMasterworkCraft": "Obtenue en fabriquant un chef-d'œuvre",
       "sourceActivityRiftFirstClear": "Attribuée à chaque membre du groupe qui remporte la première conquête d'une Faille classée",
+      "sourceActivityBuriedHoard": "Trouvé dans le coffre de récompense d'un Butin enfoui, le coffre qu'une carte au trésor mène",
       "cellMissingSourceAria": "{name}, pas encore trouvée, {source}",
       "cellOwnedClearsAria": "{name}, cataloguée, trouvée pour la première fois à la conquête {count}",
       "searchPlaceholder": "Rechercher des reliques",
@@ -6814,54 +6872,82 @@ export const fr_CA: EnTranslations = {
       "1": "Un guetteur des dunes lointaines veille sur les sables de l'est, au nord de la garnison. Trouvez l'éclaireur Yerrin et demandez-lui ce que le vent a apporté.",
       "2": "Le gardien des réserves de la garnison n'a rien mangé depuis la dernière patrouille. Apportez 2 x Miche de campagne au quartier-maître Sela.",
       "3": "À l'est, un peu au sud de l'endroit où les cendres se muent en dunes, une parcelle calcinée cache ce que la cendre a enseveli. Utilisez le parchemin à cet endroit et creusez.",
-      "title": "Cendres à la porte"
+      "title": "Cendres à la porte",
+      "reply": {
+        "1": "Le vent soufflait des dunes orientales apportant de la cendre, et la cendre ne souffle pas en provenance de sable vide. Sela à la garnison enregistre chaque patrouille. Elle parlera, une fois que quelqu'un l'aura nourrie.",
+        "2": "Du pain enfin, que les dieux vous bénissent. La patrouille jure avoir vu de la fumée monter de sable nu, à l'est et un peu au sud des dunes, où il ne reste rien à brûler."
+      }
     },
     "hunt_frostveil_aurora_vigil": {
       "0": "Là où les terrasses montent vers les lumières qui dansent la nuit, agenouillez-vous sur les Marches de l'Aurore et laissez le ciel vous remarquer.",
       "1": "Celle qui lit les lumières attend près des marches. Parlez à l'auroriste Veyla de ce que le ciel a épelé.",
       "2": "À l'est des terrasses hurlantes, un peu au sud, la neige repose plus plate qu'elle ne devrait. Utilisez le parchemin à cet endroit et creusez.",
-      "title": "Lumières sur les marches"
+      "title": "Lumières sur les marches",
+      "reply": {
+        "1": "Vous vous êtes agenouillée, et les lumières ont répondu. La nuit dernière, elles se sont courbées vers l'est. Peut-être qu'elles vont vous montrer où elles ont pointé. Cherchez le plus grand pic qui brille sous les aurores du nord."
+      }
     },
     "hunt_amberfall_lantern_ferry": {
       "0": "Au bord de l'eau, au nord de Lanternmere, le gardien des bacs à lanternes sait quelle lumière s'est éteinte. Parlez au maître passeur Caddow.",
       "1": "Une pierre solitaire s'incline contre le ciel au nord-est du grand lac, plus ancienne que la ville. Tenez-vous au Monolithe penché.",
       "2": "La gardienne des rangs dorés arrose son verger à la main et s'en assoiffe. Apportez 3 x Eau de puits froide à l'arboricultrice Pomeline.",
       "3": "Au nord-est de la butte où les érables-braises brûlent rouge, les feuilles forment un cercle qu'aucun vent n'a tracé. Utilisez le parchemin à cet endroit et creusez.",
-      "title": "Lanternes sur le lac"
+      "title": "Lanternes sur le lac",
+      "reply": {
+        "0": "Une lanterne s'est éteinte hier soir, celle qui fait face à la pierre ancienne de l'autre côté de l'eau. Mes passeurs ne s'en approcheront pas. Peut-être que vous le ferez.",
+        "2": "Eau froide de puits, exactement ce qu'il fallait aux arbres. En montant au-delà des érables rouges, les feuilles sont tombées en cercle, et aucun de mes arbres ne perd ses feuilles si régulièrement."
+      }
     },
     "hunt_willowfen_fenwitch_salt": {
       "0": "La sorcière des marais de Willowweep ne parle à personne qui vienne les mains vides. Apportez 1 x Sel de cuisine à Mère Sedge.",
       "1": "Là où le marais s'aplanit et où l'air assoupit chacun, tenez-vous sur les Plats somnolents et soupirez, comme la sorcière vous l'a dit.",
       "2": "Au sud-est des mares qui brillent dans la tourbière, une butte de terre sèche reste sèche toute l'année. Utilisez le parchemin à cet endroit et creusez.",
-      "title": "Le sel de la sorcière des marais"
+      "title": "Le sel de la sorcière des marais",
+      "reply": {
+        "0": "Du sel. Bien, vous écoutez. Les plats au-delà des roseaux créent de la terre chaque année, du sel du vent qui n'était jamais océan. Allez au plat blanc et apportez-moi 2 x Sel de marais."
+      }
     },
     "hunt_nightbloom_sleepless_vigil": {
       "0": "Au nord-est de Moonrest, là où les pierres montent une garde sans fin, tenez-vous à la Veille debout.",
       "1": "Le veilleur de la garde compte les étoiles comme d'autres comptent des pièces. Parlez à l'astronome Cassian de celle qui est tombée.",
       "2": "Au nord de la ville se trouve un tumulus dont le dormeur ne se repose jamais. Saluez le Tumulus sans sommeil pour que le dormeur sache qu'un ami est venu.",
       "3": "Au sud-est du champ où s'amasse la pénombre, le clair de lune se rassemble sur une parcelle de terre nue. Utilisez le parchemin à cet endroit et creusez.",
-      "title": "La veille des insomniaques"
+      "title": "La veille des insomniaques",
+      "reply": {
+        "1": "Une étoile est tombée il y a trois nuits, et elle est tombée vers la vieille chapelle. Les vignes y ont grandi si épaisses que l'on voit à peine la pierre. Utilisez le parchemin entre les vignes."
+      }
     },
     "hunt_wraithwood_mournstone_candles": {
       "0": "Le fabricant de chandelles de Gibbetmere vend de la lumière à ceux qui craignent l'obscurité. Parlez à la veuve Tansy d'une chandelle qui n'a jamais été payée.",
       "1": "Le dernier vicaire de la Pierre du deuil jeûne en ne se nourrissant que de prières. Apportez 2 x Viande séchée salée au vicaire Creel.",
       "2": "Au nord-est de la ville, au-delà des corbeaux, une clairière porte ses propres fruits étranges. Tenez-vous dans la Clairière pendante.",
       "3": "Au sud-est de la clairière où le chasseur a posé ses collets, la litière de feuilles a été récemment retournée. Utilisez le parchemin à cet endroit et creusez.",
-      "title": "Des chandelles pour la Pierre du deuil"
+      "title": "Des chandelles pour la Pierre du deuil",
+      "reply": {
+        "0": "Le vicaire a commandé cette bougie et ne l'a jamais payée. Il l'a laissée dans la chapelle quand il a quitté. Quelque chose marche là maintenant. Remettez-moi 2 x Cierges de cire puis montrez-moi le parchemin à la chapelle.",
+        "1": "Merci, ami. Je ne l'ai jamais allumée, cette bougie. Quelque chose marche sous les pierres du givre, quelque chose qui attendait. Creusez avec le parchemin à la Crypte gelée."
+      }
     },
     "hunt_palmreach_sunken_idol": {
       "0": "Au cœur du fourré, au nord-ouest du lagon, les lianes tombent comme une cascade. Tenez-vous à la Cascade de lianes.",
       "1": "Un ermite qui s'est aventuré dans le fourré et en est revenu vit près des lianes tombantes. Parlez à Okrim de ce qu'il a vu là-dessous.",
       "2": "À l'est, une idole à moitié engloutie observe encore. Prosternez-vous devant l'Idole engloutie, comme l'ermite a dit que le font les plongeurs.",
       "3": "Au nord-est de l'endroit où le fourré ouvre sa gueule vers la mer, le sable a été amoncelé plus haut que la marée n'atteint. Utilisez le parchemin à cet endroit et creusez.",
-      "title": "Le secret de l'idole"
+      "title": "Le secret de l'idole",
+      "reply": {
+        "1": "Sous les vignes, les plongeurs ont trouvé une idole, et l'idole ne veut pas revenir. Elle restait trop bien là, observant le récif. Descendez avec un parchemin à cet endroit et elle laissera partir ses mains."
+      }
     },
     "hunt_evergarden_beacon_road": {
       "0": "La jardinière du parterre, le long de l'allée au nord de Hedgewick, jure que ses massifs meurent de faim. Apportez 2 x Compost à la fermière Verbena.",
       "1": "Dans le coin le plus au sud-est du jardin, un vieux moulin tourne encore sans meunier. Tenez-vous au Vieux Moulin.",
       "2": "Suivez la route au sud, franchissez la frontière vers la Crête du Vent, et sortez jusqu'à la côte. Le gardien du vieux phare, le gardien Bram, a le dernier mot.",
       "3": "Au nord-ouest du vieux phare, juste à l'écart du chemin qui descend depuis la lumière, le gazon a été découpé puis reposé. Utilisez le parchemin à cet endroit et creusez.",
-      "title": "Le phare et la fleur"
+      "title": "Le phare et la fleur",
+      "reply": {
+        "0": "Un bon compost, les planches vont survivre. L'ancien meunier a enterré quelque chose avant de partir. Son moulin tourne toujours dans le coin le plus reculé du jardin. Allez vous tenir à côté.",
+        "2": "Donc le moulin vous a envoyé sur la route côtière. Le phare garde son feu jour et nuit, même si personne ne sait qui le garde plus maintenant. Tenez-vous au phare du cap et creusez."
+      }
     }
   },
   "guide": {
@@ -10164,6 +10250,11 @@ export const fr_CA: EnTranslations = {
       "pylonLit": "Un pylône runique s'embrase ({lit}/{total}).",
       "wayDownOpens": "Le chemin vers le bas se déchire.",
       "exitOpens": "La faille frémit. Un chemin vers le foyer se déchire derrière les tombés.",
+      "hoardEnter": "Vous descendez dans {name}.",
+      "hoardExitOpens": "Le trésor est vôtre. Retournez à l'entrée pour remonter.",
+      "hoardStepBack": "Vous remontez par l'entrée du trésor.",
+      "hoardNotYours": "Ce trésor a été déterré par un autre groupe.",
+      "hoardEntrantsFull": "Ce trésor a déjà admis cinq aventuriers.",
       "portalOpens": "Une faille de rang {tier} se déchire dans {zone} !",
       "portalSealed": "La faille de rang {tier} dans {zone} a été scellée.",
       "portalCollapses": "La faille de rang {tier} dans {zone} s'effondre.",
@@ -10203,7 +10294,152 @@ export const fr_CA: EnTranslations = {
       "detonateLightningRod": "Paratonnerre frappe !",
       "detonateStormcallersWrath": "La Colère de l'Invocateur des tempêtes se déchaîne !",
       "detonateAbyssalMaw": "La Gueule abyssale se referme !",
-      "detonateCrushingDepth": "La Profondeur écrasante écrase !"
+      "detonateCrushingDepth": "La Profondeur écrasante écrase !",
+      "yell": {
+        "mushroomEngage": "Les spores vous auront.",
+        "mushroomSummon": "Grandissez, mes petits !",
+        "moleEngage": "Le sol est à moi.",
+        "moleSummon": "À terre !",
+        "batEngage": "Iiiiiiih !",
+        "batSummon": "À moi, ma nuée !",
+        "mimicEngage": "Faim... si faim.",
+        "mimicSummon": "Plus d'or, plus d'or !",
+        "frostBigCast": "Le vent blanc se lève.",
+        "frostDeathZoneCast": "Le givre vous réclame.",
+        "frostDeathZoneStrike": "Rien ne survit au froid des profondeurs.",
+        "frostEngage": "Le froid emporte tout, à la fin.",
+        "frostEnrage": "GELEZ !",
+        "emberBigCast": "BRÛLEZ.",
+        "emberDeathZoneCast": "Le magma monte.",
+        "emberDeathZoneStrike": "LA FORGE CONSUME TOUT.",
+        "emberEngage": "La forge a faim.",
+        "emberSummon": "Surgissez des scories !",
+        "emberEnrage": "CENDRE ET BRAISE !",
+        "venomBigCast": "Noyez-vous dans le venin !",
+        "venomDeathZoneCast": "Noyez-vous dans le poison.",
+        "venomDeathZoneStrike": "VOUS NE POUVEZ FUIR MES ENFANTS.",
+        "venomEngage": "Mes enfants ont toujours faim.",
+        "venomSummon": "Festoyez, mes petits !",
+        "necroBigCast": "Vos âmes sont perdues.",
+        "necroDeathZoneCast": "Ton âme est perdue.",
+        "necroDeathZoneStrike": "LA MORT RÉCLAME TOUT.",
+        "necroEngage": "La mort n'est que le commencement.",
+        "necroSummon": "Relevez-vous !",
+        "bruteBigCast": "JE VAIS VOUS BRISER !",
+        "bruteDeathZoneCast": "LA TERRE SE FRACASSE.",
+        "bruteDeathZoneStrike": "VOUS TOMBEZ ICI.",
+        "bruteEngage": "Je vais vous écraser !",
+        "bruteEnrage": "GRAAAH !",
+        "arcaneBigCast": "Contemplez le vrai pouvoir.",
+        "arcaneDeathZoneCast": "La réalité se déchire.",
+        "arcaneDeathZoneStrike": "ANNIHILÉS.",
+        "arcaneEngage": "Vous n'auriez pas dû venir.",
+        "arcaneEnrage": "À GENOUX !",
+        "stormBigCast": "Le ciel répond !",
+        "stormDeathZoneCast": "Le ciel répond à ton appel.",
+        "stormDeathZoneStrike": "LA TEMPÊTE DÉVORE.",
+        "stormEngage": "La tempête m'obéit !",
+        "stormEnrage": "LE CIEL S'EFFONDRE !",
+        "tideDeathZoneCast": "Les profondeurs vous emportent.",
+        "tideDeathZoneStrike": "ENTRAÎNÉS DANS L'ABÎME.",
+        "tideEngage": "Les profondeurs vous réclament.",
+        "tideSummon": "Surgissez des profondeurs !",
+        "ritualistBigCast": "Le pacte est scellé dans le feu !",
+        "ritualistEngage": "Vous foulez une terre liée.",
+        "ritualistSummon": "Répondez-moi, choses d'en bas !",
+        "pitlordBigCast": "LA FOSSE VOUS RÉCLAME.",
+        "pitlordEngage": "À genoux, ou brûlez.",
+        "pitlordEnrage": "LA CITADELLE DÉVORE !"
+      },
+      "place": {
+        "hoardFloor": "{theme} : Trésor enfoui",
+        "sanctumFloor": "{theme} : Sanctuaire, profondeur {depth}",
+        "reachesFloor": "{theme} : Confins, profondeur {depth}",
+        "upgradedFloor": "{title} : {theme}, profondeur {depth}",
+        "hoardPlan": "Trésor enfoui : {noun}",
+        "riftPlan": "{suffix} : {noun}",
+        "citadelPlan": "Citadelle : {noun}",
+        "infernalCitadel": "La Citadelle infernale",
+        "hoardEntrance": "Entrée du Trésor enfoui",
+        "theme": {
+          "frost": "Étreinte du givre",
+          "ember": "Emberforge",
+          "venom": "Bois-Venin",
+          "bone": "Charnier",
+          "brute": "Camp de guerre",
+          "void": "Cicatrice du Vide",
+          "storm": "Flèche des tempêtes",
+          "tide": "Fonds engloutis",
+          "spore": "Creux des spores",
+          "burrow": "Terrier profond",
+          "roost": "Perchoir des chauves-souris",
+          "mimic": "Faux coffre-fort",
+          "infernal": "Citadelle infernale"
+        },
+        "noun": {
+          "rime": "Frimas",
+          "hoarfrost": "Givre",
+          "glacier": "Glacier",
+          "frost": "Gel",
+          "ember": "Braise",
+          "cinder": "Tison",
+          "magma": "Magma",
+          "ash": "Cendre",
+          "venom": "Venin",
+          "thorn": "Épine",
+          "bramble": "Ronces",
+          "spider": "Araignée",
+          "bone": "Os",
+          "marrow": "Moelle",
+          "ossuary": "Ossuaire",
+          "grave": "Tombe",
+          "war": "Guerre",
+          "skull": "Crâne",
+          "iron": "Fer",
+          "blood": "Sang",
+          "void": "Vide",
+          "shadow": "Ombre",
+          "umbral": "Pénombre",
+          "dusk": "Crépuscule",
+          "storm": "Tempête",
+          "tempest": "Bourrasque",
+          "thunder": "Tonnerre",
+          "gale": "Rafale",
+          "sunken": "Englouti",
+          "abyssal": "Abyssal",
+          "drowned": "Noyés",
+          "tide": "Marée",
+          "spore": "Spore",
+          "toadstool": "Champignon",
+          "mould": "Moisissure",
+          "mycelium": "Mycélium",
+          "burrow": "Terrier",
+          "tunnel": "Tunnel",
+          "delve": "Fouille",
+          "loam": "Terreau",
+          "roost": "Perchoir",
+          "echo": "Écho",
+          "guano": "Guano",
+          "hollow": "Cavité",
+          "coffer": "Coffret",
+          "strongbox": "Coffre-fort",
+          "tithe": "Dîme",
+          "gilt": "Dorure",
+          "brimstone": "Soufre",
+          "pitfire": "Feu de la fosse",
+          "pactbound": "Lié au pacte"
+        },
+        "suffix": {
+          "abyss": "Abîme",
+          "depths": "Profondeurs",
+          "descent": "Descente",
+          "hollow": "Creux",
+          "labyrinth": "Labyrinthe",
+          "warren": "Garenne",
+          "sanctum": "Sanctuaire",
+          "rift": "Faille"
+        }
+      }
     },
     "delve": {
       "cannotEnterNow": "Vous ne pouvez pas entrer dans une excavation pour l'instant.",
@@ -10273,6 +10509,9 @@ export const fr_CA: EnTranslations = {
       "moveCloserStairs": "Rapprochez-vous de l'escalier.",
       "nhaliaCantorShield": "Chantres, tenez la note !",
       "nhaliaBlackwaterMark": "{name} marque {player} d'Eau noire !"
+    },
+    "factionVendor": {
+      "currencyRequired": "Vous avez besoin de {amount} {currency} pour acheter cela."
     },
     "lockpick": {
       "lockYields": "La serrure cède! Butin {tier}.",
@@ -10894,6 +11133,7 @@ export const fr_CA: EnTranslations = {
       "alreadyInWorld": "Le personnage est déjà dans le monde.",
       "accountSessionLimit": "Trop de personnages de ce compte sont déjà dans le monde.",
       "takenOver": "Votre personnage a été pris en main par une autre session.",
+      "vaultMailRecovering": "Votre courrier des récompenses du coffre est en cours de restauration. Réessayez dans un moment.",
       "renameBeforeEntering": "Ce personnage doit être renommé avant d'entrer dans le monde.",
       "renameNotPermitted": "Le changement de nom de ce personnage n'est pas autorisé.",
       "unsupportedMediaType": "Format de requête non pris en charge.",
@@ -11237,6 +11477,8 @@ export const fr_CA: EnTranslations = {
         "dungeonExit": "Sortie du donjon",
         "delveEntrance": "Entrée de la plongée : {name}",
         "worldPassage": "Passage vers {zone}",
+        "hoardEntrance": "Entrée du butin enfoui",
+        "hoardReturnEntrance": "Entrée de sortie du butin",
         "riftEntrance": "Entrée de la faille : {name}",
         "hostileEnemy": "Ennemi hostile",
         "aggressiveEnemy": "Ennemi qui vous attaque",
@@ -11880,6 +12122,7 @@ export const fr_CA: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "Attaquer",
+      "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Active ou désactive l'attaque automatique sur votre cible. Un clic droit sur un ennemi attaque aussi.",
       "attackRemoveHint": "Clic droit pour le retirer de la barre et libérer l'emplacement.",
       "emptySlot": "Emplacement vide",
@@ -11971,7 +12214,35 @@ export const fr_CA: EnTranslations = {
       "rift_storm_execution": "Paratonnerre",
       "rift_storm_strike": "Colère de l'Invocateur des tempêtes",
       "rift_tide_execution": "Gueule abyssale",
-      "rift_tide_strike": "Profondeur écrasante"
+      "rift_tide_strike": "Profondeur écrasante",
+      "hoard_cast_fear": "Rugissement terrifiant",
+      "hoard_cast_stun": "Coup d'assommoir",
+      "hoard_cast_drowning_hook": "Croc du Noyé",
+      "hoard_cast_rime_beam": "Rayon de givre",
+      "hoard_cast_cinder_bolt": "Trait de braises",
+      "hoard_cast_void_empower": "Renforcement du Néant",
+      "hoard_cast_webbing": "Toile de soie",
+      "hoard_cast_doom_ritual": "Rituel du Malheur",
+      "hoard_cast_charge": "Charge déchaînée",
+      "hoard_cast_silk_snare": "Piège de soie",
+      "hoard_cast_silence": "Cri muet",
+      "hoard_cast_hex": "Malédiction",
+      "hoard_lightning_strike": "Éclair foudroyant",
+      "hoard_ice_age": "Ère glaciaire",
+      "hoard_pulsar_overload": "Surcharge du Pulsar",
+      "hoard_rolling_boulder": "Rocher dévastateur",
+      "hoard_goblin_escape": "Fuite",
+      "hoard_cast_mole_rake": "Griffe lacérante",
+      "hoard_cast_burrow": "Terrier",
+      "hoard_cast_tunnel": "Creusement",
+      "hoard_cast_emerge": "Surgissement",
+      "hoard_cast_collapse": "Éboulement",
+      "hoard_cast_bat_dive_aim": "Piqué foudroyant",
+      "hoard_cast_bat_dive": "Piqué",
+      "hoard_cast_screech": "Cri assourdissant",
+      "hoard_cast_mimic_bite": "Morsure vorace",
+      "hoard_cast_mimic_leap": "Bond écrasant",
+      "hoard_cast_coin_spit": "Pluie de pièces"
     }
   },
   "questUi": {
@@ -12398,7 +12669,17 @@ export const fr_CA: EnTranslations = {
       "clueHuntStep": "Indice {step} sur {total} résolu : {title}",
       "clueHuntDone": "Chasse au trésor terminée : {title}. Le coffret est à vous.",
       "clueHuntAbandoned": "Chasse au trésor abandonnée : {title}",
-      "clueCasketOpened": "Le coffret contient {money} et {items}."
+      "clueCasketOpened": "Le coffret contient {money} et {items}.",
+      "treasureMapEarned": "Toutes les quêtes mondiales du jour sont complétées : vous avez trouvé une {map}.",
+      "treasureMapLost": "Toutes les quêtes mondiales du jour sont complétées, mais votre inventaire n'a pas de place pour la carte au trésor.",
+      "treasureMapRead": "Vous étudiez la {map}. Le X se trouve quelque part dans {zone}.",
+      "treasureMapUpgraded": "La carte est redessinée avec une encre plus fine : c'est désormais une {map}.",
+      "treasureVaultOpened": "Le sol cède. Un butin enfoui s'ouvre devant vous.",
+      "treasureVaultLooted": "Le butin contient {money} et {items}.",
+      "treasureVaultCapped": "Vous avez suffisamment participé à des butins enfouis aujourd'hui ; celui-ci ne vous paie rien.",
+      "hoardGoblinSighted": "Un voleur gobelin apparaît !",
+      "hoardGoblinSightedHint": "Tuez-le avant qu'il ne s'échappe avec l'or !",
+      "hoardGoblinExplain": "Un voleur gobelin se cache dans ce butin avec un sac d'or volé. Il ne se bat jamais, il ne fait que courir. Votre premier coup lance une barre d'échappement de {seconds} secondes : s'il est toujours vivant à la fin de la barre, il ouvre un portail et s'enfuit avec l'or. Laissé seul, il s'échappe après {minutes} minutes. Tuez-le à temps et tous les gens dans la pièce reçoivent une récompense en or."
     },
     "errors": {
       "unavailable": "Cette quête n'est pas disponible.",
@@ -12811,6 +13092,10 @@ export const fr_CA: EnTranslations = {
       "sport_second_wind": {
         "name": "Jambes fraîches",
         "description": "Retrouvez vos jambes : déplacement 50 % plus rapide pendant 4 sec."
+      },
+      "clockwork_shock_bomb": {
+        "name": "Bombe à choc mécanique",
+        "description": "Lance une Bombe à choc mécanique sur la zone ciblée, infligeant de 120 à 160 points de dégâts de Nature aux ennemis dans un rayon de 5 mètres."
       },
       "flamestrike": {
         "name": "Frappe enflammée",
@@ -17393,6 +17678,363 @@ export const fr_CA: EnTranslations = {
       "stormhymn_chain_treads": {
         "name": "Bottes en mailles Hymne de tempête"
       },
+      "allied_hearthstone": {
+        "name": "Pierre de foyer alliée"
+      },
+      "allied_vanguard_duffel": {
+        "name": "Sac à dos de vanguarde allié"
+      },
+      "rift_feather_glider": {
+        "name": "Planeur à plumes de brèche"
+      },
+      "formula_enchant_feet_shadowstride": {
+        "name": "Formule : Enchantement de bottes - Marche de l'ombre"
+      },
+      "recipe_potion_of_invisibility": {
+        "name": "Recette : Potion d'invisibilité"
+      },
+      "potion_of_invisibility": {
+        "name": "Potion d'invisibilité"
+      },
+      "pattern_reinforced_armor_kit": {
+        "name": "Schéma : Nécessaire d'armure renforcée"
+      },
+      "reinforced_armor_kit": {
+        "name": "Nécessaire d'armure renforcée"
+      },
+      "dawn_battle_standard": {
+        "name": "Étendard de bataille de l'aube"
+      },
+      "formula_enchant_offhand_spirit": {
+        "name": "Formule : Enchantement de main secondaire - Esprit"
+      },
+      "recipe_elixir_of_mana_regeneration": {
+        "name": "Recette : Élixir de régénération de mana"
+      },
+      "elixir_of_mana_regeneration": {
+        "name": "Élixir de régénération de mana"
+      },
+      "clockwork_target_dummy": {
+        "name": "Mannequin d'entraînement mécanique"
+      },
+      "schematic_clockwork_shock_bomb": {
+        "name": "Schéma : Bombe de choc mécanique"
+      },
+      "clockwork_shock_bomb": {
+        "name": "Bombe de choc mécanique"
+      },
+      "plans_dense_sharpening_stone": {
+        "name": "Plans : Pierre à aiguiser dense"
+      },
+      "dense_sharpening_stone": {
+        "name": "Pierre à aiguiser dense"
+      },
+      "formula_enchant_gloves_forged_might": {
+        "name": "Formule : Enchantement de gants - Puissance forgée"
+      },
+      "treasure_map_common": {
+        "name": "Carte du trésor commune"
+      },
+      "treasure_map_rare": {
+        "name": "Carte du trésor rare"
+      },
+      "treasure_map_epic": {
+        "name": "Carte du trésor épique"
+      },
+      "treasure_map_legendary": {
+        "name": "Carte du trésor légendaire"
+      },
+      "cartographers_ink": {
+        "name": "Encre du cartographe"
+      },
+      "collapsar_band_of_nyxaris": {
+        "name": "Anneau d'effondrement de Nyxaris"
+      },
+      "rare_collapsar_band_of_nyxaris": {
+        "name": "Anneau terni d'effondrement de Nyxaris"
+      },
+      "legendary_collapsar_band_of_nyxaris": {
+        "name": "Anneau souverain d'effondrement de Nyxaris"
+      },
+      "orb_collapsing_void": {
+        "name": "Orbe du vide qui s'effondre"
+      },
+      "rare_orb_collapsing_void": {
+        "name": "Orbe terni du vide qui s'effondre"
+      },
+      "legendary_orb_collapsing_void": {
+        "name": "Orbe souverain du vide qui s'effondre"
+      },
+      "cowl_of_event_horizon": {
+        "name": "Coiffe de l'horizon des événements"
+      },
+      "rare_cowl_of_event_horizon": {
+        "name": "Coiffe ternies de l'horizon des événements"
+      },
+      "legendary_cowl_of_event_horizon": {
+        "name": "Coiffe souveraine de l'horizon des événements"
+      },
+      "mantle_of_singularity": {
+        "name": "Manteau de singularité"
+      },
+      "rare_mantle_of_singularity": {
+        "name": "Manteau terni de singularité"
+      },
+      "legendary_mantle_of_singularity": {
+        "name": "Manteau souverain de singularité"
+      },
+      "glacier_hewn_bulwark": {
+        "name": "Bouclier taillé par glacier"
+      },
+      "rare_glacier_hewn_bulwark": {
+        "name": "Bouclier terni taillé par glacier"
+      },
+      "legendary_glacier_hewn_bulwark": {
+        "name": "Bouclier souverain taillé par glacier"
+      },
+      "permafrost_legguards": {
+        "name": "Jambières de pergélisol"
+      },
+      "rare_permafrost_legguards": {
+        "name": "Jambières ternies de pergélisol"
+      },
+      "legendary_permafrost_legguards": {
+        "name": "Jambières souveraines de pergélisol"
+      },
+      "frostbitten_rime_slippers": {
+        "name": "Pantoufles de givre gelée"
+      },
+      "rare_frostbitten_rime_slippers": {
+        "name": "Pantoufles ternies de givre gelée"
+      },
+      "legendary_frostbitten_rime_slippers": {
+        "name": "Pantoufles souveraines de givre gelée"
+      },
+      "rime_crusted_grips": {
+        "name": "Poignées incrustées de givre"
+      },
+      "rare_rime_crusted_grips": {
+        "name": "Poignées ternies incrustées de givre"
+      },
+      "legendary_rime_crusted_grips": {
+        "name": "Poignées souveraines incrustées de givre"
+      },
+      "ember_wrought_crown": {
+        "name": "Couronne forgée de braise"
+      },
+      "rare_ember_wrought_crown": {
+        "name": "Couronne ternies forgée de braise"
+      },
+      "legendary_ember_wrought_crown": {
+        "name": "Couronne souveraine forgée de braise"
+      },
+      "cinder_stitched_robes": {
+        "name": "Robes cousues de cendre"
+      },
+      "rare_cinder_stitched_robes": {
+        "name": "Robes ternies cousues de cendre"
+      },
+      "legendary_cinder_stitched_robes": {
+        "name": "Robes souveraines cousues de cendre"
+      },
+      "chained_ember_choker": {
+        "name": "Collier de braise enchaîné"
+      },
+      "rare_chained_ember_choker": {
+        "name": "Collier terni de braise enchaîné"
+      },
+      "legendary_chained_ember_choker": {
+        "name": "Collier souverain de braise enchaîné"
+      },
+      "molten_clinker_girdle": {
+        "name": "Ceinture de scorie fondue"
+      },
+      "rare_molten_clinker_girdle": {
+        "name": "Ceinture ternies de scorie fondue"
+      },
+      "legendary_molten_clinker_girdle": {
+        "name": "Ceinture souveraine de scorie fondue"
+      },
+      "storm_tuned_buckler": {
+        "name": "Bouclier accordé à la tempête"
+      },
+      "rare_storm_tuned_buckler": {
+        "name": "Bouclier terni accordé à la tempête"
+      },
+      "legendary_storm_tuned_buckler": {
+        "name": "Bouclier souverain accordé à la tempête"
+      },
+      "hauberk_tempest_gale": {
+        "name": "Cotte de mailles de la tempête de gale"
+      },
+      "rare_hauberk_tempest_gale": {
+        "name": "Cotte ternies de mailles de la tempête de gale"
+      },
+      "legendary_hauberk_tempest_gale": {
+        "name": "Cotte souveraine de mailles de la tempête de gale"
+      },
+      "gale_strider_boots": {
+        "name": "Bottes du passeur de tempête"
+      },
+      "rare_gale_strider_boots": {
+        "name": "Bottes ternies du passeur de tempête"
+      },
+      "legendary_gale_strider_boots": {
+        "name": "Bottes souveraines du passeur de tempête"
+      },
+      "tempest_strike_grips": {
+        "name": "Poignées de frappe de tempête"
+      },
+      "rare_tempest_strike_grips": {
+        "name": "Poignées ternies de frappe de tempête"
+      },
+      "legendary_tempest_strike_grips": {
+        "name": "Poignées souveraines de frappe de tempête"
+      },
+      "breastplate_tectonic_might": {
+        "name": "Plastron de la puissance tectonique"
+      },
+      "rare_breastplate_tectonic_might": {
+        "name": "Plastron terni de la puissance tectonique"
+      },
+      "legendary_breastplate_tectonic_might": {
+        "name": "Plastron souverain de la puissance tectonique"
+      },
+      "band_mountains_weight": {
+        "name": "Anneau du poids des montagnes"
+      },
+      "rare_band_mountains_weight": {
+        "name": "Anneau terni du poids des montagnes"
+      },
+      "legendary_band_mountains_weight": {
+        "name": "Anneau souverain du poids des montagnes"
+      },
+      "monolithic_shoulderguards": {
+        "name": "Épaulettes monolithiques"
+      },
+      "rare_monolithic_shoulderguards": {
+        "name": "Épaulettes ternies monolithiques"
+      },
+      "legendary_monolithic_shoulderguards": {
+        "name": "Épaulettes monolithiques souveraines"
+      },
+      "earthshaker_warboots": {
+        "name": "Bottes de guerre du secoueur de terre"
+      },
+      "rare_earthshaker_warboots": {
+        "name": "Bottes ternies de guerre du secoueur de terre"
+      },
+      "legendary_earthshaker_warboots": {
+        "name": "Bottes souveraines de guerre du secoueur de terre"
+      },
+      "silkstalker_woven_vest": {
+        "name": "Gilet tissé du silktracker"
+      },
+      "rare_silkstalker_woven_vest": {
+        "name": "Gilet terni tissé du silktracker"
+      },
+      "legendary_silkstalker_woven_vest": {
+        "name": "Gilet souverain tissé du silktracker"
+      },
+      "spun_venom_spaulders": {
+        "name": "Épaulettes de venin filé"
+      },
+      "rare_spun_venom_spaulders": {
+        "name": "Épaulettes ternies de venin filé"
+      },
+      "legendary_spun_venom_spaulders": {
+        "name": "Épaulettes souveraines de venin filé"
+      },
+      "broodmother_chitin_cowl": {
+        "name": "Coiffe de chitine de la mère de meute"
+      },
+      "rare_broodmother_chitin_cowl": {
+        "name": "Coiffe ternies de chitine de la mère de meute"
+      },
+      "legendary_broodmother_chitin_cowl": {
+        "name": "Coiffe souveraine de chitine de la mère de meute"
+      },
+      "venom_etched_waistcord": {
+        "name": "Cordon de ceinture gravé de venin"
+      },
+      "rare_venom_etched_waistcord": {
+        "name": "Cordon terni de ceinture gravé de venin"
+      },
+      "legendary_venom_etched_waistcord": {
+        "name": "Cordon souverain de ceinture gravé de venin"
+      },
+      "bone_studded_pauldrons": {
+        "name": "Épaulières cloutées d'os"
+      },
+      "rare_bone_studded_pauldrons": {
+        "name": "Épaulières ternies cloutées d'os"
+      },
+      "legendary_bone_studded_pauldrons": {
+        "name": "Épaulières souveraines cloutées d'os"
+      },
+      "legguards_of_the_ossuary": {
+        "name": "Jambières de l'ossuaire"
+      },
+      "rare_legguards_of_the_ossuary": {
+        "name": "Jambières ternies de l'ossuaire"
+      },
+      "legendary_legguards_of_the_ossuary": {
+        "name": "Jambières souveraines de l'ossuaire"
+      },
+      "seal_of_the_cryptwalker": {
+        "name": "Sceau du marcheur de crypte"
+      },
+      "rare_seal_of_the_cryptwalker": {
+        "name": "Sceau terni du marcheur de crypte"
+      },
+      "legendary_seal_of_the_cryptwalker": {
+        "name": "Sceau souverain du marcheur de crypte"
+      },
+      "ossuary_bone_crown": {
+        "name": "Couronne d'os de l'ossuaire"
+      },
+      "rare_ossuary_bone_crown": {
+        "name": "Couronne ternies d'os de l'ossuaire"
+      },
+      "legendary_ossuary_bone_crown": {
+        "name": "Couronne souveraine d'os de l'ossuaire"
+      },
+      "chalice_of_living_tides": {
+        "name": "Calice des marées vivantes"
+      },
+      "rare_chalice_of_living_tides": {
+        "name": "Calice terni des marées vivantes"
+      },
+      "legendary_chalice_of_living_tides": {
+        "name": "Calice souverain des marées vivantes"
+      },
+      "pendant_continuous_flow": {
+        "name": "Pendentif du flux continu"
+      },
+      "rare_pendant_continuous_flow": {
+        "name": "Pendentif terni du flux continu"
+      },
+      "legendary_pendant_continuous_flow": {
+        "name": "Pendentif souverain du flux continu"
+      },
+      "coral_encrusted_girdle": {
+        "name": "Ceinture incrustée de corail"
+      },
+      "rare_coral_encrusted_girdle": {
+        "name": "Ceinture ternies incrustée de corail"
+      },
+      "legendary_coral_encrusted_girdle": {
+        "name": "Ceinture souveraine incrustée de corail"
+      },
+      "riptide_handwraps": {
+        "name": "Bandeaux de marée déferlante"
+      },
+      "rare_riptide_handwraps": {
+        "name": "Bandeaux ternies de marée déferlante"
+      },
+      "legendary_riptide_handwraps": {
+        "name": "Bandeaux souverains de marée déferlante"
+      },
       "vanguard_warrior_arms_helmet": {
         "name": "Heaume Sillage-de-lame"
       },
@@ -19090,6 +19732,51 @@ export const fr_CA: EnTranslations = {
       "stable_horse": {
         "name": "Cheval d'écurie"
       },
+      "hoard_brood_egg": {
+        "name": "Clutch de couvée"
+      },
+      "hoard_brood_hatchling": {
+        "name": "Éclosion de Vysska"
+      },
+      "hoard_healing_tide_totem": {
+        "name": "Totem de marée guérisseuse"
+      },
+      "hoard_bound_pulsar": {
+        "name": "Pulsar enchaîné"
+      },
+      "hoard_abyssal_tentacle": {
+        "name": "Tentacule de la Gueule"
+      },
+      "hoard_silk_cocoon": {
+        "name": "Cocon de soie"
+      },
+      "hoard_brood_cocoon": {
+        "name": "Cocon de couvée"
+      },
+      "hoard_coinsack_scurrier": {
+        "name": "Escroc Sacpiéces"
+      },
+      "hoard_boss_mushroom": {
+        "name": "Mère des champignons"
+      },
+      "hoard_sporeling": {
+        "name": "Sporelin"
+      },
+      "hoard_bloat_cap": {
+        "name": "Chapeau gonflé"
+      },
+      "hoard_boss_mole": {
+        "name": "Taupe profonde"
+      },
+      "hoard_boss_bat": {
+        "name": "Chauve-souris colossale"
+      },
+      "hoard_boss_mimic": {
+        "name": "Coffre vorace"
+      },
+      "hoard_bat_swarmling": {
+        "name": "Essaim de chauves-souris"
+      },
       "rift_spawnling": {
         "name": "Rejeton de faille"
       },
@@ -19119,6 +19806,9 @@ export const fr_CA: EnTranslations = {
       },
       "rift_marrow_troll": {
         "name": "Troll de moelle"
+      },
+      "rift_marrow_golem": {
+        "name": "Golem de moelle"
       },
       "rift_void_acolyte": {
         "name": "Acolyte de la Cicatrice du Vide"
@@ -23252,6 +23942,11 @@ export const fr_CA: EnTranslations = {
         "sender": "Le Courtier de la Bourse",
         "subject": "Votre annonce à la Bourse s'est vendue",
         "body": "Votre annonce s'est vendue et l'acheteur a réglé l'intégralité de la somme. Le grand livre de la Bourse conserve la trace de la vente, et votre activité sur la Bourse indique le montant réglé ainsi que son détail.\n\n- Le Courtier de la Bourse"
+      },
+      "hoard_vault_reward": {
+        "sender": "La Posternoire",
+        "subject": "Votre récompense du coffre",
+        "body": "Le coffre a été vidé, mais votre part n'a pas été collectée du coffre. Les corbeaux l'ont amenée jusqu'à vous ici, avec les biens et les pièces que vous avez gagnés."
       }
     },
     "itemSets": {

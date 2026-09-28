@@ -2,7 +2,7 @@
 // window's sidebar HTML. Cold chrome; a string builder over esc() and t(). The
 // $WOC token reads the wallet module here (host state the pure core never
 // touches), and every icon is the committed currency art.
-import type { FactionId } from '../../../sim/factions';
+import { FACTION_CURRENCY_IDS, type FactionId } from '../../../sim/factions';
 import type { IWorld } from '../../../world_api';
 import { currencyIconHtml, heroicMarkIconHtml } from '../../currency_art';
 import { esc } from '../../esc';
@@ -16,8 +16,6 @@ import {
 } from './currencies_view';
 
 const whole = (value: number): string => formatNumber(value, { maximumFractionDigits: 0 });
-const factionKey = (id: FactionId): TranslationKey =>
-  `hudChrome.reputation.faction.${id}` as TranslationKey;
 
 const NAME_KEY: Record<ActivityCurrencyId, TranslationKey> = {
   heroic_mark: 'entities.items.heroic_mark.name' as TranslationKey,
@@ -30,6 +28,17 @@ const NOTE_KEY: Record<ActivityCurrencyId, TranslationKey> = {
   honor: 'hudChrome.currencies.honorNote',
   delve_mark: 'hudChrome.currencies.delveMarkNote',
   woc_token: 'hudChrome.currencies.wocTokenNote',
+};
+
+const FACTION_CURRENCY_NAME_KEY: Record<FactionId, TranslationKey> = {
+  rift_watch: 'hudChrome.currencies.riftWatchMark',
+  church_order: 'hudChrome.currencies.churchOrderCrest',
+  automatons: 'hudChrome.currencies.automatonCog',
+};
+const FACTION_CURRENCY_NOTE_KEY: Record<FactionId, TranslationKey> = {
+  rift_watch: 'hudChrome.currencies.riftWatchMarkNote',
+  church_order: 'hudChrome.currencies.churchOrderCrestNote',
+  automatons: 'hudChrome.currencies.automatonCogNote',
 };
 
 function icon(id: ActivityCurrencyId): string {
@@ -57,7 +66,8 @@ function activityRow(row: ActivityCurrencyRow): string {
 }
 
 function factionRow(row: FactionCurrencyRow): string {
-  return `<div class="char-cur-row is-faction${row.pending ? ' is-pending' : ''}"><span class="char-cur-icon char-cur-icon-empty" aria-hidden="true"></span><span class="char-cur-copy"><b>${esc(t(factionKey(row.factionId)))}</b><span class="char-cur-note">${esc(t('hudChrome.currencies.factionPending'))}</span></span><span class="char-cur-value"><span class="char-cur-amount is-muted">${esc(whole(row.amount))}</span></span></div>`;
+  const curId = FACTION_CURRENCY_IDS[row.factionId];
+  return `<div class="char-cur-row is-faction is-${esc(row.factionId)}"><span class="char-cur-icon">${currencyIconHtml(curId)}</span><span class="char-cur-copy"><b>${esc(t(FACTION_CURRENCY_NAME_KEY[row.factionId]))}</b><span class="char-cur-note">${esc(t(FACTION_CURRENCY_NOTE_KEY[row.factionId]))}</span></span><span class="char-cur-value"><span class="char-cur-amount">${esc(whole(row.amount))}</span></span></div>`;
 }
 
 /** The whole sidebar body for the Currencies tab. */
@@ -67,6 +77,7 @@ export function currenciesTabHtml(world: IWorld): string {
     honor: world.honor,
     lifetimeHonor: world.lifetimeHonor,
     delveMarks: world.delveMarks,
+    factionCurrencies: world.factionCurrencies,
     woc: { enabled: walletUiEnabled(), balance: wocBalance(), verified: wocBalanceVerified() },
   });
   const group = (titleKey: TranslationKey, rows: string): string =>

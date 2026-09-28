@@ -1195,4 +1195,8 @@ export const table: DeedLocaleTable = {
     name: 'Z přístavu do přístavu',
     desc: 'Popluj oběma přívozy tam a zpět: z Eastbrooku do Moonrestu a z Wickharboru do Wyrmwatche.',
   },
+  cmb_coinsack_caught: {
+    name: 'Přistižen při činu',
+    desc: 'Chyť Hbitce s měšcem v Pohřbeném pokladu dřív, než uteče se zlatem.',
+  },
 };

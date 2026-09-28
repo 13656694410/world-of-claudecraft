@@ -352,16 +352,16 @@ describe('simulation WQ completion standing integration', () => {
 
     const objective = quest.objective;
     if (objective.type !== 'delivery') throw new Error('Expected delivery quest');
-    const pickup = [...sim.entities.values()].find(
+    // Each freight crate loads once per player, so every load takes a new crate.
+    const pickups = [...sim.entities.values()].filter(
       (entity) => entity.objectItemId === objective.pickupObjectItemId,
     );
     const destination = [...sim.entities.values()].find(
       (entity) => entity.objectItemId === objective.deliveryObjectItemId,
     );
-    if (!pickup || !destination) throw new Error('Missing delivery objects');
-    expect(pickup).toBeDefined();
-    expect(destination).toBeDefined();
+    if (pickups.length < quest.count || !destination) throw new Error('Missing delivery objects');
     for (let i = 0; i < quest.count; i++) {
+      const pickup = pickups[i];
       player.pos.x = pickup.pos.x;
       player.pos.z = pickup.pos.z;
       expect(sim.pickUpObject(pickup.id)).toBe(true);

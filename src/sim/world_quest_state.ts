@@ -4,11 +4,23 @@
 
 import type { CharacterState } from './character_state';
 import { type ClueHuntProgress, sanitizeClueCasketsOpened, sanitizeClueHunt } from './clue_scrolls';
+import type { TreasureMapProgress } from './content/treasure_maps';
 import { WORLD_QUESTS_BY_ID } from './content/world_quests';
 import type { FactionId } from './factions';
-import { freshFactionReputation, sanitizeFactionReputation } from './factions';
+import {
+  freshFactionCurrencies,
+  freshFactionReputation,
+  sanitizeFactionCurrencies,
+  sanitizeFactionReputation,
+} from './factions';
 import { type PersonalGliderRecords, sanitizeGliderRecords } from './glider_personal_records';
 import type { PlayerMeta } from './sim';
+import {
+  sanitizeTreasureMap,
+  sanitizeVaultAttempt,
+  sanitizeVaultGuestPayouts,
+  type VaultAttempt,
+} from './treasure_vault';
 import type { Entity, WeeklyQuestProgress, WorldQuestDef, WorldQuestProgress } from './types';
 import { sanitizeWeeklyQuestProgress, savedWeeklyQuestProgress } from './weekly_quests';
 import { WORLD_BOSSES } from './world_boss';
@@ -35,6 +47,8 @@ export interface WorldQuestPlayerState {
   openWorldQuestPuzzleId: string | null;
   /** Persistent faction standing earned across world quests. */
   factions: Record<FactionId, number>;
+  /** Persistent spendable faction currencies earned from world quests. */
+  factionCurrencies: Record<FactionId, number>;
   /** The cycle for which the character used their single daily reroll. */
   worldQuestRerollCycle: string;
   /** Personal quest replacement: oldQuestId -> newQuestId for the current cycle. */
@@ -52,6 +66,18 @@ export interface WorldQuestPlayerState {
   clueHunt: ClueHuntProgress | null;
   clueScrollCycle: string;
   clueCasketsOpened: number;
+  /**
+   * Treasure maps (src/sim/treasure_vault.ts): the map read and not yet dug up
+   * (null when none), and the guest vault payouts taken in `vaultGuestCycle`
+   * (the owner's own vaults never count). Cycle-independent like the hunt.
+   */
+  treasureMap: TreasureMapProgress | null;
+  vaultAttempt: VaultAttempt | null;
+  vaultAttemptSeq: number;
+  /** This process has persisted the dug map; not serialized. */
+  vaultAttemptDurable: boolean;
+  vaultGuestCycle: string;
+  vaultGuestPayouts: number;
 }
 
 export interface WorldQuestRotationCache {
@@ -68,12 +94,19 @@ export function freshWorldQuestPlayerState(): WorldQuestPlayerState {
     worldQuestAreas: new Set(),
     openWorldQuestPuzzleId: null,
     factions: freshFactionReputation(),
+    factionCurrencies: freshFactionCurrencies(),
     worldQuestRerollCycle: '',
     worldQuestReplacements: {},
     weeklyQuest: null,
     clueHunt: null,
     clueScrollCycle: '',
     clueCasketsOpened: 0,
+    treasureMap: null,
+    vaultAttempt: null,
+    vaultAttemptSeq: 0,
+    vaultAttemptDurable: true,
+    vaultGuestCycle: '',
+    vaultGuestPayouts: 0,
   };
 }
 
@@ -102,12 +135,18 @@ export function restoreWorldQuestState(
   saved: CharacterState['worldQuests'],
   characterFactions?: CharacterState['factions'],
   savedWeekly?: CharacterState['weeklyQuest'],
+  characterFactionCurrencies?: CharacterState['factionCurrencies'],
 ): void {
   meta.gliderRecords = sanitizeGliderRecords(saved?.gliderRecords);
   meta.factions = freshFactionReputation();
   const rawFactions = characterFactions ?? saved?.factions;
   if (rawFactions) {
     meta.factions = sanitizeFactionReputation(rawFactions);
+  }
+  meta.factionCurrencies = freshFactionCurrencies();
+  const rawCurrencies = characterFactionCurrencies ?? saved?.factionCurrencies;
+  if (rawCurrencies) {
+    meta.factionCurrencies = sanitizeFactionCurrencies(rawCurrencies);
   }
   meta.worldQuestRerollCycle = '';
   meta.worldQuestReplacements = {};
@@ -120,6 +159,17 @@ export function restoreWorldQuestState(
   meta.clueHunt = sanitizeClueHunt(saved?.clueHunt);
   meta.clueScrollCycle = sanitizeWorldQuestCycle(saved?.clueScrollCycle);
   meta.clueCasketsOpened = sanitizeClueCasketsOpened(saved?.clueCasketsOpened);
+  meta.treasureMap = sanitizeTreasureMap(saved?.treasureMap);
+  meta.vaultAttempt = sanitizeVaultAttempt(saved?.vaultAttempt, meta.characterId);
+  meta.vaultAttemptSeq = Math.max(
+    meta.vaultAttempt ? Number(meta.vaultAttempt.id.split(':')[1]) : 0,
+    typeof saved?.vaultAttemptSeq === 'number' && Number.isSafeInteger(saved.vaultAttemptSeq)
+      ? Math.max(0, saved.vaultAttemptSeq)
+      : 0,
+  );
+  meta.vaultAttemptDurable = true;
+  meta.vaultGuestCycle = sanitizeWorldQuestCycle(saved?.vaultGuestCycle);
+  meta.vaultGuestPayouts = sanitizeVaultGuestPayouts(saved?.vaultGuestPayouts);
   if (saved) {
     meta.worldQuestCycle = sanitizeWorldQuestCycle(saved.cycle);
     if (typeof saved.rerollCycle === 'string' && saved.rerollCycle === meta.worldQuestCycle) {
@@ -144,11 +194,14 @@ export function restoreWorldQuestState(
 export function savedWorldQuestState(meta: PlayerMeta): {
   worldQuests?: CharacterState['worldQuests'];
   factions?: CharacterState['factions'];
+  factionCurrencies?: CharacterState['factionCurrencies'];
   weeklyQuest?: CharacterState['weeklyQuest'];
 } {
   const weekly = savedWeeklyQuestProgress(meta);
   const weeklyPart = weekly ? { weeklyQuest: weekly } : {};
   const hasRep = meta.factions && Object.values(meta.factions).some((v) => v > 0);
+  const hasCurrencies =
+    meta.factionCurrencies && Object.values(meta.factionCurrencies).some((v) => v > 0);
   const hasReroll =
     meta.worldQuestRerollCycle && meta.worldQuestRerollCycle === meta.worldQuestCycle;
   const hasReplacements =
@@ -158,19 +211,29 @@ export function savedWorldQuestState(meta: PlayerMeta): {
   const hasCaskets = (meta.clueCasketsOpened ?? 0) > 0;
   const gliderRecords = sanitizeGliderRecords(meta.gliderRecords);
   const hasGliderRecords = Object.keys(gliderRecords).length > 0;
+  const hasTreasureMap = meta.treasureMap !== null && meta.treasureMap !== undefined;
+  const hasVaultAttempt = meta.vaultAttempt !== null && meta.vaultAttempt !== undefined;
+  const hasVaultAttemptSeq = meta.vaultAttemptSeq > 0;
+  const hasVaultGuest = (meta.vaultGuestPayouts ?? 0) > 0 && !!meta.vaultGuestCycle;
   if (
     !meta.worldQuestCycle &&
     meta.worldQuestLog.size === 0 &&
     !hasRep &&
+    !hasCurrencies &&
     !hasReroll &&
     !hasClueHunt &&
     !hasClueCycle &&
     !hasCaskets &&
-    !hasGliderRecords
+    !hasGliderRecords &&
+    !hasTreasureMap &&
+    !hasVaultAttempt &&
+    !hasVaultAttemptSeq &&
+    !hasVaultGuest
   ) {
     return weeklyPart;
   }
   const factionsObj = hasRep ? { ...meta.factions } : undefined;
+  const currenciesObj = hasCurrencies ? { ...meta.factionCurrencies } : undefined;
   return {
     ...weeklyPart,
     worldQuests: {
@@ -219,13 +282,21 @@ export function savedWorldQuestState(meta: PlayerMeta): {
         }),
       ),
       ...(factionsObj ? { factions: factionsObj } : {}),
+      ...(currenciesObj ? { factionCurrencies: currenciesObj } : {}),
       ...(hasReroll ? { rerollCycle: meta.worldQuestRerollCycle } : {}),
       ...(hasReplacements ? { replacements: { ...meta.worldQuestReplacements } } : {}),
       ...(hasClueHunt && meta.clueHunt ? { clueHunt: { ...meta.clueHunt } } : {}),
       ...(hasClueCycle ? { clueScrollCycle: meta.clueScrollCycle } : {}),
       ...(hasCaskets ? { clueCasketsOpened: meta.clueCasketsOpened } : {}),
+      ...(hasTreasureMap && meta.treasureMap ? { treasureMap: { ...meta.treasureMap } } : {}),
+      ...(hasVaultAttempt && meta.vaultAttempt ? { vaultAttempt: { ...meta.vaultAttempt } } : {}),
+      ...(hasVaultAttemptSeq ? { vaultAttemptSeq: meta.vaultAttemptSeq } : {}),
+      ...(hasVaultGuest
+        ? { vaultGuestCycle: meta.vaultGuestCycle, vaultGuestPayouts: meta.vaultGuestPayouts }
+        : {}),
     },
     ...(factionsObj ? { factions: factionsObj } : {}),
+    ...(currenciesObj ? { factionCurrencies: currenciesObj } : {}),
   };
 }
 

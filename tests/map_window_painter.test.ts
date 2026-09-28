@@ -1520,6 +1520,58 @@ describe('map_window_painter: painted stable marker sprites', () => {
     ).toEqual({ markerId: 'rift-entrance', sizeId: 'mapNavigationRankS' });
   });
 
+  it('draws a nearby Buried Hoard as a procedural treasure X, never Rift art', () => {
+    const world = mapWorld() as unknown as {
+      player: { pos: { x: number; z: number } };
+      entities: Map<number, unknown>;
+    };
+    world.player.pos = { x: 0, z: LABEL_ZONE_CZ };
+    world.entities = new Map([
+      [
+        100,
+        {
+          id: 100,
+          kind: 'object',
+          templateId: 'hoard_entrance',
+          name: 'Ember Buried Hoard',
+          riftTier: 'S',
+          pos: { x: 20, z: LABEL_ZONE_CZ },
+        },
+      ],
+    ]);
+    const markerArt = fakeMarkerArt([]);
+    const trace = newTrace();
+    installMapStyleGlobals(trace);
+    setActiveWorldContent(BUILTIN_WORLD);
+
+    const result = new MapWindowPainter(classColor, markerArt.art).paintOverworld(
+      fakeMapContext(trace),
+      world as unknown as IWorld,
+      labelPaintOptions(),
+    );
+
+    const marker = result.navigation.find((candidate) => candidate.kind === 'hoard-entrance');
+    expect(marker).toBeDefined();
+    expect(markerArt.calls.filter((call) => call.id === 'rift-entrance')).toEqual([]);
+    const crosses = trace.strokes.filter(
+      (stroke) =>
+        marker &&
+        stroke.commands.join() === 'moveTo,lineTo,moveTo,lineTo' &&
+        stroke.args.includes(marker.mx) === false &&
+        stroke.args.length === 8,
+    );
+    expect(crosses).toHaveLength(2);
+    expect(
+      trace.fills.filter(
+        (fill) =>
+          marker &&
+          fill.commands.join() === 'arc' &&
+          fill.args[0] === marker.mx &&
+          fill.args[1] === marker.my,
+      ),
+    ).toEqual([]);
+  });
+
   it('centers station art at mapStation and draws the quest painting over it', () => {
     const markerArt = fakeMarkerArt(['station-forge', 'quest-available']);
     const trace = newTrace();

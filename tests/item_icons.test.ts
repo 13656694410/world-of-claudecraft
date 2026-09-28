@@ -58,6 +58,7 @@ function walk(dir: string): string[] {
 // catalog and its materials-only satchels. Seven phase-05 placeholders were replaced by the
 // bank-storage-painted-bags batch; the literal remains the complete current bag inventory.
 const BAG_IDS = [
+  'allied_vanguard_duffel',
   'burlap_reagent_pouch',
   'clockwork_tinkers_pack',
   'duskweave_bag',
@@ -462,6 +463,7 @@ describe('item webp icons', () => {
     // Phase 05 of the bank-storage packet added the seven-bag catalog (three materials-only
     // satchels among them); their tracked generated batch now owns the accepted paintings.
     expect(bagIds).toEqual([
+      'allied_vanguard_duffel',
       'burlap_reagent_pouch',
       'clockwork_tinkers_pack',
       'duskweave_bag',
@@ -531,6 +533,7 @@ describe('item webp icons', () => {
       // The two faction quartermaster bags (faction-vendor-icons-2026-09-16).
       'clockwork_tinkers_pack',
       'rift_surveyors_satchel',
+      'allied_vanguard_duffel',
     ]);
     for (const id of [...BAG_IDS.filter((bagId) => !generatedBagIds.has(bagId)), 'backpack']) {
       const entry = m.entries.find((e) => e.itemId === id);

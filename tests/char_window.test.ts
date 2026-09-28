@@ -163,7 +163,7 @@ describe('char_window: profession art placements', () => {
     // professionIconUrl, not professionImageUrl: the resolver that falls back
     // to the procedural composer, so a pending-art profession still paints
     // (the five-icon render test below pins the behavior; this pins the seam).
-    expect(painter).toMatch(/professionIconUrl\(`gather_\$\{r\.professionId\}`, 56\)/);
+    expect(painter).toMatch(/professionIconUrl\(`gather_\$\{r\.professionId\}`, 96\)/);
     expect(painter).toContain('class="char-gather-icon"');
     expect(painter).toContain('class="char-gather-row char-skill-row');
   });
@@ -257,7 +257,13 @@ describe('char_window: profession art placements', () => {
     // boards (a fresh warrior reads the no-spec line there).
     const specPanel = root.querySelector('.char-stats-rail .char-rail-panels > .char-spec-panel');
     expect(specPanel?.querySelector('.sp-title')?.textContent).toBe('Specialization');
-    expect(specPanel?.querySelector('.stat-cell b')?.textContent).toBe('No specialization chosen');
+    expect(specPanel?.querySelector('.char-spec-name')?.textContent).toBe(
+      'No specialization chosen',
+    );
+    expect(specPanel?.querySelector('.char-spec-class')?.textContent).toBe('Warrior');
+    expect(specPanel?.previousElementSibling?.querySelector('.sp-title')?.textContent).toBe(
+      'Ratings',
+    );
     const tabs = [...root.querySelectorAll<HTMLElement>('.char-sidebar-tab')];
     expect(tabs.map((tab) => [tab.dataset.tab, tab.getAttribute('aria-selected')])).toEqual([
       ['stats', 'true'],
@@ -266,6 +272,7 @@ describe('char_window: profession art placements', () => {
       ['progression', 'false'],
       ['skills', 'false'],
     ]);
+    expect(tabs.every((tab) => tab.closest('.char-footer') !== null)).toBe(true);
     // The sidebar panel scrolls and the Stats board holds no focusable
     // content, so it carries its own tab stop and takes its name from the
     // selected tab (axe scrollable-region-focusable, WAI-ARIA tabs).
@@ -1339,14 +1346,14 @@ describe('char_window: the model is the stage and the sockets overlay it (W24)',
 
   it('re-anchors the unequip and helm-eye chips to the narrower overlay row unit', () => {
     // The base anchors assume the 154px flow unit; over the stage the unit is
-    // 114px, so an un-rescoped chip would hang outside the window edge.
-    expect(css).toContain('left: calc(50% - 68px);');
-    expect(css).toContain('right: calc(50% - 68px);');
+    // 126px, so an un-rescoped chip would hang outside the window edge.
+    expect(css).toContain('left: calc(50% - 74px);');
+    expect(css).toContain('right: calc(50% - 74px);');
   });
 
-  it('leaves the touch sheet in normal flow (the overlay is pointer-only)', () => {
-    // Every stage rule is scoped away from body.mobile-touch: the phone sheet
-    // stacks its paperdoll and would lose the columns entirely out of flow.
+  it('keeps absolute equipment positioning scoped to pointer layouts', () => {
+    // Touch uses an in-flow grid overlay in hud.mobile.css. The desktop
+    // absolute positioning must not remove its equipment columns from flow.
     for (const decl of ['.paperdoll {\n    position: relative;', '.equip-col {\n    position:']) {
       const at = css.indexOf(decl);
       expect(at).toBeGreaterThan(-1);

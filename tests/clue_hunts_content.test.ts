@@ -289,8 +289,22 @@ describe('clue hunt prose (clues.<huntId>.<step> and .title)', () => {
         }
       });
       // No prose for a step that does not exist.
-      const stepKeys = Object.keys(block).filter((k) => k !== 'title');
+      // `reply` is the NPC's answer block (clues.<huntId>.reply.<step>, one per
+      // solved talk or delivery step; its fills are pinned in
+      // tests/clue_talk_row.test.ts), so it is not step prose.
+      const stepKeys = Object.keys(block).filter((k) => k !== 'title' && k !== 'reply');
       expect(stepKeys.map(Number).sort((a, b) => a - b)).toEqual(hunt.steps.map((_, i) => i));
+      // No reply for a step that has no NPC to answer.
+      const replies = (block as unknown as { reply?: Record<string, string> }).reply ?? {};
+      const talkSteps = hunt.steps.flatMap((step, i) =>
+        step.kind === 'npc' || step.kind === 'deliver' ? [i] : [],
+      );
+      expect(
+        Object.keys(replies)
+          .map(Number)
+          .sort((a, b) => a - b),
+        `clues.${hunt.id}.reply`,
+      ).toEqual(talkSteps);
     }
     // No prose for a hunt that does not exist (the items block is the one non-hunt key).
     const huntKeys = Object.keys(clues).filter((k) => k !== 'items');

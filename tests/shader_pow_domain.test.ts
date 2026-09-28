@@ -136,6 +136,12 @@ const POW_SITES_PER_FILE: Record<string, number> = {
   'src/render/characters/armor_dye.ts': 2,
   'src/render/dungeon.ts': 1,
   'src/render/foliage_shader_core.ts': 1,
+  'src/render/hoard_entrance.ts': 3,
+  // the Buried Hoard glow cards, sparks, reward-chest rays and column (bases
+  // clamped with max(0., x)), at the 2026-09-28 release/v0.44.0 merge into
+  // feature/buried-hoards
+  'src/render/hoard_fx_materials.ts': 2,
+  'src/render/hoard_reward_chest.ts': 4,
   'src/render/ignivar_fire_vfx.ts': 10,
   'src/render/ignivar_model_vfx.ts': 1,
   'src/render/nythraxis_soft_fire.ts': 1,

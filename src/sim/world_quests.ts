@@ -15,9 +15,12 @@ import {
 } from './content/world_quests';
 import { grantDeed } from './deeds';
 import {
+  awardFactionCurrency,
   awardFactionReputation,
+  factionCurrencyName,
   factionDisplayName,
   worldQuestFaction,
+  worldQuestFactionCurrencyReward,
   worldQuestStandingReward,
 } from './factions';
 import { formatMoney } from './format_money';
@@ -41,6 +44,7 @@ import {
   triggerWorldQuestAmbush,
   updateWorldQuestAmbush,
 } from './world_quest_ambush';
+import { positionInWorldQuestArea } from './world_quest_area';
 import {
   awardWorldQuestBonusCopper,
   WISP_MAZE_HARD_BONUS,
@@ -55,6 +59,7 @@ import {
   dropWorldQuestDeliveryCargo,
   hasWorldQuestDeliveryCargo,
   takeWorldQuestDeliveryCargo,
+  worldQuestDeliverySourceId,
 } from './world_quest_delivery';
 import {
   clearForgeWorkshop,
@@ -228,15 +233,6 @@ export function worldQuestCopperReward(
   const safeLevel = Math.max(1, Math.floor(level));
   const schedule = quest.reward?.copper ?? WORLD_QUEST_COPPER;
   return Math.max(0, Math.round(schedule.base + schedule.perLevel * safeLevel));
-}
-
-function positionInWorldQuestArea(
-  pos: Pick<Entity['pos'], 'x' | 'z'>,
-  quest: WorldQuestDef,
-): boolean {
-  const dx = pos.x - quest.area.x;
-  const dz = pos.z - quest.area.z;
-  return dx * dx + dz * dz <= quest.area.radius * quest.area.radius;
 }
 
 function inWorldQuestArea(entity: Entity, quest: WorldQuestDef): boolean {
@@ -629,6 +625,16 @@ export function awardWorldQuest(ctx: SimContext, meta: PlayerMeta, quest: WorldQ
       pid: meta.entityId,
     });
   }
+
+  const currencyAward = worldQuestFactionCurrencyReward(quest, player.level);
+  if (currencyAward > 0) {
+    awardFactionCurrency(meta, factionId, currencyAward);
+    ctx.emit({
+      type: 'loot',
+      text: `+${currencyAward} ${factionCurrencyName(factionId)}.`,
+      pid: meta.entityId,
+    });
+  }
 }
 
 function creditWorldQuest(
@@ -913,11 +919,17 @@ export function onObjectInteractedForWorldQuests(
       }
       handled = true;
       if (obj.objectItemId === quest.objective.pickupObjectItemId) {
-        takeWorldQuestDeliveryCargo(ctx, player);
+        if (!hasInteractObjectCredit(progress, interactObjectCreditKey(0, obj.pos)))
+          takeWorldQuestDeliveryCargo(ctx, player, obj.id);
         continue;
       }
       if (hasWorldQuestDeliveryCargo(player)) {
+        const source = ctx.entities.get(worldQuestDeliverySourceId(player) ?? -1);
+        if (!source || source.objectItemId !== quest.objective.pickupObjectItemId) continue;
+        const key = interactObjectCreditKey(0, source.pos);
+        if (hasInteractObjectCredit(progress, key)) continue;
         dropWorldQuestDeliveryCargo(ctx, player);
+        recordInteractObjectCredit(progress, key);
         creditWorldQuest(ctx, meta, quest, progress);
       }
       continue;
@@ -1174,7 +1186,9 @@ export function sanitizeWorldQuestProgress(
     }
     if (
       raw.state === 'active' &&
-      (quest.objective.type === 'interact' || quest.objective.type === 'salvage')
+      (quest.objective.type === 'interact' ||
+        quest.objective.type === 'salvage' ||
+        quest.objective.type === 'delivery')
     ) {
       const creditedObjects = sanitizeCreditedObjects(raw.creditedObjects)?.slice(0, count);
       if (creditedObjects && creditedObjects.length > 0) {

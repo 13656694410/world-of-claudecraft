@@ -725,7 +725,11 @@ export function markItemDiscovered(
   // through here, retro-crediting held variants). Bases are never variants
   // themselves, so the walk visits at most two ids; the depth cap only
   // guards against a malformed def cycle ever landing in content.
+  // A `relicOf` tier (a Tarnished or Sovereign hoard piece) credits the piece it
+  // is a tier of the same way, with one difference: its QUALITY is its own. A
+  // rare Tarnished copy must never mark the epic its plain tier is.
   let id: string | undefined = itemId;
+  let viaTier = false;
   for (let depth = 0; id !== undefined && depth < 3; depth++) {
     // Annotated: indexing by the reassigned `id` would otherwise circularly
     // infer through def.heroicOf (TS7022).
@@ -743,10 +747,11 @@ export function markItemDiscovered(
       onReliquaryItemDiscovered(ctx, meta, id, opts);
     }
     const quality = (id === itemId ? rolledQuality : undefined) ?? def.quality;
-    if (quality === 'rare' || quality === 'epic' || quality === 'legendary') {
+    if (!viaTier && (quality === 'rare' || quality === 'epic' || quality === 'legendary')) {
       markVisited(ctx, meta, `quality:${quality}`);
     }
-    id = def.heroicOf;
+    viaTier = def.heroicOf === undefined && def.relicOf !== undefined;
+    id = def.heroicOf ?? def.relicOf;
   }
 }
 

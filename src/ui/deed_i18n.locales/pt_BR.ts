@@ -1318,4 +1318,8 @@ export const table: DeedLocaleTable = {
     name: 'De Porto a Porto',
     desc: 'Navegue nas duas balsas de ida e volta: de Eastbrook a Moonrest, e de Wickharbor a Wyrmwatch.',
   },
+  cmb_coinsack_caught: {
+    name: 'Apanhado em Flagrante',
+    desc: 'Capture um Corredor Bolsa-de-moedas em um Tesouro Enterrado antes que escape com o ouro.',
+  },
 };

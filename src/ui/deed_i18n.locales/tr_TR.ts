@@ -1193,4 +1193,8 @@ export const table: DeedLocaleTable = {
     name: "Liman'dan Limana",
     desc: "Her iki feribotu geri ve ileri sür: Eastbrook'tan Moonrest'e ve Wickharbor'dan Wyrmwatch'e.",
   },
+  cmb_coinsack_caught: {
+    name: 'Suçüstü Yakalandı',
+    desc: 'Bir Para Kesesi Fasulyesini Gömülü Hazineden kaçmadan önce yakala.',
+  },
 };

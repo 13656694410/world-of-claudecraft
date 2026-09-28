@@ -503,7 +503,8 @@ export const vi_VN: EnTranslations = {
         "dungeon_heroic": "Chiếm đoạt ngục tối Anh Hùng",
         "world": "Chiếm đoạt nhiệm vụ thế giới",
         "pvp": "Trang bị TRANH HÙNG"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Lịch Trình Phà",
@@ -1166,7 +1167,10 @@ export const vi_VN: EnTranslations = {
       "count": "({count})",
       "objectiveValue": "{current} / {total}",
       "collapseHint": "Thu gọn bảng theo dõi nhiệm vụ",
-      "expandHint": "Mở rộng bảng theo dõi nhiệm vụ"
+      "expandHint": "Mở rộng bảng theo dõi nhiệm vụ",
+      "worldQuests": "Nhiệm Vụ Thế Giới",
+      "worldQuestsCollapseHint": "Thu Gọn Nhiệm Vụ Thế Giới",
+      "worldQuestsExpandHint": "Mở Rộng Nhiệm Vụ Thế Giới"
     },
     "interfaceTabs": {
       "general": "Chung",
@@ -1661,6 +1665,10 @@ export const vi_VN: EnTranslations = {
     },
     "riftTracker": {
       "title": "Rạn Nứt",
+      "hoardTitle": "Hoard",
+      "hoardGoal": "Hoard",
+      "hoardChestGoal": "Hộc Hoard Đạt Được",
+      "hoardClaimedGoal": "Hoard Đã Khẳng Định",
       "floor": "Tầng {current}/{total}",
       "closesIn": "Đóng sau {time}",
       "clockMs": "{minutes}:{seconds}",
@@ -2870,6 +2878,19 @@ export const vi_VN: EnTranslations = {
       "crafting": "Chế tạo",
       "openProfessions": "Nghề nghiệp đang mở"
     },
+    "treasureMap": {
+      "close": "Đóng",
+      "zone": "Ở Đâu Đó Trong {zone}",
+      "hint": "Gợi Ý",
+      "upgradeNote": "Vẽ Lại Thành Bản Đồ {rarity} Cần {inks} Mực Của Nhà Địa Lý (Bạn Có {held}). Những Người Quản Lý Phái Bộ Bán Nó.",
+      "upgradeMaxed": "Nâng Cấp Tối Đa",
+      "rarity": {
+        "common": "Phổ Biến",
+        "rare": "Hiếm",
+        "epic": "Huyền Thoại Tối Thượng",
+        "legendary": "Huyền Thoại"
+      }
+    },
     "currencies": {
       "intro": "Không có cái nào chiếm chỗ túi. Tiền xu vẫn ở túi của bạn như mọi khi.",
       "activities": "Hoạt Động",
@@ -2884,7 +2905,24 @@ export const vi_VN: EnTranslations = {
       "walletNotLinked": "Không có ví nào được liên kết",
       "wocPreview": "Xem trước số dư, chưa được xác minh",
       "lifetime": "Trọn Đời {amount}",
-      "factionPending": "Tiền Tệ Phe Phái: chờ Giai Đoạn 2"
+      "factionPending": "Tiền Tệ Phe Phái: chờ Giai Đoạn 2",
+      "riftWatchMark": "Dấu Ấn Kỳ Canh Vết Nứt",
+      "riftWatchMarkNote": "Nhiệm vụ Thế giới trong các vùng của Kỳ Canh Vết Nứt",
+      "churchOrderCrest": "Huy Hiệu Dòng Tu",
+      "churchOrderCrestNote": "Nhiệm vụ Thế giới trong các vùng của Dòng Nhà Thờ",
+      "automatonCog": "Bánh Răng Tự Động",
+      "automatonCogNote": "Nhiệm vụ Thế giới trong các vùng của Tự Động"
+    },
+    "worldQuestTooltip": {
+      "factionLine": "Phái Bộ: {faction}",
+      "timeRemaining": "Thời gian còn lại:",
+      "standingAmount": "{amount} {faction}",
+      "currencyAmount": "{amount} {currency}",
+      "standingReward": "+{amount} {faction} Danh Tiếng",
+      "currencyReward": "+{amount} {currency}"
+    },
+    "worldQuestBanner": {
+      "subtitle": "Hoàn thành Nhiệm Vụ Thế Giới"
     },
     "reputation": {
       "intro": "Cả ba phe tiến bộ cùng lúc: mỗi nhiệm vụ thế giới tính toán vào phe của khu vực của nó.",
@@ -5293,6 +5331,9 @@ export const vi_VN: EnTranslations = {
       "enchant_chest_lucent_stamina": "Khắc Ngực: Sức bền Lấp lánh",
       "enchant_feet_lucent_agility": "Khắc Giày: Nhanh nhẹn Lấp lánh",
       "enchant_lucent_infusion": "Truyền lực Lấp lánh",
+      "enchant_offhand_spirit": "Linh Hồn Tay Phụ",
+      "enchant_feet_shadowstride": "Bước Chân Bóng Tối",
+      "enchant_gloves_forged_might": "Sức Mạnh Dạo Sắt",
       "enchant_weapon_riftwalkers_grace": "Ân Điển Xuyên Vết Nứt",
       "enchant_weapon_dawnfire_etching": "Khắc Vũ Khí: Lửa Bình Minh",
       "enchant_weapon_dawns_benediction": "Khắc Vũ Khí: Phước Lành Bình Minh",
@@ -5304,6 +5345,22 @@ export const vi_VN: EnTranslations = {
       "enchant_weapon_dawnfire_etching": "Khắc vĩnh viễn một vũ khí với 18 Sức Mạnh Phép. Sức Mạnh Phép cũng tính vào Sức Mạnh Chữa Lành. Một tấn công cố định; nó không tăng theo cấp độ.",
       "enchant_weapon_dawns_benediction": "Khắc vĩnh viễn một vũ khí với 34 Sức Mạnh Chữa Lành. Sức Mạnh Chữa Lành chỉ tăng chữa lành, không bao giờ tăng sát thương phép. Một tấn công cố định; nó không tăng theo cấp độ.",
       "enchant_weapon_piston_drive": "Khắc vĩnh viễn một vũ khí hai tay với 12 Sức Mạnh và 25 Chỉ Số Đòn Chí Mạng. Không thể áp dụng cho vũ khí một tay. Một tấn công cố định; nó không tăng theo cấp độ."
+    },
+    "factionRewards": {
+      "alliedHearthstoneUse": "Về Nhà Vùng Lửa Đồng Minh",
+      "alliedHearthstoneAttuned": "Điều Chỉnh Để: {hub}",
+      "hub_none": "Không có (Dùng gần trung tâm phe để liên kết)",
+      "hub_rift_watch": "Drifthaven (Kỳ Canh Vết Nứt)",
+      "hub_church_order": "Thung Lũng Đông Khê (Dòng Nhà Thờ)",
+      "hub_automatons": "Nam Cảnh (Xưởng Đúc Tự Động)",
+      "riftGliderUse": "Sử Dụng Máy Bay Rift",
+      "targetDummyUse": "Sử Dụng Vị Trí Bất Động",
+      "battleStandardUse": "Giương Cờ Chiến Đấu",
+      "shockBombUse": "Sử Dụng Quả Bom Sốc",
+      "invisibilityUse": "Sử Dụng Tàng Hình",
+      "armorKitUse": "Sử Dụng Bộ Giáp",
+      "sharpeningStoneUse": "Sử Dụng Đá Mài",
+      "manaElixirUse": "Sử Dụng Thuốc Tinh Xuyễn"
     },
     "professions": {
       "title": "Nghề nghiệp",
@@ -6076,6 +6133,7 @@ export const vi_VN: EnTranslations = {
       "sourceActivityCorpseHarvest": "Thu được khi mổ xác sinh vật",
       "sourceActivityMasterworkCraft": "Nhận được khi chế tác một kiệt tác",
       "sourceActivityRiftFirstClear": "Trao cho mọi thành viên của tổ đội giành lượt hoàn thành đầu tiên của một Rạn Nứt xếp hạng",
+      "sourceActivityBuriedHoard": "Hoard Bị Chôn Vùi",
       "cellMissingSourceAria": "{name}, chưa tìm thấy, {source}",
       "cellOwnedClearsAria": "{name}, đã biên mục, lần đầu tìm thấy ở lượt hoàn thành thứ {count}",
       "searchPlaceholder": "Tìm kỳ trân",
@@ -6814,54 +6872,82 @@ export const vi_VN: EnTranslations = {
       "1": "Một kẻ chỉ huy cát xa phía đông giữ vị trí, phía bắc của bộ chỉ huy. Tìm Scout Yerrin và hỏi những gì gió mang tới.",
       "2": "Người giữ kho dự trữ bộ chỉ huy chưa ăn cơm kể từ ca tuần tra cuối cùng. Mang đến Quartermaster Sela 2 x Bánh Lúa Mía.",
       "3": "Phía đông và hơi về phía nam nơi tàn lửa trôi vào cồn cát, một mảng đất bị ánh sáng che phủ những gì tro mai chôn vùi. Sử dụng cuộn chỉ ở đó và đào.",
-      "title": "Tro Tại Cánh Cửa"
+      "title": "Tro Tại Cánh Cửa",
+      "reply": {
+        "1": "Gió thổi từ những cồn cát phía đông mang theo tro, và tro không thổi từ cát trống. Sela ở đơn vị lưu trữ hồ sơ mỗi tuần tra. Cô ấy sẽ nói, khi ai đó cho cô ăn.",
+        "2": "Bánh mì cuối cùng, Chúa phúc lạc. Những người tuần tra thề rằng họ thấy khói bay lên từ cát trần, phía đông và một chút phía nam những cồn cát, nơi không còn gì để cháy."
+      }
     },
     "hunt_frostveil_aurora_vigil": {
       "0": "Nơi những bậc thang leo lên hướng tới những ánh sáng nhảy múa vào ban đêm, quỳ trên Aurora Steps và để bầu trời chú ý tới bạn.",
       "1": "Người đọc ánh sáng chờ đợi gần bậc thang. Nói chuyện với Aurorist Veyla về những gì bầu trời đã báo cho bạn.",
       "2": "Phía đông của những bậc thang gầm gỗ, hơi về phía nam, tuyết nằm bằng hơn nó nên. Sử dụng cuộn chỉ ở đó và đào.",
-      "title": "Ánh Sáng Trên Bầu Trời"
+      "title": "Ánh Sáng Trên Bầu Trời",
+      "reply": {
+        "1": "Bạn quỳ, và những ánh sáng đã trả lời. Tối qua chúng quấn vòng phía đông quá những từng tầng và chỉ thẳng xuống tuyết."
+      }
     },
     "hunt_amberfall_lantern_ferry": {
       "0": "Tại bờ nước phía bắc Lanternmere, người giữ phà đèn biết ánh sáng nào đã tắt. Hãy nói chuyện với Ferrymaster Caddow.",
       "1": "Một viên đá đơn độc dựa vào bầu trời phía đông bắc của cái hồ to lớn, cổ hơn cả thị trấn. Đứng tại Monolith Dựa Dựng.",
       "2": "Người giữ những hàng mạ vàng tưới vườn bằng tay và khát nước. Mang đến Orchardist Pomeline 3 x Nước Giếng Lạnh.",
       "3": "Phía đông bắc của gò đất nơi những cây quạt tàn lửa rực sáng đỏ, những chiếc lá nằm trong một vòng tròn mà gió không tạo nên. Sử dụng cuộn chỉ ở đó và đào.",
-      "title": "Những Ngọn Đèn Trên Mặt Hồ"
+      "title": "Những Ngọn Đèn Trên Mặt Hồ",
+      "reply": {
+        "0": "Có một cái đèn tắt tối qua, cái mà hướng về tảng đá cũ phía bên kia nước. Những người chèo tàu của tôi không muốn đến gần nó. Có lẽ bạn sẽ thử.",
+        "2": "Nước giếng lạnh, chính xác là những gì những cây muốn. Đi qua những cây thích đỏ hơn những chiếc lá đã rơi thành một vòng, và không có cây của tôi nào lại rơi lá như vậy."
+      }
     },
     "hunt_willowfen_fenwitch_salt": {
       "0": "Phù thủy vùng đầm lầy của Willowweep sẽ không nói chuyện với bất kỳ ai tay không. Mang đến Mother Sedge 1 x Muối Nấu Ăn.",
       "1": "Nơi vùng đầm lầu trở nên bằng phẳng và không khí khiến tất cả đều buồn ngủ, đứng trên Drowsy Flats và thở dài như phù thủy bảo.",
       "2": "Phía đông nam của những hồ nước sáng lên trong bừng, một gò đất khô ráo ở lại khô cả năm. Sử dụng cuộn chỉ ở đó và đào.",
-      "title": "Muối Của Phù Thủy Đầm Lầu"
+      "title": "Muối Của Phù Thủy Đầm Lầu",
+      "reply": {
+        "0": "Muối. Tốt, bạn lắng nghe. Những bằng phẳng vượt quá những cây sậy khiến mọi người buồn ngủ. Đi và thở dài ở đó như bạn có ý, và đầm lầy sẽ cho bạn phần còn lại."
+      }
     },
     "hunt_nightbloom_sleepless_vigil": {
       "0": "Phía đông bắc Moonrest, nơi những tảng đá giữ canh kỵ không khi chuyên chở, đứng tại Standing Vigil.",
       "1": "Người canh gác tại nơi này đếm sao giống như người khác đếm tiền. Nói chuyện với Astronomer Cassian về cái sao rơi xuống.",
       "2": "Phía bắc thị trấn nằm một nhíp xương mà người ngủ trong đó không bao giờ yên. Chào tôn Sleepless Barrow để người ngủ biết một bạn đã đến.",
       "3": "Phía đông nam của cánh đồng nơi các ánh hoàng hôn tập trung, ánh trăng tập trung trong một vảy đất trần. Sử dụng cuộn chỉ ở đó và đào.",
-      "title": "Canh Kỵ Của Kẻ Không Ngủ"
+      "title": "Canh Kỵ Của Kẻ Không Ngủ",
+      "reply": {
+        "1": "Một ngôi sao đã rơi ba đêm trước, và nó rơi hướng về đàn linh địa cũ phía bắc thị trấn. Cái chết ở đó không bao giờ ngủ. Chào họ như một lính sĩ."
+      }
     },
     "hunt_wraithwood_mournstone_candles": {
       "0": "Người thợ nến của Gibbetmere bán ánh sáng cho những người sợ bóng tối. Nói chuyện với Widow Tansy về một ngọn nến chưa từng trả tiền.",
       "1": "Vicar cuối cùng của Mournstone đã nhịn ăn chỉ có lời cầu nguyện. Mang đến Vicar Creel 2 x Thịt Khô Mặn.",
       "2": "Phía đông bắc thị trấn, vượt qua những con quạ, một khoảnh rừng treo những trái cây kỳ lạ của riêng nó. Đứng trong Hanging Glade.",
       "3": "Phía đông nam của khoảnh rừng nơi thợ săn đặt những cái bẫy, lớp lá bã đã bị lật ngược gần đây. Sử dụng cuộn chỉ ở đó và đào.",
-      "title": "Nến Cho Mournstone"
+      "title": "Nến Cho Mournstone",
+      "reply": {
+        "0": "Vị tổng đại tá đã gọi cây nến đó và không bao giờ trả tiền cho nó. Anh ta đã nhịn ăn kể từ đó, cầu nguyện và không còn gì khác. Mang cho anh ta cái gì đó để nhai và hỏi anh ta tại sao.",
+        "1": "Cảm ơn bạn, bạn. Tôi không bao giờ thắp cây nến đó. Cái gì đó đi bộ trên khu rừng vượt quá những con quạ vào ban đêm, và tôi không thể đối mặt với nó. Đi và đứng ở đó, nếu bạn có thể."
+      }
     },
     "hunt_palmreach_sunken_idol": {
       "0": "Sâu trong rừng rậm, phía tây bắc của vũng nước, những sợi dây leo lao xuống như thác nước. Đứng tại Vinefall.",
       "1": "Một kẻ ẩn dật đã bước vào rừng rậm và ra khỏi nó sống gần những sợi dây leo rơi. Nói chuyện với Okrim về những gì anh ấy thấy ở đó.",
       "2": "Về phía đông, một bức tượng ngồi nửa chìm dưới nước và vẫn đang quan sát. Cúi xuống trước Sunken Idol, theo cách những thợ lặn làm.",
       "3": "Phía đông bắc nơi rừng rậm mở mồm ra biển, cát đã xếp cao hơn triều kéo tới. Sử dụng cuộn chỉ ở đó và đào.",
-      "title": "Bí Mật Của Bức Tượng"
+      "title": "Bí Mật Của Bức Tượng",
+      "reply": {
+        "1": "Dưới những sợi dây những thợ lặn tìm thấy một bức tượng, và bức tượng không thích họ. Bất kỳ ai đứng cao trước nó đều không quay lại. Hãy nhỏ trước nó."
+      }
     },
     "hunt_evergarden_beacon_road": {
       "0": "Người làm vườn parterre dọc theo con đường phía bắc Hedgewick thề chiếc giường của cô ấy đang nạn. Mang đến Farmer Verbena 2 x Compost.",
       "1": "Ở góc tây nam xa nhất của khu vườn, một cánh xay cổ vẫn quay mà không có thợ mài. Đứng tại Old Mill.",
       "2": "Theo con đường phía nam qua biên giới vào Galecrest và ra tới bờ biển. Người giữ ngọn đèn cổ, Keeper Bram, có lời cuối cùng.",
       "3": "Phía tây bắc của ngọn đèn cũ, ngay bên ngoài con đường xuống từ ánh sáng, cỏ đã bị cắt và trải lại. Sử dụng cuộn chỉ ở đó và đào.",
-      "title": "Ngọn Đèn Và Hoa Nở"
+      "title": "Ngọn Đèn Và Hoa Nở",
+      "reply": {
+        "0": "Mủ thích hợp, những chiếc giường sẽ sống. Người xay cũ đã chôn cái gì đó trước khi anh ta rời đi. Cái xay của anh ta vẫn quay ở góc xa của những khu vườn. Đi và đứng cạnh nó.",
+        "2": "Vậy là xay tạo hình khiến bạn đi xuống con đường bờ biển. Ngọn hải đăng giữ một bí mật cuối cùng: phía tây bắc của nó, chỉ dưới con đường, thảm cỏ đã bị cắt và xếp lại. Đào ở đó."
+      }
     }
   },
   "guide": {
@@ -10164,6 +10250,11 @@ export const vi_VN: EnTranslations = {
       "pylonLit": "Một trụ rune bùng sáng ({lit}/{total}).",
       "wayDownOpens": "Lối đi xuống xé toạc mở ra.",
       "exitOpens": "Rạn Nứt rung chuyển. Một lối về nhà xé toạc mở ra phía sau những kẻ đã ngã xuống.",
+      "hoardEnter": "Bạn trèo xuống vào {name}.",
+      "hoardExitOpens": "Kho báu là của bạn. Quay lại lối vào để trèo ra.",
+      "hoardStepBack": "Bạn trèo quay trở lại qua lối vào kho báu.",
+      "hoardNotYours": "Kho báu này đã được đào lên bởi một nhóm khác.",
+      "hoardEntrantsFull": "Kho báu này đã tiếp nhận năm nhà mạo hiểm.",
       "portalOpens": "Một Rạn Nứt hạng {tier} xé toạc mở ra tại {zone}!",
       "portalSealed": "Rạn Nứt hạng {tier} tại {zone} đã bị niêm phong.",
       "portalCollapses": "Rạn Nứt hạng {tier} tại {zone} sụp đổ.",
@@ -10203,7 +10294,152 @@ export const vi_VN: EnTranslations = {
       "detonateLightningRod": "Cột Thu Lôi giáng xuống!",
       "detonateStormcallersWrath": "Thịnh Nộ Của Kẻ Gọi Bão bùng nổ!",
       "detonateAbyssalMaw": "Hàm Vực Thẳm khép lại!",
-      "detonateCrushingDepth": "Nghiền Nát Vực Sâu nghiền nát!"
+      "detonateCrushingDepth": "Nghiền Nát Vực Sâu nghiền nát!",
+      "yell": {
+        "mushroomEngage": "Bào tử sẽ nuốt chửng ngươi.",
+        "mushroomSummon": "Lớn lên nào, các con của ta!",
+        "moleEngage": "Mặt đất này là của ta.",
+        "moleSummon": "Xuống đây cho ta!",
+        "batEngage": "Kéeeeee!",
+        "batSummon": "Đến đây, bầy đàn của ta!",
+        "mimicEngage": "Đói... đói quá...",
+        "mimicSummon": "Thêm vàng, thêm vàng nữa!",
+        "frostBigCast": "Gió trắng nổi lên.",
+        "frostDeathZoneCast": "Băng giá sẽ nuốt lấy ngươi.",
+        "frostDeathZoneStrike": "Không gì sống sót trong cái lạnh thăm thẳm.",
+        "frostEngage": "Cuối cùng, cái lạnh sẽ cướp đi tất cả.",
+        "frostEnrage": "ĐÓNG BĂNG!",
+        "emberBigCast": "CHÁY ĐI.",
+        "emberDeathZoneCast": "Dung nham trào dâng.",
+        "emberDeathZoneStrike": "LÒ RÈN THIÊU RỤI TẤT CẢ.",
+        "emberEngage": "Lò rèn đang khát máu.",
+        "emberSummon": "Trỗi dậy từ xỉ than!",
+        "emberEnrage": "TRO TÀN VÀ THAN HỒNG!",
+        "venomBigCast": "Chết chìm trong nọc độc đi!",
+        "venomDeathZoneCast": "Chìm trong độc dược.",
+        "venomDeathZoneStrike": "NGƯƠI KHÔNG THOÁT ĐƯỢC CÁC CON TA ĐÂU.",
+        "venomEngage": "Các con ta lúc nào cũng đói.",
+        "venomSummon": "Ăn đi, các con!",
+        "necroBigCast": "Linh hồn các ngươi thuộc về ta.",
+        "necroDeathZoneCast": "Linh hồn ngươi thuộc về ta.",
+        "necroDeathZoneStrike": "CÁI CHẾT CƯỚP ĐI TẤT CẢ.",
+        "necroEngage": "Cái chết chỉ là khởi đầu.",
+        "necroSummon": "Trỗi dậy!",
+        "bruteBigCast": "TA ĐẬP NÁT NGƯƠI!",
+        "bruteDeathZoneCast": "MẶT ĐẤT VỠ TAN.",
+        "bruteDeathZoneStrike": "NGƯƠI GỤC NGÃ TẠI ĐÂY.",
+        "bruteEngage": "Ta sẽ nghiền nát ngươi!",
+        "bruteEnrage": "GRÀAAAO!",
+        "arcaneBigCast": "Hãy chứng kiến sức mạnh thực sự.",
+        "arcaneDeathZoneCast": "Thực tại bị xé toạc.",
+        "arcaneDeathZoneStrike": "TAN THÀNH MÂY KHÓI.",
+        "arcaneEngage": "Ngươi không nên đến đây.",
+        "arcaneEnrage": "QUỲ XUỐNG!",
+        "stormBigCast": "Bầu trời đáp lời!",
+        "stormDeathZoneCast": "Bầu trời đáp lại tiếng gọi của ngươi.",
+        "stormDeathZoneStrike": "CƠN BÃO NUỐT CHỬNG TẤT CẢ.",
+        "stormEngage": "Cơn bão tuân lệnh ta!",
+        "stormEnrage": "BẦU TRỜI SỤP ĐỔ!",
+        "tideDeathZoneCast": "Vực sâu sẽ mang ngươi đi.",
+        "tideDeathZoneStrike": "BỊ KÉO XUỐNG VỰC THẲM.",
+        "tideEngage": "Vực sâu đòi lấy ngươi.",
+        "tideSummon": "Trỗi dậy từ đáy sâu!",
+        "ritualistBigCast": "Khế ước đã được niêm phong bằng lửa!",
+        "ritualistEngage": "Ngươi đã xâm phạm vùng đất bị trói buộc.",
+        "ritualistSummon": "Đáp lời ta, những thứ dưới lòng đất!",
+        "pitlordBigCast": "VỰC NGỤC SẼ NUỐT LẤY NGƯƠI.",
+        "pitlordEngage": "Quỳ xuống, hoặc cháy rụi.",
+        "pitlordEnrage": "THÀNH TRÌ NUỐT CHỬNG TẤT CẢ!"
+      },
+      "place": {
+        "hoardFloor": "Kho Báu Chôn Giấu {theme}",
+        "sanctumFloor": "Thánh Điện {theme}: Tầng {depth}",
+        "reachesFloor": "Miền {theme}: Tầng {depth}",
+        "upgradedFloor": "{title}: {theme} Tầng {depth}",
+        "hoardPlan": "Kho Báu Chôn Giấu {noun}",
+        "riftPlan": "{suffix} {noun}",
+        "citadelPlan": "Thành Trì {noun}",
+        "infernalCitadel": "Thành Trì Luyện Ngục",
+        "hoardEntrance": "Lối vào Kho Báu Chôn Giấu",
+        "theme": {
+          "frost": "Băng Trói",
+          "ember": "Lò Than Hồng",
+          "venom": "Rừng Độc",
+          "bone": "Bãi Xương",
+          "brute": "Doanh Trại Chiến",
+          "void": "Sẹo Hư Không",
+          "storm": "Tháp Bão",
+          "tide": "Chìm Đắm",
+          "spore": "Hốc Bào Tử",
+          "burrow": "Hang Sâu",
+          "roost": "Tổ Dơi",
+          "mimic": "Kho Giả",
+          "infernal": "Thành Trì Luyện Ngục"
+        },
+        "noun": {
+          "rime": "Băng Tuyết",
+          "hoarfrost": "Sương Muối",
+          "glacier": "Sông Băng",
+          "frost": "Băng Giá",
+          "ember": "Than Hồng",
+          "cinder": "Tro Than",
+          "magma": "Dung Nham",
+          "ash": "Tro Tàn",
+          "venom": "Nọc Độc",
+          "thorn": "Gai Nhọn",
+          "bramble": "Bụi Gai",
+          "spider": "Nhện",
+          "bone": "Xương",
+          "marrow": "Tủy",
+          "ossuary": "Hầm Hài Cốt",
+          "grave": "Mồ Mả",
+          "war": "Chiến Tranh",
+          "skull": "Đầu Lâu",
+          "iron": "Sắt Thép",
+          "blood": "Máu",
+          "void": "Hư Không",
+          "shadow": "Bóng Tối",
+          "umbral": "U Ảnh",
+          "dusk": "Hoàng Hôn",
+          "storm": "Bão Tố",
+          "tempest": "Cuồng Phong",
+          "thunder": "Sấm Sét",
+          "gale": "Gió Lốc",
+          "sunken": "Chìm Đắm",
+          "abyssal": "Vực Thẳm",
+          "drowned": "Chết Đuối",
+          "tide": "Thủy Triều",
+          "spore": "Bào Tử",
+          "toadstool": "Nấm Độc",
+          "mould": "Nấm Mốc",
+          "mycelium": "Sợi Nấm",
+          "burrow": "Hang Ổ",
+          "tunnel": "Đường Hầm",
+          "delve": "Mỏ Sâu",
+          "loam": "Đất Thịt",
+          "roost": "Tổ Đậu",
+          "echo": "Tiếng Vọng",
+          "guano": "Phân Dơi",
+          "hollow": "Hốc Rỗng",
+          "coffer": "Rương Báu",
+          "strongbox": "Két Sắt",
+          "tithe": "Thuế Thập Phân",
+          "gilt": "Mạ Vàng",
+          "brimstone": "Lưu Huỳnh",
+          "pitfire": "Lửa Vực",
+          "pactbound": "Khế Ước"
+        },
+        "suffix": {
+          "abyss": "Vực Sâu",
+          "depths": "Chốn Sâu",
+          "descent": "Lối Xuống",
+          "hollow": "Thung Hốc",
+          "labyrinth": "Mê Cung",
+          "warren": "Ổ Hang",
+          "sanctum": "Thánh Điện",
+          "rift": "Khe Nứt"
+        }
+      }
     },
     "delve": {
       "cannotEnterNow": "Bạn không thể vào hầm thám hiểm lúc này.",
@@ -10273,6 +10509,9 @@ export const vi_VN: EnTranslations = {
       "moveCloserStairs": "Hãy lại gần cầu thang hơn.",
       "nhaliaCantorShield": "Các Lĩnh Xướng, giữ vững nốt ngân!",
       "nhaliaBlackwaterMark": "{name} đánh dấu {player} bằng Nước Đen!"
+    },
+    "factionVendor": {
+      "currencyRequired": "Bạn cần {amount} {currency} để mua cái đó."
     },
     "lockpick": {
       "lockYields": "Ổ khóa bật mở! Chiến lợi phẩm {tier}.",
@@ -10894,6 +11133,7 @@ export const vi_VN: EnTranslations = {
       "alreadyInWorld": "Nhân vật đã ở trong thế giới.",
       "accountSessionLimit": "Quá nhiều nhân vật trên tài khoản này đã ở trong thế giới.",
       "takenOver": "Nhân vật của bạn đã bị một phiên khác chiếm quyền.",
+      "vaultMailRecovering": "Khôi phục thư từ hộc.",
       "renameBeforeEntering": "Nhân vật này phải được đổi tên trước khi vào thế giới.",
       "renameNotPermitted": "Không được phép đổi tên nhân vật này.",
       "unsupportedMediaType": "Định dạng yêu cầu không được hỗ trợ.",
@@ -11237,6 +11477,8 @@ export const vi_VN: EnTranslations = {
         "dungeonExit": "Lối ra hầm ngục",
         "delveEntrance": "Lối vào hang sâu: {name}",
         "worldPassage": "Lối sang {zone}",
+        "hoardEntrance": "Lối Vào Hoard",
+        "hoardReturnEntrance": "Lối Vào Hoard - Trở Lại",
         "riftEntrance": "Lối vào Rạn Nứt: {name}",
         "hostileEnemy": "Kẻ địch",
         "aggressiveEnemy": "Kẻ địch đang tấn công bạn",
@@ -11880,6 +12122,7 @@ export const vi_VN: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "Tấn Công",
+      "cooldownMinutes": "{minutes}p",
       "attackTooltip": "Bật/tắt tự động tấn công mục tiêu. Nhấp chuột phải vào kẻ địch cũng sẽ tấn công.",
       "attackRemoveHint": "Nhấp chuột phải để gỡ khỏi thanh và giải phóng ô trống.",
       "emptySlot": "Ô trống",
@@ -11971,7 +12214,35 @@ export const vi_VN: EnTranslations = {
       "rift_storm_execution": "Cột Thu Lôi",
       "rift_storm_strike": "Thịnh Nộ Của Kẻ Gọi Bão",
       "rift_tide_execution": "Hàm Vực Thẳm",
-      "rift_tide_strike": "Nghiền Nát Vực Sâu"
+      "rift_tide_strike": "Nghiền Nát Vực Sâu",
+      "hoard_cast_fear": "Tiếng Gầm Kinh Hoàng",
+      "hoard_cast_stun": "Đòn Choáng",
+      "hoard_cast_drowning_hook": "Móc Chết Đuối",
+      "hoard_cast_rime_beam": "Chùm Băng Giá",
+      "hoard_cast_cinder_bolt": "Tia Than Hồng",
+      "hoard_cast_void_empower": "Tăng Sức Vô Hạn",
+      "hoard_cast_webbing": "Kết Mạng",
+      "hoard_cast_doom_ritual": "Nghi Thức Tận Diệu",
+      "hoard_cast_charge": "Xông Tới Hết Tốc",
+      "hoard_cast_silk_snare": "Bẫy Lụa",
+      "hoard_cast_silence": "Tiếng Kêu Im Lặng",
+      "hoard_cast_hex": "Lời Nguyền",
+      "hoard_lightning_strike": "Tia Chớp",
+      "hoard_ice_age": "Kỷ Băng Hà",
+      "hoard_pulsar_overload": "Quá Tải Xung",
+      "hoard_rolling_boulder": "Tảng Đá Lăn",
+      "hoard_goblin_escape": "Trốn Thoát Goblin",
+      "hoard_cast_mole_rake": "Vuốt Cào Sâu",
+      "hoard_cast_burrow": "Chui Sâu",
+      "hoard_cast_tunnel": "Đào Hầm",
+      "hoard_cast_emerge": "Bùng Lên",
+      "hoard_cast_collapse": "Sập Trần",
+      "hoard_cast_bat_dive_aim": "Lao Xuống Sâu",
+      "hoard_cast_bat_dive": "Lao Xuống",
+      "hoard_cast_screech": "Tiếng Kêu Điếc",
+      "hoard_cast_mimic_bite": "Cắn Tham Lam",
+      "hoard_cast_mimic_leap": "Bước Nhảy Tàn Phế",
+      "hoard_cast_coin_spit": "Phun Tiền Nguyền"
     }
   },
   "questUi": {
@@ -12398,7 +12669,17 @@ export const vi_VN: EnTranslations = {
       "clueHuntStep": "Manh mối {step} trên {total} giải: {title}",
       "clueHuntDone": "Cuộc tìm kiếm kho báu hoàn thành: {title}. Hộp là của bạn.",
       "clueHuntAbandoned": "Cuộc tìm kiếm kho báu bỏ dỡ: {title}",
-      "clueCasketOpened": "Hộp chứa {money} và {items}."
+      "clueCasketOpened": "Hộp chứa {money} và {items}.",
+      "treasureMapEarned": "Mọi nhiệm vụ thế giới hôm nay đã xong: bạn đã tìm thấy một {map}.",
+      "treasureMapLost": "Bạn đã mất một bản đồ kho.",
+      "treasureMapRead": "Bạn nghiên cứu {map}. X nằm ở đâu đó trong {zone}.",
+      "treasureMapUpgraded": "Bản đồ được vẽ lại bằng mực tốt hơn: nó hiện là một {map}.",
+      "treasureVaultOpened": "Bạn đã mở kho.",
+      "treasureVaultLooted": "Kho chứa {money} và {items}.",
+      "treasureVaultCapped": "Bạn đã đạt giới hạn kho.",
+      "hoardGoblinSighted": "Goblin Hoard được nhìn thấy.",
+      "hoardGoblinSightedHint": "Tìm kiếm Goblin Hoard ở các địa điểm được đánh dấu.",
+      "hoardGoblinExplain": "Một kẻ trộm goblin đang trốn trong kho này với một túi vàng cắp cú. Nó không bao giờ chống lại, nó chỉ chạy. Cú đánh đầu tiên của bạn bắt đầu thanh trốn thoát {seconds} giây: nếu nó vẫn sống khi thanh chạy hết, nó sẽ mở một cánh cổng và biến mất với vàng. Để yên tĩnh, nó sẽ trốn đi sau {minutes} phút. Giết nó kịp thời và mọi người trong phòng sẽ được trả vàng."
     },
     "errors": {
       "unavailable": "Nhiệm vụ đó không khả dụng.",
@@ -12811,6 +13092,10 @@ export const vi_VN: EnTranslations = {
       "sport_second_wind": {
         "name": "Đôi Chân Sung Sức",
         "description": "Lấy lại đôi chân: di chuyển nhanh hơn 50% trong 4 giây."
+      },
+      "clockwork_shock_bomb": {
+        "name": "Bom Sốc Cơ Khí",
+        "description": "Ném một quả Bom Sốc Cơ Khí vào vị trí mục tiêu, gây 120 đến 160 sát thương Tự Nhiên cho kẻ địch trong phạm vi 5 mét."
       },
       "flamestrike": {
         "name": "Cú Đánh Lửa",
@@ -17393,6 +17678,363 @@ export const vi_VN: EnTranslations = {
       "stormhymn_chain_treads": {
         "name": "Ủng Xích Thánh Ca Bão"
       },
+      "allied_hearthstone": {
+        "name": "Đá Lò Sơ Minh"
+      },
+      "allied_vanguard_duffel": {
+        "name": "Cái Túi Quân Đoàn Đồng Minh"
+      },
+      "rift_feather_glider": {
+        "name": "Người Lướt Có Lông Nứt"
+      },
+      "formula_enchant_feet_shadowstride": {
+        "name": "Công Thức: Phù Thủy Giày - Bước Bóng Tối"
+      },
+      "recipe_potion_of_invisibility": {
+        "name": "Công Thức: Thuốc Tàng Hình"
+      },
+      "potion_of_invisibility": {
+        "name": "Thuốc Tàng Hình"
+      },
+      "pattern_reinforced_armor_kit": {
+        "name": "Mẫu: Bộ Giáp Gia Cường"
+      },
+      "reinforced_armor_kit": {
+        "name": "Bộ Giáp Gia Cường"
+      },
+      "dawn_battle_standard": {
+        "name": "Cờ Trận Đấu Bình Minh"
+      },
+      "formula_enchant_offhand_spirit": {
+        "name": "Công Thức: Phù Thủy Tay Phụ - Tinh Thần"
+      },
+      "recipe_elixir_of_mana_regeneration": {
+        "name": "Công Thức: Thuốc Xin Lẫn Quán Mana"
+      },
+      "elixir_of_mana_regeneration": {
+        "name": "Thuốc Xin Lẫn Quán Mana"
+      },
+      "clockwork_target_dummy": {
+        "name": "Người Mục Tiêu Cơ Khí"
+      },
+      "schematic_clockwork_shock_bomb": {
+        "name": "Sơ Đồ: Bom Sốc Cơ Khí"
+      },
+      "clockwork_shock_bomb": {
+        "name": "Bom Sốc Cơ Khí"
+      },
+      "plans_dense_sharpening_stone": {
+        "name": "Kế Hoạch: Đá Mài Dày Đặc"
+      },
+      "dense_sharpening_stone": {
+        "name": "Đá Mài Dày Đặc"
+      },
+      "formula_enchant_gloves_forged_might": {
+        "name": "Công Thức: Phù Thủy Găng Tay - Sức Mạnh Nướng"
+      },
+      "treasure_map_common": {
+        "name": "Bản Đồ Kho Báu Mòn"
+      },
+      "treasure_map_rare": {
+        "name": "Bản Đồ Kho Báu Được Viết"
+      },
+      "treasure_map_epic": {
+        "name": "Bản Đồ Kho Báu Mạ Vàng"
+      },
+      "treasure_map_legendary": {
+        "name": "Bản Đồ Kho Báu Chủ Quyền"
+      },
+      "cartographers_ink": {
+        "name": "Mực Thợ Bản Đồ"
+      },
+      "collapsar_band_of_nyxaris": {
+        "name": "Vòng Tay Sự Sụp Đổ Của Nyxaris"
+      },
+      "rare_collapsar_band_of_nyxaris": {
+        "name": "Vòng Tay Bị Hoen Rỉ Sự Sụp Đổ Của Nyxaris"
+      },
+      "legendary_collapsar_band_of_nyxaris": {
+        "name": "Vòng Tay Chủ Quyền Sự Sụp Đổ Của Nyxaris"
+      },
+      "orb_collapsing_void": {
+        "name": "Quả Cầu Vức Sụp"
+      },
+      "rare_orb_collapsing_void": {
+        "name": "Quả Cầu Bị Hoen Rỉ Vức Sụp"
+      },
+      "legendary_orb_collapsing_void": {
+        "name": "Quả Cầu Chủ Quyền Vức Sụp"
+      },
+      "cowl_of_event_horizon": {
+        "name": "Mũ Trùm Chân Trời Sự Kiện"
+      },
+      "rare_cowl_of_event_horizon": {
+        "name": "Mũ Trùm Bị Hoen Rỉ Chân Trời Sự Kiện"
+      },
+      "legendary_cowl_of_event_horizon": {
+        "name": "Mũ Trùm Chủ Quyền Chân Trời Sự Kiện"
+      },
+      "mantle_of_singularity": {
+        "name": "Áo Choàng Của Duy Nhất"
+      },
+      "rare_mantle_of_singularity": {
+        "name": "Áo Choàng Bị Hoen Rỉ Của Duy Nhất"
+      },
+      "legendary_mantle_of_singularity": {
+        "name": "Áo Choàng Chủ Quyền Của Duy Nhất"
+      },
+      "glacier_hewn_bulwark": {
+        "name": "Lá Chắn Được Chạm Bởi Sông Băng"
+      },
+      "rare_glacier_hewn_bulwark": {
+        "name": "Lá Chắn Bị Hoen Rỉ Được Chạm Bởi Sông Băng"
+      },
+      "legendary_glacier_hewn_bulwark": {
+        "name": "Lá Chắn Chủ Quyền Được Chạm Bởi Sông Băng"
+      },
+      "permafrost_legguards": {
+        "name": "Bảo Vệ Chân Băng Vĩnh Cửu"
+      },
+      "rare_permafrost_legguards": {
+        "name": "Bảo Vệ Chân Bị Hoen Rỉ Băng Vĩnh Cửu"
+      },
+      "legendary_permafrost_legguards": {
+        "name": "Bảo Vệ Chân Chủ Quyền Băng Vĩnh Cửu"
+      },
+      "frostbitten_rime_slippers": {
+        "name": "Dép Sương Giá Bị Cắn"
+      },
+      "rare_frostbitten_rime_slippers": {
+        "name": "Dép Bị Hoen Rỉ Sương Giá Bị Cắn"
+      },
+      "legendary_frostbitten_rime_slippers": {
+        "name": "Dép Chủ Quyền Sương Giá Bị Cắn"
+      },
+      "rime_crusted_grips": {
+        "name": "Nắm Sương Giá Phủ Đầy"
+      },
+      "rare_rime_crusted_grips": {
+        "name": "Nắm Bị Hoen Rỉ Sương Giá Phủ Đầy"
+      },
+      "legendary_rime_crusted_grips": {
+        "name": "Nắm Chủ Quyền Sương Giá Phủ Đầy"
+      },
+      "ember_wrought_crown": {
+        "name": "Vương Miện Than Hồng"
+      },
+      "rare_ember_wrought_crown": {
+        "name": "Vương Miện Bị Hoen Rỉ Than Hồng"
+      },
+      "legendary_ember_wrought_crown": {
+        "name": "Vương Miện Chủ Quyền Than Hồng"
+      },
+      "cinder_stitched_robes": {
+        "name": "Áo Nước Tàn Lửa"
+      },
+      "rare_cinder_stitched_robes": {
+        "name": "Áo Nước Bị Hoen Rỉ Tàn Lửa"
+      },
+      "legendary_cinder_stitched_robes": {
+        "name": "Áo Nước Chủ Quyền Tàn Lửa"
+      },
+      "chained_ember_choker": {
+        "name": "Dây Chuyền Than Hồng Xích"
+      },
+      "rare_chained_ember_choker": {
+        "name": "Dây Chuyền Than Hồng Bị Hoen Rỉ Xích"
+      },
+      "legendary_chained_ember_choker": {
+        "name": "Dây Chuyền Than Hồng Chủ Quyền Xích"
+      },
+      "molten_clinker_girdle": {
+        "name": "Đai Tro Nứt Chảy"
+      },
+      "rare_molten_clinker_girdle": {
+        "name": "Đai Bị Hoen Rỉ Tro Nứt Chảy"
+      },
+      "legendary_molten_clinker_girdle": {
+        "name": "Đai Chủ Quyền Tro Nứt Chảy"
+      },
+      "storm_tuned_buckler": {
+        "name": "Khiên Điều Chỉnh Bão"
+      },
+      "rare_storm_tuned_buckler": {
+        "name": "Khiên Bị Hoen Rỉ Điều Chỉnh Bão"
+      },
+      "legendary_storm_tuned_buckler": {
+        "name": "Khiên Chủ Quyền Điều Chỉnh Bão"
+      },
+      "hauberk_tempest_gale": {
+        "name": "Áo Sloyd Gió Bão"
+      },
+      "rare_hauberk_tempest_gale": {
+        "name": "Áo Sloyd Bị Hoen Rỉ Gió Bão"
+      },
+      "legendary_hauberk_tempest_gale": {
+        "name": "Áo Sloyd Chủ Quyền Gió Bão"
+      },
+      "gale_strider_boots": {
+        "name": "Giày Người Bước Gió"
+      },
+      "rare_gale_strider_boots": {
+        "name": "Giày Bị Hoen Rỉ Người Bước Gió"
+      },
+      "legendary_gale_strider_boots": {
+        "name": "Giày Chủ Quyền Người Bước Gió"
+      },
+      "tempest_strike_grips": {
+        "name": "Nắm Đòn Bão"
+      },
+      "rare_tempest_strike_grips": {
+        "name": "Nắm Bị Hoen Rỉ Đòn Bão"
+      },
+      "legendary_tempest_strike_grips": {
+        "name": "Nắm Chủ Quyền Đòn Bão"
+      },
+      "breastplate_tectonic_might": {
+        "name": "Áo Bộ Sức Mạnh Địa Tầng"
+      },
+      "rare_breastplate_tectonic_might": {
+        "name": "Áo Bộ Bị Hoen Rỉ Sức Mạnh Địa Tầng"
+      },
+      "legendary_breastplate_tectonic_might": {
+        "name": "Áo Bộ Chủ Quyền Sức Mạnh Địa Tầng"
+      },
+      "band_mountains_weight": {
+        "name": "Vòng Tay Trọng Lượng Núi"
+      },
+      "rare_band_mountains_weight": {
+        "name": "Vòng Tay Bị Hoen Rỉ Trọng Lượng Núi"
+      },
+      "legendary_band_mountains_weight": {
+        "name": "Vòng Tay Chủ Quyền Trọng Lượng Núi"
+      },
+      "monolithic_shoulderguards": {
+        "name": "Bảo Vệ Vai Khối Đá"
+      },
+      "rare_monolithic_shoulderguards": {
+        "name": "Bảo Vệ Vai Bị Hoen Rỉ Khối Đá"
+      },
+      "legendary_monolithic_shoulderguards": {
+        "name": "Bảo Vệ Vai Chủ Quyền Khối Đá"
+      },
+      "earthshaker_warboots": {
+        "name": "Giày Chiến Làm Rung Trái Đất"
+      },
+      "rare_earthshaker_warboots": {
+        "name": "Giày Chiến Bị Hoen Rỉ Làm Rung Trái Đất"
+      },
+      "legendary_earthshaker_warboots": {
+        "name": "Giày Chiến Chủ Quyền Làm Rung Trái Đất"
+      },
+      "silkstalker_woven_vest": {
+        "name": "Áo Dệt Của Thợ Săn Silk"
+      },
+      "rare_silkstalker_woven_vest": {
+        "name": "Áo Dệt Bị Hoen Rỉ Của Thợ Săn Silk"
+      },
+      "legendary_silkstalker_woven_vest": {
+        "name": "Áo Dệt Chủ Quyền Của Thợ Săn Silk"
+      },
+      "spun_venom_spaulders": {
+        "name": "Bảo Vệ Vai Độc Xoay"
+      },
+      "rare_spun_venom_spaulders": {
+        "name": "Bảo Vệ Vai Bị Hoen Rỉ Độc Xoay"
+      },
+      "legendary_spun_venom_spaulders": {
+        "name": "Bảo Vệ Vai Chủ Quyền Độc Xoay"
+      },
+      "broodmother_chitin_cowl": {
+        "name": "Mũ Kitin Của Mẹ Sinh Sản"
+      },
+      "rare_broodmother_chitin_cowl": {
+        "name": "Mũ Kitin Bị Hoen Rỉ Của Mẹ Sinh Sản"
+      },
+      "legendary_broodmother_chitin_cowl": {
+        "name": "Mũ Kitin Chủ Quyền Của Mẹ Sinh Sản"
+      },
+      "venom_etched_waistcord": {
+        "name": "Dây Eo Độc Khắc"
+      },
+      "rare_venom_etched_waistcord": {
+        "name": "Dây Eo Bị Hoen Rỉ Độc Khắc"
+      },
+      "legendary_venom_etched_waistcord": {
+        "name": "Dây Eo Chủ Quyền Độc Khắc"
+      },
+      "bone_studded_pauldrons": {
+        "name": "Võng Xương Khâu"
+      },
+      "rare_bone_studded_pauldrons": {
+        "name": "Võng Xương Khâu Bị Hoen Rỉ"
+      },
+      "legendary_bone_studded_pauldrons": {
+        "name": "Võng Xương Khâu Chủ Quyền"
+      },
+      "legguards_of_the_ossuary": {
+        "name": "Bảo Vệ Chân Của Xương"
+      },
+      "rare_legguards_of_the_ossuary": {
+        "name": "Bảo Vệ Chân Bị Hoen Rỉ Của Xương"
+      },
+      "legendary_legguards_of_the_ossuary": {
+        "name": "Bảo Vệ Chân Chủ Quyền Của Xương"
+      },
+      "seal_of_the_cryptwalker": {
+        "name": "Dấu Của Kẻ Đi Bộ Hầm Mộ"
+      },
+      "rare_seal_of_the_cryptwalker": {
+        "name": "Dấu Bị Hoen Rỉ Của Kẻ Đi Bộ Hầm Mộ"
+      },
+      "legendary_seal_of_the_cryptwalker": {
+        "name": "Dấu Chủ Quyền Của Kẻ Đi Bộ Hầm Mộ"
+      },
+      "ossuary_bone_crown": {
+        "name": "Vương Miện Xương Xương"
+      },
+      "rare_ossuary_bone_crown": {
+        "name": "Vương Miện Bị Hoen Rỉ Xương Xương"
+      },
+      "legendary_ossuary_bone_crown": {
+        "name": "Vương Miện Chủ Quyền Xương Xương"
+      },
+      "chalice_of_living_tides": {
+        "name": "Chén Dòng Nước Sống"
+      },
+      "rare_chalice_of_living_tides": {
+        "name": "Chén Bị Hoen Rỉ Dòng Nước Sống"
+      },
+      "legendary_chalice_of_living_tides": {
+        "name": "Chén Chủ Quyền Dòng Nước Sống"
+      },
+      "pendant_continuous_flow": {
+        "name": "Mặt Dây Chuyền Dòng Liên Tục"
+      },
+      "rare_pendant_continuous_flow": {
+        "name": "Mặt Dây Chuyền Bị Hoen Rỉ Dòng Liên Tục"
+      },
+      "legendary_pendant_continuous_flow": {
+        "name": "Mặt Dây Chuyền Chủ Quyền Dòng Liên Tục"
+      },
+      "coral_encrusted_girdle": {
+        "name": "Đai Ngâm San Hô"
+      },
+      "rare_coral_encrusted_girdle": {
+        "name": "Đai Bị Hoen Rỉ Ngâm San Hô"
+      },
+      "legendary_coral_encrusted_girdle": {
+        "name": "Đai Chủ Quyền Ngâm San Hô"
+      },
+      "riptide_handwraps": {
+        "name": "Cuốn Tay Sóng Xé"
+      },
+      "rare_riptide_handwraps": {
+        "name": "Cuốn Tay Bị Hoen Rỉ Sóng Xé"
+      },
+      "legendary_riptide_handwraps": {
+        "name": "Cuốn Tay Chủ Quyền Sóng Xé"
+      },
       "vanguard_warrior_arms_helmet": {
         "name": "Nón Chiến Bước Kiếm"
       },
@@ -19090,6 +19732,51 @@ export const vi_VN: EnTranslations = {
       "stable_horse": {
         "name": "Ngựa chuồng"
       },
+      "hoard_brood_egg": {
+        "name": "Bộ Sinh Sản"
+      },
+      "hoard_brood_hatchling": {
+        "name": "Sinh Vật Con Của Vysska"
+      },
+      "hoard_healing_tide_totem": {
+        "name": "Totem Sóng Chữa Lành"
+      },
+      "hoard_bound_pulsar": {
+        "name": "Sao Xung Bị Buộc"
+      },
+      "hoard_abyssal_tentacle": {
+        "name": "Xúc Tua Của Cổng Hút"
+      },
+      "hoard_silk_cocoon": {
+        "name": "Khoái Tơ"
+      },
+      "hoard_brood_cocoon": {
+        "name": "Khoái Của Sinh Sản"
+      },
+      "hoard_coinsack_scurrier": {
+        "name": "Chuột Chạy Túi Tiền"
+      },
+      "hoard_boss_mushroom": {
+        "name": "Mẹ Của Nấm"
+      },
+      "hoard_sporeling": {
+        "name": "Bào Tử Nhỏ"
+      },
+      "hoard_bloat_cap": {
+        "name": "Nấm Nở Phồng"
+      },
+      "hoard_boss_mole": {
+        "name": "Cái Cào Sâu"
+      },
+      "hoard_boss_bat": {
+        "name": "Con Dơi Khổng Lồ"
+      },
+      "hoard_boss_mimic": {
+        "name": "Hộp Tham Ăn"
+      },
+      "hoard_bat_swarmling": {
+        "name": "Động Vật Bầy Dơi"
+      },
       "rift_spawnling": {
         "name": "Ấu Trùng Rạn Nứt"
       },
@@ -19119,6 +19806,9 @@ export const vi_VN: EnTranslations = {
       },
       "rift_marrow_troll": {
         "name": "Troll Tủy"
+      },
+      "rift_marrow_golem": {
+        "name": "Tượng Tủy Xương Nứt"
       },
       "rift_void_acolyte": {
         "name": "Tu Đồ Sẹo Hư Không"
@@ -23252,6 +23942,11 @@ export const vi_VN: EnTranslations = {
         "sender": "Nhà Môi Giới Sàn Giao Dịch",
         "subject": "Tin rao của bạn trên Sàn Giao Dịch đã bán được",
         "body": "Tin rao của bạn đã bán được và người mua đã thanh toán đầy đủ. Sổ cái của Sàn Giao Dịch lưu lại bản ghi giao dịch, và mục hoạt động Sàn Giao Dịch của bạn hiển thị số tiền đã thanh toán cùng phần chi tiết của nó.\n\n- Nhà Môi Giới Sàn Giao Dịch"
+      },
+      "hoard_vault_reward": {
+        "sender": "Bưu Điện Quạ",
+        "subject": "Phần thưởng kho báu của bạn",
+        "body": "Kho báu đã bị phá, nhưng phần của bạn không được lấy ra từ hộp. Những chỉ quạ đã mang nó đến cho bạn ở đây, với hàng hóa và tiền bạc bạn kiếm được.\n\n- Bưu Điện Quạ"
       }
     },
     "itemSets": {

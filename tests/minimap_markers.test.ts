@@ -293,7 +293,10 @@ describe('createMinimapMarkers: the discriminated union per draw kind', () => {
     const world = makeWorld('sim') as unknown as {
       player: { level: number; pos: { x: number; z: number } };
       worldQuestCycle: string;
-      worldQuestLog: ReadonlyMap<string, { questId: string; count: number; state: string }>;
+      worldQuestLog: ReadonlyMap<
+        string,
+        { questId: string; count: number; state: string; practiceOnly?: boolean }
+      >;
     };
     const worldQuestMarkers = () =>
       buildMarkers(world as unknown as IWorld).filter((marker) => marker.kind === 'world-quest');
@@ -308,6 +311,11 @@ describe('createMinimapMarkers: the discriminated union per draw kind', () => {
     world.player.level = quest.minLevel;
     world.worldQuestLog = new Map([
       [quest.id, { questId: quest.id, count: quest.count, state: 'completed' }],
+    ]);
+    expect(worldQuestMarkers()).toEqual([]);
+
+    world.worldQuestLog = new Map([
+      [quest.id, { questId: quest.id, count: 0, state: 'active', practiceOnly: true }],
     ]);
     expect(worldQuestMarkers()).toEqual([]);
 
@@ -747,6 +755,7 @@ describe('createMinimapMarkers: the discriminated union per draw kind', () => {
       [world.player.id, player],
       // Deliberately interleave source order. The output must group rewards
       // before navigation without sorting or weakening the radial cull.
+      at(29, 'hoard_entrance', 1),
       at(30, 'rift_descent', 2),
       at(31, 'rift_treasure', 3),
       at(32, 'rift_exit', 4, { riftTier: 'S' }),
@@ -771,6 +780,7 @@ describe('createMinimapMarkers: the discriminated union per draw kind', () => {
       { kind: 'rift-reward', reward: 'treasure', state: 'available' },
       { kind: 'rift-reward', reward: 'cache', state: 'locked' },
       { kind: 'delve-reward', reward: 'cache', state: 'locked', bountiful: true },
+      { kind: 'hoard-entrance' },
       { kind: 'rift-descent' },
       { kind: 'rift-return', route: 'egress', rank: 'S' },
       { kind: 'rift-return', route: 'beacon', rank: null },

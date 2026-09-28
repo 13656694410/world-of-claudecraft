@@ -300,6 +300,7 @@ function preservesStealth(ability: AbilityDef): boolean {
   return (
     isStealthToggle(ability) ||
     ability.id === 'sprint' ||
+    ability.id === 'dash' ||
     ability.id === 'sap' ||
     ability.id === 'shadowstep'
   );

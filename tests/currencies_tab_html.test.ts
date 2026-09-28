@@ -29,11 +29,22 @@ describe('currencies tab html', () => {
     expect(html).toContain('currency-delve_mark');
   });
 
-  it('paints one pending row per faction with a zero it never invents a balance for', () => {
-    const html = currenciesTabHtml(worldStub());
-    expect(html.match(/char-cur-row is-faction is-pending/g)).toHaveLength(3);
-    expect(html).toContain('Faction currency: pending Stage 2');
-    expect(html).toContain('Rift Watch');
+  it('paints one row per faction with its currency icon, name, note and balance', () => {
+    const html = currenciesTabHtml(
+      worldStub({
+        factionCurrencies: { rift_watch: 50, church_order: 20, automatons: 5 },
+      }),
+    );
+    expect(html.match(/char-cur-row is-faction/g)).toHaveLength(3);
+    expect(html).toContain('currency-rift_watch_mark');
+    expect(html).toContain('Rift Watch Mark');
+    expect(html).toContain('>50<');
+    expect(html).toContain('currency-church_order_crest');
+    expect(html).toContain('Order Crest');
+    expect(html).toContain('>20<');
+    expect(html).toContain('currency-automaton_cog');
+    expect(html).toContain('Automaton Cog');
+    expect(html).toContain('>5<');
   });
 
   it('escapes every value and clamps corrupt balances', () => {

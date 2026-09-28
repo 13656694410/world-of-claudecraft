@@ -503,7 +503,8 @@ export const pl_PL: EnTranslations = {
         "dungeon_heroic": "Łup z heroicznych lochów",
         "world": "Łup z zadań światowych",
         "pvp": "Sprzęt WOJEN"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Rozkład promów",
@@ -1166,7 +1167,10 @@ export const pl_PL: EnTranslations = {
       "count": "({count})",
       "objectiveValue": "{current} / {total}",
       "collapseHint": "Zwiń śledzenie zadań",
-      "expandHint": "Rozwiń śledzenie zadań"
+      "expandHint": "Rozwiń śledzenie zadań",
+      "worldQuests": "Zadania światowe",
+      "worldQuestsCollapseHint": "Zwiń zadania światowe",
+      "worldQuestsExpandHint": "Rozwiń zadania światowe"
     },
     "interfaceTabs": {
       "general": "Ogólne",
@@ -1661,6 +1665,10 @@ export const pl_PL: EnTranslations = {
     },
     "riftTracker": {
       "title": "Szczelina",
+      "hoardTitle": "Zakopane skarby",
+      "hoardGoal": "Pokonaj strażnika skarbu",
+      "hoardChestGoal": "Otwórz skrzynię skarbu",
+      "hoardClaimedGoal": "Skarb jest twój",
       "floor": "Piętro {current} z {total}",
       "closesIn": "Zamyka się za {time}",
       "clockMs": "{minutes}:{seconds}",
@@ -2870,6 +2878,19 @@ export const pl_PL: EnTranslations = {
       "crafting": "Rzemiosło",
       "openProfessions": "Otwarte zawody"
     },
+    "treasureMap": {
+      "close": "Zamknij mapę skarbu",
+      "zone": "Gdzieś w {zone}",
+      "hint": "Znajdź grunt pokazywany na mapie, stań na X i użyj mapy ponownie, aby kopać. Zakopane skarby otwierają się dla ciebie i twojej drużyny.",
+      "upgradeNote": "Przerysowanie go jako mapę {rarity} wymaga {inks} Kartogarfa Atrament (posiadasz {held}). Kwatermistrzowie frakcji to sprzedają.",
+      "upgradeMaxed": "Żaden kartograf nie mógł tego ulepszyć.",
+      "rarity": {
+        "common": "Zwyczajna",
+        "rare": "Rzadka",
+        "epic": "Epicka",
+        "legendary": "Legendarny"
+      }
+    },
     "currencies": {
       "intro": "Żadne z nich nie zajmuje miejsca w plecaku. Monety zostają w plecaku jak zawsze.",
       "activities": "Zajęcia",
@@ -2884,7 +2905,24 @@ export const pl_PL: EnTranslations = {
       "walletNotLinked": "Brak połączonego portfela",
       "wocPreview": "Podgląd salda, nie zweryfikowane",
       "lifetime": "Całkowicie {amount}",
-      "factionPending": "Waluta Frakcji: oczekiwanie na Etap 2"
+      "factionPending": "Waluta Frakcji: oczekiwanie na Etap 2",
+      "riftWatchMark": "Znak Straży Szczelin",
+      "riftWatchMarkNote": "Zadania światowe w strefach Straży Szczelin",
+      "churchOrderCrest": "Herb Zakonu Kościoła",
+      "churchOrderCrestNote": "Zadania światowe w strefach Zakonu Kościoła",
+      "automatonCog": "Zębatka Automata",
+      "automatonCogNote": "Zadania światowe w strefach Automata"
+    },
+    "worldQuestTooltip": {
+      "factionLine": "Frakcja: {faction}",
+      "timeRemaining": "Pozostały czas:",
+      "standingAmount": "{amount} {faction}",
+      "currencyAmount": "{amount} {currency}",
+      "standingReward": "+{amount} {faction} Stanu",
+      "currencyReward": "+{amount} {currency}"
+    },
+    "worldQuestBanner": {
+      "subtitle": "Zadanie światowe"
     },
     "reputation": {
       "intro": "Wszystkie trzy frakcje rozwijają się jednocześnie: każde zadanie świata liczy się dla frakcji jej strefy.",
@@ -5293,6 +5331,9 @@ export const pl_PL: EnTranslations = {
       "enchant_chest_lucent_stamina": "Grawerunek na piersi: Świetlista Wytrzymałość",
       "enchant_feet_lucent_agility": "Grawerunek na butach: Świetlista Zręczność",
       "enchant_lucent_infusion": "Świetlisty Wlew",
+      "enchant_offhand_spirit": "Grawerowanie tarczy: Duch",
+      "enchant_feet_shadowstride": "Grawerowanie buta: Cień",
+      "enchant_gloves_forged_might": "Grawerowanie rękawic: Wykuta moc",
       "enchant_weapon_riftwalkers_grace": "Łaska Wędrownika Szczelin",
       "enchant_weapon_dawnfire_etching": "Grawer na broni: Światło Świtu",
       "enchant_weapon_dawns_benediction": "Grawer na broni: Błogosławieństwo Świtu",
@@ -5304,6 +5345,22 @@ export const pl_PL: EnTranslations = {
       "enchant_weapon_dawnfire_etching": "Na stałe graweruje broń z 18 Siłą Zaklęcia. Siła Zaklęcia liczy się też jako Siła Uzdrawiania. Stały bonus, nie skaluje się.",
       "enchant_weapon_dawns_benediction": "Na stałe graweruje broń z 34 Siłą Uzdrawiania. Siła Uzdrawiania zwiększa tylko uzdrawianie, nigdy obrażenia zaklęć. Stały bonus, nie skaluje się.",
       "enchant_weapon_piston_drive": "Na stałe graweruje broń dwuręczną z 12 Siłą i 25 Oceną Trafienia Krytycznego. Nie można zastosować na broni jednooręcznej. Stały bonus, nie skaluje się."
+    },
+    "factionRewards": {
+      "alliedHearthstoneUse": "Użycie: Teleportuje cię do twojego nastrojonego na sieć siedziby frakcji. (10 sek. rzucania, 15 min odpoczynku)",
+      "alliedHearthstoneAttuned": "Nastrojone na: {hub}",
+      "hub_none": "Brak (Użyj blisko siedziby frakcji, aby nastroić)",
+      "hub_rift_watch": "Drifthaven (Straż Szczelin)",
+      "hub_church_order": "Dolina Wschodniego Strumienia (Zakon Kościoła)",
+      "hub_automatons": "Południowy Zasięg (Odlewnia Automata)",
+      "riftGliderUse": "Użycie: Rozsuwa szybowiec, spowalniając prędkość spadania na 30 sek. Lądowanie lub zadanie obrażeń anuluje efekt. (2 min odpoczynku)",
+      "targetDummyUse": "Użycie: Rozmieszcza mechaniczną tarczę treningową na otwartym świecie na 2 minuty do ćwiczenia zdolności bojowych. (5 min odpoczynku)",
+      "battleStandardUse": "Użycie: Sadzi Poświęcony Sztandar Świtu na 5 minut, znacznie zwiększając regenerację zdrowia i many poza walką dla wszystkich pobliskich sojuszników. Pozostanie w pobliżu przez 10 sekund daje również Błogosławieństwo Świtu (+5% do wszystkich atrybutów na 30 min). (5 min odpoczynku)",
+      "shockBombUse": "Użycie: Rzuca bombę szokową do 30 jardów, zadając 120 do 160 obrażeń Przyrody wszystkim wrogom w promieniu 5 jardów. (1 min odpoczynku)",
+      "invisibilityUse": "Użycie: Okrywam cię niewidzialności na 6 sek. (2 min odpoczynku)",
+      "armorKitUse": "Użycie: Wzmacnia twój pancerz klatki piersiowej, zwiększając Pancerz o 12 na 1 godzinę.",
+      "sharpeningStoneUse": "Użycie: Ostrzy twoją główną broń, zwiększając Moc Ataku o 6 na 30 min.",
+      "manaElixirUse": "Użycie: Zwiększa Ducha o 6 na 1 godzinę."
     },
     "professions": {
       "title": "Zawody",
@@ -6076,6 +6133,7 @@ export const pl_PL: EnTranslations = {
       "sourceActivityCorpseHarvest": "Odzyskiwana przy oprawianiu zwłok stworzeń",
       "sourceActivityMasterworkCraft": "Zdobywana przez wykonanie arcydzieła",
       "sourceActivityRiftFirstClear": "Przyznawana każdemu członkowi drużyny, która zdobędzie pierwsze przejście rankingowej Szczeliny",
+      "sourceActivityBuriedHoard": "Znaleziono w skrzyni nagrody Zakopanych Skarbów, skarbcu do którego prowadzi mapa skarbu",
       "cellMissingSourceAria": "{name}, jeszcze nieznaleziona, {source}",
       "cellOwnedClearsAria": "{name}, skatalogowana, znaleziona po raz pierwszy przy przejściu {count}",
       "searchPlaceholder": "Szukaj relikwii",
@@ -6814,54 +6872,82 @@ export const pl_PL: EnTranslations = {
       "1": "Obserwator piasków na dalekim wydmie czuwa na wschód od garnizonu. Znajdź Zwiadowcę Yerrina i zapytaj co wiatr przyniósł.",
       "2": "Strażnik magazynów garnizonu nie jadł od ostatniego patrolu. Przynieś Kwarterrzedowi Seli 2 x Chleb Chłopski.",
       "3": "Na wschód i trochę na południe od miejsca, gdzie żar opadł na wydmy, spalone miejsce kryje to, co popiół pogrzebał. Użyj zwoju tam i kopaj.",
-      "title": "Popioły przy Bramie"
+      "title": "Popioły przy Bramie",
+      "reply": {
+        "1": "Wiatr z wschodnich wydm przyniósł popiół, a popiół nie wieje z pustego piasku. Sela na garnizonie dokumentuje każdy patrol. Porozmawia, kiedy ktoś ją poczęstuje jedzeniem.",
+        "2": "Wreszcie chleb, błogosławieństwo dla ciebie. Patrol przysiągł, że widział dym wznoszący się z pustego piasku, na wschód i trochę na południe od wydm, gdzie nie ma już nic do spalenia."
+      }
     },
     "hunt_frostveil_aurora_vigil": {
       "0": "Gdzie tarasy wspinają się ku światłom tańczącym nocą, uklęknij na Schodach Zorzy i pozwól niebu cię zauważyć.",
       "1": "Ten, kto czyta światła, czeka blisko schodów. Porozmawiaj z Auralistką Veylą o tym, co niebo wypisało.",
       "2": "Na wschód od wyczych tarasów, trochę na południe, śnieg leży płaściej niż powinien. Użyj zwoju tam i kopaj.",
-      "title": "Światła nad Schodami"
+      "title": "Światła nad Schodami",
+      "reply": {
+        "1": "Uklękłeś, a światła odezwały się. Zeszłej nocy skłoniły się na wschód poza tarasy i wskazały prosto w dół na śnieg."
+      }
     },
     "hunt_amberfall_lantern_ferry": {
       "0": "Na brzegu wody, na północ od Latarni Jeziora, strażnik latarni promowych wie, które światło zgasło. Porozmawiaj z Przewodnikiem Promów Caddowem.",
       "1": "Jeden kamień przechyla się ku niebu na północny wschód od wielkiego jeziora, starszy niż samo miasto. Stań przy Pochylonym Monolicie.",
       "2": "Strażniczka pozłoconych rzędów podlewa ręką swój sad i pragnęła by. Przynieś Orchardystce Pomeline 3 x Zimną Wodę Studni.",
       "3": "Na północny wschód od wzgórza, gdzie krasomaki płoną na czerwono, liście leżą w kole, które żaden wiatr nie sprawił. Użyj zwoju tam i kopaj.",
-      "title": "Latarnie nad Jeziorem"
+      "title": "Latarnie nad Jeziorem",
+      "reply": {
+        "0": "Jedna latarnia zgasła zeszłej nocy, ta po drugiej stronie wody. Moi przewoźnicy nie chcą się tam zbliżać. Może ty będziesz bardziej odważny.",
+        "2": "Zimna woda ze studni, dokładnie to, czego potrzebowały drzewa. Powyżej czerwonych klonów liście spadały w idealne kółko, a żaden z moich drzew nie upuszcza liści w taki sposób."
+      }
     },
     "hunt_willowfen_fenwitch_salt": {
       "0": "Fen-czarownica z Mrocznej Wierzby nie rozmawia z nikim, kto przychodzi z pustymi rękami. Przynieś Matce Osokę 1 x Sól Kuchenna.",
       "1": "Gdzie moczar staje się płaski i powietrze wszystkich usypia, stań na Płaskich Drzemiących Ziemiach i wzdychaj, jak czarownica ci powiedziała.",
       "2": "Na południowy wschód od stawów, które błyszczą na bagnie, wzgórek suchej ziemi pozostaje suchy przez cały rok. Użyj zwoju tam i kopaj.",
-      "title": "Sól Fen-Czarownicy"
+      "title": "Sól Fen-Czarownicy",
+      "reply": {
+        "0": "Sól. Dobrze, słucham cię. Równiny za trzcinami wszystkich uspokajają. Idź tam i westchnij jak za życzywością, a bagna ci pokażą resztę."
+      }
     },
     "hunt_nightbloom_sleepless_vigil": {
       "0": "Na północny wschód od Spokoju Księżyca, gdzie kamienie strzegą czuwania, które nigdy się nie kończy, stań przy Czuwaniu Bezsennym.",
       "1": "Strażnik przy czuwaniu liczy gwiazdy jak inni liczą monety. Porozmawiaj z Astronomem Cassianem o tej, która spadła.",
       "2": "Na północ od miasta leży kopiec, którego nieśpiący mieszkaniec nigdy się nie ziółuje. Oddaj salut Kopcu Bezsennym, by nieśpiący wiedział, że przyjaciel przyszedł.",
       "3": "Na południowy wschód od pola, gdzie zmrok się zbiera, światło księżyca tworzy kałużę na jednej nagiej działce. Użyj zwoju tam i kopaj.",
-      "title": "Czuwanie Bezsennego"
+      "title": "Czuwanie Bezsennego",
+      "reply": {
+        "1": "Gwiazda spadła trzy noce temu i spadła w kierunku starego kurhanu na północ od miasta. Zmarli tam nigdy nie śpią. Pozdraw ich jak bym pozdrowił żołnierza."
+      }
     },
     "hunt_wraithwood_mournstone_candles": {
       "0": "Wytwórca świec z Dołu Wisielców sprzedaje światło ludziom, którzy boją się ciemności. Porozmawiaj z Wdową Stokrotką o świecy, która nigdy nie została opłacona.",
       "1": "Ostatni ksiądz Kamienu Żałoby poszczą jedynie na modlitwach. Przynieś Wikaremu Creelowi 2 x Wąlenione Mięso.",
       "2": "Na północny wschód od miasta, za krukami, gaj wiesza własne dziwne owoce. Stań w Wiszącym Gaju.",
       "3": "Na południowy wschód od polany, gdzie łowca ustawił swoje sidła, ściółka liści została niedawno odwrócona. Użyj zwoju tam i kopaj.",
-      "title": "Świce dla Kamienia Żałoby"
+      "title": "Świce dla Kamienia Żałoby",
+      "reply": {
+        "0": "Wikary zamówił tę świecę i nigdy za nią nie zapłacił. Od tamtej pory się pości, modli się i nic więcej. Weź mu coś do żucia i zapytaj go dlaczego.",
+        "1": "Dziękuję ci, przyjacielu. Nigdy nie zapalałem tej świecy. Coś chodzi po lesie za wronami w nocy, a ja nie mogłem się temu zmierzyć. Idź tam i stań, jeśli potrafisz."
+      }
     },
     "hunt_palmreach_sunken_idol": {
       "0": "Głęboko w gąszczu, na północny zachód od laguny, liany opadają jak wodospad. Stań przy Wodospadzie Liściastym.",
       "1": "Pustelnik, który wchodził w gąszcz i wrócił stamtąd, żyje blisko opadających liściastych. Porozmawiaj z Okrimem o tym, co widział tam w dole.",
       "2": "Na wschód, bóg na wpół zatopiony i wciąż obserwujący. Przyklęknij przed Zatopioną Rzeźbą, tak jak pustelnik powiedział, że nurkowie robią.",
       "3": "Na północny wschód od miejsca, gdzie gąszcz otwiera paszczę do morza, piasek został zepchnięty wyżej niż osiąga pływy. Użyj zwoju tam i kopaj.",
-      "title": "Tajemnica Bóstwa"
+      "title": "Tajemnica Bóstwa",
+      "reply": {
+        "1": "Pod liśćmi nurkowie znaleźli posąg, a posąg im się to nie spodobało. Każdy, kto stanął wysoko przed nim, nie powrócił. Bądź mały przed nim."
+      }
     },
     "hunt_evergarden_beacon_road": {
       "0": "Ogrodniczka parterre wzdłuż spacerku na północ od Żywopłotnika przysiąga, że jej klomby głodują. Przynieś Rolnikowi Werbenie 2 x Kompost.",
       "1": "W dalekim południowo-wschodnim kącie ogrodu stary młyn ciągle kręci się dla nikogo. Stań przy Starym Młynie.",
       "2": "Podążaj drogą na południe przez granicę do Wichrowego Grzbietu i dalej na wybrzeże. Strażniczka starej latarni, Strażniczka Bram, ma ostatnie słowo.",
       "3": "Na północny zachód od starej latarni, zaraz poza ścieżką w dół od światła, darń została wycięta i ułożona z powrotem. Użyj zwoju tam i kopaj.",
-      "title": "Latarnia i Kwitnący Ogród"
+      "title": "Latarnia i Kwitnący Ogród",
+      "reply": {
+        "0": "Właściwy kompost, łóżka przetrwają. Stary młynarz pogrzebał coś zanim wyjechał. Jego młyn wciąż się kręci w dalekiej części ogrodów. Idź tam i stań przy nim.",
+        "2": "Więc młyn wysłał cię drogą przybrzeżną. Latarnia skrywa ostatnią tajemnicę: na północny-zachód od niej, tuż poza ścieżką, darń została przycięta i ułożona z powrotem. Kopaj tam."
+      }
     }
   },
   "guide": {
@@ -10164,6 +10250,11 @@ export const pl_PL: EnTranslations = {
       "pylonLit": "Pylon run rozbłyska życiem ({lit}/{total}).",
       "wayDownOpens": "Droga w dół rozdziera się.",
       "exitOpens": "Szczelina drży. Droga do domu rozdziera się za poległymi.",
+      "hoardEnter": "Zlaziasz w dół do {name}.",
+      "hoardExitOpens": "Skarbiec jest twój. Wróć do wejścia, aby wyjść.",
+      "hoardStepBack": "Wchodzisz z powrotem przez wejście do skarbnicy.",
+      "hoardNotYours": "Ten skarbiec został odkopany przez inną grupę.",
+      "hoardEntrantsFull": "Ten skarbiec już przyjął pięciu przygodowców.",
       "portalOpens": "Szczelina rangi {tier} rozdziera się w {zone}!",
       "portalSealed": "Szczelina rangi {tier} w {zone} została zapieczętowana.",
       "portalCollapses": "Szczelina rangi {tier} w {zone} zapada się.",
@@ -10203,7 +10294,152 @@ export const pl_PL: EnTranslations = {
       "detonateLightningRod": "Piorunochron uderza!",
       "detonateStormcallersWrath": "Gniew Przyzywacza Burzy wybucha!",
       "detonateAbyssalMaw": "Otchłanna Paszcza zamyka się!",
-      "detonateCrushingDepth": "Miażdżąca Głębia miażdży!"
+      "detonateCrushingDepth": "Miażdżąca Głębia miażdży!",
+      "yell": {
+        "mushroomEngage": "Zarodniki cię dopadną.",
+        "mushroomSummon": "Rośnijcie, moje maleństwa!",
+        "moleEngage": "Ziemia jest moja.",
+        "moleSummon": "Na dół z tobą!",
+        "batEngage": "Iiiiiiii!",
+        "batSummon": "Do mnie, moje stado!",
+        "mimicEngage": "Głodny... taki głodny.",
+        "mimicSummon": "Więcej złota, więcej złota!",
+        "frostBigCast": "Zrywa się biały wiatr.",
+        "frostDeathZoneCast": "Mróz cię zabiera.",
+        "frostDeathZoneStrike": "Nic nie przetrwa głębokiego zimna.",
+        "frostEngage": "W końcu zimno zabiera wszystko.",
+        "frostEnrage": "ZAMARZNIJCIE!",
+        "emberBigCast": "PŁOŃCIE.",
+        "emberDeathZoneCast": "Magma wzbiera.",
+        "emberDeathZoneStrike": "KUŹNIA POCHŁANIA WSZYSTKO.",
+        "emberEngage": "Kuźnia jest głodna.",
+        "emberSummon": "Powstańcie z żużlu!",
+        "emberEnrage": "POPIÓŁ I ŻAR!",
+        "venomBigCast": "Utońcie w jadzie!",
+        "venomDeathZoneCast": "Utońcie w truciźnie.",
+        "venomDeathZoneStrike": "NIE UCIEKNIECIE MOIM DZIECIOM.",
+        "venomEngage": "Moje dzieci zawsze są głodne.",
+        "venomSummon": "Ucztujcie, maleństwa!",
+        "necroBigCast": "Wasze dusze są stracone.",
+        "necroDeathZoneCast": "Twoja dusza jest stracona.",
+        "necroDeathZoneStrike": "ŚMIERĆ ZABIERA WSZYSTKO.",
+        "necroEngage": "Śmierć to dopiero początek.",
+        "necroSummon": "Powstańcie!",
+        "bruteBigCast": "ZŁAMIĘ WAS!",
+        "bruteDeathZoneCast": "ZIEMIA PĘKA.",
+        "bruteDeathZoneStrike": "TU POLEGNIECIE.",
+        "bruteEngage": "Zmiażdżę was!",
+        "bruteEnrage": "RRRAAAH!",
+        "arcaneBigCast": "Ujrzyjcie prawdziwą moc.",
+        "arcaneDeathZoneCast": "Rzeczywistość się rozdziera.",
+        "arcaneDeathZoneStrike": "UNICESTWIENI.",
+        "arcaneEngage": "Nie powinniście byli przychodzić.",
+        "arcaneEnrage": "NA KOLANA!",
+        "stormBigCast": "Niebo odpowiada!",
+        "stormDeathZoneCast": "Niebo odpowiada na twoje wezwanie.",
+        "stormDeathZoneStrike": "BURZA POŻERA.",
+        "stormEngage": "Burza jest mi posłuszna!",
+        "stormEnrage": "NIEBO SPADA!",
+        "tideDeathZoneCast": "Głębiny cię zabierają.",
+        "tideDeathZoneStrike": "WCIĄGNIĘCI W OTCHŁAŃ.",
+        "tideEngage": "Głębiny upominają się o ciebie.",
+        "tideSummon": "Powstańcie z głębin!",
+        "ritualistBigCast": "Pakt przypieczętowany ogniem!",
+        "ritualistEngage": "Wkraczacie na związaną ziemię.",
+        "ritualistSummon": "Odpowiedzcie mi, istoty z dołu!",
+        "pitlordBigCast": "CZELUŚĆ CIĘ ZABIERA.",
+        "pitlordEngage": "Na kolana albo płońcie.",
+        "pitlordEnrage": "CYTADELA POŻERA!"
+      },
+      "place": {
+        "hoardFloor": "{theme}: Zakopany Skarb",
+        "sanctumFloor": "{theme}: Sanktuarium, głębokość {depth}",
+        "reachesFloor": "{theme}: Rubieże, głębokość {depth}",
+        "upgradedFloor": "{title}: {theme}, głębokość {depth}",
+        "hoardPlan": "Zakopany Skarb: {noun}",
+        "riftPlan": "{suffix}: {noun}",
+        "citadelPlan": "Cytadela: {noun}",
+        "infernalCitadel": "Piekielna Cytadela",
+        "hoardEntrance": "Wejście do Zakopanego Skarbu",
+        "theme": {
+          "frost": "Mroźne Okowy",
+          "ember": "Żarowa Kuźnia",
+          "venom": "Jadowity Bór",
+          "bone": "Pole Kości",
+          "brute": "Obóz Wojenny",
+          "void": "Blizna Pustki",
+          "storm": "Iglica Burzy",
+          "tide": "Zatopione Głębiny",
+          "spore": "Zarodnikowa Kotlina",
+          "burrow": "Głęboka Nora",
+          "roost": "Gniazdo Nietoperzy",
+          "mimic": "Fałszywy Skarbiec",
+          "infernal": "Piekielna Cytadela"
+        },
+        "noun": {
+          "rime": "Szadź",
+          "hoarfrost": "Szron",
+          "glacier": "Lodowiec",
+          "frost": "Mróz",
+          "ember": "Żar",
+          "cinder": "Żużel",
+          "magma": "Magma",
+          "ash": "Popiół",
+          "venom": "Jad",
+          "thorn": "Cierń",
+          "bramble": "Jeżyny",
+          "spider": "Pająk",
+          "bone": "Kość",
+          "marrow": "Szpik",
+          "ossuary": "Ossuarium",
+          "grave": "Grób",
+          "war": "Wojna",
+          "skull": "Czaszka",
+          "iron": "Żelazo",
+          "blood": "Krew",
+          "void": "Pustka",
+          "shadow": "Cień",
+          "umbral": "Półmrok",
+          "dusk": "Zmierzch",
+          "storm": "Burza",
+          "tempest": "Nawałnica",
+          "thunder": "Grom",
+          "gale": "Wichura",
+          "sunken": "Topiel",
+          "abyssal": "Bezdeń",
+          "drowned": "Topielcy",
+          "tide": "Przypływ",
+          "spore": "Zarodniki",
+          "toadstool": "Muchomor",
+          "mould": "Pleśń",
+          "mycelium": "Grzybnia",
+          "burrow": "Nora",
+          "tunnel": "Tunel",
+          "delve": "Wykop",
+          "loam": "Glina",
+          "roost": "Grzęda",
+          "echo": "Echo",
+          "guano": "Guano",
+          "hollow": "Jama",
+          "coffer": "Szkatuła",
+          "strongbox": "Skrzynia",
+          "tithe": "Dziesięcina",
+          "gilt": "Złocenie",
+          "brimstone": "Siarka",
+          "pitfire": "Ogień Czeluści",
+          "pactbound": "Pakt"
+        },
+        "suffix": {
+          "abyss": "Otchłań",
+          "depths": "Głębiny",
+          "descent": "Zejście",
+          "hollow": "Kotlina",
+          "labyrinth": "Labirynt",
+          "warren": "Legowisko",
+          "sanctum": "Sanktuarium",
+          "rift": "Szczelina"
+        }
+      }
     },
     "delve": {
       "cannotEnterNow": "Nie możesz teraz wejść do eskapady.",
@@ -10273,6 +10509,9 @@ export const pl_PL: EnTranslations = {
       "moveCloserStairs": "Podejdź bliżej schodów.",
       "nhaliaCantorShield": "Kantorzy, trzymajcie nutę!",
       "nhaliaBlackwaterMark": "{name} naznacza {player} Czarną Wodą!"
+    },
+    "factionVendor": {
+      "currencyRequired": "Potrzebujesz {amount} {currency}, aby to kupić."
     },
     "lockpick": {
       "lockYields": "Zamek ustępuje! Łupy poziomu: {tier}.",
@@ -10894,6 +11133,7 @@ export const pl_PL: EnTranslations = {
       "alreadyInWorld": "Postać jest już w świecie.",
       "accountSessionLimit": "Zbyt wiele postaci na tym koncie jest już w świecie.",
       "takenOver": "Twoją postać przejęła inna sesja.",
+      "vaultMailRecovering": "Twoja nagroda ze skarbca jest odtwarzana. Spróbuj ponownie za chwilę.",
       "renameBeforeEntering": "Tę postać trzeba przemianować przed wejściem do świata.",
       "renameNotPermitted": "Zmiana imienia tej postaci jest niedozwolona.",
       "unsupportedMediaType": "Nieobsługiwany format żądania.",
@@ -11237,6 +11477,8 @@ export const pl_PL: EnTranslations = {
         "dungeonExit": "Wyjście z lochu",
         "delveEntrance": "Wejście do wyprawy: {name}",
         "worldPassage": "Przejście do {zone}",
+        "hoardEntrance": "Wejście do zakopanych skarbów",
+        "hoardReturnEntrance": "Wejście powrotne skarbu",
         "riftEntrance": "Wejście do Szczeliny: {name}",
         "hostileEnemy": "Wrogi przeciwnik",
         "aggressiveEnemy": "Atakujący cię wróg",
@@ -11880,6 +12122,7 @@ export const pl_PL: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "Atak",
+      "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Przełącza automatyczny atak na cel. Kliknięcie wroga prawym przyciskiem również go atakuje.",
       "attackRemoveHint": "Kliknij prawym przyciskiem, aby usunąć z paska i zwolnić miejsce.",
       "emptySlot": "Puste pole",
@@ -11971,7 +12214,35 @@ export const pl_PL: EnTranslations = {
       "rift_storm_execution": "Piorunochron",
       "rift_storm_strike": "Gniew Przyzywacza Burzy",
       "rift_tide_execution": "Otchłanna Paszcza",
-      "rift_tide_strike": "Miażdżąca Głębia"
+      "rift_tide_strike": "Miażdżąca Głębia",
+      "hoard_cast_fear": "Zastraszający ryk",
+      "hoard_cast_stun": "Ogłuszający cios",
+      "hoard_cast_drowning_hook": "Topieżący hak",
+      "hoard_cast_rime_beam": "Promień szronu",
+      "hoard_cast_cinder_bolt": "Żarowy pocisk",
+      "hoard_cast_void_empower": "Wzmocnienie pustki",
+      "hoard_cast_webbing": "Splecenie siecią",
+      "hoard_cast_doom_ritual": "Rytuał zagłady",
+      "hoard_cast_charge": "Szalony atak",
+      "hoard_cast_silk_snare": "Jedwabna pętla",
+      "hoard_cast_silence": "Uciszające wycie",
+      "hoard_cast_hex": "Urok",
+      "hoard_lightning_strike": "Uderzenie błyskawicy",
+      "hoard_ice_age": "Epoka lodowcowa",
+      "hoard_pulsar_overload": "Przeciążenie pulsara",
+      "hoard_rolling_boulder": "Tocząca się skała",
+      "hoard_goblin_escape": "Ucieczka",
+      "hoard_cast_mole_rake": "Szarpanie pazurami",
+      "hoard_cast_burrow": "Wykopanie",
+      "hoard_cast_tunnel": "Tunelowanie",
+      "hoard_cast_emerge": "Erupcja",
+      "hoard_cast_collapse": "Zawalenie sufitu",
+      "hoard_cast_bat_dive_aim": "Głębokie nurkowanie",
+      "hoard_cast_bat_dive": "Nurkowanie",
+      "hoard_cast_screech": "Ogłuszający krzyk",
+      "hoard_cast_mimic_bite": "Żarłoczne ukąszenie",
+      "hoard_cast_mimic_leap": "Druzgocący skok",
+      "hoard_cast_coin_spit": "Przeklęte monety"
     }
   },
   "questUi": {
@@ -12398,7 +12669,17 @@ export const pl_PL: EnTranslations = {
       "clueHuntStep": "Wskazówka {step} z {total} rozwiązana: {title}",
       "clueHuntDone": "Poszukiwanie skarbu ukończone: {title}. Skrzynia jest Twoja.",
       "clueHuntAbandoned": "Poszukiwanie skarbu porzucone: {title}",
-      "clueCasketOpened": "Skrzynia zawiera {money} i {items}."
+      "clueCasketOpened": "Skrzynia zawiera {money} i {items}.",
+      "treasureMapEarned": "Każde zadanie światowe dnia jest ukończone: znalazłeś {map}.",
+      "treasureMapLost": "Każde zadanie światowe dnia jest ukończone, ale twoje torby nie mają miejsca na mapę skarbu.",
+      "treasureMapRead": "Studiujesz {map}. X leży gdzieś w {zone}.",
+      "treasureMapUpgraded": "Mapa jest przerysowana w lepszym atramencie: jest teraz {map}.",
+      "treasureVaultOpened": "Grunt się rozchodzi. Zakopane skarby leżą przed tobą.",
+      "treasureVaultLooted": "Skarb zawiera {money} i {items}.",
+      "treasureVaultCapped": "Podzieliłeś się wystarczającą liczbą skarbów dzisiaj; ten nie płaci ci nic.",
+      "hoardGoblinSighted": "Pojawia się goblinowski złodziej!",
+      "hoardGoblinSightedHint": "Zabij go, zanim ucieknie ze złotem!",
+      "hoardGoblinExplain": "Goblinowski złodziej ukrywa się w tym skarbie z workiem skradzionych złota. Nigdy się nie walczy, tylko ucieka. Twój pierwszy cios rozpoczyna {seconds}-sekundowy pasek ucieczki: jeśli wciąż żyje, gdy pasek się skończy, otwiera portal i uciekł ze złotem. Zostawiony w spokoju, śliznie się po {minutes} minutach. Zabij go w porę, a wszyscy w pokoju dostaną wypłatę w złocie."
     },
     "errors": {
       "unavailable": "To zadanie jest niedostępne.",
@@ -12811,6 +13092,10 @@ export const pl_PL: EnTranslations = {
       "sport_second_wind": {
         "name": "Świeże Nogi",
         "description": "Łapiesz oddech: poruszasz się o 50% szybciej przez 4 s."
+      },
+      "clockwork_shock_bomb": {
+        "name": "Mechaniczna bomba wstrząsowa",
+        "description": "Rzuca Mechaniczną bombę wstrząsową w wybrane miejsce, zadając od 120 do 160 pkt. obrażeń od natury wrogom w promieniu 5 metrów."
       },
       "flamestrike": {
         "name": "Ognista nawała",
@@ -17393,6 +17678,363 @@ export const pl_PL: EnTranslations = {
       "stormhymn_chain_treads": {
         "name": "Kolcze trzewiki Hymnu Burzy"
       },
+      "allied_hearthstone": {
+        "name": "Sojuszniczy Kamień Ogniska"
+      },
+      "allied_vanguard_duffel": {
+        "name": "Zwój Sojuszniczej Awangardy"
+      },
+      "rift_feather_glider": {
+        "name": "Szybowiec z Piór Szczeliny"
+      },
+      "formula_enchant_feet_shadowstride": {
+        "name": "Formula: Zaczaruj Buty - Cień Kroku"
+      },
+      "recipe_potion_of_invisibility": {
+        "name": "Przepis: Mikstura Niewidzialności"
+      },
+      "potion_of_invisibility": {
+        "name": "Mikstura Niewidzialności"
+      },
+      "pattern_reinforced_armor_kit": {
+        "name": "Schéma: Zestaw Zbrojowy Wzmocniony"
+      },
+      "reinforced_armor_kit": {
+        "name": "Zestaw Zbrojowy Wzmocniony"
+      },
+      "dawn_battle_standard": {
+        "name": "Sztandar Świtu do Walki"
+      },
+      "formula_enchant_offhand_spirit": {
+        "name": "Formula: Zaczaruj Lewą Rękę - Duch"
+      },
+      "recipe_elixir_of_mana_regeneration": {
+        "name": "Przepis: Eliksir Regeneracji Many"
+      },
+      "elixir_of_mana_regeneration": {
+        "name": "Eliksir Regeneracji Many"
+      },
+      "clockwork_target_dummy": {
+        "name": "Mechaniczny Manekin Treningowy"
+      },
+      "schematic_clockwork_shock_bomb": {
+        "name": "Schemat: Bomba Wstrząsowa Mechaniczna"
+      },
+      "clockwork_shock_bomb": {
+        "name": "Bomba Wstrząsowa Mechaniczna"
+      },
+      "plans_dense_sharpening_stone": {
+        "name": "Plany: Gęsty Kamień Ostrzący"
+      },
+      "dense_sharpening_stone": {
+        "name": "Gęsty Kamień Ostrzący"
+      },
+      "formula_enchant_gloves_forged_might": {
+        "name": "Formula: Zaczaruj Rękawice - Ukuta Moc"
+      },
+      "treasure_map_common": {
+        "name": "Zniszczona Mapa Skarbu"
+      },
+      "treasure_map_rare": {
+        "name": "Tuszowana Mapa Skarbu"
+      },
+      "treasure_map_epic": {
+        "name": "Pozłacana Mapa Skarbu"
+      },
+      "treasure_map_legendary": {
+        "name": "Suwerenna Mapa Skarbu"
+      },
+      "cartographers_ink": {
+        "name": "Atrament Kartografa"
+      },
+      "collapsar_band_of_nyxaris": {
+        "name": "Pierścień Kolapsu Nyksarisa"
+      },
+      "rare_collapsar_band_of_nyxaris": {
+        "name": "Przebarwiony Pierścień Kolapsu Nyksarisa"
+      },
+      "legendary_collapsar_band_of_nyxaris": {
+        "name": "Suwerenny Pierścień Kolapsu Nyksarisa"
+      },
+      "orb_collapsing_void": {
+        "name": "Kula Kolapsu Pustki"
+      },
+      "rare_orb_collapsing_void": {
+        "name": "Przebarwiona Kula Kolapsu Pustki"
+      },
+      "legendary_orb_collapsing_void": {
+        "name": "Suwerenna Kula Kolapsu Pustki"
+      },
+      "cowl_of_event_horizon": {
+        "name": "Kaptur Horyzontu Zdarzeń"
+      },
+      "rare_cowl_of_event_horizon": {
+        "name": "Przebarwiony Kaptur Horyzontu Zdarzeń"
+      },
+      "legendary_cowl_of_event_horizon": {
+        "name": "Suwerenny Kaptur Horyzontu Zdarzeń"
+      },
+      "mantle_of_singularity": {
+        "name": "Płaszcz Osobliwości"
+      },
+      "rare_mantle_of_singularity": {
+        "name": "Przebarwiony Płaszcz Osobliwości"
+      },
+      "legendary_mantle_of_singularity": {
+        "name": "Suwerenny Płaszcz Osobliwości"
+      },
+      "glacier_hewn_bulwark": {
+        "name": "Bastion Heblowany Lodowcem"
+      },
+      "rare_glacier_hewn_bulwark": {
+        "name": "Przebarwiony Bastion Heblowany Lodowcem"
+      },
+      "legendary_glacier_hewn_bulwark": {
+        "name": "Suwerenny Bastion Heblowany Lodowcem"
+      },
+      "permafrost_legguards": {
+        "name": "Namigolenniki Wiecznej Mrozy"
+      },
+      "rare_permafrost_legguards": {
+        "name": "Przebarwione Namigolenniki Wiecznej Mrozy"
+      },
+      "legendary_permafrost_legguards": {
+        "name": "Suwerenne Namigolenniki Wiecznej Mrozy"
+      },
+      "frostbitten_rime_slippers": {
+        "name": "Pantofle Oblodzałe Szronem"
+      },
+      "rare_frostbitten_rime_slippers": {
+        "name": "Przebarwione Pantofle Oblodzałe Szronem"
+      },
+      "legendary_frostbitten_rime_slippers": {
+        "name": "Suwerenne Pantofle Oblodzałe Szronem"
+      },
+      "rime_crusted_grips": {
+        "name": "Rękawice Pokryte Szronem"
+      },
+      "rare_rime_crusted_grips": {
+        "name": "Przebarwione Rękawice Pokryte Szronem"
+      },
+      "legendary_rime_crusted_grips": {
+        "name": "Suwerenne Rękawice Pokryte Szronem"
+      },
+      "ember_wrought_crown": {
+        "name": "Korona Ukuta ze Żaru"
+      },
+      "rare_ember_wrought_crown": {
+        "name": "Przebarwiona Korona Ukuta ze Żaru"
+      },
+      "legendary_ember_wrought_crown": {
+        "name": "Suwerenna Korona Ukuta ze Żaru"
+      },
+      "cinder_stitched_robes": {
+        "name": "Szaty Zaszyte Żarem"
+      },
+      "rare_cinder_stitched_robes": {
+        "name": "Przebarwione Szaty Zaszyte Żarem"
+      },
+      "legendary_cinder_stitched_robes": {
+        "name": "Suwerenne Szaty Zaszyte Żarem"
+      },
+      "chained_ember_choker": {
+        "name": "Kołnierz Łańcuchowego Żaru"
+      },
+      "rare_chained_ember_choker": {
+        "name": "Przebarwiony Kołnierz Łańcuchowego Żaru"
+      },
+      "legendary_chained_ember_choker": {
+        "name": "Suwerenny Kołnierz Łańcuchowego Żaru"
+      },
+      "molten_clinker_girdle": {
+        "name": "Pas Roztopionych Żużli"
+      },
+      "rare_molten_clinker_girdle": {
+        "name": "Przebarwiony Pas Roztopionych Żużli"
+      },
+      "legendary_molten_clinker_girdle": {
+        "name": "Suwerenny Pas Roztopionych Żużli"
+      },
+      "storm_tuned_buckler": {
+        "name": "Tarcza Nastrojona Burzą"
+      },
+      "rare_storm_tuned_buckler": {
+        "name": "Przebarwiona Tarcza Nastrojona Burzą"
+      },
+      "legendary_storm_tuned_buckler": {
+        "name": "Suwerenna Tarcza Nastrojona Burzą"
+      },
+      "hauberk_tempest_gale": {
+        "name": "Pancerka Nawałnicy Wichru"
+      },
+      "rare_hauberk_tempest_gale": {
+        "name": "Przebarwiona Pancerka Nawałnicy Wichru"
+      },
+      "legendary_hauberk_tempest_gale": {
+        "name": "Suwerenna Pancerka Nawałnicy Wichru"
+      },
+      "gale_strider_boots": {
+        "name": "Buty Przechodnia Wichru"
+      },
+      "rare_gale_strider_boots": {
+        "name": "Przebarwione Buty Przechodnia Wichru"
+      },
+      "legendary_gale_strider_boots": {
+        "name": "Suwerenne Buty Przechodnia Wichru"
+      },
+      "tempest_strike_grips": {
+        "name": "Rękawice Uderzenia Nawałnicy"
+      },
+      "rare_tempest_strike_grips": {
+        "name": "Przebarwione Rękawice Uderzenia Nawałnicy"
+      },
+      "legendary_tempest_strike_grips": {
+        "name": "Suwerenne Rękawice Uderzenia Nawałnicy"
+      },
+      "breastplate_tectonic_might": {
+        "name": "Zbroja Tektonicznej Mocy"
+      },
+      "rare_breastplate_tectonic_might": {
+        "name": "Przebarwiona Zbroja Tektonicznej Mocy"
+      },
+      "legendary_breastplate_tectonic_might": {
+        "name": "Suwerenna Zbroja Tektonicznej Mocy"
+      },
+      "band_mountains_weight": {
+        "name": "Pierścień Ciężaru Gór"
+      },
+      "rare_band_mountains_weight": {
+        "name": "Przebarwiony Pierścień Ciężaru Gór"
+      },
+      "legendary_band_mountains_weight": {
+        "name": "Suwerenny Pierścień Ciężaru Gór"
+      },
+      "monolithic_shoulderguards": {
+        "name": "Napalernice Monolityczne"
+      },
+      "rare_monolithic_shoulderguards": {
+        "name": "Przebarwione Napalernice Monolityczne"
+      },
+      "legendary_monolithic_shoulderguards": {
+        "name": "Suwerenne Napalernice Monolityczne"
+      },
+      "earthshaker_warboots": {
+        "name": "Buty Wojenne Poruszające Ziemię"
+      },
+      "rare_earthshaker_warboots": {
+        "name": "Przebarwione Buty Wojenne Poruszające Ziemię"
+      },
+      "legendary_earthshaker_warboots": {
+        "name": "Suwerenne Buty Wojenne Poruszające Ziemię"
+      },
+      "silkstalker_woven_vest": {
+        "name": "Kamizela Tkanego Ścigacza Jedwabiu"
+      },
+      "rare_silkstalker_woven_vest": {
+        "name": "Przebarwiona Kamizela Tkanego Ścigacza Jedwabiu"
+      },
+      "legendary_silkstalker_woven_vest": {
+        "name": "Suwerenna Kamizela Tkanego Ścigacza Jedwabiu"
+      },
+      "spun_venom_spaulders": {
+        "name": "Napalernice Przędze Jadu"
+      },
+      "rare_spun_venom_spaulders": {
+        "name": "Przebarwione Napalernice Przędze Jadu"
+      },
+      "legendary_spun_venom_spaulders": {
+        "name": "Suwerenne Napalernice Przędze Jadu"
+      },
+      "broodmother_chitin_cowl": {
+        "name": "Kaptur Chitynowy Matki Królicy"
+      },
+      "rare_broodmother_chitin_cowl": {
+        "name": "Przebarwiony Kaptur Chitynowy Matki Królicy"
+      },
+      "legendary_broodmother_chitin_cowl": {
+        "name": "Suwerenny Kaptur Chitynowy Matki Królicy"
+      },
+      "venom_etched_waistcord": {
+        "name": "Pas Wyrytej Trucizny"
+      },
+      "rare_venom_etched_waistcord": {
+        "name": "Przebarwiony Pas Wyrytej Trucizny"
+      },
+      "legendary_venom_etched_waistcord": {
+        "name": "Suwerenny Pas Wyrytej Trucizny"
+      },
+      "bone_studded_pauldrons": {
+        "name": "Napalernice Wysadzane Kością"
+      },
+      "rare_bone_studded_pauldrons": {
+        "name": "Przebarwione Napalernice Wysadzane Kością"
+      },
+      "legendary_bone_studded_pauldrons": {
+        "name": "Suwerenne Napalernice Wysadzane Kością"
+      },
+      "legguards_of_the_ossuary": {
+        "name": "Namigolenniki Katakumb"
+      },
+      "rare_legguards_of_the_ossuary": {
+        "name": "Przebarwione Namigolenniki Katakumb"
+      },
+      "legendary_legguards_of_the_ossuary": {
+        "name": "Suwerenne Namigolenniki Katakumb"
+      },
+      "seal_of_the_cryptwalker": {
+        "name": "Pieczęć Wędrującego Kryptą"
+      },
+      "rare_seal_of_the_cryptwalker": {
+        "name": "Przebarwiona Pieczęć Wędrującego Kryptą"
+      },
+      "legendary_seal_of_the_cryptwalker": {
+        "name": "Suwerenna Pieczęć Wędrującego Kryptą"
+      },
+      "ossuary_bone_crown": {
+        "name": "Korona Kostna Katakumb"
+      },
+      "rare_ossuary_bone_crown": {
+        "name": "Przebarwiona Korona Kostna Katakumb"
+      },
+      "legendary_ossuary_bone_crown": {
+        "name": "Suwerenna Korona Kostna Katakumb"
+      },
+      "chalice_of_living_tides": {
+        "name": "Kielich Żywych Przypływów"
+      },
+      "rare_chalice_of_living_tides": {
+        "name": "Przebarwiony Kielich Żywych Przypływów"
+      },
+      "legendary_chalice_of_living_tides": {
+        "name": "Suwerenny Kielich Żywych Przypływów"
+      },
+      "pendant_continuous_flow": {
+        "name": "Wisior Ciągłego Przepływu"
+      },
+      "rare_pendant_continuous_flow": {
+        "name": "Przebarwiony Wisior Ciągłego Przepływu"
+      },
+      "legendary_pendant_continuous_flow": {
+        "name": "Suwerenny Wisior Ciągłego Przepływu"
+      },
+      "coral_encrusted_girdle": {
+        "name": "Pas Pokryty Koralem"
+      },
+      "rare_coral_encrusted_girdle": {
+        "name": "Przebarwiony Pas Pokryty Koralem"
+      },
+      "legendary_coral_encrusted_girdle": {
+        "name": "Suwerenny Pas Pokryty Koralem"
+      },
+      "riptide_handwraps": {
+        "name": "Zapaski Pływu Rozrywającego"
+      },
+      "rare_riptide_handwraps": {
+        "name": "Przebarwione Zapaski Pływu Rozrywającego"
+      },
+      "legendary_riptide_handwraps": {
+        "name": "Suwerenne Zapaski Pływu Rozrywającego"
+      },
       "vanguard_warrior_arms_helmet": {
         "name": "Wielki Hełm Obudzenia Miecza"
       },
@@ -19090,6 +19732,51 @@ export const pl_PL: EnTranslations = {
       "stable_horse": {
         "name": "Koń stajenny"
       },
+      "hoard_brood_egg": {
+        "name": "Kłopotanka Potomstwa"
+      },
+      "hoard_brood_hatchling": {
+        "name": "Pisklę Vysski"
+      },
+      "hoard_healing_tide_totem": {
+        "name": "Totem Uzdrawiającego Przypływu"
+      },
+      "hoard_bound_pulsar": {
+        "name": "Skrępowany Pulsar"
+      },
+      "hoard_abyssal_tentacle": {
+        "name": "Macka Paszczęki"
+      },
+      "hoard_silk_cocoon": {
+        "name": "Jedwabniczy Kokon"
+      },
+      "hoard_brood_cocoon": {
+        "name": "Kokon Potomstwa"
+      },
+      "hoard_coinsack_scurrier": {
+        "name": "Sceneusz Moneciaka"
+      },
+      "hoard_boss_mushroom": {
+        "name": "Matka Grzybów"
+      },
+      "hoard_sporeling": {
+        "name": "Zarodnik"
+      },
+      "hoard_bloat_cap": {
+        "name": "Napuchnięty Czubek"
+      },
+      "hoard_boss_mole": {
+        "name": "Głębiokopacz"
+      },
+      "hoard_boss_bat": {
+        "name": "Kolosalny Nietoperz"
+      },
+      "hoard_boss_mimic": {
+        "name": "Żarłoczna Skrzynia"
+      },
+      "hoard_bat_swarmling": {
+        "name": "Róój z Jaskini"
+      },
       "rift_spawnling": {
         "name": "Pomiot Szczeliny"
       },
@@ -19119,6 +19806,9 @@ export const pl_PL: EnTranslations = {
       },
       "rift_marrow_troll": {
         "name": "Troll Szpikowy"
+      },
+      "rift_marrow_golem": {
+        "name": "Golem Szpiku"
       },
       "rift_void_acolyte": {
         "name": "Akolita Blizny Pustki"
@@ -23252,6 +23942,11 @@ export const pl_PL: EnTranslations = {
         "sender": "Makler Giełdy $WOC",
         "subject": "Twoje wystawienie na Giełdzie zostało sprzedane",
         "body": "Twoje wystawienie zostało sprzedane, a kupujący rozliczył się w całości. Rejestr Giełdy niesie zapis tej sprzedaży, a twoja aktywność na Giełdzie pokazuje rozliczoną kwotę i jej podział.\n\n- Makler Giełdy $WOC"
+      },
+      "hoard_vault_reward": {
+        "sender": "Krucze Poczty",
+        "subject": "Twoja nagroda ze skarbnicy",
+        "body": "Skarbiec został czyszczony, ale twój udział nie został zebrany ze skrzyni. Kruki przyniosły go do ciebie tutaj, razem z dobrami i monetami, które zarabiłeś.\n\n- Krucze Poczty"
       }
     },
     "itemSets": {

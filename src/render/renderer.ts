@@ -243,7 +243,7 @@ import {
   movingHoldoutActive,
   showsStaticFarMesh,
 } from './crowd_lod';
-import { daisVisualLift, groundCueY } from './dais_lift';
+import { groundCueY } from './dais_lift';
 import { buildDawnholdFeatures, type DawnholdFeaturesView } from './dawnhold_features';
 import { currentDayNightPhase, currentLunarPhase, dayNightPhaseOverride } from './day_night_clock';
 import {
@@ -279,7 +279,8 @@ import { buildDoorBody, buildRiftGateBody, buildRiftPuzzleProp } from './door_po
 import { watchDevicePixelRatio } from './dpr_watch';
 import { DrainChannelStopLatch, drainChannelVisualPlan } from './drain_channel_visual_core';
 import { createLogicalFrameDrawStats, type LogicalFrameDrawStats } from './draw_stats_core';
-import { DungeonInteriors, dungeonDaisHasRaisedPlatform, ensureDungeonAssets } from './dungeon';
+import { DungeonInteriors, ensureDungeonAssets } from './dungeon';
+import { DynamicEntityAmbienceSources } from './dynamic_entity_ambience';
 import {
   dynamicResolutionAllocationScale,
   dynamicResolutionGovernorRange,
@@ -410,6 +411,8 @@ import { buildHauntFeatures, type HauntFeaturesView } from './haunt_features';
 import { usedJsHeapMb } from './heap_sample';
 import { HillRingVisuals } from './hill_ring';
 import { createHitchFrameAligner } from './hitch_frame_align_core';
+import { HOARD_BODY_IDS, hoardEntrance } from './hoard_entrance';
+import * as hoardValley from './hoard_valley_frame';
 import { buildHollowGates, type HollowGatesView } from './hollow_gates';
 import { type IceBlockVisual, syncIceBlockVisual } from './ice_block_visual';
 import { idleSlot } from './idle_queue';
@@ -700,7 +703,7 @@ import type { RevealGateCore } from './reveal_gate_core';
 import { type RickshawMountViewState, updateRollingMountLoop } from './rickshaw_mount';
 import { FOOT_RUN_SPEED, updateRiddenMountAudio } from './ridden_mount_audio';
 import { createRiderAnchor, syncRiderAnchor } from './rider_anchor';
-import { RiftAmbienceSources } from './rift_ambience';
+import { createRiftAwareGroundSampler } from './rift_ground_sample';
 import { buildRiftRankBadge } from './rift_rank';
 import { syncRigMatrixFreeze, unfreezeRigMatrices } from './rig_visibility_freeze';
 import { RingOfFrostVisuals } from './ring_of_frost_visual';
@@ -1008,7 +1011,7 @@ const BLOB_SHADOW_RANGE_SQ = CHARACTER_LOD_RANGE_SQ;
 // `onGround`, so the flag alone never fires the jump clip for the mirrored world.
 // Rift portal-family template ids (module-hoisted: createView is a hot path and
 // allocated this Set per view).
-const RIFT_PORTAL_IDS = new Set(['rift_portal', 'rift_descent', 'rift_exit']);
+const RIFT_PORTAL_IDS = new Set(['rift_portal', 'rift_descent', 'rift_exit', ...HOARD_BODY_IDS]);
 
 const AIRBORNE_EPS = 0.4;
 /**
@@ -1943,7 +1946,7 @@ export class Renderer {
   // updateCamera: avoids allocating two arrays plus an object per match every
   // frame regardless of whether a rift is nearby (review finding, PR #2687).
   private readonly riftAmbienceScratch: AmbientPointSource[] = [];
-  private readonly riftAmbience = new RiftAmbienceSources();
+  private readonly riftAmbience = new DynamicEntityAmbienceSources();
   private readonly ambientPointsMergedScratch: AmbientPointSource[] = [];
 
   // 2v2 Fiesta juice: trauma-based screen shake (decays each frame). The
@@ -1965,7 +1968,10 @@ export class Renderer {
 
   // seed-bound ground sampler, built once so per-frame drape updates
   // allocate no closure.
-  private groundSample = (x: number, z: number): number => groundHeight(x, z, this.sim.cfg.seed);
+  private groundSample = createRiftAwareGroundSampler(
+    () => this.sim.cfg.seed,
+    () => this.sim.riftFloor,
+  );
   /** Bound once: the puff runs per landing and must not allocate a closure. */
   private surfaceAtForPuff = (x: number, z: number, y: number) => this.surfaceAt(x, z, y);
   private selectionDrapeSupportY = 0;
@@ -2918,7 +2924,7 @@ export class Renderer {
     // (meteor_landing_burst.ts: the spec painter in the cue's school, else fire).
     this.mageGroundFx = new MageGroundFx(
       this.scene,
-      (x, z) => groundHeight(x, z, this.sim.cfg.seed),
+      this.groundSample,
       (x, z, meteor) =>
         meteorLandingBurst(this.abilityVfx, this.vfx, this.sim.cfg.seed, x, z, meteor),
     );
@@ -2950,9 +2956,7 @@ export class Renderer {
     this.necromancyGroundFx = new NecromancyGroundFx(this.scene, (x, z) =>
       groundHeight(x, z, this.sim.cfg.seed),
     );
-    this.necromancyArmyPortalFx = new NecromancyArmyPortalFx(this.scene, (x, z) =>
-      groundHeight(x, z, this.sim.cfg.seed),
-    );
+    this.necromancyArmyPortalFx = new NecromancyArmyPortalFx(this.scene, this.groundSample);
     this.abyssalRiftFx = new AbyssalRiftFx(this.scene, (x, z) =>
       groundHeight(x, z, this.sim.cfg.seed),
     );
@@ -2966,27 +2970,12 @@ export class Renderer {
         riftDeathZoneGeneration !== this.lifecycleGeneration
       )
         return;
-      this.riftDeathZoneVisuals = new RiftDeathZoneVisuals(this.scene, (x, z) => {
-        const base = groundHeight(x, z, this.sim.cfg.seed);
-        // Add the rift platform lift so rings on elevated sanctum boss arenas
-        // sit on the arena floor, not under it (same pattern as entity ground
-        // and the camera clamp), PLUS the raised boss dais: the dais is a
-        // render-only platform the sim keeps flat, so without daisVisualLift a
-        // ring under the tanked boss hides beneath the foundation blocks (the
-        // playtest's invisible aoe circles). Mirrors placeDais's raised
-        // decision exactly (style.daisRaised override, else the kit default).
-        const rf = this.sim.riftFloor;
-        if (rf) {
-          const floor = generateRiftFloor(rf.seed, rf.baseLevel, rf.floorIndex, rf.upgrade);
-          const lx = x - rf.origin.x;
-          const lz = z - rf.origin.z;
-          const raised = floor.style.daisRaised ?? dungeonDaisHasRaisedPlatform(floor.style.kit);
-          return (
-            base + riftLiftAt(floor, lx, lz) + daisVisualLift(floor.layout, raised, lx, lz)
-          );
-        }
-        return base;
-      });
+      this.riftDeathZoneVisuals = new RiftDeathZoneVisuals(
+        this.scene,
+        this.groundSample,
+        this.worldCompileGate(),
+        this.sim, (amount) => this.addShake(amount), () => this.reducedMotion(), (id, gesture) => this.triggerAttack(id, gesture),
+      );
     });
     this.hillRingVisuals = new HillRingVisuals(this.scene, gate, (x, z) =>
       groundHeight(x, z, this.sim.cfg.seed),
@@ -4972,7 +4961,7 @@ export class Renderer {
     this.ringOfFrostVisuals.sync(this.sim.activeFrostRings);
     this.ringOfFrostVisuals.update(dt);
     if (this.riftDeathZoneVisuals) {
-      this.riftDeathZoneVisuals.sync(this.sim.riftBossDeathZones());
+      this.riftDeathZoneVisuals.sync(this.sim.riftBossDeathZones(), this.sim.hoardBossCues());
       this.riftDeathZoneVisuals.update(dt);
     }
     this.hillRingVisuals.sync(this.sim.hillInfo);
@@ -4998,7 +4987,7 @@ export class Renderer {
     // it there left a black void above the ramparts).
     this.sky.visible = isOpenAirFogState(this.fogState);
     if (this.sky.visible) {
-      this.skyView.setCameraPos(this.camera.position.x, this.camera.position.z, dt);
+      hoardValley.setSkyCamera(this.skyView, this.sim.riftFloor, this.camera.position, dt);
       if (!this.lowGfx) {
         this.skyView.setDayNight(this.dnGrade.sky);
         this.skyView.setCycle(
@@ -7076,6 +7065,7 @@ export class Renderer {
   }
 
   handleEvent(ev: SimEvent): void {
+    this.riftDeathZoneVisuals?.handleEvent(ev);
     switch (ev.type) {
       case 'castStart': {
         if (ev.ability === 'needle_of_fate') {
@@ -7389,6 +7379,7 @@ export class Renderer {
         break;
       }
       case 'spellfxAt': {
+        if (ev.fx === 'hoardDig') break;
         if (ev.fx === 'soulTravel') {
           if (ev.targetId !== undefined) {
             const gy = groundHeight(ev.x, ev.z, this.sim.cfg.seed);
@@ -7823,18 +7814,19 @@ export class Renderer {
       const entering =
         e.templateId === 'dungeon_door' ||
         e.templateId === 'rift_portal' ||
-        e.templateId === 'rift_descent';
+        e.templateId === 'rift_descent' ||
+        e.templateId === 'hoard_entrance';
       // The overworld ranked portal AND the post-boss victory exit both get the
       // bespoke "gate" GLB (the exit is literally the way home tearing open); the
-      // in-rift descent/pylons keep the procedural arch. Gate builder falls back to
-      // the arch if its asset is missing.
+      // in-rift descent/pylons and a missing gate asset keep the procedural arch.
       const asGate = e.templateId === 'rift_portal' || e.templateId === 'rift_exit';
       const built =
+        hoardEntrance(e, this.groundSample, () => this.reducedMotion(), this.sim) ??
         (asGate ? buildRiftGateBody(this.lowGfx, e.riftTier) : null) ??
         buildDoorBody(entering, e.dungeonId, this.lowGfx);
       body = built.body;
       portal = built.portal;
-      height = 4.6;
+      height = built.body.userData.labelHeight ?? 4.6;
       objectMesh = built.body;
       // World-spawned ranked portals carry their rank as a big floating badge
       // (colour square + letter) so the tier reads from across the zone.
@@ -7954,23 +7946,23 @@ export class Renderer {
         sparkle.position.y = 1.35;
         group.add(sparkle);
       }
-    } else if (e.kind === 'object' && e.templateId?.startsWith('bg_')) {
-      // Battleground flags/runes: stateful (team color, carrier), so skip the
+    } else if (
+      e.kind === 'object' &&
+      (e.templateId?.startsWith('bg_') || e.templateId === 'dawn_battle_standard')
+    ) {
+      // Battleground flags/runes and Dawn Battle Standard: stateful (team color, carrier), so skip the
       // object pool (the delve_ precedent) and build the dedicated body. No
       // loot sparkle: the flag pennant / rune glow is the beacon.
       objectPoolKey = null;
-      const built = buildBattlegroundObject(e.templateId, e.color, this.lowGfx);
+      const template = e.templateId === 'dawn_battle_standard' ? 'bg_flag' : e.templateId;
+      const flagColor = e.templateId === 'dawn_battle_standard' ? (e.color ?? 0xffd700) : e.color;
+      const built = buildBattlegroundObject(template, flagColor, this.lowGfx);
       body = built.group;
       height = built.height;
       objectMesh = body;
-      // Hoist the per-frame handles onto the VIEW group. battleground_fx.ts
-      // reads `view.group.userData.bg`, and view.group is this method's own
-      // wrapper, the built body goes in as a CHILD of it further down, so the
-      // refs the props builder set are one level too deep to be found. Without
-      // this the fx pass hits `if (!bg) continue` for every rune and flag and
-      // silently animates nothing: no rune spin or bob, no pad light pulse, no
-      // Ward shard orbit, and no flag carrier ring or lean.
-      group.userData.bg = built.group.userData.bg;
+      if (e.templateId !== 'dawn_battle_standard') {
+        group.userData.bg = built.group.userData.bg;
+      }
     } else if (e.kind === 'object') {
       // Pool MISS keeps its pool key (mirrors the character-visual pool's
       // "Pool MISS: build a fresh visual but KEEP its pool key" above): see
@@ -8680,6 +8672,7 @@ export class Renderer {
 
   /** Drop a retired interior's scene nodes, registries, and owned resources. */
   private retireInteriorGroup(group: THREE.Group): void {
+    if (hoardValley.disposeHoardValleyGroup(group)) return;
     this.scene.remove(group);
     this.releaseInteriorExternalRefs(group);
     const resourceErrors = this.dungeons?.disposeInteriorResources(group).errors;
@@ -9001,7 +8994,9 @@ export class Renderer {
     // transition when the player later walks outside).
     const settleVistaEntry = this.vistaEntrySettlePending;
     this.vistaEntrySettlePending = false;
-    const biome = zoneBiomeAt(this.sim.player.pos.x, pz);
+    const riftFloor = inside && isRiftPos(px) ? this.sim.riftFloor : null;
+    const valley = hoardValley.resolveHoardValleyEnvironment(riftFloor);
+    const biome = valley?.profile.biome ?? zoneBiomeAt(this.sim.player.pos.x, pz);
     // Per-biome god-ray strength, eased over about half a second so a border
     // crossing fades the shafts with the rest of the ambience.
     const shaftTarget = Renderer.BIOME_GOD_RAYS[biome] ?? 1;
@@ -9117,15 +9112,21 @@ export class Renderer {
           if (Math.abs(px - o.x) < 200 && Math.abs(pz - o.z) < 250) {
             this.builtInteriors.add(key);
             const floor = generateRiftFloor(rf.seed, rf.baseLevel, rf.floorIndex, rf.upgrade);
-            void this.ensureDungeons()
-              .buildInterior(floor.style.kit, o.x, o.z, {
-                layout: floor.layout,
-                style: floor.style,
-                hazards: floor.hazards,
-                hazardStyle: 'lava',
-                iceZone: floor.iceZone,
-                platform: floor.platform,
-              })
+            const build = floor.outdoor
+              ? hoardValley.buildInterior(floor, o, valley, {
+                  scene: this.scene,
+                  compileGate: this.worldCompileGate(),
+                  prepareSky: (x, z) => this.prepareZoneSky(zoneAt(x, z), x, z, false),
+                })
+              : this.ensureDungeons().buildInterior(floor.style.kit, o.x, o.z, {
+                  layout: floor.layout,
+                  style: floor.style,
+                  hazards: floor.hazards,
+                  hazardStyle: 'lava',
+                  iceZone: floor.iceZone,
+                  platform: floor.platform,
+                });
+            void build
               .then((group) => {
                 for (const [staleKey, staleGroup] of this.riftInteriorGroups) {
                   if (staleKey === key) continue;
@@ -9162,12 +9163,11 @@ export class Renderer {
     // fog_scene_state.ts's to own, the fog twin of interior_light_rig.ts.
     const fogScene = resolveFogScene(inside, px, camY, this.camera.position, this.sim.cfg.seed);
     encounterPrewarm.setEncounterPrewarmInterior(this, fogScene.interior ?? null);
-    const desired = fogScene.desired;
+    const desired = valley ? 'hoardValley' : fogScene.desired;
     const fog = this.scene.fog as THREE.Fog;
     // Procedural rift: dynamic fog from the generated floor style, re-applied when
     // the floor changes (descent keeps fogState='rift' but swaps the palette).
-    const riftFloor = inside && isRiftPos(px) ? this.sim.riftFloor : null;
-    if (riftFloor) {
+    if (riftFloor && !valley) {
       const fogKey = `${riftFloor.contentHash}:${riftFloor.floorIndex}`;
       if (fogKey !== this.riftFogKey) {
         this.riftFogKey = fogKey;
@@ -9192,7 +9192,7 @@ export class Renderer {
     this.riftFogKey = null;
     if (desired !== this.fogState) {
       this.fogState = desired;
-      applyFogScenePreset(desired, fog, () => this.outdoorFogPreset());
+      applyFogScenePreset(desired, fog, () => valley?.fog ?? this.outdoorFogPreset());
       // interiors must not leak daylight: drop sun + sky ambient + IBL
       // underground so the torch point lights own the scene; restore outside.
       // The rim glow cranks up instead, silhouettes must split from the murk.
@@ -9282,12 +9282,18 @@ export class Renderer {
       dt,
       ZONE_ENVIRONMENT_RESPONSE,
     );
+    if (valley) {
+      hoardValley.updateHoardValleyDayNight(this.dnGrade, this.camera.position, this.cameraLookAt);
+      hoardValley.updateHoardValleySkyDayNight(this.skyView, this.dnGrade, this.sunDir);
+    }
     // Every open-air state follows the live grade. Thornhollow keeps its
     // authored fog range while sharing the overworld's color and light grade.
     if (usesLiveDayNightLighting(desired)) {
       const g = this.dnGrade;
       const preset =
-        desired === 'battleground' ? Renderer.BATTLEGROUND_FOG : this.outdoorFogPreset();
+        desired === 'battleground'
+          ? Renderer.BATTLEGROUND_FOG
+          : (valley?.fog ?? this.outdoorFogPreset());
       const k = transitionAlpha(dt, ZONE_ENVIRONMENT_RESPONSE);
       if (this.lowGfx) return;
       // fog color: the biome hue multiplied by the day/night color (a dark
@@ -10105,6 +10111,7 @@ export class Renderer {
               this.sim.questLog,
               v.compilePending,
               withinRange,
+              this.sim.worldQuestLog,
             );
         if (v.sparkle && vis) {
           // sub-pixel beyond ~45u but still a full transparent draw each
@@ -11520,7 +11527,7 @@ export class Renderer {
     this.ringOfFrostVisuals.sync(this.sim.activeFrostRings);
     this.ringOfFrostVisuals.update(dt);
     if (this.riftDeathZoneVisuals) {
-      this.riftDeathZoneVisuals.sync(this.sim.riftBossDeathZones());
+      this.riftDeathZoneVisuals.sync(this.sim.riftBossDeathZones(), this.sim.hoardBossCues());
       this.riftDeathZoneVisuals.update(dt);
     }
     this.hillRingVisuals.sync(this.sim.hillInfo);
@@ -11745,7 +11752,7 @@ export class Renderer {
     this.sky.position.set(this.camera.position.x, 0, this.camera.position.z);
     this.sky.visible = isOpenAirFogState(this.fogState);
     if (this.sky.visible) {
-      this.skyView.setCameraPos(this.camera.position.x, this.camera.position.z, dt);
+      hoardValley.setSkyCamera(this.skyView, this.sim.riftFloor, this.camera.position, dt);
       if (!this.lowGfx) {
         this.skyView.setDayNight(this.dnGrade.sky);
         this.skyView.setCycle(
@@ -12034,6 +12041,7 @@ export class Renderer {
     this.worldGuidance?.dispose();
     this.varkhulForgestormVisuals?.dispose();
     this.nythraxisMechanicVisuals?.dispose();
+    this.riftDeathZoneVisuals?.dispose();
     this.blobShadows?.dispose();
   }
 

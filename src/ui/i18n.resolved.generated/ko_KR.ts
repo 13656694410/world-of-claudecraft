@@ -503,7 +503,8 @@ export const ko_KR: EnTranslations = {
         "dungeon_heroic": "영웅 던전 전리품",
         "world": "전역 퀘스트 전리품",
         "pvp": "워페어 장비"
-      }
+      },
+      "previewClaimNotice": "보상이 기다리고 있습니다. 이스트브룩의 금고 관리인을 찾아가 금고를 열고 보상을 받으세요."
     },
     "ferry": {
       "regionLabel": "여객선 시간표",
@@ -1166,7 +1167,10 @@ export const ko_KR: EnTranslations = {
       "count": "({count})",
       "objectiveValue": "{current} / {total}",
       "collapseHint": "퀘스트 추적기 접기",
-      "expandHint": "퀘스트 추적기 펼치기"
+      "expandHint": "퀘스트 추적기 펼치기",
+      "worldQuests": "전역 퀘스트",
+      "worldQuestsCollapseHint": "전역 퀘스트 접기",
+      "worldQuestsExpandHint": "전역 퀘스트 펼치기"
     },
     "interfaceTabs": {
       "general": "일반",
@@ -1661,6 +1665,10 @@ export const ko_KR: EnTranslations = {
     },
     "riftTracker": {
       "title": "균열",
+      "hoardTitle": "묻힌 보물",
+      "hoardGoal": "보물 수호자를 처치하세요",
+      "hoardChestGoal": "보물 상자를 여세요",
+      "hoardClaimedGoal": "보물은 당신의 것입니다",
       "floor": "{total}층 중 {current}층",
       "closesIn": "균열이 {time} 후 닫힙니다",
       "clockMs": "{minutes}:{seconds}",
@@ -2870,6 +2878,19 @@ export const ko_KR: EnTranslations = {
       "crafting": "제작",
       "openProfessions": "전문 기술 열기"
     },
+    "treasureMap": {
+      "close": "보물 지도 닫기",
+      "zone": "{zone} 어딘가",
+      "hint": "이 지도가 가리키는 땅을 찾아 X 표시 위에 서서 지도를 다시 사용해 땅을 파세요. 당신과 파티를 위해 묻힌 보물이 열립니다.",
+      "upgradeNote": "{rarity} 지도로 다시 그리려면 지도 제작자의 잉크 {inks}개가 필요합니다(보유: {held}). 진영 병참장교가 판매합니다.",
+      "upgradeMaxed": "어떤 지도 제작자도 이 지도를 더 낫게 만들 수 없습니다.",
+      "rarity": {
+        "common": "일반",
+        "rare": "희귀",
+        "epic": "영웅",
+        "legendary": "전설"
+      }
+    },
     "currencies": {
       "intro": "모두 가방 칸을 차지하지 않습니다. 동전은 늘 그렇듯 가방에 있습니다.",
       "activities": "활동",
@@ -2884,7 +2905,24 @@ export const ko_KR: EnTranslations = {
       "walletNotLinked": "연동된 지갑 없음",
       "wocPreview": "미검증 미리보기 잔액",
       "lifetime": "누적 {amount}",
-      "factionPending": "세력 화폐: 2단계에서 결정"
+      "factionPending": "세력 화폐: 2단계에서 결정",
+      "riftWatchMark": "균열 감시단 징표",
+      "riftWatchMarkNote": "균열 감시단 지역의 월드 퀘스트",
+      "churchOrderCrest": "수도회 문장",
+      "churchOrderCrestNote": "교회 수도회 지역의 월드 퀘스트",
+      "automatonCog": "오토마톤 톱니",
+      "automatonCogNote": "오토마톤 지역의 월드 퀘스트"
+    },
+    "worldQuestTooltip": {
+      "factionLine": "세력: {faction}",
+      "timeRemaining": "남은 시간:",
+      "standingAmount": "{amount} {faction}",
+      "currencyAmount": "{amount} {currency}",
+      "standingReward": "{faction} 평판 +{amount}",
+      "currencyReward": "+{amount} {currency}"
+    },
+    "worldQuestBanner": {
+      "subtitle": "전역 퀘스트"
     },
     "reputation": {
       "intro": "세 세력이 동시에 진행됩니다. 모든 월드 퀘스트는 해당 지역의 세력에 반영됩니다.",
@@ -5293,6 +5331,9 @@ export const ko_KR: EnTranslations = {
       "enchant_chest_lucent_stamina": "갑옷 새김: 광휘 체력",
       "enchant_feet_lucent_agility": "신발 새김: 광휘 민첩성",
       "enchant_lucent_infusion": "광휘 주입",
+      "enchant_offhand_spirit": "보조장비 각인: 정신력",
+      "enchant_feet_shadowstride": "장화 각인: 그림자 걸음",
+      "enchant_gloves_forged_might": "장갑 각인: 벼려진 힘",
       "enchant_weapon_riftwalkers_grace": "균열 방랑자의 기품",
       "enchant_weapon_dawnfire_etching": "무기 새김: 여명불꽃",
       "enchant_weapon_dawns_benediction": "무기 새김: 여명의 축복",
@@ -5304,6 +5345,22 @@ export const ko_KR: EnTranslations = {
       "enchant_weapon_dawnfire_etching": "무기에 주문력 18을 영구적으로 새깁니다. 주문력은 치유력에도 합산됩니다. 고정 보너스이며 다른 능력치에 따라 변하지 않습니다.",
       "enchant_weapon_dawns_benediction": "무기에 치유력 34를 영구적으로 새깁니다. 치유력은 치유량만 높이며 주문 피해는 높이지 않습니다. 고정 보너스이며 다른 능력치에 따라 변하지 않습니다.",
       "enchant_weapon_piston_drive": "양손 무기에 힘 12와 치명타 등급 25를 영구적으로 새깁니다. 한손 무기에는 적용할 수 없습니다. 고정 보너스이며 다른 능력치에 따라 변하지 않습니다."
+    },
+    "factionRewards": {
+      "alliedHearthstoneUse": "사용: 조율된 진영 거점으로 순간이동합니다. (시전 10초, 재사용 대기시간 15분)",
+      "alliedHearthstoneAttuned": "조율된 곳: {hub}",
+      "hub_none": "없음 (진영 거점 근처에서 사용하여 조율)",
+      "hub_rift_watch": "드리프트헤이븐 (균열 감시단)",
+      "hub_church_order": "이스트브룩 골짜기 (교회 수도회)",
+      "hub_automatons": "사우스 리치 (오토마톤 주조소)",
+      "riftGliderUse": "사용: 글라이더를 펼쳐 30초 동안 낙하 속도를 늦춥니다. 착지하거나 피해를 입으면 효과가 취소됩니다. (재사용 대기시간 2분)",
+      "targetDummyUse": "사용: 전투 기술 연습을 위해 필드에 기계 훈련용 허수아비를 2분 동안 배치합니다. (재사용 대기시간 5분)",
+      "battleStandardUse": "사용: 신성한 여명의 전투 깃발을 5분 동안 세워 주위 모든 아군의 비전투 생명력 및 마나 회복을 크게 높입니다. 10초 동안 그 근처에 머무르면 여명의 축복(모든 능력치 +5%, 30분)도 얻습니다. (재사용 대기시간 5분)",
+      "shockBombUse": "사용: 최대 30미터 거리에 충격 폭탄을 던져 5미터 내 모든 적에게 120~160의 자연 피해를 줍니다. (재사용 대기시간 1분)",
+      "invisibilityUse": "사용: 6초 동안 은신 상태가 됩니다. (재사용 대기시간 2분)",
+      "armorKitUse": "사용: 가슴 방어구를 강화하여 1시간 동안 방어도가 12 증가합니다.",
+      "sharpeningStoneUse": "사용: 주 무기를 연마하여 30분 동안 전투력이 6 증가합니다.",
+      "manaElixirUse": "사용: 1시간 동안 정신력이 6 증가합니다."
     },
     "professions": {
       "title": "전문 기술",
@@ -6076,6 +6133,7 @@ export const ko_KR: EnTranslations = {
       "sourceActivityCorpseHarvest": "시체 채집으로 획득",
       "sourceActivityMasterworkCraft": "걸작 제작으로 획득",
       "sourceActivityRiftFirstClear": "등급 균열의 최초 클리어를 차지한 파티 전원에게 수여",
+      "sourceActivityBuriedHoard": "보물 지도가 이끄는 묻힌 보물의 보상 상자에서 획득",
       "cellMissingSourceAria": "{name}, 아직 없음, {source}",
       "cellOwnedClearsAria": "{name}, 수록됨, 첫 획득은 클리어 {count}회차",
       "searchPlaceholder": "성물 검색",
@@ -6814,54 +6872,82 @@ export const ko_KR: EnTranslations = {
       "1": "먼 사구의 감시자가 주둔지 북쪽, 동쪽 모래밭에 머물고 있습니다. 정찰병 예린을 찾아 바람이 무엇을 실어 왔는지 물으세요.",
       "2": "주둔지 창고를 지키는 이는 지난 순찰 이후로 아무것도 먹지 못했습니다. 병참관 셀라에게 2 x 시골 빵 을 가져다주세요.",
       "3": "잿가루가 사구로 흘러드는 곳의 동쪽, 조금 남쪽에 재가 묻어 둔 것을 감춘 그을린 땅이 있습니다. 그곳에서 두루마리를 사용해 파세요.",
-      "title": "관문 앞의 재"
+      "title": "관문 앞의 재",
+      "reply": {
+        "1": "바람이 동쪽 모래언덕에서 재를 싣고 왔어. 텅 빈 모래에서는 재가 날아오지 않아. 주둔지 창고지기가 순찰을 전부 기록해 두지. 누가 먹을 걸 가져다주면 입을 열 거야.",
+        "2": "드디어 빵이군, 고맙네. 순찰대는 모래언덕 동쪽, 약간 남쪽의 맨 모래에서 연기가 피어오르는 걸 봤다고 맹세했어. 더는 탈 것도 남지 않은 곳인데."
+      }
     },
     "hunt_frostveil_aurora_vigil": {
       "0": "밤마다 춤추는 빛을 향해 단구가 올라가는 곳, 오로라 계단에 무릎을 꿇고 하늘이 당신을 알아보게 하세요.",
       "1": "빛을 읽는 이가 계단 가까이에서 기다립니다. 오로라술사 베일라에게 하늘이 무엇을 써 내려갔는지 물으세요.",
       "2": "울부짖는 단구의 동쪽, 조금 남쪽에 눈이 있어야 할 것보다 더 평평하게 쌓여 있습니다. 그곳에서 두루마리를 사용해 파세요.",
-      "title": "계단 위의 빛"
+      "title": "계단 위의 빛",
+      "reply": {
+        "1": "당신이 무릎을 꿇자 빛이 응답했어요. 어젯밤 빛은 테라스 너머 동쪽으로 휘더니 눈밭을 똑바로 가리켰죠."
+      }
     },
     "hunt_amberfall_lantern_ferry": {
       "0": "랜턴미어 북쪽 물가에서 등불 나룻배를 맡은 이가 어느 불이 꺼졌는지 압니다. 나루지기 캐도우와 이야기하세요.",
       "1": "큰 호수의 북동쪽에 마을보다 오래된 돌 하나가 하늘에 기대어 있습니다. 기운 비석 앞에 서세요.",
       "2": "금빛 과수원을 지키는 이는 손수 나무에 물을 주느라 정작 자신은 목이 마릅니다. 과수원지기 포멜린에게 3 x 차가운 우물물 을 가져다주세요.",
       "3": "잿단풍이 붉게 타는 언덕의 북동쪽에 바람이 만든 것이 아닌 원을 그리며 잎이 놓여 있습니다. 그곳에서 두루마리를 사용해 파세요.",
-      "title": "호수 위의 등불"
+      "title": "호수 위의 등불",
+      "reply": {
+        "0": "어젯밤 등불 하나가 꺼졌소. 물 건너 오래된 돌을 마주한 등불이지. 내 뱃사공들은 근처에도 가지 않으려 하오. 당신이라면 갈지도 모르겠군.",
+        "2": "차가운 우물물, 나무들이 바라던 거예요. 붉은 단풍 언덕 너머에서 낙엽이 동그랗게 떨어지고 있어요. 우리 나무는 그렇게 가지런히 잎을 떨구지 않아요."
+      }
     },
     "hunt_willowfen_fenwitch_salt": {
       "0": "수양버들 만의 늪 마녀는 빈손으로 오는 이와는 말을 섞지 않습니다. 세지 어멈에게 1 x 요리용 소금 을 가져다주세요.",
       "1": "늪이 평평해지고 공기가 모두를 졸리게 하는 곳, 나른한 여울에 서서 마녀가 일러 준 대로 한숨을 쉬세요.",
       "2": "늪에서 빛나는 웅덩이의 남동쪽에 일 년 내내 마른 채로 남는 둔덕이 있습니다. 그곳에서 두루마리를 사용해 파세요.",
-      "title": "늪 마녀의 소금"
+      "title": "늪 마녀의 소금",
+      "reply": {
+        "0": "소금이군. 좋아, 말은 듣는구나. 갈대 너머 여울은 누구든 졸리게 만들지. 거기 가서 진심으로 한숨을 쉬어 봐. 나머지는 늪이 알려 줄 거야."
+      }
     },
     "hunt_nightbloom_sleepless_vigil": {
       "0": "문레스트의 북동쪽, 돌들이 끝나지 않는 불침번을 서는 곳, 불침번 선돌 앞에 서세요.",
       "1": "불침번 자리의 관측자는 남들이 동전을 세듯 별을 셉니다. 천문학자 카시안에게 떨어진 별 하나에 대해 물으세요.",
       "2": "마을 북쪽에 잠든 이가 결코 쉬지 못하는 봉분이 있습니다. 잠들지 않는 봉분에 경례해서 잠든 이에게 친구가 왔음을 알리세요.",
       "3": "어스름이 모이는 꽃벌판의 남동쪽에 달빛이 맨땅 한 곳에 고여 있습니다. 그곳에서 두루마리를 사용해 파세요.",
-      "title": "잠들지 않는 자의 불침번"
+      "title": "잠들지 않는 자의 불침번",
+      "reply": {
+        "1": "사흘 전 밤에 별 하나가 떨어졌소. 마을 북쪽의 오래된 무덤 쪽으로. 그곳의 망자들은 결코 잠들지 않지. 병사답게 경례하시오."
+      }
     },
     "hunt_wraithwood_mournstone_candles": {
       "0": "기빗미어의 양초장이는 어둠을 두려워하는 이들에게 빛을 팝니다. 과부 탠지에게 끝내 값을 치르지 않은 양초에 대해 물으세요.",
       "1": "애도석의 마지막 사제는 기도만으로 금식하고 있습니다. 사제 크릴에게 2 x 소금에 절인 육포 를 가져다주세요.",
       "2": "마을 북동쪽, 까마귀들을 지나면 스스로 기이한 열매를 매단 공터가 있습니다. 교수대 공터에 서세요.",
       "3": "사냥꾼이 덫을 놓은 공터의 남동쪽에 낙엽이 최근에 뒤집힌 자리가 있습니다. 그곳에서 두루마리를 사용해 파세요.",
-      "title": "애도석의 양초"
+      "title": "애도석의 양초",
+      "reply": {
+        "0": "신부님은 그 초를 주문하고 값을 치르지 않았어요. 그 뒤로는 기도만 하며 굶고 계시죠. 씹을 거라도 가져가서 이유를 물어보세요.",
+        "1": "고맙네, 친구. 나는 그 초에 불을 붙인 적이 없네. 밤이면 까마귀들 너머 숲속 공터를 무언가가 걸어 다니지. 나는 마주할 수 없었네. 할 수 있다면 그곳에 서 보게."
+      }
     },
     "hunt_palmreach_sunken_idol": {
       "0": "밀림 깊은 곳, 석호의 북서쪽에서 덩굴이 폭포처럼 쏟아져 내립니다. 덩굴폭포 숲에 서세요.",
       "1": "밀림에 들어갔다가 다시 나온 은둔자가 쏟아지는 덩굴 가까이에 삽니다. 오크림에게 그 아래에서 무엇을 보았는지 물으세요.",
       "2": "동쪽에는 반쯤 가라앉은 신상이 여전히 지켜보고 있습니다. 은둔자가 말한 잠수부들처럼 가라앉은 신상 앞에서 움츠리세요.",
       "3": "밀림이 바다를 향해 어귀를 여는 곳의 북동쪽에 모래가 밀물이 닿는 곳보다 높게 쌓여 있습니다. 그곳에서 두루마리를 사용해 파세요.",
-      "title": "신상의 비밀"
+      "title": "신상의 비밀",
+      "reply": {
+        "1": "덩굴 아래에서 잠수부들이 신상을 찾았지. 그리고 신상은 그들을 싫어했어. 그 앞에서 꼿꼿이 선 자들은 돌아오지 못했지. 그 앞에서는 몸을 낮춰."
+      }
     },
     "hunt_evergarden_beacon_road": {
       "0": "헤지윅 북쪽 산책로의 화단 정원사가 자기 화단이 굶주리고 있다고 장담합니다. 농부 버베나에게 2 x 퇴비 를 가져다주세요.",
       "1": "정원의 먼 남동쪽 구석에서 방앗간지기 없는 오래된 풍차가 아직도 돌아갑니다. 오래된 풍차 앞에 서세요.",
       "2": "길을 따라 남쪽으로 경계를 넘어 게일크레스트로 들어가 해안까지 나가세요. 오래된 등대를 지키는 등불지기 브람이 마지막 말을 쥐고 있습니다.",
       "3": "올드 비컨의 북서쪽, 등대에서 내려오는 오솔길 바로 옆에 잔디가 잘렸다가 다시 덮여 있습니다. 그곳에서 두루마리를 사용해 파세요.",
-      "title": "등대와 꽃"
+      "title": "등대와 꽃",
+      "reply": {
+        "0": "제대로 된 퇴비네요, 화단이 살겠어요. 옛 방앗간 주인이 떠나기 전에 뭔가를 묻어 두었어요. 정원 가장 먼 구석에서 그 풍차는 아직 돌고 있죠. 그 옆에 서 보세요.",
+        "2": "방앗간이 당신을 해안 길로 보냈군. 등대에는 마지막 비밀이 하나 있지. 북서쪽, 오솔길 바로 옆에 잔디를 잘라 냈다가 다시 덮은 자리가 있어. 거기를 파게."
+      }
     }
   },
   "guide": {
@@ -10164,6 +10250,11 @@ export const ko_KR: EnTranslations = {
       "pylonLit": "룬 첨탑이 빛을 발합니다 ({lit}/{total}).",
       "wayDownOpens": "아래로 향하는 길이 찢겨 열립니다.",
       "exitOpens": "균열이 요동칩니다. 쓰러진 적 너머로 귀환의 길이 열립니다.",
+      "hoardEnter": "{name} 안으로 내려갑니다.",
+      "hoardExitOpens": "보물은 당신의 것입니다. 입구로 돌아가 밖으로 올라가세요.",
+      "hoardStepBack": "보물 입구를 통해 지상으로 올라왔습니다.",
+      "hoardNotYours": "이 보물은 다른 파티가 파낸 것입니다.",
+      "hoardEntrantsFull": "이 보물 창고에는 이미 모험가 다섯 명이 입장했습니다.",
       "portalOpens": "{zone}에 {tier}등급 균열이 찢어져 열렸습니다!",
       "portalSealed": "{zone}의 {tier}등급 균열이 봉인되었습니다.",
       "portalCollapses": "{zone}의 {tier}등급 균열이 무너졌습니다.",
@@ -10203,7 +10294,152 @@ export const ko_KR: EnTranslations = {
       "detonateLightningRod": "피뢰침이 번개를 내리칩니다!",
       "detonateStormcallersWrath": "폭풍 소환사의 분노가 폭발합니다!",
       "detonateAbyssalMaw": "심연의 아가리가 닫힙니다!",
-      "detonateCrushingDepth": "분쇄의 심연이 짓누릅니다!"
+      "detonateCrushingDepth": "분쇄의 심연이 짓누릅니다!",
+      "yell": {
+        "mushroomEngage": "포자가 너를 삼키리라.",
+        "mushroomSummon": "자라라, 내 아이들아!",
+        "moleEngage": "이 땅은 내 것이다.",
+        "moleSummon": "떨어져라!",
+        "batEngage": "끼이이이익!",
+        "batSummon": "모여라, 나의 무리여!",
+        "mimicEngage": "배고파... 너무 배고파...",
+        "mimicSummon": "금을 더, 금을 더!",
+        "frostBigCast": "하얀 바람이 일어난다.",
+        "frostDeathZoneCast": "서리가 너를 삼킨다.",
+        "frostDeathZoneStrike": "깊은 냉기 속에서 살아남는 것은 없다.",
+        "frostEngage": "결국 추위는 모든 것을 앗아간다.",
+        "frostEnrage": "얼어붙어라!",
+        "emberBigCast": "불타라!",
+        "emberDeathZoneCast": "용암이 솟구친다.",
+        "emberDeathZoneStrike": "용광로가 모든 것을 삼킨다!",
+        "emberEngage": "용광로가 굶주렸다.",
+        "emberSummon": "광재에서 일어나라!",
+        "emberEnrage": "재와 잿불이 되어라!",
+        "venomBigCast": "독에 빠져 죽어라!",
+        "venomDeathZoneCast": "독 속에 잠겨라.",
+        "venomDeathZoneStrike": "내 아이들에게서 도망칠 수 없다!",
+        "venomEngage": "내 아이들은 언제나 굶주려 있지.",
+        "venomSummon": "배불리 먹어라, 아가들아!",
+        "necroBigCast": "너희의 영혼은 이제 내 것이다.",
+        "necroDeathZoneCast": "너의 영혼은 이제 내 것이다.",
+        "necroDeathZoneStrike": "죽음이 모든 것을 거둔다!",
+        "necroEngage": "죽음은 시작일 뿐이다.",
+        "necroSummon": "일어나라!",
+        "bruteBigCast": "부숴 주마!",
+        "bruteDeathZoneCast": "대지가 갈라진다!",
+        "bruteDeathZoneStrike": "여기서 쓰러져라!",
+        "bruteEngage": "짓밟아 주마!",
+        "bruteEnrage": "크아아아악!",
+        "arcaneBigCast": "진정한 힘을 목격하라.",
+        "arcaneDeathZoneCast": "현실이 찢어진다.",
+        "arcaneDeathZoneStrike": "소멸하라!",
+        "arcaneEngage": "여기 오지 말았어야 했다.",
+        "arcaneEnrage": "무릎 꿇어라!",
+        "stormBigCast": "하늘이 응답한다!",
+        "stormDeathZoneCast": "하늘이 너의 부름에 응답한다.",
+        "stormDeathZoneStrike": "폭풍이 모든 것을 집어삼킨다!",
+        "stormEngage": "폭풍은 나에게 복종한다!",
+        "stormEnrage": "하늘이 무너진다!",
+        "tideDeathZoneCast": "심해가 너를 데려간다.",
+        "tideDeathZoneStrike": "심연으로 끌려가라!",
+        "tideEngage": "심해가 너를 부른다.",
+        "tideSummon": "심해에서 떠올라라!",
+        "ritualistBigCast": "서약은 불꽃으로 봉인되었다!",
+        "ritualistEngage": "속박된 땅을 침범했구나.",
+        "ritualistSummon": "응답하라, 땅 밑의 것들이여!",
+        "pitlordBigCast": "구렁이 너를 삼킨다!",
+        "pitlordEngage": "무릎 꿇든가, 불타든가.",
+        "pitlordEnrage": "성채가 모든 것을 집어삼킨다!"
+      },
+      "place": {
+        "hoardFloor": "{theme} 묻힌 보물",
+        "sanctumFloor": "{theme} 성소: {depth}층",
+        "reachesFloor": "{theme} 변경: {depth}층",
+        "upgradedFloor": "{title}: {theme} {depth}층",
+        "hoardPlan": "묻힌 {noun} 보물",
+        "riftPlan": "{noun} {suffix}",
+        "citadelPlan": "{noun} 성채",
+        "infernalCitadel": "지옥불 성채",
+        "hoardEntrance": "묻힌 보물 창고 입구",
+        "theme": {
+          "frost": "서리결박",
+          "ember": "잉걸불 화로",
+          "venom": "독숲",
+          "bone": "뼈무덤",
+          "brute": "전쟁 야영지",
+          "void": "공허상흔",
+          "storm": "폭풍첨탑",
+          "tide": "수몰지",
+          "spore": "포자 동굴",
+          "burrow": "깊은 굴",
+          "roost": "박쥐 둥지",
+          "mimic": "가짜 금고",
+          "infernal": "지옥불 성채"
+        },
+        "noun": {
+          "rime": "상고대",
+          "hoarfrost": "서리꽃",
+          "glacier": "빙하",
+          "frost": "서리",
+          "ember": "잉걸불",
+          "cinder": "잿불",
+          "magma": "용암",
+          "ash": "잿더미",
+          "venom": "독액",
+          "thorn": "가시",
+          "bramble": "가시덤불",
+          "spider": "거미",
+          "bone": "뼈",
+          "marrow": "골수",
+          "ossuary": "납골당",
+          "grave": "무덤",
+          "war": "전쟁",
+          "skull": "해골",
+          "iron": "강철",
+          "blood": "피",
+          "void": "공허",
+          "shadow": "그림자",
+          "umbral": "암영",
+          "dusk": "황혼",
+          "storm": "폭풍",
+          "tempest": "폭풍우",
+          "thunder": "천둥",
+          "gale": "돌풍",
+          "sunken": "수몰",
+          "abyssal": "나락",
+          "drowned": "익사자",
+          "tide": "조수",
+          "spore": "포자",
+          "toadstool": "독버섯",
+          "mould": "곰팡이",
+          "mycelium": "균사",
+          "burrow": "굴",
+          "tunnel": "땅굴",
+          "delve": "갱도",
+          "loam": "양토",
+          "roost": "둥지",
+          "echo": "메아리",
+          "guano": "박쥐똥",
+          "hollow": "동혈",
+          "coffer": "금궤",
+          "strongbox": "철궤",
+          "tithe": "십일조",
+          "gilt": "금박",
+          "brimstone": "유황",
+          "pitfire": "구렁불",
+          "pactbound": "서약"
+        },
+        "suffix": {
+          "abyss": "심연",
+          "depths": "심층",
+          "descent": "내리막길",
+          "hollow": "분지",
+          "labyrinth": "미궁",
+          "warren": "소굴",
+          "sanctum": "성소",
+          "rift": "균열"
+        }
+      }
     },
     "delve": {
       "cannotEnterNow": "지금은 탐굴에 진입할 수 없습니다.",
@@ -10273,6 +10509,9 @@ export const ko_KR: EnTranslations = {
       "moveCloserStairs": "계단에 더 가까이 다가가세요.",
       "nhaliaCantorShield": "영창자들이여, 음을 유지하라!",
       "nhaliaBlackwaterMark": "{name}이(가) {player}에게 흑수 표식을 남긴다!"
+    },
+    "factionVendor": {
+      "currencyRequired": "구매하려면 {currency} {amount}개가 필요합니다."
     },
     "lockpick": {
       "lockYields": "자물쇠가 열립니다! {tier} 전리품.",
@@ -10894,6 +11133,7 @@ export const ko_KR: EnTranslations = {
       "alreadyInWorld": "캐릭터가 이미 세계에 있습니다.",
       "accountSessionLimit": "이 계정의 너무 많은 캐릭터가 이미 세계에 있습니다.",
       "takenOver": "다른 세션이 캐릭터를 넘겨받았습니다.",
+      "vaultMailRecovering": "보물고 보상 우편을 복구하고 있습니다. 잠시 후 다시 시도해 주세요.",
       "renameBeforeEntering": "이 캐릭터는 세계에 들어가기 전에 이름을 변경해야 합니다.",
       "renameNotPermitted": "이 캐릭터의 이름을 변경할 수 없습니다.",
       "unsupportedMediaType": "지원되지 않는 요청 형식입니다.",
@@ -11237,6 +11477,8 @@ export const ko_KR: EnTranslations = {
         "dungeonExit": "던전 출구",
         "delveEntrance": "탐굴 입구: {name}",
         "worldPassage": "{zone}(으)로 가는 통로",
+        "hoardEntrance": "묻힌 보물 창고 입구",
+        "hoardReturnEntrance": "보물 귀환 입구",
         "riftEntrance": "균열 입구: {name}",
         "hostileEnemy": "적대 대상",
         "aggressiveEnemy": "당신을 공격 중인 적",
@@ -11880,6 +12122,7 @@ export const ko_KR: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "공격",
+      "cooldownMinutes": "{minutes}분",
       "attackTooltip": "대상에게 자동 공격을 켜거나 끕니다. 적을 우클릭해도 공격합니다.",
       "attackRemoveHint": "우클릭하면 바에서 제거하고 칸을 비웁니다.",
       "emptySlot": "빈 칸",
@@ -11971,7 +12214,35 @@ export const ko_KR: EnTranslations = {
       "rift_storm_execution": "피뢰침",
       "rift_storm_strike": "폭풍 소환사의 분노",
       "rift_tide_execution": "심연의 아가리",
-      "rift_tide_strike": "분쇄의 심연"
+      "rift_tide_strike": "분쇄의 심연",
+      "hoard_cast_fear": "공포의 포효",
+      "hoard_cast_stun": "기절의 일격",
+      "hoard_cast_drowning_hook": "익사의 갈고리",
+      "hoard_cast_rime_beam": "상고대 광선",
+      "hoard_cast_cinder_bolt": "잿불 화살",
+      "hoard_cast_void_empower": "공허 강화",
+      "hoard_cast_webbing": "거미줄",
+      "hoard_cast_doom_ritual": "파멸의 의식",
+      "hoard_cast_charge": "저돌적 돌진",
+      "hoard_cast_silk_snare": "비단 올가미",
+      "hoard_cast_silence": "침묵의 비명",
+      "hoard_cast_hex": "주술",
+      "hoard_lightning_strike": "번개 강타",
+      "hoard_ice_age": "빙하기",
+      "hoard_pulsar_overload": "펄서 과부하",
+      "hoard_rolling_boulder": "구르는 바위",
+      "hoard_goblin_escape": "도주",
+      "hoard_cast_mole_rake": "발톱 긁기",
+      "hoard_cast_burrow": "굴 파기",
+      "hoard_cast_tunnel": "땅속 이동",
+      "hoard_cast_emerge": "분출",
+      "hoard_cast_collapse": "천장 붕괴",
+      "hoard_cast_bat_dive_aim": "급강하",
+      "hoard_cast_bat_dive": "급강하 중",
+      "hoard_cast_screech": "귀를 찢는 비명",
+      "hoard_cast_mimic_bite": "탐욕스러운 물기",
+      "hoard_cast_mimic_leap": "짓누르는 도약",
+      "hoard_cast_coin_spit": "저주받은 금화"
     }
   },
   "questUi": {
@@ -12398,7 +12669,17 @@ export const ko_KR: EnTranslations = {
       "clueHuntStep": "단서 {step}/{total} 해결: {title}",
       "clueHuntDone": "보물찾기 완료: {title}. 보물 상자는 당신 것입니다.",
       "clueHuntAbandoned": "보물찾기 포기: {title}",
-      "clueCasketOpened": "보물 상자에는 {money}과(와) {items}이(가) 들어 있었습니다."
+      "clueCasketOpened": "보물 상자에는 {money}과(와) {items}이(가) 들어 있었습니다.",
+      "treasureMapEarned": "오늘의 전역 퀘스트를 모두 완료했습니다: {map}을(를) 발견했습니다.",
+      "treasureMapLost": "오늘의 전역 퀘스트를 모두 완료했지만 가방에 보물 지도를 넣을 공간이 없습니다.",
+      "treasureMapRead": "{map}을(를) 살펴봅니다. X 표시는 {zone} 어딘가에 있습니다.",
+      "treasureMapUpgraded": "지도가 더 고운 잉크로 다시 그려졌습니다: 이제 {map}입니다.",
+      "treasureVaultOpened": "땅이 꺼집니다. 묻힌 보물이 눈앞에 열려 있습니다.",
+      "treasureVaultLooted": "보물에는 {money}와(과) {items}이(가) 들어 있습니다.",
+      "treasureVaultCapped": "오늘은 이미 충분한 보물을 나눠 받았습니다. 이번 보물에서는 아무것도 받지 못합니다.",
+      "hoardGoblinSighted": "고블린 도둑이 나타났습니다!",
+      "hoardGoblinSightedHint": "금화를 가지고 달아나기 전에 처치하세요!",
+      "hoardGoblinExplain": "훔친 금화 자루를 멘 고블린 도둑이 이 보물 안에 숨어 있습니다. 반격하지 않고 도망치기만 합니다. 첫 공격을 가하면 {seconds}초짜리 도주 막대가 시작됩니다. 막대가 다 찰 때까지 살아 있으면 차원문을 열고 금화와 함께 사라집니다. 아무도 건드리지 않으면 {minutes}분 뒤에 떠납니다. 제때 처치하면 방에 있는 모두가 금화를 받습니다."
     },
     "errors": {
       "unavailable": "그 퀘스트는 이용할 수 없습니다.",
@@ -12811,6 +13092,10 @@ export const ko_KR: EnTranslations = {
       "sport_second_wind": {
         "name": "재도약",
         "description": "기운을 되찾습니다: 4초 동안 이동 속도가 50% 증가합니다."
+      },
+      "clockwork_shock_bomb": {
+        "name": "태엽 충격 폭탄",
+        "description": "대상 위치에 태엽 충격 폭탄을 던져 5미터 내의 적에게 120~160의 자연 피해를 입힙니다."
       },
       "flamestrike": {
         "name": "화염 폭발",
@@ -17393,6 +17678,363 @@ export const ko_KR: EnTranslations = {
       "stormhymn_chain_treads": {
         "name": "폭풍찬가 사슬 장화"
       },
+      "allied_hearthstone": {
+        "name": "동맹의 귀환석"
+      },
+      "allied_vanguard_duffel": {
+        "name": "동맹 선봉대의 더플백"
+      },
+      "rift_feather_glider": {
+        "name": "균열 깃털 글라이더"
+      },
+      "formula_enchant_feet_shadowstride": {
+        "name": "공식: 장화 마법부여 - 그림자 걸음"
+      },
+      "recipe_potion_of_invisibility": {
+        "name": "제조법: 투명화 물약"
+      },
+      "potion_of_invisibility": {
+        "name": "투명화 물약"
+      },
+      "pattern_reinforced_armor_kit": {
+        "name": "도안: 강화 방어구 키트"
+      },
+      "reinforced_armor_kit": {
+        "name": "강화 방어구 키트"
+      },
+      "dawn_battle_standard": {
+        "name": "여명의 전투 깃발"
+      },
+      "formula_enchant_offhand_spirit": {
+        "name": "공식: 보조장비 마법부여 - 정신력"
+      },
+      "recipe_elixir_of_mana_regeneration": {
+        "name": "제조법: 마나 회복의 비약"
+      },
+      "elixir_of_mana_regeneration": {
+        "name": "마나 회복의 비약"
+      },
+      "clockwork_target_dummy": {
+        "name": "태엽 훈련용 허수아비"
+      },
+      "schematic_clockwork_shock_bomb": {
+        "name": "도면: 태엽 충격 폭탄"
+      },
+      "clockwork_shock_bomb": {
+        "name": "태엽 충격 폭탄"
+      },
+      "plans_dense_sharpening_stone": {
+        "name": "설계도: 단단한 숫돌"
+      },
+      "dense_sharpening_stone": {
+        "name": "단단한 숫돌"
+      },
+      "formula_enchant_gloves_forged_might": {
+        "name": "공식: 장갑 마법부여 - 벼려진 힘"
+      },
+      "treasure_map_common": {
+        "name": "낡은 보물 지도"
+      },
+      "treasure_map_rare": {
+        "name": "먹으로 그린 보물 지도"
+      },
+      "treasure_map_epic": {
+        "name": "금박 보물 지도"
+      },
+      "treasure_map_legendary": {
+        "name": "지존의 보물 지도"
+      },
+      "cartographers_ink": {
+        "name": "지도 제작자의 잉크"
+      },
+      "collapsar_band_of_nyxaris": {
+        "name": "닉사리스의 붕괴성 반지"
+      },
+      "rare_collapsar_band_of_nyxaris": {
+        "name": "빛바랜 닉사리스의 붕괴성 반지"
+      },
+      "legendary_collapsar_band_of_nyxaris": {
+        "name": "지존의 닉사리스의 붕괴성 반지"
+      },
+      "orb_collapsing_void": {
+        "name": "붕괴하는 공허의 보주"
+      },
+      "rare_orb_collapsing_void": {
+        "name": "빛바랜 붕괴하는 공허의 보주"
+      },
+      "legendary_orb_collapsing_void": {
+        "name": "지존의 붕괴하는 공허의 보주"
+      },
+      "cowl_of_event_horizon": {
+        "name": "사건의 지평선 두건"
+      },
+      "rare_cowl_of_event_horizon": {
+        "name": "빛바랜 사건의 지평선 두건"
+      },
+      "legendary_cowl_of_event_horizon": {
+        "name": "지존의 사건의 지평선 두건"
+      },
+      "mantle_of_singularity": {
+        "name": "특이점의 어깨걸이"
+      },
+      "rare_mantle_of_singularity": {
+        "name": "빛바랜 특이점의 어깨걸이"
+      },
+      "legendary_mantle_of_singularity": {
+        "name": "지존의 특이점의 어깨걸이"
+      },
+      "glacier_hewn_bulwark": {
+        "name": "빙하를 깎아 만든 방벽"
+      },
+      "rare_glacier_hewn_bulwark": {
+        "name": "빛바랜 빙하를 깎아 만든 방벽"
+      },
+      "legendary_glacier_hewn_bulwark": {
+        "name": "지존의 빙하를 깎아 만든 방벽"
+      },
+      "permafrost_legguards": {
+        "name": "영구동토 다리보호구"
+      },
+      "rare_permafrost_legguards": {
+        "name": "빛바랜 영구동토 다리보호구"
+      },
+      "legendary_permafrost_legguards": {
+        "name": "지존의 영구동토 다리보호구"
+      },
+      "frostbitten_rime_slippers": {
+        "name": "동상 입은 서리 단화"
+      },
+      "rare_frostbitten_rime_slippers": {
+        "name": "빛바랜 동상 입은 서리 단화"
+      },
+      "legendary_frostbitten_rime_slippers": {
+        "name": "지존의 동상 입은 서리 단화"
+      },
+      "rime_crusted_grips": {
+        "name": "서리 덮인 장갑"
+      },
+      "rare_rime_crusted_grips": {
+        "name": "빛바랜 서리 덮인 장갑"
+      },
+      "legendary_rime_crusted_grips": {
+        "name": "지존의 서리 덮인 장갑"
+      },
+      "ember_wrought_crown": {
+        "name": "잉걸불로 벼린 왕관"
+      },
+      "rare_ember_wrought_crown": {
+        "name": "빛바랜 잉걸불로 벼린 왕관"
+      },
+      "legendary_ember_wrought_crown": {
+        "name": "지존의 잉걸불로 벼린 왕관"
+      },
+      "cinder_stitched_robes": {
+        "name": "재로 꿰맨 로브"
+      },
+      "rare_cinder_stitched_robes": {
+        "name": "빛바랜 재로 꿰맨 로브"
+      },
+      "legendary_cinder_stitched_robes": {
+        "name": "지존의 재로 꿰맨 로브"
+      },
+      "chained_ember_choker": {
+        "name": "사슬 달린 잉걸불 목걸이"
+      },
+      "rare_chained_ember_choker": {
+        "name": "빛바랜 사슬 달린 잉걸불 목걸이"
+      },
+      "legendary_chained_ember_choker": {
+        "name": "지존의 사슬 달린 잉걸불 목걸이"
+      },
+      "molten_clinker_girdle": {
+        "name": "녹은 광재 허리띠"
+      },
+      "rare_molten_clinker_girdle": {
+        "name": "빛바랜 녹은 광재 허리띠"
+      },
+      "legendary_molten_clinker_girdle": {
+        "name": "지존의 녹은 광재 허리띠"
+      },
+      "storm_tuned_buckler": {
+        "name": "폭풍 조율 원형 방패"
+      },
+      "rare_storm_tuned_buckler": {
+        "name": "빛바랜 폭풍 조율 원형 방패"
+      },
+      "legendary_storm_tuned_buckler": {
+        "name": "지존의 폭풍 조율 원형 방패"
+      },
+      "hauberk_tempest_gale": {
+        "name": "폭풍 돌풍의 사슬 갑옷"
+      },
+      "rare_hauberk_tempest_gale": {
+        "name": "빛바랜 폭풍 돌풍의 사슬 갑옷"
+      },
+      "legendary_hauberk_tempest_gale": {
+        "name": "지존의 폭풍 돌풍의 사슬 갑옷"
+      },
+      "gale_strider_boots": {
+        "name": "질풍 질주자의 장화"
+      },
+      "rare_gale_strider_boots": {
+        "name": "빛바랜 질풍 질주자의 장화"
+      },
+      "legendary_gale_strider_boots": {
+        "name": "지존의 질풍 질주자의 장화"
+      },
+      "tempest_strike_grips": {
+        "name": "폭풍 강타 장갑"
+      },
+      "rare_tempest_strike_grips": {
+        "name": "빛바랜 폭풍 강타 장갑"
+      },
+      "legendary_tempest_strike_grips": {
+        "name": "지존의 폭풍 강타 장갑"
+      },
+      "breastplate_tectonic_might": {
+        "name": "지각의 힘 흉갑"
+      },
+      "rare_breastplate_tectonic_might": {
+        "name": "빛바랜 지각의 힘 흉갑"
+      },
+      "legendary_breastplate_tectonic_might": {
+        "name": "지존의 지각의 힘 흉갑"
+      },
+      "band_mountains_weight": {
+        "name": "산의 무게 반지"
+      },
+      "rare_band_mountains_weight": {
+        "name": "빛바랜 산의 무게 반지"
+      },
+      "legendary_band_mountains_weight": {
+        "name": "지존의 산의 무게 반지"
+      },
+      "monolithic_shoulderguards": {
+        "name": "거석 어깨보호구"
+      },
+      "rare_monolithic_shoulderguards": {
+        "name": "빛바랜 거석 어깨보호구"
+      },
+      "legendary_monolithic_shoulderguards": {
+        "name": "지존의 거석 어깨보호구"
+      },
+      "earthshaker_warboots": {
+        "name": "대지를 흔드는 전투 장화"
+      },
+      "rare_earthshaker_warboots": {
+        "name": "빛바랜 대지를 흔드는 전투 장화"
+      },
+      "legendary_earthshaker_warboots": {
+        "name": "지존의 대지를 흔드는 전투 장화"
+      },
+      "silkstalker_woven_vest": {
+        "name": "비단 추적자의 엮은 조끼"
+      },
+      "rare_silkstalker_woven_vest": {
+        "name": "빛바랜 비단 추적자의 엮은 조끼"
+      },
+      "legendary_silkstalker_woven_vest": {
+        "name": "지존의 비단 추적자의 엮은 조끼"
+      },
+      "spun_venom_spaulders": {
+        "name": "독으로 자은 어깨갑옷"
+      },
+      "rare_spun_venom_spaulders": {
+        "name": "빛바랜 독으로 자은 어깨갑옷"
+      },
+      "legendary_spun_venom_spaulders": {
+        "name": "지존의 독으로 자은 어깨갑옷"
+      },
+      "broodmother_chitin_cowl": {
+        "name": "어미의 키틴 두건"
+      },
+      "rare_broodmother_chitin_cowl": {
+        "name": "빛바랜 어미의 키틴 두건"
+      },
+      "legendary_broodmother_chitin_cowl": {
+        "name": "지존의 어미의 키틴 두건"
+      },
+      "venom_etched_waistcord": {
+        "name": "독 새긴 허리끈"
+      },
+      "rare_venom_etched_waistcord": {
+        "name": "빛바랜 독 새긴 허리끈"
+      },
+      "legendary_venom_etched_waistcord": {
+        "name": "지존의 독 새긴 허리끈"
+      },
+      "bone_studded_pauldrons": {
+        "name": "뼈 박힌 견갑"
+      },
+      "rare_bone_studded_pauldrons": {
+        "name": "빛바랜 뼈 박힌 견갑"
+      },
+      "legendary_bone_studded_pauldrons": {
+        "name": "지존의 뼈 박힌 견갑"
+      },
+      "legguards_of_the_ossuary": {
+        "name": "납골당의 다리보호구"
+      },
+      "rare_legguards_of_the_ossuary": {
+        "name": "빛바랜 납골당의 다리보호구"
+      },
+      "legendary_legguards_of_the_ossuary": {
+        "name": "지존의 납골당의 다리보호구"
+      },
+      "seal_of_the_cryptwalker": {
+        "name": "묘실 방랑자의 인장"
+      },
+      "rare_seal_of_the_cryptwalker": {
+        "name": "빛바랜 묘실 방랑자의 인장"
+      },
+      "legendary_seal_of_the_cryptwalker": {
+        "name": "지존의 묘실 방랑자의 인장"
+      },
+      "ossuary_bone_crown": {
+        "name": "납골당 뼈 왕관"
+      },
+      "rare_ossuary_bone_crown": {
+        "name": "빛바랜 납골당 뼈 왕관"
+      },
+      "legendary_ossuary_bone_crown": {
+        "name": "지존의 납골당 뼈 왕관"
+      },
+      "chalice_of_living_tides": {
+        "name": "살아있는 조류의 성배"
+      },
+      "rare_chalice_of_living_tides": {
+        "name": "빛바랜 살아있는 조류의 성배"
+      },
+      "legendary_chalice_of_living_tides": {
+        "name": "지존의 살아있는 조류의 성배"
+      },
+      "pendant_continuous_flow": {
+        "name": "끊임없는 흐름의 펜던트"
+      },
+      "rare_pendant_continuous_flow": {
+        "name": "빛바랜 끊임없는 흐름의 펜던트"
+      },
+      "legendary_pendant_continuous_flow": {
+        "name": "지존의 끊임없는 흐름의 펜던트"
+      },
+      "coral_encrusted_girdle": {
+        "name": "산호 뒤덮인 허리띠"
+      },
+      "rare_coral_encrusted_girdle": {
+        "name": "빛바랜 산호 뒤덮인 허리띠"
+      },
+      "legendary_coral_encrusted_girdle": {
+        "name": "지존의 산호 뒤덮인 허리띠"
+      },
+      "riptide_handwraps": {
+        "name": "이안류 손싸개"
+      },
+      "rare_riptide_handwraps": {
+        "name": "빛바랜 이안류 손싸개"
+      },
+      "legendary_riptide_handwraps": {
+        "name": "지존의 이안류 손싸개"
+      },
       "vanguard_warrior_arms_helmet": {
         "name": "칼날항적 대형 투구"
       },
@@ -19090,6 +19732,51 @@ export const ko_KR: EnTranslations = {
       "stable_horse": {
         "name": "마구간 말"
       },
+      "hoard_brood_egg": {
+        "name": "알 무리"
+      },
+      "hoard_brood_hatchling": {
+        "name": "비스카의 새끼 거미"
+      },
+      "hoard_healing_tide_totem": {
+        "name": "치유의 해일 토템"
+      },
+      "hoard_bound_pulsar": {
+        "name": "속박된 펄서"
+      },
+      "hoard_abyssal_tentacle": {
+        "name": "심연의 아가리의 촉수"
+      },
+      "hoard_silk_cocoon": {
+        "name": "비단 고치"
+      },
+      "hoard_brood_cocoon": {
+        "name": "부화 고치"
+      },
+      "hoard_coinsack_scurrier": {
+        "name": "동전자루 좀도둑"
+      },
+      "hoard_boss_mushroom": {
+        "name": "버섯의 어머니"
+      },
+      "hoard_sporeling": {
+        "name": "포자둥이"
+      },
+      "hoard_bloat_cap": {
+        "name": "부푼 갓"
+      },
+      "hoard_boss_mole": {
+        "name": "딥레이크"
+      },
+      "hoard_boss_bat": {
+        "name": "거대 박쥐"
+      },
+      "hoard_boss_mimic": {
+        "name": "탐욕스러운 상자"
+      },
+      "hoard_bat_swarmling": {
+        "name": "동굴 떼박쥐"
+      },
       "rift_spawnling": {
         "name": "균열의 산물"
       },
@@ -19119,6 +19806,9 @@ export const ko_KR: EnTranslations = {
       },
       "rift_marrow_troll": {
         "name": "골수 트롤"
+      },
+      "rift_marrow_golem": {
+        "name": "골수 골렘"
       },
       "rift_void_acolyte": {
         "name": "공허상흔 시종"
@@ -23252,6 +23942,11 @@ export const ko_KR: EnTranslations = {
         "sender": "거래소 중개인",
         "subject": "거래소 등록 물품이 판매되었습니다",
         "body": "등록하신 물품이 판매되었고 구매자가 대금을 전액 치렀습니다. 거래소 수수료를 제한 판매 대금은 정산 트랜잭션 안에서 곧바로 연동된 지갑으로 전송되었습니다. 거래소는 당신의 돈을 결코 보관하지 않습니다.\n\n이 거래의 기록은 거래소 장부에 남습니다.\n\n- 거래소 중개인"
+      },
+      "hoard_vault_reward": {
+        "sender": "까마귀 우편국",
+        "subject": "보물 창고 보상",
+        "body": "보물 창고가 공략되었지만 보물 상자에서 당신의 몫을 받지 않았습니다. 획득한 물품과 동전을 까마귀가 이곳으로 배달했습니다.\n\n- 까마귀 우편국"
       }
     },
     "itemSets": {

@@ -67,15 +67,18 @@ describe('currencies view', () => {
     expect(view.activities[2].amount).toBe(0);
   });
 
-  it('prepares one pending row per allied faction, never a fake balance', () => {
+  it('prepares one row per allied faction with real balance', () => {
     const view = buildCurrenciesView({
       inventory: [],
       honor: 0,
       lifetimeHonor: 0,
       delveMarks: 0,
+      factionCurrencies: { rift_watch: 25, church_order: 10, automatons: 0 },
       woc,
     });
     expect(view.factions.map((row) => row.factionId)).toEqual([...FACTION_IDS]);
-    expect(view.factions.every((row) => row.pending && row.amount === 0)).toBe(true);
+    expect(view.factions[0]).toEqual({ factionId: 'rift_watch', amount: 25, pending: false });
+    expect(view.factions[1]).toEqual({ factionId: 'church_order', amount: 10, pending: false });
+    expect(view.factions[2]).toEqual({ factionId: 'automatons', amount: 0, pending: false });
   });
 });

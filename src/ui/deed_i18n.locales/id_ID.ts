@@ -1232,4 +1232,8 @@ export const table: DeedLocaleTable = {
     name: 'Pelabuhan ke Pelabuhan',
     desc: 'Berlayar dengan kedua feri bolak-balik: Eastbrook ke Moonrest, dan Wickharbor ke Wyrmwatch.',
   },
+  cmb_coinsack_caught: {
+    name: 'Tertangkap Saat Berbuat Buruk',
+    desc: 'Tangkap Penari Mata Uang dalam Harta Karun Terkubur sebelum dia kabur dengan emas.',
+  },
 };

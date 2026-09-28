@@ -454,6 +454,9 @@ describe('nameplate_view - import absence (two-controller + purity, source scan)
       // The placed mobile-station template-id predicate: the same kind of sim
       // leaf, so the plate's near-rule shares the feast's pad for a station.
       '../sim/professions/mobile_station_object',
+      // The hoard brood egg template id, the same kind of sim content leaf: an
+      // egg shows no nameplate (it has no health to read and cannot be hit).
+      '../sim/rift/hoard_boss_kits',
       '../sim/types',
       './nameplate_combo',
       './nameplate_threat',

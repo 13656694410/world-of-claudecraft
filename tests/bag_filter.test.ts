@@ -502,6 +502,7 @@ describe('chip reachability census: the All-only set, pinned', () => {
   // gear, a consumable, or a material, so it matches no chip and reaching it
   // through All is the settled behavior rather than a gap.
   const ALL_ONLY = [
+    'allied_vanguard_duffel',
     'amber_hide',
     // masterwrought Phase 11l removed the five promoted trophy drops
     // (bandit_bandana, cracked_ogre_tusk, cracked_wyrm_scale, mudfin_scale,
@@ -535,6 +536,9 @@ describe('chip reachability census: the All-only set, pinned', () => {
     // Formula scrolls follow the existing bag-side kind-'recipe' ruling.
     'formula_dawnfire_etching',
     'formula_dawns_benediction',
+    'formula_enchant_feet_shadowstride',
+    'formula_enchant_gloves_forged_might',
+    'formula_enchant_offhand_spirit',
     'formula_lastflame_zeal',
     'formula_piston_drive',
     'formula_riftwalkers_grace',
@@ -597,6 +601,7 @@ describe('chip reachability census: the All-only set, pinned', () => {
     'pattern_masters_field_forge',
     'pattern_peppered_deepbarb_catfish',
     'pattern_prismglass_loop',
+    'pattern_reinforced_armor_kit',
     'pattern_ridgebreaker',
     'pattern_roast_hollowgill_sturgeon',
     'pattern_runewater_flask',
@@ -618,6 +623,9 @@ describe('chip reachability census: the All-only set, pinned', () => {
     'pattern_warspice_feast',
     'pattern_warspice_skewers',
     'pattern_wyrmfall_pendant',
+    'plans_dense_sharpening_stone',
+    'recipe_elixir_of_mana_regeneration',
+    'recipe_potion_of_invisibility',
     // Retired premium reins remain inert saved items, with no use or material role.
     'reins_chimeglass_tortoise',
     'reins_goblin_rocket_sled',
@@ -630,6 +638,7 @@ describe('chip reachability census: the All-only set, pinned', () => {
     // harvest_feast and All-only for the same reason: a placeable crafted
     // junk-kind item whose click PLACES rather than uses or equips.
     'sageleaf_feast',
+    'schematic_clockwork_shock_bomb',
     'silkspun_satchel',
     'soft_down',
     'soggy_boot',

@@ -1107,4 +1107,8 @@ export const table: DeedLocaleTable = {
     desc: '手がかりの巻物の宝探しの最後に掘り出した宝箱を10個開ける。',
     title: '宝探しの名手',
   },
+  cmb_coinsack_caught: {
+    name: '現行犯',
+    desc: '埋もれた財宝の中で、小銭袋のすばしっこが金を持って逃げる前に倒す。',
+  },
 };

@@ -6,6 +6,7 @@
 // leaves the hunt alone, abandon, and the /dev clue family. The wire half is
 // tests/clue_scrolls_wire.test.ts; the design page is docs/design/clue-scrolls.md.
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { bagCapacity } from '../src/sim/bags';
 import {
   CASKET_COPPER_BASE,
   CASKET_COPPER_PER_LEVEL,
@@ -37,6 +38,7 @@ import {
   TREASURE_CASKET_ITEM_ID,
 } from '../src/sim/content/clue_hunts';
 import { HEROIC_MARK_ITEM_ID } from '../src/sim/content/dungeon_difficulty';
+import { TREASURE_MAP_ITEM_IDS, TREASURE_MAP_RARITIES } from '../src/sim/content/treasure_maps';
 import { WORLD_QUESTS_BY_ID } from '../src/sim/content/world_quests';
 import { ITEMS } from '../src/sim/data';
 import { METER_DIRTY_KEYS } from '../src/sim/deeds';
@@ -296,27 +298,53 @@ function completeThornpeak(sim: Sim): SimEvent[] {
   return sim.drainEvents();
 }
 
-describe('the scroll entitlement (creditWorldQuest completion arm)', () => {
-  it('pays one scroll when the last slot turns in, after the rewards, and marks the cycle', () => {
+// The board's payout is a treasure map of a rolled rarity (the Buried Hoards
+// rework, src/sim/treasure_vault.ts); the once-per-cycle entitlement and its
+// clueScrollCycle marker are unchanged. Scrolls still exist (casket extras, the
+// /dev family) but the slate no longer pays them.
+function mapsHeld(sim: Sim): number {
+  return TREASURE_MAP_RARITIES.reduce(
+    (sum, rarity) => sum + sim.countItem(TREASURE_MAP_ITEM_IDS[rarity]),
+    0,
+  );
+}
+
+function fillBags(sim: Sim): void {
+  const meta = metaOf(sim);
+  const cap = bagCapacity(meta.bags);
+  const gearIds = Object.values(ITEMS)
+    .filter((def) => def.kind === 'weapon' || def.kind === 'armor')
+    .map((def) => def.id);
+  let i = 0;
+  while (meta.inventory.length < cap) {
+    sim.addItem(gearIds[i % gearIds.length], 1);
+    i++;
+  }
+}
+
+describe('the slate entitlement (creditWorldQuest completion arm)', () => {
+  it('pays one map when the last slot turns in, after the rewards, and marks the cycle', () => {
     const sim = slateSim(20);
     const meta = metaOf(sim);
     expect(meta.clueScrollCycle).toBe('');
     const evs = completeThornpeak(sim);
-    expect(sim.countItem(CLUE_SCROLL_ITEM_ID)).toBe(1);
+    expect(mapsHeld(sim)).toBe(1);
+    expect(sim.countItem(CLUE_SCROLL_ITEM_ID)).toBe(0);
     expect(meta.clueScrollCycle).toBe(meta.worldQuestCycle);
-    expect(ofType(evs, 'clueScrollEarned')).toHaveLength(1);
-    expect(ofType(evs, 'clueScrollLost')).toHaveLength(0);
+    const earnedEvs = ofType(evs, 'treasureMapEarned');
+    expect(earnedEvs).toHaveLength(1);
+    expect(sim.countItem(TREASURE_MAP_ITEM_IDS[earnedEvs[0].rarity])).toBe(1);
+    expect(ofType(evs, 'treasureMapLost')).toHaveLength(0);
     // The day's other rewards land first: the quest's own loot line and
-    // standing precede the scroll receipt, and the scroll's receipt precedes
-    // the earned event.
+    // standing precede the map receipt, and the map's receipt precedes the
+    // earned event.
     const types = evs.map((ev) => ev.type);
     const done = types.indexOf('worldQuestDone');
-    const earned = types.indexOf('clueScrollEarned');
-    const scrollLoot = evs.findIndex(
-      (ev) => ev.type === 'loot' && ev.text.includes(ITEMS[CLUE_SCROLL_ITEM_ID].name),
-    );
-    expect(scrollLoot).toBeGreaterThan(-1);
-    expect(scrollLoot).toBeLessThan(earned);
+    const earned = types.indexOf('treasureMapEarned');
+    const mapName = ITEMS[TREASURE_MAP_ITEM_IDS[earnedEvs[0].rarity]].name;
+    const mapLoot = evs.findIndex((ev) => ev.type === 'loot' && ev.text.includes(mapName));
+    expect(mapLoot).toBeGreaterThan(-1);
+    expect(mapLoot).toBeLessThan(earned);
     expect(earned).toBeLessThan(done);
   });
 
@@ -324,11 +352,11 @@ describe('the scroll entitlement (creditWorldQuest completion arm)', () => {
     const sim = slateSim(20);
     const meta = metaOf(sim);
     completeThornpeak(sim);
-    expect(sim.countItem(CLUE_SCROLL_ITEM_ID)).toBe(1);
+    expect(mapsHeld(sim)).toBe(1);
     maybeAwardClueScroll(sim.ctx, meta, sim.player);
     maybeAwardClueScroll(sim.ctx, meta, sim.player);
-    expect(sim.countItem(CLUE_SCROLL_ITEM_ID)).toBe(1);
-    expect(sim.drainEvents().filter((ev) => ev.type.startsWith('clueScroll'))).toHaveLength(0);
+    expect(mapsHeld(sim)).toBe(1);
+    expect(sim.drainEvents().filter((ev) => ev.type.startsWith('treasureMap'))).toHaveLength(0);
   });
 
   it('pays again on the next cycle', () => {
@@ -349,7 +377,7 @@ describe('the scroll entitlement (creditWorldQuest completion arm)', () => {
     }
     sim.drainEvents();
     completeThornpeak(sim);
-    expect(sim.countItem(CLUE_SCROLL_ITEM_ID)).toBe(2);
+    expect(mapsHeld(sim)).toBe(2);
     expect(meta.clueScrollCycle).toBe(meta.worldQuestCycle);
   });
 
@@ -358,15 +386,15 @@ describe('the scroll entitlement (creditWorldQuest completion arm)', () => {
     const meta = metaOf(sim);
     const evs = completeThornpeak(sim);
     expect(meta.counters.questsCompleted).toBe(1);
-    expect(sim.countItem(CLUE_SCROLL_ITEM_ID)).toBe(0);
+    expect(mapsHeld(sim)).toBe(0);
     expect(meta.clueScrollCycle).toBe('');
-    expect(evs.filter((ev) => ev.type.startsWith('clueScroll'))).toHaveLength(0);
+    expect(evs.filter((ev) => ev.type.startsWith('treasureMap'))).toHaveLength(0);
   });
 
   it('pays at CLUE_SCROLL_MIN_LEVEL with the unreachable high-level slots not required', () => {
     const sim = slateSim(CLUE_SCROLL_MIN_LEVEL);
     completeThornpeak(sim);
-    expect(sim.countItem(CLUE_SCROLL_ITEM_ID)).toBe(1);
+    expect(mapsHeld(sim)).toBe(1);
   });
 
   it('pays nothing while a slot is still open', () => {
@@ -376,23 +404,23 @@ describe('the scroll entitlement (creditWorldQuest completion arm)', () => {
     if (!open) throw new Error('Expected a second slot');
     meta.worldQuestLog.delete(open.id);
     completeThornpeak(sim);
-    expect(sim.countItem(CLUE_SCROLL_ITEM_ID)).toBe(0);
+    expect(mapsHeld(sim)).toBe(0);
     expect(meta.clueScrollCycle).toBe('');
   });
 
-  it('a full stack loses the scroll for the day (the cycle is still marked)', () => {
+  it('full bags lose the map for the day (the cycle is still marked)', () => {
     const sim = slateSim(20);
     const meta = metaOf(sim);
-    sim.addItem(CLUE_SCROLL_ITEM_ID, CLUE_SCROLL_STACK_MAX);
+    fillBags(sim);
     sim.drainEvents();
     const evs = completeThornpeak(sim);
-    expect(sim.countItem(CLUE_SCROLL_ITEM_ID)).toBe(CLUE_SCROLL_STACK_MAX);
+    expect(mapsHeld(sim)).toBe(0);
     expect(meta.clueScrollCycle).toBe(meta.worldQuestCycle);
-    expect(ofType(evs, 'clueScrollLost')).toHaveLength(1);
-    expect(ofType(evs, 'clueScrollEarned')).toHaveLength(0);
+    expect(ofType(evs, 'treasureMapLost')).toHaveLength(1);
+    expect(ofType(evs, 'treasureMapEarned')).toHaveLength(0);
     // And the loss is final: nothing pays later in the same cycle.
     maybeAwardClueScroll(sim.ctx, meta, sim.player);
-    expect(sim.drainEvents().filter((ev) => ev.type.startsWith('clueScroll'))).toHaveLength(0);
+    expect(sim.drainEvents().filter((ev) => ev.type.startsWith('treasureMap'))).toHaveLength(0);
   });
 });
 
