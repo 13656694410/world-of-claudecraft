@@ -6,6 +6,7 @@ import {
   WORLD_PVP_TITLE_THRESHOLDS,
   worldPvpRewardsActive,
 } from './world_pvp_rewards_rules';
+import { worldPvpZonePolicyAt } from './world_pvp_zones';
 
 export function updateWorldPvpRewards(ctx: SimContext): void {
   if (ctx.worldPvpDisabled) return;
@@ -19,6 +20,8 @@ export function updateWorldPvpRewards(ctx: SimContext): void {
       ctx.entities.get(meta.entityId)!.pvpRewardsPaused
     )
       continue;
+    const player = ctx.entities.get(meta.entityId)!;
+    if (worldPvpZonePolicyAt(player.pos.x, player.pos.z) === 'sanctuary') continue;
     const before = state.rewardTicks ?? 0;
     if (before >= WORLD_PVP_MAX_REWARD_TICKS) continue;
     const ticks = before + 1;

@@ -1278,8 +1278,6 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
     'Wszędzie indziej to tereny sporne: mogą walczyć tylko dwaj oznaczeni gracze.',
   'hudChrome.worldPvp.groundFfa':
     'Drakelands, Frostveil Reach i Amberfall to wolna gra dla wszystkich: każdy tam może walczyć, niezależnie od flagi.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'Proving Shore i Eastbrook Vale to sanktuaria: żaden PvP Świata w ogóle.',
   'hudChrome.worldPvp.groupLine':
     'Członkowie drużyny i rajdu nigdy nie są sobie wrogami. Gildiomanie spoza twojej grupy mogą walczyć.',
   'hudChrome.worldPvp.honorLine':
@@ -2400,8 +2398,6 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     'Raz na trzy godziny, w momencie, którego nikt nie może przewidzieć, cała kraina jest poinformowana, że wzgórze wzniesie się w jednej ze stref wolny-dla-wszystkich w piętnaście minut, a okrąg, gdzie będzie stał, jest oznaczony na otwartym terenie. Kiedy się wznosi, stoi czterdzieści pięć minut, potem spada. Drużyna z większością graczy stojących w środku walczy o wzgórze, a po minucie nieprzerwanej większości wzgórze jest ich; samotny gracz liczy się jako drużyna jednego, ale członkowie rajdu nie liczą się wcale. Gdy drużyna trzyma wzgórze, każdy jej członek stojący w środku zdobywa Honor co minutę, a dłużej ta sama drużyna go trzyma, tym więcej każda minuta płaci: pełna drużyna trzymająca niezaprzestającane wzgórze na całą jego stojąć zarabia około tyle co trzy wygrane w polach bitwy. Gdy wzgórze zmienia ręce, nowi właściciele zaczynają rachunek od początku. Pasek nad polem pokazuje, kto to trzyma, twoje liczby przeciwko ich, i zegar konkurencji; /hill w czacie mówi, gdzie on stoi.',
   'guide.worldPvpPage.hillHeading': 'Król Wzgórza',
-  'guide.worldPvpPage.introZones':
-    'PvP na otwartym świecie gracza versus gracza jest opcjonalne, a grunt, na którym stoisz, decyduje, co to oznacza. Podnieś swoją flagę PvP, a każdy inny oflagowany gracz, który nie znajduje się w twojej drużynie lub rajdzie, staje się wrogiem na terenie spornym; opuść ją i, po krótkim opóźnieniu, jesteś znowu przechodzą daleko. Dwie strefy to świętuary, gdzie żadne światowe walki nie odbywają się, a trzy północne strefy to grunt wolny-dla-wszystkich, gdzie każdy obecny jest sprawiedliwą grą, flaga lub nie. Towarzysze z drużyny i rajdu nigdy nie są twoimi wrogami gdziekolwiek; towarysze gildi poza twoją grupą są sprawiedliwą grą jak każdy inny.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Pokonanie tego samego gracza znowu i znowu płaci mniej za każdym razem i wkrótce nic, a twój rachunek przeciwko temu graczowi zaczyna się tylko od nowa około godzinę po pierwszym z tych zabójstw, więc campowanie jednej ofiary nigdy nie jest warte czekania. Cel znacznie poniżej twojego poziomu płaci wcale. Pola bitwy i Areny prowadzą swoje własne zasady, gdy jesteś w środku, i płacą więcej Honor niż otwarty świat, więc świat PvP jest powolniejszą drogą do tego samego dostawcy. Rajdy nie zarabiają nic ze światowych zabójstw: członek rajdu nie otrzymuje Honor lub złota i nie zmniejsza udziału nikogo innego, więc walcz jako drużyna, aby być opłaconą.',
   'guide.worldPvpPage.limitsHeading': 'Zasady fair play',
@@ -2410,8 +2406,6 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'Co warta jest rozprawa',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Ani niezaflagowany walczący nic nie dostaje: złoto zmienia właściciela wyłącznie między dwoma zaflagowanymi graczami, choć wszyscy, którzy pomogli, nadal zarabiają Honor.',
-  'guide.worldPvpPage.zonesBody':
-    'Świat dzieli się na trzy rodzaje terenów. Wybrzeże Prób i Dolina Wschodniego Strumienia to sanktuaria: tam w ogóle nie ma walki PvP, czy jesteś zaflahowany, czy nie, więc nowa postać nigdy nie może być zaatakowana, zanim nauczy się, czym jest flaga. Większość świata to tereny sporne, gdzie reguła flagi powyżej to jedyne zasady. Smocze Ziemie, Szronowa Kraina i Bursztynowa Dolina, trzy północne strefy, to tereny pełnej walki: każdy stojący w nich może atakować każdego innego, flagę czy bez niej, i zostaniesz powiadomiony, gdy wejdziesz i znowu, gdy wyjdziesz. Zaatakowanie niezaflagowanego gracza tam podnosi twoją flagę, więc napastnik zawsze bierze na siebie ryzyko. Atak na już zaflagowanego gracza nigdy nie podnosi twojej flagi, co oznacza, że obrona siebie lub kogoś niezaflagowanego nic cię nie kosztuje.',
   'guide.worldPvpPage.zonesHeading': 'Gdzie walka PvP się odbywała',
   'landing.headline': 'Przygoda z przyjaciółmi.',
   'landing.contribute': 'Współtwórz grę',

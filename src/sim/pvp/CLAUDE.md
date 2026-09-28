@@ -45,8 +45,8 @@ ratings.
   `'contested'` and `'ffa'` applies at a position (`worldPvpZonePolicyAt`) or to
   a zone record (`worldPvpZonePolicyOf`), read off `ZoneDef.worldPvp`
   (data-as-code in `src/sim/content/`, absent meaning contested). A sanctuary
-  under EITHER player switches the world off (the Proving Shore and Eastbrook
-  Vale, so a new character cannot be fought); both players on free-for-all
+  under EITHER player switches the world off (only the Proving Shore;
+  Eastbrook Vale is contested); both players on free-for-all
   ground are hostile with no flag at all (the Drakelands, the Frostveil Reach and
   the Amberfall, the map's top row); everything else is the mutual-flag rule. The lookup is the strict
   rectangle containment (`zoneContaining`, never the clamping `zoneAt`), so the
@@ -110,7 +110,14 @@ ratings.
   `nextId` nor the shared rng stream moves
   (`tests/warfare_vendor_npc.test.ts` asserts both). His stock is the one
   canonical `content/pvp_honor.ts` table, shared with FURY.
-- Import the directory's public API through `src/sim/pvp/index.ts`, with ONE
+- `world_pvp_rewards_rules.ts` owns the pure 20% XP/reputation bonus, five
+  played-time title thresholds and bounded tick normalization. XP includes
+  lifetime XP. XP, faction and UI consumers import this leaf directly to avoid
+  the barrel runtime graph (a second deliberate direct-import exception).
+- `world_pvp_rewards.ts` accrues connected, armed played ticks and grants deeds
+  only at threshold crossings. Tutorial island pauses progress; logout preserves
+  it; requesting disarm resets it. Save full ticks, publish whole minutes.
+- Import the directory's public API through `src/sim/pvp/index.ts`, with the rewards leaf exception above and another
   deliberate exception: `warfare_quartermaster.ts` is NOT re-exported there
   (see the comment in `index.ts`). It needs `createNpc` from `../entity` at
   runtime while `entity.ts` imports this barrel, so re-exporting it would

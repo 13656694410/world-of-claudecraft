@@ -439,9 +439,8 @@ rectangle containment, so the instance plane reads as contested rather than as
 whichever overworld zone a clamping lookup would misreport:
 
 - `'sanctuary'`: no world PvP at all, flagged or not, under EITHER player. The
-  Proving Shore (`content/proving_shore.ts`) and Eastbrook Vale
-  (`content/zone1.ts`), so a new character can never be fought before they know
-  what the flag is.
+  Proving Shore (`content/proving_shore.ts`) is the only sanctuary. Raising
+  a flag is refused there; Eastbrook Vale is contested.
 - `'ffa'`: free-for-all. Everyone standing there is hostile to everyone else
   standing there, flag or no flag, whatever their levels (owner spec,
   2026-09-24: anyone on free-for-all ground is fair game), and every level
@@ -764,18 +763,18 @@ authored, which is why Thornhide appears last there and fourth in the shop.
 
 ## World PvP flag rewards
 
-Keeping `/pvp` on grants 20% more XP and faction reputation. XP multiplies
+Keeping `/pvp` on grants 20% more XP (including lifetime XP) and faction reputation. XP multiplies
 before rested kill XP; reputation multiplies before the existing level cap.
 Positive boosted awards round down to whole points. Turning PvP off stops
 both bonuses immediately, even while the five-minute disarm runs. Automatically
-raised flags receive the same rewards while armed. All zones count.
+raised flags receive the same rewards while armed. The Proving Shore pauses played-time progress without clearing the flag.
 
 The played-time streak grants permanent titles: Bold at 1 hour, Defiant at
 3 hours, Dauntless at 6 hours, Unyielding at 24 hours, and Indomitable at
 168 hours (7 days). Logout pauses the streak; `/pvp off` resets it, including
 when that countdown is later cancelled. Earned titles survive resets.
 This requested played-time reward is an explicit exception to the general
-Book of Deeds rule against attendance rewards. AFK and sanctuary time count.
+Book of Deeds rule against attendance rewards. AFK time counts; tutorial island time does not. Leaving the island resumes the streak.
 
 The existing character JSONB stores optional `worldPvp.rewardTicks`, an integer
 capped at 168 hours at `TICK_RATE`. Only simulation ticks accrue, and leaving or disconnected
@@ -788,4 +787,5 @@ The pure leaf `src/sim/pvp/world_pvp_rewards_rules.ts` owns amounts and threshol
 XP, reputation and UI consumers import this leaf directly to avoid the PvP
 barrel's runtime dependency graph. The system `world_pvp_rewards.ts` advances
 the capped counter from `updateWorldPvp`, with `ctx.grantDeed` only at thresholds.
+The wire readout rounds down to whole minutes; the UI patches its h:mm clock in place.
 Tests: `tests/world_pvp_rewards.test.ts` and `tests/world_pvp_view.test.ts`.

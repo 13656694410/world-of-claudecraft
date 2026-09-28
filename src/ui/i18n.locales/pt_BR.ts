@@ -1299,8 +1299,6 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
     'Todo o restante é contestado: só dois jogadores marcados podem lutar.',
   'hudChrome.worldPvp.groundFfa':
     'Drakelands, os Confins de Frostveil e Amberfall são livres para todos: qualquer um lá pode lutar, marcado ou não.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'A Costa da Provação e o Vale de Eastbrook são santuários: nenhum PvP Mundial ali.',
   'hudChrome.worldPvp.groupLine':
     'Membros de grupo e raide nunca são hostis entre si. Colegas de guilda fora do seu grupo podem lutar.',
   'hudChrome.worldPvp.honorLine': '{honor} de Honra por abate, dividida entre todos que ajudaram.',
@@ -2353,8 +2351,6 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     'Uma vez a cada três horas, em um momento que ninguém pode prever, todo o reino é avisado de que uma colina vai surgir em uma das zonas de todos contra todos dentro de quinze minutos, e o círculo onde ela vai ficar é marcado em terreno aberto. Quando surge, ela permanece por quarenta e cinco minutos, depois desaparece. O grupo com mais jogadores dentro dela disputa a colina, e depois de um minuto de maioria ininterrupta a colina é dele; um jogador sozinho conta como um grupo de um, mas membros de raide não contam de forma alguma. Enquanto um grupo controla a colina, cada um dos seus membros dentro dela ganha Honra a cada minuto, e quanto mais tempo o mesmo grupo a controla, mais cada minuto paga: um grupo completo controlando uma colina sem disputa durante toda a sua duração ganha cerca do mesmo que três vitórias em campo de batalha. Quando a colina muda de mãos, os novos donos recomeçam a contagem do zero. Uma barra sobre o campo mostra quem a controla, seus números contra os deles, e o relógio da disputa; /hill no chat informa onde ela está.',
   'guide.worldPvpPage.hillHeading': 'Rei da Colina',
-  'guide.worldPvpPage.introZones':
-    'O JcJ em mundo aberto é opcional, e o terreno onde você está determina o que isso significa. Erga sua bandeira de JcJ e todo outro jogador com bandeira que não esteja no seu grupo ou raide se torna um inimigo em terreno contestado; baixe-a e, depois de um breve atraso, você volta a ser um espectador. Duas zonas são santuários onde nenhuma luta mundial acontece, e as três zonas mais ao norte são terreno de todos contra todos, onde todos os presentes são alvo válido, com ou sem bandeira. Colegas de grupo e de raide nunca são seus inimigos em lugar nenhum; colegas de guilda fora do seu grupo são alvo válido como qualquer outro.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Derrotar o mesmo jogador repetidamente paga cada vez menos e logo nada, e sua contagem contra aquele jogador só recomeça cerca de uma hora depois da primeira dessas mortes, então esperar de tocaia por uma única vítima nunca compensa a espera. Um alvo muito abaixo do seu nível não paga nada. Campos de Batalha e Arenas seguem suas próprias regras enquanto você está dentro deles, e pagam mais Honra que o mundo aberto, então o JcJ mundial é o caminho mais lento até o mesmo vendedor. Raides não ganham nada com mortes no mundo: um membro de raide não recebe Honra nem ouro e não reduz a parte de mais ninguém, então lute em grupo para ser pago.',
   'guide.worldPvpPage.limitsHeading': 'Regras de jogo justo',
@@ -2363,8 +2359,6 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'O que uma morte vale',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Um lutador sem bandeira também não recebe nada: o ouro só muda de mãos entre dois jogadores com bandeira, embora todos que ajudaram ainda ganhem a Honra.',
-  'guide.worldPvpPage.zonesBody':
-    'O mundo tem três tipos de terreno. A Costa da Provação e o Vale de Eastbrook são santuários: nenhum JcJ mundial acontece ali, com ou sem bandeira, então um personagem novo nunca pode ser atacado antes de saber o que é a bandeira. A maior parte do mundo é contestada, onde a regra da bandeira acima é toda a história. As Drakelands, os Confins de Frostveil e o Amberfall, as três zonas mais ao norte, são terreno de todos contra todos: todos que estão nelas podem atacar todos os outros que também estão nelas, com ou sem bandeira, e você é avisado ao entrar e de novo ao sair. Atacar ali um jogador sem bandeira ergue a sua própria bandeira, então um agressor sempre acaba correndo o risco. Atingir um jogador que já está com bandeira nunca a ergue, o que significa que se defender, ou defender alguém sem bandeira, não custa nada.',
   'guide.worldPvpPage.zonesHeading': 'Onde o JcJ mundial acontece',
   'clues.hunt_amberfall_lantern_ferry.0':
     'Na beira da água ao norte de Lanternmere, o guardião das balsas de lanterna sabe qual luz se apagou. Fale com o Mestre da Balsa Caddow.',

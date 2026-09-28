@@ -259,6 +259,10 @@ export function setWorldPvpFlag(ctx: SimContext, pid: number, enabled: boolean):
       ctx.error(pid, `You must be at least level ${WORLD_PVP_MIN_LEVEL} to enable World PvP.`);
       return false;
     }
+    if (worldPvpZonePolicyAt(r.e.pos.x, r.e.pos.z) === 'sanctuary') {
+      ctx.error(pid, WORLD_PVP_SANCTUARY_LINE);
+      return false;
+    }
     if (current?.flagged) {
       // Mid-countdown: keep the flag, drop the clock.
       current.disarmAt = null;
@@ -727,7 +731,7 @@ export function worldPvpInfoFor(
   return {
     flagged: state?.flagged === true,
     disarmRemaining: remaining === null ? null : Math.round(remaining),
-    rewardSeconds: Math.floor((state?.rewardTicks ?? 0) / TICK_RATE),
+    rewardSeconds: Math.floor((state?.rewardTicks ?? 0) / (TICK_RATE * 60)) * 60,
     kills: state?.kills ?? 0,
     deaths: state?.deaths ?? 0,
     levelLocked: r.e.level < WORLD_PVP_MIN_LEVEL,

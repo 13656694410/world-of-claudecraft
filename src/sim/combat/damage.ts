@@ -1,4 +1,3 @@
-import { worldPvpRewardAmount } from '../pvp/world_pvp_rewards_rules';
 // Post-mitigation damage core, extracted from the Sim monolith (C1).
 //
 // This module owns the post-mitigation damage pipeline: dealDamage's amp/absorb/
@@ -56,6 +55,7 @@ import {
   worldPvpOnPlayerDamaged,
   worldPvpOnPlayerDeath,
 } from '../pvp';
+import { worldPvpRewardAmount } from '../pvp/world_pvp_rewards_rules';
 import { resolveRespawnSeconds } from '../respawn_policy';
 import { aurasSurvivingDeath } from '../resurrection';
 import { computeCharacterModifiers } from '../set_bonus_mods';

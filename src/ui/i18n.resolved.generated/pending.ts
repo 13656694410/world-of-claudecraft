@@ -10,39 +10,63 @@
 
 export const pending: Record<string, readonly string[]> = {
   "es": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "es_ES": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "fr_FR": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "fr_CA": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "en_CA": [],
   "it_IT": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "de_DE": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
@@ -51,57 +75,93 @@ export const pending: Record<string, readonly string[]> = {
   "ko_KR": [],
   "ja_JP": [],
   "pt_BR": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "ru_RU": [],
   "cs_CZ": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "nl_NL": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "pl_PL": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "id_ID": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "tr_TR": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "sv_SE": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "vi_VN": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "da_DK": [
+    "guide.worldPvpPage.introZones",
+    "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
+    "hudChrome.worldPvp.groundSanctuary",
     "hudChrome.worldPvp.rewardBonus",
+    "hudChrome.worldPvp.rewardPaused",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ]

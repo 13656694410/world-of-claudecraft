@@ -67,7 +67,7 @@ const SEED = 7;
 /** Contested ground (the mutual-flag rule), a free-for-all zone, and the two
  *  sanctuaries, by zone id; placeIn stands a player on the zone's graveyard
  *  (open ground, no hub colliders). Every fighter starts on contested ground:
- *  the default spawn is Eastbrook Vale, a sanctuary, where nobody is hostile. */
+ *  the default spawn is Eastbrook Vale; Thornpeak keeps the fixture explicit. */
 const CONTESTED_ZONE = 'thornpeak_heights';
 const FFA_ZONE = 'drakelands';
 const STARTER_ZONE = 'eastbrook_vale';
@@ -929,7 +929,7 @@ describe('the ground: sanctuaries', () => {
     flag(sim, a);
     flag(sim, b);
     expect(sim.isHostileTo(ent(sim, a), ent(sim, b))).toBe(true);
-    for (const zone of [STARTER_ZONE, TUTORIAL_ZONE]) {
+    for (const zone of [TUTORIAL_ZONE]) {
       placeIn(sim, a, zone);
       placeIn(sim, b, zone, 2);
       expect(sim.isHostileTo(ent(sim, a), ent(sim, b))).toBe(false);
@@ -949,8 +949,8 @@ describe('the ground: sanctuaries', () => {
     const c = addFighter(sim, 'Gimel');
     flag(sim, a);
     tickSeconds(sim, 1);
-    placeIn(sim, a, STARTER_ZONE);
-    placeIn(sim, c, STARTER_ZONE, 2);
+    placeIn(sim, a, TUTORIAL_ZONE);
+    placeIn(sim, c, TUTORIAL_ZONE, 2);
     expect(tickCollecting(sim, 1, a)).toContain(WORLD_PVP_SANCTUARY_LINE);
     placeIn(sim, c, CONTESTED_ZONE);
     expect(tickCollecting(sim, 1, c)).toEqual([]);
@@ -976,9 +976,9 @@ describe('the ground: sanctuaries', () => {
 
   it('aid given AND received inside a sanctuary never marks the helper (the real cast)', () => {
     const { sim, a, priest } = sanctuaryAid();
-    // The fighter is kited to the starter zone's edge with the priest inside it.
-    placeIn(sim, priest, STARTER_ZONE);
-    placeIn(sim, a, STARTER_ZONE, 2);
+    // The fighter is kited to the tutorial island with the priest inside it.
+    placeIn(sim, priest, TUTORIAL_ZONE);
+    placeIn(sim, a, TUTORIAL_ZONE, 2);
     sim.castAbilityOn('power_word_shield', a, priest);
     sim.tick();
     expect(ent(sim, a).auras.some((aura) => aura.kind === 'absorb')).toBe(true);
@@ -988,7 +988,7 @@ describe('the ground: sanctuaries', () => {
 
   it('aid GIVEN from inside a sanctuary marks nobody, the fighter still on contested ground', () => {
     const { sim, a, priest } = sanctuaryAid();
-    placeIn(sim, priest, STARTER_ZONE);
+    placeIn(sim, priest, TUTORIAL_ZONE);
     worldPvpOnPlayerAided(sim.ctx, ent(sim, a), ent(sim, priest));
     expect(ent(sim, priest).pvpFlag).toBeUndefined();
     expect(sim.worldPvpBooks.recentSupport.has(a)).toBe(false);
@@ -996,7 +996,7 @@ describe('the ground: sanctuaries', () => {
 
   it('aid RECEIVED inside a sanctuary marks nobody, the helper still on contested ground', () => {
     const { sim, a, priest } = sanctuaryAid();
-    placeIn(sim, a, STARTER_ZONE);
+    placeIn(sim, a, TUTORIAL_ZONE);
     worldPvpOnPlayerAided(sim.ctx, ent(sim, a), ent(sim, priest));
     expect(ent(sim, priest).pvpFlag).toBeUndefined();
     expect(sim.worldPvpBooks.recentSupport.has(a)).toBe(false);
@@ -1390,7 +1390,7 @@ describe('periodic harm follows the live verdict (src/sim/combat/periodic_harm.t
     const shed = dotted();
     flag(shed.sim, shed.priest);
     flag(shed.sim, shed.b);
-    placeIn(shed.sim, shed.b, STARTER_ZONE);
+    placeIn(shed.sim, shed.b, TUTORIAL_ZONE);
     tickSeconds(shed.sim, 7);
     expect(ent(shed.sim, shed.b).hp).toBe(ent(shed.sim, shed.b).maxHp);
     expect(hasDot(shed.sim, shed.b)).toBe(false);

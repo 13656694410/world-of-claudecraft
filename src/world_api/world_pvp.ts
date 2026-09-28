@@ -16,7 +16,7 @@ export interface WorldPvpInfo {
   /** Attackable by, and able to attack, other flagged players right now.
    *  Stays true through the whole disarm countdown. */
   flagged: boolean;
-  /** Whole played seconds in the current flag streak; absent on older servers. */
+  /** Played seconds rounded down to whole minutes; absent on older servers. */
   rewardSeconds?: number;
   /** Seconds until the flag drops after /pvp off, or null when it is not
    *  switching off (armed for good, or not flagged). */

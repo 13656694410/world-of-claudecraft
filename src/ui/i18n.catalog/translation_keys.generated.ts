@@ -14442,6 +14442,7 @@ export type TranslationKeyFlat =
   | 'hudChrome.worldPvp.record'
   | 'hudChrome.worldPvp.repeatLine'
   | 'hudChrome.worldPvp.rewardBonus'
+  | 'hudChrome.worldPvp.rewardPaused'
   | 'hudChrome.worldPvp.rewardProgress'
   | 'hudChrome.worldPvp.rewardTitles'
   | 'hudChrome.worldPvp.splitLine'

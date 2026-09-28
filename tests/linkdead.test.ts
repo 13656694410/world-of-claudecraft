@@ -880,7 +880,7 @@ describe('World PvP rewards during disconnect grace', () => {
     expect(meta.deedsEarned.has('pvp_flag_1h')).toBe(false);
     const saved = server.sim.serializeCharacter(session.pid)!;
     expect(saved.worldPvp!.rewardTicks).toBe(71_999);
-    expect(saved.worldPvp).not.toHaveProperty('pvpRewardsPaused');
+    expect(JSON.stringify(saved)).not.toContain('pvpRewardsPaused');
     const resumed = expectJoined(server.join(fakeWs(), 11, 101, 'Flagbearer', 'warrior', null));
     expect(resumed.pid).toBe(session.pid);
     server.sim.tick();

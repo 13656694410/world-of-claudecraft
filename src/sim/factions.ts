@@ -1,8 +1,8 @@
-import { worldPvpRewardAmount } from './pvp/world_pvp_rewards_rules';
 // Factions and standing progression: the deterministic simulation leaf for
 // allied faction identity, zone attribution, standing tiers, and reputation
 // awards. Pure functions; zero RNG, no wall clock, no DOM/Three.js imports.
 
+import { worldPvpRewardAmount } from './pvp/world_pvp_rewards_rules';
 import type { PlayerMeta } from './sim';
 import type { WorldQuestDef } from './types';
 

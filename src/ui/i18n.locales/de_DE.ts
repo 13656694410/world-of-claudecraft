@@ -1162,8 +1162,6 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
     'Überall sonst ist umkämpftes Gebiet: Nur zwei markierte Spieler können kämpfen.',
   'hudChrome.worldPvp.groundFfa':
     'Die Drakenlande, der Frostschleier und der Bernsteinfall sind Jeder-gegen-Jeden-Gebiete: Dort kann jeder kämpfen, markiert oder nicht.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'Die Bewährungsküste und das Eastbrook-Tal sind Schutzgebiete: Dort gibt es überhaupt kein Welt-PvP.',
   'hudChrome.worldPvp.groupLine':
     'Gruppen- und Schlachtzugsmitglieder sind einander niemals feindlich gesinnt. Gildenmitglieder außerhalb Eurer Gruppe können kämpfen.',
   'hudChrome.worldPvp.honorLine':
@@ -2448,8 +2446,6 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     'Einmal alle drei Stunden, zu einem Zeitpunkt, den niemand vorhersehen kann, wird dem ganzen Reich mitgeteilt, dass in fünfzehn Minuten in einer der Jeder-gegen-jeden-Zonen ein Hügel entstehen wird, und der Kreis, an dem er stehen wird, ist auf offenem Gelände markiert. Sobald er entsteht, besteht er fünfundvierzig Minuten lang, dann fällt er. Die Gruppe mit den meisten Spielern darin bestreitet den Hügel, und nach einer Minute ungebrochener Mehrheit gehört der Hügel ihr; ein einzelner Spieler zählt als Gruppe von einem, doch Schlachtzugsmitglieder zählen überhaupt nicht. Solange eine Gruppe den Hügel hält, verdient jedes ihrer Mitglieder darin jede Minute Ehre, und je länger dieselbe Gruppe ihn hält, desto mehr zahlt jede Minute: Eine volle Gruppe, die einen unbestrittenen Hügel seine gesamte Standzeit über hält, verdient etwa so viel wie drei Schlachtfeldsiege. Wechselt der Hügel den Besitzer, beginnen die neuen Halter die Zählung von vorn. Ein Balken über dem Feld zeigt, wer ihn hält, deine Zahlen gegen ihre und die Bestreitungsuhr; /hill im Chat verrät, wo er steht.',
   'guide.worldPvpPage.hillHeading': 'König des Hügels',
-  'guide.worldPvpPage.introZones':
-    'Spieler-gegen-Spieler in der offenen Welt ist freiwillig, und der Boden, auf dem du stehst, entscheidet, was das bedeutet. Setze deine PvP-Flagge, und jeder andere geflaggte Spieler, der nicht in deiner Gruppe oder deinem Schlachtzug ist, wird auf umkämpftem Gebiet zu deinem Feind; senke sie, und nach einer kurzen Verzögerung bist du wieder Zuschauer. Zwei Zonen sind Zufluchtsorte, in denen überhaupt kein Weltkampf stattfindet, und die drei nördlichsten Zonen sind Jeder-gegen-jeden-Gebiet, auf dem jeder Anwesende Freiwild ist, mit oder ohne Flagge. Gruppen- und Schlachtzugsmitglieder sind nirgends deine Feinde; Gildenmitglieder außerhalb deiner Gruppe sind Freiwild wie jeder andere.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Denselben Spieler immer wieder zu besiegen zahlt jedes Mal weniger und bald nichts mehr, und deine Zählung gegen diesen Spieler beginnt erst etwa eine Stunde nach der ersten dieser Tötungen von Neuem, sodass das Campen eines einzelnen Opfers nie das Warten wert ist. Ein Ziel weit unter deiner Stufe zahlt überhaupt nichts. Schlachtfelder und Arenen folgen ihren eigenen Regeln, solange du dich darin befindest, und sie zahlen mehr Ehre als die offene Welt, sodass Welt-PvP der langsamere Weg zu demselben Händler ist. Schlachtzüge verdienen nichts an Welttötungen: Ein Schlachtzugsmitglied erhält keine Ehre oder kein Gold und verkleinert auch niemandes Anteil, kämpfe also als Gruppe, um bezahlt zu werden.',
   'guide.worldPvpPage.limitsHeading': 'Fair-Play-Regeln',
@@ -2458,8 +2454,6 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'Was eine Tötung wert ist',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Ein nicht geflaggter Kämpfer nimmt ebenfalls keins: Gold wechselt nur zwischen zwei geflaggten Spielern den Besitzer, wenngleich alle, die geholfen haben, weiterhin die Ehre verdienen.',
-  'guide.worldPvpPage.zonesBody':
-    'Die Welt kennt drei Arten von Boden. Die Bewährungsküste und das Eastbrook-Tal sind Zufluchtsorte: Dort findet überhaupt kein Welt-PvP statt, geflaggt oder nicht, sodass ein neuer Charakter nie bekämpft werden kann, bevor er weiß, was die Flagge bedeutet. Der größte Teil der Welt ist umkämpft, wo die obige Flaggenregel die ganze Geschichte ist. Die Drakenlande, der Frostschleier und der Bernsteinfall, die drei nördlichsten Zonen, sind Jeder-gegen-jeden-Gebiet: Jeder, der darin steht, kann jeden anderen angreifen, der darin steht, mit oder ohne Flagge, und du wirst benachrichtigt, sobald du hineinquerst, und erneut, wenn du sie verlässt. Einen dort nicht geflaggten Spieler anzugreifen setzt deine eigene Flagge, sodass ein Angreifer stets das Risiko trägt. Einen bereits geflaggten Spieler zu treffen setzt sie nie, was bedeutet, dass dich selbst zu verteidigen oder jemanden zu verteidigen, der nicht geflaggt ist, nichts kostet.',
   'guide.worldPvpPage.zonesHeading': 'Wo Welt-PvP stattfindet',
   'landing.headline': 'Abenteuer mit Freunden.',
   'landing.contribute': 'Zum Spiel beitragen',

@@ -2,13 +2,14 @@ import { describe, expect, it } from 'vitest';
 import { grantXp } from '../src/sim/combat/damage';
 import { BUILTIN_WORLD } from '../src/sim/data';
 import { awardFactionReputation, maxStandingForLevel } from '../src/sim/factions';
+import { worldPvpInfoFor } from '../src/sim/pvp/world_pvp';
 import {
   sanitizeWorldPvpRewardTicks,
   WORLD_PVP_MAX_REWARD_TICKS,
   WORLD_PVP_TITLE_THRESHOLDS,
 } from '../src/sim/pvp/world_pvp_rewards_rules';
 import { Sim } from '../src/sim/sim';
-import { TICK_RATE } from '../src/sim/types';
+import { MAX_LEVEL, TICK_RATE } from '../src/sim/types';
 
 function fixture() {
   const sim = new Sim({
@@ -24,6 +25,73 @@ function fixture() {
 }
 
 describe('World PvP rewards', () => {
+  it.each([10, MAX_LEVEL])('boosts lifetime XP at level %s', (level) => {
+    const { sim, pid, meta } = fixture();
+    sim.setPlayerLevel(level, pid);
+    sim.setWorldPvpFlag(true, pid);
+    const before = meta.lifetimeXp;
+    grantXp(sim.ctx, 100, meta);
+    expect(meta.lifetimeXp - before).toBe(120);
+  });
+
+  it('enables in Eastbrook, freezes on tutorial island through logout, and resumes on exit', () => {
+    const { sim, pid, meta } = fixture();
+    const player = sim.entities.get(pid)!;
+    player.pos.x = 0;
+    player.pos.z = 0;
+    sim.setWorldPvpFlag(true, pid);
+    expect(meta.worldPvp!.flagged).toBe(true);
+    meta.worldPvp!.rewardTicks = 3600 * TICK_RATE - 1;
+    player.pos.x = -360;
+    sim.tick();
+    expect(meta.worldPvp!.rewardTicks).toBe(3600 * TICK_RATE - 1);
+    expect(meta.deedsEarned.has('pvp_flag_1h')).toBe(false);
+    const saved = sim.serializeCharacter(pid)!;
+    sim.removePlayer(pid);
+    const restoredPid = sim.addPlayer('warrior', 'Flagbearer', { state: saved });
+    const restored = sim.players.get(restoredPid)!;
+    expect(sim.entities.get(restoredPid)!.pos.x).toBe(-360);
+    sim.tick();
+    expect(restored.worldPvp!.flagged).toBe(true);
+    expect(restored.worldPvp!.rewardTicks).toBe(3600 * TICK_RATE - 1);
+    sim.entities.get(restoredPid)!.pos.x = 0;
+    sim.tick();
+    expect(restored.worldPvp!.rewardTicks).toBe(3600 * TICK_RATE);
+    expect(restored.deedsEarned.has('pvp_flag_1h')).toBe(true);
+  });
+
+  it('refuses enabling or cancelling disarm on tutorial island', () => {
+    const { sim, pid, meta } = fixture();
+    const player = sim.entities.get(pid)!;
+    player.pos.x = -360;
+    player.pos.z = 0;
+    sim.setWorldPvpFlag(true, pid);
+    expect(meta.worldPvp?.flagged ?? false).toBe(false);
+    player.pos.x = 0;
+    sim.setWorldPvpFlag(true, pid);
+    sim.time += 10;
+    sim.setWorldPvpFlag(false, pid);
+    const disarmAt = meta.worldPvp!.disarmAt;
+    player.pos.x = -360;
+    sim.time += 10;
+    sim.setWorldPvpFlag(true, pid);
+    expect(meta.worldPvp!.disarmAt).toBe(disarmAt);
+  });
+
+  it('publishes only whole played minutes while saving precise ticks', () => {
+    const { sim, pid, meta } = fixture();
+    sim.setWorldPvpFlag(true, pid);
+    meta.worldPvp!.rewardTicks = 60 * TICK_RATE - 2;
+    expect(worldPvpInfoFor(sim.ctx, pid)!.rewardSeconds).toBe(0);
+    sim.tick();
+    expect(worldPvpInfoFor(sim.ctx, pid)!.rewardSeconds).toBe(0);
+    sim.tick();
+    expect(worldPvpInfoFor(sim.ctx, pid)!.rewardSeconds).toBe(60);
+    sim.tick();
+    expect(worldPvpInfoFor(sim.ctx, pid)!.rewardSeconds).toBe(60);
+    expect(sim.serializeCharacter(pid)!.worldPvp!.rewardTicks).toBe(60 * TICK_RATE + 1);
+  });
+
   it('adds 20% to all XP and positive reputation, respecting reputation caps', () => {
     const { sim, pid, meta } = fixture();
     const before = meta.lifetimeXp;
