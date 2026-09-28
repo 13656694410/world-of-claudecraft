@@ -1167,9 +1167,9 @@ export const cs_CZ: EnTranslations = {
       "objectiveValue": "{current} / {total}",
       "collapseHint": "Sbalit tracker úkolů",
       "expandHint": "Rozbalit tracker úkolů",
-      "worldQuests": "World Quests",
-      "worldQuestsCollapseHint": "Collapse world quests",
-      "worldQuestsExpandHint": "Expand world quests"
+      "worldQuests": "Světové úkoly",
+      "worldQuestsCollapseHint": "Sbalit světové úkoly",
+      "worldQuestsExpandHint": "Rozbalit světové úkoly"
     },
     "interfaceTabs": {
       "general": "Obecné",
@@ -1664,10 +1664,10 @@ export const cs_CZ: EnTranslations = {
     },
     "riftTracker": {
       "title": "Trhlina",
-      "hoardTitle": "Buried Hoard",
-      "hoardGoal": "Defeat the hoard keeper",
-      "hoardChestGoal": "Open the hoard chest",
-      "hoardClaimedGoal": "The hoard is yours",
+      "hoardTitle": "Pohřbený poklad",
+      "hoardGoal": "Poraz strážce pokladu",
+      "hoardChestGoal": "Otevři truhlici pokladu",
+      "hoardClaimedGoal": "Poklad je tvůj",
       "floor": "Patro {current} z {total}",
       "closesIn": "Zavře se za {time}",
       "clockMs": "{minutes}:{seconds}",
@@ -2878,16 +2878,16 @@ export const cs_CZ: EnTranslations = {
       "openProfessions": "Otevřené profese"
     },
     "treasureMap": {
-      "close": "Close treasure map",
-      "zone": "Somewhere in {zone}",
-      "hint": "Find the ground this map shows, stand on the X, and use the map again to dig. A buried hoard opens for you and your party.",
-      "upgradeNote": "Redrawing it as a {rarity} map takes {inks} Cartographer's Ink (you hold {held}). The faction quartermasters sell it.",
-      "upgradeMaxed": "No cartographer could better this map.",
+      "close": "Zavřít mapu pokladu",
+      "zone": "Někde v {zone}",
+      "hint": "Najdi půdu kterou mapa ukazuje, stůj na X a použij mapu znovu k vykopávání. Pohřbený poklad se otevře pro tebe a tvou skupinu.",
+      "upgradeNote": "Překreslení jako {rarity} mapu trvá {inks} kartografského inkoustu (máš {held}). Kvartermasterů frakce to prodávají.",
+      "upgradeMaxed": "Žádný kartograf by tuto mapu nezvýšil lépe.",
       "rarity": {
-        "common": "Common",
-        "rare": "Rare",
-        "epic": "Epic",
-        "legendary": "Legendary"
+        "common": "Běžný",
+        "rare": "Vzácný",
+        "epic": "Epický",
+        "legendary": "Legendární"
       }
     },
     "currencies": {
@@ -2905,23 +2905,23 @@ export const cs_CZ: EnTranslations = {
       "wocPreview": "Náhled zůstatku, zatím neověřeno",
       "lifetime": "Získáno celkem: {amount}",
       "factionPending": "Frakční měna: čeká na 2. fázi",
-      "riftWatchMark": "Rift Watch Mark",
-      "riftWatchMarkNote": "World Quests in Rift Watch zones",
-      "churchOrderCrest": "Order Crest",
-      "churchOrderCrestNote": "World Quests in Church Order zones",
-      "automatonCog": "Automaton Cog",
-      "automatonCogNote": "World Quests in Automaton zones"
+      "riftWatchMark": "Známka Hlídky trhlin",
+      "riftWatchMarkNote": "Světové úkoly v zónách Hlídky trhlin",
+      "churchOrderCrest": "Erb řádu",
+      "churchOrderCrestNote": "Světové úkoly v zónách Církevního řádu",
+      "automatonCog": "Ozubené kolo automatu",
+      "automatonCogNote": "Světové úkoly v zónách automatů"
     },
     "worldQuestTooltip": {
-      "factionLine": "Faction: {faction}",
-      "timeRemaining": "Time remaining:",
+      "factionLine": "Frakce: {faction}",
+      "timeRemaining": "Zbývající čas:",
       "standingAmount": "{amount} {faction}",
       "currencyAmount": "{amount} {currency}",
-      "standingReward": "+{amount} {faction} Standing",
+      "standingReward": "+{amount} {faction} postavení",
       "currencyReward": "+{amount} {currency}"
     },
     "worldQuestBanner": {
-      "subtitle": "World Quest"
+      "subtitle": "Světový úkol"
     },
     "reputation": {
       "intro": "Všechny tři frakce postupují najednou: každý světový úkol se počítá do frakce své zóny.",
@@ -5330,9 +5330,9 @@ export const cs_CZ: EnTranslations = {
       "enchant_chest_lucent_stamina": "Rytina na hrudi: Zářivá výdrž",
       "enchant_feet_lucent_agility": "Rytina na botách: Zářivá hbitost",
       "enchant_lucent_infusion": "Zářivá infuze",
-      "enchant_offhand_spirit": "Offhand Etching: Spirit",
-      "enchant_feet_shadowstride": "Boot Etching: Shadowstride",
-      "enchant_gloves_forged_might": "Glove Etching: Forged Might",
+      "enchant_offhand_spirit": "Gravírování levé ruky: Duch",
+      "enchant_feet_shadowstride": "Gravírování bot: Stínový krok",
+      "enchant_gloves_forged_might": "Gravírování rukavic: Vykovaná moc",
       "enchant_weapon_riftwalkers_grace": "Milost chodce trhlin",
       "enchant_weapon_dawnfire_etching": "Rytina na zbrani: Plamen úsvitu",
       "enchant_weapon_dawns_benediction": "Rytina na zbrani: Požehnání úsvitu",
@@ -5346,20 +5346,20 @@ export const cs_CZ: EnTranslations = {
       "enchant_weapon_piston_drive": "Natrvalo vyryje do obouruční zbraně 12 síly a 25 hodnocení kritického zásahu. Nelze použít na jednoruční zbraň. Pevný bonus, neškáluje se."
     },
     "factionRewards": {
-      "alliedHearthstoneUse": "Use: Teleports you to your attuned faction hub. (10 sec cast, 15 min cooldown)",
-      "alliedHearthstoneAttuned": "Attuned to: {hub}",
-      "hub_none": "None (Use near a faction hub to attune)",
-      "hub_rift_watch": "Drifthaven (The Rift Watch)",
-      "hub_church_order": "Eastbrook Vale (The Church Order)",
-      "hub_automatons": "South Reach (The Automaton Foundry)",
-      "riftGliderUse": "Use: Unfolds the glider, slowing falling speed for 30 sec. Landing or taking damage cancels the effect. (2 min cooldown)",
-      "targetDummyUse": "Use: Deploys a mechanical target dummy in the open world for 2 minutes to practice combat abilities. (5 min cooldown)",
-      "battleStandardUse": "Use: Plants the Consecrated Dawn Battle Standard for 5 minutes, significantly increasing out-of-combat health and mana regeneration for all nearby allies. Remaining near it for 10 seconds also grants Blessing of the Dawn (+5% to all stats for 30 min). (5 min cooldown)",
-      "shockBombUse": "Use: Throws a shock bomb up to 30 yards, dealing 120 to 160 Nature damage to all enemies within 5 yards. (1 min cooldown)",
-      "invisibilityUse": "Use: Shrouds you in stealth for 6 sec. (2 min cooldown)",
-      "armorKitUse": "Use: Reinforces your chest armor, increasing Armor by 12 for 1 hour.",
-      "sharpeningStoneUse": "Use: Sharpens your main hand weapon, increasing Attack Power by 6 for 30 min.",
-      "manaElixirUse": "Use: Increases Spirit by 6 for 1 hour."
+      "alliedHearthstoneUse": "Použití: Teleportuje tě do tvého sladěného domovského města. (10 sekund seslání, 15 minut cooldown)",
+      "alliedHearthstoneAttuned": "Sladěno s: {hub}",
+      "hub_none": "Žádný (Použij blízko domovského města frakce)",
+      "hub_rift_watch": "Drifthaven (Hlídka trhlin)",
+      "hub_church_order": "Eastbrookské údolí (Církevní řád)",
+      "hub_automatons": "Jižní dosah (Kovárna automatů)",
+      "riftGliderUse": "Použití: Otevře kluzák, zpomaluje padající rychlost na 30 sekund. Přistání nebo zranění efekt zruší. (2 minuty cooldown)",
+      "targetDummyUse": "Použití: Rozmístí mechanickou terčovou figurínu v otevřeném světě na 2 minuty k tréninku bojových schopností. (5 minut cooldown)",
+      "battleStandardUse": "Použití: Zasadí prapor prvního úsvitu na 5 minut, značně zvyšuje regeneraci zdraví a many mimo boj pro všechny blízké spojence. Zůstaneš-li u něj 10 sekund, také získáš požehnání úsvitu (+5% všem statistikám na 30 minut). (5 minut cooldown)",
+      "shockBombUse": "Použití: Hodí šokovou bombu až 30 yardů daleko, způsobuje 120 až 160 arciduchovo poškození všem nepřátelům do 5 yardů. (1 minuta cooldown)",
+      "invisibilityUse": "Použití: Skrývá tě v skrytosti na 6 sekund. (2 minuty cooldown)",
+      "armorKitUse": "Použití: Posílí tvou hrudní zbroj, zvýší obranu o 12 na 1 hodinu.",
+      "sharpeningStoneUse": "Použití: Nabrousí tvou zbraň v hlavní ruce, zvyšuje útočnou moc o 6 na 30 minut.",
+      "manaElixirUse": "Použití: Zvyšuje duch o 6 na 1 hodinu."
     },
     "professions": {
       "title": "Profese",
@@ -6132,7 +6132,7 @@ export const cs_CZ: EnTranslations = {
       "sourceActivityCorpseHarvest": "Získáno při sklízení mrtvol tvorů",
       "sourceActivityMasterworkCraft": "Získáno vytvořením mistrovského díla",
       "sourceActivityRiftFirstClear": "Uděleno každému členu družiny, která zvládne první průchod hodnocenou trhlinou",
-      "sourceActivityBuriedHoard": "Found in the reward chest of a Buried Hoard, the vault a treasure map leads to",
+      "sourceActivityBuriedHoard": "Nalezeno v odměnném truhlici pohřbeného pokladu, trezoru který mapu vede",
       "cellMissingSourceAria": "{name}, dosud nenalezeno, {source}",
       "cellOwnedClearsAria": "{name}, zkatalogizováno, poprvé nalezeno při průchodu {count}",
       "searchPlaceholder": "Hledat relikvie",
@@ -6873,8 +6873,8 @@ export const cs_CZ: EnTranslations = {
       "3": "Na východ a trochu na jih od místa, kde popel přechází v duny, se skrývá spálený kus země s tím, co pohřbil popel. Použij tam svitek a kopej.",
       "title": "Popel u brány",
       "reply": {
-        "1": "The wind came off the eastern dunes carrying ash, and ash does not blow in from empty sand. Sela at the garrison stores logs every patrol. She will talk, once someone feeds her.",
-        "2": "Bread at last, bless you. The patrol swore it saw smoke rising from bare sand, east and a little south of the dunes, where nothing is left to burn."
+        "1": "Vítr z východních dun přenesl popel, a popel se nevynoří z pouhého písku. Sela v posádce si zapisuje každou patrolu. Bude mluvit, až ji někdo nakrmí.",
+        "2": "Konečně chléb, požehnáme si. Hlídka přísahala, že viděla kouř stoupat z pouhého písku, na východě a kousek na jih od dun, kde už není nic k zapálení."
       }
     },
     "hunt_frostveil_aurora_vigil": {
@@ -6883,7 +6883,7 @@ export const cs_CZ: EnTranslations = {
       "2": "Východně od vyjících teras, kousek na jih, leží sníh plošší, než by měl. Použij tam svitek a kopej.",
       "title": "Světla nad schody",
       "reply": {
-        "1": "You knelt, and the lights answered. Last night they bent east past the terraces and pointed straight down at the snow."
+        "1": "Klekla jsi si, a světla odpověděla. Včera v noci se ohla na východ za terasami a směřovaly přímo dolů do sněhu."
       }
     },
     "hunt_amberfall_lantern_ferry": {
@@ -6893,8 +6893,8 @@ export const cs_CZ: EnTranslations = {
       "3": "Severovýchodně od návrší, kde hoří škvárové javory rudou barvou, leží listí do kruhu, který nevytvořil žádný vítr. Použij tam svitek a kopej.",
       "title": "Lucerny nad jezerem",
       "reply": {
-        "0": "One lantern went dark last night, the one that faces the old stone across the water. My ferrymen will not go near it. Perhaps you will.",
-        "2": "Cold well water, just what the trees wanted. Up past the red maples the leaves have been falling in a ring, and no tree of mine drops its leaves that neatly."
+        "0": "Včera v noci jednu lucernu zhasla, tu, která se dívá na starý kámen přes vodu. Moji přeplatcové se k ní neodváží. Možná ty ano.",
+        "2": "Chladná voda ze studny, přesně to, co stromy potřebovaly. Nad červenými javory padají listy v pravidelném kruhu, a žádný z mých stromů nepadá listy tak rovnoměrně."
       }
     },
     "hunt_willowfen_fenwitch_salt": {
@@ -6903,7 +6903,7 @@ export const cs_CZ: EnTranslations = {
       "2": "Jihovýchodně od tůní, jež se lesknou v močálu, zůstává jeden pahorek suché země suchý po celý rok. Použij tam svitek a kopej.",
       "title": "Sůl bažinné čarodějky",
       "reply": {
-        "0": "Salt. Good, you listen. The flats beyond the reeds make everyone drowsy. Go and sigh there like you mean it, and the fen will show you the rest."
+        "0": "Sůl. Dobře, posloucháš. Slaníště za třtinou způsobuje všem ospalost. Jdi tam a povzdychej si, jako to myslíš vážně, a bažina ti ukáže zbytek."
       }
     },
     "hunt_nightbloom_sleepless_vigil": {
@@ -6913,7 +6913,7 @@ export const cs_CZ: EnTranslations = {
       "3": "Jihovýchodně od pole, kde se stahuje soumrak, se měsíční svit sbírá na jednom holém kusu půdy. Použij tam svitek a kopej.",
       "title": "Vigilie beze spánku",
       "reply": {
-        "1": "A star fell three nights ago, and it fell toward the old barrow north of town. The dead there never sleep. Greet them as a soldier would."
+        "1": "Hvězda padla před třemi nocemi, a padla směrem ke starému náhonu na sever od města. Mrtví tam nikdy nespí. Pozdrav je jako by ses byl(a) voják."
       }
     },
     "hunt_wraithwood_mournstone_candles": {
@@ -6923,8 +6923,8 @@ export const cs_CZ: EnTranslations = {
       "3": "Jihovýchodně od mýtiny, kde lovčí kladl své nástrahy, byl listový spad nedávno obrácen naruby. Použij tam svitek a kopej.",
       "title": "Svíce pro Mournstone",
       "reply": {
-        "0": "The vicar ordered that candle and never paid for it. He has been fasting ever since, praying and nothing else. Take him something to chew and ask him why.",
-        "1": "Thank you, friend. I never lit that candle. Something walks the glade past the crows at night, and I could not face it. Go and stand there, if you can."
+        "0": "Vikář si objednal svíci a nikdy za ni nezaplatil. Od té doby se postí, jen se modlí. Vezmi mu něco k žvýknutí a ptej se ho proč.",
+        "1": "Děkuji ti, příteli. Rozžehl jsem si tu svíci. Něco se prochází po lesíku kolem vran v noci, a já jsem to nemohl čelit. Jdi si tam stát, pokud to zvládneš."
       }
     },
     "hunt_palmreach_sunken_idol": {
@@ -6934,7 +6934,7 @@ export const cs_CZ: EnTranslations = {
       "3": "Severovýchodně od místa, kde houští otevírá svá ústa k moři, je písek navršen výš, než kam dosahuje příliv. Použij tam svitek a kopej.",
       "title": "Tajemství modly",
       "reply": {
-        "1": "Below the vines the divers found an idol, and the idol did not like them. Anyone who stood tall before it did not come back. Be small before it."
+        "1": "Pod vinemi potápěči našli sochu, a socha se jim nelíbila. Každý, kdo před ní stál v plné výšce, se nevrátil. Buď před ní malý."
       }
     },
     "hunt_evergarden_beacon_road": {
@@ -6944,8 +6944,8 @@ export const cs_CZ: EnTranslations = {
       "3": "Severozápadně od starého majáku, kousek od cesty vedoucí od světla dolů, byl drn odříznut a znovu položen zpátky. Použij tam svitek a kopej.",
       "title": "Maják a květ",
       "reply": {
-        "0": "Proper compost, the beds will live. The old miller buried something before he left. His mill still turns in the far corner of the gardens. Go and stand by it.",
-        "2": "So the mill sent you down the coast road. The beacon keeps one last secret: northwest of it, just off the path, the turf was cut and laid back. Dig there."
+        "0": "Správný kompost, záhony budou žít. Starý mlynář tam před odchodem něco zakopal. Jeho mlýn se stále točí v dalekém koutě zahrad. Jdi si tam stát vedle něj.",
+        "2": "Takže mlýn tě poslal po pobřežní cestě. Maják si střeží poslední tajemství: na severozápad od něj, hned vedle cesty, byl trávník vyříznut a vrácen zpět. Kopej tam."
       }
     }
   },
@@ -10249,11 +10249,11 @@ export const cs_CZ: EnTranslations = {
       "pylonLit": "Runový pilíř vzplane k životu ({lit}/{total}).",
       "wayDownOpens": "Cesta dolů se protrhává.",
       "exitOpens": "Trhlina se zachvěje. Cesta domů se protrhne za padlými.",
-      "hoardEnter": "You climb down into {name}.",
-      "hoardExitOpens": "The hoard is yours. Return to the entrance to climb out.",
-      "hoardStepBack": "You climb back out through the hoard entrance.",
-      "hoardNotYours": "This hoard was dug up by another party.",
-      "hoardEntrantsFull": "This hoard has already admitted five adventurers.",
+      "hoardEnter": "Slézeš dolů do {name}.",
+      "hoardExitOpens": "Poklad je tvůj. Vrať se na vchod, abys mohl(a) vylézat.",
+      "hoardStepBack": "Vylezeš zpět vchodem do pokladu.",
+      "hoardNotYours": "Tento poklad vykopala jiná skupina.",
+      "hoardEntrantsFull": "Tento poklad již přijal pět dobrodružů.",
       "portalOpens": "Trhlina stupně {tier} se protrhává v {zone}!",
       "portalSealed": "Trhlina stupně {tier} v {zone} byla zapečetěna.",
       "portalCollapses": "Trhlina stupně {tier} v {zone} se hroutí.",
@@ -10510,7 +10510,7 @@ export const cs_CZ: EnTranslations = {
       "nhaliaBlackwaterMark": "{name} označuje {player} Černou vodou!"
     },
     "factionVendor": {
-      "currencyRequired": "You need {amount} {currency} to purchase that."
+      "currencyRequired": "Potřebuješ {amount} {currency} na nákup toho."
     },
     "lockpick": {
       "lockYields": "Zámek povoluje! Kořist {tier}.",
@@ -11132,7 +11132,7 @@ export const cs_CZ: EnTranslations = {
       "alreadyInWorld": "Postava už je ve světě.",
       "accountSessionLimit": "Příliš mnoho postav na tomto účtu už je ve světě.",
       "takenOver": "Tvoje postava byla převzata jinou relací.",
-      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
+      "vaultMailRecovering": "Tvá odměna z trezoru se obnovuje. Zkus to za chvíli.",
       "renameBeforeEntering": "Tato postava musí být před vstupem do světa přejmenována.",
       "renameNotPermitted": "Přejmenování této postavy není povoleno.",
       "unsupportedMediaType": "Nepodporovaný formát požadavku.",
@@ -11476,8 +11476,8 @@ export const cs_CZ: EnTranslations = {
         "dungeonExit": "Východ z dungeonu",
         "delveEntrance": "Vstup do výpravy: {name}",
         "worldPassage": "Průchod do oblasti: {zone}",
-        "hoardEntrance": "Buried Hoard entrance",
-        "hoardReturnEntrance": "Hoard return entrance",
+        "hoardEntrance": "Vchod do pohřbeného pokladu",
+        "hoardReturnEntrance": "Vchod zpět z pokladu",
         "riftEntrance": "Vstup do trhliny: {name}",
         "hostileEnemy": "Nepřátelská jednotka",
         "aggressiveEnemy": "Nepřítel, který na tebe útočí",
@@ -12214,34 +12214,34 @@ export const cs_CZ: EnTranslations = {
       "rift_storm_strike": "Hněv Vyvolávače bouří",
       "rift_tide_execution": "Propastná tlama",
       "rift_tide_strike": "Drtivá hlubina",
-      "hoard_cast_fear": "Terrifying Roar",
-      "hoard_cast_stun": "Stunning Blow",
-      "hoard_cast_drowning_hook": "Drowning Hook",
-      "hoard_cast_rime_beam": "Rime Beam",
-      "hoard_cast_cinder_bolt": "Cinder Bolt",
-      "hoard_cast_void_empower": "Void Empowerment",
-      "hoard_cast_webbing": "Webbing",
-      "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Headlong Charge",
-      "hoard_cast_silk_snare": "Silk Snare",
-      "hoard_cast_silence": "Silencing Shriek",
-      "hoard_cast_hex": "Hex",
-      "hoard_lightning_strike": "Lightning Strike",
-      "hoard_ice_age": "Ice Age",
-      "hoard_pulsar_overload": "Pulsar Overload",
-      "hoard_rolling_boulder": "Rolling Boulder",
-      "hoard_goblin_escape": "Escaping",
-      "hoard_cast_mole_rake": "Claw Rake",
-      "hoard_cast_burrow": "Burrow",
-      "hoard_cast_tunnel": "Tunneling",
-      "hoard_cast_emerge": "Eruption",
-      "hoard_cast_collapse": "Ceiling Collapse",
-      "hoard_cast_bat_dive_aim": "Plunging Dive",
-      "hoard_cast_bat_dive": "Diving",
-      "hoard_cast_screech": "Deafening Screech",
-      "hoard_cast_mimic_bite": "Voracious Bite",
-      "hoard_cast_mimic_leap": "Crushing Leap",
-      "hoard_cast_coin_spit": "Cursed Coins"
+      "hoard_cast_fear": "Děsivý řev",
+      "hoard_cast_stun": "Omračující úder",
+      "hoard_cast_drowning_hook": "Dusící hák",
+      "hoard_cast_rime_beam": "Paprsek jinovatky",
+      "hoard_cast_cinder_bolt": "Škvárový šíp",
+      "hoard_cast_void_empower": "Posílení prázdnoty",
+      "hoard_cast_webbing": "Hedvábné sítě",
+      "hoard_cast_doom_ritual": "Rituál osudu",
+      "hoard_cast_charge": "Nesmírný útok",
+      "hoard_cast_silk_snare": "Hedvábná léčka",
+      "hoard_cast_silence": "Umlčující vytí",
+      "hoard_cast_hex": "Kletba",
+      "hoard_lightning_strike": "Blesková rána",
+      "hoard_ice_age": "Ledová doba",
+      "hoard_pulsar_overload": "Přetížení pulsaru",
+      "hoard_rolling_boulder": "Valící se balvan",
+      "hoard_goblin_escape": "Útěk",
+      "hoard_cast_mole_rake": "Dráp na pokožení",
+      "hoard_cast_burrow": "Vykopávání",
+      "hoard_cast_tunnel": "Vykopávání tunelu",
+      "hoard_cast_emerge": "Vybuchnutí",
+      "hoard_cast_collapse": "Zřícení stropu",
+      "hoard_cast_bat_dive_aim": "Pronikavý potop",
+      "hoard_cast_bat_dive": "Potápění",
+      "hoard_cast_screech": "Hlasitý výkřik",
+      "hoard_cast_mimic_bite": "Nenasytný skus",
+      "hoard_cast_mimic_leap": "Drtící skok",
+      "hoard_cast_coin_spit": "Prekleti mince"
     }
   },
   "questUi": {
@@ -12669,16 +12669,16 @@ export const cs_CZ: EnTranslations = {
       "clueHuntDone": "Hon za pokladem dokončen: {title}. Truhlička je tvá.",
       "clueHuntAbandoned": "Hon za pokladem opuštěn: {title}",
       "clueCasketOpened": "Truhlička obsahuje {money} a {items}.",
-      "treasureMapEarned": "Every world quest of the day is done: you found a {map}.",
-      "treasureMapLost": "Every world quest of the day is done, but your bags have no room for the treasure map.",
-      "treasureMapRead": "You study the {map}. The X lies somewhere in {zone}.",
-      "treasureMapUpgraded": "The map is redrawn in finer ink: it is now a {map}.",
-      "treasureVaultOpened": "The ground gives way. A buried hoard lies open before you.",
-      "treasureVaultLooted": "The hoard holds {money} and {items}.",
-      "treasureVaultCapped": "You have shared in enough hoards today; this one pays you nothing.",
-      "hoardGoblinSighted": "A goblin thief appears!",
-      "hoardGoblinSightedHint": "Kill it before it escapes with the gold!",
-      "hoardGoblinExplain": "A goblin thief is hiding in this hoard with a sack of stolen gold. It never fights back, it only runs. Your first hit starts a {seconds}-second escape bar: if it is still alive when the bar runs out, it opens a portal and is gone with the gold. Left alone, it slips away after {minutes} minutes. Kill it in time and everyone in the room is paid in gold."
+      "treasureMapEarned": "Každý světový úkol dne je hotov: našel jsi {map}.",
+      "treasureMapLost": "Každý světový úkol dne je hotov, ale tvé tašky nemají místo pro mapu pokladu.",
+      "treasureMapRead": "Studiuješ {map}. X leží někde v {zone}.",
+      "treasureMapUpgraded": "Mapa je překreslena v jemnějším inkoustu: teď je to {map}.",
+      "treasureVaultOpened": "Zem se propadá. Pohřbený poklad leží otevřený před tebou.",
+      "treasureVaultLooted": "Poklad drží {money} a {items}.",
+      "treasureVaultCapped": "Sdílel jsi si dost pokladů dnes; ten to tě nic neplatí.",
+      "hoardGoblinSighted": "Objeví se goblinský zloději!",
+      "hoardGoblinSightedHint": "Zabij ho než utekne se zlatem!",
+      "hoardGoblinExplain": "Goblinský zloděj se v tomto pokladu schází s pytlem ukradených mincí. Nikdy se nebojuje, jen běží. Tvůj první zásah spustí {seconds}-sekundový únikový pruh: pokud je stále naživu když lišta skončí, otevře portál a zmizí se zlatem. Ponechán-li sám, vklouzne pryč po {minutes} minutách. Zabij ho včas a všichni v místnosti dostanou zlatem."
     },
     "errors": {
       "unavailable": "Tento úkol není dostupný.",
@@ -17678,361 +17678,361 @@ export const cs_CZ: EnTranslations = {
         "name": "Kroužkové boty Písně bouře"
       },
       "allied_hearthstone": {
-        "name": "Allied Hearthstone"
+        "name": "Kváskový kámen spojence"
       },
       "allied_vanguard_duffel": {
-        "name": "Allied Vanguard Duffel"
+        "name": "Taška spojeneckého předvoje"
       },
       "rift_feather_glider": {
-        "name": "Rift Feather Glider"
+        "name": "Kluzák z peří prasklin"
       },
       "formula_enchant_feet_shadowstride": {
-        "name": "Formula: Enchant Boots - Shadowstride"
+        "name": "Vzorec: Očaruj boty - Stín kroku"
       },
       "recipe_potion_of_invisibility": {
-        "name": "Recipe: Potion of Invisibility"
+        "name": "Recept: Lektvar neviditelnosti"
       },
       "potion_of_invisibility": {
-        "name": "Potion of Invisibility"
+        "name": "Lektvar neviditelnosti"
       },
       "pattern_reinforced_armor_kit": {
-        "name": "Pattern: Reinforced Armor Kit"
+        "name": "Vzor: Sada zesílené zbroje"
       },
       "reinforced_armor_kit": {
-        "name": "Reinforced Armor Kit"
+        "name": "Sada zesílené zbroje"
       },
       "dawn_battle_standard": {
-        "name": "Dawn Battle Standard"
+        "name": "Prapor úsvitské bitvy"
       },
       "formula_enchant_offhand_spirit": {
-        "name": "Formula: Enchant Off-Hand - Spirit"
+        "name": "Vzorec: Očaruj vedlejší ruku - Duch"
       },
       "recipe_elixir_of_mana_regeneration": {
-        "name": "Recipe: Elixir of Mana Regeneration"
+        "name": "Recept: Elixír regenerace many"
       },
       "elixir_of_mana_regeneration": {
-        "name": "Elixir of Mana Regeneration"
+        "name": "Elixír regenerace many"
       },
       "clockwork_target_dummy": {
-        "name": "Clockwork Target Dummy"
+        "name": "Mechanická terčová figurína"
       },
       "schematic_clockwork_shock_bomb": {
-        "name": "Schematic: Clockwork Shock Bomb"
+        "name": "Schéma: Mechanická šoková bomba"
       },
       "clockwork_shock_bomb": {
-        "name": "Clockwork Shock Bomb"
+        "name": "Mechanická šoková bomba"
       },
       "plans_dense_sharpening_stone": {
-        "name": "Plans: Dense Sharpening Stone"
+        "name": "Plány: Hutný brousicí kámen"
       },
       "dense_sharpening_stone": {
-        "name": "Dense Sharpening Stone"
+        "name": "Hutný brousicí kámen"
       },
       "formula_enchant_gloves_forged_might": {
-        "name": "Formula: Enchant Gloves - Forged Might"
+        "name": "Vzorec: Očaruj rukavice - Kovaná síla"
       },
       "treasure_map_common": {
-        "name": "Weathered Treasure Map"
+        "name": "Ošuntělá Pokladní Mapa"
       },
       "treasure_map_rare": {
-        "name": "Inked Treasure Map"
+        "name": "Inkovostvá Pokladní Mapa"
       },
       "treasure_map_epic": {
-        "name": "Gilded Treasure Map"
+        "name": "Pozlacená Pokladní Mapa"
       },
       "treasure_map_legendary": {
-        "name": "Sovereign Treasure Map"
+        "name": "Vznešená Pokladní Mapa"
       },
       "cartographers_ink": {
-        "name": "Cartographer's Ink"
+        "name": "Kartografův inkoust"
       },
       "collapsar_band_of_nyxaris": {
-        "name": "Collapsar Band of Nyxaris"
+        "name": "Pásmo skolapsu Nykxarise"
       },
       "rare_collapsar_band_of_nyxaris": {
-        "name": "Tarnished Collapsar Band of Nyxaris"
+        "name": "Zašlé pásmo skolapsu Nykxarise"
       },
       "legendary_collapsar_band_of_nyxaris": {
-        "name": "Sovereign Collapsar Band of Nyxaris"
+        "name": "Vznešené pásmo skolapsu Nykxarise"
       },
       "orb_collapsing_void": {
-        "name": "Orb of Collapsing Void"
+        "name": "Koule kolapsu prázdna"
       },
       "rare_orb_collapsing_void": {
-        "name": "Tarnished Orb of Collapsing Void"
+        "name": "Zašlá koule kolapsu prázdna"
       },
       "legendary_orb_collapsing_void": {
-        "name": "Sovereign Orb of Collapsing Void"
+        "name": "Vznešená koule kolapsu prázdna"
       },
       "cowl_of_event_horizon": {
-        "name": "Cowl of the Event Horizon"
+        "name": "Klobouk obzoru událostí"
       },
       "rare_cowl_of_event_horizon": {
-        "name": "Tarnished Cowl of the Event Horizon"
+        "name": "Zašlý klobouk obzoru událostí"
       },
       "legendary_cowl_of_event_horizon": {
-        "name": "Sovereign Cowl of the Event Horizon"
+        "name": "Vznešený klobouk obzoru událostí"
       },
       "mantle_of_singularity": {
-        "name": "Mantle of Singularity"
+        "name": "Plášť singularity"
       },
       "rare_mantle_of_singularity": {
-        "name": "Tarnished Mantle of Singularity"
+        "name": "Zašlý plášť singularity"
       },
       "legendary_mantle_of_singularity": {
-        "name": "Sovereign Mantle of Singularity"
+        "name": "Vznešený plášť singularity"
       },
       "glacier_hewn_bulwark": {
-        "name": "Glacier-Hewn Bulwark"
+        "name": "Vybarvený bulvark ledovce"
       },
       "rare_glacier_hewn_bulwark": {
-        "name": "Tarnished Glacier-Hewn Bulwark"
+        "name": "Zašlý vybarvený bulvark ledovce"
       },
       "legendary_glacier_hewn_bulwark": {
-        "name": "Sovereign Glacier-Hewn Bulwark"
+        "name": "Vznešený vybarvený bulvark ledovce"
       },
       "permafrost_legguards": {
-        "name": "Permafrost Legguards"
+        "name": "Nosiče věčného mrazu"
       },
       "rare_permafrost_legguards": {
-        "name": "Tarnished Permafrost Legguards"
+        "name": "Zašlé nosiče věčného mrazu"
       },
       "legendary_permafrost_legguards": {
-        "name": "Sovereign Permafrost Legguards"
+        "name": "Vznešené nosiče věčného mrazu"
       },
       "frostbitten_rime_slippers": {
-        "name": "Frostbitten Rime Slippers"
+        "name": "Pantofle zmrzlé jinovatkou"
       },
       "rare_frostbitten_rime_slippers": {
-        "name": "Tarnished Frostbitten Rime Slippers"
+        "name": "Zašlé pantofle zmrzlé jinovatkou"
       },
       "legendary_frostbitten_rime_slippers": {
-        "name": "Sovereign Frostbitten Rime Slippers"
+        "name": "Vznešené pantofle zmrzlé jinovatkou"
       },
       "rime_crusted_grips": {
-        "name": "Rime-Crusted Grips"
+        "name": "Rukavice pokryté jinovatkou"
       },
       "rare_rime_crusted_grips": {
-        "name": "Tarnished Rime-Crusted Grips"
+        "name": "Zašlé rukavice pokryté jinovatkou"
       },
       "legendary_rime_crusted_grips": {
-        "name": "Sovereign Rime-Crusted Grips"
+        "name": "Vznešené rukavice pokryté jinovatkou"
       },
       "ember_wrought_crown": {
-        "name": "Ember-Wrought Crown"
+        "name": "Koruna kovaná z jisker"
       },
       "rare_ember_wrought_crown": {
-        "name": "Tarnished Ember-Wrought Crown"
+        "name": "Zašlá koruna kovaná z jisker"
       },
       "legendary_ember_wrought_crown": {
-        "name": "Sovereign Ember-Wrought Crown"
+        "name": "Vznešená koruna kovaná z jisker"
       },
       "cinder_stitched_robes": {
-        "name": "Cinder-Stitched Robes"
+        "name": "Roucha prošitá škvárou"
       },
       "rare_cinder_stitched_robes": {
-        "name": "Tarnished Cinder-Stitched Robes"
+        "name": "Zašlá roucha prošitá škvárou"
       },
       "legendary_cinder_stitched_robes": {
-        "name": "Sovereign Cinder-Stitched Robes"
+        "name": "Vznešená roucha prošitá škvárou"
       },
       "chained_ember_choker": {
-        "name": "Chained Ember Choker"
+        "name": "Řetězem vázaný choker z jisker"
       },
       "rare_chained_ember_choker": {
-        "name": "Tarnished Chained Ember Choker"
+        "name": "Zašlý řetězem vázaný choker z jisker"
       },
       "legendary_chained_ember_choker": {
-        "name": "Sovereign Chained Ember Choker"
+        "name": "Vznešený řetězem vázaný choker z jisker"
       },
       "molten_clinker_girdle": {
-        "name": "Molten Clinker Girdle"
+        "name": "Opasvec roztaveného strusku"
       },
       "rare_molten_clinker_girdle": {
-        "name": "Tarnished Molten Clinker Girdle"
+        "name": "Zašlý opasvec roztaveného strusku"
       },
       "legendary_molten_clinker_girdle": {
-        "name": "Sovereign Molten Clinker Girdle"
+        "name": "Vznešený opasvec roztaveného strusku"
       },
       "storm_tuned_buckler": {
-        "name": "Storm-Tuned Buckler"
+        "name": "Štít naladěný na bouři"
       },
       "rare_storm_tuned_buckler": {
-        "name": "Tarnished Storm-Tuned Buckler"
+        "name": "Zašlý štít naladěný na bouři"
       },
       "legendary_storm_tuned_buckler": {
-        "name": "Sovereign Storm-Tuned Buckler"
+        "name": "Vznešený štít naladěný na bouři"
       },
       "hauberk_tempest_gale": {
-        "name": "Hauberk of the Tempest Gale"
+        "name": "Kroužkovec bouřného vichru"
       },
       "rare_hauberk_tempest_gale": {
-        "name": "Tarnished Hauberk of the Tempest Gale"
+        "name": "Zašlý kroužkovec bouřného vichru"
       },
       "legendary_hauberk_tempest_gale": {
-        "name": "Sovereign Hauberk of the Tempest Gale"
+        "name": "Vznešený kroužkovec bouřného vichru"
       },
       "gale_strider_boots": {
-        "name": "Gale-Strider Boots"
+        "name": "Boty krokouna vichru"
       },
       "rare_gale_strider_boots": {
-        "name": "Tarnished Gale-Strider Boots"
+        "name": "Zašlé boty krokouna vichru"
       },
       "legendary_gale_strider_boots": {
-        "name": "Sovereign Gale-Strider Boots"
+        "name": "Vznešené boty krokouna vichru"
       },
       "tempest_strike_grips": {
-        "name": "Tempest-Strike Grips"
+        "name": "Rukavice úderu bouře"
       },
       "rare_tempest_strike_grips": {
-        "name": "Tarnished Tempest-Strike Grips"
+        "name": "Zašlé rukavice úderu bouře"
       },
       "legendary_tempest_strike_grips": {
-        "name": "Sovereign Tempest-Strike Grips"
+        "name": "Vznešené rukavice úderu bouře"
       },
       "breastplate_tectonic_might": {
-        "name": "Breastplate of Tectonic Might"
+        "name": "Prsní zbroj tektonické síly"
       },
       "rare_breastplate_tectonic_might": {
-        "name": "Tarnished Breastplate of Tectonic Might"
+        "name": "Zašlá prsní zbroj tektonické síly"
       },
       "legendary_breastplate_tectonic_might": {
-        "name": "Sovereign Breastplate of Tectonic Might"
+        "name": "Vznešená prsní zbroj tektonické síly"
       },
       "band_mountains_weight": {
-        "name": "Band of the Mountain's Weight"
+        "name": "Pásmo váhy hory"
       },
       "rare_band_mountains_weight": {
-        "name": "Tarnished Band of the Mountain's Weight"
+        "name": "Zašlé pásmo váhy hory"
       },
       "legendary_band_mountains_weight": {
-        "name": "Sovereign Band of the Mountain's Weight"
+        "name": "Vznešené pásmo váhy hory"
       },
       "monolithic_shoulderguards": {
-        "name": "Monolithic Shoulderguards"
+        "name": "Monolitické ochranky ramen"
       },
       "rare_monolithic_shoulderguards": {
-        "name": "Tarnished Monolithic Shoulderguards"
+        "name": "Zašlé monolitické ochranky ramen"
       },
       "legendary_monolithic_shoulderguards": {
-        "name": "Sovereign Monolithic Shoulderguards"
+        "name": "Vznešené monolitické ochranky ramen"
       },
       "earthshaker_warboots": {
-        "name": "Earthshaker Warboots"
+        "name": "Válečné boty otřásače země"
       },
       "rare_earthshaker_warboots": {
-        "name": "Tarnished Earthshaker Warboots"
+        "name": "Zašlé válečné boty otřásače země"
       },
       "legendary_earthshaker_warboots": {
-        "name": "Sovereign Earthshaker Warboots"
+        "name": "Vznešené válečné boty otřásače země"
       },
       "silkstalker_woven_vest": {
-        "name": "Woven Vest of the Silkstalker"
+        "name": "Tkaná vesta lovce hedvábí"
       },
       "rare_silkstalker_woven_vest": {
-        "name": "Tarnished Woven Vest of the Silkstalker"
+        "name": "Zašlá tkaná vesta lovce hedvábí"
       },
       "legendary_silkstalker_woven_vest": {
-        "name": "Sovereign Woven Vest of the Silkstalker"
+        "name": "Vznešená tkaná vesta lovce hedvábí"
       },
       "spun_venom_spaulders": {
-        "name": "Spun-Venom Spaulders"
+        "name": "Náramenníky z příze jedu"
       },
       "rare_spun_venom_spaulders": {
-        "name": "Tarnished Spun-Venom Spaulders"
+        "name": "Zašlé náramenníky z příze jedu"
       },
       "legendary_spun_venom_spaulders": {
-        "name": "Sovereign Spun-Venom Spaulders"
+        "name": "Vznešené náramenníky z příze jedu"
       },
       "broodmother_chitin_cowl": {
-        "name": "Chitin Cowl of the Broodmother"
+        "name": "Chitinový klobouk matky tlupy"
       },
       "rare_broodmother_chitin_cowl": {
-        "name": "Tarnished Chitin Cowl of the Broodmother"
+        "name": "Zašlý chitinový klobouk matky tlupy"
       },
       "legendary_broodmother_chitin_cowl": {
-        "name": "Sovereign Chitin Cowl of the Broodmother"
+        "name": "Vznešený chitinový klobouk matky tlupy"
       },
       "venom_etched_waistcord": {
-        "name": "Venom-Etched Waistcord"
+        "name": "Páskový pás s vyrytým jedem"
       },
       "rare_venom_etched_waistcord": {
-        "name": "Tarnished Venom-Etched Waistcord"
+        "name": "Zašlý páskový pás s vyrytým jedem"
       },
       "legendary_venom_etched_waistcord": {
-        "name": "Sovereign Venom-Etched Waistcord"
+        "name": "Vznešený páskový pás s vyrytým jedem"
       },
       "bone_studded_pauldrons": {
-        "name": "Bone-Studded Pauldrons"
+        "name": "Náramenníky se zapuštěnými kostmi"
       },
       "rare_bone_studded_pauldrons": {
-        "name": "Tarnished Bone-Studded Pauldrons"
+        "name": "Zašlé náramenníky se zapuštěnými kostmi"
       },
       "legendary_bone_studded_pauldrons": {
-        "name": "Sovereign Bone-Studded Pauldrons"
+        "name": "Vznešené náramenníky se zapuštěnými kostmi"
       },
       "legguards_of_the_ossuary": {
-        "name": "Legguards of the Ossuary"
+        "name": "Nosiče kostnice"
       },
       "rare_legguards_of_the_ossuary": {
-        "name": "Tarnished Legguards of the Ossuary"
+        "name": "Zašlé nosiče kostnice"
       },
       "legendary_legguards_of_the_ossuary": {
-        "name": "Sovereign Legguards of the Ossuary"
+        "name": "Vznešené nosiče kostnice"
       },
       "seal_of_the_cryptwalker": {
-        "name": "Seal of the Cryptwalker"
+        "name": "Pečeť tvůrce krypty"
       },
       "rare_seal_of_the_cryptwalker": {
-        "name": "Tarnished Seal of the Cryptwalker"
+        "name": "Zašlá pečeť tvůrce krypty"
       },
       "legendary_seal_of_the_cryptwalker": {
-        "name": "Sovereign Seal of the Cryptwalker"
+        "name": "Vznešená pečeť tvůrce krypty"
       },
       "ossuary_bone_crown": {
-        "name": "Ossuary Bone Crown"
+        "name": "Kostní koruna kostnice"
       },
       "rare_ossuary_bone_crown": {
-        "name": "Tarnished Ossuary Bone Crown"
+        "name": "Zašlá kostní koruna kostnice"
       },
       "legendary_ossuary_bone_crown": {
-        "name": "Sovereign Ossuary Bone Crown"
+        "name": "Vznešená kostní koruna kostnice"
       },
       "chalice_of_living_tides": {
-        "name": "Chalice of the Living Tides"
+        "name": "Kalich živých přílivů"
       },
       "rare_chalice_of_living_tides": {
-        "name": "Tarnished Chalice of the Living Tides"
+        "name": "Zašlý kalich živých přílivů"
       },
       "legendary_chalice_of_living_tides": {
-        "name": "Sovereign Chalice of the Living Tides"
+        "name": "Vznešený kalich živých přílivů"
       },
       "pendant_continuous_flow": {
-        "name": "Pendant of Continuous Flow"
+        "name": "Přívěsek nepřetržitého toku"
       },
       "rare_pendant_continuous_flow": {
-        "name": "Tarnished Pendant of Continuous Flow"
+        "name": "Zašlý přívěsek nepřetržitého toku"
       },
       "legendary_pendant_continuous_flow": {
-        "name": "Sovereign Pendant of Continuous Flow"
+        "name": "Vznešený přívěsek nepřetržitého toku"
       },
       "coral_encrusted_girdle": {
-        "name": "Coral-Encrusted Girdle"
+        "name": "Opasvec pokrytý korály"
       },
       "rare_coral_encrusted_girdle": {
-        "name": "Tarnished Coral-Encrusted Girdle"
+        "name": "Zašlý opasvec pokrytý korály"
       },
       "legendary_coral_encrusted_girdle": {
-        "name": "Sovereign Coral-Encrusted Girdle"
+        "name": "Vznešený opasvec pokrytý korály"
       },
       "riptide_handwraps": {
-        "name": "Riptide Handwraps"
+        "name": "Pásy rukou přílivotrhání"
       },
       "rare_riptide_handwraps": {
-        "name": "Tarnished Riptide Handwraps"
+        "name": "Zašlé pásy rukou přílivotrhání"
       },
       "legendary_riptide_handwraps": {
-        "name": "Sovereign Riptide Handwraps"
+        "name": "Vznešené pásy rukou přílivotrhání"
       },
       "vanguard_warrior_arms_helmet": {
         "name": "Velká přilba Čepelostopy"
@@ -19732,49 +19732,49 @@ export const cs_CZ: EnTranslations = {
         "name": "Stájový kůň"
       },
       "hoard_brood_egg": {
-        "name": "Brood Clutch"
+        "name": "Mláďata Tlupy"
       },
       "hoard_brood_hatchling": {
-        "name": "Vysska's Hatchling"
+        "name": "Vylíhnuté Mládě Vyssky"
       },
       "hoard_healing_tide_totem": {
-        "name": "Healing Tide Totem"
+        "name": "Totem Léčivého Přílivu"
       },
       "hoard_bound_pulsar": {
-        "name": "Bound Pulsar"
+        "name": "Vázaný Pulsar"
       },
       "hoard_abyssal_tentacle": {
-        "name": "Tentacle of the Maw"
+        "name": "Chapadlo Obří Pasty"
       },
       "hoard_silk_cocoon": {
-        "name": "Silk Cocoon"
+        "name": "Hedvábný Kokón"
       },
       "hoard_brood_cocoon": {
-        "name": "Brood Cocoon"
+        "name": "Kokón Tlupy"
       },
       "hoard_coinsack_scurrier": {
-        "name": "Coinsack Scurrier"
+        "name": "Hbitec s měšcem"
       },
       "hoard_boss_mushroom": {
-        "name": "Mother of Mushrooms"
+        "name": "Matka Hub"
       },
       "hoard_sporeling": {
-        "name": "Sporeling"
+        "name": "Spórka"
       },
       "hoard_bloat_cap": {
-        "name": "Bloated Cap"
+        "name": "Nadouté Kloboučko"
       },
       "hoard_boss_mole": {
-        "name": "Deeprake"
+        "name": "Hloubkový Hryzák"
       },
       "hoard_boss_bat": {
-        "name": "Colossal Bat"
+        "name": "Obrovská Netopýr"
       },
       "hoard_boss_mimic": {
-        "name": "Voracious Chest"
+        "name": "Nenasytná Truhla"
       },
       "hoard_bat_swarmling": {
-        "name": "Cave Swarmer"
+        "name": "Jeskyňský Rojovec"
       },
       "rift_spawnling": {
         "name": "Trhlinové plůdě"
@@ -19807,7 +19807,7 @@ export const cs_CZ: EnTranslations = {
         "name": "Morkový troll"
       },
       "rift_marrow_golem": {
-        "name": "Marrow Golem"
+        "name": "Golem Morku"
       },
       "rift_void_acolyte": {
         "name": "Akolyta Jizvy prázdnoty"
@@ -23943,9 +23943,9 @@ export const cs_CZ: EnTranslations = {
         "body": "Tvá nabídka se prodala a kupující platbu vyrovnal v plné výši. Kniha Burzy nese záznam o prodeji a tvá aktivita na Burze ukazuje vyrovnanou částku i její rozpis.\n\n- Burzovní makléř"
       },
       "hoard_vault_reward": {
-        "sender": "The Ravenpost",
-        "subject": "Your vault reward",
-        "body": "The vault was cleared, but your share was not collected from the chest. The ravens have brought it to you here, with the goods and coin you earned attached.\n\n- The Ravenpost"
+        "sender": "Vranobuzná Pošta",
+        "subject": "Tvá odměna z trezoru",
+        "body": "Trezor byl vyváznut, ale tvůj podíl se nevyzvedl ze schránky. Vrané ho přinesly sem tobě, spolu se zbožím a mincemi, které si zasloužíš.\n\n- Vranobuzná Pošta"
       }
     },
     "itemSets": {

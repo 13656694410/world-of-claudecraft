@@ -1248,4 +1248,8 @@ export const table: DeedLocaleTable = {
     name: 'Cảng Tới Cảng',
     desc: 'Chạy cả hai phà qua lại: Eastbrook đến Moonrest, và Wickharbor đến Wyrmwatch.',
   },
+  cmb_coinsack_caught: {
+    name: 'Bắt Quả Tang',
+    desc: 'Bắt được một Chuột Chạy Túi Tiền trong một Kho Báu Bị Chôn trước khi nó trốn thoát với vàng.',
+  },
 };

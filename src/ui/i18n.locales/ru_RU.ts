@@ -13,6 +13,11 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const ru_RU: Partial<Record<TranslationKey, string>> = {
+  'abilityUi.actionBar.cooldownMinutes': '{minutes} мин',
+  'abilityUi.cast.hoard_cast_rime_beam': 'Луч инея',
+  'hudChrome.worldQuestTooltip.currencyAmount': '{amount} {currency}',
+  'hudChrome.worldQuestTooltip.currencyReward': '+{amount} {currency}',
+  'hudChrome.worldQuestTooltip.standingAmount': '{amount} {faction}',
   'hudChrome.questTracker.worldQuests': 'Локальные задания',
   'hudChrome.questTracker.worldQuestsCollapseHint': 'Свернуть локальные задания',
   'hudChrome.questTracker.worldQuestsExpandHint': 'Развернуть локальные задания',

@@ -1263,4 +1263,8 @@ export const table: DeedLocaleTable = {
     name: 'Da Porto a Porto',
     desc: 'Naviga su entrambi i traghetti andata e ritorno: da Eastbrook a Moonrest, e da Wickharbor a Wyrmwatch.',
   },
+  cmb_coinsack_caught: {
+    name: 'Colto con le mani nel sacco',
+    desc: "Cattura uno Scansafatiche Coinsack in un Tesoro Sepolto prima che scappi con l'oro.",
+  },
 };

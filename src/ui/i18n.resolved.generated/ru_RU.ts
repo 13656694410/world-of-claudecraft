@@ -12121,7 +12121,7 @@ export const ru_RU: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "Атака",
-      "cooldownMinutes": "{minutes}m",
+      "cooldownMinutes": "{minutes} мин",
       "attackTooltip": "Включает или выключает автоатаку по вашей цели. Щелчок правой кнопкой по врагу также начинает атаку.",
       "attackRemoveHint": "Щёлкните правой кнопкой, чтобы убрать её с панели и освободить ячейку.",
       "emptySlot": "Пустая ячейка",
@@ -12217,7 +12217,7 @@ export const ru_RU: EnTranslations = {
       "hoard_cast_fear": "Ужасающий рёв",
       "hoard_cast_stun": "Оглушающий удар",
       "hoard_cast_drowning_hook": "Топящий крюк",
-      "hoard_cast_rime_beam": "Rime Beam",
+      "hoard_cast_rime_beam": "Луч инея",
       "hoard_cast_cinder_bolt": "Угольная стрела",
       "hoard_cast_void_empower": "Усиление Бездны",
       "hoard_cast_webbing": "Паутина",

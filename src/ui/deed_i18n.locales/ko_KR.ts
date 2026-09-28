@@ -1155,4 +1155,8 @@ export const table: DeedLocaleTable = {
     desc: '단서 두루마리 보물찾기 끝에서 파낸 보물 상자 10개를 여십시오.',
     title: '보물 사냥꾼',
   },
+  cmb_coinsack_caught: {
+    name: '현행범',
+    desc: '묻힌 보물에서 동전자루 좀도둑이 금화를 들고 도망치기 전에 처치하세요.',
+  },
 };

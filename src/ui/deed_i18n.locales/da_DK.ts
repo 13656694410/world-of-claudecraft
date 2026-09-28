@@ -1158,4 +1158,8 @@ export const table: DeedLocaleTable = {
     name: 'Havn til Havn',
     desc: 'Sejl begge færger der og tilbage: Eastbrook til Månehvile, og Wickhavn til Wyrmwatch.',
   },
+  cmb_coinsack_caught: {
+    name: 'Pågrebet på Fersk Gerning',
+    desc: 'Fang en Møntposekryber i en Begravet Hoard, før den stikker af med guldet.',
+  },
 };

@@ -1167,9 +1167,9 @@ export const id_ID: EnTranslations = {
       "objectiveValue": "{current} / {total}",
       "collapseHint": "Ciutkan pelacak misi",
       "expandHint": "Bentangkan pelacak misi",
-      "worldQuests": "World Quests",
-      "worldQuestsCollapseHint": "Collapse world quests",
-      "worldQuestsExpandHint": "Expand world quests"
+      "worldQuests": "Misi Dunia",
+      "worldQuestsCollapseHint": "Tutup misi dunia",
+      "worldQuestsExpandHint": "Buka misi dunia"
     },
     "interfaceTabs": {
       "general": "Umum",
@@ -1664,10 +1664,10 @@ export const id_ID: EnTranslations = {
     },
     "riftTracker": {
       "title": "Rift",
-      "hoardTitle": "Buried Hoard",
-      "hoardGoal": "Defeat the hoard keeper",
-      "hoardChestGoal": "Open the hoard chest",
-      "hoardClaimedGoal": "The hoard is yours",
+      "hoardTitle": "Harta Karun Terpendam",
+      "hoardGoal": "Kalahkan penjaga harta karun",
+      "hoardChestGoal": "Buka peti harta karun",
+      "hoardClaimedGoal": "Harta karun adalah milik Anda",
       "floor": "Lantai {current} dari {total}",
       "closesIn": "Tutup dalam {time}",
       "clockMs": "{minutes}:{seconds}",
@@ -2878,16 +2878,16 @@ export const id_ID: EnTranslations = {
       "openProfessions": "Profesi Terbuka"
     },
     "treasureMap": {
-      "close": "Close treasure map",
-      "zone": "Somewhere in {zone}",
-      "hint": "Find the ground this map shows, stand on the X, and use the map again to dig. A buried hoard opens for you and your party.",
-      "upgradeNote": "Redrawing it as a {rarity} map takes {inks} Cartographer's Ink (you hold {held}). The faction quartermasters sell it.",
-      "upgradeMaxed": "No cartographer could better this map.",
+      "close": "Tutup peta harta karun",
+      "zone": "Suatu tempat di {zone}",
+      "hint": "Temukan medan yang ditunjukkan peta ini, berdiri di X, dan gali. Gunakan sekop dari inventaris Anda.",
+      "upgradeNote": "Menggambar ulangnya sebagai peta {rarity} memerlukan {inks} Tinta Peta dan {held} tempat di tas Anda.",
+      "upgradeMaxed": "Tidak ada ahli peta yang bisa memperbaiki peta ini lebih lanjut.",
       "rarity": {
-        "common": "Common",
-        "rare": "Rare",
-        "epic": "Epic",
-        "legendary": "Legendary"
+        "common": "Umum",
+        "rare": "Langka",
+        "epic": "Epik",
+        "legendary": "Legendaris"
       }
     },
     "currencies": {
@@ -2905,23 +2905,23 @@ export const id_ID: EnTranslations = {
       "wocPreview": "Saldo pratinjau, belum diverifikasi",
       "lifetime": "Seumur hidup {amount}",
       "factionPending": "Mata uang faksi: menunggu Tahap 2",
-      "riftWatchMark": "Rift Watch Mark",
-      "riftWatchMarkNote": "World Quests in Rift Watch zones",
-      "churchOrderCrest": "Order Crest",
-      "churchOrderCrestNote": "World Quests in Church Order zones",
-      "automatonCog": "Automaton Cog",
-      "automatonCogNote": "World Quests in Automaton zones"
+      "riftWatchMark": "Tanda Pengawas Celah",
+      "riftWatchMarkNote": "Misi Dunia di zona Pengawas Celah",
+      "churchOrderCrest": "Lencana Ordo",
+      "churchOrderCrestNote": "Misi Dunia di zona Tatanan Gereja",
+      "automatonCog": "Roda Gigi Automaton",
+      "automatonCogNote": "Misi Dunia di zona Automaton"
     },
     "worldQuestTooltip": {
-      "factionLine": "Faction: {faction}",
-      "timeRemaining": "Time remaining:",
+      "factionLine": "Faksi: {faction}",
+      "timeRemaining": "Waktu tersisa:",
       "standingAmount": "{amount} {faction}",
       "currencyAmount": "{amount} {currency}",
-      "standingReward": "+{amount} {faction} Standing",
+      "standingReward": "+{amount} Reputasi {faction}",
       "currencyReward": "+{amount} {currency}"
     },
     "worldQuestBanner": {
-      "subtitle": "World Quest"
+      "subtitle": "Misi Dunia"
     },
     "reputation": {
       "intro": "Ketiga faksi maju bersamaan: setiap misi dunia menghitung untuk faksi zonanya.",
@@ -5330,9 +5330,9 @@ export const id_ID: EnTranslations = {
       "enchant_chest_lucent_stamina": "Ukiran Dada: Stamina Bercahaya",
       "enchant_feet_lucent_agility": "Ukiran Sepatu: Kelincahan Bercahaya",
       "enchant_lucent_infusion": "Infusi Bercahaya",
-      "enchant_offhand_spirit": "Offhand Etching: Spirit",
-      "enchant_feet_shadowstride": "Boot Etching: Shadowstride",
-      "enchant_gloves_forged_might": "Glove Etching: Forged Might",
+      "enchant_offhand_spirit": "Pengukiran Tangan Tidak Utama: Roh",
+      "enchant_feet_shadowstride": "Pengukiran Sepatu: Langkah Bayang",
+      "enchant_gloves_forged_might": "Pengukiran Sarung Tangan: Kekuatan Tempa",
       "enchant_weapon_riftwalkers_grace": "Karunia Pejalan Celah",
       "enchant_weapon_dawnfire_etching": "Ukiran Senjata: Dawnfire",
       "enchant_weapon_dawns_benediction": "Ukiran Senjata: Berkah Fajar",
@@ -5346,20 +5346,20 @@ export const id_ID: EnTranslations = {
       "enchant_weapon_piston_drive": "Mengukir permanen senjata dua tangan dengan 12 Kekuatan dan 25 Peringkat Serangan Kritis. Tidak dapat diterapkan pada senjata satu tangan. Bonus datar; tidak terskalakan."
     },
     "factionRewards": {
-      "alliedHearthstoneUse": "Use: Teleports you to your attuned faction hub. (10 sec cast, 15 min cooldown)",
-      "alliedHearthstoneAttuned": "Attuned to: {hub}",
-      "hub_none": "None (Use near a faction hub to attune)",
-      "hub_rift_watch": "Drifthaven (The Rift Watch)",
-      "hub_church_order": "Eastbrook Vale (The Church Order)",
-      "hub_automatons": "South Reach (The Automaton Foundry)",
-      "riftGliderUse": "Use: Unfolds the glider, slowing falling speed for 30 sec. Landing or taking damage cancels the effect. (2 min cooldown)",
-      "targetDummyUse": "Use: Deploys a mechanical target dummy in the open world for 2 minutes to practice combat abilities. (5 min cooldown)",
-      "battleStandardUse": "Use: Plants the Consecrated Dawn Battle Standard for 5 minutes, significantly increasing out-of-combat health and mana regeneration for all nearby allies. Remaining near it for 10 seconds also grants Blessing of the Dawn (+5% to all stats for 30 min). (5 min cooldown)",
-      "shockBombUse": "Use: Throws a shock bomb up to 30 yards, dealing 120 to 160 Nature damage to all enemies within 5 yards. (1 min cooldown)",
-      "invisibilityUse": "Use: Shrouds you in stealth for 6 sec. (2 min cooldown)",
-      "armorKitUse": "Use: Reinforces your chest armor, increasing Armor by 12 for 1 hour.",
-      "sharpeningStoneUse": "Use: Sharpens your main hand weapon, increasing Attack Power by 6 for 30 min.",
-      "manaElixirUse": "Use: Increases Spirit by 6 for 1 hour."
+      "alliedHearthstoneUse": "Gunakan: Teleportasi Anda ke pusat faksi yang diselaraskan. (Waktu tunggu 1 jam)",
+      "alliedHearthstoneAttuned": "Diselaraskan dengan: {hub}",
+      "hub_none": "Tidak Ada (Gunakan dekat pusat faksi untuk diselaraskan)",
+      "hub_rift_watch": "Drifthaven (Pengawas Celah)",
+      "hub_church_order": "Lembah Eastbrook (Tatanan Gereja)",
+      "hub_automatons": "Jangkauan Selatan (Pendiri Automaton)",
+      "riftGliderUse": "Gunakan: Membuka peluncur, memperlambat kecepatan jatuh Anda selama 10 detik. (Tidak dapat digunakan dalam pertempuran)",
+      "targetDummyUse": "Gunakan: Menerapkan boneka target mekanis di area terbuka untuk 1 menit. Punya 50 kesehatan.",
+      "battleStandardUse": "Gunakan: Menanam Bendera Pertempuran Fajar yang Ditahbiskan selama 10 detik, meningkatkan Kekuatan Serangan untuk semua pemain terdekat sebesar 10% selama 1 menit.",
+      "shockBombUse": "Gunakan: Melempar bom kejut hingga 30 yard, menimbulkan 150 kerusakan Alam dan melumpuhkan target selama 3 detik. (Waktu tunggu 30 detik)",
+      "invisibilityUse": "Gunakan: Membungkus Anda dalam ketapian selama 6 detik. (Waktu tunggu 2 menit)",
+      "armorKitUse": "Gunakan: Memperkuat baju zirah dada Anda, meningkatkan Pertahanan sebesar 50 untuk 1 jam.",
+      "sharpeningStoneUse": "Gunakan: Menajamkan senjata tangan Anda, meningkatkan Kekuatan Serangan sebesar 25 selama 1 jam.",
+      "manaElixirUse": "Gunakan: Meningkatkan Roh sebesar 6 selama 1 jam."
     },
     "professions": {
       "title": "Profesi",
@@ -6132,7 +6132,7 @@ export const id_ID: EnTranslations = {
       "sourceActivityCorpseHarvest": "Didapat saat memanen bangkai makhluk",
       "sourceActivityMasterworkCraft": "Diraih dengan membuat sebuah karya besar",
       "sourceActivityRiftFirstClear": "Diberikan kepada setiap anggota kelompok yang meraih penyelesaian pertama sebuah Rift berperingkat",
-      "sourceActivityBuriedHoard": "Found in the reward chest of a Buried Hoard, the vault a treasure map leads to",
+      "sourceActivityBuriedHoard": "Ditemukan dalam peti hadiah Harta Karun Terpendam, pencarian sulit dari struktur angin topan bawah tanah di Drifthaven.",
       "cellMissingSourceAria": "{name}, belum ditemukan, {source}",
       "cellOwnedClearsAria": "{name}, terkatalog, pertama ditemukan pada penyelesaian ke-{count}",
       "searchPlaceholder": "Cari relik",
@@ -6873,8 +6873,8 @@ export const id_ID: EnTranslations = {
       "3": "Timur dan sedikit selatan di mana abu melayang ke duna, bidang tanah yang terbakar menyembunyikan apa yang dimakamkan abu. Gunakan gulir di sana dan gali.",
       "title": "Abu di Pintu",
       "reply": {
-        "1": "The wind came off the eastern dunes carrying ash, and ash does not blow in from empty sand. Sela at the garrison stores logs every patrol. She will talk, once someone feeds her.",
-        "2": "Bread at last, bless you. The patrol swore it saw smoke rising from bare sand, east and a little south of the dunes, where nothing is left to burn."
+        "1": "Angin datang dari pasir timur membawa abu, dan abu tidak berhembus dari pasir yang kosong. Sela di pangkalan penyimpanan mencatat setiap patroli. Dia akan berbicara, begitu seseorang memberinya makan.",
+        "2": "Akhirnya roti, berkah untuk Anda. Patroli bersumpah melihat asap membumbung dari pasir kosong, ke timur dan sedikit ke selatan bukit-bukit pasir, tempat tidak ada yang tertinggal untuk dibakar."
       }
     },
     "hunt_frostveil_aurora_vigil": {
@@ -6883,7 +6883,7 @@ export const id_ID: EnTranslations = {
       "2": "Timur dari teras yang melolong, sedikit ke selatan, salju berbaring lebih datar dari yang seharusnya. Gunakan gulir di sana dan gali.",
       "title": "Cahaya di atas Tangga",
       "reply": {
-        "1": "You knelt, and the lights answered. Last night they bent east past the terraces and pointed straight down at the snow."
+        "1": "Anda berlutut, dan cahaya menjawab. Malam ini mereka bengkok ke timur melampaui terasering dan menunjuk lurus ke bawah pada salju."
       }
     },
     "hunt_amberfall_lantern_ferry": {
@@ -6893,8 +6893,8 @@ export const id_ID: EnTranslations = {
       "3": "Di timur laut naik di mana cindermaples terbakar merah, daun berbaring dalam lingkaran yang tidak dibuat angin. Gunakan gulir di sana dan gali.",
       "title": "Lentera di Mere",
       "reply": {
-        "0": "One lantern went dark last night, the one that faces the old stone across the water. My ferrymen will not go near it. Perhaps you will.",
-        "2": "Cold well water, just what the trees wanted. Up past the red maples the leaves have been falling in a ring, and no tree of mine drops its leaves that neatly."
+        "0": "Satu lentera padam malam ini, yang menghadap batu tua di seberang air. Ferimen saya tidak mau mendekatinya. Mungkin Anda akan.",
+        "2": "Air sumur dingin, persis yang diinginkan pohon-pohon. Melewati pohon-pohon maple merah, dedaunan telah berjatuhan dalam satu lingkaran, dan tidak ada pohon milik saya yang merontokkan daunnya serapi itu."
       }
     },
     "hunt_willowfen_fenwitch_salt": {
@@ -6903,7 +6903,7 @@ export const id_ID: EnTranslations = {
       "2": "Tenggara dari kolam yang bersinar di rawa, sebuah tumpukan tanah kering tetap kering sepanjang tahun. Gunakan gulir di sana dan gali.",
       "title": "Garam Penyihir Fen",
       "reply": {
-        "0": "Salt. Good, you listen. The flats beyond the reeds make everyone drowsy. Go and sigh there like you mean it, and the fen will show you the rest."
+        "0": "Garam. Baik, Anda mendengarkan. Dataran di luar tebu membuat semua orang mengantuk. Pergi dan mendesah di sana seperti Anda berarti, dan rawa akan menunjukkan Anda sisanya."
       }
     },
     "hunt_nightbloom_sleepless_vigil": {
@@ -6913,7 +6913,7 @@ export const id_ID: EnTranslations = {
       "3": "Tenggara dari lapangan di mana gloam berkumpul, cahaya bulan mengumpul di satu patch tanah kosong. Gunakan gulir di sana dan gali.",
       "title": "Vigil dari yang Tidur Tanpa Henti",
       "reply": {
-        "1": "A star fell three nights ago, and it fell toward the old barrow north of town. The dead there never sleep. Greet them as a soldier would."
+        "1": "Bintang berjatuhan tiga malam lalu, dan jatuh menuju bukit penguburan tua di utara kota. Yang mati di sana tidak pernah tidur. Sapai mereka seperti prajurit."
       }
     },
     "hunt_wraithwood_mournstone_candles": {
@@ -6923,8 +6923,8 @@ export const id_ID: EnTranslations = {
       "3": "Tenggara dari pembukaan di mana pemburu menaruh jerat-jeratnya, sampah daun telah dibalik baru-baru ini. Gunakan gulir di sana dan gali.",
       "title": "Lilin untuk Mournstone",
       "reply": {
-        "0": "The vicar ordered that candle and never paid for it. He has been fasting ever since, praying and nothing else. Take him something to chew and ask him why.",
-        "1": "Thank you, friend. I never lit that candle. Something walks the glade past the crows at night, and I could not face it. Go and stand there, if you can."
+        "0": "Vicar memesan lilin itu dan tidak pernah membayarnya. Dia telah berpuasa sejak saat itu, berdoa dan tidak ada yang lain. Bawalah dia sesuatu untuk dikunyah dan tanya mengapa.",
+        "1": "Terima kasih, teman. Saya tidak pernah menyalakan lilin itu. Sesuatu berjalan di glen melampaui gagak di malam hari, dan saya tidak bisa menghadapinya. Pergi dan berdiri di sana, jika Anda bisa."
       }
     },
     "hunt_palmreach_sunken_idol": {
@@ -6934,7 +6934,7 @@ export const id_ID: EnTranslations = {
       "3": "Timur laut di mana jerat membuka mulutnya ke laut, pasir telah ditumpuk lebih tinggi dari jangkauan pasang. Gunakan gulir di sana dan gali.",
       "title": "Rahasia Patung",
       "reply": {
-        "1": "Below the vines the divers found an idol, and the idol did not like them. Anyone who stood tall before it did not come back. Be small before it."
+        "1": "Di bawah tanaman merambat para penyelam menemukan patung, dan patung tidak menyukai mereka. Siapa pun yang berdiri tegak di depannya tidak kembali. Jadilah kecil di hadapannya."
       }
     },
     "hunt_evergarden_beacon_road": {
@@ -6944,8 +6944,8 @@ export const id_ID: EnTranslations = {
       "3": "Barat laut dari mercusuar tua, tepat di luar jalan turun dari cahaya, rumput telah dipotong dan diletakkan kembali. Gunakan gulir di sana dan gali.",
       "title": "Mercusuar dan Bunga",
       "reply": {
-        "0": "Proper compost, the beds will live. The old miller buried something before he left. His mill still turns in the far corner of the gardens. Go and stand by it.",
-        "2": "So the mill sent you down the coast road. The beacon keeps one last secret: northwest of it, just off the path, the turf was cut and laid back. Dig there."
+        "0": "Kompos yang tepat, tempat tidur akan hidup. Pedagang tua mengubur sesuatu sebelum pergi. Pabrik biarpun masih berputar di sudut jauh taman-taman. Pergi dan berdiri di sampingnya.",
+        "2": "Jadi pabrik mengirim Anda ke pantai jalan. Mercusuar menyimpan satu rahasia terakhir: barat laut darinya, hanya di luar jejak, rumput dipotong dan diletakkan kembali. Gali di sana."
       }
     }
   },
@@ -10249,11 +10249,11 @@ export const id_ID: EnTranslations = {
       "pylonLit": "Sebuah pilar rune menyala hidup ({lit}/{total}).",
       "wayDownOpens": "Jalan turun terkoyak terbuka.",
       "exitOpens": "Rift itu berguncang. Sebuah jalan pulang terkoyak terbuka di belakang yang tumbang.",
-      "hoardEnter": "You climb down into {name}.",
-      "hoardExitOpens": "The hoard is yours. Return to the entrance to climb out.",
-      "hoardStepBack": "You climb back out through the hoard entrance.",
-      "hoardNotYours": "This hoard was dug up by another party.",
-      "hoardEntrantsFull": "This hoard has already admitted five adventurers.",
+      "hoardEnter": "Anda turun ke dalam {name}.",
+      "hoardExitOpens": "Harta karun adalah milik Anda. Kembali ke pintu masuk untuk naik ke atas.",
+      "hoardStepBack": "Anda naik kembali melalui pintu masuk harta karun.",
+      "hoardNotYours": "Harta karun ini digali oleh pihak lain.",
+      "hoardEntrantsFull": "Harta karun ini telah mengakui lima petualang.",
       "portalOpens": "Sebuah rift peringkat {tier} terkoyak terbuka di {zone}!",
       "portalSealed": "Rift peringkat {tier} di {zone} telah tersegel.",
       "portalCollapses": "Rift peringkat {tier} di {zone} runtuh.",
@@ -10510,7 +10510,7 @@ export const id_ID: EnTranslations = {
       "nhaliaBlackwaterMark": "{name} menandai {player} dengan Air Hitam!"
     },
     "factionVendor": {
-      "currencyRequired": "You need {amount} {currency} to purchase that."
+      "currencyRequired": "Anda memerlukan {amount} {currency} untuk membeli itu."
     },
     "lockpick": {
       "lockYields": "Kunci terbuka! Rampasan {tier}.",
@@ -11132,7 +11132,7 @@ export const id_ID: EnTranslations = {
       "alreadyInWorld": "Karakter sudah berada di dalam dunia.",
       "accountSessionLimit": "Terlalu banyak karakter dari akun ini yang sudah berada di dalam dunia.",
       "takenOver": "Karakter Anda telah diambil alih oleh sesi lain.",
-      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
+      "vaultMailRecovering": "Surat hadiah peti Anda sedang dipulihkan. Coba lagi nanti.",
       "renameBeforeEntering": "Karakter ini harus diganti namanya sebelum memasuki dunia.",
       "renameNotPermitted": "Mengganti nama karakter ini tidak diperbolehkan.",
       "unsupportedMediaType": "Format permintaan tidak didukung.",
@@ -11476,8 +11476,8 @@ export const id_ID: EnTranslations = {
         "dungeonExit": "Pintu keluar dungeon",
         "delveEntrance": "Pintu masuk delve: {name}",
         "worldPassage": "Jalur menuju {zone}",
-        "hoardEntrance": "Buried Hoard entrance",
-        "hoardReturnEntrance": "Hoard return entrance",
+        "hoardEntrance": "Pintu masuk Harta Karun Terpendam",
+        "hoardReturnEntrance": "Pintu masuk kembali Harta Karun",
         "riftEntrance": "Pintu masuk Rift: {name}",
         "hostileEnemy": "Musuh yang siap menyerang",
         "aggressiveEnemy": "Musuh yang menyerangmu",
@@ -12214,34 +12214,34 @@ export const id_ID: EnTranslations = {
       "rift_storm_strike": "Amarah Sang Pemanggil Badai",
       "rift_tide_execution": "Rahang Jurang",
       "rift_tide_strike": "Kedalaman Penghancur",
-      "hoard_cast_fear": "Terrifying Roar",
-      "hoard_cast_stun": "Stunning Blow",
-      "hoard_cast_drowning_hook": "Drowning Hook",
-      "hoard_cast_rime_beam": "Rime Beam",
-      "hoard_cast_cinder_bolt": "Cinder Bolt",
-      "hoard_cast_void_empower": "Void Empowerment",
-      "hoard_cast_webbing": "Webbing",
-      "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Headlong Charge",
-      "hoard_cast_silk_snare": "Silk Snare",
-      "hoard_cast_silence": "Silencing Shriek",
-      "hoard_cast_hex": "Hex",
-      "hoard_lightning_strike": "Lightning Strike",
-      "hoard_ice_age": "Ice Age",
-      "hoard_pulsar_overload": "Pulsar Overload",
-      "hoard_rolling_boulder": "Rolling Boulder",
-      "hoard_goblin_escape": "Escaping",
-      "hoard_cast_mole_rake": "Claw Rake",
-      "hoard_cast_burrow": "Burrow",
-      "hoard_cast_tunnel": "Tunneling",
-      "hoard_cast_emerge": "Eruption",
-      "hoard_cast_collapse": "Ceiling Collapse",
-      "hoard_cast_bat_dive_aim": "Plunging Dive",
-      "hoard_cast_bat_dive": "Diving",
-      "hoard_cast_screech": "Deafening Screech",
-      "hoard_cast_mimic_bite": "Voracious Bite",
-      "hoard_cast_mimic_leap": "Crushing Leap",
-      "hoard_cast_coin_spit": "Cursed Coins"
+      "hoard_cast_fear": "Auman Mengerikan",
+      "hoard_cast_stun": "Pukulan Puyuh",
+      "hoard_cast_drowning_hook": "Kait Lemas",
+      "hoard_cast_rime_beam": "Sinar Beku",
+      "hoard_cast_cinder_bolt": "Panah Bara",
+      "hoard_cast_void_empower": "Pemberdayaan Kekosongan",
+      "hoard_cast_webbing": "Jerat Laba-laba",
+      "hoard_cast_doom_ritual": "Ritual Malapetaka",
+      "hoard_cast_charge": "Menyerbu Bergerak Cepat",
+      "hoard_cast_silk_snare": "Jerat Sutra",
+      "hoard_cast_silence": "Jeritan Peredam",
+      "hoard_cast_hex": "Kutuk",
+      "hoard_lightning_strike": "Hantaman Kilat",
+      "hoard_ice_age": "Zaman Es",
+      "hoard_pulsar_overload": "Kelebihan Beban Pulsar",
+      "hoard_rolling_boulder": "Batu Berguling",
+      "hoard_goblin_escape": "Meloloskan Diri",
+      "hoard_cast_mole_rake": "Cakaran Tikus Tanah",
+      "hoard_cast_burrow": "Menggali Liang",
+      "hoard_cast_tunnel": "Penggalian",
+      "hoard_cast_emerge": "Letusan",
+      "hoard_cast_collapse": "Keruntuhan Atap",
+      "hoard_cast_bat_dive_aim": "Menyelam Dalam",
+      "hoard_cast_bat_dive": "Menyelam",
+      "hoard_cast_screech": "Jeritan Membising",
+      "hoard_cast_mimic_bite": "Gigitan Serakah",
+      "hoard_cast_mimic_leap": "Lompatan Menghancurkan",
+      "hoard_cast_coin_spit": "Koin Terkutuk"
     }
   },
   "questUi": {
@@ -12669,16 +12669,16 @@ export const id_ID: EnTranslations = {
       "clueHuntDone": "Perburuan harta karun selesai: {title}. Peti adalah milikmu.",
       "clueHuntAbandoned": "Perburuan harta karun ditinggalkan: {title}",
       "clueCasketOpened": "Peti memuat {money} dan {items}.",
-      "treasureMapEarned": "Every world quest of the day is done: you found a {map}.",
-      "treasureMapLost": "Every world quest of the day is done, but your bags have no room for the treasure map.",
-      "treasureMapRead": "You study the {map}. The X lies somewhere in {zone}.",
-      "treasureMapUpgraded": "The map is redrawn in finer ink: it is now a {map}.",
-      "treasureVaultOpened": "The ground gives way. A buried hoard lies open before you.",
-      "treasureVaultLooted": "The hoard holds {money} and {items}.",
-      "treasureVaultCapped": "You have shared in enough hoards today; this one pays you nothing.",
-      "hoardGoblinSighted": "A goblin thief appears!",
-      "hoardGoblinSightedHint": "Kill it before it escapes with the gold!",
-      "hoardGoblinExplain": "A goblin thief is hiding in this hoard with a sack of stolen gold. It never fights back, it only runs. Your first hit starts a {seconds}-second escape bar: if it is still alive when the bar runs out, it opens a portal and is gone with the gold. Left alone, it slips away after {minutes} minutes. Kill it in time and everyone in the room is paid in gold."
+      "treasureMapEarned": "Setiap misi dunia hari ini selesai: Anda menemukan {map}.",
+      "treasureMapLost": "Setiap misi dunia hari ini selesai, tetapi tas Anda penuh. Peta ini dijatuhkan.",
+      "treasureMapRead": "Anda mempelajari {map}. X terletak di suatu tempat di {zone}.",
+      "treasureMapUpgraded": "Peta digambar ulang dalam tinta yang lebih halus: peta ini sekarang {map}.",
+      "treasureVaultOpened": "Tanah bergerak. Harta karun yang terkubur terletak terbuka di depan Anda.",
+      "treasureVaultLooted": "Harta karun menampung {money} dan {items}.",
+      "treasureVaultCapped": "Anda telah berbagi dalam cukup banyak harta karun hari ini; harta karun ini hanya memberikan pengalaman.",
+      "hoardGoblinSighted": "Maling goblin muncul!",
+      "hoardGoblinSightedHint": "Bunuh sebelum dia meloloskan diri dengan emas!",
+      "hoardGoblinExplain": "Maling goblin bersembunyi dalam harta karun ini dengan karung emas. Anda memiliki {minutes} menit {seconds} detik untuk menangkapnya sebelum melarikan diri dengan seluruh harta karun."
     },
     "errors": {
       "unavailable": "Misi itu tidak tersedia.",
@@ -17678,361 +17678,361 @@ export const id_ID: EnTranslations = {
         "name": "Tapak Rantai Himne Badai"
       },
       "allied_hearthstone": {
-        "name": "Allied Hearthstone"
+        "name": "Batu Api Sekutu"
       },
       "allied_vanguard_duffel": {
-        "name": "Allied Vanguard Duffel"
+        "name": "Tas Rombongan Sekutu"
       },
       "rift_feather_glider": {
-        "name": "Rift Feather Glider"
+        "name": "Peluncur Bulu Retak"
       },
       "formula_enchant_feet_shadowstride": {
-        "name": "Formula: Enchant Boots - Shadowstride"
+        "name": "Formula: Pesona Sepatu - Langkah Bayangan"
       },
       "recipe_potion_of_invisibility": {
-        "name": "Recipe: Potion of Invisibility"
+        "name": "Resep: Ramuan Ketaklihatan"
       },
       "potion_of_invisibility": {
-        "name": "Potion of Invisibility"
+        "name": "Ramuan Ketaklihatan"
       },
       "pattern_reinforced_armor_kit": {
-        "name": "Pattern: Reinforced Armor Kit"
+        "name": "Pola: Paket Zirah Diperkuat"
       },
       "reinforced_armor_kit": {
-        "name": "Reinforced Armor Kit"
+        "name": "Paket Zirah Diperkuat"
       },
       "dawn_battle_standard": {
-        "name": "Dawn Battle Standard"
+        "name": "Bendera Perang Fajar"
       },
       "formula_enchant_offhand_spirit": {
-        "name": "Formula: Enchant Off-Hand - Spirit"
+        "name": "Formula: Pesona Tangan Kedua - Roh"
       },
       "recipe_elixir_of_mana_regeneration": {
-        "name": "Recipe: Elixir of Mana Regeneration"
+        "name": "Resep: Elixir Regenerasi Mana"
       },
       "elixir_of_mana_regeneration": {
-        "name": "Elixir of Mana Regeneration"
+        "name": "Elixir Regenerasi Mana"
       },
       "clockwork_target_dummy": {
-        "name": "Clockwork Target Dummy"
+        "name": "Boneka Target Mekanis"
       },
       "schematic_clockwork_shock_bomb": {
-        "name": "Schematic: Clockwork Shock Bomb"
+        "name": "Skema: Bom Kejut Mekanis"
       },
       "clockwork_shock_bomb": {
-        "name": "Clockwork Shock Bomb"
+        "name": "Bom Kejut Mekanis"
       },
       "plans_dense_sharpening_stone": {
-        "name": "Plans: Dense Sharpening Stone"
+        "name": "Rencana: Batu Asah Padat"
       },
       "dense_sharpening_stone": {
-        "name": "Dense Sharpening Stone"
+        "name": "Batu Asah Padat"
       },
       "formula_enchant_gloves_forged_might": {
-        "name": "Formula: Enchant Gloves - Forged Might"
+        "name": "Formula: Pesona Sarung Tangan - Kekuatan Tekap"
       },
       "treasure_map_common": {
-        "name": "Weathered Treasure Map"
+        "name": "Peta Harta Terhapus"
       },
       "treasure_map_rare": {
-        "name": "Inked Treasure Map"
+        "name": "Peta Harta Bertinta"
       },
       "treasure_map_epic": {
-        "name": "Gilded Treasure Map"
+        "name": "Peta Harta Berlapis Emas"
       },
       "treasure_map_legendary": {
-        "name": "Sovereign Treasure Map"
+        "name": "Peta Harta Berdaulat"
       },
       "cartographers_ink": {
-        "name": "Cartographer's Ink"
+        "name": "Tinta Kartografer"
       },
       "collapsar_band_of_nyxaris": {
-        "name": "Collapsar Band of Nyxaris"
+        "name": "Sabuk Runtuh Nyxaris"
       },
       "rare_collapsar_band_of_nyxaris": {
-        "name": "Tarnished Collapsar Band of Nyxaris"
+        "name": "Sabuk Tarnish Runtuh Nyxaris"
       },
       "legendary_collapsar_band_of_nyxaris": {
-        "name": "Sovereign Collapsar Band of Nyxaris"
+        "name": "Sabuk Berdaulat Runtuh Nyxaris"
       },
       "orb_collapsing_void": {
-        "name": "Orb of Collapsing Void"
+        "name": "Bola Kehampaan Runtuh"
       },
       "rare_orb_collapsing_void": {
-        "name": "Tarnished Orb of Collapsing Void"
+        "name": "Bola Tarnish Kehampaan Runtuh"
       },
       "legendary_orb_collapsing_void": {
-        "name": "Sovereign Orb of Collapsing Void"
+        "name": "Bola Berdaulat Kehampaan Runtuh"
       },
       "cowl_of_event_horizon": {
-        "name": "Cowl of the Event Horizon"
+        "name": "Cowl Cakrawala Peristiwa"
       },
       "rare_cowl_of_event_horizon": {
-        "name": "Tarnished Cowl of the Event Horizon"
+        "name": "Cowl Tarnish Cakrawala Peristiwa"
       },
       "legendary_cowl_of_event_horizon": {
-        "name": "Sovereign Cowl of the Event Horizon"
+        "name": "Cowl Berdaulat Cakrawala Peristiwa"
       },
       "mantle_of_singularity": {
-        "name": "Mantle of Singularity"
+        "name": "Mantel Keunikan"
       },
       "rare_mantle_of_singularity": {
-        "name": "Tarnished Mantle of Singularity"
+        "name": "Mantel Tarnish Keunikan"
       },
       "legendary_mantle_of_singularity": {
-        "name": "Sovereign Mantle of Singularity"
+        "name": "Mantel Berdaulat Keunikan"
       },
       "glacier_hewn_bulwark": {
-        "name": "Glacier-Hewn Bulwark"
+        "name": "Benteng Pahat Es Abadi"
       },
       "rare_glacier_hewn_bulwark": {
-        "name": "Tarnished Glacier-Hewn Bulwark"
+        "name": "Benteng Tarnish Pahat Es Abadi"
       },
       "legendary_glacier_hewn_bulwark": {
-        "name": "Sovereign Glacier-Hewn Bulwark"
+        "name": "Benteng Berdaulat Pahat Es Abadi"
       },
       "permafrost_legguards": {
-        "name": "Permafrost Legguards"
+        "name": "Pelindung Kaki Permafrost"
       },
       "rare_permafrost_legguards": {
-        "name": "Tarnished Permafrost Legguards"
+        "name": "Pelindung Kaki Tarnish Permafrost"
       },
       "legendary_permafrost_legguards": {
-        "name": "Sovereign Permafrost Legguards"
+        "name": "Pelindung Kaki Berdaulat Permafrost"
       },
       "frostbitten_rime_slippers": {
-        "name": "Frostbitten Rime Slippers"
+        "name": "Sandal Rima Cacat Es"
       },
       "rare_frostbitten_rime_slippers": {
-        "name": "Tarnished Frostbitten Rime Slippers"
+        "name": "Sandal Tarnish Rima Cacat Es"
       },
       "legendary_frostbitten_rime_slippers": {
-        "name": "Sovereign Frostbitten Rime Slippers"
+        "name": "Sandal Berdaulat Rima Cacat Es"
       },
       "rime_crusted_grips": {
-        "name": "Rime-Crusted Grips"
+        "name": "Pegangan Berkrusta Rima"
       },
       "rare_rime_crusted_grips": {
-        "name": "Tarnished Rime-Crusted Grips"
+        "name": "Pegangan Tarnish Berkrusta Rima"
       },
       "legendary_rime_crusted_grips": {
-        "name": "Sovereign Rime-Crusted Grips"
+        "name": "Pegangan Berdaulat Berkrusta Rima"
       },
       "ember_wrought_crown": {
-        "name": "Ember-Wrought Crown"
+        "name": "Mahkota Tekap Bara"
       },
       "rare_ember_wrought_crown": {
-        "name": "Tarnished Ember-Wrought Crown"
+        "name": "Mahkota Tarnish Tekap Bara"
       },
       "legendary_ember_wrought_crown": {
-        "name": "Sovereign Ember-Wrought Crown"
+        "name": "Mahkota Berdaulat Tekap Bara"
       },
       "cinder_stitched_robes": {
-        "name": "Cinder-Stitched Robes"
+        "name": "Jubah Dijahit Bara"
       },
       "rare_cinder_stitched_robes": {
-        "name": "Tarnished Cinder-Stitched Robes"
+        "name": "Jubah Tarnish Dijahit Bara"
       },
       "legendary_cinder_stitched_robes": {
-        "name": "Sovereign Cinder-Stitched Robes"
+        "name": "Jubah Berdaulat Dijahit Bara"
       },
       "chained_ember_choker": {
-        "name": "Chained Ember Choker"
+        "name": "Kalung Berantai Bara"
       },
       "rare_chained_ember_choker": {
-        "name": "Tarnished Chained Ember Choker"
+        "name": "Kalung Tarnish Berantai Bara"
       },
       "legendary_chained_ember_choker": {
-        "name": "Sovereign Chained Ember Choker"
+        "name": "Kalung Berdaulat Berantai Bara"
       },
       "molten_clinker_girdle": {
-        "name": "Molten Clinker Girdle"
+        "name": "Ikat Pinggang Terak Lelehan"
       },
       "rare_molten_clinker_girdle": {
-        "name": "Tarnished Molten Clinker Girdle"
+        "name": "Ikat Pinggang Tarnish Terak Lelehan"
       },
       "legendary_molten_clinker_girdle": {
-        "name": "Sovereign Molten Clinker Girdle"
+        "name": "Ikat Pinggang Berdaulat Terak Lelehan"
       },
       "storm_tuned_buckler": {
-        "name": "Storm-Tuned Buckler"
+        "name": "Perisai Bakat Badai"
       },
       "rare_storm_tuned_buckler": {
-        "name": "Tarnished Storm-Tuned Buckler"
+        "name": "Perisai Tarnish Bakat Badai"
       },
       "legendary_storm_tuned_buckler": {
-        "name": "Sovereign Storm-Tuned Buckler"
+        "name": "Perisai Berdaulat Bakat Badai"
       },
       "hauberk_tempest_gale": {
-        "name": "Hauberk of the Tempest Gale"
+        "name": "Baju Rantai Badai Angin"
       },
       "rare_hauberk_tempest_gale": {
-        "name": "Tarnished Hauberk of the Tempest Gale"
+        "name": "Baju Rantai Tarnish Badai Angin"
       },
       "legendary_hauberk_tempest_gale": {
-        "name": "Sovereign Hauberk of the Tempest Gale"
+        "name": "Baju Rantai Berdaulat Badai Angin"
       },
       "gale_strider_boots": {
-        "name": "Gale-Strider Boots"
+        "name": "Sepatu Pejalan Angin"
       },
       "rare_gale_strider_boots": {
-        "name": "Tarnished Gale-Strider Boots"
+        "name": "Sepatu Tarnish Pejalan Angin"
       },
       "legendary_gale_strider_boots": {
-        "name": "Sovereign Gale-Strider Boots"
+        "name": "Sepatu Berdaulat Pejalan Angin"
       },
       "tempest_strike_grips": {
-        "name": "Tempest-Strike Grips"
+        "name": "Pegangan Pukulan Badai"
       },
       "rare_tempest_strike_grips": {
-        "name": "Tarnished Tempest-Strike Grips"
+        "name": "Pegangan Tarnish Pukulan Badai"
       },
       "legendary_tempest_strike_grips": {
-        "name": "Sovereign Tempest-Strike Grips"
+        "name": "Pegangan Berdaulat Pukulan Badai"
       },
       "breastplate_tectonic_might": {
-        "name": "Breastplate of Tectonic Might"
+        "name": "Pelat Dada Kekuatan Tektonik"
       },
       "rare_breastplate_tectonic_might": {
-        "name": "Tarnished Breastplate of Tectonic Might"
+        "name": "Pelat Dada Tarnish Kekuatan Tektonik"
       },
       "legendary_breastplate_tectonic_might": {
-        "name": "Sovereign Breastplate of Tectonic Might"
+        "name": "Pelat Dada Berdaulat Kekuatan Tektonik"
       },
       "band_mountains_weight": {
-        "name": "Band of the Mountain's Weight"
+        "name": "Sabuk Berat Gunung"
       },
       "rare_band_mountains_weight": {
-        "name": "Tarnished Band of the Mountain's Weight"
+        "name": "Sabuk Tarnish Berat Gunung"
       },
       "legendary_band_mountains_weight": {
-        "name": "Sovereign Band of the Mountain's Weight"
+        "name": "Sabuk Berdaulat Berat Gunung"
       },
       "monolithic_shoulderguards": {
-        "name": "Monolithic Shoulderguards"
+        "name": "Pelindung Bahu Monolit"
       },
       "rare_monolithic_shoulderguards": {
-        "name": "Tarnished Monolithic Shoulderguards"
+        "name": "Pelindung Bahu Tarnish Monolit"
       },
       "legendary_monolithic_shoulderguards": {
-        "name": "Sovereign Monolithic Shoulderguards"
+        "name": "Pelindung Bahu Berdaulat Monolit"
       },
       "earthshaker_warboots": {
-        "name": "Earthshaker Warboots"
+        "name": "Sepatu Perang Penggetar Bumi"
       },
       "rare_earthshaker_warboots": {
-        "name": "Tarnished Earthshaker Warboots"
+        "name": "Sepatu Perang Tarnish Penggetar Bumi"
       },
       "legendary_earthshaker_warboots": {
-        "name": "Sovereign Earthshaker Warboots"
+        "name": "Sepatu Perang Berdaulat Penggetar Bumi"
       },
       "silkstalker_woven_vest": {
-        "name": "Woven Vest of the Silkstalker"
+        "name": "Rompi Tenunan Pemburu Sutra"
       },
       "rare_silkstalker_woven_vest": {
-        "name": "Tarnished Woven Vest of the Silkstalker"
+        "name": "Rompi Tarnish Tenunan Pemburu Sutra"
       },
       "legendary_silkstalker_woven_vest": {
-        "name": "Sovereign Woven Vest of the Silkstalker"
+        "name": "Rompi Berdaulat Tenunan Pemburu Sutra"
       },
       "spun_venom_spaulders": {
-        "name": "Spun-Venom Spaulders"
+        "name": "Pauldron Bisa Berputar"
       },
       "rare_spun_venom_spaulders": {
-        "name": "Tarnished Spun-Venom Spaulders"
+        "name": "Pauldron Tarnish Bisa Berputar"
       },
       "legendary_spun_venom_spaulders": {
-        "name": "Sovereign Spun-Venom Spaulders"
+        "name": "Pauldron Berdaulat Bisa Berputar"
       },
       "broodmother_chitin_cowl": {
-        "name": "Chitin Cowl of the Broodmother"
+        "name": "Cowl Kitin Ibu Kawanan"
       },
       "rare_broodmother_chitin_cowl": {
-        "name": "Tarnished Chitin Cowl of the Broodmother"
+        "name": "Cowl Tarnish Kitin Ibu Kawanan"
       },
       "legendary_broodmother_chitin_cowl": {
-        "name": "Sovereign Chitin Cowl of the Broodmother"
+        "name": "Cowl Berdaulat Kitin Ibu Kawanan"
       },
       "venom_etched_waistcord": {
-        "name": "Venom-Etched Waistcord"
+        "name": "Tali Terukir Bisa"
       },
       "rare_venom_etched_waistcord": {
-        "name": "Tarnished Venom-Etched Waistcord"
+        "name": "Tali Tarnish Terukir Bisa"
       },
       "legendary_venom_etched_waistcord": {
-        "name": "Sovereign Venom-Etched Waistcord"
+        "name": "Tali Berdaulat Terukir Bisa"
       },
       "bone_studded_pauldrons": {
-        "name": "Bone-Studded Pauldrons"
+        "name": "Pauldron Bergambar Tulang"
       },
       "rare_bone_studded_pauldrons": {
-        "name": "Tarnished Bone-Studded Pauldrons"
+        "name": "Pauldron Tarnish Bergambar Tulang"
       },
       "legendary_bone_studded_pauldrons": {
-        "name": "Sovereign Bone-Studded Pauldrons"
+        "name": "Pauldron Berdaulat Bergambar Tulang"
       },
       "legguards_of_the_ossuary": {
-        "name": "Legguards of the Ossuary"
+        "name": "Pelindung Kaki Ossuary"
       },
       "rare_legguards_of_the_ossuary": {
-        "name": "Tarnished Legguards of the Ossuary"
+        "name": "Pelindung Kaki Tarnish Ossuary"
       },
       "legendary_legguards_of_the_ossuary": {
-        "name": "Sovereign Legguards of the Ossuary"
+        "name": "Pelindung Kaki Berdaulat Ossuary"
       },
       "seal_of_the_cryptwalker": {
-        "name": "Seal of the Cryptwalker"
+        "name": "Segel Pejalan Krypta"
       },
       "rare_seal_of_the_cryptwalker": {
-        "name": "Tarnished Seal of the Cryptwalker"
+        "name": "Segel Tarnish Pejalan Krypta"
       },
       "legendary_seal_of_the_cryptwalker": {
-        "name": "Sovereign Seal of the Cryptwalker"
+        "name": "Segel Berdaulat Pejalan Krypta"
       },
       "ossuary_bone_crown": {
-        "name": "Ossuary Bone Crown"
+        "name": "Mahkota Tulang Ossuary"
       },
       "rare_ossuary_bone_crown": {
-        "name": "Tarnished Ossuary Bone Crown"
+        "name": "Mahkota Tarnish Tulang Ossuary"
       },
       "legendary_ossuary_bone_crown": {
-        "name": "Sovereign Ossuary Bone Crown"
+        "name": "Mahkota Berdaulat Tulang Ossuary"
       },
       "chalice_of_living_tides": {
-        "name": "Chalice of the Living Tides"
+        "name": "Piala Pasang Hidup"
       },
       "rare_chalice_of_living_tides": {
-        "name": "Tarnished Chalice of the Living Tides"
+        "name": "Piala Tarnish Pasang Hidup"
       },
       "legendary_chalice_of_living_tides": {
-        "name": "Sovereign Chalice of the Living Tides"
+        "name": "Piala Berdaulat Pasang Hidup"
       },
       "pendant_continuous_flow": {
-        "name": "Pendant of Continuous Flow"
+        "name": "Liontin Aliran Terus"
       },
       "rare_pendant_continuous_flow": {
-        "name": "Tarnished Pendant of Continuous Flow"
+        "name": "Liontin Tarnish Aliran Terus"
       },
       "legendary_pendant_continuous_flow": {
-        "name": "Sovereign Pendant of Continuous Flow"
+        "name": "Liontin Berdaulat Aliran Terus"
       },
       "coral_encrusted_girdle": {
-        "name": "Coral-Encrusted Girdle"
+        "name": "Ikat Pinggang Berkoral Tebal"
       },
       "rare_coral_encrusted_girdle": {
-        "name": "Tarnished Coral-Encrusted Girdle"
+        "name": "Ikat Pinggang Tarnish Berkoral Tebal"
       },
       "legendary_coral_encrusted_girdle": {
-        "name": "Sovereign Coral-Encrusted Girdle"
+        "name": "Ikat Pinggang Berdaulat Berkoral Tebal"
       },
       "riptide_handwraps": {
-        "name": "Riptide Handwraps"
+        "name": "Pembungkus Tangan Arus Rip"
       },
       "rare_riptide_handwraps": {
-        "name": "Tarnished Riptide Handwraps"
+        "name": "Pembungkus Tangan Tarnish Arus Rip"
       },
       "legendary_riptide_handwraps": {
-        "name": "Sovereign Riptide Handwraps"
+        "name": "Pembungkus Tangan Berdaulat Arus Rip"
       },
       "vanguard_warrior_arms_helmet": {
         "name": "Helm Agung Segar Mata Pedang"
@@ -19732,49 +19732,49 @@ export const id_ID: EnTranslations = {
         "name": "Kuda Kandang"
       },
       "hoard_brood_egg": {
-        "name": "Brood Clutch"
+        "name": "Genggam Kawanan"
       },
       "hoard_brood_hatchling": {
-        "name": "Vysska's Hatchling"
+        "name": "Anak Ayam Vysska"
       },
       "hoard_healing_tide_totem": {
-        "name": "Healing Tide Totem"
+        "name": "Totem Pasang Penyembuhan"
       },
       "hoard_bound_pulsar": {
-        "name": "Bound Pulsar"
+        "name": "Pulsar Terikat"
       },
       "hoard_abyssal_tentacle": {
-        "name": "Tentacle of the Maw"
+        "name": "Tentakel Mulut Jurang"
       },
       "hoard_silk_cocoon": {
-        "name": "Silk Cocoon"
+        "name": "Kepompong Sutra"
       },
       "hoard_brood_cocoon": {
-        "name": "Brood Cocoon"
+        "name": "Kepompong Kawanan"
       },
       "hoard_coinsack_scurrier": {
-        "name": "Coinsack Scurrier"
+        "name": "Penari Mata Uang"
       },
       "hoard_boss_mushroom": {
-        "name": "Mother of Mushrooms"
+        "name": "Ibu Jamur"
       },
       "hoard_sporeling": {
-        "name": "Sporeling"
+        "name": "Spora Muda"
       },
       "hoard_bloat_cap": {
-        "name": "Bloated Cap"
+        "name": "Topi Membengkak"
       },
       "hoard_boss_mole": {
-        "name": "Deeprake"
+        "name": "Penggali Dalam"
       },
       "hoard_boss_bat": {
-        "name": "Colossal Bat"
+        "name": "Kelelawar Kolosal"
       },
       "hoard_boss_mimic": {
-        "name": "Voracious Chest"
+        "name": "Peti Rakus"
       },
       "hoard_bat_swarmling": {
-        "name": "Cave Swarmer"
+        "name": "Penyebar Gua"
       },
       "rift_spawnling": {
         "name": "Anak Rift"
@@ -19807,7 +19807,7 @@ export const id_ID: EnTranslations = {
         "name": "Troll Sumsum"
       },
       "rift_marrow_golem": {
-        "name": "Marrow Golem"
+        "name": "Golem Sumsum"
       },
       "rift_void_acolyte": {
         "name": "Akolit Voidscar"
@@ -23943,9 +23943,9 @@ export const id_ID: EnTranslations = {
         "body": "Daftar Anda terjual dan pembeli telah melunasi seluruhnya. Buku besar Bursa menyimpan catatan penjualan ini, dan aktivitas Bursa Anda menampilkan jumlah yang dilunasi beserta rinciannya.\n\n- Perantara Bursa"
       },
       "hoard_vault_reward": {
-        "sender": "The Ravenpost",
-        "subject": "Your vault reward",
-        "body": "The vault was cleared, but your share was not collected from the chest. The ravens have brought it to you here, with the goods and coin you earned attached.\n\n- The Ravenpost"
+        "sender": "Pos Gagak",
+        "subject": "Hadiah lemari besi Anda",
+        "body": "Lemari besi dibersihkan, tetapi bagian Anda tidak diambil dari peti. Burung gagak telah membawanya ke Anda di sini, dengan barang dan koin yang Anda peroleh.\n\n- Pos Gagak"
       }
     },
     "itemSets": {

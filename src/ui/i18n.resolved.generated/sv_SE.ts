@@ -1167,9 +1167,9 @@ export const sv_SE: EnTranslations = {
       "objectiveValue": "{current} / {total}",
       "collapseHint": "Fäll ihop uppdragsspåraren",
       "expandHint": "Fäll ut uppdragsspåraren",
-      "worldQuests": "World Quests",
-      "worldQuestsCollapseHint": "Collapse world quests",
-      "worldQuestsExpandHint": "Expand world quests"
+      "worldQuests": "Världsuppdrag",
+      "worldQuestsCollapseHint": "Fäll ihop världsuppdrag",
+      "worldQuestsExpandHint": "Expandera världsuppdrag"
     },
     "interfaceTabs": {
       "general": "Allmänt",
@@ -1664,10 +1664,10 @@ export const sv_SE: EnTranslations = {
     },
     "riftTracker": {
       "title": "Reva",
-      "hoardTitle": "Buried Hoard",
-      "hoardGoal": "Defeat the hoard keeper",
-      "hoardChestGoal": "Open the hoard chest",
-      "hoardClaimedGoal": "The hoard is yours",
+      "hoardTitle": "Begravd skatt",
+      "hoardGoal": "Besegra skattvaktaren",
+      "hoardChestGoal": "Öppna skatkistan",
+      "hoardClaimedGoal": "Skatten är din",
       "floor": "Våning {current} av {total}",
       "closesIn": "Stänger om {time}",
       "clockMs": "{minutes}:{seconds}",
@@ -2878,16 +2878,16 @@ export const sv_SE: EnTranslations = {
       "openProfessions": "Öppna yrken"
     },
     "treasureMap": {
-      "close": "Close treasure map",
-      "zone": "Somewhere in {zone}",
-      "hint": "Find the ground this map shows, stand on the X, and use the map again to dig. A buried hoard opens for you and your party.",
-      "upgradeNote": "Redrawing it as a {rarity} map takes {inks} Cartographer's Ink (you hold {held}). The faction quartermasters sell it.",
-      "upgradeMaxed": "No cartographer could better this map.",
+      "close": "Stäng skattkartan",
+      "zone": "Någonstans i {zone}",
+      "hint": "Hitta marken som denna karta visar, stå på X och använd kartan igen för att gräva. En begravd skatt öppnas för dig och ditt lag.",
+      "upgradeNote": "Att omtecka det som en {rarity} karta tar {inks} kartografbläck (du håller {held}). Fraktionens quartermaster säljer det.",
+      "upgradeMaxed": "Ingen kartograf kunde göra denna karta bättre.",
       "rarity": {
-        "common": "Common",
-        "rare": "Rare",
-        "epic": "Epic",
-        "legendary": "Legendary"
+        "common": "Vanlig",
+        "rare": "Sällsynt",
+        "epic": "Episk",
+        "legendary": "Legendär"
       }
     },
     "currencies": {
@@ -2905,23 +2905,23 @@ export const sv_SE: EnTranslations = {
       "wocPreview": "Förhandsvisning av saldo, ännu ej verifierat",
       "lifetime": "Livstid {amount}",
       "factionPending": "Fraktionsvaluta: väntar på steg 2",
-      "riftWatchMark": "Rift Watch Mark",
-      "riftWatchMarkNote": "World Quests in Rift Watch zones",
-      "churchOrderCrest": "Order Crest",
-      "churchOrderCrestNote": "World Quests in Church Order zones",
-      "automatonCog": "Automaton Cog",
-      "automatonCogNote": "World Quests in Automaton zones"
+      "riftWatchMark": "Riftvaktsmedalj",
+      "riftWatchMarkNote": "Världsuppdrag i Riftvakts zoner",
+      "churchOrderCrest": "Ordens krön",
+      "churchOrderCrestNote": "Världsuppdrag i Kyrkoorden zoner",
+      "automatonCog": "Automatens kugghjul",
+      "automatonCogNote": "Världsuppdrag i Automatiska zoner"
     },
     "worldQuestTooltip": {
-      "factionLine": "Faction: {faction}",
-      "timeRemaining": "Time remaining:",
+      "factionLine": "Fraktion: {faction}",
+      "timeRemaining": "Tid kvar:",
       "standingAmount": "{amount} {faction}",
       "currencyAmount": "{amount} {currency}",
-      "standingReward": "+{amount} {faction} Standing",
+      "standingReward": "+{amount} {faction} ställning",
       "currencyReward": "+{amount} {currency}"
     },
     "worldQuestBanner": {
-      "subtitle": "World Quest"
+      "subtitle": "Världsuppdrag"
     },
     "reputation": {
       "intro": "Alla tre fraktioner fortskrider samtidigt: varje världskupong räknas mot fraktionen av dess zon.",
@@ -5330,9 +5330,9 @@ export const sv_SE: EnTranslations = {
       "enchant_chest_lucent_stamina": "Bröstetsning: Lysande uthållighet",
       "enchant_feet_lucent_agility": "Stövletsning: Lysande smidighet",
       "enchant_lucent_infusion": "Lysande infusion",
-      "enchant_offhand_spirit": "Offhand Etching: Spirit",
-      "enchant_feet_shadowstride": "Boot Etching: Shadowstride",
-      "enchant_gloves_forged_might": "Glove Etching: Forged Might",
+      "enchant_offhand_spirit": "Bihandsetsning: Ande",
+      "enchant_feet_shadowstride": "Stöveletsning: Skugghäl",
+      "enchant_gloves_forged_might": "Handsketsning: Smidesmakt",
       "enchant_weapon_riftwalkers_grace": "Riftvandrares nåd",
       "enchant_weapon_dawnfire_etching": "Vapen Etching: Gryningeld",
       "enchant_weapon_dawns_benediction": "Vapen Etching: Gryningens välsignelse",
@@ -5346,20 +5346,20 @@ export const sv_SE: EnTranslations = {
       "enchant_weapon_piston_drive": "Märker permanent ett tvåhandsvapen med 12 styrka och 25 kritiska slag. Kan inte tillämpas på ett enhandsväpen. En platt bonus; den skalas inte."
     },
     "factionRewards": {
-      "alliedHearthstoneUse": "Use: Teleports you to your attuned faction hub. (10 sec cast, 15 min cooldown)",
-      "alliedHearthstoneAttuned": "Attuned to: {hub}",
-      "hub_none": "None (Use near a faction hub to attune)",
-      "hub_rift_watch": "Drifthaven (The Rift Watch)",
-      "hub_church_order": "Eastbrook Vale (The Church Order)",
-      "hub_automatons": "South Reach (The Automaton Foundry)",
-      "riftGliderUse": "Use: Unfolds the glider, slowing falling speed for 30 sec. Landing or taking damage cancels the effect. (2 min cooldown)",
-      "targetDummyUse": "Use: Deploys a mechanical target dummy in the open world for 2 minutes to practice combat abilities. (5 min cooldown)",
-      "battleStandardUse": "Use: Plants the Consecrated Dawn Battle Standard for 5 minutes, significantly increasing out-of-combat health and mana regeneration for all nearby allies. Remaining near it for 10 seconds also grants Blessing of the Dawn (+5% to all stats for 30 min). (5 min cooldown)",
-      "shockBombUse": "Use: Throws a shock bomb up to 30 yards, dealing 120 to 160 Nature damage to all enemies within 5 yards. (1 min cooldown)",
-      "invisibilityUse": "Use: Shrouds you in stealth for 6 sec. (2 min cooldown)",
-      "armorKitUse": "Use: Reinforces your chest armor, increasing Armor by 12 for 1 hour.",
-      "sharpeningStoneUse": "Use: Sharpens your main hand weapon, increasing Attack Power by 6 for 30 min.",
-      "manaElixirUse": "Use: Increases Spirit by 6 for 1 hour."
+      "alliedHearthstoneUse": "Användning: Teleporterar dig till din inställda fraktionsnav. (10 sek kast, 15 min väntetid)",
+      "alliedHearthstoneAttuned": "Inställd på: {hub}",
+      "hub_none": "Ingen (använd nära en fraktionsnav för att ställa in)",
+      "hub_rift_watch": "Driftvik (Riftvakten)",
+      "hub_church_order": "Östbäcksdalen (Kyrkoorden)",
+      "hub_automatons": "Sydlig räckvidd (AutomatsmidjaN)",
+      "riftGliderUse": "Användning: Fäller ut glidaren, saktar fallhastigheten för 30 sek. Landning eller skada avbryter effekten. (2 min väntetid)",
+      "targetDummyUse": "Användning: Distribuerar en mekanisk måldumy i den öppna världen för 2 minuter för att träna stridsförmågor. (5 min väntetid)",
+      "battleStandardUse": "Användning: Plantera Vigda gryningens stridsfana för 5 minuter, ökar markant hälso- och manaregerering utanför strid för alla närliggande allierade. Att stanna nära den i 10 sekunder ger också Gryningens välsignelse (+5% till alla stats för 30 min). (5 min väntetid)",
+      "shockBombUse": "Användning: Kastar en chockbomb upp till 30 meter, orsakar 120 till 160 naturskada för alla fiender inom 5 meter. (1 min väntetid)",
+      "invisibilityUse": "Användning: Höljer dig i smyg för 6 sek. (2 min väntetid)",
+      "armorKitUse": "Användning: Förstärker din bröstrustning, ökar rustning med 12 för 1 timme.",
+      "sharpeningStoneUse": "Användning: Skärper ditt huvudhandsväpen, ökar attackkraft med 6 för 30 min.",
+      "manaElixirUse": "Användning: Ökar anden med 6 för 1 timme."
     },
     "professions": {
       "title": "Yrken",
@@ -6132,7 +6132,7 @@ export const sv_SE: EnTranslations = {
       "sourceActivityCorpseHarvest": "Bärgad vid skörd av varelsekadaver",
       "sourceActivityMasterworkCraft": "Förtjänas genom att tillverka ett mästerverk",
       "sourceActivityRiftFirstClear": "Tilldelas varje medlem i gruppen som vinner första klarningen av en rankad Reva",
-      "sourceActivityBuriedHoard": "Found in the reward chest of a Buried Hoard, the vault a treasure map leads to",
+      "sourceActivityBuriedHoard": "Hittad i belöningskistan i en begravd skatt, valvet som en skattkartan leder till",
       "cellMissingSourceAria": "{name}, ännu inte funnen, {source}",
       "cellOwnedClearsAria": "{name}, katalogiserad, först funnen vid klarning {count}",
       "searchPlaceholder": "Sök reliker",
@@ -6873,8 +6873,8 @@ export const sv_SE: EnTranslations = {
       "3": "Öst och lite söder om där glöden driver in i dyvorna, döljer en bränd lapp av jord vad askan begravde. Använd rollen där och gräv.",
       "title": "Aska vid porten",
       "reply": {
-        "1": "The wind came off the eastern dunes carrying ash, and ash does not blow in from empty sand. Sela at the garrison stores logs every patrol. She will talk, once someone feeds her.",
-        "2": "Bread at last, bless you. The patrol swore it saw smoke rising from bare sand, east and a little south of the dunes, where nothing is left to burn."
+        "1": "Vinden kom från de östra sanddynerna med aska, och aska blåser inte in från tom sand. Sela vid garnisonen skriver ned varje patrull. Hon talar, när någon matar henne.",
+        "2": "Äntligen bröd, välsigne dig. Patrullen svär att de såg rök stiga från bar sand, öst och lite söder om dynerna, där inget är kvar att bränna."
       }
     },
     "hunt_frostveil_aurora_vigil": {
@@ -6883,7 +6883,7 @@ export const sv_SE: EnTranslations = {
       "2": "Öst om brölande terrasser, lite åt söder, ligger snön plattare än den borde. Använd rollen där och gräv.",
       "title": "Ljus över trapporna",
       "reply": {
-        "1": "You knelt, and the lights answered. Last night they bent east past the terraces and pointed straight down at the snow."
+        "1": "Du knälade, och ljusen svarade. I natt böjde de sig öst förbi terrasserna och pekade rakt ned på snön."
       }
     },
     "hunt_amberfall_lantern_ferry": {
@@ -6893,8 +6893,8 @@ export const sv_SE: EnTranslations = {
       "3": "Nordöst om höjden där eldlönarna brinner röda ligger löven i en cirkel som ingen vind gjorde. Använd rollen där och gräv.",
       "title": "Lyktor på meren",
       "reply": {
-        "0": "One lantern went dark last night, the one that faces the old stone across the water. My ferrymen will not go near it. Perhaps you will.",
-        "2": "Cold well water, just what the trees wanted. Up past the red maples the leaves have been falling in a ring, and no tree of mine drops its leaves that neatly."
+        "0": "En lampa blev mörk i natt, den som är vänd mot den gamla stenen över vattnet. Mina färjmän vill inte gå dit. Du kanske gör det.",
+        "2": "Kallt brunnsvatten, precis vad träden behövde. Bortom de röda lönnarna har löven fallit i en cirkel, och ingen av mina träd förlorar sina löv så ordnat."
       }
     },
     "hunt_willowfen_fenwitch_salt": {
@@ -6903,7 +6903,7 @@ export const sv_SE: EnTranslations = {
       "2": "Sydöst om de pooler som glänser i sumpen, en torr kulle förblir torr året runt. Använd rollen där och gräv.",
       "title": "Källanhäxans salt",
       "reply": {
-        "0": "Salt. Good, you listen. The flats beyond the reeds make everyone drowsy. Go and sigh there like you mean it, and the fen will show you the rest."
+        "0": "Salt. Bra, du lyssnar. Slätten bortom vassen gör alla sömniga. Gå och sucka där som du menar det, och träskmark visar dig resten."
       }
     },
     "hunt_nightbloom_sleepless_vigil": {
@@ -6913,7 +6913,7 @@ export const sv_SE: EnTranslations = {
       "3": "Sydöst om fältet där skymningen samlas, samlar månljuset på en bar jordlapp. Använd rollen där och gräv.",
       "title": "Vaken för de vakenlösa",
       "reply": {
-        "1": "A star fell three nights ago, and it fell toward the old barrow north of town. The dead there never sleep. Greet them as a soldier would."
+        "1": "En stjärna föll för tre nätter sedan, och den föll mot den gamla gravhögen norr om stan. De döda där sover aldrig. Hälsa dem som en soldat skulle."
       }
     },
     "hunt_wraithwood_mournstone_candles": {
@@ -6923,8 +6923,8 @@ export const sv_SE: EnTranslations = {
       "3": "Sydöst om klippan där jägaren ställde sina snäror, har löverblandningen nyligen väldts. Använd rollen där och gräv.",
       "title": "Ljus för Sorgestenen",
       "reply": {
-        "0": "The vicar ordered that candle and never paid for it. He has been fasting ever since, praying and nothing else. Take him something to chew and ask him why.",
-        "1": "Thank you, friend. I never lit that candle. Something walks the glade past the crows at night, and I could not face it. Go and stand there, if you can."
+        "0": "Prästen beställde det ljuset och betalade aldrig för det. Han har fastat sedan dess, bad och inget annat. Ta honom något att tugga och fråga honom varför.",
+        "1": "Tack, vän. Jag tände aldrig det ljuset. Något går på ljungmården förbi kråkorna på natten, och jag kunde inte möta det. Gå och stå där, om du kan."
       }
     },
     "hunt_palmreach_sunken_idol": {
@@ -6934,7 +6934,7 @@ export const sv_SE: EnTranslations = {
       "3": "Nordöst om där vildvinglingen öppnar sin mun mot havet, är sanden högt uppsamlad högre än tidvattnet når. Använd rollen där och gräv.",
       "title": "Gudabildens hemlighet",
       "reply": {
-        "1": "Below the vines the divers found an idol, and the idol did not like them. Anyone who stood tall before it did not come back. Be small before it."
+        "1": "Under rankorna hittade dykarna en gudabild, och gudan gillade dem inte. Den som stod högt framför den kom inte tillbaka. Var liten framför den."
       }
     },
     "hunt_evergarden_beacon_road": {
@@ -6944,8 +6944,8 @@ export const sv_SE: EnTranslations = {
       "3": "Nordväst om den gamla fyren, strax bort från vägen ned från ljuset, har torven blivit skuren och lagd tillbaka. Använd rollen där och gräv.",
       "title": "Båk och blomning",
       "reply": {
-        "0": "Proper compost, the beds will live. The old miller buried something before he left. His mill still turns in the far corner of the gardens. Go and stand by it.",
-        "2": "So the mill sent you down the coast road. The beacon keeps one last secret: northwest of it, just off the path, the turf was cut and laid back. Dig there."
+        "0": "Riktigt gödsel, sängarna kommer att leva. Den gamla mjölnaren begravde något innan han gick. Hans kvarn roterar fortfarande i trädgårdens fjärran hörn. Gå och stå bredvid den.",
+        "2": "Så kvarnen skickade dig nerför kustvagen. Fyren håller en sista hemlighet: norrvästom den, precis bort från vägen, har torven blivit skuren och lagd tillbaka. Gräv där."
       }
     }
   },
@@ -10249,11 +10249,11 @@ export const sv_SE: EnTranslations = {
       "pylonLit": "En runpelare flammar till liv ({lit}/{total}).",
       "wayDownOpens": "Vägen ner rivs upp.",
       "exitOpens": "Revan skälver. En väg hem rivs upp bakom de fallna.",
-      "hoardEnter": "You climb down into {name}.",
-      "hoardExitOpens": "The hoard is yours. Return to the entrance to climb out.",
-      "hoardStepBack": "You climb back out through the hoard entrance.",
-      "hoardNotYours": "This hoard was dug up by another party.",
-      "hoardEntrantsFull": "This hoard has already admitted five adventurers.",
+      "hoardEnter": "Du klättrar ner i {name}.",
+      "hoardExitOpens": "Valvet är ditt. Återvänd till entransen för att klättra upp.",
+      "hoardStepBack": "Du klättrar upp genom lagomets entré.",
+      "hoardNotYours": "Detta lagom grävdes upp av annan part.",
+      "hoardEntrantsFull": "Detta lagom har redan tillåtit fem äventyrare.",
       "portalOpens": "En reva av grad {tier} rivs upp i {zone}!",
       "portalSealed": "Revan av grad {tier} i {zone} har förseglats.",
       "portalCollapses": "Revan av grad {tier} i {zone} kollapsar.",
@@ -10510,7 +10510,7 @@ export const sv_SE: EnTranslations = {
       "nhaliaBlackwaterMark": "{name} märker {player} med Svartvatten!"
     },
     "factionVendor": {
-      "currencyRequired": "You need {amount} {currency} to purchase that."
+      "currencyRequired": "Du behöver {amount} {currency} för att köpa det."
     },
     "lockpick": {
       "lockYields": "Låset ger vika! {tier} byte.",
@@ -11132,7 +11132,7 @@ export const sv_SE: EnTranslations = {
       "alreadyInWorld": "Karaktären är redan i världen.",
       "accountSessionLimit": "För många karaktärer på detta konto är redan i världen.",
       "takenOver": "Din karaktär togs över av en annan session.",
-      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
+      "vaultMailRecovering": "Din kassaskatt-belönings-post återställs. Försök igen snart.",
       "renameBeforeEntering": "Denna karaktär måste byta namn innan den går in i världen.",
       "renameNotPermitted": "Det är inte tillåtet att byta namn på denna karaktär.",
       "unsupportedMediaType": "Formatet på begäran stöds inte.",
@@ -11476,8 +11476,8 @@ export const sv_SE: EnTranslations = {
         "dungeonExit": "Fängelsehålsutgång",
         "delveEntrance": "Delve-ingång: {name}",
         "worldPassage": "Passage till {zone}",
-        "hoardEntrance": "Buried Hoard entrance",
-        "hoardReturnEntrance": "Hoard return entrance",
+        "hoardEntrance": "Begravd skatts ingång",
+        "hoardReturnEntrance": "Skatt-återgångs ingång",
         "riftEntrance": "Ingång till revan: {name}",
         "hostileEnemy": "Fientligt mål",
         "aggressiveEnemy": "Fiende angriper dig",
@@ -12214,34 +12214,34 @@ export const sv_SE: EnTranslations = {
       "rift_storm_strike": "Stormroparens vrede",
       "rift_tide_execution": "Avgrundsgapet",
       "rift_tide_strike": "Krossande djup",
-      "hoard_cast_fear": "Terrifying Roar",
-      "hoard_cast_stun": "Stunning Blow",
-      "hoard_cast_drowning_hook": "Drowning Hook",
-      "hoard_cast_rime_beam": "Rime Beam",
-      "hoard_cast_cinder_bolt": "Cinder Bolt",
-      "hoard_cast_void_empower": "Void Empowerment",
-      "hoard_cast_webbing": "Webbing",
-      "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Headlong Charge",
-      "hoard_cast_silk_snare": "Silk Snare",
-      "hoard_cast_silence": "Silencing Shriek",
-      "hoard_cast_hex": "Hex",
-      "hoard_lightning_strike": "Lightning Strike",
-      "hoard_ice_age": "Ice Age",
-      "hoard_pulsar_overload": "Pulsar Overload",
-      "hoard_rolling_boulder": "Rolling Boulder",
-      "hoard_goblin_escape": "Escaping",
-      "hoard_cast_mole_rake": "Claw Rake",
-      "hoard_cast_burrow": "Burrow",
-      "hoard_cast_tunnel": "Tunneling",
-      "hoard_cast_emerge": "Eruption",
-      "hoard_cast_collapse": "Ceiling Collapse",
-      "hoard_cast_bat_dive_aim": "Plunging Dive",
-      "hoard_cast_bat_dive": "Diving",
-      "hoard_cast_screech": "Deafening Screech",
-      "hoard_cast_mimic_bite": "Voracious Bite",
-      "hoard_cast_mimic_leap": "Crushing Leap",
-      "hoard_cast_coin_spit": "Cursed Coins"
+      "hoard_cast_fear": "Skräckinjagande vrål",
+      "hoard_cast_stun": "Bedövande slag",
+      "hoard_cast_drowning_hook": "Drunkningskrok",
+      "hoard_cast_rime_beam": "Rimstråle",
+      "hoard_cast_cinder_bolt": "Glödbult",
+      "hoard_cast_void_empower": "Tomrumskraft",
+      "hoard_cast_webbing": "Nätning",
+      "hoard_cast_doom_ritual": "Undergångsrit",
+      "hoard_cast_charge": "Framstormning",
+      "hoard_cast_silk_snare": "Sidenfälla",
+      "hoard_cast_silence": "Tystadsskriket",
+      "hoard_cast_hex": "Förbannelse",
+      "hoard_lightning_strike": "Blixtnedslag",
+      "hoard_ice_age": "Istid",
+      "hoard_pulsar_overload": "Pulsöverbelastning",
+      "hoard_rolling_boulder": "Rullandsten",
+      "hoard_goblin_escape": "Flyr",
+      "hoard_cast_mole_rake": "Klorivning",
+      "hoard_cast_burrow": "Grävgång",
+      "hoard_cast_tunnel": "Grävtunnel",
+      "hoard_cast_emerge": "Utbrott",
+      "hoard_cast_collapse": "Takras",
+      "hoard_cast_bat_dive_aim": "Störtdykning",
+      "hoard_cast_bat_dive": "Dykning",
+      "hoard_cast_screech": "Öronbedövande skrik",
+      "hoard_cast_mimic_bite": "Fruktansvärd bett",
+      "hoard_cast_mimic_leap": "Krossande språng",
+      "hoard_cast_coin_spit": "Förbannade mynt"
     }
   },
   "questUi": {
@@ -12669,16 +12669,16 @@ export const sv_SE: EnTranslations = {
       "clueHuntDone": "Skattkarta slutförd: {title}. Kissan är din.",
       "clueHuntAbandoned": "Skattkarta abandonerad: {title}",
       "clueCasketOpened": "Kissan innehåller {money} och {items}.",
-      "treasureMapEarned": "Every world quest of the day is done: you found a {map}.",
-      "treasureMapLost": "Every world quest of the day is done, but your bags have no room for the treasure map.",
-      "treasureMapRead": "You study the {map}. The X lies somewhere in {zone}.",
-      "treasureMapUpgraded": "The map is redrawn in finer ink: it is now a {map}.",
-      "treasureVaultOpened": "The ground gives way. A buried hoard lies open before you.",
-      "treasureVaultLooted": "The hoard holds {money} and {items}.",
-      "treasureVaultCapped": "You have shared in enough hoards today; this one pays you nothing.",
-      "hoardGoblinSighted": "A goblin thief appears!",
-      "hoardGoblinSightedHint": "Kill it before it escapes with the gold!",
-      "hoardGoblinExplain": "A goblin thief is hiding in this hoard with a sack of stolen gold. It never fights back, it only runs. Your first hit starts a {seconds}-second escape bar: if it is still alive when the bar runs out, it opens a portal and is gone with the gold. Left alone, it slips away after {minutes} minutes. Kill it in time and everyone in the room is paid in gold."
+      "treasureMapEarned": "Alla världsuppdrag för dagen är klara: du hittade en {map}.",
+      "treasureMapLost": "Alla världsuppdrag för dagen är klara, men dina väskor har ingen plats för skattkarta.",
+      "treasureMapRead": "Du studerar {map}. X ligger någonstans i {zone}.",
+      "treasureMapUpgraded": "Kartan är omtecknad i finare bläck: det är nu en {map}.",
+      "treasureVaultOpened": "Marken ger vika. En begravd skatt ligger öppen framför dig.",
+      "treasureVaultLooted": "Skatten innehåller {money} och {items}.",
+      "treasureVaultCapped": "Du har delat i tillräckligt med skatter idag; denna betalar dig ingenting.",
+      "hoardGoblinSighted": "En goblin-tjuv dyker upp!",
+      "hoardGoblinSightedHint": "Döda det innan det smiter med guldet!",
+      "hoardGoblinExplain": "En goblin-tjuv göms i denna skatt med en påse stulen guld. Den slåss aldrig tillbaka, den bara springer. Ditt första slag startar en {seconds}-sekund flyktrad: om den ännu är vid liv när tiden löper ut, öppnar den en portal och är borta med guldet. Lämnad ifred smiter den efter {minutes} minuter. Döda den i tid och alla i rummet får betalt i guld."
     },
     "errors": {
       "unavailable": "Det uppdraget är inte tillgängligt.",
@@ -17678,361 +17678,361 @@ export const sv_SE: EnTranslations = {
         "name": "Stormhymnens Kedjestövlar"
       },
       "allied_hearthstone": {
-        "name": "Allied Hearthstone"
+        "name": "Allierades härdestad"
       },
       "allied_vanguard_duffel": {
-        "name": "Allied Vanguard Duffel"
+        "name": "Allierades förtruppsväska"
       },
       "rift_feather_glider": {
-        "name": "Rift Feather Glider"
+        "name": "Spaltfjäderglidare"
       },
       "formula_enchant_feet_shadowstride": {
-        "name": "Formula: Enchant Boots - Shadowstride"
+        "name": "Formel: Förtrollning på stövlar - Skugggång"
       },
       "recipe_potion_of_invisibility": {
-        "name": "Recipe: Potion of Invisibility"
+        "name": "Recept: Trolldryck av osynlighet"
       },
       "potion_of_invisibility": {
-        "name": "Potion of Invisibility"
+        "name": "Trolldryck av osynlighet"
       },
       "pattern_reinforced_armor_kit": {
-        "name": "Pattern: Reinforced Armor Kit"
+        "name": "Mönster: Förstärkt rustningskit"
       },
       "reinforced_armor_kit": {
-        "name": "Reinforced Armor Kit"
+        "name": "Förstärkt rustningskit"
       },
       "dawn_battle_standard": {
-        "name": "Dawn Battle Standard"
+        "name": "Gryningens stridfana"
       },
       "formula_enchant_offhand_spirit": {
-        "name": "Formula: Enchant Off-Hand - Spirit"
+        "name": "Formel: Förtrollning på bihand - Ande"
       },
       "recipe_elixir_of_mana_regeneration": {
-        "name": "Recipe: Elixir of Mana Regeneration"
+        "name": "Recept: Eliksir av manareparation"
       },
       "elixir_of_mana_regeneration": {
-        "name": "Elixir of Mana Regeneration"
+        "name": "Eliksir av manareparation"
       },
       "clockwork_target_dummy": {
-        "name": "Clockwork Target Dummy"
+        "name": "Urmakares målmanikin"
       },
       "schematic_clockwork_shock_bomb": {
-        "name": "Schematic: Clockwork Shock Bomb"
+        "name": "Schema: Urmakares chockbomb"
       },
       "clockwork_shock_bomb": {
-        "name": "Clockwork Shock Bomb"
+        "name": "Urmakares chockbomb"
       },
       "plans_dense_sharpening_stone": {
-        "name": "Plans: Dense Sharpening Stone"
+        "name": "Planer: Tät sliphäll"
       },
       "dense_sharpening_stone": {
-        "name": "Dense Sharpening Stone"
+        "name": "Tät sliphäll"
       },
       "formula_enchant_gloves_forged_might": {
-        "name": "Formula: Enchant Gloves - Forged Might"
+        "name": "Formel: Förtrollning på vantar - Smidekraft"
       },
       "treasure_map_common": {
-        "name": "Weathered Treasure Map"
+        "name": "Vittrande skatkarta"
       },
       "treasure_map_rare": {
-        "name": "Inked Treasure Map"
+        "name": "Bläckad skatkarta"
       },
       "treasure_map_epic": {
-        "name": "Gilded Treasure Map"
+        "name": "Förgylld skatkarta"
       },
       "treasure_map_legendary": {
-        "name": "Sovereign Treasure Map"
+        "name": "Suverän skatkarta"
       },
       "cartographers_ink": {
-        "name": "Cartographer's Ink"
+        "name": "Kartografens bläck"
       },
       "collapsar_band_of_nyxaris": {
-        "name": "Collapsar Band of Nyxaris"
+        "name": "Kollapsarring av Nyxaris"
       },
       "rare_collapsar_band_of_nyxaris": {
-        "name": "Tarnished Collapsar Band of Nyxaris"
+        "name": "Tarnerad kollapsarring av Nyxaris"
       },
       "legendary_collapsar_band_of_nyxaris": {
-        "name": "Sovereign Collapsar Band of Nyxaris"
+        "name": "Suverän kollapsarring av Nyxaris"
       },
       "orb_collapsing_void": {
-        "name": "Orb of Collapsing Void"
+        "name": "Sfär av kollapserande tomhet"
       },
       "rare_orb_collapsing_void": {
-        "name": "Tarnished Orb of Collapsing Void"
+        "name": "Tarnerad sfär av kollapserande tomhet"
       },
       "legendary_orb_collapsing_void": {
-        "name": "Sovereign Orb of Collapsing Void"
+        "name": "Suverän sfär av kollapserande tomhet"
       },
       "cowl_of_event_horizon": {
-        "name": "Cowl of the Event Horizon"
+        "name": "Hölje av händelsehorisonten"
       },
       "rare_cowl_of_event_horizon": {
-        "name": "Tarnished Cowl of the Event Horizon"
+        "name": "Tarnerad hölje av händelsehorisonten"
       },
       "legendary_cowl_of_event_horizon": {
-        "name": "Sovereign Cowl of the Event Horizon"
+        "name": "Suverän hölje av händelsehorisonten"
       },
       "mantle_of_singularity": {
-        "name": "Mantle of Singularity"
+        "name": "Mantel av singularitet"
       },
       "rare_mantle_of_singularity": {
-        "name": "Tarnished Mantle of Singularity"
+        "name": "Tarnerad mantel av singularitet"
       },
       "legendary_mantle_of_singularity": {
-        "name": "Sovereign Mantle of Singularity"
+        "name": "Suverän mantel av singularitet"
       },
       "glacier_hewn_bulwark": {
-        "name": "Glacier-Hewn Bulwark"
+        "name": "Glacihuggenskjöld"
       },
       "rare_glacier_hewn_bulwark": {
-        "name": "Tarnished Glacier-Hewn Bulwark"
+        "name": "Tarnerad glacihuggenskjöld"
       },
       "legendary_glacier_hewn_bulwark": {
-        "name": "Sovereign Glacier-Hewn Bulwark"
+        "name": "Suverän glacihuggenskjöld"
       },
       "permafrost_legguards": {
-        "name": "Permafrost Legguards"
+        "name": "Permafrostbenvärn"
       },
       "rare_permafrost_legguards": {
-        "name": "Tarnished Permafrost Legguards"
+        "name": "Tarnerad permafrostbenvärn"
       },
       "legendary_permafrost_legguards": {
-        "name": "Sovereign Permafrost Legguards"
+        "name": "Suverän permafrostbenvärn"
       },
       "frostbitten_rime_slippers": {
-        "name": "Frostbitten Rime Slippers"
+        "name": "Frostrimmade tofflor"
       },
       "rare_frostbitten_rime_slippers": {
-        "name": "Tarnished Frostbitten Rime Slippers"
+        "name": "Tarnerad frostrimmade tofflor"
       },
       "legendary_frostbitten_rime_slippers": {
-        "name": "Sovereign Frostbitten Rime Slippers"
+        "name": "Suverän frostrimmade tofflor"
       },
       "rime_crusted_grips": {
-        "name": "Rime-Crusted Grips"
+        "name": "Rimsfrostade grepp"
       },
       "rare_rime_crusted_grips": {
-        "name": "Tarnished Rime-Crusted Grips"
+        "name": "Tarnerad rimsfrostade grepp"
       },
       "legendary_rime_crusted_grips": {
-        "name": "Sovereign Rime-Crusted Grips"
+        "name": "Suverän rimsfrostade grepp"
       },
       "ember_wrought_crown": {
-        "name": "Ember-Wrought Crown"
+        "name": "Glödsmidikrona"
       },
       "rare_ember_wrought_crown": {
-        "name": "Tarnished Ember-Wrought Crown"
+        "name": "Tarnerad glödsmidikrona"
       },
       "legendary_ember_wrought_crown": {
-        "name": "Sovereign Ember-Wrought Crown"
+        "name": "Suverän glödsmidikrona"
       },
       "cinder_stitched_robes": {
-        "name": "Cinder-Stitched Robes"
+        "name": "Kläder sömda med glöd"
       },
       "rare_cinder_stitched_robes": {
-        "name": "Tarnished Cinder-Stitched Robes"
+        "name": "Tarnerad kläder sömda med glöd"
       },
       "legendary_cinder_stitched_robes": {
-        "name": "Sovereign Cinder-Stitched Robes"
+        "name": "Suverän kläder sömda med glöd"
       },
       "chained_ember_choker": {
-        "name": "Chained Ember Choker"
+        "name": "Kettad glödshalsketting"
       },
       "rare_chained_ember_choker": {
-        "name": "Tarnished Chained Ember Choker"
+        "name": "Tarnerad kettad glödshalsketting"
       },
       "legendary_chained_ember_choker": {
-        "name": "Sovereign Chained Ember Choker"
+        "name": "Suverän kettad glödshalsketting"
       },
       "molten_clinker_girdle": {
-        "name": "Molten Clinker Girdle"
+        "name": "Livrem av smältad slagg"
       },
       "rare_molten_clinker_girdle": {
-        "name": "Tarnished Molten Clinker Girdle"
+        "name": "Tarnerad livrem av smältad slagg"
       },
       "legendary_molten_clinker_girdle": {
-        "name": "Sovereign Molten Clinker Girdle"
+        "name": "Suverän livrem av smältad slagg"
       },
       "storm_tuned_buckler": {
-        "name": "Storm-Tuned Buckler"
+        "name": "Oväderinställd liten skjöld"
       },
       "rare_storm_tuned_buckler": {
-        "name": "Tarnished Storm-Tuned Buckler"
+        "name": "Tarnerad oväderinställd liten skjöld"
       },
       "legendary_storm_tuned_buckler": {
-        "name": "Sovereign Storm-Tuned Buckler"
+        "name": "Suverän oväderinställd liten skjöld"
       },
       "hauberk_tempest_gale": {
-        "name": "Hauberk of the Tempest Gale"
+        "name": "Ringbrynja av tempestorkan"
       },
       "rare_hauberk_tempest_gale": {
-        "name": "Tarnished Hauberk of the Tempest Gale"
+        "name": "Tarnerad ringbrynja av tempestorkan"
       },
       "legendary_hauberk_tempest_gale": {
-        "name": "Sovereign Hauberk of the Tempest Gale"
+        "name": "Suverän ringbrynja av tempestorkan"
       },
       "gale_strider_boots": {
-        "name": "Gale-Strider Boots"
+        "name": "Orkansprångarstövlar"
       },
       "rare_gale_strider_boots": {
-        "name": "Tarnished Gale-Strider Boots"
+        "name": "Tarnerad orkansprångarstövlar"
       },
       "legendary_gale_strider_boots": {
-        "name": "Sovereign Gale-Strider Boots"
+        "name": "Suverän orkansprångarstövlar"
       },
       "tempest_strike_grips": {
-        "name": "Tempest-Strike Grips"
+        "name": "Tempesthuggsgrepp"
       },
       "rare_tempest_strike_grips": {
-        "name": "Tarnished Tempest-Strike Grips"
+        "name": "Tarnerad tempesthuggsgrepp"
       },
       "legendary_tempest_strike_grips": {
-        "name": "Sovereign Tempest-Strike Grips"
+        "name": "Suverän tempesthuggsgrepp"
       },
       "breastplate_tectonic_might": {
-        "name": "Breastplate of Tectonic Might"
+        "name": "Stridsplåt av tektonisk kraft"
       },
       "rare_breastplate_tectonic_might": {
-        "name": "Tarnished Breastplate of Tectonic Might"
+        "name": "Tarnerad stridsplåt av tektonisk kraft"
       },
       "legendary_breastplate_tectonic_might": {
-        "name": "Sovereign Breastplate of Tectonic Might"
+        "name": "Suverän stridsplåt av tektonisk kraft"
       },
       "band_mountains_weight": {
-        "name": "Band of the Mountain's Weight"
+        "name": "Ring av bergsmassans vikt"
       },
       "rare_band_mountains_weight": {
-        "name": "Tarnished Band of the Mountain's Weight"
+        "name": "Tarnerad ring av bergsmassans vikt"
       },
       "legendary_band_mountains_weight": {
-        "name": "Sovereign Band of the Mountain's Weight"
+        "name": "Suverän ring av bergsmassans vikt"
       },
       "monolithic_shoulderguards": {
-        "name": "Monolithic Shoulderguards"
+        "name": "Monolitiska skuldervärn"
       },
       "rare_monolithic_shoulderguards": {
-        "name": "Tarnished Monolithic Shoulderguards"
+        "name": "Tarnerad monolitiska skuldervärn"
       },
       "legendary_monolithic_shoulderguards": {
-        "name": "Sovereign Monolithic Shoulderguards"
+        "name": "Suverän monolitiska skuldervärn"
       },
       "earthshaker_warboots": {
-        "name": "Earthshaker Warboots"
+        "name": "Jordskalvarkrigsstövlar"
       },
       "rare_earthshaker_warboots": {
-        "name": "Tarnished Earthshaker Warboots"
+        "name": "Tarnerad jordskalvarkrigsstövlar"
       },
       "legendary_earthshaker_warboots": {
-        "name": "Sovereign Earthshaker Warboots"
+        "name": "Suverän jordskalvarkrigsstövlar"
       },
       "silkstalker_woven_vest": {
-        "name": "Woven Vest of the Silkstalker"
+        "name": "Väv väst av silkesjägaren"
       },
       "rare_silkstalker_woven_vest": {
-        "name": "Tarnished Woven Vest of the Silkstalker"
+        "name": "Tarnerad väv väst av silkesjägaren"
       },
       "legendary_silkstalker_woven_vest": {
-        "name": "Sovereign Woven Vest of the Silkstalker"
+        "name": "Suverän väv väst av silkesjägaren"
       },
       "spun_venom_spaulders": {
-        "name": "Spun-Venom Spaulders"
+        "name": "Spunnet gift skulderbeslags"
       },
       "rare_spun_venom_spaulders": {
-        "name": "Tarnished Spun-Venom Spaulders"
+        "name": "Tarnerad spunnet gift skulderbeslags"
       },
       "legendary_spun_venom_spaulders": {
-        "name": "Sovereign Spun-Venom Spaulders"
+        "name": "Suverän spunnet gift skulderbeslags"
       },
       "broodmother_chitin_cowl": {
-        "name": "Chitin Cowl of the Broodmother"
+        "name": "Moderns chitinhölje"
       },
       "rare_broodmother_chitin_cowl": {
-        "name": "Tarnished Chitin Cowl of the Broodmother"
+        "name": "Tarnerad moderns chitinhölje"
       },
       "legendary_broodmother_chitin_cowl": {
-        "name": "Sovereign Chitin Cowl of the Broodmother"
+        "name": "Suverän moderns chitinhölje"
       },
       "venom_etched_waistcord": {
-        "name": "Venom-Etched Waistcord"
+        "name": "Giftgraverad livkord"
       },
       "rare_venom_etched_waistcord": {
-        "name": "Tarnished Venom-Etched Waistcord"
+        "name": "Tarnerad giftgraverad livkord"
       },
       "legendary_venom_etched_waistcord": {
-        "name": "Sovereign Venom-Etched Waistcord"
+        "name": "Suverän giftgraverad livkord"
       },
       "bone_studded_pauldrons": {
-        "name": "Bone-Studded Pauldrons"
+        "name": "Käkpauldrons med benspikningar"
       },
       "rare_bone_studded_pauldrons": {
-        "name": "Tarnished Bone-Studded Pauldrons"
+        "name": "Tarnerad käkpauldrons med benspikningar"
       },
       "legendary_bone_studded_pauldrons": {
-        "name": "Sovereign Bone-Studded Pauldrons"
+        "name": "Suverän käkpauldrons med benspikningar"
       },
       "legguards_of_the_ossuary": {
-        "name": "Legguards of the Ossuary"
+        "name": "Benhusets benvärn"
       },
       "rare_legguards_of_the_ossuary": {
-        "name": "Tarnished Legguards of the Ossuary"
+        "name": "Tarnerad benhusets benvärn"
       },
       "legendary_legguards_of_the_ossuary": {
-        "name": "Sovereign Legguards of the Ossuary"
+        "name": "Suverän benhusets benvärn"
       },
       "seal_of_the_cryptwalker": {
-        "name": "Seal of the Cryptwalker"
+        "name": "Gravgångarens sigill"
       },
       "rare_seal_of_the_cryptwalker": {
-        "name": "Tarnished Seal of the Cryptwalker"
+        "name": "Tarnerad gravgångarens sigill"
       },
       "legendary_seal_of_the_cryptwalker": {
-        "name": "Sovereign Seal of the Cryptwalker"
+        "name": "Suverän gravgångarens sigill"
       },
       "ossuary_bone_crown": {
-        "name": "Ossuary Bone Crown"
+        "name": "Benhusets benikrona"
       },
       "rare_ossuary_bone_crown": {
-        "name": "Tarnished Ossuary Bone Crown"
+        "name": "Tarnerad benhusets benikrona"
       },
       "legendary_ossuary_bone_crown": {
-        "name": "Sovereign Ossuary Bone Crown"
+        "name": "Suverän benhusets benikrona"
       },
       "chalice_of_living_tides": {
-        "name": "Chalice of the Living Tides"
+        "name": "Bägare av levande tidvattnet"
       },
       "rare_chalice_of_living_tides": {
-        "name": "Tarnished Chalice of the Living Tides"
+        "name": "Tarnerad bägare av levande tidvattnet"
       },
       "legendary_chalice_of_living_tides": {
-        "name": "Sovereign Chalice of the Living Tides"
+        "name": "Suverän bägare av levande tidvattnet"
       },
       "pendant_continuous_flow": {
-        "name": "Pendant of Continuous Flow"
+        "name": "Hänge av kontinuerlig flöde"
       },
       "rare_pendant_continuous_flow": {
-        "name": "Tarnished Pendant of Continuous Flow"
+        "name": "Tarnerad hänge av kontinuerlig flöde"
       },
       "legendary_pendant_continuous_flow": {
-        "name": "Sovereign Pendant of Continuous Flow"
+        "name": "Suverän hänge av kontinuerlig flöde"
       },
       "coral_encrusted_girdle": {
-        "name": "Coral-Encrusted Girdle"
+        "name": "Livrem inkrusterad med korall"
       },
       "rare_coral_encrusted_girdle": {
-        "name": "Tarnished Coral-Encrusted Girdle"
+        "name": "Tarnerad livrem inkrusterad med korall"
       },
       "legendary_coral_encrusted_girdle": {
-        "name": "Sovereign Coral-Encrusted Girdle"
+        "name": "Suverän livrem inkrusterad med korall"
       },
       "riptide_handwraps": {
-        "name": "Riptide Handwraps"
+        "name": "Undervattensväxlingshandväskor"
       },
       "rare_riptide_handwraps": {
-        "name": "Tarnished Riptide Handwraps"
+        "name": "Tarnerad undervattensväxlingshandväskor"
       },
       "legendary_riptide_handwraps": {
-        "name": "Sovereign Riptide Handwraps"
+        "name": "Suverän undervattensväxlingshandväskor"
       },
       "vanguard_warrior_arms_helmet": {
         "name": "KlingSväckens storrhjälm"
@@ -19732,49 +19732,49 @@ export const sv_SE: EnTranslations = {
         "name": "Stallhäst"
       },
       "hoard_brood_egg": {
-        "name": "Brood Clutch"
+        "name": "Avkommaklutch"
       },
       "hoard_brood_hatchling": {
-        "name": "Vysska's Hatchling"
+        "name": "Vysskas kläckling"
       },
       "hoard_healing_tide_totem": {
-        "name": "Healing Tide Totem"
+        "name": "Läkande tidvattenstotem"
       },
       "hoard_bound_pulsar": {
-        "name": "Bound Pulsar"
+        "name": "Bunden pulsar"
       },
       "hoard_abyssal_tentacle": {
-        "name": "Tentacle of the Maw"
+        "name": "Tentakel från Kjaften"
       },
       "hoard_silk_cocoon": {
-        "name": "Silk Cocoon"
+        "name": "Silkekokon"
       },
       "hoard_brood_cocoon": {
-        "name": "Brood Cocoon"
+        "name": "Avkommakokon"
       },
       "hoard_coinsack_scurrier": {
-        "name": "Coinsack Scurrier"
+        "name": "Myntpåseskinmare"
       },
       "hoard_boss_mushroom": {
-        "name": "Mother of Mushrooms"
+        "name": "Svamparnas moder"
       },
       "hoard_sporeling": {
-        "name": "Sporeling"
+        "name": "Sporkrypare"
       },
       "hoard_bloat_cap": {
-        "name": "Bloated Cap"
+        "name": "Uppsvälld svamp"
       },
       "hoard_boss_mole": {
-        "name": "Deeprake"
+        "name": "Djuplöpare"
       },
       "hoard_boss_bat": {
-        "name": "Colossal Bat"
+        "name": "Kolossal fladdermöss"
       },
       "hoard_boss_mimic": {
-        "name": "Voracious Chest"
+        "name": "Glupsk kista"
       },
       "hoard_bat_swarmling": {
-        "name": "Cave Swarmer"
+        "name": "Grotto Svärmor"
       },
       "rift_spawnling": {
         "name": "Revyngel"
@@ -19807,7 +19807,7 @@ export const sv_SE: EnTranslations = {
         "name": "Märgtroll"
       },
       "rift_marrow_golem": {
-        "name": "Marrow Golem"
+        "name": "Märggölem"
       },
       "rift_void_acolyte": {
         "name": "Tomrumsärrets akolyt"
@@ -23943,9 +23943,9 @@ export const sv_SE: EnTranslations = {
         "body": "Din annons såldes och köparen betalade fullt ut. Börsens liggare bär uppgiften om försäljningen, och din börsaktivitet visar det slutförda beloppet och dess uppdelning.\n\n- Börsmäklaren"
       },
       "hoard_vault_reward": {
-        "sender": "The Ravenpost",
-        "subject": "Your vault reward",
-        "body": "The vault was cleared, but your share was not collected from the chest. The ravens have brought it to you here, with the goods and coin you earned attached.\n\n- The Ravenpost"
+        "sender": "Ravenposten",
+        "subject": "Din valvbelöning",
+        "body": "Valvet rensades, men din andel samkades inte från kistan. Korparna har bragt det till dig här, med de varor och mynt du tjänade bifogade.\n\n- Ravenposten"
       }
     },
     "itemSets": {

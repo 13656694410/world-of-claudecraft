@@ -1311,4 +1311,8 @@ export const table: DeedLocaleTable = {
     name: 'Hamn till hamn',
     desc: 'Seglat båda färjorna fram och tillbaka: Östbäck till Månvila, och Wickharbor till Drakväxtningen.',
   },
+  cmb_coinsack_caught: {
+    name: 'Fångad rödhänt',
+    desc: 'Fånga en Myntpåseskinmare i ett begravt lagom innan det flyr med guldet.',
+  },
 };

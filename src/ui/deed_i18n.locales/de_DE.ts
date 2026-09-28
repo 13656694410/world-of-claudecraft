@@ -1209,4 +1209,8 @@ export const table: DeedLocaleTable = {
     name: 'Von Hafen zu Hafen',
     desc: 'Segle mit beiden Fähren hin und zurück: von Eastbrook nach Moonrest und von Wickharbor nach Wyrmwatch.',
   },
+  cmb_coinsack_caught: {
+    name: 'Auf frischer Tat ertappt',
+    desc: 'Schnap dir einen Münzsakk-Ratte in einem Begrabenen Hort, bevor er mit dem Gold entwischt.',
+  },
 };

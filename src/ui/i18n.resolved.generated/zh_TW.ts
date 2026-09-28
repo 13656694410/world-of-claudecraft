@@ -12121,7 +12121,7 @@ export const zh_TW: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "攻擊",
-      "cooldownMinutes": "{minutes}m",
+      "cooldownMinutes": "{minutes}分鐘",
       "attackTooltip": "對目標開啟或關閉自動攻擊。右鍵點擊敵人也會發起攻擊。",
       "attackRemoveHint": "右鍵點擊可將其從動作列移除並空出欄位。",
       "emptySlot": "空欄位",
@@ -12217,7 +12217,7 @@ export const zh_TW: EnTranslations = {
       "hoard_cast_fear": "恐懼咆哮",
       "hoard_cast_stun": "震暈重擊",
       "hoard_cast_drowning_hook": "溺亡鉤",
-      "hoard_cast_rime_beam": "Rime Beam",
+      "hoard_cast_rime_beam": "白霜射束",
       "hoard_cast_cinder_bolt": "餘燼箭",
       "hoard_cast_void_empower": "虛空強化",
       "hoard_cast_webbing": "蛛網纏繞",

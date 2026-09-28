@@ -1167,9 +1167,9 @@ export const da_DK: EnTranslations = {
       "objectiveValue": "{current} / {total}",
       "collapseHint": "Fold opgavesporing sammen",
       "expandHint": "Fold opgavesporing ud",
-      "worldQuests": "World Quests",
-      "worldQuestsCollapseHint": "Collapse world quests",
-      "worldQuestsExpandHint": "Expand world quests"
+      "worldQuests": "Verdensopgaver",
+      "worldQuestsCollapseHint": "Sammenfold verdensopgaver",
+      "worldQuestsExpandHint": "Udfold verdensopgaver"
     },
     "interfaceTabs": {
       "general": "Generelt",
@@ -1664,10 +1664,10 @@ export const da_DK: EnTranslations = {
     },
     "riftTracker": {
       "title": "Rift",
-      "hoardTitle": "Buried Hoard",
-      "hoardGoal": "Defeat the hoard keeper",
-      "hoardChestGoal": "Open the hoard chest",
-      "hoardClaimedGoal": "The hoard is yours",
+      "hoardTitle": "Begravet skattkammer",
+      "hoardGoal": "Besejr hvælvvogteren",
+      "hoardChestGoal": "Åbn skattkammer kisten",
+      "hoardClaimedGoal": "Skattkammeret er dit",
       "floor": "Etage {current} af {total}",
       "closesIn": "Lukker om {time}",
       "clockMs": "{minutes}:{seconds}",
@@ -2878,16 +2878,16 @@ export const da_DK: EnTranslations = {
       "openProfessions": "Åbne erhverv"
     },
     "treasureMap": {
-      "close": "Close treasure map",
-      "zone": "Somewhere in {zone}",
-      "hint": "Find the ground this map shows, stand on the X, and use the map again to dig. A buried hoard opens for you and your party.",
-      "upgradeNote": "Redrawing it as a {rarity} map takes {inks} Cartographer's Ink (you hold {held}). The faction quartermasters sell it.",
-      "upgradeMaxed": "No cartographer could better this map.",
+      "close": "Luk skattekort",
+      "zone": "Et eller andet sted i {zone}",
+      "hint": "Find jorden som kortet viser, stå på X og brug kortet igen for at grave. Et begravet skattkammer åbner for dig og dit hold.",
+      "upgradeNote": "At tegne det som et {rarity} kort tager {inks} Kartografs blæk (du holder {held}). Fraktionernes kvartermestre sælger det.",
+      "upgradeMaxed": "Ingen kartograf kunne forbedre dette kort.",
       "rarity": {
-        "common": "Common",
-        "rare": "Rare",
-        "epic": "Epic",
-        "legendary": "Legendary"
+        "common": "Almindelig",
+        "rare": "Sjælden",
+        "epic": "Episk",
+        "legendary": "Legendarisk"
       }
     },
     "currencies": {
@@ -2905,23 +2905,23 @@ export const da_DK: EnTranslations = {
       "wocPreview": "Forhåndsvisning af saldo, ikke endnu bekræftet",
       "lifetime": "Levetid {amount}",
       "factionPending": "Fraktionsmønt: afventer fase 2",
-      "riftWatchMark": "Rift Watch Mark",
-      "riftWatchMarkNote": "World Quests in Rift Watch zones",
-      "churchOrderCrest": "Order Crest",
-      "churchOrderCrestNote": "World Quests in Church Order zones",
-      "automatonCog": "Automaton Cog",
-      "automatonCogNote": "World Quests in Automaton zones"
+      "riftWatchMark": "Rift-vagtens mærke",
+      "riftWatchMarkNote": "Verdensopgaver i Rift-vagtens zoner",
+      "churchOrderCrest": "Kirkeorden emblem",
+      "churchOrderCrestNote": "Verdensopgaver i Kirkeorden zoner",
+      "automatonCog": "Automaton tandhjul",
+      "automatonCogNote": "Verdensopgaver i Automaton zoner"
     },
     "worldQuestTooltip": {
-      "factionLine": "Faction: {faction}",
-      "timeRemaining": "Time remaining:",
+      "factionLine": "Fraktion: {faction}",
+      "timeRemaining": "Tid tilbage:",
       "standingAmount": "{amount} {faction}",
       "currencyAmount": "{amount} {currency}",
-      "standingReward": "+{amount} {faction} Standing",
+      "standingReward": "+{amount} {faction} status",
       "currencyReward": "+{amount} {currency}"
     },
     "worldQuestBanner": {
-      "subtitle": "World Quest"
+      "subtitle": "Verdensopgave"
     },
     "reputation": {
       "intro": "Alle tre fraktioner avancerer samtidigt: hver verdenskyst tæller mod fraktionen i sin zone.",
@@ -5330,9 +5330,9 @@ export const da_DK: EnTranslations = {
       "enchant_chest_lucent_stamina": "Brystetsning: Lysende udholdenhed",
       "enchant_feet_lucent_agility": "Støvleetsning: Lysende smidighed",
       "enchant_lucent_infusion": "Lysende infusion",
-      "enchant_offhand_spirit": "Offhand Etching: Spirit",
-      "enchant_feet_shadowstride": "Boot Etching: Shadowstride",
-      "enchant_gloves_forged_might": "Glove Etching: Forged Might",
+      "enchant_offhand_spirit": "Bihandskeætsning: Ånd",
+      "enchant_feet_shadowstride": "Støvleætsning: Skyggeskridt",
+      "enchant_gloves_forged_might": "Handskeætsning: Smedet styrke",
       "enchant_weapon_riftwalkers_grace": "Riftvandrers Nåde",
       "enchant_weapon_dawnfire_etching": "Våbenridning: Daggryild",
       "enchant_weapon_dawns_benediction": "Våbenridning: Daggryets Velsignelse",
@@ -5346,20 +5346,20 @@ export const da_DK: EnTranslations = {
       "enchant_weapon_piston_drive": "Ridser permanent et tohånds våben med 12 Styrke og 25 Kritisk Slagchance. Kan ikke påføres et énhånds våben. En fast bonus; den skalerer ikke."
     },
     "factionRewards": {
-      "alliedHearthstoneUse": "Use: Teleports you to your attuned faction hub. (10 sec cast, 15 min cooldown)",
-      "alliedHearthstoneAttuned": "Attuned to: {hub}",
-      "hub_none": "None (Use near a faction hub to attune)",
-      "hub_rift_watch": "Drifthaven (The Rift Watch)",
-      "hub_church_order": "Eastbrook Vale (The Church Order)",
-      "hub_automatons": "South Reach (The Automaton Foundry)",
-      "riftGliderUse": "Use: Unfolds the glider, slowing falling speed for 30 sec. Landing or taking damage cancels the effect. (2 min cooldown)",
-      "targetDummyUse": "Use: Deploys a mechanical target dummy in the open world for 2 minutes to practice combat abilities. (5 min cooldown)",
-      "battleStandardUse": "Use: Plants the Consecrated Dawn Battle Standard for 5 minutes, significantly increasing out-of-combat health and mana regeneration for all nearby allies. Remaining near it for 10 seconds also grants Blessing of the Dawn (+5% to all stats for 30 min). (5 min cooldown)",
-      "shockBombUse": "Use: Throws a shock bomb up to 30 yards, dealing 120 to 160 Nature damage to all enemies within 5 yards. (1 min cooldown)",
-      "invisibilityUse": "Use: Shrouds you in stealth for 6 sec. (2 min cooldown)",
-      "armorKitUse": "Use: Reinforces your chest armor, increasing Armor by 12 for 1 hour.",
-      "sharpeningStoneUse": "Use: Sharpens your main hand weapon, increasing Attack Power by 6 for 30 min.",
-      "manaElixirUse": "Use: Increases Spirit by 6 for 1 hour."
+      "alliedHearthstoneUse": "Brug: Teleporterer dig til din indstemmede fraktionshub. (10 sek kast, 15 min nedetid)",
+      "alliedHearthstoneAttuned": "Indstemt til: {hub}",
+      "hub_none": "Ingen (Brug nær en fraktionshub for at indstille)",
+      "hub_rift_watch": "Drifthaven (Rift-vagten)",
+      "hub_church_order": "Østbæk Dal (Kirkeordenen)",
+      "hub_automatons": "Sydlig høj (Automaton Smedien)",
+      "riftGliderUse": "Brug: Folder glidedragten ud, sænker faldende hastighed i 30 sek. Landing eller skade annullerer effekten. (2 min nedetid)",
+      "targetDummyUse": "Brug: Udrulles en mekanisk mål dummy i den åbne verden i 2 minutter for at øve kampeviljer. (5 min nedetid)",
+      "battleStandardUse": "Brug: Planter Velsignede Dagsmorgen kampstandard i 5 minutter, øger uden for kamp sundhed og mana regenerering betydeligt for alle nærliggende allierede. At blive i nærheden af det i 10 sekunder giver også Velsignelse af Dagsmorgen (+5% til alle egenskaber i 30 min). (5 min nedetid)",
+      "shockBombUse": "Brug: Kaster en chokbombe op til 30 yards, handler 120 til 160 Natur skade til alle fjender inden for 5 yards. (1 min nedetid)",
+      "invisibilityUse": "Brug: Omgiver dig med slimhed i 6 sek. (2 min nedetid)",
+      "armorKitUse": "Brug: Forstærker dit brystharnisk, øger Rustning med 12 i 1 time.",
+      "sharpeningStoneUse": "Brug: Slår dit hovedhånds våben, øger Angrebskraft med 6 i 30 min.",
+      "manaElixirUse": "Brug: Øger Ånd med 6 i 1 time."
     },
     "professions": {
       "title": "Erhverv",
@@ -6132,7 +6132,7 @@ export const da_DK: EnTranslations = {
       "sourceActivityCorpseHarvest": "Bjærget ved høst af kadavere fra skabninger",
       "sourceActivityMasterworkCraft": "Optjenes ved at fremstille et mesterværk",
       "sourceActivityRiftFirstClear": "Tildeles hvert medlem af den gruppe, der vinder den første gennemførsel af en rangeret Rift",
-      "sourceActivityBuriedHoard": "Found in the reward chest of a Buried Hoard, the vault a treasure map leads to",
+      "sourceActivityBuriedHoard": "Fundet i belønningskisten i et Begravet skattkammer, hvælven som et skattekort fører til",
       "cellMissingSourceAria": "{name}, endnu ikke fundet, {source}",
       "cellOwnedClearsAria": "{name}, katalogiseret, først fundet ved gennemførsel {count}",
       "searchPlaceholder": "Søg efter relikvier",
@@ -6873,8 +6873,8 @@ export const da_DK: EnTranslations = {
       "3": "Øst og lidt syd for hvor gløder driver ind i klitter ligger en sortet jordplet som skjuler hvad asken begravede. Brug rullen der og grav.",
       "title": "Aske ved porten",
       "reply": {
-        "1": "The wind came off the eastern dunes carrying ash, and ash does not blow in from empty sand. Sela at the garrison stores logs every patrol. She will talk, once someone feeds her.",
-        "2": "Bread at last, bless you. The patrol swore it saw smoke rising from bare sand, east and a little south of the dunes, where nothing is left to burn."
+        "1": "Vinden kom fra de østlige klitter med aske, og aske blæser ikke ind fra tomt sand. Sela ved garnisonen fører log over hver patrulje. Hun vil tale, når nogen har fodret hende.",
+        "2": "Endelig brød, velsignet være du. Patruljen svor, at den så røg stige fra nøgen sand, øst og lidt sydlig for klitterne, hvor der ikke er noget tilbage at brænde."
       }
     },
     "hunt_frostveil_aurora_vigil": {
@@ -6883,7 +6883,7 @@ export const da_DK: EnTranslations = {
       "2": "Øst for brølende terrakser, lidt mod syd, ligger sneen fladere end den skulle. Brug rullen der og grav.",
       "title": "Lys over brinken",
       "reply": {
-        "1": "You knelt, and the lights answered. Last night they bent east past the terraces and pointed straight down at the snow."
+        "1": "Du knælede ned, og lysene svarede. I nat bøjede de øst forbi terrrasserne og pegede lige ned på sneen."
       }
     },
     "hunt_amberfall_lantern_ferry": {
@@ -6893,8 +6893,8 @@ export const da_DK: EnTranslations = {
       "3": "Nordøst for højdedrag hvor røde cindermapler brænder ligger løvværk i en cirkel som ingen vind skabte. Brug rullen der og grav.",
       "title": "Lanterner på søen",
       "reply": {
-        "0": "One lantern went dark last night, the one that faces the old stone across the water. My ferrymen will not go near it. Perhaps you will.",
-        "2": "Cold well water, just what the trees wanted. Up past the red maples the leaves have been falling in a ring, and no tree of mine drops its leaves that neatly."
+        "0": "En lygte gik i mørke i nat, den der vender mod det gamle sten på tværs af vandet. Mine færgemænd vil ikke komme i nærheden af det. Måske gør du det.",
+        "2": "Koldt brøndvand, netop hvad træerne ønskede. Oppe forbi de røde lønahorn falder bladene i en ring, og intet af mine træer slipper bladene så pænt."
       }
     },
     "hunt_willowfen_fenwitch_salt": {
@@ -6903,7 +6903,7 @@ export const da_DK: EnTranslations = {
       "2": "Sydøst for de pulje som glimrer i sumpen ligger en tørv høj af tør grund som forbliver tør hele året. Brug rullen der og grav.",
       "title": "Moseheksens salt",
       "reply": {
-        "0": "Salt. Good, you listen. The flats beyond the reeds make everyone drowsy. Go and sigh there like you mean it, and the fen will show you the rest."
+        "0": "Salt. Godt, du lytter. Fladerne ud over røret gør alle søvnige. Gå og suk der som du mener det, og mosen vil vise dig resten."
       }
     },
     "hunt_nightbloom_sleepless_vigil": {
@@ -6913,7 +6913,7 @@ export const da_DK: EnTranslations = {
       "3": "Sydøst for marken hvor tåre samles, ligger månelys på en bar jordplet. Brug rullen der og grav.",
       "title": "Vagt af de sovnløse",
       "reply": {
-        "1": "A star fell three nights ago, and it fell toward the old barrow north of town. The dead there never sleep. Greet them as a soldier would."
+        "1": "En stjerne faldt for tre nætter siden, og den faldt mod den gamle høj nord for byen. De døde der sover aldrig. Hilse dem som en soldat ville gøre."
       }
     },
     "hunt_wraithwood_mournstone_candles": {
@@ -6923,8 +6923,8 @@ export const da_DK: EnTranslations = {
       "3": "Sydøst fra lysningen hvor jægeren satte sine snarer, er bladskumlen blevet vendt om for nylig. Brug rullen der og grav.",
       "title": "Stearinlys til Sorgehøjen",
       "reply": {
-        "0": "The vicar ordered that candle and never paid for it. He has been fasting ever since, praying and nothing else. Take him something to chew and ask him why.",
-        "1": "Thank you, friend. I never lit that candle. Something walks the glade past the crows at night, and I could not face it. Go and stand there, if you can."
+        "0": "Provsten bestilte det lys og betalte aldrig for det. Han har fastiet siden da, beder og intet andet. Tag ham noget at tyg og spørg ham hvorfor.",
+        "1": "Tak dig, ven. Jeg tændte aldrig det lys. Noget vandrer på sletten forbi kragerne om natten, og jeg kunne ikke stå op mod det. Gå og stå der, hvis du kan."
       }
     },
     "hunt_palmreach_sunken_idol": {
@@ -6934,7 +6934,7 @@ export const da_DK: EnTranslations = {
       "3": "Nordøst for hvor flokken åbner sit munde til havet, ligger sandet høstet højere end tidevandet når. Brug rullen der og grav.",
       "title": "Afguddens hemmelighed",
       "reply": {
-        "1": "Below the vines the divers found an idol, and the idol did not like them. Anyone who stood tall before it did not come back. Be small before it."
+        "1": "Under vinranken fandt dykkerne en afgud, og afguden kunne ikke lide dem. Alle som stod høj foran den kom ikke tilbage. Vær lille foran den."
       }
     },
     "hunt_evergarden_beacon_road": {
@@ -6944,8 +6944,8 @@ export const da_DK: EnTranslations = {
       "3": "Nordvest for det gamle fyrtårn, lige fra stien ned fra lyset, er græstørven skåret og lagt tilbage. Brug rullen der og grav.",
       "title": "Fyrtårn og blomst",
       "reply": {
-        "0": "Proper compost, the beds will live. The old miller buried something before he left. His mill still turns in the far corner of the gardens. Go and stand by it.",
-        "2": "So the mill sent you down the coast road. The beacon keeps one last secret: northwest of it, just off the path, the turf was cut and laid back. Dig there."
+        "0": "Rigtigt kompost, bedeene vil leve. Den gamle møller begravede noget før han gik. Hans mølle drejer stadig i det fjerne hjørne af haven. Gå og stå ved siden af den.",
+        "2": "Så møllen sendte dig ned ad kystvejen. Fyret holder en sidste hemmelighed: nordvest for det, lige uden for stien, var tørven skåret ud og lagt tilbage. Grav der."
       }
     }
   },
@@ -10249,11 +10249,11 @@ export const da_DK: EnTranslations = {
       "pylonLit": "En runepylon blusser til live ({lit}/{total}).",
       "wayDownOpens": "Vejen ned river sig åben.",
       "exitOpens": "Riften ryster. En vej hjem river sig åben bag de faldne.",
-      "hoardEnter": "You climb down into {name}.",
-      "hoardExitOpens": "The hoard is yours. Return to the entrance to climb out.",
-      "hoardStepBack": "You climb back out through the hoard entrance.",
-      "hoardNotYours": "This hoard was dug up by another party.",
-      "hoardEntrantsFull": "This hoard has already admitted five adventurers.",
+      "hoardEnter": "Du klatrer ned i {name}.",
+      "hoardExitOpens": "Hoardet er dit. Vend tilbage til indgangen for at klatre ud.",
+      "hoardStepBack": "Du klatrer tilbage ud gennem hoardets indgang.",
+      "hoardNotYours": "Denne hoard blev gravet ud af et andet parti.",
+      "hoardEntrantsFull": "Denne hoard har allerede optaget fem eventyrere.",
       "portalOpens": "En {tier}-rangs rift river sig åben i {zone}!",
       "portalSealed": "{tier}-rangs riften i {zone} er blevet forseglet.",
       "portalCollapses": "{tier}-rangs riften i {zone} kollapser.",
@@ -10510,7 +10510,7 @@ export const da_DK: EnTranslations = {
       "nhaliaBlackwaterMark": "{name} mærker {player} med Sortvand!"
     },
     "factionVendor": {
-      "currencyRequired": "You need {amount} {currency} to purchase that."
+      "currencyRequired": "Du skal have {amount} {currency} for at købe det."
     },
     "lockpick": {
       "lockYields": "Låsen giver efter! {tier} bytte.",
@@ -11132,7 +11132,7 @@ export const da_DK: EnTranslations = {
       "alreadyInWorld": "Karakteren er allerede i verdenen.",
       "accountSessionLimit": "For mange karakterer på denne konto er allerede i verdenen.",
       "takenOver": "Din karakter blev overtaget af en anden session.",
-      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
+      "vaultMailRecovering": "Din hvælvbelønningspost gendannes. Prøv igen om kort tid.",
       "renameBeforeEntering": "Denne karakter skal omdøbes, før den kan komme ind i verdenen.",
       "renameNotPermitted": "Det er ikke tilladt at omdøbe denne karakter.",
       "unsupportedMediaType": "Anmodningsformatet understøttes ikke.",
@@ -11476,8 +11476,8 @@ export const da_DK: EnTranslations = {
         "dungeonExit": "Fangehulsudgang",
         "delveEntrance": "Delve-indgang: {name}",
         "worldPassage": "Passage til {zone}",
-        "hoardEntrance": "Buried Hoard entrance",
-        "hoardReturnEntrance": "Hoard return entrance",
+        "hoardEntrance": "Begravet skattkammer indgang",
+        "hoardReturnEntrance": "Skattkammer returindgang",
         "riftEntrance": "Rift-indgang: {name}",
         "hostileEnemy": "Fjendtligt mål",
         "aggressiveEnemy": "Fjende angriber dig",
@@ -12214,34 +12214,34 @@ export const da_DK: EnTranslations = {
       "rift_storm_strike": "Stormkalderens Vrede",
       "rift_tide_execution": "Afgrundens Gab",
       "rift_tide_strike": "Knusende Dybde",
-      "hoard_cast_fear": "Terrifying Roar",
-      "hoard_cast_stun": "Stunning Blow",
-      "hoard_cast_drowning_hook": "Drowning Hook",
-      "hoard_cast_rime_beam": "Rime Beam",
-      "hoard_cast_cinder_bolt": "Cinder Bolt",
-      "hoard_cast_void_empower": "Void Empowerment",
-      "hoard_cast_webbing": "Webbing",
-      "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Headlong Charge",
-      "hoard_cast_silk_snare": "Silk Snare",
-      "hoard_cast_silence": "Silencing Shriek",
-      "hoard_cast_hex": "Hex",
-      "hoard_lightning_strike": "Lightning Strike",
-      "hoard_ice_age": "Ice Age",
-      "hoard_pulsar_overload": "Pulsar Overload",
-      "hoard_rolling_boulder": "Rolling Boulder",
-      "hoard_goblin_escape": "Escaping",
-      "hoard_cast_mole_rake": "Claw Rake",
-      "hoard_cast_burrow": "Burrow",
-      "hoard_cast_tunnel": "Tunneling",
+      "hoard_cast_fear": "Rædselbrøl",
+      "hoard_cast_stun": "Bedøvende slag",
+      "hoard_cast_drowning_hook": "Drukningstrojans",
+      "hoard_cast_rime_beam": "Rimstråle",
+      "hoard_cast_cinder_bolt": "Glødeblixtet",
+      "hoard_cast_void_empower": "Tomrumsstyrke",
+      "hoard_cast_webbing": "Vævning",
+      "hoard_cast_doom_ritual": "Fordelingseritual",
+      "hoard_cast_charge": "Hovedkulds stormangreb",
+      "hoard_cast_silk_snare": "Silkesnare",
+      "hoard_cast_silence": "Stillemakende skrig",
+      "hoard_cast_hex": "Forbandelse",
+      "hoard_lightning_strike": "Lynslag",
+      "hoard_ice_age": "Istid",
+      "hoard_pulsar_overload": "Pulsaroverbelastning",
+      "hoard_rolling_boulder": "Rullende sten",
+      "hoard_goblin_escape": "Flugt",
+      "hoard_cast_mole_rake": "Klokradsen",
+      "hoard_cast_burrow": "Udgravning",
+      "hoard_cast_tunnel": "Tunneludgravning",
       "hoard_cast_emerge": "Eruption",
-      "hoard_cast_collapse": "Ceiling Collapse",
-      "hoard_cast_bat_dive_aim": "Plunging Dive",
-      "hoard_cast_bat_dive": "Diving",
-      "hoard_cast_screech": "Deafening Screech",
-      "hoard_cast_mimic_bite": "Voracious Bite",
-      "hoard_cast_mimic_leap": "Crushing Leap",
-      "hoard_cast_coin_spit": "Cursed Coins"
+      "hoard_cast_collapse": "Loftkollaps",
+      "hoard_cast_bat_dive_aim": "Dybdyk",
+      "hoard_cast_bat_dive": "Dykning",
+      "hoard_cast_screech": "Øredøvende skrigen",
+      "hoard_cast_mimic_bite": "Hæslig bid",
+      "hoard_cast_mimic_leap": "Knusende spring",
+      "hoard_cast_coin_spit": "Forbandede mønter"
     }
   },
   "questUi": {
@@ -12669,16 +12669,16 @@ export const da_DK: EnTranslations = {
       "clueHuntDone": "Skattejagt fuldført: {title}. Kisten er din.",
       "clueHuntAbandoned": "Skattejagt opgivet: {title}",
       "clueCasketOpened": "Kisten holder {money} og {items}.",
-      "treasureMapEarned": "Every world quest of the day is done: you found a {map}.",
-      "treasureMapLost": "Every world quest of the day is done, but your bags have no room for the treasure map.",
-      "treasureMapRead": "You study the {map}. The X lies somewhere in {zone}.",
-      "treasureMapUpgraded": "The map is redrawn in finer ink: it is now a {map}.",
-      "treasureVaultOpened": "The ground gives way. A buried hoard lies open before you.",
-      "treasureVaultLooted": "The hoard holds {money} and {items}.",
-      "treasureVaultCapped": "You have shared in enough hoards today; this one pays you nothing.",
-      "hoardGoblinSighted": "A goblin thief appears!",
-      "hoardGoblinSightedHint": "Kill it before it escapes with the gold!",
-      "hoardGoblinExplain": "A goblin thief is hiding in this hoard with a sack of stolen gold. It never fights back, it only runs. Your first hit starts a {seconds}-second escape bar: if it is still alive when the bar runs out, it opens a portal and is gone with the gold. Left alone, it slips away after {minutes} minutes. Kill it in time and everyone in the room is paid in gold."
+      "treasureMapEarned": "Hver verdensopgave på dagen er udført: du fandt en {map}.",
+      "treasureMapLost": "Hver verdensopgave på dagen er udført, men dine tasker har ingen plads til skattekortet.",
+      "treasureMapRead": "Du studerer {map}. X'et ligger et eller andet sted i {zone}.",
+      "treasureMapUpgraded": "Kortet tegnes på finere blæk: det er nu en {map}.",
+      "treasureVaultOpened": "Jorden giver efter. Et begravet skattkammer ligger åbent foran dig.",
+      "treasureVaultLooted": "Skattkammeret indeholder {money} og {items}.",
+      "treasureVaultCapped": "Du har delt nok skattkamre i dag; denne betaler dig ikke.",
+      "hoardGoblinSighted": "En goblin tyv vises!",
+      "hoardGoblinSightedHint": "Dræb det før det flygtnar med guldet!",
+      "hoardGoblinExplain": "En goblin tyv gemmer sig i dette skattkammer med en sæk stjålet guld. Det kæmper aldrig tilbage, det løber kun. Dit første slag starter en {seconds}-sekunders flugtbar: hvis det stadig lever når baren løber ud, åbner det en portal og er væk med guldet. Ignoreret læner det sig væk efter {minutes} minutter. Dræb det i tide og alle i rummet bliver betalt i guld."
     },
     "errors": {
       "unavailable": "Den quest er ikke tilgængelig.",
@@ -17678,361 +17678,361 @@ export const da_DK: EnTranslations = {
         "name": "Stormhymnens Kædestøvler"
       },
       "allied_hearthstone": {
-        "name": "Allied Hearthstone"
+        "name": "Allieret Hjemsten"
       },
       "allied_vanguard_duffel": {
-        "name": "Allied Vanguard Duffel"
+        "name": "Allieret Forposts Kittel"
       },
       "rift_feather_glider": {
-        "name": "Rift Feather Glider"
+        "name": "Spalte-Fjer Glider"
       },
       "formula_enchant_feet_shadowstride": {
-        "name": "Formula: Enchant Boots - Shadowstride"
+        "name": "Recept: Fortryllelse Støvler - Skyggetrin"
       },
       "recipe_potion_of_invisibility": {
-        "name": "Recipe: Potion of Invisibility"
+        "name": "Opskrift: Trank af Usynlighed"
       },
       "potion_of_invisibility": {
-        "name": "Potion of Invisibility"
+        "name": "Trank af Usynlighed"
       },
       "pattern_reinforced_armor_kit": {
-        "name": "Pattern: Reinforced Armor Kit"
+        "name": "Mønster: Forstærket Rustnings-Kit"
       },
       "reinforced_armor_kit": {
-        "name": "Reinforced Armor Kit"
+        "name": "Forstærket Rustnings-Kit"
       },
       "dawn_battle_standard": {
-        "name": "Dawn Battle Standard"
+        "name": "Daggryets Bataljon Standart"
       },
       "formula_enchant_offhand_spirit": {
-        "name": "Formula: Enchant Off-Hand - Spirit"
+        "name": "Recept: Fortryllelse Venstrehånd - Ånd"
       },
       "recipe_elixir_of_mana_regeneration": {
-        "name": "Recipe: Elixir of Mana Regeneration"
+        "name": "Opskrift: Magisk Elixir til Regeneration"
       },
       "elixir_of_mana_regeneration": {
-        "name": "Elixir of Mana Regeneration"
+        "name": "Magisk Elixir til Regeneration"
       },
       "clockwork_target_dummy": {
-        "name": "Clockwork Target Dummy"
+        "name": "Mekanisk Målaudør"
       },
       "schematic_clockwork_shock_bomb": {
-        "name": "Schematic: Clockwork Shock Bomb"
+        "name": "Tegning: Mekanisk Chokbombe"
       },
       "clockwork_shock_bomb": {
-        "name": "Clockwork Shock Bomb"
+        "name": "Mekanisk Chokbombe"
       },
       "plans_dense_sharpening_stone": {
-        "name": "Plans: Dense Sharpening Stone"
+        "name": "Tegninger: Tæt Slibesten"
       },
       "dense_sharpening_stone": {
-        "name": "Dense Sharpening Stone"
+        "name": "Tæt Slibesten"
       },
       "formula_enchant_gloves_forged_might": {
-        "name": "Formula: Enchant Gloves - Forged Might"
+        "name": "Recept: Fortryllelse Handsker - Smedekvej"
       },
       "treasure_map_common": {
-        "name": "Weathered Treasure Map"
+        "name": "Vejrslidt Skattkort"
       },
       "treasure_map_rare": {
-        "name": "Inked Treasure Map"
+        "name": "Blækdyrket Skattkort"
       },
       "treasure_map_epic": {
-        "name": "Gilded Treasure Map"
+        "name": "Forgyldt Skattkort"
       },
       "treasure_map_legendary": {
-        "name": "Sovereign Treasure Map"
+        "name": "Sjælden Skattkort"
       },
       "cartographers_ink": {
-        "name": "Cartographer's Ink"
+        "name": "Kartografs Blæk"
       },
       "collapsar_band_of_nyxaris": {
-        "name": "Collapsar Band of Nyxaris"
+        "name": "Ringkollapsar af Nyxaris"
       },
       "rare_collapsar_band_of_nyxaris": {
-        "name": "Tarnished Collapsar Band of Nyxaris"
+        "name": "Medtaget Ringkollapsar af Nyxaris"
       },
       "legendary_collapsar_band_of_nyxaris": {
-        "name": "Sovereign Collapsar Band of Nyxaris"
+        "name": "Sjælden Ringkollapsar af Nyxaris"
       },
       "orb_collapsing_void": {
-        "name": "Orb of Collapsing Void"
+        "name": "Kugle af Kollapsende Tomrum"
       },
       "rare_orb_collapsing_void": {
-        "name": "Tarnished Orb of Collapsing Void"
+        "name": "Medtaget Kugle af Kollapsende Tomrum"
       },
       "legendary_orb_collapsing_void": {
-        "name": "Sovereign Orb of Collapsing Void"
+        "name": "Sjælden Kugle af Kollapsende Tomrum"
       },
       "cowl_of_event_horizon": {
-        "name": "Cowl of the Event Horizon"
+        "name": "Hætte af Begivenhedshorisonten"
       },
       "rare_cowl_of_event_horizon": {
-        "name": "Tarnished Cowl of the Event Horizon"
+        "name": "Medtaget Hætte af Begivenhedshorisonten"
       },
       "legendary_cowl_of_event_horizon": {
-        "name": "Sovereign Cowl of the Event Horizon"
+        "name": "Sjælden Hætte af Begivenhedshorisonten"
       },
       "mantle_of_singularity": {
-        "name": "Mantle of Singularity"
+        "name": "Kappe af Singularitet"
       },
       "rare_mantle_of_singularity": {
-        "name": "Tarnished Mantle of Singularity"
+        "name": "Medtaget Kappe af Singularitet"
       },
       "legendary_mantle_of_singularity": {
-        "name": "Sovereign Mantle of Singularity"
+        "name": "Sjælden Kappe af Singularitet"
       },
       "glacier_hewn_bulwark": {
-        "name": "Glacier-Hewn Bulwark"
+        "name": "Gletcher-Hugget Værn"
       },
       "rare_glacier_hewn_bulwark": {
-        "name": "Tarnished Glacier-Hewn Bulwark"
+        "name": "Medtaget Gletcher-Hugget Værn"
       },
       "legendary_glacier_hewn_bulwark": {
-        "name": "Sovereign Glacier-Hewn Bulwark"
+        "name": "Sjælden Gletcher-Hugget Værn"
       },
       "permafrost_legguards": {
-        "name": "Permafrost Legguards"
+        "name": "Permafrost Benværn"
       },
       "rare_permafrost_legguards": {
-        "name": "Tarnished Permafrost Legguards"
+        "name": "Medtaget Permafrost Benværn"
       },
       "legendary_permafrost_legguards": {
-        "name": "Sovereign Permafrost Legguards"
+        "name": "Sjælden Permafrost Benværn"
       },
       "frostbitten_rime_slippers": {
-        "name": "Frostbitten Rime Slippers"
+        "name": "Frostbidt Rimflip"
       },
       "rare_frostbitten_rime_slippers": {
-        "name": "Tarnished Frostbitten Rime Slippers"
+        "name": "Medtaget Frostbidt Rimflip"
       },
       "legendary_frostbitten_rime_slippers": {
-        "name": "Sovereign Frostbitten Rime Slippers"
+        "name": "Sjælden Frostbidt Rimflip"
       },
       "rime_crusted_grips": {
-        "name": "Rime-Crusted Grips"
+        "name": "Rimfrost-Greb"
       },
       "rare_rime_crusted_grips": {
-        "name": "Tarnished Rime-Crusted Grips"
+        "name": "Medtaget Rimfrost-Greb"
       },
       "legendary_rime_crusted_grips": {
-        "name": "Sovereign Rime-Crusted Grips"
+        "name": "Sjælden Rimfrost-Greb"
       },
       "ember_wrought_crown": {
-        "name": "Ember-Wrought Crown"
+        "name": "Glødersmedet Krone"
       },
       "rare_ember_wrought_crown": {
-        "name": "Tarnished Ember-Wrought Crown"
+        "name": "Medtaget Glødersmedet Krone"
       },
       "legendary_ember_wrought_crown": {
-        "name": "Sovereign Ember-Wrought Crown"
+        "name": "Sjælden Glødersmedet Krone"
       },
       "cinder_stitched_robes": {
-        "name": "Cinder-Stitched Robes"
+        "name": "Glødersyede Kjortler"
       },
       "rare_cinder_stitched_robes": {
-        "name": "Tarnished Cinder-Stitched Robes"
+        "name": "Medtaget Glødersyede Kjortler"
       },
       "legendary_cinder_stitched_robes": {
-        "name": "Sovereign Cinder-Stitched Robes"
+        "name": "Sjælden Glødersyede Kjortler"
       },
       "chained_ember_choker": {
-        "name": "Chained Ember Choker"
+        "name": "Kædet Glodfyge"
       },
       "rare_chained_ember_choker": {
-        "name": "Tarnished Chained Ember Choker"
+        "name": "Medtaget Kædet Glodfyge"
       },
       "legendary_chained_ember_choker": {
-        "name": "Sovereign Chained Ember Choker"
+        "name": "Sjælden Kædet Glodfyge"
       },
       "molten_clinker_girdle": {
-        "name": "Molten Clinker Girdle"
+        "name": "Smeltet Slaggebælte"
       },
       "rare_molten_clinker_girdle": {
-        "name": "Tarnished Molten Clinker Girdle"
+        "name": "Medtaget Smeltet Slaggebælte"
       },
       "legendary_molten_clinker_girdle": {
-        "name": "Sovereign Molten Clinker Girdle"
+        "name": "Sjælden Smeltet Slaggebælte"
       },
       "storm_tuned_buckler": {
-        "name": "Storm-Tuned Buckler"
+        "name": "Stemafstemt Skjold"
       },
       "rare_storm_tuned_buckler": {
-        "name": "Tarnished Storm-Tuned Buckler"
+        "name": "Medtaget Stemafstemt Skjold"
       },
       "legendary_storm_tuned_buckler": {
-        "name": "Sovereign Storm-Tuned Buckler"
+        "name": "Sjælden Stemafstemt Skjold"
       },
       "hauberk_tempest_gale": {
-        "name": "Hauberk of the Tempest Gale"
+        "name": "Ringbrynje af Stormvindens Gale"
       },
       "rare_hauberk_tempest_gale": {
-        "name": "Tarnished Hauberk of the Tempest Gale"
+        "name": "Medtaget Ringbrynje af Stormvindens Gale"
       },
       "legendary_hauberk_tempest_gale": {
-        "name": "Sovereign Hauberk of the Tempest Gale"
+        "name": "Sjælden Ringbrynje af Stormvindens Gale"
       },
       "gale_strider_boots": {
-        "name": "Gale-Strider Boots"
+        "name": "Stormganger-Støvler"
       },
       "rare_gale_strider_boots": {
-        "name": "Tarnished Gale-Strider Boots"
+        "name": "Medtaget Stormganger-Støvler"
       },
       "legendary_gale_strider_boots": {
-        "name": "Sovereign Gale-Strider Boots"
+        "name": "Sjælden Stormganger-Støvler"
       },
       "tempest_strike_grips": {
-        "name": "Tempest-Strike Grips"
+        "name": "Stormslag-Greb"
       },
       "rare_tempest_strike_grips": {
-        "name": "Tarnished Tempest-Strike Grips"
+        "name": "Medtaget Stormslag-Greb"
       },
       "legendary_tempest_strike_grips": {
-        "name": "Sovereign Tempest-Strike Grips"
+        "name": "Sjælden Stormslag-Greb"
       },
       "breastplate_tectonic_might": {
-        "name": "Breastplate of Tectonic Might"
+        "name": "Brystplade af Tektonisk Kraft"
       },
       "rare_breastplate_tectonic_might": {
-        "name": "Tarnished Breastplate of Tectonic Might"
+        "name": "Medtaget Brystplade af Tektonisk Kraft"
       },
       "legendary_breastplate_tectonic_might": {
-        "name": "Sovereign Breastplate of Tectonic Might"
+        "name": "Sjælden Brystplade af Tektonisk Kraft"
       },
       "band_mountains_weight": {
-        "name": "Band of the Mountain's Weight"
+        "name": "Ring af Bjergenes Vægt"
       },
       "rare_band_mountains_weight": {
-        "name": "Tarnished Band of the Mountain's Weight"
+        "name": "Medtaget Ring af Bjergenes Vægt"
       },
       "legendary_band_mountains_weight": {
-        "name": "Sovereign Band of the Mountain's Weight"
+        "name": "Sjælden Ring af Bjergenes Vægt"
       },
       "monolithic_shoulderguards": {
-        "name": "Monolithic Shoulderguards"
+        "name": "Monolitisk Skuldervern"
       },
       "rare_monolithic_shoulderguards": {
-        "name": "Tarnished Monolithic Shoulderguards"
+        "name": "Medtaget Monolitisk Skuldervern"
       },
       "legendary_monolithic_shoulderguards": {
-        "name": "Sovereign Monolithic Shoulderguards"
+        "name": "Sjælden Monolitisk Skuldervern"
       },
       "earthshaker_warboots": {
-        "name": "Earthshaker Warboots"
+        "name": "Jordskælv-Kampstøvler"
       },
       "rare_earthshaker_warboots": {
-        "name": "Tarnished Earthshaker Warboots"
+        "name": "Medtaget Jordskælv-Kampstøvler"
       },
       "legendary_earthshaker_warboots": {
-        "name": "Sovereign Earthshaker Warboots"
+        "name": "Sjælden Jordskælv-Kampstøvler"
       },
       "silkstalker_woven_vest": {
-        "name": "Woven Vest of the Silkstalker"
+        "name": "Vævet Vest af Silkejægeren"
       },
       "rare_silkstalker_woven_vest": {
-        "name": "Tarnished Woven Vest of the Silkstalker"
+        "name": "Medtaget Vævet Vest af Silkejægeren"
       },
       "legendary_silkstalker_woven_vest": {
-        "name": "Sovereign Woven Vest of the Silkstalker"
+        "name": "Sjælden Vævet Vest af Silkejægeren"
       },
       "spun_venom_spaulders": {
-        "name": "Spun-Venom Spaulders"
+        "name": "Spindet Giftskulderstykker"
       },
       "rare_spun_venom_spaulders": {
-        "name": "Tarnished Spun-Venom Spaulders"
+        "name": "Medtaget Spindet Giftskulderstykker"
       },
       "legendary_spun_venom_spaulders": {
-        "name": "Sovereign Spun-Venom Spaulders"
+        "name": "Sjælden Spindet Giftskulderstykker"
       },
       "broodmother_chitin_cowl": {
-        "name": "Chitin Cowl of the Broodmother"
+        "name": "Kitin Hætte af Yngelmoren"
       },
       "rare_broodmother_chitin_cowl": {
-        "name": "Tarnished Chitin Cowl of the Broodmother"
+        "name": "Medtaget Kitin Hætte af Yngelmoren"
       },
       "legendary_broodmother_chitin_cowl": {
-        "name": "Sovereign Chitin Cowl of the Broodmother"
+        "name": "Sjælden Kitin Hætte af Yngelmoren"
       },
       "venom_etched_waistcord": {
-        "name": "Venom-Etched Waistcord"
+        "name": "Giftrudset Livbælte"
       },
       "rare_venom_etched_waistcord": {
-        "name": "Tarnished Venom-Etched Waistcord"
+        "name": "Medtaget Giftrudset Livbælte"
       },
       "legendary_venom_etched_waistcord": {
-        "name": "Sovereign Venom-Etched Waistcord"
+        "name": "Sjælden Giftrudset Livbælte"
       },
       "bone_studded_pauldrons": {
-        "name": "Bone-Studded Pauldrons"
+        "name": "Knoglestuderet Skulderstykker"
       },
       "rare_bone_studded_pauldrons": {
-        "name": "Tarnished Bone-Studded Pauldrons"
+        "name": "Medtaget Knoglestuderet Skulderstykker"
       },
       "legendary_bone_studded_pauldrons": {
-        "name": "Sovereign Bone-Studded Pauldrons"
+        "name": "Sjælden Knoglestuderet Skulderstykker"
       },
       "legguards_of_the_ossuary": {
-        "name": "Legguards of the Ossuary"
+        "name": "Benværn af Knoglehallen"
       },
       "rare_legguards_of_the_ossuary": {
-        "name": "Tarnished Legguards of the Ossuary"
+        "name": "Medtaget Benværn af Knoglehallen"
       },
       "legendary_legguards_of_the_ossuary": {
-        "name": "Sovereign Legguards of the Ossuary"
+        "name": "Sjælden Benværn af Knoglehallen"
       },
       "seal_of_the_cryptwalker": {
-        "name": "Seal of the Cryptwalker"
+        "name": "Segl af Gravgangers"
       },
       "rare_seal_of_the_cryptwalker": {
-        "name": "Tarnished Seal of the Cryptwalker"
+        "name": "Medtaget Segl af Gravgangers"
       },
       "legendary_seal_of_the_cryptwalker": {
-        "name": "Sovereign Seal of the Cryptwalker"
+        "name": "Sjælden Segl af Gravgangers"
       },
       "ossuary_bone_crown": {
-        "name": "Ossuary Bone Crown"
+        "name": "Knoglehall Knoglekrone"
       },
       "rare_ossuary_bone_crown": {
-        "name": "Tarnished Ossuary Bone Crown"
+        "name": "Medtaget Knoglehall Knoglekrone"
       },
       "legendary_ossuary_bone_crown": {
-        "name": "Sovereign Ossuary Bone Crown"
+        "name": "Sjælden Knoglehall Knoglekrone"
       },
       "chalice_of_living_tides": {
-        "name": "Chalice of the Living Tides"
+        "name": "Kalk af Levende Tidevande"
       },
       "rare_chalice_of_living_tides": {
-        "name": "Tarnished Chalice of the Living Tides"
+        "name": "Medtaget Kalk af Levende Tidevande"
       },
       "legendary_chalice_of_living_tides": {
-        "name": "Sovereign Chalice of the Living Tides"
+        "name": "Sjælden Kalk af Levende Tidevande"
       },
       "pendant_continuous_flow": {
-        "name": "Pendant of Continuous Flow"
+        "name": "Anheng af Kontinuerlig Strøm"
       },
       "rare_pendant_continuous_flow": {
-        "name": "Tarnished Pendant of Continuous Flow"
+        "name": "Medtaget Anheng af Kontinuerlig Strøm"
       },
       "legendary_pendant_continuous_flow": {
-        "name": "Sovereign Pendant of Continuous Flow"
+        "name": "Sjælden Anheng af Kontinuerlig Strøm"
       },
       "coral_encrusted_girdle": {
-        "name": "Coral-Encrusted Girdle"
+        "name": "Koralindskaldt Livbælte"
       },
       "rare_coral_encrusted_girdle": {
-        "name": "Tarnished Coral-Encrusted Girdle"
+        "name": "Medtaget Koralindskaldt Livbælte"
       },
       "legendary_coral_encrusted_girdle": {
-        "name": "Sovereign Coral-Encrusted Girdle"
+        "name": "Sjælden Koralindskaldt Livbælte"
       },
       "riptide_handwraps": {
-        "name": "Riptide Handwraps"
+        "name": "Tidevandsbinder"
       },
       "rare_riptide_handwraps": {
-        "name": "Tarnished Riptide Handwraps"
+        "name": "Medtaget Tidevandsbinder"
       },
       "legendary_riptide_handwraps": {
-        "name": "Sovereign Riptide Handwraps"
+        "name": "Sjælden Tidevandsbinder"
       },
       "vanguard_warrior_arms_helmet": {
         "name": "Klingeophørsel Storgjelm"
@@ -19732,49 +19732,49 @@ export const da_DK: EnTranslations = {
         "name": "Staldhest"
       },
       "hoard_brood_egg": {
-        "name": "Brood Clutch"
+        "name": "Yngelkuld"
       },
       "hoard_brood_hatchling": {
-        "name": "Vysska's Hatchling"
+        "name": "Vyaskas Kylling"
       },
       "hoard_healing_tide_totem": {
-        "name": "Healing Tide Totem"
+        "name": "Helbredende Tidetotem"
       },
       "hoard_bound_pulsar": {
-        "name": "Bound Pulsar"
+        "name": "Bundet Pulsar"
       },
       "hoard_abyssal_tentacle": {
-        "name": "Tentacle of the Maw"
+        "name": "Tentakel af Slugeren"
       },
       "hoard_silk_cocoon": {
-        "name": "Silk Cocoon"
+        "name": "Silkekokon"
       },
       "hoard_brood_cocoon": {
-        "name": "Brood Cocoon"
+        "name": "Yngelkokon"
       },
       "hoard_coinsack_scurrier": {
-        "name": "Coinsack Scurrier"
+        "name": "Møntposekryber"
       },
       "hoard_boss_mushroom": {
-        "name": "Mother of Mushrooms"
+        "name": "Svamparnas Moder"
       },
       "hoard_sporeling": {
-        "name": "Sporeling"
+        "name": "Sporeknoppe"
       },
       "hoard_bloat_cap": {
-        "name": "Bloated Cap"
+        "name": "Oppustet Huen"
       },
       "hoard_boss_mole": {
-        "name": "Deeprake"
+        "name": "Dybgrav"
       },
       "hoard_boss_bat": {
-        "name": "Colossal Bat"
+        "name": "Kolossal Flagermus"
       },
       "hoard_boss_mimic": {
-        "name": "Voracious Chest"
+        "name": "Glubsk Kiste"
       },
       "hoard_bat_swarmling": {
-        "name": "Cave Swarmer"
+        "name": "Hulsvejsluger"
       },
       "rift_spawnling": {
         "name": "Riftyngel"
@@ -19807,7 +19807,7 @@ export const da_DK: EnTranslations = {
         "name": "Margtrold"
       },
       "rift_marrow_golem": {
-        "name": "Marrow Golem"
+        "name": "Marvsgolem"
       },
       "rift_void_acolyte": {
         "name": "Tomrumsar-Acolyt"
@@ -23943,9 +23943,9 @@ export const da_DK: EnTranslations = {
         "body": "Din notering blev solgt, og køberen har betalt fuldt ud. Børsens hovedbog bærer regnskabet for salget, og din Børs-aktivitet viser det afregnede beløb og dets opdeling.\n\n- Børsmægleren"
       },
       "hoard_vault_reward": {
-        "sender": "The Ravenpost",
-        "subject": "Your vault reward",
-        "body": "The vault was cleared, but your share was not collected from the chest. The ravens have brought it to you here, with the goods and coin you earned attached.\n\n- The Ravenpost"
+        "sender": "Ravenposten",
+        "subject": "Din hoard-belønning",
+        "body": "Hvælvingen blev ryddet, men din andel blev ikke samlet fra kisten. Ravnene har bragt det til dig her, med de varer og mønter, du tjente, vedlagt.\n\n- Ravenposten"
       }
     },
     "itemSets": {

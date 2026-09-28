@@ -292,27 +292,30 @@ describe('i18n whole-catalog completeness', () => {
     // Re-minted at the 2026-09-28 Buried Hoards merge: the two hoard entrance
     // marker labels join (translated in the non-Latin locales, English in the
     // Latin ones until the release fill), recomputed with the same recipe.
+    // Re-minted at the Buried Hoards release fill (2026-09-28): the two hoard
+    // entrance labels are now translated in the Latin locales, so those fifteen
+    // digests move; the non-Latin five are unchanged.
     const expected = {
-      es: '802139437c3505a6ef5b3f850fab12e0f44b18dba54c0f3ad49d754d7b4d6c69',
-      es_ES: '802139437c3505a6ef5b3f850fab12e0f44b18dba54c0f3ad49d754d7b4d6c69',
-      fr_FR: 'eb7a14f5e295a6de302b156e7c7f40babca0d5658037e75116db4180c2673288',
-      fr_CA: 'eb7a14f5e295a6de302b156e7c7f40babca0d5658037e75116db4180c2673288',
-      it_IT: '89c26a84ab2d481b218841e86c3602ccfff8ccccab9c80e35bb78324c68394c6',
-      de_DE: 'abf966abed454fe8dbda41b8a18869bcecfd878db980d385fc843176ee4fd061',
+      es: '00e5c704dcd2633f9640f9bd038bd4ef3a19b940fc6b2a61ab8bbc35a71fe613',
+      es_ES: '00e5c704dcd2633f9640f9bd038bd4ef3a19b940fc6b2a61ab8bbc35a71fe613',
+      fr_FR: 'b311b529e3e718b396be21a86fed197df457eae7a4e33ed6b1fb840fb3db4e37',
+      fr_CA: 'b311b529e3e718b396be21a86fed197df457eae7a4e33ed6b1fb840fb3db4e37',
+      it_IT: '0c4ad2e3b2a21b11e7de5f1d8ed4b5731efb15e823f6f68861ebae566ee2d03a',
+      de_DE: 'd9b5edaa38fcb851a462088b8fd9eab1c03df3a5e8a342462e432496f93fbb4d',
       zh_CN: '25a4447107be04d07da7839ea1f771572b70118ec1992f2cfabb447c0f774297',
       zh_TW: '55598183fde49ce0a991f382968b45b49317fb42e58eebdcefa574dd96a364bf',
       ko_KR: 'f85a6cdaf3fbcb285417d26ecd4720702530530f5b421e47db820e31987a8149',
       ja_JP: '693f803807ac6d828a1d9f8bd156c10c913a1969df785b90ebcd06523b1283a5',
-      pt_BR: 'c492ac11fc7ad1150dfaa4869f0a32916071d1563c82bb5c289d0dca9bbabe6d',
+      pt_BR: '6e50559c9066e4dfbfd76da4e47a87556c4334ccf7d01ade6a0aaed24049e055',
       ru_RU: '6996bb8a44dfea40d44f884bb25651f0e18ce49e551547072917a4f096a972bd',
-      cs_CZ: '1084d1a371610772eccc5d8861964494e2b96a850644d7268eb6d26915e3253d',
-      nl_NL: 'a9aeaca6a545a6745b8a292bec24cb37cc5a2e735bc0b5d48511af43dd429432',
-      pl_PL: '95c33fd91119f85f0a056ba88fd1f271f0337ac04d3ac6aef22498bc3a7539e2',
-      id_ID: '345b58c623547d5cc619707767d45b83da4623cf1afe44ab54c723467b2228a6',
-      tr_TR: '5e7d65a1bce228ed5cf12aa088785ea20f1c341da87191434d035614b1bd0866',
-      sv_SE: '17829a5966842dfc41cb03161b010bb3762250394c72dce96b311d4c923a5e34',
-      vi_VN: 'b2b12084292c77489d9f702c361eb7407271a72e9af2df479dbd1c95b5128dbd',
-      da_DK: 'e95a17591511fa820069781035a6ff977218607c7c13f8bd2a8863f090d0e287',
+      cs_CZ: 'c903e5c4d40e1eec3ac5ad062c5e854a4d9c4e23649884e2e7aa150359bd773b',
+      nl_NL: '109292f3d2ef6ebf99514351fc60dd6b25ce4f1452000e7b9228fe4bfb2a3fd1',
+      pl_PL: '64f5962e2719ea293155b60105067cf6f5a82755e551af2d79ed6c577c815186',
+      id_ID: '0edea36250a9fcf77a5bb6184610438e2b2eb862a79360655439bbea2f7eba13',
+      tr_TR: '32c221f59d9507528a1111960a95a9f7f9a687c0e26c922986420a842133b69f',
+      sv_SE: '1d024cf9fbdecd77ae9fd0b93bad3b958540eb70a0a20e7b456e3efb3303409f',
+      vi_VN: '7533ac03cbe1be269531a0e6c43939417cacda85bd3e96e9d22d401eca58cc2e',
+      da_DK: 'c5fb6b4cd9586ce1ca7e098f1306c6f5350b6eeb75185b88c5045aa12b9617fa',
     } as const satisfies Partial<Record<SupportedLanguage, string>>;
 
     for (const [lang, digest] of Object.entries(expected) as Array<

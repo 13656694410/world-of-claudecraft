@@ -13,6 +13,11 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const ja_JP: Partial<Record<TranslationKey, string>> = {
+  'abilityUi.actionBar.cooldownMinutes': '{minutes}分',
+  'abilityUi.cast.hoard_cast_rime_beam': '霜光線',
+  'hudChrome.worldQuestTooltip.currencyAmount': '{amount}{currency}',
+  'hudChrome.worldQuestTooltip.currencyReward': '+{amount}{currency}',
+  'hudChrome.worldQuestTooltip.standingAmount': '{amount}{faction}',
   'hudChrome.questTracker.worldQuests': 'ワールドクエスト',
   'hudChrome.questTracker.worldQuestsCollapseHint': 'ワールドクエストを折りたたむ',
   'hudChrome.questTracker.worldQuestsExpandHint': 'ワールドクエストを展開する',

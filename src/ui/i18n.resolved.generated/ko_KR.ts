@@ -12121,7 +12121,7 @@ export const ko_KR: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "공격",
-      "cooldownMinutes": "{minutes}m",
+      "cooldownMinutes": "{minutes}분",
       "attackTooltip": "대상에게 자동 공격을 켜거나 끕니다. 적을 우클릭해도 공격합니다.",
       "attackRemoveHint": "우클릭하면 바에서 제거하고 칸을 비웁니다.",
       "emptySlot": "빈 칸",
@@ -12217,7 +12217,7 @@ export const ko_KR: EnTranslations = {
       "hoard_cast_fear": "공포의 포효",
       "hoard_cast_stun": "기절의 일격",
       "hoard_cast_drowning_hook": "익사의 갈고리",
-      "hoard_cast_rime_beam": "Rime Beam",
+      "hoard_cast_rime_beam": "상고대 광선",
       "hoard_cast_cinder_bolt": "잿불 화살",
       "hoard_cast_void_empower": "공허 강화",
       "hoard_cast_webbing": "거미줄",

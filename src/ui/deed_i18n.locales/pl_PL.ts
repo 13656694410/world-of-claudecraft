@@ -1217,4 +1217,8 @@ export const table: DeedLocaleTable = {
     name: 'Port do Portu',
     desc: 'Żegluj obiema promami tam i z powrotem: Eastbrook do Spokoju Księżyca i Wickharbor do Varkhul.',
   },
+  cmb_coinsack_caught: {
+    name: 'Przyłapany na Gorącym Uczynku',
+    desc: 'Złap Scenusza Moneciaka w Zakopanych Skarbnicy zanim ucieka ze złotem.',
+  },
 };

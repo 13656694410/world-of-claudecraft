@@ -935,4 +935,8 @@ export const table: DeedLocaleTable = {
     desc: '打开10只在寻宝之旅结束时挖出的宝匣。',
     title: '寻宝猎人',
   },
+  cmb_coinsack_caught: {
+    name: '人赃俱获',
+    desc: '在埋藏的宝藏中击杀钱袋窜贼，在它带着金币逃脱前。',
+  },
 };

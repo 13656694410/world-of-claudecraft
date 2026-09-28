@@ -13,6 +13,11 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const ko_KR: Partial<Record<TranslationKey, string>> = {
+  'abilityUi.actionBar.cooldownMinutes': '{minutes}분',
+  'abilityUi.cast.hoard_cast_rime_beam': '상고대 광선',
+  'hudChrome.worldQuestTooltip.currencyAmount': '{amount} {currency}',
+  'hudChrome.worldQuestTooltip.currencyReward': '+{amount} {currency}',
+  'hudChrome.worldQuestTooltip.standingAmount': '{amount} {faction}',
   'hudChrome.questTracker.worldQuests': '전역 퀘스트',
   'hudChrome.questTracker.worldQuestsCollapseHint': '전역 퀘스트 접기',
   'hudChrome.questTracker.worldQuestsExpandHint': '전역 퀘스트 펼치기',

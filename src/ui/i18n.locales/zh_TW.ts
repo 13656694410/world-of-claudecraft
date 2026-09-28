@@ -13,6 +13,11 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const zh_TW: Partial<Record<TranslationKey, string>> = {
+  'abilityUi.actionBar.cooldownMinutes': '{minutes}分鐘',
+  'abilityUi.cast.hoard_cast_rime_beam': '白霜射束',
+  'hudChrome.worldQuestTooltip.currencyAmount': '{amount} {currency}',
+  'hudChrome.worldQuestTooltip.currencyReward': '+{amount} {currency}',
+  'hudChrome.worldQuestTooltip.standingAmount': '{amount} {faction}',
   'hudChrome.questTracker.worldQuests': '世界任務',
   'hudChrome.questTracker.worldQuestsCollapseHint': '收合世界任務',
   'hudChrome.questTracker.worldQuestsExpandHint': '展開世界任務',

@@ -1225,4 +1225,8 @@ export const table: DeedLocaleTable = {
     name: 'Haven naar Haven',
     desc: 'Vaar beide veren heen en terug: Oostbeek naar Maanrust, en Wickhaven naar Wyrmwatch.',
   },
+  cmb_coinsack_caught: {
+    name: 'Betrapt op Heterdaad',
+    desc: 'Vang een Muntzak Haastige in een Begraven Hoard voordat het met het goud vandoor gaat.',
+  },
 };

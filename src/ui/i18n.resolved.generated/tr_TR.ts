@@ -1167,9 +1167,9 @@ export const tr_TR: EnTranslations = {
       "objectiveValue": "{current} / {total}",
       "collapseHint": "Görev takipçisini daralt",
       "expandHint": "Görev takipçisini genişlet",
-      "worldQuests": "World Quests",
-      "worldQuestsCollapseHint": "Collapse world quests",
-      "worldQuestsExpandHint": "Expand world quests"
+      "worldQuests": "Dünya Görevleri",
+      "worldQuestsCollapseHint": "Dünya görevlerini daralt",
+      "worldQuestsExpandHint": "Dünya görevlerini genişlet"
     },
     "interfaceTabs": {
       "general": "Genel",
@@ -1664,10 +1664,10 @@ export const tr_TR: EnTranslations = {
     },
     "riftTracker": {
       "title": "Yarık",
-      "hoardTitle": "Buried Hoard",
-      "hoardGoal": "Defeat the hoard keeper",
-      "hoardChestGoal": "Open the hoard chest",
-      "hoardClaimedGoal": "The hoard is yours",
+      "hoardTitle": "Gizli Hazine",
+      "hoardGoal": "Hazine koruyucusunu yenilain",
+      "hoardChestGoal": "Hazine sandığını aç",
+      "hoardClaimedGoal": "Hazine sizin",
       "floor": "Kat {current}/{total}",
       "closesIn": "{time} içinde kapanır",
       "clockMs": "{minutes}:{seconds}",
@@ -2878,16 +2878,16 @@ export const tr_TR: EnTranslations = {
       "openProfessions": "Açık Meslekler"
     },
     "treasureMap": {
-      "close": "Close treasure map",
-      "zone": "Somewhere in {zone}",
-      "hint": "Find the ground this map shows, stand on the X, and use the map again to dig. A buried hoard opens for you and your party.",
-      "upgradeNote": "Redrawing it as a {rarity} map takes {inks} Cartographer's Ink (you hold {held}). The faction quartermasters sell it.",
-      "upgradeMaxed": "No cartographer could better this map.",
+      "close": "Hazine haritasını kapat",
+      "zone": "{zone} bir yerde",
+      "hint": "Haritanın gösterdiği yeri bul, X'in üzerinde dur ve haritayı tekrar kullan kazmak için. Bir gizli hazine sende ve takımında açılır.",
+      "upgradeNote": "Bir {rarity} harita olarak yeniden çizmek {inks} Haritacı Mürekkebi gerektirir (sahip olduğun: {held}). Faktiyonun ihtiyaç memurları bunu satarlar.",
+      "upgradeMaxed": "Hiçbir haritacı bu haritayı daha iyi çizemez.",
       "rarity": {
-        "common": "Common",
-        "rare": "Rare",
-        "epic": "Epic",
-        "legendary": "Legendary"
+        "common": "Yaygın",
+        "rare": "Nadir",
+        "epic": "Efsanevi",
+        "legendary": "Göklerdeki"
       }
     },
     "currencies": {
@@ -2905,23 +2905,23 @@ export const tr_TR: EnTranslations = {
       "wocPreview": "Ön izleme bakiyesi, henüz doğrulanmadı",
       "lifetime": "Yaşamboyu {amount}",
       "factionPending": "Fraksiyon parası: 2. Aşama bekleniyor",
-      "riftWatchMark": "Rift Watch Mark",
-      "riftWatchMarkNote": "World Quests in Rift Watch zones",
-      "churchOrderCrest": "Order Crest",
-      "churchOrderCrestNote": "World Quests in Church Order zones",
-      "automatonCog": "Automaton Cog",
-      "automatonCogNote": "World Quests in Automaton zones"
+      "riftWatchMark": "Yarık İzleyicileri Nişanı",
+      "riftWatchMarkNote": "Yarık İzleyicileri bölgelerindeki Dünya Görevleri",
+      "churchOrderCrest": "Kilise Nişanı",
+      "churchOrderCrestNote": "Kilise Düzeni bölgelerinde Dünya Görevleri",
+      "automatonCog": "Otomat Dişlisi",
+      "automatonCogNote": "Otomat bölgelerinde Dünya Görevleri"
     },
     "worldQuestTooltip": {
-      "factionLine": "Faction: {faction}",
-      "timeRemaining": "Time remaining:",
+      "factionLine": "Faktiyonlar: {faction}",
+      "timeRemaining": "Kalan zaman:",
       "standingAmount": "{amount} {faction}",
       "currencyAmount": "{amount} {currency}",
-      "standingReward": "+{amount} {faction} Standing",
+      "standingReward": "+{amount} {faction} İtibarı",
       "currencyReward": "+{amount} {currency}"
     },
     "worldQuestBanner": {
-      "subtitle": "World Quest"
+      "subtitle": "Dünya Görevi"
     },
     "reputation": {
       "intro": "Üç lonca da aynı anda ilerlemeye başlıyor: her dünya görevi, bölgesinin loncasına doğru sayılır.",
@@ -5330,9 +5330,9 @@ export const tr_TR: EnTranslations = {
       "enchant_chest_lucent_stamina": "Göğüs Oyması: Işıltılı Dayanıklılık",
       "enchant_feet_lucent_agility": "Çizme Oyması: Işıltılı Çeviklik",
       "enchant_lucent_infusion": "Işıltılı Aşı",
-      "enchant_offhand_spirit": "Offhand Etching: Spirit",
-      "enchant_feet_shadowstride": "Boot Etching: Shadowstride",
-      "enchant_gloves_forged_might": "Glove Etching: Forged Might",
+      "enchant_offhand_spirit": "Ek Silah Nakışı: Ruh",
+      "enchant_feet_shadowstride": "Çizme Nakışı: Gölge Adımı",
+      "enchant_gloves_forged_might": "Eldiven Nakışı: Demirden Güç",
       "enchant_weapon_riftwalkers_grace": "Riftwalker'ın Lütfu",
       "enchant_weapon_dawnfire_etching": "Silah Oyması: Şafak Ateşi",
       "enchant_weapon_dawns_benediction": "Silah Oyması: Şafağın Kutsama",
@@ -5346,20 +5346,20 @@ export const tr_TR: EnTranslations = {
       "enchant_weapon_piston_drive": "İki elli bir silahı kalıcı olarak 12 Güç ve 25 Kritik Vuruş Derecelendirmesi ile oyar. Tek elli silaha uygulanamaz. Sabit bonus; ölçeklendirilmez."
     },
     "factionRewards": {
-      "alliedHearthstoneUse": "Use: Teleports you to your attuned faction hub. (10 sec cast, 15 min cooldown)",
-      "alliedHearthstoneAttuned": "Attuned to: {hub}",
-      "hub_none": "None (Use near a faction hub to attune)",
-      "hub_rift_watch": "Drifthaven (The Rift Watch)",
-      "hub_church_order": "Eastbrook Vale (The Church Order)",
-      "hub_automatons": "South Reach (The Automaton Foundry)",
-      "riftGliderUse": "Use: Unfolds the glider, slowing falling speed for 30 sec. Landing or taking damage cancels the effect. (2 min cooldown)",
-      "targetDummyUse": "Use: Deploys a mechanical target dummy in the open world for 2 minutes to practice combat abilities. (5 min cooldown)",
-      "battleStandardUse": "Use: Plants the Consecrated Dawn Battle Standard for 5 minutes, significantly increasing out-of-combat health and mana regeneration for all nearby allies. Remaining near it for 10 seconds also grants Blessing of the Dawn (+5% to all stats for 30 min). (5 min cooldown)",
-      "shockBombUse": "Use: Throws a shock bomb up to 30 yards, dealing 120 to 160 Nature damage to all enemies within 5 yards. (1 min cooldown)",
-      "invisibilityUse": "Use: Shrouds you in stealth for 6 sec. (2 min cooldown)",
-      "armorKitUse": "Use: Reinforces your chest armor, increasing Armor by 12 for 1 hour.",
-      "sharpeningStoneUse": "Use: Sharpens your main hand weapon, increasing Attack Power by 6 for 30 min.",
-      "manaElixirUse": "Use: Increases Spirit by 6 for 1 hour."
+      "alliedHearthstoneUse": "Kullanım: Seni ayarlanmış faktiyonun merkez alanına ışınlar. (10 sn. dönem, 15 dk. bekleme)",
+      "alliedHearthstoneAttuned": "Ayarlanmış: {hub}",
+      "hub_none": "Hiçbiri (Ayarlamak için faktiyonu merkez alanında kullan)",
+      "hub_rift_watch": "Drifthaven (Yarık İzleyicileri)",
+      "hub_church_order": "Doğudere Vadisi (Kilise Düzeni)",
+      "hub_automatons": "Güney Uzanım (Otomat Demiryolu)",
+      "riftGliderUse": "Kullanım: Planörü açar, 30 sn. boyunca düşüş hızını azaltır. İniş veya hasar alma etkiyi iptal eder. (2 dk. bekleme)",
+      "targetDummyUse": "Kullanım: Açık dünyaya 2 dakika boyunca savaş becerilerine pratik yapmak için mekanik bir hedef kukla yerleştirir. (5 dk. bekleme)",
+      "battleStandardUse": "Kullanım: Kutsal Şafak Savaş Bayrağını 5 dakika boyunca diktirir, yakındaki tüm müttefikler için savaş dışı sağlık ve mana rejenerasyonunu önemli ölçüde artırır. 10 saniye boyunca yakında kalmak ayrıca Şafağın Kutsamasını (+tüm istatistiklere %5, 30 dk.) verir. (5 dk. bekleme)",
+      "shockBombUse": "Kullanım: 30 metre uzaklıkta bir şok bombası fırlatır, 5 metre içindeki tüm düşmanlara 120 ile 160 Doğa hasarı verir. (1 dk. bekleme)",
+      "invisibilityUse": "Kullanım: Seni 6 sn. boyunca gizlilik içinde gizler. (2 dk. bekleme)",
+      "armorKitUse": "Kullanım: Göğüs zırhını güçlendirer ve 1 saat boyunca Zırh değerini 12 artırır.",
+      "sharpeningStoneUse": "Kullanım: Ana silahını taharuz eder, 30 dk. boyunca Saldırı Gücünü 6 artırır.",
+      "manaElixirUse": "Kullanım: Ruh değerini 1 saat boyunca 6 artırır."
     },
     "professions": {
       "title": "Meslekler",
@@ -6132,7 +6132,7 @@ export const tr_TR: EnTranslations = {
       "sourceActivityCorpseHarvest": "Yaratık leşlerini işlerken elde edilir",
       "sourceActivityMasterworkCraft": "Bir şaheser üreterek kazanılır",
       "sourceActivityRiftFirstClear": "Dereceli bir Yarık'ın ilk tamamlamasını kazanan grubun her üyesine verilir",
-      "sourceActivityBuriedHoard": "Found in the reward chest of a Buried Hoard, the vault a treasure map leads to",
+      "sourceActivityBuriedHoard": "Bir Gizli Hazinen ödül sandığında bulunur, hazine haritasının götürdüğü kasa",
       "cellMissingSourceAria": "{name}, henüz bulunmadı, {source}",
       "cellOwnedClearsAria": "{name}, kataloglandı, ilk kez {count}. tamamlamada bulundu",
       "searchPlaceholder": "Yadigâr ara",
@@ -6873,8 +6873,8 @@ export const tr_TR: EnTranslations = {
       "3": "Çinko tanelerinin kumullara sürüklendiği yerin doğusu ve biraz güneyinde, yanık bir alan toprağa yapışmış gibi görünüyor. Kızıl Yara'da kazan.",
       "title": "Kapıda Kül",
       "reply": {
-        "1": "The wind came off the eastern dunes carrying ash, and ash does not blow in from empty sand. Sela at the garrison stores logs every patrol. She will talk, once someone feeds her.",
-        "2": "Bread at last, bless you. The patrol swore it saw smoke rising from bare sand, east and a little south of the dunes, where nothing is left to burn."
+        "1": "Rüzgar doğu kumlarından kül taşıyordu, kül boş kumdan esmez. Garnizondan Sela her keşif görevini kaydeder. Birisi onu doyurursa konuşacak.",
+        "2": "Sonunda ekmek, sağ olasın. Keşif görevlileri, çıplak kumdan burnunun doğusundan ve biraz güneyinden dumanın yükseldiğini yeminle söylediler, yanacak bir şey kalmamış."
       }
     },
     "hunt_frostveil_aurora_vigil": {
@@ -6883,7 +6883,7 @@ export const tr_TR: EnTranslations = {
       "2": "Çığlık teraslarının doğusu, biraz güneyinde, kar olağan zamandan daha düz yatıyor. Susuz Dere'de kazan.",
       "title": "Basamakların Üzerindeki Işıklar",
       "reply": {
-        "1": "You knelt, and the lights answered. Last night they bent east past the terraces and pointed straight down at the snow."
+        "1": "Diz çöktün, ışıklar cevap verdi. Dün gece doğuya teraslıların üstünden eğilip karın tam üzerine doğru işaret ettiler."
       }
     },
     "hunt_amberfall_lantern_ferry": {
@@ -6893,8 +6893,8 @@ export const tr_TR: EnTranslations = {
       "3": "Çinko akçaağaçların kızıl alev yaktığı yüksekliğin kuzeydoğusunda, yapraklar hiçbir rüzgarın yapmayacağı bir dairede yatıyor. Oradaki tomarı kullan ve kazan.",
       "title": "Mere'nin Fenerleri",
       "reply": {
-        "0": "One lantern went dark last night, the one that faces the old stone across the water. My ferrymen will not go near it. Perhaps you will.",
-        "2": "Cold well water, just what the trees wanted. Up past the red maples the leaves have been falling in a ring, and no tree of mine drops its leaves that neatly."
+        "0": "Dün gece bir lamba söndü, karşıdaki eski taşın üzerine bakacak olan. Teknecilerimin ona yaklaşmak istemez. Belki sen istersin.",
+        "2": "Soğuk kuyu suyu, ağaçlar tam bunu istedi. Kırmızı akçaağaçların üzerine geçinde yapraklar halka şeklinde düşmüş, benimkilerden hiçbiri bu kadar düzenli düşmez."
       }
     },
     "hunt_willowfen_fenwitch_salt": {
@@ -6903,7 +6903,7 @@ export const tr_TR: EnTranslations = {
       "2": "Parlayan havuzların güneydoğusunda, kuru toprağın bir höyüğü, suyun az kaldığı yer yakınında kuru kalıyor. Tuz Tuzağı'nda kazan.",
       "title": "Fen Cadısı'nın Tuzu",
       "reply": {
-        "0": "Salt. Good, you listen. The flats beyond the reeds make everyone drowsy. Go and sigh there like you mean it, and the fen will show you the rest."
+        "0": "Tuz. İyi, dinliyorsun. Kamışların ötesindeki düzlükler herkesi uyuşturur. Oraya git ve orası anlasın diye iç çek, bataklık sana kalanı gösterecek."
       }
     },
     "hunt_nightbloom_sleepless_vigil": {
@@ -6913,7 +6913,7 @@ export const tr_TR: EnTranslations = {
       "3": "Yaprakların toplanığı alanın güneydoğusunda, ay ışığı çıplak bir yere birikiyor. Işık Göl'ünde kazan.",
       "title": "Uyumayan'ın Nöbeti",
       "reply": {
-        "1": "A star fell three nights ago, and it fell toward the old barrow north of town. The dead there never sleep. Greet them as a soldier would."
+        "1": "Üç gece önce bir yıldız düştü, kasabanın kuzeyindeki eski tümsek doğru düştü. Oradaki ölüler hiç uyumaz. Onları asker gibi selamla."
       }
     },
     "hunt_wraithwood_mournstone_candles": {
@@ -6923,8 +6923,8 @@ export const tr_TR: EnTranslations = {
       "3": "Avcının tuzaklarını kurduğu çıkarcığın güneydoğusunda, yaprak yığını garip şekilde yer işareti taşıyor. Taş Mezar'da kazan.",
       "title": "Mournstone İçin Mumlar",
       "reply": {
-        "0": "The vicar ordered that candle and never paid for it. He has been fasting ever since, praying and nothing else. Take him something to chew and ask him why.",
-        "1": "Thank you, friend. I never lit that candle. Something walks the glade past the crows at night, and I could not face it. Go and stand there, if you can."
+        "0": "Vikar bu mumutopunu sipariş verdi ve asla para vermedi. O zamandan beri oruç tutuyor, dua ve başka birşey yok. Ona çiğnemesi için bir şey al ve niye sorma.",
+        "1": "Teşekkürler, dostum. O mumu hiç yakmadım. Gece koruluğun geçit yerinde kargaların ötesinde bir şey dolaşıyor, bununla yüzleşemiyorum. Oraya durabilirsen dur."
       }
     },
     "hunt_palmreach_sunken_idol": {
@@ -6934,7 +6934,7 @@ export const tr_TR: EnTranslations = {
       "3": "Ormanın denize açılan ağzının kuzeydoğusunda, kum ince tepelere kapalı ve seçkinleştirilmiş gibi görünüyor. Saklı Oyuk'ta kazan.",
       "title": "Heykel'in Sırrı",
       "reply": {
-        "1": "Below the vines the divers found an idol, and the idol did not like them. Anyone who stood tall before it did not come back. Be small before it."
+        "1": "Sarmaşıkların altında dalgıçlar bir put buldu, put onları sevmedi. Önünde dik duran kimse geri dönmedi. Önünde küçük ol."
       }
     },
     "hunt_evergarden_beacon_road": {
@@ -6944,8 +6944,8 @@ export const tr_TR: EnTranslations = {
       "3": "Eski fener kuzeybatısında, ışığın aşağısındaki yoldan hemen ötede, otlar ilginç şekilde basılmış gibi görünüyor. Delik Kulağında kazan.",
       "title": "Feneri ve Çiçek",
       "reply": {
-        "0": "Proper compost, the beds will live. The old miller buried something before he left. His mill still turns in the far corner of the gardens. Go and stand by it.",
-        "2": "So the mill sent you down the coast road. The beacon keeps one last secret: northwest of it, just off the path, the turf was cut and laid back. Dig there."
+        "0": "Uygun kompost, yataklar yaşayacak. Eski değirmenci gitmeden önce bir şey gömmüş. Değirmeni bahçelerin uzak köşesinde dönüyor. Oraya gidip yanında dur.",
+        "2": "Değirmen seni sahil yolundan göndermiş. Fener bir son sırrı tutuyor: kuzeybatısında, yolun hemen dışında, çimen kesilmiş ve geri döşenmiş. Orada kaz."
       }
     }
   },
@@ -10249,11 +10249,11 @@ export const tr_TR: EnTranslations = {
       "pylonLit": "Bir rün sütunu hayat buluyor ({lit}/{total}).",
       "wayDownOpens": "Aşağıya giden yol açılıyor.",
       "exitOpens": "Yarık titriyor. Düşenlerin ardında eve giden bir yol açılıyor.",
-      "hoardEnter": "You climb down into {name}.",
-      "hoardExitOpens": "The hoard is yours. Return to the entrance to climb out.",
-      "hoardStepBack": "You climb back out through the hoard entrance.",
-      "hoardNotYours": "This hoard was dug up by another party.",
-      "hoardEntrantsFull": "This hoard has already admitted five adventurers.",
+      "hoardEnter": "{name} içine iniyorsun.",
+      "hoardExitOpens": "Hazine senin. Çıkmak için giriş noktasına dön.",
+      "hoardStepBack": "Hazine girişi üzerinden çıkıyorsun.",
+      "hoardNotYours": "Bu hazine başka bir ekip tarafından kazıldı.",
+      "hoardEntrantsFull": "Bu hazine zaten beş maceracıyı kabul etti.",
       "portalOpens": "{zone} bölgesinde {tier} dereceli bir Yarık açılıyor!",
       "portalSealed": "{zone} bölgesindeki {tier} dereceli Yarık mühürlendi.",
       "portalCollapses": "{zone} bölgesindeki {tier} dereceli Yarık çöküyor.",
@@ -10510,7 +10510,7 @@ export const tr_TR: EnTranslations = {
       "nhaliaBlackwaterMark": "{name}, {player} üzerine Kara Su işareti bırakır!"
     },
     "factionVendor": {
-      "currencyRequired": "You need {amount} {currency} to purchase that."
+      "currencyRequired": "Bunu almak için {amount} {currency} gerekli."
     },
     "lockpick": {
       "lockYields": "Kilit açılır! {tier} ganimet.",
@@ -11132,7 +11132,7 @@ export const tr_TR: EnTranslations = {
       "alreadyInWorld": "Karakter zaten dünyada.",
       "accountSessionLimit": "Bu hesaba ait çok fazla karakter zaten dünyada.",
       "takenOver": "Karakteriniz başka bir oturum tarafından devralındı.",
-      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
+      "vaultMailRecovering": "Kasa ödül postanız geri yükleniyor. Lütfen kısa bir süre sonra tekrar deneyin.",
       "renameBeforeEntering": "Bu karakter dünyaya girmeden önce yeniden adlandırılmalıdır.",
       "renameNotPermitted": "Bu karakterin yeniden adlandırılmasına izin verilmiyor.",
       "unsupportedMediaType": "Desteklenmeyen istek biçimi.",
@@ -11476,8 +11476,8 @@ export const tr_TR: EnTranslations = {
         "dungeonExit": "Zindan çıkışı",
         "delveEntrance": "Mağara seferi girişi: {name}",
         "worldPassage": "{zone} bölgesine geçit",
-        "hoardEntrance": "Buried Hoard entrance",
-        "hoardReturnEntrance": "Hoard return entrance",
+        "hoardEntrance": "Gizli Hazine girişi",
+        "hoardReturnEntrance": "Hazine dönüş girişi",
         "riftEntrance": "Yarık girişi: {name}",
         "hostileEnemy": "Düşman",
         "aggressiveEnemy": "Sana saldıran düşman",
@@ -12121,7 +12121,7 @@ export const tr_TR: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "Saldırı",
-      "cooldownMinutes": "{minutes}m",
+      "cooldownMinutes": "{minutes}d",
       "attackTooltip": "Hedefine otomatik saldırıyı aç/kapat. Bir düşmana sağ tıklamak da saldırır.",
       "attackRemoveHint": "Çubuktan kaldırıp yuvayı serbest bırakmak için sağ tıkla.",
       "emptySlot": "Boş yuva",
@@ -12214,34 +12214,34 @@ export const tr_TR: EnTranslations = {
       "rift_storm_strike": "Fırtına Çağırıcısının Gazabı",
       "rift_tide_execution": "Uçurum Ağzı",
       "rift_tide_strike": "Ezici Derinlik",
-      "hoard_cast_fear": "Terrifying Roar",
-      "hoard_cast_stun": "Stunning Blow",
-      "hoard_cast_drowning_hook": "Drowning Hook",
-      "hoard_cast_rime_beam": "Rime Beam",
-      "hoard_cast_cinder_bolt": "Cinder Bolt",
-      "hoard_cast_void_empower": "Void Empowerment",
-      "hoard_cast_webbing": "Webbing",
-      "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Headlong Charge",
-      "hoard_cast_silk_snare": "Silk Snare",
-      "hoard_cast_silence": "Silencing Shriek",
-      "hoard_cast_hex": "Hex",
-      "hoard_lightning_strike": "Lightning Strike",
-      "hoard_ice_age": "Ice Age",
-      "hoard_pulsar_overload": "Pulsar Overload",
-      "hoard_rolling_boulder": "Rolling Boulder",
-      "hoard_goblin_escape": "Escaping",
-      "hoard_cast_mole_rake": "Claw Rake",
-      "hoard_cast_burrow": "Burrow",
-      "hoard_cast_tunnel": "Tunneling",
-      "hoard_cast_emerge": "Eruption",
-      "hoard_cast_collapse": "Ceiling Collapse",
-      "hoard_cast_bat_dive_aim": "Plunging Dive",
-      "hoard_cast_bat_dive": "Diving",
-      "hoard_cast_screech": "Deafening Screech",
-      "hoard_cast_mimic_bite": "Voracious Bite",
-      "hoard_cast_mimic_leap": "Crushing Leap",
-      "hoard_cast_coin_spit": "Cursed Coins"
+      "hoard_cast_fear": "Dehşet Kükreyişi",
+      "hoard_cast_stun": "Bayıltıcı Darbe",
+      "hoard_cast_drowning_hook": "Boğan Kanca",
+      "hoard_cast_rime_beam": "Ayaz Işını",
+      "hoard_cast_cinder_bolt": "Köz Oku",
+      "hoard_cast_void_empower": "Boşluk Güçlendirmesi",
+      "hoard_cast_webbing": "Web Dokuma",
+      "hoard_cast_doom_ritual": "Kıyamet Ayini",
+      "hoard_cast_charge": "Başa Baş Hücum",
+      "hoard_cast_silk_snare": "İpek Tuzağı",
+      "hoard_cast_silence": "Susturan Çığlık",
+      "hoard_cast_hex": "Büyü",
+      "hoard_lightning_strike": "Yıldırım Darbesi",
+      "hoard_ice_age": "Buz Çağı",
+      "hoard_pulsar_overload": "Nabız Aşırı Yükü",
+      "hoard_rolling_boulder": "Yuvarlanan Kaya",
+      "hoard_goblin_escape": "Kaçış",
+      "hoard_cast_mole_rake": "Pençe Yırtışı",
+      "hoard_cast_burrow": "Tünel Kazmak",
+      "hoard_cast_tunnel": "Tünel Açma",
+      "hoard_cast_emerge": "Patlama",
+      "hoard_cast_collapse": "Tavan Çökmesi",
+      "hoard_cast_bat_dive_aim": "Derin Dalış",
+      "hoard_cast_bat_dive": "Dalış",
+      "hoard_cast_screech": "Sağır Edici Çığlık",
+      "hoard_cast_mimic_bite": "Açgözlü Isırık",
+      "hoard_cast_mimic_leap": "Ezici Sıçrayış",
+      "hoard_cast_coin_spit": "Lanetli Paralar"
     }
   },
   "questUi": {
@@ -12669,16 +12669,16 @@ export const tr_TR: EnTranslations = {
       "clueHuntDone": "Hazine avı tamamlandı: {title}. Sandık senindir.",
       "clueHuntAbandoned": "Hazine avı terk edildi: {title}",
       "clueCasketOpened": "Sandık {money} ve {items} tutuyor.",
-      "treasureMapEarned": "Every world quest of the day is done: you found a {map}.",
-      "treasureMapLost": "Every world quest of the day is done, but your bags have no room for the treasure map.",
-      "treasureMapRead": "You study the {map}. The X lies somewhere in {zone}.",
-      "treasureMapUpgraded": "The map is redrawn in finer ink: it is now a {map}.",
-      "treasureVaultOpened": "The ground gives way. A buried hoard lies open before you.",
-      "treasureVaultLooted": "The hoard holds {money} and {items}.",
-      "treasureVaultCapped": "You have shared in enough hoards today; this one pays you nothing.",
-      "hoardGoblinSighted": "A goblin thief appears!",
-      "hoardGoblinSightedHint": "Kill it before it escapes with the gold!",
-      "hoardGoblinExplain": "A goblin thief is hiding in this hoard with a sack of stolen gold. It never fights back, it only runs. Your first hit starts a {seconds}-second escape bar: if it is still alive when the bar runs out, it opens a portal and is gone with the gold. Left alone, it slips away after {minutes} minutes. Kill it in time and everyone in the room is paid in gold."
+      "treasureMapEarned": "Günün tüm dünya görevleri yapılmıştır: bir {map} buldun.",
+      "treasureMapLost": "Günün tüm dünya görevleri tamamlanmıştır, ancak çantanızda hazine haritası için yer yok.",
+      "treasureMapRead": "{map} haritasını inceliyor. X {zone} içinde bir yerde.",
+      "treasureMapUpgraded": "Harita daha güzel mürekkeple yeniden çizilmiştir: şimdi bir {map}.",
+      "treasureVaultOpened": "Zemin çöküyor. Gizli bir hazine açık halde seni karşılıyor.",
+      "treasureVaultLooted": "Hazine {money} ve {items} içerir.",
+      "treasureVaultCapped": "Bugün yeterince hazine paylaştın; bu sana hiçbir şey vermez.",
+      "hoardGoblinSighted": "Bir goblin hırsız görünüyor!",
+      "hoardGoblinSightedHint": "Altını alarak kaçmadan önce onu öldür!",
+      "hoardGoblinExplain": "Bir goblin hırsız çalıntı altın torbasıyla bu hazinede gizlidir. Asla karşı çıkmaz, sadece kaçar. İlk vuruş {seconds} saniyelik bir kaçış çubuğunu başlatır: çubuk bittiğinde hala hayatta ise bir portal açar ve altını alarak kaybolur. Tek başına bırakılırsa {minutes} dakika sonra kayıp olur. Zamanında öldür ve odadaki herkes altınla ödüllendirilir."
     },
     "errors": {
       "unavailable": "O görev mevcut değil.",
@@ -17678,361 +17678,361 @@ export const tr_TR: EnTranslations = {
         "name": "Fırtına İlahisi Zincir Tabanları"
       },
       "allied_hearthstone": {
-        "name": "Allied Hearthstone"
+        "name": "Müttefik Ev Taşı"
       },
       "allied_vanguard_duffel": {
-        "name": "Allied Vanguard Duffel"
+        "name": "Müttefik Öncü Çantası"
       },
       "rift_feather_glider": {
-        "name": "Rift Feather Glider"
+        "name": "Yarık Tüyü Planörü"
       },
       "formula_enchant_feet_shadowstride": {
-        "name": "Formula: Enchant Boots - Shadowstride"
+        "name": "Formül: Çizmeleri Büyüle - Gölge Adımı"
       },
       "recipe_potion_of_invisibility": {
-        "name": "Recipe: Potion of Invisibility"
+        "name": "Tarif: Görünmezlik İksiri"
       },
       "potion_of_invisibility": {
-        "name": "Potion of Invisibility"
+        "name": "Görünmezlik İksiri"
       },
       "pattern_reinforced_armor_kit": {
-        "name": "Pattern: Reinforced Armor Kit"
+        "name": "Desen: Güçlendirilmiş Zırh Kiti"
       },
       "reinforced_armor_kit": {
-        "name": "Reinforced Armor Kit"
+        "name": "Güçlendirilmiş Zırh Kiti"
       },
       "dawn_battle_standard": {
-        "name": "Dawn Battle Standard"
+        "name": "Şafak Savaş Bayrağı"
       },
       "formula_enchant_offhand_spirit": {
-        "name": "Formula: Enchant Off-Hand - Spirit"
+        "name": "Formül: Sol El Silahını Büyüle - Ruh"
       },
       "recipe_elixir_of_mana_regeneration": {
-        "name": "Recipe: Elixir of Mana Regeneration"
+        "name": "Tarif: Mana Yenilenmesi Elikiri"
       },
       "elixir_of_mana_regeneration": {
-        "name": "Elixir of Mana Regeneration"
+        "name": "Mana Yenilenmesi Elikiri"
       },
       "clockwork_target_dummy": {
-        "name": "Clockwork Target Dummy"
+        "name": "Mekanik Hedef Mankeni"
       },
       "schematic_clockwork_shock_bomb": {
-        "name": "Schematic: Clockwork Shock Bomb"
+        "name": "Şema: Mekanik Şok Bombası"
       },
       "clockwork_shock_bomb": {
-        "name": "Clockwork Shock Bomb"
+        "name": "Mekanik Şok Bombası"
       },
       "plans_dense_sharpening_stone": {
-        "name": "Plans: Dense Sharpening Stone"
+        "name": "Planlar: Yoğun Bileme Taşı"
       },
       "dense_sharpening_stone": {
-        "name": "Dense Sharpening Stone"
+        "name": "Yoğun Bileme Taşı"
       },
       "formula_enchant_gloves_forged_might": {
-        "name": "Formula: Enchant Gloves - Forged Might"
+        "name": "Formül: Eldivenleri Büyüle - Dövülmüş Güç"
       },
       "treasure_map_common": {
-        "name": "Weathered Treasure Map"
+        "name": "Soluk Hazine Haritası"
       },
       "treasure_map_rare": {
-        "name": "Inked Treasure Map"
+        "name": "Mürekkeplemiş Hazine Haritası"
       },
       "treasure_map_epic": {
-        "name": "Gilded Treasure Map"
+        "name": "Altın Cilt Hazine Haritası"
       },
       "treasure_map_legendary": {
-        "name": "Sovereign Treasure Map"
+        "name": "Egemen Hazine Haritası"
       },
       "cartographers_ink": {
-        "name": "Cartographer's Ink"
+        "name": "Haritacının Mürekkebi"
       },
       "collapsar_band_of_nyxaris": {
-        "name": "Collapsar Band of Nyxaris"
+        "name": "Nyxaris'in Çöken Yıldız Halkası"
       },
       "rare_collapsar_band_of_nyxaris": {
-        "name": "Tarnished Collapsar Band of Nyxaris"
+        "name": "Soluk Nyxaris'in Çöken Yıldız Halkası"
       },
       "legendary_collapsar_band_of_nyxaris": {
-        "name": "Sovereign Collapsar Band of Nyxaris"
+        "name": "Egemen Nyxaris'in Çöken Yıldız Halkası"
       },
       "orb_collapsing_void": {
-        "name": "Orb of Collapsing Void"
+        "name": "Çöken Boşluk Küresi"
       },
       "rare_orb_collapsing_void": {
-        "name": "Tarnished Orb of Collapsing Void"
+        "name": "Soluk Çöken Boşluk Küresi"
       },
       "legendary_orb_collapsing_void": {
-        "name": "Sovereign Orb of Collapsing Void"
+        "name": "Egemen Çöken Boşluk Küresi"
       },
       "cowl_of_event_horizon": {
-        "name": "Cowl of the Event Horizon"
+        "name": "Olay Ufku Başlığı"
       },
       "rare_cowl_of_event_horizon": {
-        "name": "Tarnished Cowl of the Event Horizon"
+        "name": "Soluk Olay Ufku Başlığı"
       },
       "legendary_cowl_of_event_horizon": {
-        "name": "Sovereign Cowl of the Event Horizon"
+        "name": "Egemen Olay Ufku Başlığı"
       },
       "mantle_of_singularity": {
-        "name": "Mantle of Singularity"
+        "name": "Teklik Pelerini"
       },
       "rare_mantle_of_singularity": {
-        "name": "Tarnished Mantle of Singularity"
+        "name": "Soluk Teklik Pelerini"
       },
       "legendary_mantle_of_singularity": {
-        "name": "Sovereign Mantle of Singularity"
+        "name": "Egemen Teklik Pelerini"
       },
       "glacier_hewn_bulwark": {
-        "name": "Glacier-Hewn Bulwark"
+        "name": "Buz Dağından Yontulmuş Kalkan"
       },
       "rare_glacier_hewn_bulwark": {
-        "name": "Tarnished Glacier-Hewn Bulwark"
+        "name": "Soluk Buz Dağından Yontulmuş Kalkan"
       },
       "legendary_glacier_hewn_bulwark": {
-        "name": "Sovereign Glacier-Hewn Bulwark"
+        "name": "Egemen Buz Dağından Yontulmuş Kalkan"
       },
       "permafrost_legguards": {
-        "name": "Permafrost Legguards"
+        "name": "Bütün Yıl Dondurma Bacak Zırhı"
       },
       "rare_permafrost_legguards": {
-        "name": "Tarnished Permafrost Legguards"
+        "name": "Soluk Bütün Yıl Dondurma Bacak Zırhı"
       },
       "legendary_permafrost_legguards": {
-        "name": "Sovereign Permafrost Legguards"
+        "name": "Egemen Bütün Yıl Dondurma Bacak Zırhı"
       },
       "frostbitten_rime_slippers": {
-        "name": "Frostbitten Rime Slippers"
+        "name": "Dona Yapılmış Ayaz Terlikleri"
       },
       "rare_frostbitten_rime_slippers": {
-        "name": "Tarnished Frostbitten Rime Slippers"
+        "name": "Soluk Dona Yapılmış Ayaz Terlikleri"
       },
       "legendary_frostbitten_rime_slippers": {
-        "name": "Sovereign Frostbitten Rime Slippers"
+        "name": "Egemen Dona Yapılmış Ayaz Terlikleri"
       },
       "rime_crusted_grips": {
-        "name": "Rime-Crusted Grips"
+        "name": "Ayaz Kabuğu Tutuş"
       },
       "rare_rime_crusted_grips": {
-        "name": "Tarnished Rime-Crusted Grips"
+        "name": "Soluk Ayaz Kabuğu Tutuş"
       },
       "legendary_rime_crusted_grips": {
-        "name": "Sovereign Rime-Crusted Grips"
+        "name": "Egemen Ayaz Kabuğu Tutuş"
       },
       "ember_wrought_crown": {
-        "name": "Ember-Wrought Crown"
+        "name": "Kör İnci İşlenmiş Taç"
       },
       "rare_ember_wrought_crown": {
-        "name": "Tarnished Ember-Wrought Crown"
+        "name": "Soluk Kör İnci İşlenmiş Taç"
       },
       "legendary_ember_wrought_crown": {
-        "name": "Sovereign Ember-Wrought Crown"
+        "name": "Egemen Kör İnci İşlenmiş Taç"
       },
       "cinder_stitched_robes": {
-        "name": "Cinder-Stitched Robes"
+        "name": "Kör İnci Dikişli Cüppeler"
       },
       "rare_cinder_stitched_robes": {
-        "name": "Tarnished Cinder-Stitched Robes"
+        "name": "Soluk Kör İnci Dikişli Cüppeler"
       },
       "legendary_cinder_stitched_robes": {
-        "name": "Sovereign Cinder-Stitched Robes"
+        "name": "Egemen Kör İnci Dikişli Cüppeler"
       },
       "chained_ember_choker": {
-        "name": "Chained Ember Choker"
+        "name": "Zincirli Kör Boğaz Tasması"
       },
       "rare_chained_ember_choker": {
-        "name": "Tarnished Chained Ember Choker"
+        "name": "Soluk Zincirli Kör Boğaz Tasması"
       },
       "legendary_chained_ember_choker": {
-        "name": "Sovereign Chained Ember Choker"
+        "name": "Egemen Zincirli Kör Boğaz Tasması"
       },
       "molten_clinker_girdle": {
-        "name": "Molten Clinker Girdle"
+        "name": "Eriyik Cinder Kemeri"
       },
       "rare_molten_clinker_girdle": {
-        "name": "Tarnished Molten Clinker Girdle"
+        "name": "Soluk Eriyik Cinder Kemeri"
       },
       "legendary_molten_clinker_girdle": {
-        "name": "Sovereign Molten Clinker Girdle"
+        "name": "Egemen Eriyik Cinder Kemeri"
       },
       "storm_tuned_buckler": {
-        "name": "Storm-Tuned Buckler"
+        "name": "Fırtına Uyumlu Kalkan"
       },
       "rare_storm_tuned_buckler": {
-        "name": "Tarnished Storm-Tuned Buckler"
+        "name": "Soluk Fırtına Uyumlu Kalkan"
       },
       "legendary_storm_tuned_buckler": {
-        "name": "Sovereign Storm-Tuned Buckler"
+        "name": "Egemen Fırtına Uyumlu Kalkan"
       },
       "hauberk_tempest_gale": {
-        "name": "Hauberk of the Tempest Gale"
+        "name": "Tempest Fırtınasının Zırhı"
       },
       "rare_hauberk_tempest_gale": {
-        "name": "Tarnished Hauberk of the Tempest Gale"
+        "name": "Soluk Tempest Fırtınasının Zırhı"
       },
       "legendary_hauberk_tempest_gale": {
-        "name": "Sovereign Hauberk of the Tempest Gale"
+        "name": "Egemen Tempest Fırtınasının Zırhı"
       },
       "gale_strider_boots": {
-        "name": "Gale-Strider Boots"
+        "name": "Fırtına Yürüyücü Çizmeleri"
       },
       "rare_gale_strider_boots": {
-        "name": "Tarnished Gale-Strider Boots"
+        "name": "Soluk Fırtına Yürüyücü Çizmeleri"
       },
       "legendary_gale_strider_boots": {
-        "name": "Sovereign Gale-Strider Boots"
+        "name": "Egemen Fırtına Yürüyücü Çizmeleri"
       },
       "tempest_strike_grips": {
-        "name": "Tempest-Strike Grips"
+        "name": "Tempest Darbe Tutuş"
       },
       "rare_tempest_strike_grips": {
-        "name": "Tarnished Tempest-Strike Grips"
+        "name": "Soluk Tempest Darbe Tutuş"
       },
       "legendary_tempest_strike_grips": {
-        "name": "Sovereign Tempest-Strike Grips"
+        "name": "Egemen Tempest Darbe Tutuş"
       },
       "breastplate_tectonic_might": {
-        "name": "Breastplate of Tectonic Might"
+        "name": "Tektonik Güç Zırhı"
       },
       "rare_breastplate_tectonic_might": {
-        "name": "Tarnished Breastplate of Tectonic Might"
+        "name": "Soluk Tektonik Güç Zırhı"
       },
       "legendary_breastplate_tectonic_might": {
-        "name": "Sovereign Breastplate of Tectonic Might"
+        "name": "Egemen Tektonik Güç Zırhı"
       },
       "band_mountains_weight": {
-        "name": "Band of the Mountain's Weight"
+        "name": "Dağın Ağırlığının Halkası"
       },
       "rare_band_mountains_weight": {
-        "name": "Tarnished Band of the Mountain's Weight"
+        "name": "Soluk Dağın Ağırlığının Halkası"
       },
       "legendary_band_mountains_weight": {
-        "name": "Sovereign Band of the Mountain's Weight"
+        "name": "Egemen Dağın Ağırlığının Halkası"
       },
       "monolithic_shoulderguards": {
-        "name": "Monolithic Shoulderguards"
+        "name": "Tek Taş Omuz Zırhı"
       },
       "rare_monolithic_shoulderguards": {
-        "name": "Tarnished Monolithic Shoulderguards"
+        "name": "Soluk Tek Taş Omuz Zırhı"
       },
       "legendary_monolithic_shoulderguards": {
-        "name": "Sovereign Monolithic Shoulderguards"
+        "name": "Egemen Tek Taş Omuz Zırhı"
       },
       "earthshaker_warboots": {
-        "name": "Earthshaker Warboots"
+        "name": "Yer Sarsıcı Savaş Çizmeleri"
       },
       "rare_earthshaker_warboots": {
-        "name": "Tarnished Earthshaker Warboots"
+        "name": "Soluk Yer Sarsıcı Savaş Çizmeleri"
       },
       "legendary_earthshaker_warboots": {
-        "name": "Sovereign Earthshaker Warboots"
+        "name": "Egemen Yer Sarsıcı Savaş Çizmeleri"
       },
       "silkstalker_woven_vest": {
-        "name": "Woven Vest of the Silkstalker"
+        "name": "İpek Avcısının Dokuma Yelek"
       },
       "rare_silkstalker_woven_vest": {
-        "name": "Tarnished Woven Vest of the Silkstalker"
+        "name": "Soluk İpek Avcısının Dokuma Yelek"
       },
       "legendary_silkstalker_woven_vest": {
-        "name": "Sovereign Woven Vest of the Silkstalker"
+        "name": "Egemen İpek Avcısının Dokuma Yelek"
       },
       "spun_venom_spaulders": {
-        "name": "Spun-Venom Spaulders"
+        "name": "Eğirme Zehir Omuz Zırhı"
       },
       "rare_spun_venom_spaulders": {
-        "name": "Tarnished Spun-Venom Spaulders"
+        "name": "Soluk Eğirme Zehir Omuz Zırhı"
       },
       "legendary_spun_venom_spaulders": {
-        "name": "Sovereign Spun-Venom Spaulders"
+        "name": "Egemen Eğirme Zehir Omuz Zırhı"
       },
       "broodmother_chitin_cowl": {
-        "name": "Chitin Cowl of the Broodmother"
+        "name": "Yumurta Ana Kitin Başlığı"
       },
       "rare_broodmother_chitin_cowl": {
-        "name": "Tarnished Chitin Cowl of the Broodmother"
+        "name": "Soluk Yumurta Ana Kitin Başlığı"
       },
       "legendary_broodmother_chitin_cowl": {
-        "name": "Sovereign Chitin Cowl of the Broodmother"
+        "name": "Egemen Yumurta Ana Kitin Başlığı"
       },
       "venom_etched_waistcord": {
-        "name": "Venom-Etched Waistcord"
+        "name": "Zehir Oyulmuş Bel Kemeri"
       },
       "rare_venom_etched_waistcord": {
-        "name": "Tarnished Venom-Etched Waistcord"
+        "name": "Soluk Zehir Oyulmuş Bel Kemeri"
       },
       "legendary_venom_etched_waistcord": {
-        "name": "Sovereign Venom-Etched Waistcord"
+        "name": "Egemen Zehir Oyulmuş Bel Kemeri"
       },
       "bone_studded_pauldrons": {
-        "name": "Bone-Studded Pauldrons"
+        "name": "Kemik Çivili Omuz Zırhı"
       },
       "rare_bone_studded_pauldrons": {
-        "name": "Tarnished Bone-Studded Pauldrons"
+        "name": "Soluk Kemik Çivili Omuz Zırhı"
       },
       "legendary_bone_studded_pauldrons": {
-        "name": "Sovereign Bone-Studded Pauldrons"
+        "name": "Egemen Kemik Çivili Omuz Zırhı"
       },
       "legguards_of_the_ossuary": {
-        "name": "Legguards of the Ossuary"
+        "name": "Kemiklendirmeci Bacak Zırhı"
       },
       "rare_legguards_of_the_ossuary": {
-        "name": "Tarnished Legguards of the Ossuary"
+        "name": "Soluk Kemiklendirmeci Bacak Zırhı"
       },
       "legendary_legguards_of_the_ossuary": {
-        "name": "Sovereign Legguards of the Ossuary"
+        "name": "Egemen Kemiklendirmeci Bacak Zırhı"
       },
       "seal_of_the_cryptwalker": {
-        "name": "Seal of the Cryptwalker"
+        "name": "Kriptoyürüyücü Mührü"
       },
       "rare_seal_of_the_cryptwalker": {
-        "name": "Tarnished Seal of the Cryptwalker"
+        "name": "Soluk Kriptoyürüyücü Mührü"
       },
       "legendary_seal_of_the_cryptwalker": {
-        "name": "Sovereign Seal of the Cryptwalker"
+        "name": "Egemen Kriptoyürüyücü Mührü"
       },
       "ossuary_bone_crown": {
-        "name": "Ossuary Bone Crown"
+        "name": "Kemiklendirmeci Kemik Taçı"
       },
       "rare_ossuary_bone_crown": {
-        "name": "Tarnished Ossuary Bone Crown"
+        "name": "Soluk Kemiklendirmeci Kemik Taçı"
       },
       "legendary_ossuary_bone_crown": {
-        "name": "Sovereign Ossuary Bone Crown"
+        "name": "Egemen Kemiklendirmeci Kemik Taçı"
       },
       "chalice_of_living_tides": {
-        "name": "Chalice of the Living Tides"
+        "name": "Canlı Dalgaların Kadehı"
       },
       "rare_chalice_of_living_tides": {
-        "name": "Tarnished Chalice of the Living Tides"
+        "name": "Soluk Canlı Dalgaların Kadehı"
       },
       "legendary_chalice_of_living_tides": {
-        "name": "Sovereign Chalice of the Living Tides"
+        "name": "Egemen Canlı Dalgaların Kadehı"
       },
       "pendant_continuous_flow": {
-        "name": "Pendant of Continuous Flow"
+        "name": "Sürekli Akış Kolye"
       },
       "rare_pendant_continuous_flow": {
-        "name": "Tarnished Pendant of Continuous Flow"
+        "name": "Soluk Sürekli Akış Kolye"
       },
       "legendary_pendant_continuous_flow": {
-        "name": "Sovereign Pendant of Continuous Flow"
+        "name": "Egemen Sürekli Akış Kolye"
       },
       "coral_encrusted_girdle": {
-        "name": "Coral-Encrusted Girdle"
+        "name": "Mercan Kabuğu Kemeri"
       },
       "rare_coral_encrusted_girdle": {
-        "name": "Tarnished Coral-Encrusted Girdle"
+        "name": "Soluk Mercan Kabuğu Kemeri"
       },
       "legendary_coral_encrusted_girdle": {
-        "name": "Sovereign Coral-Encrusted Girdle"
+        "name": "Egemen Mercan Kabuğu Kemeri"
       },
       "riptide_handwraps": {
-        "name": "Riptide Handwraps"
+        "name": "Rip Dalgası El Sarıntıları"
       },
       "rare_riptide_handwraps": {
-        "name": "Tarnished Riptide Handwraps"
+        "name": "Soluk Rip Dalgası El Sarıntıları"
       },
       "legendary_riptide_handwraps": {
-        "name": "Sovereign Riptide Handwraps"
+        "name": "Egemen Rip Dalgası El Sarıntıları"
       },
       "vanguard_warrior_arms_helmet": {
         "name": "Kılıç Uyandırması Büyük Miğferi"
@@ -19732,49 +19732,49 @@ export const tr_TR: EnTranslations = {
         "name": "Ahır Atı"
       },
       "hoard_brood_egg": {
-        "name": "Brood Clutch"
+        "name": "Yumurta Kümesi"
       },
       "hoard_brood_hatchling": {
-        "name": "Vysska's Hatchling"
+        "name": "Vysska'nın Çıkmazı"
       },
       "hoard_healing_tide_totem": {
-        "name": "Healing Tide Totem"
+        "name": "Şifacı Dalga Totemi"
       },
       "hoard_bound_pulsar": {
-        "name": "Bound Pulsar"
+        "name": "Bağlı Kalp"
       },
       "hoard_abyssal_tentacle": {
-        "name": "Tentacle of the Maw"
+        "name": "Uçurumun Tentakeli"
       },
       "hoard_silk_cocoon": {
-        "name": "Silk Cocoon"
+        "name": "İpek Kozası"
       },
       "hoard_brood_cocoon": {
-        "name": "Brood Cocoon"
+        "name": "Yumurta Kozası"
       },
       "hoard_coinsack_scurrier": {
-        "name": "Coinsack Scurrier"
+        "name": "Para Kesesi Fasulyesi"
       },
       "hoard_boss_mushroom": {
-        "name": "Mother of Mushrooms"
+        "name": "Mantaların Anası"
       },
       "hoard_sporeling": {
-        "name": "Sporeling"
+        "name": "Spor Parçası"
       },
       "hoard_bloat_cap": {
-        "name": "Bloated Cap"
+        "name": "Şişmiş Başlık"
       },
       "hoard_boss_mole": {
-        "name": "Deeprake"
+        "name": "Derin Tırmalayıcı"
       },
       "hoard_boss_bat": {
-        "name": "Colossal Bat"
+        "name": "Devasa Yarasa"
       },
       "hoard_boss_mimic": {
-        "name": "Voracious Chest"
+        "name": "Açgözlü Sandık"
       },
       "hoard_bat_swarmling": {
-        "name": "Cave Swarmer"
+        "name": "Mağara Sürüsü"
       },
       "rift_spawnling": {
         "name": "Yarık Yavrusu"
@@ -19807,7 +19807,7 @@ export const tr_TR: EnTranslations = {
         "name": "İlik Trolü"
       },
       "rift_marrow_golem": {
-        "name": "Marrow Golem"
+        "name": "İlik Golemi"
       },
       "rift_void_acolyte": {
         "name": "Hiçlik Yarası Çırağı"
@@ -23943,9 +23943,9 @@ export const tr_TR: EnTranslations = {
         "body": "İlanınız satıldı ve alıcı ödemenin tamamını gerçekleştirdi. Satışın kaydı Borsa defterinde tutulur ve Borsa etkinliğiniz, ödenen tutarı ve dökümünü gösterir.\n\n- Borsa Komisyoncusu"
       },
       "hoard_vault_reward": {
-        "sender": "The Ravenpost",
-        "subject": "Your vault reward",
-        "body": "The vault was cleared, but your share was not collected from the chest. The ravens have brought it to you here, with the goods and coin you earned attached.\n\n- The Ravenpost"
+        "sender": "Karga Postahanesi",
+        "subject": "Kasa ödülün",
+        "body": "Kasa temizlendi, ama senin payan sandıktan toplanmadı. Kargalar bunu sana buraya getirdiler, kazandığın mallar ve parayla beraber.\n\n- Karga Postahanesi"
       }
     },
     "itemSets": {

@@ -2905,12 +2905,12 @@ export const es: EnTranslations = {
       "wocPreview": "Saldo provisional, aún no verificado",
       "lifetime": "Total histórico {amount}",
       "factionPending": "Moneda de facción: pendiente para la Fase 2",
-      "riftWatchMark": "Rift Watch Mark",
-      "riftWatchMarkNote": "World Quests in Rift Watch zones",
-      "churchOrderCrest": "Order Crest",
-      "churchOrderCrestNote": "World Quests in Church Order zones",
-      "automatonCog": "Automaton Cog",
-      "automatonCogNote": "World Quests in Automaton zones"
+      "riftWatchMark": "Marca de la Guardia de la Brecha",
+      "riftWatchMarkNote": "Misiones Mundiales en zonas de la Guardia de la Brecha",
+      "churchOrderCrest": "Cresta de la Orden",
+      "churchOrderCrestNote": "Misiones Mundiales en zonas de la Orden de la Iglesia",
+      "automatonCog": "Engranaje Autómata",
+      "automatonCogNote": "Misiones Mundiales en zonas Autómata"
     },
     "worldQuestTooltip": {
       "factionLine": "Facción: {faction}",
@@ -6873,8 +6873,8 @@ export const es: EnTranslations = {
       "3": "Al este, y un poco al sur de donde las cenizas se acumulan en dunas, un terreno chamuscado esconde lo que la ceniza enterró. Usa el pergamino allí y cava.",
       "title": "Cenizas en la Puerta",
       "reply": {
-        "1": "The wind came off the eastern dunes carrying ash, and ash does not blow in from empty sand. Sela at the garrison stores logs every patrol. She will talk, once someone feeds her.",
-        "2": "Bread at last, bless you. The patrol swore it saw smoke rising from bare sand, east and a little south of the dunes, where nothing is left to burn."
+        "1": "El viento traía ceniza desde las dunas del este, y la ceniza no viene sola de la arena vacía. Sela en el puesto de la guarnición registra todas las patrullas. Hablará, una vez que alguien le dé de comer.",
+        "2": "Pan al fin, que te bendigan. La patrulla jura que vio humo elevándose desde la arena desnuda, hacia el este y un poco al sur de las dunas, donde no queda nada para arder."
       }
     },
     "hunt_frostveil_aurora_vigil": {
@@ -6883,7 +6883,7 @@ export const es: EnTranslations = {
       "2": "Al este de las terrazas aulladoras, un poco al sur, la nieve yace más plana de lo que debería. Usa el pergamino allí y cava.",
       "title": "Luces sobre los Escalones",
       "reply": {
-        "1": "You knelt, and the lights answered. Last night they bent east past the terraces and pointed straight down at the snow."
+        "1": "Te arrodillaste, y las luces respondieron. Anoche se doblaron hacia el este pasadas las terrazas y señalaron directo hacia la nieve."
       }
     },
     "hunt_amberfall_lantern_ferry": {
@@ -6893,8 +6893,8 @@ export const es: EnTranslations = {
       "3": "Al noreste del alto donde los arces de ascua arden en rojo, las hojas forman un círculo que ningún viento hizo. Usa el pergamino allí y cava.",
       "title": "Faroles en el Mere",
       "reply": {
-        "0": "One lantern went dark last night, the one that faces the old stone across the water. My ferrymen will not go near it. Perhaps you will.",
-        "2": "Cold well water, just what the trees wanted. Up past the red maples the leaves have been falling in a ring, and no tree of mine drops its leaves that neatly."
+        "0": "Un farol se apagó anoche, el que mira hacia la piedra vieja al otro lado del agua. Mis barqueros no se atreven a acercarse. Quizá tú te animes.",
+        "2": "Agua fría del pozo, justo lo que los árboles necesitaban. Pasada la colina de arces rojos las hojas han estado cayendo en círculo, y ninguno de mis árboles deja caer las hojas así de ordenadamente."
       }
     },
     "hunt_willowfen_fenwitch_salt": {
@@ -6903,7 +6903,7 @@ export const es: EnTranslations = {
       "2": "Al sureste de las charcas que brillan en la ciénaga, un montículo de tierra seca se mantiene seco todo el año. Usa el pergamino allí y cava.",
       "title": "La Sal de la Bruja del Pantano",
       "reply": {
-        "0": "Salt. Good, you listen. The flats beyond the reeds make everyone drowsy. Go and sigh there like you mean it, and the fen will show you the rest."
+        "0": "Sal. Bien, escuchas. Los llanos más allá de los juncos adormecen a todo el mundo. Ve y suspira allí como si lo dijeras en serio, y la ciénaga te mostrará el resto."
       }
     },
     "hunt_nightbloom_sleepless_vigil": {
@@ -6913,7 +6913,7 @@ export const es: EnTranslations = {
       "3": "Al sureste del campo donde se reúne la penumbra, la luz de la luna se acumula sobre un trozo de tierra desnuda. Usa el pergamino allí y cava.",
       "title": "Vela de los Insomnes",
       "reply": {
-        "1": "A star fell three nights ago, and it fell toward the old barrow north of town. The dead there never sleep. Greet them as a soldier would."
+        "1": "Una estrella cayó hace tres noches, y cayó hacia el viejo túmulo al norte del pueblo. Los muertos allí nunca duermen. Salúdalos como lo haría un soldado."
       }
     },
     "hunt_wraithwood_mournstone_candles": {
@@ -6923,8 +6923,8 @@ export const es: EnTranslations = {
       "3": "Al sureste del claro donde el cazador puso sus trampas, la hojarasca ha sido removida recientemente. Usa el pergamino allí y cava.",
       "title": "Velas para el Mournstone",
       "reply": {
-        "0": "The vicar ordered that candle and never paid for it. He has been fasting ever since, praying and nothing else. Take him something to chew and ask him why.",
-        "1": "Thank you, friend. I never lit that candle. Something walks the glade past the crows at night, and I could not face it. Go and stand there, if you can."
+        "0": "El vicario ordenó esa vela y nunca la pagó. Ha estado ayunando desde entonces, rezando y nada más. Trae algo para que mastique y pregúntale por qué.",
+        "1": "Gracias, amigo. Nunca encendí esa vela. Algo camina por el claro pasados los cuervos de noche, y no pude enfrentarlo. Ve y ponte allí, si puedes."
       }
     },
     "hunt_palmreach_sunken_idol": {
@@ -6934,7 +6934,7 @@ export const es: EnTranslations = {
       "3": "Al noreste de donde la maraña abre su boca hacia el mar, la arena se ha amontonado más alto de lo que alcanza la marea. Usa el pergamino allí y cava.",
       "title": "El Secreto del Ídolo",
       "reply": {
-        "1": "Below the vines the divers found an idol, and the idol did not like them. Anyone who stood tall before it did not come back. Be small before it."
+        "1": "Bajo las enredaderas los buceadores encontraron un ídolo, y al ídolo no le cayeron bien. Quien se mantuvo erguido ante él no regresó. Sé pequeño ante él."
       }
     },
     "hunt_evergarden_beacon_road": {
@@ -6944,8 +6944,8 @@ export const es: EnTranslations = {
       "3": "Al noroeste del viejo faro, justo al lado del sendero que baja desde la luz, el césped ha sido cortado y repuesto. Usa el pergamino allí y cava.",
       "title": "Faro y Flor",
       "reply": {
-        "0": "Proper compost, the beds will live. The old miller buried something before he left. His mill still turns in the far corner of the gardens. Go and stand by it.",
-        "2": "So the mill sent you down the coast road. The beacon keeps one last secret: northwest of it, just off the path, the turf was cut and laid back. Dig there."
+        "0": "Compost bien hecho, los bancales vivirán. El viejo molinero enterró algo antes de partir. Su molino aún gira en la esquina más lejana de los jardines. Ve y quédate junto a él.",
+        "2": "Así que el molino te llevó por el camino costero. El faro guarda un último secreto: al noroeste de él, justo fuera del camino, el terraplén fue cortado y repuesto. Cava ahí."
       }
     }
   },
@@ -10250,10 +10250,10 @@ export const es: EnTranslations = {
       "wayDownOpens": "El camino hacia abajo se abre.",
       "exitOpens": "La brecha se estremece. Un camino a casa se abre tras los caídos.",
       "hoardEnter": "Desciendes a {name}.",
-      "hoardExitOpens": "The hoard is yours. Return to the entrance to climb out.",
-      "hoardStepBack": "You climb back out through the hoard entrance.",
+      "hoardExitOpens": "El tesoro es tuyo. Regresa a la entrada para salir.",
+      "hoardStepBack": "Sales por la entrada del tesoro.",
       "hoardNotYours": "Este tesoro lo desenterró otro grupo.",
-      "hoardEntrantsFull": "This hoard has already admitted five adventurers.",
+      "hoardEntrantsFull": "Este tesoro ya ha admitido cinco aventureros.",
       "portalOpens": "¡Una brecha de rango {tier} se abre en {zone}!",
       "portalSealed": "La brecha de rango {tier} en {zone} ha sido sellada.",
       "portalCollapses": "La brecha de rango {tier} en {zone} colapsa.",
@@ -10510,7 +10510,7 @@ export const es: EnTranslations = {
       "nhaliaBlackwaterMark": "¡{name} marca a {player} con Agua Negra!"
     },
     "factionVendor": {
-      "currencyRequired": "You need {amount} {currency} to purchase that."
+      "currencyRequired": "Necesitas {amount} {currency} para comprar eso."
     },
     "lockpick": {
       "lockYields": "¡La cerradura cede! Botín {tier}.",
@@ -11132,7 +11132,7 @@ export const es: EnTranslations = {
       "alreadyInWorld": "El personaje ya está en el mundo.",
       "accountSessionLimit": "Demasiados personajes de esta cuenta ya están en el mundo.",
       "takenOver": "Otra sesión tomó el control de tu personaje.",
-      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
+      "vaultMailRecovering": "Tu correo de recompensa del cofre se está restaurando. Intenta de nuevo en un momento.",
       "renameBeforeEntering": "Este personaje debe cambiar de nombre antes de entrar al mundo.",
       "renameNotPermitted": "No se permite cambiar el nombre de este personaje.",
       "unsupportedMediaType": "Formato de solicitud no compatible.",
@@ -11476,8 +11476,8 @@ export const es: EnTranslations = {
         "dungeonExit": "Salida de la mazmorra",
         "delveEntrance": "Entrada a la expedición: {name}",
         "worldPassage": "Pasaje a {zone}",
-        "hoardEntrance": "Buried Hoard entrance",
-        "hoardReturnEntrance": "Hoard return entrance",
+        "hoardEntrance": "Entrada del tesoro enterrado",
+        "hoardReturnEntrance": "Entrada de retorno del tesoro",
         "riftEntrance": "Entrada a la brecha: {name}",
         "hostileEnemy": "Enemigo hostil",
         "aggressiveEnemy": "Enemigo que te está atacando",
@@ -12214,34 +12214,34 @@ export const es: EnTranslations = {
       "rift_storm_strike": "Ira del invocatormentas",
       "rift_tide_execution": "Fauces abisales",
       "rift_tide_strike": "Profundidad aplastante",
-      "hoard_cast_fear": "Terrifying Roar",
-      "hoard_cast_stun": "Stunning Blow",
-      "hoard_cast_drowning_hook": "Drowning Hook",
-      "hoard_cast_rime_beam": "Rime Beam",
-      "hoard_cast_cinder_bolt": "Cinder Bolt",
-      "hoard_cast_void_empower": "Void Empowerment",
-      "hoard_cast_webbing": "Webbing",
-      "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Headlong Charge",
-      "hoard_cast_silk_snare": "Silk Snare",
-      "hoard_cast_silence": "Silencing Shriek",
-      "hoard_cast_hex": "Hex",
-      "hoard_lightning_strike": "Lightning Strike",
-      "hoard_ice_age": "Ice Age",
-      "hoard_pulsar_overload": "Pulsar Overload",
-      "hoard_rolling_boulder": "Rolling Boulder",
-      "hoard_goblin_escape": "Escaping",
-      "hoard_cast_mole_rake": "Claw Rake",
-      "hoard_cast_burrow": "Burrow",
-      "hoard_cast_tunnel": "Tunneling",
-      "hoard_cast_emerge": "Eruption",
-      "hoard_cast_collapse": "Ceiling Collapse",
-      "hoard_cast_bat_dive_aim": "Plunging Dive",
-      "hoard_cast_bat_dive": "Diving",
-      "hoard_cast_screech": "Deafening Screech",
-      "hoard_cast_mimic_bite": "Voracious Bite",
-      "hoard_cast_mimic_leap": "Crushing Leap",
-      "hoard_cast_coin_spit": "Cursed Coins"
+      "hoard_cast_fear": "Rugido Aterrador",
+      "hoard_cast_stun": "Golpe Aturdidor",
+      "hoard_cast_drowning_hook": "Gancho de Ahogo",
+      "hoard_cast_rime_beam": "Rayo de Escarcha",
+      "hoard_cast_cinder_bolt": "Descarga de Ascuas",
+      "hoard_cast_void_empower": "Empoderamiento del Vacío",
+      "hoard_cast_webbing": "Telarañas",
+      "hoard_cast_doom_ritual": "Ritual de Perdición",
+      "hoard_cast_charge": "Carga Temeraria",
+      "hoard_cast_silk_snare": "Red de Seda",
+      "hoard_cast_silence": "Alarido Silenciador",
+      "hoard_cast_hex": "Maleficio",
+      "hoard_lightning_strike": "Rayo",
+      "hoard_ice_age": "Era de Hielo",
+      "hoard_pulsar_overload": "Sobrecarga del Púlsar",
+      "hoard_rolling_boulder": "Roca Rodante",
+      "hoard_goblin_escape": "Escapando",
+      "hoard_cast_mole_rake": "Arañazo de Garra",
+      "hoard_cast_burrow": "Cavando",
+      "hoard_cast_tunnel": "Tunelación",
+      "hoard_cast_emerge": "Erupción",
+      "hoard_cast_collapse": "Colapso del Techo",
+      "hoard_cast_bat_dive_aim": "Buceo de Embestida",
+      "hoard_cast_bat_dive": "Buceando",
+      "hoard_cast_screech": "Chillido Ensordecedor",
+      "hoard_cast_mimic_bite": "Mordisco Voraz",
+      "hoard_cast_mimic_leap": "Salto Aplastante",
+      "hoard_cast_coin_spit": "Monedas Malditas"
     }
   },
   "questUi": {
@@ -17678,58 +17678,58 @@ export const es: EnTranslations = {
         "name": "Botas de malla Himno de tormenta"
       },
       "allied_hearthstone": {
-        "name": "Allied Hearthstone"
+        "name": "Piedra de Encancaramiento Aliada"
       },
       "allied_vanguard_duffel": {
-        "name": "Allied Vanguard Duffel"
+        "name": "Bolsa de Vanguardia Aliada"
       },
       "rift_feather_glider": {
-        "name": "Rift Feather Glider"
+        "name": "Planeador de Pluma de Brecha"
       },
       "formula_enchant_feet_shadowstride": {
-        "name": "Formula: Enchant Boots - Shadowstride"
+        "name": "Fórmula: Encantar Botas - Andar de Sombra"
       },
       "recipe_potion_of_invisibility": {
-        "name": "Recipe: Potion of Invisibility"
+        "name": "Receta: Poción de Invisibilidad"
       },
       "potion_of_invisibility": {
-        "name": "Potion of Invisibility"
+        "name": "Poción de Invisibilidad"
       },
       "pattern_reinforced_armor_kit": {
-        "name": "Pattern: Reinforced Armor Kit"
+        "name": "Patrón: Kit de Armadura Reforzado"
       },
       "reinforced_armor_kit": {
-        "name": "Reinforced Armor Kit"
+        "name": "Kit de Armadura Reforzado"
       },
       "dawn_battle_standard": {
-        "name": "Dawn Battle Standard"
+        "name": "Estandarte de Batalla del Alba"
       },
       "formula_enchant_offhand_spirit": {
-        "name": "Formula: Enchant Off-Hand - Spirit"
+        "name": "Fórmula: Encantar Arma Secundaria - Espíritu"
       },
       "recipe_elixir_of_mana_regeneration": {
-        "name": "Recipe: Elixir of Mana Regeneration"
+        "name": "Receta: Elixir de Regeneración de Maná"
       },
       "elixir_of_mana_regeneration": {
-        "name": "Elixir of Mana Regeneration"
+        "name": "Elixir de Regeneración de Maná"
       },
       "clockwork_target_dummy": {
-        "name": "Clockwork Target Dummy"
+        "name": "Maniquí de Práctica Mecánico"
       },
       "schematic_clockwork_shock_bomb": {
-        "name": "Schematic: Clockwork Shock Bomb"
+        "name": "Esquema: Bomba de choque mecánica"
       },
       "clockwork_shock_bomb": {
-        "name": "Clockwork Shock Bomb"
+        "name": "Bomba de choque mecánica"
       },
       "plans_dense_sharpening_stone": {
-        "name": "Plans: Dense Sharpening Stone"
+        "name": "Planos: Piedra de Afilado Denso"
       },
       "dense_sharpening_stone": {
-        "name": "Dense Sharpening Stone"
+        "name": "Piedra de Afilado Denso"
       },
       "formula_enchant_gloves_forged_might": {
-        "name": "Formula: Enchant Gloves - Forged Might"
+        "name": "Fórmula: Encantar Guantes - Poder Forjado"
       },
       "treasure_map_common": {
         "name": "Mapa del tesoro desgastado"
@@ -19732,49 +19732,49 @@ export const es: EnTranslations = {
         "name": "Caballo de establo"
       },
       "hoard_brood_egg": {
-        "name": "Brood Clutch"
+        "name": "Nidada de Cría"
       },
       "hoard_brood_hatchling": {
-        "name": "Vysska's Hatchling"
+        "name": "Cría de Vysska"
       },
       "hoard_healing_tide_totem": {
-        "name": "Healing Tide Totem"
+        "name": "Tótem de Marea Sanadora"
       },
       "hoard_bound_pulsar": {
-        "name": "Bound Pulsar"
+        "name": "Púlsar Encadenado"
       },
       "hoard_abyssal_tentacle": {
-        "name": "Tentacle of the Maw"
+        "name": "Tentáculo de las Fauces"
       },
       "hoard_silk_cocoon": {
-        "name": "Silk Cocoon"
+        "name": "Capullo de Seda"
       },
       "hoard_brood_cocoon": {
-        "name": "Brood Cocoon"
+        "name": "Capullo de Cría"
       },
       "hoard_coinsack_scurrier": {
-        "name": "Coinsack Scurrier"
+        "name": "Rata de Bolsa de Monedas"
       },
       "hoard_boss_mushroom": {
-        "name": "Mother of Mushrooms"
+        "name": "Madre de los Hongos"
       },
       "hoard_sporeling": {
-        "name": "Sporeling"
+        "name": "Esporita"
       },
       "hoard_bloat_cap": {
-        "name": "Bloated Cap"
+        "name": "Seta Hinchada"
       },
       "hoard_boss_mole": {
-        "name": "Deeprake"
+        "name": "Excavador Profundo"
       },
       "hoard_boss_bat": {
-        "name": "Colossal Bat"
+        "name": "Murciélago Colosal"
       },
       "hoard_boss_mimic": {
-        "name": "Voracious Chest"
+        "name": "Cofre Voraz"
       },
       "hoard_bat_swarmling": {
-        "name": "Cave Swarmer"
+        "name": "Enjambre de la Cueva"
       },
       "rift_spawnling": {
         "name": "Cría de la Brecha"
@@ -19807,7 +19807,7 @@ export const es: EnTranslations = {
         "name": "Trol de Médula"
       },
       "rift_marrow_golem": {
-        "name": "Marrow Golem"
+        "name": "Gólem de Médula"
       },
       "rift_void_acolyte": {
         "name": "Acólito Cicatriz del Vacío"
@@ -23943,9 +23943,9 @@ export const es: EnTranslations = {
         "body": "Tu anuncio se vendió y el comprador pagó por completo. El libro de la Bolsa lleva el registro de la venta, y tu actividad de la Bolsa muestra el importe liquidado y su desglose.\n\n- El Corredor de la Bolsa"
       },
       "hoard_vault_reward": {
-        "sender": "The Ravenpost",
-        "subject": "Your vault reward",
-        "body": "The vault was cleared, but your share was not collected from the chest. The ravens have brought it to you here, with the goods and coin you earned attached.\n\n- The Ravenpost"
+        "sender": "El Correo del Cuervo",
+        "subject": "Tu recompensa del cofre",
+        "body": "La cámara fue despejada, pero no recogiste tu parte del cofre. Los cuervos te la han traído aquí, con los bienes y las monedas que ganaste adjuntos.\n\n- El Correo del Cuervo"
       }
     },
     "itemSets": {

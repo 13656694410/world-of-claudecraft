@@ -944,4 +944,8 @@ export const table: DeedLocaleTable = {
     desc: '打開10個線索卷軸尋寶挖出的寶藏匣。',
     title: '尋寶獵人',
   },
+  cmb_coinsack_caught: {
+    name: '人贓俱獲',
+    desc: '在埋藏的寶藏中擊殺錢袋竄賊，在牠帶著金幣逃脫前。',
+  },
 };

@@ -13,6 +13,120 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const es: Partial<Record<TranslationKey, string>> = {
+  'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
+  'abilityUi.cast.hoard_cast_bat_dive': 'Buceando',
+  'abilityUi.cast.hoard_cast_bat_dive_aim': 'Buceo de Embestida',
+  'abilityUi.cast.hoard_cast_burrow': 'Cavando',
+  'abilityUi.cast.hoard_cast_charge': 'Carga Temeraria',
+  'abilityUi.cast.hoard_cast_cinder_bolt': 'Descarga de Ascuas',
+  'abilityUi.cast.hoard_cast_coin_spit': 'Monedas Malditas',
+  'abilityUi.cast.hoard_cast_collapse': 'Colapso del Techo',
+  'abilityUi.cast.hoard_cast_doom_ritual': 'Ritual de Perdición',
+  'abilityUi.cast.hoard_cast_drowning_hook': 'Gancho de Ahogo',
+  'abilityUi.cast.hoard_cast_emerge': 'Erupción',
+  'abilityUi.cast.hoard_cast_fear': 'Rugido Aterrador',
+  'abilityUi.cast.hoard_cast_hex': 'Maleficio',
+  'abilityUi.cast.hoard_cast_mimic_bite': 'Mordisco Voraz',
+  'abilityUi.cast.hoard_cast_mimic_leap': 'Salto Aplastante',
+  'abilityUi.cast.hoard_cast_mole_rake': 'Arañazo de Garra',
+  'abilityUi.cast.hoard_cast_rime_beam': 'Rayo de Escarcha',
+  'abilityUi.cast.hoard_cast_screech': 'Chillido Ensordecedor',
+  'abilityUi.cast.hoard_cast_silence': 'Alarido Silenciador',
+  'abilityUi.cast.hoard_cast_silk_snare': 'Red de Seda',
+  'abilityUi.cast.hoard_cast_stun': 'Golpe Aturdidor',
+  'abilityUi.cast.hoard_cast_tunnel': 'Tunelación',
+  'abilityUi.cast.hoard_cast_void_empower': 'Empoderamiento del Vacío',
+  'abilityUi.cast.hoard_cast_webbing': 'Telarañas',
+  'abilityUi.cast.hoard_goblin_escape': 'Escapando',
+  'abilityUi.cast.hoard_ice_age': 'Era de Hielo',
+  'abilityUi.cast.hoard_lightning_strike': 'Rayo',
+  'abilityUi.cast.hoard_pulsar_overload': 'Sobrecarga del Púlsar',
+  'abilityUi.cast.hoard_rolling_boulder': 'Roca Rodante',
+  'errors.api.vaultMailRecovering':
+    'Tu correo de recompensa del cofre se está restaurando. Intenta de nuevo en un momento.',
+  'hud.core.mapMarkerLabels.hoardEntrance': 'Entrada del tesoro enterrado',
+  'hud.core.mapMarkerLabels.hoardReturnEntrance': 'Entrada de retorno del tesoro',
+  'hudChrome.currencies.automatonCog': 'Engranaje Autómata',
+  'hudChrome.currencies.automatonCogNote': 'Misiones Mundiales en zonas Autómata',
+  'hudChrome.currencies.churchOrderCrest': 'Cresta de la Orden',
+  'hudChrome.currencies.churchOrderCrestNote':
+    'Misiones Mundiales en zonas de la Orden de la Iglesia',
+  'hudChrome.currencies.riftWatchMark': 'Marca de la Guardia de la Brecha',
+  'hudChrome.currencies.riftWatchMarkNote':
+    'Misiones Mundiales en zonas de la Guardia de la Brecha',
+  'hudChrome.worldQuestTooltip.currencyAmount': '{amount} {currency}',
+  'hudChrome.worldQuestTooltip.currencyReward': '+{amount} {currency}',
+  'hudChrome.worldQuestTooltip.standingAmount': '{amount} {faction}',
+  'clues.hunt_amberfall_lantern_ferry.reply.0':
+    'Un farol se apagó anoche, el que mira hacia la piedra vieja al otro lado del agua. Mis barqueros no se atreven a acercarse. Quizá tú te animes.',
+  'clues.hunt_amberfall_lantern_ferry.reply.2':
+    'Agua fría del pozo, justo lo que los árboles necesitaban. Pasada la colina de arces rojos las hojas han estado cayendo en círculo, y ninguno de mis árboles deja caer las hojas así de ordenadamente.',
+  'clues.hunt_drakelands_gate_ashes.reply.1':
+    'El viento traía ceniza desde las dunas del este, y la ceniza no viene sola de la arena vacía. Sela en el puesto de la guarnición registra todas las patrullas. Hablará, una vez que alguien le dé de comer.',
+  'clues.hunt_drakelands_gate_ashes.reply.2':
+    'Pan al fin, que te bendigan. La patrulla jura que vio humo elevándose desde la arena desnuda, hacia el este y un poco al sur de las dunas, donde no queda nada para arder.',
+  'clues.hunt_evergarden_beacon_road.reply.0':
+    'Compost bien hecho, los bancales vivirán. El viejo molinero enterró algo antes de partir. Su molino aún gira en la esquina más lejana de los jardines. Ve y quédate junto a él.',
+  'clues.hunt_evergarden_beacon_road.reply.2':
+    'Así que el molino te llevó por el camino costero. El faro guarda un último secreto: al noroeste de él, justo fuera del camino, el terraplén fue cortado y repuesto. Cava ahí.',
+  'clues.hunt_frostveil_aurora_vigil.reply.1':
+    'Te arrodillaste, y las luces respondieron. Anoche se doblaron hacia el este pasadas las terrazas y señalaron directo hacia la nieve.',
+  'clues.hunt_nightbloom_sleepless_vigil.reply.1':
+    'Una estrella cayó hace tres noches, y cayó hacia el viejo túmulo al norte del pueblo. Los muertos allí nunca duermen. Salúdalos como lo haría un soldado.',
+  'clues.hunt_palmreach_sunken_idol.reply.1':
+    'Bajo las enredaderas los buceadores encontraron un ídolo, y al ídolo no le cayeron bien. Quien se mantuvo erguido ante él no regresó. Sé pequeño ante él.',
+  'clues.hunt_willowfen_fenwitch_salt.reply.0':
+    'Sal. Bien, escuchas. Los llanos más allá de los juncos adormecen a todo el mundo. Ve y suspira allí como si lo dijeras en serio, y la ciénaga te mostrará el resto.',
+  'clues.hunt_wraithwood_mournstone_candles.reply.0':
+    'El vicario ordenó esa vela y nunca la pagó. Ha estado ayunando desde entonces, rezando y nada más. Trae algo para que mastique y pregúntale por qué.',
+  'clues.hunt_wraithwood_mournstone_candles.reply.1':
+    'Gracias, amigo. Nunca encendí esa vela. Algo camina por el claro pasados los cuervos de noche, y no pude enfrentarlo. Ve y ponte allí, si puedes.',
+  'entities.items.allied_hearthstone.name': 'Piedra de Encancaramiento Aliada',
+  'entities.items.allied_vanguard_duffel.name': 'Bolsa de Vanguardia Aliada',
+  'entities.items.clockwork_shock_bomb.name': 'Bomba de choque mecánica',
+  'entities.items.clockwork_target_dummy.name': 'Maniquí de Práctica Mecánico',
+  'entities.items.dawn_battle_standard.name': 'Estandarte de Batalla del Alba',
+  'entities.items.dense_sharpening_stone.name': 'Piedra de Afilado Denso',
+  'entities.items.elixir_of_mana_regeneration.name': 'Elixir de Regeneración de Maná',
+  'entities.items.formula_enchant_feet_shadowstride.name':
+    'Fórmula: Encantar Botas - Andar de Sombra',
+  'entities.items.formula_enchant_gloves_forged_might.name':
+    'Fórmula: Encantar Guantes - Poder Forjado',
+  'entities.items.formula_enchant_offhand_spirit.name':
+    'Fórmula: Encantar Arma Secundaria - Espíritu',
+  'entities.items.pattern_reinforced_armor_kit.name': 'Patrón: Kit de Armadura Reforzado',
+  'entities.items.plans_dense_sharpening_stone.name': 'Planos: Piedra de Afilado Denso',
+  'entities.items.potion_of_invisibility.name': 'Poción de Invisibilidad',
+  'entities.items.recipe_elixir_of_mana_regeneration.name':
+    'Receta: Elixir de Regeneración de Maná',
+  'entities.items.recipe_potion_of_invisibility.name': 'Receta: Poción de Invisibilidad',
+  'entities.items.reinforced_armor_kit.name': 'Kit de Armadura Reforzado',
+  'entities.items.rift_feather_glider.name': 'Planeador de Pluma de Brecha',
+  'entities.items.schematic_clockwork_shock_bomb.name': 'Esquema: Bomba de choque mecánica',
+  'entities.letters.hoard_vault_reward.body':
+    'La cámara fue despejada, pero no recogiste tu parte del cofre. Los cuervos te la han traído aquí, con los bienes y las monedas que ganaste adjuntos.\n\n- El Correo del Cuervo',
+  'entities.letters.hoard_vault_reward.sender': 'El Correo del Cuervo',
+  'entities.letters.hoard_vault_reward.subject': 'Tu recompensa del cofre',
+  'entities.mobs.hoard_abyssal_tentacle.name': 'Tentáculo de las Fauces',
+  'entities.mobs.hoard_bat_swarmling.name': 'Enjambre de la Cueva',
+  'entities.mobs.hoard_bloat_cap.name': 'Seta Hinchada',
+  'entities.mobs.hoard_boss_bat.name': 'Murciélago Colosal',
+  'entities.mobs.hoard_boss_mimic.name': 'Cofre Voraz',
+  'entities.mobs.hoard_boss_mole.name': 'Excavador Profundo',
+  'entities.mobs.hoard_boss_mushroom.name': 'Madre de los Hongos',
+  'entities.mobs.hoard_bound_pulsar.name': 'Púlsar Encadenado',
+  'entities.mobs.hoard_brood_cocoon.name': 'Capullo de Cría',
+  'entities.mobs.hoard_brood_egg.name': 'Nidada de Cría',
+  'entities.mobs.hoard_brood_hatchling.name': 'Cría de Vysska',
+  'entities.mobs.hoard_coinsack_scurrier.name': 'Rata de Bolsa de Monedas',
+  'entities.mobs.hoard_healing_tide_totem.name': 'Tótem de Marea Sanadora',
+  'entities.mobs.hoard_silk_cocoon.name': 'Capullo de Seda',
+  'entities.mobs.hoard_sporeling.name': 'Esporita',
+  'entities.mobs.rift_marrow_golem.name': 'Gólem de Médula',
+  'sim.factionVendor.currencyRequired': 'Necesitas {amount} {currency} para comprar eso.',
+  'sim.rift.hoardEntrantsFull': 'Este tesoro ya ha admitido cinco aventureros.',
+  'sim.rift.hoardExitOpens': 'El tesoro es tuyo. Regresa a la entrada para salir.',
+  'sim.rift.hoardStepBack': 'Sales por la entrada del tesoro.',
   'hudChrome.questTracker.worldQuests': 'Misiones de mundo',
   'hudChrome.questTracker.worldQuestsCollapseHint': 'Contraer misiones de mundo',
   'hudChrome.questTracker.worldQuestsExpandHint': 'Expandir misiones de mundo',

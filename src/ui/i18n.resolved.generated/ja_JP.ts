@@ -2915,10 +2915,10 @@ export const ja_JP: EnTranslations = {
     "worldQuestTooltip": {
       "factionLine": "勢力：{faction}",
       "timeRemaining": "残り時間：",
-      "standingAmount": "{amount} {faction}",
-      "currencyAmount": "{amount} {currency}",
+      "standingAmount": "{amount}{faction}",
+      "currencyAmount": "{amount}{currency}",
       "standingReward": "{faction}の評判 +{amount}",
-      "currencyReward": "+{amount} {currency}"
+      "currencyReward": "+{amount}{currency}"
     },
     "worldQuestBanner": {
       "subtitle": "ワールドクエスト"
@@ -12121,7 +12121,7 @@ export const ja_JP: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "攻撃",
-      "cooldownMinutes": "{minutes}m",
+      "cooldownMinutes": "{minutes}分",
       "attackTooltip": "対象への自動攻撃を切り替えます。敵を右クリックしても攻撃します。",
       "attackRemoveHint": "右クリックでバーから外し、スロットを空けます。",
       "emptySlot": "空きスロット",
@@ -12217,7 +12217,7 @@ export const ja_JP: EnTranslations = {
       "hoard_cast_fear": "戦慄の咆哮",
       "hoard_cast_stun": "昏倒の一撃",
       "hoard_cast_drowning_hook": "溺れの鉤",
-      "hoard_cast_rime_beam": "Rime Beam",
+      "hoard_cast_rime_beam": "霜光線",
       "hoard_cast_cinder_bolt": "燃えさしの矢",
       "hoard_cast_void_empower": "虚無の強化",
       "hoard_cast_webbing": "蜘蛛の巣",
