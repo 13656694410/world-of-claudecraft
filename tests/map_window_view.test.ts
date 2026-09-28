@@ -1232,6 +1232,21 @@ describe('world-quest zone markers', () => {
     );
     expect(completed.worldQuests).toEqual([]);
 
+    const practicing = buildOverworldMapModel(
+      input(
+        makeOverworldWorld(
+          'client',
+          new Map(),
+          quest.minLevel,
+          new Map([
+            [quest.id, { questId: quest.id, count: 0, state: 'active', practiceOnly: true }],
+          ]),
+        ),
+        1,
+      ),
+    );
+    expect(practicing.worldQuests).toEqual([]);
+
     const atQuest = (zoom: number) => {
       const world = makeOverworldWorld('sim', new Map(), quest.minLevel);
       world.player.pos.x = quest.area.x;

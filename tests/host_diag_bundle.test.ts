@@ -3,6 +3,7 @@
 // and LF-only, the bundle is the SHIPPING form (no dev loader, every registered
 // collector present), and the pure bundler's own contract holds on synthetic
 // inputs.
+import { execFileSync } from 'node:child_process';
 import { readdirSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
@@ -67,6 +68,27 @@ describe('host-diag: the committed dist is what the sources build', () => {
     // Not a self-comparison: these are the literal values the sources carry today,
     // so a silent version bump without a rebuild cannot slip through.
     expect(meta).toEqual({ toolVersion: '0.3.1', schemaVersion: 2 });
+  });
+
+  it('keeps every committed dist file exempt from line-ending conversion', () => {
+    // `host_diag_build.mjs --check` compares these bytes in the desktop build. A
+    // Windows runner checks out with core.autocrlf=true, so any file git treats as
+    // text arrives CRLF and reads as stale there (the v0.44.0 Windows publish).
+    const out = execFileSync(
+      'git',
+      [
+        'check-attr',
+        'text',
+        '--',
+        'electron/host_diag/dist/HostDiag.ps1',
+        'electron/host_diag/dist/manifest.json',
+      ],
+      { encoding: 'utf8' },
+    );
+    expect(out.trim().split('\n')).toEqual([
+      'electron/host_diag/dist/HostDiag.ps1: text: unset',
+      'electron/host_diag/dist/manifest.json: text: unset',
+    ]);
   });
 
   it('ships UTF-8 with a BOM and CRLF only (Windows PowerShell 5.1 reads BOM-less as ANSI)', () => {
