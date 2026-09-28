@@ -48,6 +48,7 @@ import {
   type StationType,
 } from '../sim/types';
 import { WORLD_BOSSES, worldBossLockoutId } from '../sim/world_boss';
+import { worldQuestCompletedForBoard } from '../sim/world_quest_practice';
 import { activeWorldQuestsForCycle } from '../sim/world_quest_rotation';
 import type { IWorld } from '../world_api';
 import { dungeonMapActive } from './dungeon_map_view';
@@ -729,7 +730,7 @@ export function createMinimapMarkers(): MinimapMarkers {
       for (const quest of activeWorldQuestsForCycle(world.worldQuestCycle)) {
         if (p.level < quest.minLevel) continue;
         const progress = world.worldQuestLog.get(quest.id);
-        if (progress?.state === 'completed') continue;
+        if (worldQuestCompletedForBoard(progress)) continue;
         const isGlider = quest.objective.type === 'glider';
         const position = isGlider ? GLIDER_NPC_DEF.pos : quest.area;
         const dx = -(position.x - p.pos.x) * pxPerYard;

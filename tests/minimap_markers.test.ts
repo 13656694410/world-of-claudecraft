@@ -293,7 +293,10 @@ describe('createMinimapMarkers: the discriminated union per draw kind', () => {
     const world = makeWorld('sim') as unknown as {
       player: { level: number; pos: { x: number; z: number } };
       worldQuestCycle: string;
-      worldQuestLog: ReadonlyMap<string, { questId: string; count: number; state: string }>;
+      worldQuestLog: ReadonlyMap<
+        string,
+        { questId: string; count: number; state: string; practiceOnly?: boolean }
+      >;
     };
     const worldQuestMarkers = () =>
       buildMarkers(world as unknown as IWorld).filter((marker) => marker.kind === 'world-quest');
@@ -308,6 +311,11 @@ describe('createMinimapMarkers: the discriminated union per draw kind', () => {
     world.player.level = quest.minLevel;
     world.worldQuestLog = new Map([
       [quest.id, { questId: quest.id, count: quest.count, state: 'completed' }],
+    ]);
+    expect(worldQuestMarkers()).toEqual([]);
+
+    world.worldQuestLog = new Map([
+      [quest.id, { questId: quest.id, count: 0, state: 'active', practiceOnly: true }],
     ]);
     expect(worldQuestMarkers()).toEqual([]);
 
