@@ -846,31 +846,47 @@ describe('item-art audit builder', () => {
     // from `node scripts/item_art_audit.mjs --verify-only` run on the merged
     // tree, not invented or derived from either parent.
     // PR3941: measured again after retiring the five premium reins.
+    // Clue Scrolls (2026-09-17): measured again on the tree carrying the 15
+    // faction quartermaster items (which landed without moving this block)
+    // plus the two clue items (clue_scroll, treasure_casket): 1304 / 1322,
+    // the sha/bytes straight from `--verify-only` on this tree.
+    // the Viridian Valestrider's reins (PR 4175, release/v0.44.0 base merge): 1306 / 1324, re-minted on the merged tree.
+    // Warfare Season 2: measured again with its four painted weapons, 1288 / 1306 on the release.
     expect(verified).toMatchObject({
       catalogPath: 'tmp/imagegen/item-art-consistency/final-audit/catalog.json',
-      catalogSha256: '74bd65a9b0efd433b12c9bf0cdaa509eeac3e4986edb8878e8f069f4e24088f0',
-      catalogBytes: 699134,
+      // Re-minted on the quests integration branch: the catalog carries the 15
+      // faction quartermaster owners, the Emissary's Cache chest and the two
+      // Clue Scroll items (1305 / 1323). Re-minted again with the faction
+      // ladder rework's 17 rows (faction-ladder-icons-2026-09-23): 1322 /
+      // 1340, sha and bytes straight from `--verify-only` on this tree; 1323 / 1341
+      // with the Viridian Valestrider's reins (release/v0.44.0 base merge), re-measured the same way. 1341 / 1359 with the trinket slot's 18 trinkets (PR 4173) landed on the integration branch (a 26th group and a 32nd sheet page), sha and bytes re-measured with `--verify-only` on the merged tree.
+      // 1345 / 1498 with Warfare Season 2 (release/v0.44.0, second base merge 2026-09-26)'s four
+      // painted weapons, re-measured with `--verify-only` on the merged tree.
+      // 1464 / 1482 at the 2026-09-28 release/v0.44.0 merge into feature/buried-hoards
+      // (the hoard boss loot and map paintings on 36 sheet pages), re-measured the same way.
+      catalogSha256: 'e3f58abc4acad903941898542c592ca749451e776bdb34935821a6e79e32e7c6',
+      catalogBytes: 801291,
       rendererFingerprint: '41f5404c4d6d9643c8f03b9d88a8546e44564cc03a1baabdd4a72cb9258a2da7',
-      catalogCount: 1283,
-      liveItemCount: 1301,
+      catalogCount: 1464,
+      liveItemCount: 1482,
       generatedHeroicDefinitions: 78,
       heroicDefinitionsWithOwnWebp: 59,
       heroicWeaponArtAliases: 19,
-      groupCount: 25,
-      sheetPageCount: 31,
-      sheetCount: 248,
+      groupCount: 26,
+      sheetPageCount: 36,
+      sheetCount: 288,
       sheetModeCounts: {
-        '128-color': 31,
-        '40-color': 31,
-        '28-color': 31,
-        '22-color': 31,
-        '28-grayscale': 31,
-        '64-circle': 31,
-        'small-multiview': 31,
-        identity: 31,
+        '128-color': 36,
+        '40-color': 36,
+        '28-color': 36,
+        '22-color': 36,
+        '28-grayscale': 36,
+        '64-circle': 36,
+        'small-multiview': 36,
+        identity: 36,
       },
       sheetSetSha256: null,
-      shippingCatalogSha256: 'aaa08264b12c4be606ab2ffd06a573c7cf24a78c440bc2198b9f18b16e8062de',
+      shippingCatalogSha256: '53d42dd05b8370ad9bf62c5b1d779efc05f02f28fe129a7fe8b53c1b863557fc',
       machineChecksPassed: true,
       verdict: null,
     });

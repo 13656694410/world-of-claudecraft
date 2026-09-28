@@ -8,13 +8,13 @@
     "first kill does not end the match; team wipe (isArenaTeamWiped) does",
     "endArenaMatch ranked Elo on both teams (arena2v2 standings) + returnFromArena"
   ],
-  "draws": 2014,
-  "drawDigest": "734644c6",
+  "draws": 2009,
+  "drawDigest": "e91fe521",
   "frames": [
     {
       "tick": 0,
       "time": 0,
-      "nextId": 1006,
+      "nextId": 1010,
       "state": "5bc471b0",
       "events": "741638a5",
       "rng": {
@@ -28,9 +28,9 @@
     {
       "tick": 25,
       "time": 1.25,
-      "nextId": 1010,
-      "state": "d3dcfba7",
-      "events": "958ee7e7",
+      "nextId": 1014,
+      "state": "f4441f56",
+      "events": "a8259d8b",
       "rng": {
         "draws": 0,
         "digest": "811c9dc5"
@@ -39,9 +39,9 @@
     {
       "tick": 50,
       "time": 2.5,
-      "nextId": 1010,
-      "state": "885383a8",
-      "events": "1bd60145",
+      "nextId": 1014,
+      "state": "8a3face9",
+      "events": "3a5da579",
       "rng": {
         "draws": 94,
         "digest": "f94836fc"
@@ -50,9 +50,9 @@
     {
       "tick": 75,
       "time": 3.75,
-      "nextId": 1010,
-      "state": "602947a8",
-      "events": "cc883821",
+      "nextId": 1014,
+      "state": "ce7e2f2d",
+      "events": "70150bad",
       "rng": {
         "draws": 290,
         "digest": "d5038b1d"
@@ -61,9 +61,9 @@
     {
       "tick": 100,
       "time": 5,
-      "nextId": 1010,
-      "state": "d3bb238f",
-      "events": "a4509c69",
+      "nextId": 1014,
+      "state": "56545b92",
+      "events": "f35a0f3d",
       "rng": {
         "draws": 514,
         "digest": "c4f84513"
@@ -72,9 +72,9 @@
     {
       "tick": 101,
       "time": 5.05,
-      "nextId": 1010,
-      "state": "a4e753a8",
-      "events": "a0bb77e1",
+      "nextId": 1014,
+      "state": "2ba87785",
+      "events": "bc3e2c31",
       "rng": {
         "draws": 526,
         "digest": "de7fdd67"
@@ -136,14 +136,17 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1006,
+          "entityId": 1010,
           "equipment": {
             "chest": "recruit_tunic",
             "mainhand": "worn_sword",
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -170,6 +173,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -227,13 +232,16 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1007,
+          "entityId": 1011,
           "equipment": {
             "chest": "apprentice_robe",
             "mainhand": "gnarled_staff"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -264,6 +272,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -320,14 +330,17 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1008,
+          "entityId": 1012,
           "equipment": {
             "chest": "footpad_jerkin",
             "mainhand": "rusty_dagger",
             "offhand": "rusty_dagger"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -354,6 +367,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -411,13 +426,16 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1009,
+          "entityId": 1013,
           "equipment": {
             "chest": "apprentice_robe",
             "mainhand": "gnarled_staff"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -448,6 +466,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         }
       ],
@@ -463,7 +483,7 @@
               "name": "Battle Stance",
               "remaining": 3595,
               "school": "physical",
-              "sourceId": 1006
+              "sourceId": 1010
             }
           ],
           "blockChance": 0.05,
@@ -476,7 +496,7 @@
           "fiveSecondRule": 104.05,
           "healPower": 5,
           "hp": 632,
-          "id": 1006,
+          "id": 1010,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -525,7 +545,7 @@
           "fiveSecondRule": 104.05,
           "healPower": 34,
           "hp": 490,
-          "id": 1007,
+          "id": 1011,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -576,7 +596,7 @@
           "fiveSecondRule": 104.05,
           "healPower": 6,
           "hp": 525,
-          "id": 1008,
+          "id": 1012,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -634,7 +654,7 @@
           "fiveSecondRule": 104.05,
           "healPower": 26,
           "hp": 478,
-          "id": 1009,
+          "id": 1013,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -677,9 +697,9 @@
     {
       "tick": 102,
       "time": 5.1,
-      "nextId": 1010,
-      "state": "ab8ff3c4",
-      "events": "53da808a",
+      "nextId": 1014,
+      "state": "e1db074d",
+      "events": "6908b263",
       "rng": {
         "draws": 533,
         "digest": "75f012b5"
@@ -743,14 +763,17 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1006,
+          "entityId": 1010,
           "equipment": {
             "chest": "recruit_tunic",
             "mainhand": "worn_sword",
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -777,6 +800,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -834,13 +859,16 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1007,
+          "entityId": 1011,
           "equipment": {
             "chest": "apprentice_robe",
             "mainhand": "gnarled_staff"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -871,6 +899,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -935,14 +965,17 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1008,
+          "entityId": 1012,
           "equipment": {
             "chest": "footpad_jerkin",
             "mainhand": "rusty_dagger",
             "offhand": "rusty_dagger"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -969,6 +1002,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -1026,13 +1061,16 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1009,
+          "entityId": 1013,
           "equipment": {
             "chest": "apprentice_robe",
             "mainhand": "gnarled_staff"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1063,6 +1101,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         }
       ],
@@ -1078,7 +1118,7 @@
               "name": "Battle Stance",
               "remaining": 3594.95,
               "school": "physical",
-              "sourceId": 1006
+              "sourceId": 1010
             }
           ],
           "blockChance": 0.05,
@@ -1091,7 +1131,7 @@
           "fiveSecondRule": 104.1,
           "healPower": 5,
           "hp": 632,
-          "id": 1006,
+          "id": 1010,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -1140,7 +1180,7 @@
           "fiveSecondRule": 104.1,
           "healPower": 34,
           "hp": 490,
-          "id": 1007,
+          "id": 1011,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -1191,7 +1231,7 @@
           "facing": 3.141593,
           "fiveSecondRule": 104.1,
           "healPower": 6,
-          "id": 1008,
+          "id": 1012,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -1249,7 +1289,7 @@
           "fiveSecondRule": 104.1,
           "healPower": 26,
           "hp": 478,
-          "id": 1009,
+          "id": 1013,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -1292,9 +1332,9 @@
     {
       "tick": 103,
       "time": 5.15,
-      "nextId": 1010,
-      "state": "0525b26a",
-      "events": "0cb55b60",
+      "nextId": 1014,
+      "state": "75a3740f",
+      "events": "a350758b",
       "rng": {
         "draws": 541,
         "digest": "1cd135be"
@@ -1367,14 +1407,17 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1006,
+          "entityId": 1010,
           "equipment": {
             "chest": "recruit_tunic",
             "mainhand": "worn_sword",
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1410,6 +1453,23 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {},
+            "pvp": 1,
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604805099
+          },
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -1476,13 +1536,16 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1007,
+          "entityId": 1011,
           "equipment": {
             "chest": "apprentice_robe",
             "mainhand": "gnarled_staff"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1522,6 +1585,23 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {},
+            "pvp": 1,
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604805099
+          },
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -1591,14 +1671,17 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1008,
+          "entityId": 1012,
           "equipment": {
             "chest": "footpad_jerkin",
             "mainhand": "rusty_dagger",
             "offhand": "rusty_dagger"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1634,6 +1717,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -1704,13 +1789,16 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1009,
+          "entityId": 1013,
           "equipment": {
             "chest": "apprentice_robe",
             "mainhand": "gnarled_staff"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -1750,6 +1838,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         }
       ],
@@ -1765,7 +1855,7 @@
               "name": "Battle Stance",
               "remaining": 3599.95,
               "school": "physical",
-              "sourceId": 1006
+              "sourceId": 1010
             }
           ],
           "blockChance": 0.05,
@@ -1778,7 +1868,7 @@
           "fiveSecondRule": 104.15,
           "healPower": 5,
           "hp": 632,
-          "id": 1006,
+          "id": 1010,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -1827,7 +1917,7 @@
           "fiveSecondRule": 104.15,
           "healPower": 34,
           "hp": 490,
-          "id": 1007,
+          "id": 1011,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -1878,7 +1968,7 @@
           "facing": 3.141593,
           "fiveSecondRule": 104.15,
           "healPower": 6,
-          "id": 1008,
+          "id": 1012,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -1936,7 +2026,7 @@
           "facing": 3.141593,
           "fiveSecondRule": 104.15,
           "healPower": 26,
-          "id": 1009,
+          "id": 1013,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -1979,8 +2069,8 @@
     {
       "tick": 125,
       "time": 6.25,
-      "nextId": 1010,
-      "state": "ed472b44",
+      "nextId": 1014,
+      "state": "38a0aa9d",
       "events": "741638a5",
       "rng": {
         "draws": 758,
@@ -1990,56 +2080,56 @@
     {
       "tick": 150,
       "time": 7.5,
-      "nextId": 1010,
-      "state": "15e5ce6c",
+      "nextId": 1014,
+      "state": "08f78131",
       "events": "741638a5",
       "rng": {
-        "draws": 1028,
-        "digest": "cda8f46c"
+        "draws": 1029,
+        "digest": "8b312fda"
       }
     },
     {
       "tick": 175,
       "time": 8.75,
-      "nextId": 1010,
-      "state": "351a58dd",
+      "nextId": 1014,
+      "state": "05a0d5fc",
       "events": "741638a5",
       "rng": {
-        "draws": 1336,
-        "digest": "f5e5954f"
+        "draws": 1339,
+        "digest": "f218ea9d"
       }
     },
     {
       "tick": 200,
       "time": 10,
-      "nextId": 1010,
-      "state": "e69e5813",
+      "nextId": 1014,
+      "state": "0ecc3512",
       "events": "741638a5",
       "rng": {
-        "draws": 1671,
-        "digest": "f2f8faad"
+        "draws": 1673,
+        "digest": "0dba2101"
       }
     },
     {
       "tick": 225,
       "time": 11.25,
-      "nextId": 1010,
-      "state": "4b18ea2d",
-      "events": "5595bfe1",
+      "nextId": 1014,
+      "state": "022552c4",
+      "events": "3e6cf595",
       "rng": {
-        "draws": 1867,
-        "digest": "4108db04"
+        "draws": 1865,
+        "digest": "76645b02"
       }
     },
     {
       "tick": 243,
       "time": 12.15,
-      "nextId": 1010,
-      "state": "be60e2c4",
+      "nextId": 1014,
+      "state": "0b1205a5",
       "events": "741638a5",
       "rng": {
-        "draws": 2014,
-        "digest": "734644c6"
+        "draws": 2009,
+        "digest": "e91fe521"
       },
       "label": "returned",
       "players": [
@@ -2109,14 +2199,17 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1006,
+          "entityId": 1010,
           "equipment": {
             "chest": "recruit_tunic",
             "mainhand": "worn_sword",
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2152,6 +2245,23 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {},
+            "pvp": 1,
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604805099
+          },
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -2218,13 +2328,16 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1007,
+          "entityId": 1011,
           "equipment": {
             "chest": "apprentice_robe",
             "mainhand": "gnarled_staff"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2264,6 +2377,23 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {},
+            "pvp": 1,
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604805099
+          },
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -2333,14 +2463,17 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1008,
+          "entityId": 1012,
           "equipment": {
             "chest": "footpad_jerkin",
             "mainhand": "rusty_dagger",
             "offhand": "rusty_dagger"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2376,6 +2509,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -2446,13 +2581,16 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1009,
+          "entityId": 1013,
           "equipment": {
             "chest": "apprentice_robe",
             "mainhand": "gnarled_staff"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2492,6 +2630,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         }
       ],
@@ -2507,7 +2647,7 @@
               "name": "Battle Stance",
               "remaining": 3598,
               "school": "physical",
-              "sourceId": 1006
+              "sourceId": 1010
             }
           ],
           "blockChance": 0.05,
@@ -2521,7 +2661,7 @@
           "fiveSecondRule": 111.15,
           "healPower": 5,
           "hp": 632,
-          "id": 1006,
+          "id": 1010,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -2571,7 +2711,7 @@
           "fiveSecondRule": 111.15,
           "healPower": 34,
           "hp": 490,
-          "id": 1007,
+          "id": 1011,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -2623,7 +2763,7 @@
           "fiveSecondRule": 111.15,
           "healPower": 6,
           "hp": 525,
-          "id": 1008,
+          "id": 1012,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -2682,7 +2822,7 @@
           "fiveSecondRule": 111.15,
           "healPower": 26,
           "hp": 478,
-          "id": 1009,
+          "id": 1013,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -2726,12 +2866,12 @@
     {
       "tick": 243,
       "time": 12.15,
-      "nextId": 1010,
-      "state": "be60e2c4",
+      "nextId": 1014,
+      "state": "0b1205a5",
       "events": "741638a5",
       "rng": {
-        "draws": 2014,
-        "digest": "734644c6"
+        "draws": 2009,
+        "digest": "e91fe521"
       },
       "label": "final",
       "players": [
@@ -2801,14 +2941,17 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1006,
+          "entityId": 1010,
           "equipment": {
             "chest": "recruit_tunic",
             "mainhand": "worn_sword",
             "offhand": "eastbrook_buckler"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2844,6 +2987,23 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {},
+            "pvp": 1,
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604805099
+          },
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -2910,13 +3070,16 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1007,
+          "entityId": 1011,
           "equipment": {
             "chest": "apprentice_robe",
             "mainhand": "gnarled_staff"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -2956,6 +3119,23 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "weeklyRewards": {
+            "bossUnlocks": {},
+            "pvp": 1,
+            "raidUnlocks": [
+              0,
+              0,
+              0
+            ],
+            "raids": [
+              0,
+              0,
+              0
+            ],
+            "resetAtMs": 604805099
+          },
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -3025,14 +3205,17 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1008,
+          "entityId": 1012,
           "equipment": {
             "chest": "footpad_jerkin",
             "mainhand": "rusty_dagger",
             "offhand": "rusty_dagger"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -3068,6 +3251,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         },
         {
@@ -3138,13 +3323,16 @@
           ],
           "delveClears": {},
           "delveDaily": {},
-          "entityId": 1009,
+          "entityId": 1013,
           "equipment": {
             "chest": "apprentice_robe",
             "mainhand": "gnarled_staff"
           },
           "equipmentInstance": {},
+          "factionCurrencies": {},
+          "factions": {},
           "gatheringProficiency": {},
+          "gliderRecords": {},
           "harvestPreference": {
             "kind": "all"
           },
@@ -3184,6 +3372,8 @@
           "vault": {
             "stock": {}
           },
+          "vaultAttemptDurable": true,
+          "worldQuestReplacements": {},
           "wyrmfallDaily": {}
         }
       ],
@@ -3199,7 +3389,7 @@
               "name": "Battle Stance",
               "remaining": 3598,
               "school": "physical",
-              "sourceId": 1006
+              "sourceId": 1010
             }
           ],
           "blockChance": 0.05,
@@ -3213,7 +3403,7 @@
           "fiveSecondRule": 111.15,
           "healPower": 5,
           "hp": 632,
-          "id": 1006,
+          "id": 1010,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -3263,7 +3453,7 @@
           "fiveSecondRule": 111.15,
           "healPower": 34,
           "hp": 490,
-          "id": 1007,
+          "id": 1011,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -3315,7 +3505,7 @@
           "fiveSecondRule": 111.15,
           "healPower": 6,
           "hp": 525,
-          "id": 1008,
+          "id": 1012,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",
@@ -3374,7 +3564,7 @@
           "fiveSecondRule": 111.15,
           "healPower": 26,
           "hp": 478,
-          "id": 1009,
+          "id": 1013,
           "kind": "player",
           "level": 15,
           "lootFfaTimer": "Infinity",

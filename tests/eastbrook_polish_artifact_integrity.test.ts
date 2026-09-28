@@ -1373,6 +1373,7 @@ const ACCEPTED_POLISH_V2_METADATA_PATH = path.join(REPO_ROOT, POLISH_SEAL_PATH);
 // CPU-hygiene renderer leaf and the druid Cat Form renderer leaf compose in
 // one tree. No capture was retaken.
 const ACCEPTED_POLISH_V2_METADATA_SHA256 =
+  // Re-minted for the release/v0.44.0 base merges into PR 4193 (Buried Hoards), the second after PR 3847 landed. No capture was retaken.
   // Re-minted for the Eastbrook handoff merge with release/v0.43.0: the merged renderer leaf and the moved NPC layout match neither parent. No capture was retaken.
   // Re-minted for the v0.43.0 batch base merge (ossbrain-release/v0.43.0 taking
   // the Eastbrook handoff): the merged renderer leaf, the moved NPC layout and
@@ -1381,8 +1382,21 @@ const ACCEPTED_POLISH_V2_METADATA_SHA256 =
   // the merged renderer leaf (main's flanking-platform ground lift and
   // plateau-aware ground cues over the release's CPU-hygiene and Cat Form
   // leaves) matches neither parent. No capture was retaken.
-  '9a08435a1a0fca561d272adace7835c51d77742e86a201b83554e78620d9d1b3';
+  // Re-minted at the third release/v0.43.0 merge into feature/world-quests
+  // (the hotfix-line renderer leaf composed with the branch's guidance wiring).
+  // No capture was retaken.
+  // Re-minted for the Weekly Vault (PR 4052) landing on the quests integration
+  // branch: the town runtime leaf composes the stone vault hall and the
+  // authoritative layout gains the weeklyVault site. No capture was retaken.
+  // Re-minted for the shipwreck salvage landing: the renderer leaf moved.
+  // No Eastbrook capture or measured value changed.
+  // Re-minted at the release/v0.44.0 base merge into integration/world-quests-v0440
+  // (remint_polish_provenance.mjs on the merged tree; no capture was retaken).
+  // Re-minted at the fourth release/v0.44.0 base merge into integration/world-quests-v0440
+  // (the Eastbrook ferry, PR 4225; remint_polish_provenance.mjs on the merged tree; no capture was retaken).
+  '3703e50946207ae92ff2b46d1e14673cca6c363993661222a778c5f11d56f6ce';
 const ACCEPTED_POLISH_V2_COMPOSITE_PROVENANCE =
+  // Re-minted for the release/v0.44.0 base merges into PR 4193 (Buried Hoards), the second after PR 3847 landed. No capture was retaken.
   // Re-minted for the Eastbrook handoff merge with release/v0.43.0: the merged renderer leaf and the moved NPC layout match neither parent. No capture was retaken.
   // Re-minted for the v0.43.0 batch base merge (ossbrain-release/v0.43.0 taking
   // the Eastbrook handoff): the merged renderer leaf, the moved NPC layout and
@@ -1391,7 +1405,19 @@ const ACCEPTED_POLISH_V2_COMPOSITE_PROVENANCE =
   // the merged renderer leaf (main's flanking-platform ground lift and
   // plateau-aware ground cues over the release's CPU-hygiene and Cat Form
   // leaves) matches neither parent. No capture was retaken.
-  'f429f724ca7ab90873b4a86950c0046585ef66bec7c2052cda12ae578ecee3d0';
+  // Re-minted at the third release/v0.43.0 merge into feature/world-quests
+  // (the hotfix-line renderer leaf composed with the branch's guidance wiring).
+  // No capture was retaken.
+  // Re-minted for the Weekly Vault (PR 4052) landing on the quests integration
+  // branch: the town runtime leaf composes the stone vault hall and the
+  // authoritative layout gains the weeklyVault site. No capture was retaken.
+  // Re-minted for the shipwreck salvage landing: the renderer leaf moved.
+  // No Eastbrook capture or measured value changed.
+  // Re-minted at the release/v0.44.0 base merge into integration/world-quests-v0440
+  // (remint_polish_provenance.mjs on the merged tree; no capture was retaken).
+  // Re-minted at the fourth release/v0.44.0 base merge into integration/world-quests-v0440
+  // (the Eastbrook ferry, PR 4225; remint_polish_provenance.mjs on the merged tree; no capture was retaken).
+  '164b585f770570b773faa8e35c466bcd4ab2840a6572507aa9528bc52572cbc5';
 const ACCEPTED_POLISH_V2_METADATA = readJsonFile<CaptureMetadata>(ACCEPTED_POLISH_V2_METADATA_PATH);
 const ACCEPTED_POLISH_V2_PROVENANCE = ACCEPTED_POLISH_V2_METADATA.polishProvenance;
 const ACCEPTED_POLISH_V2_TOWN_CONTRACT = ACCEPTED_POLISH_V2_METADATA.records[0]?.townContract;
@@ -2764,7 +2790,17 @@ describe('Eastbrook polish performance and contact evidence', () => {
       // was retaken.
       // v0.42.2 hotfix line forward merge into release/v0.43.0: recomputed LAST
       // again over the re-swept evidence. No capture was retaken.
-    ).toBe('88176ae77a5c2ccec01ed97b5ab9d3a54a7f97e788b36bb1432bc7ee1103fca6');
+      // Third release/v0.43.0 merge into feature/world-quests: recomputed LAST
+      // again over the re-swept evidence. No capture was retaken.
+      // Weekly Vault (PR 4052) landing on the quests integration branch:
+      // recomputed LAST again over the re-swept evidence. No capture was retaken.
+      // Re-minted for the shipwreck salvage landing over the re-sealed
+      // provenance. No capture or measured value changed.
+      // Fourth release/v0.44.0 base merge (the Eastbrook ferry, PR 4225): recomputed
+      // LAST again over the re-swept evidence. No capture was retaken.
+      // release/v0.44.0 base merge into PR 4193: recomputed LAST again over the
+      // re-swept evidence. No capture was retaken.
+    ).toBe('55abc96a5aead82eb4096d7915be530c7731d95d07bbc9b1181704092cff1db3');
   });
 
   it('binds every historical after record to its accepted source and asset provenance', () => {
