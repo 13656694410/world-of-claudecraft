@@ -14979,6 +14979,7 @@
   }
   #dungeon-finder-window.df-vault-mode {
     width: min(980px, 96vw);
+    height: min(780px, 88vh);
     max-height: min(780px, 88vh);
   }
   .df-tabs {
@@ -15008,18 +15009,17 @@
   }
   .df-body-vault {
     display: flex;
-    overflow: hidden;
+    overflow-y: auto;
   }
   .df-vault-container {
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
     min-height: 0;
-    overflow: hidden;
   }
   .df-vault-container .weekly-rewards {
     flex: 1;
-    overflow-y: auto;
+    overflow-y: visible;
     padding: 4px 12px 12px;
   }
   .df-cols {
