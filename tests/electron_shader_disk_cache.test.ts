@@ -17,9 +17,11 @@ import {
 } from '../electron/gpu_backend.cjs';
 import {
   applyShaderDiskCacheSwitches,
+  chromiumAtLeast,
   decideShaderDiskCache,
   GPU_DISK_CACHE_SIZE_KB,
   GPU_DISK_CACHE_SIZE_SWITCH,
+  MIN_CHROMIUM_WITH_BLOB_CACHE_FIXES,
   SHADER_DISK_CACHE_DISABLE_ENV,
   SHADER_DISK_CACHE_FEATURE,
   SHADER_DISK_CACHE_PLATFORMS,
@@ -27,6 +29,8 @@ import {
 import { stripComments } from './helpers/strip_comments';
 
 const FEATURE = 'ANGLEPerContextBlobCache';
+// The Chromium Electron 43.3.0 embeds, the first with both callback fixes.
+const CHROME = '150.0.7871.212';
 const VULKAN_FEATURES = ['Vulkan', 'DefaultANGLEVulkan', 'VulkanFromANGLE'];
 const AMD_CARD_SWITCHES = [['disable-angle-features', 'supportsImageDrmFormatModifier']] as const;
 
@@ -162,7 +166,14 @@ describe('appendEnabledFeatures', () => {
 describe('decideShaderDiskCache', () => {
   it('is on by default on Windows and Linux', () => {
     for (const platform of ['win32', 'linux']) {
-      expect(decideShaderDiskCache({ platform, env: {}, prefs: defaultDesktopPrefs() })).toEqual({
+      expect(
+        decideShaderDiskCache({
+          platform,
+          chromeVersion: CHROME,
+          env: {},
+          prefs: defaultDesktopPrefs(),
+        }),
+      ).toEqual({
         enabled: true,
         reason: 'default',
       });
@@ -170,13 +181,18 @@ describe('decideShaderDiskCache', () => {
   });
 
   it('is off on macOS, where it was never measured', () => {
-    const decision = decideShaderDiskCache({ platform: 'darwin', env: {}, prefs: null });
+    const decision = decideShaderDiskCache({
+      platform: 'darwin',
+      chromeVersion: CHROME,
+      env: {},
+      prefs: null,
+    });
     expect(decision.enabled).toBe(false);
     expect(decision.reason).toBe('platform darwin');
   });
 
   it('honors each off switch on its own', () => {
-    const on = { platform: 'win32', env: {}, prefs: defaultDesktopPrefs() };
+    const on = { platform: 'win32', chromeVersion: CHROME, env: {}, prefs: defaultDesktopPrefs() };
     const cases = [
       { env: { WOC_DISABLE_SHADER_DISK_CACHE: '1' }, reason: 'WOC_DISABLE_SHADER_DISK_CACHE=1' },
       { env: { WOC_DISABLE_GPU_FORCE: '1' }, reason: 'WOC_DISABLE_GPU_FORCE=1' },
@@ -194,7 +210,12 @@ describe('decideShaderDiskCache', () => {
     for (const value of ['0', 'true', 'yes', ' 1', '']) {
       for (const name of [SHADER_DISK_CACHE_DISABLE_ENV, 'WOC_DISABLE_GPU_FORCE']) {
         expect(
-          decideShaderDiskCache({ platform: 'win32', env: { [name]: value }, prefs: null }).enabled,
+          decideShaderDiskCache({
+            platform: 'win32',
+            chromeVersion: CHROME,
+            env: { [name]: value },
+            prefs: null,
+          }).enabled,
           `${name}=${JSON.stringify(value)}`,
         ).toBe(true);
       }
@@ -203,11 +224,53 @@ describe('decideShaderDiskCache', () => {
       expect(
         decideShaderDiskCache({
           platform: 'win32',
+          chromeVersion: CHROME,
           env: {},
           prefs: { shaderDiskCacheOptOut: value as never },
         }).enabled,
       ).toBe(true);
     }
+  });
+
+  it('stays off on a Chromium older than the one with both callback fixes', () => {
+    expect(MIN_CHROMIUM_WITH_BLOB_CACHE_FIXES).toBe('150.0.7871.212');
+    for (const older of ['150.0.7871.211', '150.0.7870.999', '149.9.9999.999', '120.0.0.0']) {
+      expect(
+        decideShaderDiskCache({ platform: 'win32', chromeVersion: older, env: {}, prefs: null }),
+        older,
+      ).toEqual({ enabled: false, reason: `chromium ${older} is older than 150.0.7871.212` });
+    }
+    for (const newer of ['150.0.7871.213', '150.0.7872.0', '151.0.0.0', '153.0.8010.53']) {
+      expect(
+        decideShaderDiskCache({ platform: 'win32', chromeVersion: newer, env: {}, prefs: null })
+          .enabled,
+        newer,
+      ).toBe(true);
+    }
+  });
+
+  it('treats an unverifiable Chromium version as too old', () => {
+    for (const junk of [undefined, null, '', '150', '150.0.7871', '150.0.x.212', '-1.0.0.0']) {
+      expect(
+        decideShaderDiskCache({
+          platform: 'win32',
+          chromeVersion: junk as never,
+          env: {},
+          prefs: null,
+        }).enabled,
+        String(junk),
+      ).toBe(false);
+    }
+    expect(decideShaderDiskCache({ platform: 'linux', env: {}, prefs: null }).reason).toBe(
+      'chromium unknown is older than 150.0.7871.212',
+    );
+  });
+
+  it('compares versions part by part, numerically', () => {
+    expect(chromiumAtLeast('150.0.7871.212', '150.0.7871.212')).toBe(true);
+    expect(chromiumAtLeast('150.0.10000.0', '150.0.7871.212')).toBe(true);
+    expect(chromiumAtLeast('99.0.9999.999', '150.0.7871.212')).toBe(false);
+    expect(chromiumAtLeast('1500.0.0.0', '150.0.7871.212')).toBe(true);
   });
 });
 
@@ -227,6 +290,7 @@ describe('the switches on every rung (both levers applied the way main.cjs appli
             const cl = chromiumCommandLine(argv);
             const decision = decideShaderDiskCache({
               platform,
+              chromeVersion: CHROME,
               env: {},
               prefs: defaultDesktopPrefs(),
             });
@@ -253,6 +317,9 @@ describe('the switches on every rung (both levers applied the way main.cjs appli
             // The backend's other switches are untouched by the merge.
             if (launch.backend === 'vulkan') {
               expect(cl.values.get('use-angle')).toBe('vulkan');
+              expect(cl.values.get('enable-angle-features')).toBe(
+                launch.parallel ? 'enableParallelCompileAndLink' : undefined,
+              );
               if (cardSwitches.length) {
                 expect(cl.values.get('disable-angle-features')).toBe(
                   'supportsImageDrmFormatModifier',
@@ -268,17 +335,30 @@ describe('the switches on every rung (both levers applied the way main.cjs appli
 
 describe('the off switches remove both switches', () => {
   const offInputs: Array<[string, Parameters<typeof decideShaderDiskCache>[0]]> = [
-    ['the env', { platform: 'win32', env: { WOC_DISABLE_SHADER_DISK_CACHE: '1' }, prefs: null }],
-    ['the no-lever rescue env', { platform: 'win32', env: { WOC_DISABLE_GPU_FORCE: '1' } }],
+    [
+      'the env',
+      {
+        platform: 'win32',
+        chromeVersion: CHROME,
+        env: { WOC_DISABLE_SHADER_DISK_CACHE: '1' },
+        prefs: null,
+      },
+    ],
+    [
+      'the no-lever rescue env',
+      { platform: 'win32', chromeVersion: CHROME, env: { WOC_DISABLE_GPU_FORCE: '1' } },
+    ],
     [
       'the stored opt-out',
       {
         platform: 'win32',
+        chromeVersion: CHROME,
         env: {},
         prefs: { ...defaultDesktopPrefs(), shaderDiskCacheOptOut: true },
       },
     ],
-    ['macOS', { platform: 'darwin', env: {}, prefs: null }],
+    ['macOS', { platform: 'darwin', chromeVersion: CHROME, env: {}, prefs: null }],
+    ['an older Chromium', { platform: 'win32', chromeVersion: '149.0.0.0', env: {}, prefs: null }],
   ];
   for (const [what, input] of offInputs) {
     it(what, () => {
@@ -288,25 +368,21 @@ describe('the off switches remove both switches', () => {
     });
   }
 
-  it('leaves the Vulkan feature set exactly as the backend wrote it', () => {
-    const cl = chromiumCommandLine();
-    const launch = decideGpuBackendLaunch({
-      platform: 'linux',
-      env: {},
-      prefs: defaultDesktopPrefs(),
-    });
-    applyGpuBackendSwitches(cl.app, launch, []);
-    applyShaderDiskCacheSwitches(
-      cl.app,
-      decideShaderDiskCache({
+  for (const [what, input] of offInputs) {
+    it(`${what} leaves the Vulkan feature set exactly as the backend wrote it`, () => {
+      const cl = chromiumCommandLine();
+      const launch = decideGpuBackendLaunch({
         platform: 'linux',
-        env: { WOC_DISABLE_SHADER_DISK_CACHE: '1' },
-        prefs: null,
-      }),
-    );
-    expect(cl.values.get('enable-features')).toBe('Vulkan,DefaultANGLEVulkan,VulkanFromANGLE');
-    expect(cl.values.has('gpu-disk-cache-size-kb')).toBe(false);
-  });
+        env: {},
+        prefs: defaultDesktopPrefs(),
+      });
+      applyGpuBackendSwitches(cl.app, launch, []);
+      const onLinux = input.platform === 'darwin' ? input : { ...input, platform: 'linux' };
+      applyShaderDiskCacheSwitches(cl.app, decideShaderDiskCache(onLinux));
+      expect(cl.values.get('enable-features')).toBe('Vulkan,DefaultANGLEVulkan,VulkanFromANGLE');
+      expect(cl.values.has('gpu-disk-cache-size-kb')).toBe(false);
+    });
+  }
 
   it('applies nothing for a missing decision', () => {
     const cl = chromiumCommandLine();
@@ -369,12 +445,18 @@ describe('main.cjs wiring', () => {
     expect(code.slice(0, applyAt)).not.toMatch(/\bawait\b/);
     expect(count('decideShaderDiskCache(')).toBe(1);
     expect(count('applyShaderDiskCacheSwitches(')).toBe(1);
+    // Both statements sit at module scope (column zero), not inside a callback such as an
+    // app.once('ready') or setImmediate wrapper, which would run them too late.
+    expect(code).toMatch(/^const shaderDiskCache = decideShaderDiskCache\(\{$/m);
+    expect(code).toMatch(/^applyShaderDiskCacheSwitches\(app, shaderDiskCache\);$/m);
     const decision = code.slice(decideAt, code.indexOf('});', decideAt)).replace(/\s+/g, ' ');
     expect(decision).toContain('platform: process.platform,');
+    expect(decision).toContain('chromeVersion: process.versions.chrome,');
     expect(decision).toContain('env: process.env,');
     expect(decision).toContain('prefs: desktopPrefs,');
     // The support line a ticket greps for.
     expect(code).toContain(
+      // biome-ignore lint/suspicious/noTemplateCurlyInString: pins main.cjs source text verbatim
       "`[gpu] shader disk cache: ${shaderDiskCache.enabled ? 'on' : 'off'} (${shaderDiskCache.reason})`",
     );
   });
@@ -386,21 +468,30 @@ describe('every enable-features writer goes through the merge', () => {
     // features. The literal may only live in the merge helper and in gpu_backend's switch
     // table (which applyGpuBackendSwitches routes through the helper, pinned above).
     const dir = join(__dirname, '..', 'electron');
-    const holders = readdirSync(dir)
+    const sources = readdirSync(dir)
       .filter((f) => f.endsWith('.cjs'))
-      .filter((f) =>
-        stripComments(readFileSync(join(dir, f), 'utf8')).includes("'enable-features'"),
-      )
-      .sort();
-    expect(holders).toEqual(['chromium_features.cjs', 'gpu_backend.cjs']);
-    const others = readdirSync(dir).filter(
-      (f) => f.endsWith('.cjs') && f !== 'chromium_features.cjs',
-    );
-    for (const f of others) {
-      const src = stripComments(readFileSync(join(dir, f), 'utf8'));
-      expect(src, f).not.toMatch(
-        /appendSwitch\(\s*(['"]enable-features['"]|ENABLE_FEATURES_SWITCH)/,
-      );
+      .map((f) => [f, stripComments(readFileSync(join(dir, f), 'utf8'))] as const);
+    // Every spelling of the switch name, quoted any way, and the helper's constant.
+    const mentions = /(['"`])enable-features\1|ENABLE_FEATURES_SWITCH/;
+    const holders = sources.filter(([, src]) => mentions.test(src)).map(([f]) => f);
+    expect(holders.sort()).toEqual(['chromium_features.cjs', 'gpu_backend.cjs']);
+    const rawAppend = /appendSwitch\(\s*((['"`])enable-features\2|ENABLE_FEATURES_SWITCH)/;
+    // Positive controls: the scan does see a raw append in each spelling.
+    for (const control of [
+      "appendSwitch('enable-features', 'X')",
+      'appendSwitch("enable-features", "X")',
+      'appendSwitch(`enable-features`, `X`)',
+      "appendSwitch(ENABLE_FEATURES_SWITCH, 'X')",
+    ]) {
+      expect(control).toMatch(rawAppend);
     }
+    for (const [f, src] of sources) {
+      if (f === 'chromium_features.cjs') continue;
+      expect(src, f).not.toMatch(rawAppend);
+    }
+    // gpu_backend holds the name in its switch table and routes it to the helper.
+    const backend = sources.find(([f]) => f === 'gpu_backend.cjs')?.[1] ?? '';
+    expect(backend).toContain('if (name === ENABLE_FEATURES_SWITCH) {');
+    expect(backend).toContain("appendEnabledFeatures(app.commandLine, value.split(','));");
   });
 });

@@ -374,15 +374,25 @@ measured):
 - `--gpu-disk-cache-size-kb` (`GPU_DISK_CACHE_SIZE_KB`, 64 MB instead of the 6 MB
   default), which leaves room for several full tours. The GPU process also holds up to
   that much in memory and reads the whole cache at startup, which is why it is not
-  larger. A size the player passes on the command line wins.
+  larger. On Windows the cache lives in the roaming profile (`%APPDATA%`), like the rest
+  of the shell's data. A size the player passes on the command line wins.
+
+Both stay off when the embedded Chromium is older than the one that first carries the
+callback fixes below (`MIN_CHROMIUM_WITH_BLOB_CACHE_FIXES`, checked against
+`process.versions.chrome`), or when that version cannot be read.
 
 `main.log` records `[gpu] shader disk cache: on (default)` or `off (<reason>)` at startup.
 
 **Turning it off** (from the next launch, both switches together):
 - `WOC_DISABLE_SHADER_DISK_CACHE=1` in the environment (strict `1`), or the no-GPU-lever
   rescue `WOC_DISABLE_GPU_FORCE=1`;
-- `"shaderDiskCacheOptOut": true` in `desktop-prefs.json` (a hand edit: there is no
-  in-game toggle, and the shell's own saves keep the field).
+- `"shaderDiskCacheOptOut": true` in `desktop-prefs.json` (a hand edit made while the game
+  is closed, since the shell rewrites the file from memory; there is no in-game toggle, and
+  the shell's own saves keep the field).
+
+Turning it off does not remove what is already in `GPUCache`, which stock Chromium still
+reads at startup: when a machine crashes with the cache and keeps crashing with it off,
+also delete the `GPUCache` folder in the profile directory.
 
 There is no server-side kill switch: the switches are read before any page exists, so one
 would need the game to fetch a flag and write the prefs field through a new IPC setter,
@@ -397,7 +407,8 @@ effective one launch later. Until then, a desktop release is the remote off swit
   (crbug.com/500187083 and crbug.com/517018374: `MarkContextLost` in
   `gpu/command_buffer/service/gles2_cmd_decoder_passthrough.cc` clears the blob cache
   callbacks under a `SECURITY:` comment). Chromium 150.0.7871.212 (Electron 43.3.0) has
-  both; an Electron without them must not ship the feature;
+  both, and the shell keeps the feature off below it; a newer Chromium passes that floor
+  by construction, so a regression there is only caught by this check;
 - if Chromium enables the feature by default or fixes the ordering upstream, the feature
   switch can go (the size switch still earns its place).
 

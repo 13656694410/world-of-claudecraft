@@ -324,6 +324,7 @@ mergeDesktopPrefs(launchCounterAfterAutoLaunch({ prefs: desktopPrefs, launch: gp
 // Vulkan rungs' own, never a second value that would replace them.
 const shaderDiskCache = decideShaderDiskCache({
   platform: process.platform,
+  chromeVersion: process.versions.chrome,
   env: process.env,
   prefs: desktopPrefs,
 });
