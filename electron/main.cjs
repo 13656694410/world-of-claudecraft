@@ -32,6 +32,8 @@ const {
   extractInlineScriptHashes,
   withCspHeader,
   ALLOWED_PERMISSIONS,
+  isExternalDocumentUrl,
+  toCanonicalExternalUrl,
 } = require('./shell_guards.cjs');
 const { rangeContentType, rangedFileResponse } = require('./media_range.cjs');
 const { resolveDesktopConfig, walletConnectionSupported } = require('./desktop_config.cjs');
@@ -849,6 +851,11 @@ function createMainWindow() {
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     if (url.startsWith('http://') || url.startsWith('https://')) {
       shell.openExternal(url);
+    } else {
+      const canonical = toCanonicalExternalUrl(url, APP_ORIGIN, apiOrigin);
+      if (canonical.startsWith('http://') || canonical.startsWith('https://')) {
+        shell.openExternal(canonical);
+      }
     }
     return { action: 'deny' };
   });
@@ -863,6 +870,20 @@ function createMainWindow() {
     const isMainFrame = details.isMainFrame !== false;
     if (!navigationAllowed(details.url, isMainFrame, appOrigins)) {
       details.preventDefault();
+      if (
+        isMainFrame &&
+        (details.url.startsWith('http://') || details.url.startsWith('https://'))
+      ) {
+        shell.openExternal(details.url);
+      }
+      return;
+    }
+    if (isMainFrame && isExternalDocumentUrl(details.url)) {
+      details.preventDefault();
+      const canonical = toCanonicalExternalUrl(details.url, APP_ORIGIN, apiOrigin);
+      if (canonical.startsWith('http://') || canonical.startsWith('https://')) {
+        shell.openExternal(canonical);
+      }
     }
   };
   mainWindow.webContents.on('will-navigate', guardNavigation);
