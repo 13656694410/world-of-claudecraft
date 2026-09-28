@@ -11,7 +11,6 @@
 import type { Pool as PgPool } from 'pg';
 import { Pool } from 'pg';
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
-import { takeMailPartitionsForCharacterSave } from '../server/mail_partition_rearm';
 import { materialSourceConnection } from '../server/material_source_connection';
 import { handleVaultMailTake, VaultMailTakeGuard } from '../server/vault_mail_take_guard';
 import { type CharacterState, type MailSave, type MarketSave, Sim } from '../src/sim/sim';
@@ -34,6 +33,10 @@ describeDb('mail custody overlay (REAL Postgres)', () => {
   let pool: PgPool;
   let db: typeof import('../server/db');
   let overlay: typeof import('../server/mail_custody_overlay');
+  // Imported lazily like db: mail_partition_rearm statically imports server/db, and a
+  // hoisted static import would build its pool before DATABASE_URL points at the verify
+  // database (so a DB-free CI shard, where this suite skips, would still dial :5433).
+  let takeMailPartitionsForCharacterSave: typeof import('../server/mail_partition_rearm').takeMailPartitionsForCharacterSave;
   let nextSeq = 0;
 
   beforeAll(async () => {
@@ -65,6 +68,7 @@ describeDb('mail custody overlay (REAL Postgres)', () => {
 
     db = await import('../server/db');
     overlay = await import('../server/mail_custody_overlay');
+    ({ takeMailPartitionsForCharacterSave } = await import('../server/mail_partition_rearm'));
 
     // The REAL boot path: proves the mail_custody_parcels registration in
     // ensureSchema, not just the DDL string.
