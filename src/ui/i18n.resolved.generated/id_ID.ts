@@ -2784,6 +2784,9 @@ export const id_ID: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
+      "rewardTitles": "Earn permanent titles after 1, 3, 6, 24 and 168 hours of played time with World PvP on. Logout pauses the timer. Switching off resets it. Time counts in every zone.",
+      "rewardProgress": "Current PvP streak: {time} played",
       "tab": "Pertempuran Dunia PvP",
       "title": "Pertempuran Dunia PvP",
       "blurb": "Naikkan bendera mu untuk melawan pemain lain yang sudah naikkan bendera di mana saja di dunia terbuka. Kalahkan satu dan ambil bagian dari uang mereka, ditambah Kehormatan untuk perlengkapan Perang. Arena Pertempuran dan Arena masih membayar lebih banyak.",

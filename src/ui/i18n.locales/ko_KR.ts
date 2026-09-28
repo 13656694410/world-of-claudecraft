@@ -19600,4 +19600,9 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
     '옭아매는 뿌리의 시전 시간이 0.5초 감소합니다.',
   'entities.itemSets.vanguard_druid_balance.bonus4':
     '옭아매는 뿌리를 시전하면 이동 중에도 시전할 수 있고 이동 속도가 4초 동안 20% 증가합니다. 20초에 한 번만 발동합니다.',
+  'hudChrome.worldPvp.rewardBonus':
+    '월드 PvP를 켜 두면 경험치와 진영 평판을 {percent} 더 얻습니다. 끄기를 요청하면 즉시 보너스가 중단됩니다.',
+  'hudChrome.worldPvp.rewardTitles':
+    '월드 PvP를 켠 플레이 시간이 1, 3, 6, 24, 168시간에 도달하면 영구 칭호를 얻습니다. 로그아웃 중에는 시간이 멈추고, 끄면 초기화됩니다. 모든 지역에서 시간이 누적됩니다.',
+  'hudChrome.worldPvp.rewardProgress': '현재 PvP 유지 시간: {time}',
 };

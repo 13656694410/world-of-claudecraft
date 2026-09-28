@@ -288,7 +288,7 @@ describe('applySocialSelfWire: the wpvp self key (the ClientWorld mirror)', () =
 
   it('adopts a readout, keeps it when the key is omitted, clears it on null', () => {
     const target = mirrors();
-    const readout = info({ flagged: true, kills: 2 });
+    const readout = info({ flagged: true, kills: 2, rewardSeconds: 3599 });
     applySocialSelfWire(target, { wpvp: readout });
     expect(target.worldPvpInfo).toBe(readout);
     applySocialSelfWire(target, { honor: 5 });
@@ -672,5 +672,28 @@ describe('the World PvP tab: the free-for-all tone', () => {
     expect(at).toBeGreaterThan(-1);
     const rule = css.slice(at, css.indexOf('}', at));
     expect(rule).toContain('var(--color-hostile)');
+  });
+});
+
+describe('World PvP reward display', () => {
+  it('displays the bonus and streak rules, with progress in the repaint signature', () => {
+    setLanguage('en');
+    const first = buildWorldPvpWindowView({
+      info: info({ flagged: true, rewardSeconds: 3600 }),
+      honor: 0,
+      confirming: false,
+    });
+    const next = buildWorldPvpWindowView({
+      info: info({ flagged: true, rewardSeconds: 3601 }),
+      honor: 0,
+      confirming: false,
+    });
+    expect(first.sig).not.toBe(next.sig);
+    const html = worldPvpBodyHtml(first);
+    expect(html).toContain('20% more experience and faction reputation');
+    expect(html).toContain('Logout pauses the timer');
+    expect(html).toContain('Switching off resets it');
+    expect(html).toContain('Current PvP streak: 1:00:00 played');
+    expect(html).toContain('168 hours');
   });
 });

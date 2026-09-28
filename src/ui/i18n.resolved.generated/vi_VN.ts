@@ -2784,6 +2784,9 @@ export const vi_VN: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
+      "rewardTitles": "Earn permanent titles after 1, 3, 6, 24 and 168 hours of played time with World PvP on. Logout pauses the timer. Switching off resets it. Time counts in every zone.",
+      "rewardProgress": "Current PvP streak: {time} played",
       "tab": "World PvP",
       "title": "World PvP",
       "blurb": "Nâng cờ của bạn lên để chiến đấu với những người chơi khác có cờ ở bất kỳ nơi nào trên thế giới mở. Đánh bại một người và lấy một phần số tiền của họ, cộng với Danh Dự dành cho trang bị Chiến Tranh. Chiến Trường và Đấu Trường vẫn trả lương cao hơn.",

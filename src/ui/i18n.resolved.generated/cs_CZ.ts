@@ -2784,6 +2784,9 @@ export const cs_CZ: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
+      "rewardTitles": "Earn permanent titles after 1, 3, 6, 24 and 168 hours of played time with World PvP on. Logout pauses the timer. Switching off resets it. Time counts in every zone.",
+      "rewardProgress": "Current PvP streak: {time} played",
       "tab": "Světové PvP",
       "title": "Světové PvP",
       "blurb": "Zvedni vlajku a bojuj s ostatními hráči se zvednutou vlajkou kdekoli v otevřeném světě. Poraz jednoho a vezmi si podíl z jeho měšce, plus Čest na výbavu Válečnictví. Bojiště a arény pořád vyplácejí víc.",

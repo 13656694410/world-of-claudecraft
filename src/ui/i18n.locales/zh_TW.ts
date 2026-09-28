@@ -18662,4 +18662,9 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus2': '纏縛根鬚的施法時間縮短0.5秒。',
   'entities.itemSets.vanguard_druid_balance.bonus4':
     '施放纏縛根鬚後，你可以在移動中施法，並使移動速度提高20%，持續4秒。每20秒最多觸發一次。',
+  'hudChrome.worldPvp.rewardBonus':
+    '保持世界PvP開啟可多獲得{percent}的經驗值和陣營聲望。請求關閉時，加成立即停止。',
+  'hudChrome.worldPvp.rewardTitles':
+    '保持世界PvP開啟的遊戲時間達到1、3、6、24和168小時後，可獲得永久頭銜。登出會暫停計時，關閉會重設計時。所有區域的時間均計入。',
+  'hudChrome.worldPvp.rewardProgress': '目前PvP連續遊戲時間：{time}',
 };

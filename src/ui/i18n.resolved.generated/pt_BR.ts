@@ -2784,6 +2784,9 @@ export const pt_BR: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
+      "rewardTitles": "Earn permanent titles after 1, 3, 6, 24 and 168 hours of played time with World PvP on. Logout pauses the timer. Switching off resets it. Time counts in every zone.",
+      "rewardProgress": "Current PvP streak: {time} played",
       "tab": "PvP Mundial",
       "title": "PvP Mundial",
       "blurb": "Levante sua bandeira para lutar contra outros jogadores marcados em qualquer lugar do mundo aberto. Derrote um deles e fique com uma parte do dinheiro dele, além de Honra para o equipamento de Guerra. Campos de batalha e Arenas ainda pagam mais.",

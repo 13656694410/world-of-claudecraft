@@ -2784,6 +2784,9 @@ export const sv_SE: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
+      "rewardTitles": "Earn permanent titles after 1, 3, 6, 24 and 168 hours of played time with World PvP on. Logout pauses the timer. Switching off resets it. Time counts in every zone.",
+      "rewardProgress": "Current PvP streak: {time} played",
       "tab": "Världskamp",
       "title": "Världskamp",
       "blurb": "Höj din flagga för att slåss med andra flaggade spelare var som helst i den öppna världen. Besegra en och ta del av deras börse, plus Heder mot Krigsförskap. Slagfälten och Arenorna betalar fortfarande mer.",

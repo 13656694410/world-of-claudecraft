@@ -3365,6 +3365,11 @@ export const hudChromeStrings = {
   // number is a resolved value from src/sim/pvp/world_pvp_rules.ts, never a
   // literal in the copy, so a retune never strands the text.
   worldPvp: {
+    rewardBonus:
+      'Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.',
+    rewardTitles:
+      'Earn permanent titles after 1, 3, 6, 24 and 168 hours of played time with World PvP on. Logout pauses the timer. Switching off resets it. Time counts in every zone.',
+    rewardProgress: 'Current PvP streak: {time} played',
     tab: 'World PvP',
     title: 'World PvP',
     blurb:

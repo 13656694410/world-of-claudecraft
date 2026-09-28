@@ -8,6 +8,7 @@
 // tab reads as a sibling of the Thornhollow Fields panel, not a new dialect.
 
 import { audio } from '../../../game/audio';
+import { WORLD_PVP_REWARD_BONUS } from '../../../sim/pvp/world_pvp_rewards_rules';
 import type { IWorld } from '../../../world_api';
 import { clockSeconds } from '../../clock_seconds_core';
 import { durationText } from '../../duration_text';
@@ -28,6 +29,12 @@ const pct = (whole: number): string =>
 export function disarmClockText(seconds: number): string {
   const whole = Math.max(0, Math.floor(seconds));
   return `${num(Math.floor(whole / 60))}:${clockSeconds(whole % 60, true)}`;
+}
+
+/** Played-time progress as h:mm:ss, including the sub-hour remainder. */
+function rewardClockText(seconds: number): string {
+  const whole = Math.max(0, Math.floor(seconds));
+  return `${num(Math.floor(whole / 3600))}:${clockSeconds(Math.floor(whole / 60) % 60, true)}:${clockSeconds(whole % 60, true)}`;
 }
 
 /** Focus keys, so a rebuild (once a second while disarming, and the flip into
@@ -75,6 +82,8 @@ export function worldPvpBodyHtml(view: WorldPvpWindowView): string {
     `</div>`;
   const stakes = view.stakes;
   const stakeRows = [
+    t('hudChrome.worldPvp.rewardBonus', { percent: pct(WORLD_PVP_REWARD_BONUS * 100) }),
+    t('hudChrome.worldPvp.rewardTitles'),
     // Where you can fight at all (the three zone policies), then what raises
     // the flag for you, then what a kill moves, then how to put it back down.
     t('hudChrome.worldPvp.groundSanctuary'),
@@ -104,6 +113,7 @@ export function worldPvpBodyHtml(view: WorldPvpWindowView): string {
   return (
     `<div class="arena-layout"><section class="arena-overview">` +
     blurb +
+    `<div class="bg-note">${esc(t('hudChrome.worldPvp.rewardProgress', { time: rewardClockText(view.rewardSeconds) }))}</div>` +
     status +
     // The action sits right under the status it acts on, and above the record,
     // so it is on screen without scrolling on a landscape phone.

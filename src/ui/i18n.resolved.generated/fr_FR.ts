@@ -2784,6 +2784,9 @@ export const fr_FR: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
+      "rewardTitles": "Earn permanent titles after 1, 3, 6, 24 and 168 hours of played time with World PvP on. Logout pauses the timer. Switching off resets it. Time counts in every zone.",
+      "rewardProgress": "Current PvP streak: {time} played",
       "tab": "JcJ mondial",
       "title": "JcJ mondial",
       "blurb": "Levez votre drapeau pour combattre d'autres joueurs marqués partout dans le monde ouvert. Vainquez-en un et prenez une part de sa bourse, plus de l'Honneur pour l'équipement de Guerre. Les champs de bataille et les arènes rapportent toujours davantage.",

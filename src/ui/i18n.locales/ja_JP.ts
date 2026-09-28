@@ -19617,4 +19617,9 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus2': '絡み根の詠唱時間が0.5秒短縮される。',
   'entities.itemSets.vanguard_druid_balance.bonus4':
     '絡み根を詠唱すると、移動しながら詠唱でき、移動速度が4秒間20%上昇する。20秒に1回しか発生しない。',
+  'hudChrome.worldPvp.rewardBonus':
+    'ワールドPvPを有効にしている間、経験値と勢力の評判の獲得量が{percent}増加します。無効化を要求した時点でボーナスは終了します。',
+  'hudChrome.worldPvp.rewardTitles':
+    'ワールドPvPを有効にしたプレイ時間が1、3、6、24、168時間に達すると、永続的な称号を獲得できます。ログアウト中は計測が止まり、無効化するとリセットされます。すべての地域で時間が加算されます。',
+  'hudChrome.worldPvp.rewardProgress': '現在のPvP継続時間：{time}',
 };

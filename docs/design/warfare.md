@@ -761,3 +761,31 @@ Within the window the families are ordered by armor class, heaviest first, so th
 list reads mail, then leather, then cloth: Furyforged, Stormbound, Ashstalker,
 Thornhide, Cinderweave. The set table above is ordered by when each family was
 authored, which is why Thornhide appears last there and fourth in the shop.
+
+## World PvP flag rewards
+
+Keeping `/pvp` on grants 20% more XP and faction reputation. XP multiplies
+before rested kill XP; reputation multiplies before the existing level cap.
+Positive boosted awards round down to whole points. Turning PvP off stops
+both bonuses immediately, even while the five-minute disarm runs. Automatically
+raised flags receive the same rewards while armed. All zones count.
+
+The played-time streak grants permanent titles: Bold at 1 hour, Defiant at
+3 hours, Dauntless at 6 hours, Unyielding at 24 hours, and Indomitable at
+168 hours (7 days). Logout pauses the streak; `/pvp off` resets it, including
+when that countdown is later cancelled. Earned titles survive resets.
+This requested played-time reward is an explicit exception to the general
+Book of Deeds rule against attendance rewards. AFK and sanctuary time count.
+
+The existing character JSONB stores optional `worldPvp.rewardTicks`, an integer
+capped at 168 hours at `TICK_RATE`. Only simulation ticks accrue, and leaving or disconnected
+characters do not accrue. Existing autosave/logout persistence handles progress;
+first-ever titles use the existing deed durability and broadcast paths. Older
+binaries ignore this additive field and discard streak progress on their next
+save, so rollback preserves earned titles but not an unfinished streak.
+
+The pure leaf `src/sim/pvp/world_pvp_rewards_rules.ts` owns amounts and thresholds.
+XP, reputation and UI consumers import this leaf directly to avoid the PvP
+barrel's runtime dependency graph. The system `world_pvp_rewards.ts` advances
+the capped counter from `updateWorldPvp`, with `ctx.grantDeed` only at thresholds.
+Tests: `tests/world_pvp_rewards.test.ts` and `tests/world_pvp_view.test.ts`.

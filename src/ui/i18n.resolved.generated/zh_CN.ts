@@ -2784,6 +2784,9 @@ export const zh_CN: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "保持世界PvP开启可多获得{percent}的经验值和阵营声望。请求关闭时，加成立即停止。",
+      "rewardTitles": "保持世界PvP开启的游戏时间达到1、3、6、24和168小时后，可获得永久头衔。登出会暂停计时，关闭会重置计时。所有区域的时间均计入。",
+      "rewardProgress": "当前PvP连续游戏时间：{time}",
       "tab": "世界 PvP",
       "title": "世界 PvP",
       "blurb": "升起旗帜后，你可以在开放世界的任何地方与其他已开启旗帜的玩家战斗。击败一人可分得对方钱袋中的一部分，外加用于兑换战争装备的荣誉。战场和竞技场仍然给予更多回报。",

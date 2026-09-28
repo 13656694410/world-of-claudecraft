@@ -2784,6 +2784,9 @@ export const nl_NL: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
+      "rewardTitles": "Earn permanent titles after 1, 3, 6, 24 and 168 hours of played time with World PvP on. Logout pauses the timer. Switching off resets it. Time counts in every zone.",
+      "rewardProgress": "Current PvP streak: {time} played",
       "tab": "Wereldgevecht",
       "title": "Wereldgevecht",
       "blurb": "Hef je vlag op om ergens in de openbare wereld tegen andere gevlagde spelers te vechten. Versla er een en krijg een deel van hun beurs, plus Eer voor Oorlogsuitrusting. Gevechtsgebieden en Arena's brengen nog meer op.",

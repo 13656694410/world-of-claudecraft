@@ -55,6 +55,7 @@ export type WorldPvpWindowView =
       kills: number;
       deaths: number;
       honor: number;
+      rewardSeconds: number;
       /** The ground under the player right now, for the status card's second
        *  line. Reported whatever the kill switch says, so `realmEnabled` is
        *  what decides whether it means anything. */
@@ -114,6 +115,7 @@ export function buildWorldPvpWindowView(input: WorldPvpWindowViewInput): WorldPv
     info.kills,
     info.deaths,
     input.honor,
+    info.rewardSeconds ?? 0,
     info.zone,
     info.enabled === false ? 0 : 1,
   ].join('|');
@@ -126,6 +128,7 @@ export function buildWorldPvpWindowView(input: WorldPvpWindowViewInput): WorldPv
     kills: info.kills,
     deaths: info.deaths,
     honor: input.honor,
+    rewardSeconds: info.rewardSeconds ?? 0,
     zone: info.zone,
     realmEnabled: info.enabled !== false,
     stakes: WORLD_PVP_STAKES,

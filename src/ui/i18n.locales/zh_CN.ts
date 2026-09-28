@@ -18644,4 +18644,9 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus2': '缠缚根须的施法时间缩短0.5秒。',
   'entities.itemSets.vanguard_druid_balance.bonus4':
     '施放缠缚根须后，你可以在移动中施法，并使移动速度提高20%，持续4秒。每20秒最多触发一次。',
+  'hudChrome.worldPvp.rewardBonus':
+    '保持世界PvP开启可多获得{percent}的经验值和阵营声望。请求关闭时，加成立即停止。',
+  'hudChrome.worldPvp.rewardTitles':
+    '保持世界PvP开启的游戏时间达到1、3、6、24和168小时后，可获得永久头衔。登出会暂停计时，关闭会重置计时。所有区域的时间均计入。',
+  'hudChrome.worldPvp.rewardProgress': '当前PvP连续游戏时间：{time}',
 };

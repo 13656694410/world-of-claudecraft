@@ -42,8 +42,11 @@ import { formatMoney } from '../format_money';
 import type { PlayerMeta } from '../sim';
 import type { SimContext } from '../sim_context';
 import type { Entity } from '../types';
+import { TICK_RATE } from '../types';
 import { grantHonor } from './honor';
 import { updatePvpVitality } from './vitality';
+import { updateWorldPvpRewards } from './world_pvp_rewards';
+import { sanitizeWorldPvpRewardTicks } from './world_pvp_rewards_rules';
 import {
   WORLD_PVP_ASSIST_WINDOW,
   WORLD_PVP_DISARM_SECONDS,
@@ -67,6 +70,8 @@ export interface WorldPvpMetaState {
   /** Attackable by, and able to attack, other flagged players right now. Stays
    *  true through the whole disarm countdown. */
   flagged: boolean;
+  /** Played ticks with the flag armed; capped at the seven-day title. */
+  rewardTicks?: number;
   /** Sim time the flag drops after /pvp off, or null while armed for good (or
    *  not flagged at all). */
   disarmAt: number | null;
@@ -85,6 +90,8 @@ export interface WorldPvpMetaState {
  *  time restarts at zero on every boot (the node-readiness precedent). */
 export interface WorldPvpSavedState {
   flagged: boolean;
+  /** Played ticks with the flag armed; capped at the seven-day title. */
+  rewardTicks?: number;
   disarmRemaining?: number;
   kills?: number;
   deaths?: number;
@@ -270,6 +277,7 @@ export function setWorldPvpFlag(ctx: SimContext, pid: number, enabled: boolean):
     ctx.error(pid, 'World PvP is already switching off.');
     return false;
   }
+  current.rewardTicks = 0;
   current.disarmAt = ctx.time + WORLD_PVP_DISARM_SECONDS;
   current.changedAt = ctx.time;
   const books = ctx.worldPvpBooks;
@@ -344,6 +352,7 @@ function noticeZoneChanges(ctx: SimContext, books: WorldPvpBooks): void {
  * minute the books are swept.
  */
 export function updateWorldPvp(ctx: SimContext): void {
+  updateWorldPvpRewards(ctx);
   const books = ctx.worldPvpBooks;
   if (ctx.time >= books.nextDisarmAt) {
     let next = Number.POSITIVE_INFINITY;
@@ -718,6 +727,7 @@ export function worldPvpInfoFor(
   return {
     flagged: state?.flagged === true,
     disarmRemaining: remaining === null ? null : Math.round(remaining),
+    rewardSeconds: Math.floor((state?.rewardTicks ?? 0) / TICK_RATE),
     kills: state?.kills ?? 0,
     deaths: state?.deaths ?? 0,
     levelLocked: r.e.level < WORLD_PVP_MIN_LEVEL,
@@ -735,6 +745,7 @@ export function savedWorldPvpState(meta: PlayerMeta, now: number): WorldPvpSaved
   const remaining = worldPvpDisarmRemaining(meta, now);
   return {
     flagged: state.flagged,
+    ...(state.rewardTicks ? { rewardTicks: state.rewardTicks } : {}),
     ...(remaining !== null ? { disarmRemaining: remaining } : {}),
     ...(state.kills > 0 ? { kills: state.kills } : {}),
     ...(state.deaths > 0 ? { deaths: state.deaths } : {}),
@@ -778,7 +789,9 @@ export function loadWorldPvpState(
       ? Math.max(0, record.disarmRemaining)
       : null;
   const disarmAt = remaining === null ? null : ctx.time + remaining;
-  meta.worldPvp = { flagged, disarmAt, kills, deaths };
+  const rewardTicks =
+    flagged && disarmAt === null ? sanitizeWorldPvpRewardTicks(record.rewardTicks) : 0;
+  meta.worldPvp = { flagged, disarmAt, kills, deaths, ...(rewardTicks > 0 ? { rewardTicks } : {}) };
   e.pvpFlag = flagged;
   if (disarmAt !== null) {
     const books = ctx.worldPvpBooks;
