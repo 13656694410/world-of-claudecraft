@@ -4397,6 +4397,7 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
     'Включает или выключает автоатаку по вашей цели. Щелчок правой кнопкой по врагу также начинает атаку.',
   'abilityUi.actionBar.attackRemoveHint':
     'Щёлкните правой кнопкой, чтобы убрать её с панели и освободить ячейку.',
+  'abilityUi.actionBar.moveHint': 'Shift-перетаскивание, чтобы переместить',
   'abilityUi.actionBar.emptySlot': 'Пустая ячейка',
   'abilityUi.actionBar.slotAria': 'Ячейка действия {slot}: {ability}',
   'abilityUi.actionBar.emptySlotAria': 'Ячейка действия {slot}: пусто',

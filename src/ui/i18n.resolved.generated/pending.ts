@@ -10,22 +10,28 @@
 
 export const pending: Record<string, readonly string[]> = {
   "es": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "es_ES": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "fr_FR": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "fr_CA": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "en_CA": [],
   "it_IT": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "de_DE": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "zh_CN": [],
@@ -33,31 +39,40 @@ export const pending: Record<string, readonly string[]> = {
   "ko_KR": [],
   "ja_JP": [],
   "pt_BR": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "ru_RU": [],
   "cs_CZ": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "nl_NL": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "pl_PL": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "id_ID": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "tr_TR": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "sv_SE": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "vi_VN": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
   "da_DK": [
+    "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ]
 };

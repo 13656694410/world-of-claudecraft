@@ -12125,6 +12125,7 @@ export const zh_CN: EnTranslations = {
       "cooldownMinutes": "{minutes}分钟",
       "attackTooltip": "对目标开启或关闭自动攻击。右键点击敌人也会发起攻击。",
       "attackRemoveHint": "右键点击可将其从动作栏移除并空出栏位。",
+      "moveHint": "Shift-拖动以移动",
       "emptySlot": "空栏位",
       "slotAria": "动作栏位 {slot}：{ability}",
       "emptySlotAria": "动作栏位 {slot}：空",
