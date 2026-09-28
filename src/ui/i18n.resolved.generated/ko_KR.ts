@@ -503,7 +503,8 @@ export const ko_KR: EnTranslations = {
         "dungeon_heroic": "영웅 던전 전리품",
         "world": "전역 퀘스트 전리품",
         "pvp": "워페어 장비"
-      }
+      },
+      "previewClaimNotice": "보상이 기다리고 있습니다. 이스트브룩의 금고 관리인을 찾아가 금고를 열고 보상을 받으세요."
     },
     "ferry": {
       "regionLabel": "여객선 시간표",

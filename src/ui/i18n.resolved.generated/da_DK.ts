@@ -503,7 +503,8 @@ export const da_DK: EnTranslations = {
         "dungeon_heroic": "Heroisk dungeon-bytte",
         "world": "Verdenquest-bytte",
         "pvp": "KRIGSUDSPRING udstyr"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Færgekøreplaner",

@@ -13958,6 +13958,7 @@ export type TranslationKeyFlat =
   | 'hudChrome.weeklyRewards.pool.world'
   | 'hudChrome.weeklyRewards.poolRule'
   | 'hudChrome.weeklyRewards.poolSize'
+  | 'hudChrome.weeklyRewards.previewClaimNotice'
   | 'hudChrome.weeklyRewards.previouslyRolled'
   | 'hudChrome.weeklyRewards.progress'
   | 'hudChrome.weeklyRewards.rare'

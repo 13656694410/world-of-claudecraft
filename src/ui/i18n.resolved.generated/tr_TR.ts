@@ -503,7 +503,8 @@ export const tr_TR: EnTranslations = {
         "dungeon_heroic": "Kahramanca zindan hazinesi",
         "world": "Dünya görevi hazinesi",
         "pvp": "SAVAŞ donanımı"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Feribot tarifesi",

@@ -503,7 +503,8 @@ export const id_ID: EnTranslations = {
         "dungeon_heroic": "Jarahan dungeon Heroik",
         "world": "Jarahan misi dunia",
         "pvp": "Perlengkapan PEPERANGAN"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Jadwal feri",

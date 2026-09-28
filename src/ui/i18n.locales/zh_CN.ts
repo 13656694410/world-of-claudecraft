@@ -18474,6 +18474,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.readyTitle': '你的每周奖励已就绪',
   'hudChrome.weeklyRewards.readyDescription':
     '有一周已完成的奖励正在等待。打开你获得的宝库，然后选择一件物品领取。',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    '奖励已就绪。请前往东溪的宝库管理员处开启宝库并领取奖励。',
   'hudChrome.weeklyRewards.notNow': '稍后再说',
   'hudChrome.weeklyRewards.completedWeek': '周次结束于{date}',
   'hudChrome.weeklyRewards.currentWeek': '返回本周进度',

@@ -19386,6 +19386,8 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.readyTitle': '주간 보상이 준비되었습니다',
   'hudChrome.weeklyRewards.readyDescription':
     '완료된 한 주의 보상이 기다리고 있습니다. 얻은 금고를 연 다음 받을 아이템 하나를 고르세요.',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    '보상이 기다리고 있습니다. 이스트브룩의 금고 관리인을 찾아가 금고를 열고 보상을 받으세요.',
   'hudChrome.weeklyRewards.notNow': '나중에',
   'hudChrome.weeklyRewards.completedWeek': '{date}에 끝난 주',
   'hudChrome.weeklyRewards.currentWeek': '이번 주 진행으로 돌아가기',

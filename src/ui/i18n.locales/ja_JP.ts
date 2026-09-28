@@ -19420,6 +19420,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.readyTitle': '週間報酬の準備ができました',
   'hudChrome.weeklyRewards.readyDescription':
     '完了した週の報酬が待っています。獲得した宝物庫を開け、受け取る一品を選んでください。',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    '報酬が待っています。イーストブルックの宝物庫の番人を訪ね、宝物庫を開けて報酬を受け取ってください。',
   'hudChrome.weeklyRewards.notNow': '後で',
   'hudChrome.weeklyRewards.completedWeek': '{date}に終了した週',
   'hudChrome.weeklyRewards.currentWeek': '今週の進捗に戻る',

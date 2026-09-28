@@ -19763,6 +19763,8 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.readyTitle': 'Ваши еженедельные награды готовы',
   'hudChrome.weeklyRewards.readyDescription':
     'Награды за завершенную неделю ждут вас. Откройте заработанные хранилища и выберите один предмет.',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Награды ждут вас. Посетите смотрителя хранилища в Иствруке, чтобы открыть хранилища и получить награду.',
   'hudChrome.weeklyRewards.notNow': 'Не сейчас',
   'hudChrome.weeklyRewards.completedWeek': 'Неделя завершилась {date}',
   'hudChrome.weeklyRewards.currentWeek': 'Вернуться к прогрессу этой недели',

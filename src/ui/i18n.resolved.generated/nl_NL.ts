@@ -503,7 +503,8 @@ export const nl_NL: EnTranslations = {
         "dungeon_heroic": "Heroïsche kerkersbuit",
         "world": "Wereldquestsbuit",
         "pvp": "OORLOGVOERING-uitrusting"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Veerbootdienstregeling",

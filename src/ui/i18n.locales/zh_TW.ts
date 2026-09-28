@@ -18483,6 +18483,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.readyTitle': '你的每週獎勵已就緒',
   'hudChrome.weeklyRewards.readyDescription':
     '有一週已完成的獎勵正在等待。打開你獲得的寶庫，然後選擇一件物品領取。',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    '獎勵已就緒。請前往東溪的寶庫管理員處開啟寶庫並領取獎勵。',
   'hudChrome.weeklyRewards.notNow': '稍後再說',
   'hudChrome.weeklyRewards.completedWeek': '週次結束於{date}',
   'hudChrome.weeklyRewards.currentWeek': '返回本週進度',
