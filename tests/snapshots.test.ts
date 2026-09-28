@@ -6504,13 +6504,14 @@ describe('full self-state snapshot delta fixture', () => {
       // gated null: the two keys are mutually exclusive on one player by
       // design. Its non-null arrival (and the by-reference mirror) is pinned
       // in tests/vault_wire.test.ts instead.
-      // This fixture stands at a different banker; the weekly keeper gate stays closed.
-      if (key === 'cvault' || key === 'weeklyRewards') {
+      if (key === 'cvault') {
         expect(snap.self[key], 'self.cvault must arrive as the explicit gated null').toBeNull();
         continue;
       }
       expect(snap.self[key], `self.${key} arrived null`).not.toBeNull();
     }
+    // The Weekly Vault preview is global, but this fixture is away from its keeper.
+    expect(snap.self.weeklyRewards).toMatchObject({ canClaim: false });
   });
 
   it('mirrors every dirtied self value onto the correct decode target', () => {

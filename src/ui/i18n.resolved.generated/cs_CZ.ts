@@ -503,7 +503,8 @@ export const cs_CZ: EnTranslations = {
         "dungeon_heroic": "Kořist z hrdinských dungeonů",
         "world": "Kořist ze světových úkolů",
         "pvp": "Výbava VÁLEČNICTVÍ"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Jízdní řád přívozu",

@@ -503,7 +503,8 @@ export const vi_VN: EnTranslations = {
         "dungeon_heroic": "Chiếm đoạt ngục tối Anh Hùng",
         "world": "Chiếm đoạt nhiệm vụ thế giới",
         "pvp": "Trang bị TRANH HÙNG"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Lịch Trình Phà",

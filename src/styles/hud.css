@@ -8160,6 +8160,13 @@
     padding: 1px 4px;
     line-height: 1.5;
   }
+  #tooltip .mt-tip-time {
+    position: relative;
+    font-size: 10px;
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
   #tooltip .mt-tip-icon {
     position: relative;
     width: 16px;

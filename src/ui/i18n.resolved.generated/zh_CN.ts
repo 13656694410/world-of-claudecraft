@@ -503,7 +503,8 @@ export const zh_CN: EnTranslations = {
         "dungeon_heroic": "英雄地下城战利品",
         "world": "世界任务战利品",
         "pvp": "战争装备"
-      }
+      },
+      "previewClaimNotice": "奖励已就绪。请前往东溪的宝库管理员处开启宝库并领取奖励。"
     },
     "ferry": {
       "regionLabel": "渡船时刻表",

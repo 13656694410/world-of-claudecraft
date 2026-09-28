@@ -10,32 +10,38 @@
 
 export const pending: Record<string, readonly string[]> = {
   "es": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "es_ES": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "fr_FR": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "fr_CA": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "en_CA": [],
   "it_IT": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "de_DE": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
@@ -45,47 +51,56 @@ export const pending: Record<string, readonly string[]> = {
   "ko_KR": [],
   "ja_JP": [],
   "pt_BR": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "ru_RU": [],
   "cs_CZ": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "nl_NL": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "pl_PL": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "id_ID": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "tr_TR": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "sv_SE": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "vi_VN": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"
   ],
   "da_DK": [
+    "hudChrome.weeklyRewards.previewClaimNotice",
     "hudChrome.worldPvp.rewardBonus",
     "hudChrome.worldPvp.rewardProgress",
     "hudChrome.worldPvp.rewardTitles"

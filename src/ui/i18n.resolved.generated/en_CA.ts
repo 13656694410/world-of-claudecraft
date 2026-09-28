@@ -503,7 +503,8 @@ export const en_CA: EnTranslations = {
         "dungeon_heroic": "Heroic dungeon loot",
         "world": "World quest loot",
         "pvp": "WARFARE equipment"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Ferry timetable",

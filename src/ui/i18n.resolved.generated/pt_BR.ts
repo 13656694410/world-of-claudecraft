@@ -503,7 +503,8 @@ export const pt_BR: EnTranslations = {
         "dungeon_heroic": "Saque de masmorra Heroica",
         "world": "Saque de missão mundial",
         "pvp": "Equipamento de GUERRA"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Horário das balsas",

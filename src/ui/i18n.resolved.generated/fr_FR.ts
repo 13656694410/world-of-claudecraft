@@ -503,7 +503,8 @@ export const fr_FR: EnTranslations = {
         "dungeon_heroic": "Butin de donjon Héroïque",
         "world": "Butin de quête mondiale",
         "pvp": "ÉQUIPEMENT DE GUERRE"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Horaires des bacs",

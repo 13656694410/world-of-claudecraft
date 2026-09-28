@@ -503,7 +503,8 @@ export const zh_TW: EnTranslations = {
         "dungeon_heroic": "英雄地城戰利品",
         "world": "世界任務戰利品",
         "pvp": "戰爭裝備"
-      }
+      },
+      "previewClaimNotice": "獎勵已就緒。請前往東溪的寶庫管理員處開啟寶庫並領取獎勵。"
     },
     "ferry": {
       "regionLabel": "渡船時刻表",

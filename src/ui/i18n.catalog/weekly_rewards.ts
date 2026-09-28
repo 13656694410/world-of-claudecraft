@@ -101,4 +101,5 @@ export const weeklyRewardStrings = {
     world: 'World quest loot',
     pvp: 'WARFARE equipment',
   },
+  previewClaimNotice: 'Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim.',
 };

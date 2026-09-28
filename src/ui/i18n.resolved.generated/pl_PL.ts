@@ -503,7 +503,8 @@ export const pl_PL: EnTranslations = {
         "dungeon_heroic": "Łup z heroicznych lochów",
         "world": "Łup z zadań światowych",
         "pvp": "Sprzęt WOJEN"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Rozkład promów",

@@ -503,7 +503,8 @@ export const sv_SE: EnTranslations = {
         "dungeon_heroic": "Heroiskt fängelsebyte",
         "world": "Världsuppdragsbyte",
         "pvp": "KRIGSFÖRING-utrustning"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Färjschema",

@@ -503,7 +503,8 @@ export const ja_JP: EnTranslations = {
         "dungeon_heroic": "ヒロイックダンジョンの戦利品",
         "world": "ワールドクエストの戦利品",
         "pvp": "ウォーフェア装備"
-      }
+      },
+      "previewClaimNotice": "報酬が待っています。イーストブルックの宝物庫の番人を訪ね、宝物庫を開けて報酬を受け取ってください。"
     },
     "ferry": {
       "regionLabel": "渡し船の時刻表",
