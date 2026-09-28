@@ -322,6 +322,7 @@ describe('CI workflow parity', () => {
       '            /docs/screenshots/aura-tracks/',
       '            /docs/screenshots/bank-storage-charters/',
       '            /docs/screenshots/bank-vault-tab/',
+      '            /docs/screenshots/clue-character-panel/',
       '            /docs/screenshots/cosmetics-window/',
       '            /docs/screenshots/confection-cascade/',
       '            /docs/screenshots/confection-cascade-v3/',

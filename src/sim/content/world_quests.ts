@@ -310,8 +310,19 @@ export const WORLD_QUEST_OBJECTS: GroundObjectDef[] = [
   {
     itemId: 'eastbrook_freight_crate',
     name: 'Eastbrook Freight Crate',
-    positions: [{ x: -63, z: -90 }],
-    entityIds: [2_147_100_003],
+    // Six separate loads across the dry freight yard, off the road and within
+    // the world-quest ring. Keep the first stable id for existing sessions.
+    positions: [
+      { x: -63, z: -90 },
+      { x: -66, z: -94 },
+      { x: -70, z: -89 },
+      { x: -76, z: -95 },
+      { x: -86, z: -90 },
+      { x: -68, z: -78 },
+    ],
+    entityIds: [
+      2_147_100_003, 2_147_100_005, 2_147_100_006, 2_147_100_007, 2_147_100_008, 2_147_100_009,
+    ],
   },
   {
     itemId: 'eastbrook_freight_wagon',

@@ -1451,8 +1451,8 @@
   /* The showcase treatment: fixed-width staged model, 6/6 quality-glow sockets,
      stat tiles + Offense/Defense panels, carded sections. */
   #char-window {
-    width: 900px;
-    height: 720px;
+    width: 1060px;
+    height: 860px;
     overflow: hidden;
   }
   /* Paperdoll: two flexing equipment columns flank a FIXED-WIDTH model stage. The
@@ -1557,6 +1557,20 @@
   #char-window .char-model-panel {
     flex: 0 0 180px;
     min-height: 350px;
+  }
+  #char-window .char-model-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        ellipse at 50% 48%,
+        color-mix(in srgb, var(--color-glint) 12%, transparent),
+        transparent 65%
+      ),
+      linear-gradient(var(--panel-base), var(--color-ink-deep));
+    opacity: 0.85;
   }
   .char-model-preview {
     width: 100%;
@@ -1717,6 +1731,7 @@
   #char-window .char-title-text {
     display: flex;
     flex-direction: column;
+    font-size: 20px;
   }
   #char-window .char-title-sub {
     display: inline-flex;
@@ -1742,7 +1757,7 @@
   }
   /* The sheet stacks under the 64px head: body, (attribute row), footer with
      the tab strip. Character keeps the paperdoll with the stats rail beside it
-     (Offense and Defense scroll on the wheel); every other tab takes the whole
+     (Offense, Defense, and Specialization); every other tab takes the whole
      body. The stack is a wrapper, not the window: the HUD shows the window with
      an inline display:block, which would override a flex on the window itself. */
   #char-window .char-sheet {
@@ -1753,7 +1768,7 @@
   }
   #char-window .char-body {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(200px, 240px);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
     gap: var(--spacing-md);
     flex: 1 1 auto;
     min-height: 0;
@@ -1788,6 +1803,40 @@
     color: var(--gold);
     font-weight: normal;
   }
+  #char-window .char-spec-panel {
+    padding: var(--spacing-md);
+  }
+  .char-spec-identity {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-block: var(--spacing-sm);
+  }
+  .char-spec-emblem {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    border-radius: var(--radius-card);
+  }
+  .char-spec-copy {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: var(--spacing-xs);
+    overflow-wrap: anywhere;
+  }
+  .char-spec-name {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--color-text);
+  }
+  .char-spec-class {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+  }
+  #char-window .char-spec-mastery {
+    line-height: 1.5;
+  }
   #char-window .char-attr-row {
     flex: 0 0 auto;
     display: grid;
@@ -1813,6 +1862,10 @@
     margin-top: 0;
     flex: 0 0 auto;
     gap: var(--spacing-sm);
+  }
+  #char-window .char-footer :is(.char-sidebar-tab, .char-cosmetics-btn, .pc-share-btn) {
+    min-height: 40px;
+    margin-top: 0;
   }
   body.mobile-touch #char-window .char-sheet {
     height: auto;
@@ -2112,7 +2165,22 @@
     gap: var(--spacing-xs);
   }
   #char-window .equip-slot > div {
-    flex-basis: 70px;
+    flex-basis: 82px;
+    overflow-wrap: anywhere;
+  }
+  #char-window .equip-slot .slot-name {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+  #char-window .equip-slot .slot-item {
+    font-size: 13px;
+    line-height: 1.25;
+  }
+  #char-window .char-attr-row .stat-cell {
+    min-width: 0;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+    text-align: center;
   }
   /* Stage-and-overlay paperdoll (the accepted deviation, DESIGN.md 8.2): on
      pointer form factors the model preview IS the left pane, filling whatever
@@ -2135,7 +2203,7 @@
     min-height: 0;
   }
   /* Absolutely positioned with one inline edge only, so each column still
-     shrink-wraps its 114px row unit (40px socket + gap + 70px text box). */
+     shrink-wraps its 126px row unit (40px socket + gap + 82px text box). */
   body:not(.mobile-touch) #char-window .equip-col {
     position: absolute;
     top: var(--spacing-sm);
@@ -2179,23 +2247,23 @@
     background: linear-gradient(to left, var(--color-stage-overlay-scrim), transparent);
   }
   /* The corner chips anchor off the row unit, which the base rules size for the
-     wide flow column (154px); over the stage the unit is 114px, so the offset is
+     wide flow column (154px); over the stage the unit is 126px, so the offset is
      half of that plus the chip's own radius. */
   body:not(.mobile-touch) #char-window
     .equip-col:not(.equip-col-right)
     .equip-slot
     :is(.equip-unequip-btn, .equip-helm-eye) {
-    left: calc(50% - 68px);
+    left: calc(50% - 74px);
   }
   body:not(.mobile-touch)
     #char-window
     .equip-col-right
     .equip-slot
     :is(.equip-unequip-btn, .equip-helm-eye) {
-    right: calc(50% - 68px);
+    right: calc(50% - 74px);
   }
   body:not(.mobile-touch) #char-window .equip-row-weapons .equip-slot .equip-unequip-btn {
-    left: calc(50% - 68px);
+    left: calc(50% - 74px);
   }
   #char-window .char-sidebar {
     display: flex;
@@ -2211,6 +2279,32 @@
     min-height: 0;
     overflow-y: auto;
     padding-right: var(--spacing-xs);
+  }
+  /* Use the available desktop height instead of the generic 85% window cap.
+     Small/touch screens retain scrolling rather than clipping actionable data. */
+  body:not(.mobile-touch) #char-window {
+    top: 12px;
+    max-height: calc(var(--app-vh, 100vh) / var(--window-scale) - 24px);
+  }
+  body:not(.mobile-touch) #char-window .char-stats-rail .stat-panel {
+    padding: 8px 12px;
+  }
+  body:not(.mobile-touch) #char-window .char-stats-rail .char-spec-identity {
+    margin-block: var(--spacing-xs);
+  }
+  @media (max-height: 850px) {
+    body:not(.mobile-touch) #char-window .char-stats-rail {
+      --stat-row-h: 20px;
+    }
+    body:not(.mobile-touch) #char-window .char-rail-panels {
+      gap: var(--spacing-xs);
+    }
+    body:not(.mobile-touch) #char-window .char-stats-rail .stat-panel {
+      padding-block: 6px;
+    }
+    body:not(.mobile-touch) #char-window .char-stats-rail .sp-title {
+      margin-bottom: var(--spacing-xs);
+    }
   }
   #char-window .stat-panels {
     margin-top: var(--spacing-sm);
@@ -2236,59 +2330,77 @@
     flex: 0 0 auto;
   }
   #char-window .char-skills {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr);
+    align-items: start;
+    gap: var(--spacing-md);
     padding-top: var(--spacing-sm);
   }
   #char-window .char-skill-group {
-    padding: var(--spacing-sm);
+    min-width: 0;
+    padding: var(--spacing-md);
   }
   #char-window .char-skill-group h3 {
-    margin: 0 0 var(--spacing-xs);
+    margin: 0 0 var(--spacing-md);
     font-family: var(--font-display);
-    font-size: 13px;
+    font-size: 21px;
     color: var(--color-accent);
   }
   #char-window .char-skill-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xs) var(--spacing-sm);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
     line-height: normal;
+  }
+  #char-window .char-skill-group--gathering .char-skill-list {
+    grid-template-columns: minmax(0, 1fr);
   }
   #char-window .char-skill-row {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
+    gap: 12px;
     min-width: 0;
+    min-height: 80px;
+    padding: 12px;
   }
-  #char-window .char-skill-row.is-empty {
-    color: var(--color-text-faint);
-  }
-  #char-window .char-craft-icon {
-    width: 22px;
-    height: 22px;
-    flex: 0 0 22px;
+  #char-window :is(.char-craft-icon, .char-gather-icon) {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    margin: 0;
     object-fit: contain;
   }
   #char-window .char-skill-copy {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: 0 var(--spacing-xs);
+    gap: var(--spacing-sm);
     min-width: 0;
     flex: 1 1 auto;
-    font-size: 11px;
+    font-size: 13px;
+    line-height: 1.4;
   }
-  #char-window .char-skill-copy > span:first-child {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  #char-window .char-skill-name {
+    grid-column: 1 / -1;
+    font-size: 15px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+  #char-window .char-skill-copy > b {
+    grid-column: 2;
+    grid-row: 2;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    font-variant-numeric: tabular-nums;
   }
   #char-window .char-skill-rail {
-    grid-column: 1 / -1;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
     position: relative;
-    height: 4px;
+    height: 7px;
     overflow: hidden;
+    border-radius: var(--radius-sm);
     background: var(--color-bar-track);
   }
   #char-window .char-skill-rail > span {
@@ -2298,7 +2410,32 @@
     background: var(--color-accent);
   }
   #char-window .char-open-professions {
-    align-self: flex-end;
+    grid-column: 1 / -1;
+    justify-self: end;
+    min-height: 44px;
+    padding-inline: var(--spacing-lg);
+    font-size: 14px;
+  }
+  @media (max-height: 850px) {
+    #char-window .char-skill-group {
+      padding: 12px;
+    }
+    #char-window .char-skill-group h3 {
+      margin-bottom: 12px;
+      font-size: 19px;
+    }
+    #char-window .char-skill-list {
+      gap: var(--spacing-sm);
+    }
+    #char-window .char-skill-row {
+      min-height: 64px;
+      padding: var(--spacing-sm);
+    }
+    #char-window :is(.char-craft-icon, .char-gather-icon) {
+      width: 40px;
+      height: 40px;
+      flex-basis: 40px;
+    }
   }
 
   /* ---------- spellbook ---------- */
@@ -6731,7 +6868,7 @@
       0 0 10px #b8902a66;
   }
   .tal-spec.sel::after {
-    content: "✓";
+    content: "\2713";
     position: absolute;
     right: 6px;
     top: 6px;
@@ -11498,8 +11635,12 @@
      reuses the classic .q-* quality family and the scope badges read as plain
      chips so the account/character split stays legible on every preset. */
   #cosmetics-window {
-    width: 720px;
-    max-height: calc(var(--app-vh, 100vh) * 0.82 / var(--window-scale) - 24px);
+    background: var(--panel-base);
+    width: 1060px;
+    height: 820px;
+    top: 12px;
+    max-height: calc(var(--app-vh, 100vh) / var(--window-scale) - 24px);
+    overflow: hidden;
     flex-direction: column;
   }
   #cosmetics-window.open {
@@ -11514,30 +11655,34 @@
   #cosmetics-window .panel-title > span {
     flex: 1 1 auto;
     min-width: 0;
+    font-size: 22px;
   }
   .cos-legend {
     flex: none;
-    margin: 0 0 var(--spacing-sm);
-    font-size: 12px;
+    margin: var(--spacing-sm) 0 var(--spacing-md);
+    font-size: 14px;
+    line-height: 1.5;
     color: var(--color-text-muted);
   }
   .cos-tabs {
     flex: none;
     display: flex;
-    gap: 2px;
-    height: 32px;
+    gap: var(--spacing-sm);
+    min-height: 48px;
     border-bottom: 1px solid var(--color-border-default);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
   }
   .cos-tab {
-    flex: 0 0 auto;
+    flex: 1 1 0;
     min-width: 72px;
+    min-height: 48px;
     padding: 0 var(--spacing-md);
     background: transparent;
     border: 0;
     border-bottom: 1px solid transparent;
     color: var(--color-text-muted);
     font: inherit;
+    font-size: 16px;
     cursor: pointer;
   }
   .cos-tab:hover {
@@ -11555,63 +11700,78 @@
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
-    padding-right: 2px;
+    padding: var(--spacing-xs);
   }
   .cos-intro,
-  .cos-hint,
-  .cos-empty {
-    margin: 0 0 var(--spacing-sm);
-    font-size: 12px;
+  .cos-hint {
+    margin: 0 0 var(--spacing-md);
+    font-size: 14px;
+    line-height: 1.5;
     color: var(--color-text-muted);
   }
   .cos-hint {
     color: var(--color-text-muted);
   }
   .cos-group {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
   }
   .cos-group-title {
-    margin: 0 0 var(--spacing-xs);
-    font-size: 13px;
+    margin: 0 0 var(--spacing-md);
+    font-family: var(--font-display);
+    font-size: 21px;
     color: var(--color-accent);
   }
   .cos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: var(--spacing-sm);
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+    gap: var(--spacing-md);
   }
   .cos-card {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-sm);
-    border: 1px solid var(--color-border-default);
-    border-radius: var(--radius-sm);
-    background: color-mix(in srgb, var(--color-keyline) 25%, transparent);
+    gap: 12px;
+    min-width: 0;
+    padding: var(--spacing-md);
+    overflow: hidden;
   }
-  .cos-card:hover,
   .cos-card:focus-within {
-    border-color: var(--gold);
+    outline: 1px solid var(--color-border-focus);
+    outline-offset: -1px;
   }
   .cos-card.worn {
-    border-color: var(--color-accent);
-    background: color-mix(in srgb, var(--border) 28%, transparent);
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;
+  }
+  .cos-card-art {
+    height: 164px;
+    margin: calc(-1 * var(--spacing-md)) calc(-1 * var(--spacing-md)) 0;
+    overflow: hidden;
+    background: var(--color-ink-deep);
+  }
+  .cos-card-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .cos-card-art-weapon {
+    height: 190px;
   }
   .cos-card-head {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: var(--spacing-xs);
-    font-size: 11px;
+    font-size: 12px;
   }
   .cos-scope {
-    padding: 1px 6px;
+    padding: 4px 8px;
     border: 1px solid var(--color-border-default);
     border-radius: var(--radius-sm);
     color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    font-size: 10px;
+    font-size: 11px;
   }
   .cos-scope-worn {
     color: var(--gold);
@@ -11619,24 +11779,55 @@
   }
   .cos-rarity {
     margin-left: auto;
-    font-size: 11px;
+    font-size: 12px;
   }
   .cos-card-name {
     margin: 0;
-    font-size: 14px;
+    font-family: var(--font-display);
+    font-size: 19px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
     color: var(--color-text-light);
   }
   .cos-card-desc,
   .cos-card-hint {
     margin: 0;
-    font-size: 11px;
+    font-size: 14px;
+    line-height: 1.55;
     color: var(--color-text-muted);
   }
   .cos-mech-swatch {
-    height: 24px;
+    display: grid;
+    place-items: center;
+    height: 140px;
     border-radius: var(--radius-sm);
     border: 1px solid var(--color-border-default);
     background: color-mix(in srgb, var(--color-white) 5%, transparent);
+  }
+  .cos-mech-swatch > svg {
+    width: 72px;
+    height: 72px;
+    color: var(--color-text-secondary);
+  }
+  .cos-empty {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: var(--spacing-md);
+    min-height: 300px;
+    padding: var(--spacing-lg);
+    text-align: center;
+  }
+  .cos-empty-icon > svg {
+    width: 64px;
+    height: 64px;
+    color: var(--color-text-secondary);
+  }
+  .cos-empty-title {
+    max-width: 42ch;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
   }
   .cos-card-actions {
     display: flex;
@@ -11645,9 +11836,11 @@
     justify-content: space-between;
     gap: var(--spacing-sm);
     margin-top: auto;
+    padding-top: var(--spacing-sm);
   }
   .cos-state {
-    font-size: 11px;
+    flex: 1 0 100%;
+    font-size: 13px;
     color: var(--color-text-muted);
   }
   .cos-state.worn {
@@ -11655,32 +11848,12 @@
   }
   .cos-action,
   .cos-preview {
-    min-height: 40px;
-    min-width: 40px;
-    padding: 0 var(--spacing-md);
-    border: 1px solid var(--color-border-default);
-    border-radius: var(--radius-md);
-    background: color-mix(in srgb, var(--color-white) 5%, transparent);
-    color: var(--color-text-light);
-    font: inherit;
-    cursor: pointer;
-  }
-  .cos-action:hover,
-  .cos-preview:hover {
-    border-color: var(--gold);
-  }
-  .cos-action:active,
-  .cos-preview:active {
-    transform: translateY(1px);
-  }
-  .cos-action:focus-visible,
-  .cos-preview:focus-visible {
-    outline: 2px solid var(--color-border-focus);
-    outline-offset: 2px;
-  }
-  .cos-action:disabled {
-    opacity: 0.55;
-    cursor: default;
+    min-height: 44px;
+    min-width: 80px;
+    height: auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 14px;
+    white-space: normal;
   }
   .char-cosmetics-btn {
     margin-top: var(--spacing-xs);

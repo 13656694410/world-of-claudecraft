@@ -28,10 +28,12 @@ describe('specializationPanelHtml', () => {
       row.childNodes[0]?.textContent,
       row.querySelector('b')?.textContent,
     ]);
-    expect(rows).toEqual([
-      ['Specialization', 'Battlecraft'],
-      ['Role', 'Damage'],
-    ]);
+    expect(rows).toEqual([['Role', 'Damage']]);
+    expect(panel?.querySelector('.char-spec-name')?.textContent).toBe('Battlecraft');
+    expect(panel?.querySelector('.char-spec-class')?.textContent).toBe('Warrior');
+    expect(panel?.querySelector('.char-spec-emblem')?.getAttribute('src')).toBe(
+      '/ui/specs/warrior/arms.webp',
+    );
     const mastery = panel?.querySelector('.char-spec-mastery');
     expect(mastery?.textContent).toContain('Mastery:');
     expect(mastery?.querySelector('b')?.textContent?.length).toBeGreaterThan(0);
@@ -41,12 +43,26 @@ describe('specializationPanelHtml', () => {
   it('reads "no specialization chosen" for a fresh character, with no role or mastery rows', () => {
     const el = render(specializationPanelHtml(world('warrior', null)));
     const rows = [...el.querySelectorAll('.stat-cell')];
-    expect(rows).toHaveLength(1);
-    expect(rows[0]?.querySelector('b')?.textContent).toBe('No specialization chosen');
+    expect(rows).toHaveLength(0);
+    expect(el.querySelector('.char-spec-name')?.textContent).toBe('No specialization chosen');
+    expect(el.querySelector('.char-spec-class')?.textContent).toBe('Warrior');
+    expect(el.querySelector('.char-spec-emblem')).toBeNull();
     expect(el.querySelector('.char-spec-mastery')).toBeNull();
   });
 
   it('renders nothing for a class without a talent tree', () => {
     expect(specializationPanelHtml(world('nobody', null))).toBe('');
+  });
+
+  it('resolves the current class and specialization on every render', () => {
+    const state = world('rogue', 'assassination');
+    const first = render(specializationPanelHtml(state));
+    expect(first.querySelector('.char-spec-name')?.textContent).toBe('Knifework');
+    expect(first.querySelector('.char-spec-class')?.textContent).toBe('Rogue');
+    const second = render(specializationPanelHtml({ ...state, talentSpec: 'combat' }));
+    expect(second.querySelector('.char-spec-name')?.textContent).toBe('Thuggery');
+    expect(second.querySelector('.char-spec-emblem')?.getAttribute('src')).toBe(
+      '/ui/specs/rogue/combat.webp',
+    );
   });
 });

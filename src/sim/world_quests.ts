@@ -55,6 +55,7 @@ import {
   dropWorldQuestDeliveryCargo,
   hasWorldQuestDeliveryCargo,
   takeWorldQuestDeliveryCargo,
+  worldQuestDeliverySourceId,
 } from './world_quest_delivery';
 import {
   clearForgeWorkshop,
@@ -913,11 +914,17 @@ export function onObjectInteractedForWorldQuests(
       }
       handled = true;
       if (obj.objectItemId === quest.objective.pickupObjectItemId) {
-        takeWorldQuestDeliveryCargo(ctx, player);
+        if (!hasInteractObjectCredit(progress, interactObjectCreditKey(0, obj.pos)))
+          takeWorldQuestDeliveryCargo(ctx, player, obj.id);
         continue;
       }
       if (hasWorldQuestDeliveryCargo(player)) {
+        const source = ctx.entities.get(worldQuestDeliverySourceId(player) ?? -1);
+        if (!source || source.objectItemId !== quest.objective.pickupObjectItemId) continue;
+        const key = interactObjectCreditKey(0, source.pos);
+        if (hasInteractObjectCredit(progress, key)) continue;
         dropWorldQuestDeliveryCargo(ctx, player);
+        recordInteractObjectCredit(progress, key);
         creditWorldQuest(ctx, meta, quest, progress);
       }
       continue;
@@ -1174,7 +1181,9 @@ export function sanitizeWorldQuestProgress(
     }
     if (
       raw.state === 'active' &&
-      (quest.objective.type === 'interact' || quest.objective.type === 'salvage')
+      (quest.objective.type === 'interact' ||
+        quest.objective.type === 'salvage' ||
+        quest.objective.type === 'delivery')
     ) {
       const creditedObjects = sanitizeCreditedObjects(raw.creditedObjects)?.slice(0, count);
       if (creditedObjects && creditedObjects.length > 0) {

@@ -338,8 +338,8 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "da157599",
-      "events": "0bddbfcf",
+      "state": "49718ce9",
+      "events": "8ff71b03",
       "rng": {
         "draws": 0,
         "digest": "811c9dc5"
@@ -453,7 +453,7 @@
               "name": "Carrying Freight",
               "permanent": true,
               "school": "physical",
-              "sourceId": 1003,
+              "sourceId": 2147100003,
               "undispellable": true,
               "value": 0.75
             }
@@ -514,8 +514,8 @@
       "tick": 0,
       "time": 0,
       "nextId": 1011,
-      "state": "b15d7a66",
-      "events": "b148b641",
+      "state": "ec384694",
+      "events": "d7fe94b9",
       "rng": {
         "draws": 0,
         "digest": "811c9dc5"
@@ -603,6 +603,9 @@
               "wq_eastbrook_bandits",
               {
                 "count": 1,
+                "creditedObjects": [
+                  "0@-63.0,-90.0"
+                ],
                 "questId": "wq_eastbrook_bandits",
                 "state": "active"
               }
@@ -684,7 +687,7 @@
       "time": 0,
       "nextId": 1012,
       "state": "8d3b0603",
-      "events": "2e9e090a",
+      "events": "0849a442",
       "rng": {
         "draws": 0,
         "digest": "811c9dc5"

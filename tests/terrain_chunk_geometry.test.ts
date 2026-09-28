@@ -399,7 +399,11 @@ describe('generated chunk geometry is stable', () => {
     // ferry berth moved the cove's floating-prop calm pads (the retired and moved
     // hulls, the ferry's own pad) under the seabed this rectangle covers, composed
     // with the branch's vault hall and emissary pads. Measured on the merged tree.
-    expect(digestOf(inRect)).toBe('7872140edd9ed66524f2d242aaf823a5');
+    // Re-minted at the release/v0.44.0 base merge into PR 3847: the Eastbrook
+    // freight yard's five new crate spots each carry a ground-object calm pad.
+    // Checked against the dense height atlas re-minted in the same commit: 9
+    // points move, all within 5.4 yd of a new crate. Measured on the merged tree.
+    expect(digestOf(inRect)).toBe('d74e213f712eedd077e835eaf282b7bd');
     // The gap super-chunk digest pin is gone with the gap chunks themselves
     // (the island claims the old vale gap cells); gapFill.length above pins
     // their absence.

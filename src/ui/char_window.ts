@@ -504,9 +504,10 @@ export class CharWindow {
       const icon = iconUrl
         ? `<img class="char-craft-icon" src="${esc(iconUrl)}" alt="" draggable="false">`
         : '';
-      return `<span class="char-skill-row${value === 0 ? ' is-empty' : ''}">${icon}<span class="char-skill-copy"><span>${esc(craftNameText(craft.id))}</span><b>${esc(skill)}</b><span class="char-skill-rail" style="--char-skill-pct:${Math.min(100, (value / craft.maxSkill) * 100)}%"><span></span></span></span></span>`;
+      const name = craftNameText(craft.id);
+      return `<span class="char-skill-row ui-card${value === 0 ? ' is-empty' : ''}">${icon}<span class="char-skill-copy"><span class="char-skill-name">${esc(name)}</span><b>${esc(skill)}</b><span class="char-skill-rail" role="progressbar" aria-label="${esc(name)}" aria-valuemin="0" aria-valuemax="${craft.maxSkill}" aria-valuenow="${Math.min(value, craft.maxSkill)}" style="--char-skill-pct:${Math.min(100, (value / craft.maxSkill) * 100)}%"><span></span></span></span></span>`;
     }).join('');
-    return `<div class="char-skills"><section class="char-skill-group ui-card"><h3>${esc(t('hudChrome.charSidebar.gathering'))}</h3>${this.gatheringHtml(world)}</section><section class="char-skill-group ui-card"><h3>${esc(t('hudChrome.charSidebar.crafting'))}</h3><div class="char-skill-list">${crafting}</div></section><button type="button" class="ui-btn ui-btn--gold char-open-professions" data-act="open-professions">${esc(t('hudChrome.charSidebar.openProfessions'))}</button></div>`;
+    return `<div class="char-skills"><section class="char-skill-group char-skill-group--gathering ui-card"><h3>${esc(t('hudChrome.charSidebar.gathering'))}</h3>${this.gatheringHtml(world)}</section><section class="char-skill-group char-skill-group--crafting ui-card"><h3>${esc(t('hudChrome.charSidebar.crafting'))}</h3><div class="char-skill-list">${crafting}</div></section><button type="button" class="ui-btn ui-btn--gold char-open-professions" data-act="open-professions">${esc(t('hudChrome.charSidebar.openProfessions'))}</button></div>`;
   }
 
   // The "Gathering" section (issue 1124): one row per gathering profession, showing
@@ -524,15 +525,15 @@ export class CharWindow {
         // professionIconUrl, not professionImageUrl: a pending-art profession
         // (farming) must paint its procedural composer icon, never an iconless
         // gap beside painted siblings; the professions window resolves the
-        // same way. 56 keeps the 28px slot crisp on 2x displays.
-        const iconUrl = professionIconUrl(`gather_${r.professionId}`, 56);
+        // same way. 96 keeps the 48px card icon crisp on 2x displays.
+        const iconUrl = professionIconUrl(`gather_${r.professionId}`, 96);
         const icon = `<img class="char-gather-icon" src="${esc(iconUrl)}" alt="" draggable="false">`;
         const skillValue = t('hudChrome.professions.skillValue', {
           skill: formatNumber(r.displayValue, { maximumFractionDigits: 0 }),
           max: formatNumber(r.maxSkill, { maximumFractionDigits: 0 }),
         });
         const percent = Math.min(100, (r.displayValue / r.maxSkill) * 100);
-        return `<span class="char-gather-row char-skill-row${r.displayValue === 0 ? ' is-empty' : ''}">${icon}<span class="char-skill-copy"><span>${esc(t(key))}</span><b>${esc(skillValue)}</b><span class="char-skill-rail" style="--char-skill-pct:${percent}%"><span></span></span></span></span>`;
+        return `<span class="char-gather-row char-skill-row ui-card${r.displayValue === 0 ? ' is-empty' : ''}">${icon}<span class="char-skill-copy"><span class="char-skill-name">${esc(t(key))}</span><b>${esc(skillValue)}</b><span class="char-skill-rail" role="progressbar" aria-label="${esc(t(key))}" aria-valuemin="0" aria-valuemax="${r.maxSkill}" aria-valuenow="${Math.min(r.displayValue, r.maxSkill)}" style="--char-skill-pct:${percent}%"><span></span></span></span></span>`;
       })
       .join('');
     return `<div class="char-stats cp-stats char-skill-list">${items}</div>`;
