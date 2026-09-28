@@ -7,10 +7,12 @@ import { DUNGEONS, getActiveWorldContent, ITEMS, MOBS, NPCS, WORLD_QUESTS_BY_ID 
 import { equipBestInSlotForDev } from './dev/bis_gear';
 import { displacePlayerForDev } from './dev/dev_displace';
 import { handleFerryDevChat } from './dev/ferry_dev';
+import { handleDevHoardTravel } from './dev/hoard_travel';
 import { devTownList, resolveDevTown } from './dev/town_teleport';
 import { prepareWeeklyVaultPlaytest } from './dev/weekly_vault_playtest';
 import { handleDevClueCommand } from './dev_clue_scrolls';
 import { applyDevKit } from './dev_kit';
+import { handleDevTreasureMapCommand } from './dev_treasure_map';
 import { armWeeklyQuestForDev } from './dev_weekly_quest';
 import { armWorldQuestForDev, listWorldQuestsForDev } from './dev_world_quest';
 import { armWorldQuestCannonForDev } from './dev_world_quest_cannon';
@@ -60,6 +62,7 @@ import {
 const MAX_DEV_SPAWNS = 20;
 const DEV_SPAWN_RADIUS = 4;
 const DEV_SPAWN_RING_SIZE = 8;
+const MAX_ORDINARY_RIFT_SEED = 1_000_000_000;
 
 function clampInteger(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, Math.floor(value)));
@@ -307,6 +310,25 @@ export function handleDevChat(
   const clueMatch = /^\/dev\s+clue(?:\s+(\S+))?(?:\s+(\S+))?\s*$/i.exec(raw);
   if (clueMatch) {
     handleDevClueCommand(ctx, pid, (clueMatch[1] ?? '').toLowerCase(), clueMatch[2] ?? '');
+    return null;
+  }
+
+  const hoardMatch = /^\/dev\s+hoard(?:\s+(\S+))?(?:\s+(\S+))?(?:\s+(\S+))?\s*$/i.exec(raw);
+  if (hoardMatch) {
+    handleDevHoardTravel(
+      ctx,
+      pid,
+      hoardMatch[1] ?? 'list',
+      hoardMatch[2] ?? '',
+      hoardMatch[3] ?? '',
+    );
+    return null;
+  }
+
+  // /dev map [rarity | site | coin <n>]: the treasure map playtest family.
+  const mapMatch = /^\/dev\s+map(?:\s+(\S+))?(?:\s+(\S+))?\s*$/i.exec(raw);
+  if (mapMatch) {
+    handleDevTreasureMapCommand(ctx, pid, (mapMatch[1] ?? '').toLowerCase(), mapMatch[2] ?? '');
     return null;
   }
 
@@ -951,7 +973,17 @@ export function handleDevChat(
   if (portalMatch) {
     const e = ctx.entities.get(pid);
     if (!e) return null;
-    let seed = (portalMatch[1] ? Number(portalMatch[1]) : ctx.rng.int(1, 1_000_000_000)) >>> 0;
+    const suppliedSeed = portalMatch[1] ? Number(portalMatch[1]) : null;
+    if (
+      suppliedSeed !== null &&
+      (!Number.isSafeInteger(suppliedSeed) ||
+        suppliedSeed < 1 ||
+        suppliedSeed > MAX_ORDINARY_RIFT_SEED)
+    ) {
+      ctx.error(pid, `[dev] Portal seed must be between 1 and ${MAX_ORDINARY_RIFT_SEED}.`);
+      return null;
+    }
+    let seed = suppliedSeed ?? ctx.rng.int(1, MAX_ORDINARY_RIFT_SEED);
     const kind = portalMatch[4]?.toLowerCase();
     if (kind) {
       const wantSetPiece = kind === 'infernal' || kind === 'citadel';
@@ -1352,7 +1384,7 @@ export function handleDevChat(
   if (/^\/dev(?:\s|$)/i.test(raw)) {
     ctx.error(
       pid,
-      'Dev commands: /dev gui, /dev level, /dev tp, /dev town, /dev wq [name], /dev salvage, /dev clue [hunt <huntId>|solve|casket], /dev caravan, /dev calligraphy, /dev spawn, /dev despawn, /dev killtarget, /dev give, /dev kit, /dev mounts, /dev mountquest, /dev gold, /dev quest, /dev quests, /dev attune, /dev mobilestation, /dev gather, /dev bot, /dev vendor, /dev bg, /dev bis, /dev lfg, /dev portal [seed] [level] [C|B|A|S] [infernal|random], /dev cascade, /dev sandbox, /dev smite, /dev god, /dev noaggro, /dev freezemobs, /dev immortal, /dev ignivarraid [boss], /dev varkhulraid [normal|heroic], /dev nythraxisraid [normal|heroic], /dev nyx <mechanic> [sec], /dev heal, /dev hp <1-100>, /dev resource, /dev cooldowns, /dev revive, /dev combatreset, /dev daze, /dev fear, /dev dungeon, /dev raid, /dev kill, /dev hill [zone] | warn [zone] [seconds] | rise | end | next',
+      'Dev commands: /dev gui, /dev level, /dev tp, /dev town, /dev wq [name], /dev salvage, /dev clue [hunt <huntId>|solve|casket], /dev map [rarity|site|coin], /dev caravan, /dev calligraphy, /dev spawn, /dev despawn, /dev killtarget, /dev give, /dev kit, /dev mounts, /dev mountquest, /dev gold, /dev quest, /dev quests, /dev attune, /dev mobilestation, /dev gather, /dev bot, /dev vendor, /dev bg, /dev bis, /dev lfg, /dev portal [seed] [level] [C|B|A|S] [infernal|random], /dev cascade, /dev sandbox, /dev smite, /dev god, /dev noaggro, /dev freezemobs, /dev immortal, /dev ignivarraid [boss], /dev varkhulraid [normal|heroic], /dev nythraxisraid [normal|heroic], /dev nyx <mechanic> [sec], /dev heal, /dev hp <1-100>, /dev resource, /dev cooldowns, /dev revive, /dev combatreset, /dev daze, /dev fear, /dev dungeon, /dev raid, /dev kill, /dev hill [zone] | warn [zone] [seconds] | rise | end | next',
     );
     return null;
   }

@@ -600,6 +600,14 @@ describe('every point-light producer is a carrier source', () => {
       'render/gather_nodes.ts: target',
       'render/goblin_rocket_sled_fx.ts: inner',
       'render/goblin_rocket_sled_fx.ts: outer',
+      // Mesh hooks, never a scene (the 2026-09-28 release/v0.44.0 merge into
+      // feature/buried-hoards): the hoard entrance's rim clock and light cards,
+      // and the reward chest's cards, motes and pool clock.
+      'render/hoard_entrance.ts: driver',
+      'render/hoard_entrance.ts: light',
+      'render/hoard_reward_chest.ts: mesh',
+      'render/hoard_reward_chest.ts: motes',
+      'render/hoard_reward_chest.ts: pool.mesh',
       'render/jail_scene.ts: swirl',
       'render/point_light_carriers.ts: scene',
       'render/scene_sampling.ts: this.sentinel',

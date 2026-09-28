@@ -15,9 +15,12 @@ import {
 } from './content/world_quests';
 import { grantDeed } from './deeds';
 import {
+  awardFactionCurrency,
   awardFactionReputation,
+  factionCurrencyName,
   factionDisplayName,
   worldQuestFaction,
+  worldQuestFactionCurrencyReward,
   worldQuestStandingReward,
 } from './factions';
 import { formatMoney } from './format_money';
@@ -41,6 +44,7 @@ import {
   triggerWorldQuestAmbush,
   updateWorldQuestAmbush,
 } from './world_quest_ambush';
+import { positionInWorldQuestArea } from './world_quest_area';
 import {
   awardWorldQuestBonusCopper,
   WISP_MAZE_HARD_BONUS,
@@ -229,15 +233,6 @@ export function worldQuestCopperReward(
   const safeLevel = Math.max(1, Math.floor(level));
   const schedule = quest.reward?.copper ?? WORLD_QUEST_COPPER;
   return Math.max(0, Math.round(schedule.base + schedule.perLevel * safeLevel));
-}
-
-function positionInWorldQuestArea(
-  pos: Pick<Entity['pos'], 'x' | 'z'>,
-  quest: WorldQuestDef,
-): boolean {
-  const dx = pos.x - quest.area.x;
-  const dz = pos.z - quest.area.z;
-  return dx * dx + dz * dz <= quest.area.radius * quest.area.radius;
 }
 
 function inWorldQuestArea(entity: Entity, quest: WorldQuestDef): boolean {
@@ -627,6 +622,16 @@ export function awardWorldQuest(ctx: SimContext, meta: PlayerMeta, quest: WorldQ
     ctx.emit({
       type: 'loot',
       text: `+${standingResult.gained} ${factionDisplayName(factionId)} Standing.`,
+      pid: meta.entityId,
+    });
+  }
+
+  const currencyAward = worldQuestFactionCurrencyReward(quest, player.level);
+  if (currencyAward > 0) {
+    awardFactionCurrency(meta, factionId, currencyAward);
+    ctx.emit({
+      type: 'loot',
+      text: `+${currencyAward} ${factionCurrencyName(factionId)}.`,
       pid: meta.entityId,
     });
   }

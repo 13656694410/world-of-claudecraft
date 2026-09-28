@@ -403,6 +403,7 @@ import { dispatchPerfectItemCommand } from './perfect_item_command';
 import { parsePerfectingSwapCommand } from './perfecting_swap_command';
 import { runPeriodicSaveFlush } from './periodic_save_flush';
 import { writePlayerIdentityWire } from './player_identity_wire';
+import { VaultGameServices, type VaultMailSaveCapture } from './vault_game_services';
 import { dispatchVehicleCommand } from './vehicle_command_wire';
 import { dispatchWeeklyRewardCommand } from './weekly_reward_open';
 
@@ -420,14 +421,7 @@ import { observeEventRecords } from './event_record_observers';
 import { parseGuildPledgeSettingsCommand } from './guild_pledge_settings_cmd';
 import { recordLevelUp } from './progress_events';
 import * as questWire from './quest_command_wire';
-import {
-  activePublicWorldQuestTracePids,
-  collectPublicTraceCandidate,
-  emitActivitySelfKeys,
-  emitQuestSelfKeys,
-  nearbyQuestTraceWireJson,
-  type PublicTraceCandidate,
-} from './quest_snapshot_wire';
+import * as questSnap from './quest_snapshot_wire';
 import { REALM, REALM_PUBLIC_ORIGIN, REALM_RESET_TIME_ZONE } from './realm';
 import { createRealmReadoutMemo, realmReadoutJson, realmReadoutObject } from './realm_readout_memo';
 import { RiftAssetCoordinator, riftAssetConfigFromEnv } from './rift_assets';
@@ -1356,6 +1350,7 @@ function identityFields(e: Entity): Record<string, unknown> {
   writePlayerIdentityWire(e, out); // guild, pledge, guild tier, deed title/border, spec
   if (e.dungeonId) out.dgn = e.dungeonId;
   if (e.riftTier) out.rt = e.riftTier; // ranked rift portal badge (render-only)
+  if (e.vaultRarity) out.vr = e.vaultRarity; // buried-hoard rarity (render-only)
   if (e.objectItemId) out.obj = e.objectItemId;
   if (e.scale !== 1) out.sc = e.scale;
   if (e.color !== 0xffffff) out.c = e.color;
@@ -1506,6 +1501,7 @@ function logSocialErr(err: unknown): void {
 export class GameServer {
   sim: Sim;
   clients = new Map<number, ClientSession>(); // by pid
+  private readonly vault: VaultGameServices; // Buried Hoard vault wiring (vault_game_services.ts)
   private activityDeps: ActivityDetectDeps<ClientSession> | null = null; // built lazily once
   private readonly sessionsByCharacterId = new Map<number, ClientSession>();
   private readonly storageRecoverySweep = new RecoverySweep(this.sessionsByCharacterId);
@@ -1791,6 +1787,20 @@ export class GameServer {
         },
       ),
     );
+    this.vault = new VaultGameServices({
+      sim: () => this.sim,
+      session: (pid) => this.clients.get(pid),
+      sessionByCharacterId: (id) => this.sessionByCharacterId(id),
+      enqueue: (id, job, signal) => this.characterSaveQueues.enqueueCancellable(id, signal, job),
+      hasSaveConflict: (id) => this.hasCharacterOnlySaveConflict(id),
+      serialize: (id) => this.serializeCharacterForPersist(id),
+      withPermit: (run, signal) => this.withBackgroundDbPermit(run, signal),
+      acknowledge: (save) => this.acknowledgeCharacterSaveEffects(save),
+      quarantine: (pid, id, kind, surface) => this.escrowSessionLost(pid, id, kind, surface),
+      saveInBackground: (session) => this.saveCharacterWithBackgroundPermit(session),
+      save: (session) => this.saveCharacter(session),
+      kick: (session, message, reason) => void this.kickSession(session, message, reason),
+    });
     this.riftUpgrader = new RiftUpgradeCoordinator(riftUpgraderConfigFromEnv());
     this.riftAssets = new RiftAssetCoordinator(riftAssetConfigFromEnv());
     this.social = new SocialService(
@@ -2607,6 +2617,7 @@ export class GameServer {
             // routeEvents early-outs when no clients are connected, and the
             // recorder must see every tick. Read-only; never mutates events.
             this.parseCapture.observe(events);
+            this.vault.observe(events);
             this.routeEvents(events);
             this.detectActivity(events);
             void observeQueuePops(events, queuedPidsOf(this.sim.ctx), this.queuePopDeps);
@@ -3228,25 +3239,16 @@ export class GameServer {
         petSpecialWireVersion?: 0 | PetSpecialWireVersion;
         movementWireVersion?: 1 | 2;
         generalChatRateLimit?: GeneralChatRateLimit | null;
-        // Server-recomputed bank bonus slots (ws_auth.ts, fresh-join arm) stamped into
-        // the character state via addPlayer. Absent on a resume and for callers that
-        // pass no meta (tests, the bot-detector overlay), which keep the saved value.
+        // Fresh-login bank entitlement; absent for resumes and bare test joins.
         bankBonus?: { bonusSlots: number; sources: BankBonusSource[] };
-        // The character's stored action-bar layout (characters.hotbar_layout),
-        // passed through from the join handler's DB read. Untrusted at rest, so
-        // it is re-validated here before it reaches the client.
+        vaultGuestUsage?: { cycle: string; payouts: number };
+        // Stored layout is untrusted and revalidated before reaching the client.
         hotbarLayout?: unknown;
-        // The character's authored modular look (characters.appearance),
-        // normalized at write. Stamped onto the world entity so it rides the
-        // identity wire (`app`) to every client in view.
+        // Authored appearance rides the entity identity wire.
         appearance?: Record<string, unknown> | null;
       } = {},
   ): ClientSession | { error: string } {
-    // Anti-bot: cap simultaneous online characters per account. Accounts can
-    // still own up to 10 characters; this only limits live sessions. GMs are
-    // exempt for supervision. Linkdead sessions are special-cased (planJoin):
-    // the same character resumes its held session, and a different character
-    // on the account displaces them instead of being blocked by them.
+    // Cap live characters per account; planJoin handles GM and linkdead exceptions.
     const sameCharacter = this.sessionsByCharacterId.get(characterId) ?? null;
     let liveOtherSessions = 0;
     const linkdeadOthers: ClientSession[] = [];
@@ -3263,13 +3265,12 @@ export class GameServer {
       maxPerAccount: MAX_ACTIVE_SESSIONS_PER_ACCOUNT,
     });
     if (plan.action === 'reject') return { error: plan.error };
-    if (plan.action === 'resume' && sameCharacter) {
+    if (plan.action === 'resume' && sameCharacter)
       return this.resumeSession(sameCharacter, ws, cls, meta);
-    }
-    // Logging in on a different character ends the account's linkdead grace
-    // now instead of at the end of its window: the player has moved on, so
-    // the held character logs out. leave() removes it from `clients`
-    // synchronously, so the new session's slot accounting stays correct.
+    const mailRecoveryError = this.vault.joinError(characterId);
+    if (mailRecoveryError) return { error: mailRecoveryError };
+    // A different character ends linkdead grace now. leave() synchronously
+    // frees that session's slot before admitting this one.
     for (const s of linkdeadOthers) {
       void this.leave(s, 'replaced by a new character login');
     }
@@ -3282,6 +3283,7 @@ export class GameServer {
       tutorialGreetingSent: state === null,
     });
     const player = this.sim.entities.get(pid);
+    this.vault.applyGuestUsage(pid, meta.vaultGuestUsage);
     if (player) {
       player.petSpecialCommandsSupported = meta.petSpecialWireVersion === PET_SPECIAL_WIRE_VERSION;
     }
@@ -3481,6 +3483,7 @@ export class GameServer {
     this.ipSessionCounts.set(sessionIp, (this.ipSessionCounts.get(sessionIp) ?? 0) + 1);
     this.clients.set(pid, session);
     this.sessionsByCharacterId.set(characterId, session);
+    this.vault.onJoin(pid, characterId);
     this.peakOnline = Math.max(this.peakOnline, this.clients.size);
     void this.recordOnlineSnapshot();
     // Stamp this character's last world-entry time for the guild-roster "last
@@ -4091,13 +4094,15 @@ export class GameServer {
       backgroundDbPermit?: boolean;
     } = {},
   ): Promise<boolean> {
+    if (!this.vault.guard.maySave(session.characterId, session.pid)) return false;
     // A quarantined session's live state was abandoned when its escrow was
     // rolled back: its character half is the half that would carry the value
     // its book half could not, so persisting it is exactly the mint the
     // refusal prevented. It reloads from its durable row instead.
     if (session.escrowQuarantined) return false;
     const write = async (): Promise<boolean> => {
-      // Recovery cancellation is checked inside the FIFO, before stale work starts.
+      const withMarket = opts.withMarket === true;
+      const withMail = withMarket || this.vault.guard.isLocked(session.characterId);
       if (opts.shouldStart && !opts.shouldStart()) return false;
       // Re-checked INSIDE the queue, not only at entry: a save enqueued before
       // the rollback would otherwise run after it, and by then this session's
@@ -4189,7 +4194,8 @@ export class GameServer {
         // the queued closure actually runs.
         const carriesGuildBooks = session.dirtyGuildBanks.size > 0;
         let mailPartitionsForRearm: { recipientKey: string; letters: MailSave['mail'] }[] = []; // outer scope: catch arm re-arms on failure
-        if (opts.withMarket || carriesGuildBooks) {
+        let vaultMail = null as VaultMailSaveCapture | null;
+        if (withMail || carriesGuildBooks) {
           // Market/mail/books and the character blob share one fenced queued
           // transaction. Capture their snapshots at write time.
           const writeThunk = () => {
@@ -4211,14 +4217,18 @@ export class GameServer {
             // mailPartitionsForRearm exists so the catch arm can re-arm them.
             // A cancelled enqueue rejects into that same arm, so an abort
             // while waiting on a background-db permit puts them back too.
-            if (opts.withMarket) mailPartitionsForRearm = this.sim.takeDirtyMailPartitions();
+            // A vault-held save captures its mail (and custody refs) here too.
+            if (withMail) {
+              vaultMail = this.vault.captureMailSave(session, withMarket);
+              mailPartitionsForRearm = vaultMail.partitions;
+            }
             const persist = () =>
-              opts.withMarket
+              withMail
                 ? saveCharacterAndMarketState(
                     session.characterId,
                     snap.level,
                     snap,
-                    this.sim.serializeMarket(),
+                    withMarket ? this.sim.serializeMarket() : null,
                     mailPartitionsForRearm,
                     session.leaseNonce,
                     guildDeltas,
@@ -4226,6 +4236,7 @@ export class GameServer {
                     carriedStorageEffects,
                     bankLedgerSaveEffects(carriedLedgerSnapshot),
                     opts.signal,
+                    vaultMail?.custodyRefs ?? [],
                   )
                 : saveCharacterAndGuildBankState(
                     session.characterId,
@@ -4252,7 +4263,9 @@ export class GameServer {
           // else the shared 'market' writer is doing (a market/mail autosave,
           // or every other guild's dirty-book autosave).
           try {
-            saved = opts.withMarket
+            // A vault-held mail save writes whole-blob mail state too, so it
+            // keeps the shared writer's commit order like the leave flush.
+            saved = withMail
               ? await this.enqueueMarketWriteForSave(opts.signal, writeThunk)
               : await writeThunk();
           } catch (err) {
@@ -4356,6 +4369,7 @@ export class GameServer {
           }
           return false;
         }
+        if (withMail) this.vault.guard.committed(session.characterId, vaultMail?.generation);
         session.lastSave = Date.now();
         const committedGuildCounts = guildLedgerPrefixCounts(
           session,
@@ -4621,6 +4635,7 @@ export class GameServer {
       (write, context) => this.enqueueBackgroundMarketWrite(write, context),
       false,
       sample,
+      this.vault.guard.blocked,
     );
   }
 
@@ -5612,6 +5627,7 @@ export class GameServer {
   } | null {
     const session = this.sessionByCharacterId(characterId);
     if (!session || session.left || session.escrowQuarantined) return null;
+    if (this.vault.guard.isLocked(characterId)) return null;
     const state = this.sim.serializeCharacter(session.pid);
     if (!state) return null;
     applyCharacterSaveFixups(session, state, () => this.jailSpawnFor(session));
@@ -5638,6 +5654,7 @@ export class GameServer {
   }
 
   hasCharacterOnlySaveConflict(characterId: number): boolean {
+    if (this.vault.guard.isLocked(characterId)) return true;
     const session = this.sessionByCharacterId(characterId);
     if (!session || session.left || session.escrowQuarantined) return false;
     return session.dirtyGuildBanks.size > 0 || session.bankLedgerJournal.outbox.hasQueuedGuildRows;
@@ -5669,6 +5686,8 @@ export class GameServer {
       this.sim,
       (write, context) => this.enqueueBackgroundMarketWrite(write, context),
       true,
+      undefined,
+      this.vault.guard.blocked,
     );
   }
 
@@ -5961,6 +5980,8 @@ export class GameServer {
       return;
     }
     const cmd = this.messageCommand(msg);
+    // Fence projected vault loot until its character+mail save or recovery.
+    if (this.vault.guard.isLocked(session.characterId)) return;
     // Economy telemetry: sample the acting player's copper across this one
     // dispatch, so a command's own credit or debit is attributed to its
     // economic surface with no sim-side signal and no gameplay effect. Two
@@ -7514,9 +7535,7 @@ export class GameServer {
             itemsOk = false;
             break;
           }
-          // The instance is only an equality needle (the market_list_instance
-          // rule): the sim re-resolves it against the sender's own bags and
-          // escrows the actual held copy's payload.
+          // Instance is an equality needle; Sim escrows the held copy.
           const instance =
             slot.instance !== null &&
             typeof slot.instance === 'object' &&
@@ -7530,9 +7549,7 @@ export class GameServer {
           });
         }
         if (!itemsOk) break;
-        // Player-written subject/body flow through the same gates as chat
-        // (mute, rate limit, hard-word policy); authored system/NPC letters
-        // never come this way. The escrow itself resolves inside the Sim.
+        // Player-authored text uses chat policy; Sim owns the escrow.
         if (this.isChatMuted(session)) break;
         if (!this.consumeChatToken(session)) break;
         const subject = msg.subject.slice(0, 64);
@@ -7542,9 +7559,7 @@ export class GameServer {
         const copper = msg.copper;
         const live = this.sessionByName(to);
         if (live) {
-          // A recipient who has blocked (== ignored) the sender never receives
-          // their letter. Refuse BEFORE the sim escrow so no copper, postage or
-          // items are taken, and reveal nothing more than "no such recipient".
+          // Blocked recipients refuse before escrow without identity disclosure.
           if (live.blockedIds.has(session.characterId)) {
             this.send(session, {
               t: 'events',
@@ -7562,25 +7577,23 @@ export class GameServer {
           );
           break;
         }
-        // Offline recipient: resolve against the character DB (realm-scoped),
-        // then book the letter on the loop's turn. Re-check the sender is
-        // still this session before touching the sim.
+        // Offline recipient: resolve in DB, then re-check the sender and vault save fence.
         void this.socialDb
           .findCharacterByName(to)
           .then(async (target) => {
             if (this.clients.get(pid) !== session) return;
+            if (this.vault.guard.isLocked(session.characterId)) return;
             if (!target) {
-              // Structured outcome, localized client-side (the sim's mailResult shape).
               this.send(session, {
                 t: 'events',
                 list: [{ type: 'mailResult', code: 'noRecipient', pid }],
               });
               return;
             }
-            // Offline recipient block check (same rule as the online path above):
-            // a sender the recipient has blocked is refused before any escrow.
+            // Offline block check is also before escrow.
             const blockedBy = await this.socialDb.blockedIds(target.id);
             if (this.clients.get(pid) !== session) return;
+            if (this.vault.guard.isLocked(session.characterId)) return;
             if (blockedBy.includes(session.characterId)) {
               this.send(session, {
                 t: 'events',
@@ -7602,7 +7615,7 @@ export class GameServer {
         break;
       }
       case 'mail_take':
-        if (typeof msg.id === 'number') sim.mailTake(msg.id, pid);
+        if (typeof msg.id === 'number') this.vault.mailTake(session, msg.id);
         break;
       case 'mail_delete':
         if (typeof msg.id === 'number') sim.mailDelete(msg.id, pid);
@@ -8017,7 +8030,7 @@ export class GameServer {
     if (this.perfDetailActive) this.bcastGridNs += process.hrtime.bigint() - sharedStart;
     const queryLimitSq = INTEREST_QUERY_RADIUS * INTEREST_QUERY_RADIUS;
     const bgQueryLimitSq = BG_MATCH_DROP_RADIUS * BG_MATCH_DROP_RADIUS;
-    const publicTracePids = activePublicWorldQuestTracePids(this.sim);
+    const publicTracePids = questSnap.activePublicWorldQuestTracePids(this.sim);
 
     // Build each session's snapshot from its shared candidate list, still guarded
     // per session so one throw cannot starve the rest.
@@ -8027,7 +8040,7 @@ export class GameServer {
         const ents: string[] = [];
         const keep: number[] = [];
         const present = new Set<number>();
-        const publicTraceCandidates: PublicTraceCandidate[] = [];
+        const publicTraceCandidates: questSnap.PublicTraceCandidate[] = [];
         // Resolved ONCE per viewer per pass (a map lookup, no allocation): the
         // pid list of this viewer's own battleground team, which decides who
         // rides the raised match radius below.
@@ -8050,7 +8063,7 @@ export class GameServer {
           if (this.perfDetailActive) this.bcVisits++;
           if (e.id === anchorEntity.id) continue;
           if (!this.canObserveEntity(anchorEntity, e, d2)) continue;
-          collectPublicTraceCandidate(publicTracePids, e, d2, publicTraceCandidates);
+          questSnap.collectPublicTraceCandidate(publicTracePids, e, d2, publicTraceCandidates);
           const known = session.sentEnts.get(e.id);
           // the viewer's current target stays in interest to the widest drop
           // radius so its unit frame doesn't vanish mid-chase
@@ -8122,7 +8135,7 @@ export class GameServer {
             : '';
         this.sendRaw(
           session,
-          `${head}${timerWireJson}${petSpecialWireJson},"self":${selfJson},"ents":[${ents.join(',')}]${telegraphJson}${keepJson}${nearbyQuestTraceWireJson(this.sim, anchorEntity.id, publicTraceCandidates)}}`,
+          `${head}${timerWireJson}${petSpecialWireJson},"self":${selfJson},"ents":[${ents.join(',')}]${telegraphJson}${keepJson}${questSnap.nearbyQuestTraceWireJson(this.sim, anchorEntity.id, publicTraceCandidates)}}`,
         );
         if (session.needsVarkhulPortalReplay) {
           session.needsVarkhulPortalReplay = false;
@@ -8756,7 +8769,7 @@ export class GameServer {
     // Durable riding, the mount lesson and race, the world-quest vehicle
     // session, the Book of Deeds cosmetics and played time: one leaf
     // (quest_snapshot_wire.ts) owns the per-field rules.
-    emitActivitySelfKeys(maybe, this.sim, meta, anchorSession.pid);
+    questSnap.emitActivitySelfKeys(maybe, this.sim, meta, anchorSession.pid);
     selfLap?.('self.craft');
     // Heavy, rarely-changing fields: building + stringifying these every tick for
     // every player is the dominant avoidable broadcast cost. Skip them unless a
@@ -8794,7 +8807,7 @@ export class GameServer {
       maybe('equip', meta.equipment);
       maybe('einst', meta.equipmentInstance);
       maybe('cosmetics', anchorSession.accountCosmetics);
-      emitQuestSelfKeys(maybe, this.sim, meta);
+      questSnap.emitQuestSelfKeys(maybe, this.sim, meta);
       maybe('milestones', [...meta.unlockedMilestones]);
       // Book of Deeds (`deeds`/`dstats`), the Reliquary sparse blob (`reliq`),
       // and the account ledger (`acct`): server/deeds_wire.ts owns the four

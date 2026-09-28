@@ -1,3 +1,4 @@
+import type { TreasureMapRarity } from '../sim/content/treasure_maps';
 import type { FactionId } from '../sim/factions';
 import type {
   QuestProgress,
@@ -49,6 +50,8 @@ export interface IWorldQuests {
   readonly nearbyWorldQuestTraces: readonly NearbyWorldQuestTrace[];
   /** Persistent reputation standing across all allied factions. */
   readonly factions: Readonly<Record<FactionId, number>>;
+  /** Persistent balances of allied faction currencies (marks, crests, cogs). */
+  readonly factionCurrencies: Readonly<Record<FactionId, number>>;
   /** Personal world quest replacement mappings for the current daily cycle. */
   readonly worldQuestReplacements?: Readonly<Record<string, string>>;
   /** Cycle key for which the player used their daily world quest reroll. */
@@ -61,6 +64,12 @@ export interface IWorldQuests {
   readonly clueHunt: Readonly<{ huntId: string; step: number }> | null;
   /** Drops the active clue hunt; returns nothing (the spent scroll stays spent). */
   abandonClueHunt(): void;
+  /**
+   * Treasure maps (src/sim/treasure_vault.ts): the map read and not yet dug up
+   * (its rarity and the dig site id, resolved through TREASURE_SITES_BY_ID), or
+   * null when none.
+   */
+  readonly treasureMap: Readonly<{ rarity: TreasureMapRarity; siteId: string }> | null;
   canRerollWorldQuest?(questId: string): { canReroll: boolean; reason?: string };
   rerollWorldQuest?(questId: string): boolean;
   questState(questId: string): QuestState;

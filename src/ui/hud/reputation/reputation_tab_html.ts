@@ -37,6 +37,10 @@ function rowHtml(row: ReputationRowView): string {
   } else {
     footer = `<span class="char-rep-next">${esc(t('hudChrome.reputation.next', { tier: t(tierKey(row.nextTier)) }))}</span>`;
   }
+  // Decorative: the faction name beside it is the accessible label.
+  const emblem = row.emblemUrl
+    ? `<img class="char-rep-emblem" src="${esc(row.emblemUrl)}" alt="" draggable="false">`
+    : '';
   const progress =
     row.nextTier === null
       ? whole(row.current)
@@ -44,7 +48,7 @@ function rowHtml(row: ReputationRowView): string {
           current: whole(row.tierProgress),
           next: whole(row.tierRequired),
         });
-  return `<section class="char-rep-row ui-card char-rep-tier-${esc(row.tier)}"><div class="char-rep-head"><span class="char-rep-crest" aria-hidden="true"></span><span class="char-rep-copy"><b class="char-rep-name">${esc(t(factionNameKey(row.factionId)))}</b><span class="char-rep-hub">${esc(hub)}</span></span><span class="char-rep-pill">${esc(tierLabel)}</span></div><div class="char-rep-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${row.percent}" aria-label="${esc(t(factionNameKey(row.factionId)))}"><span style="--char-rep-pct:${row.percent}%"></span></div><div class="char-rep-foot"><span class="char-rep-progress">${esc(progress)}</span>${footer}</div></section>`;
+  return `<section class="char-rep-row ui-card char-rep-tier-${esc(row.tier)}"><div class="char-rep-head"><span class="char-rep-crest" aria-hidden="true">${emblem}</span><span class="char-rep-copy"><b class="char-rep-name">${esc(t(factionNameKey(row.factionId)))}</b><span class="char-rep-hub">${esc(hub)}</span></span><span class="char-rep-pill">${esc(tierLabel)}</span></div><div class="char-rep-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${row.percent}" aria-label="${esc(t(factionNameKey(row.factionId)))}"><span style="--char-rep-pct:${row.percent}%"></span></div><div class="char-rep-foot"><span class="char-rep-progress">${esc(progress)}</span>${footer}</div></section>`;
 }
 
 /** The whole sidebar body for the Reputation tab. `nowMs` is the window's clock. */

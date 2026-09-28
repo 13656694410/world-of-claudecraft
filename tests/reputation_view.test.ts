@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   FACTION_IDS,
@@ -107,5 +109,29 @@ describe('reputation view: the day summary', () => {
       nowMs: 5_000,
     });
     expect(unknown.day.resetsInMs).toBe(0);
+  });
+});
+
+describe('reputation view: faction emblem art', () => {
+  it('gives each faction its own emblem, the committed currency art the WQ card shows', () => {
+    const view = buildReputationView({
+      factions: {},
+      level: 20,
+      worldQuestLog: new Map(),
+      worldQuestExpiresAtMs: 0,
+      nowMs: 0,
+    });
+    const byFaction = Object.fromEntries(view.rows.map((row) => [row.factionId, row.emblemUrl]));
+    // Literal pins: the art path is what the page requests, so a resolver that
+    // drifts to another faction's image (or to null) must fail here.
+    expect(byFaction).toEqual({
+      rift_watch: '/ui/currency/rift_watch_mark.webp',
+      church_order: '/ui/currency/church_order_crest.webp',
+      automatons: '/ui/currency/automaton_cog.webp',
+    });
+    expect(new Set(Object.values(byFaction)).size).toBe(FACTION_IDS.length);
+    for (const url of Object.values(byFaction)) {
+      expect(existsSync(path.join(process.cwd(), 'public', String(url)))).toBe(true);
+    }
   });
 });

@@ -16,6 +16,10 @@ Stage 1, section 04 of the scope), the day summary and the faction title.
 - Tier colours are CSS classes (`char-rep-tier-<tier>`) mapped to the quality
   ramp tokens in `components.css`, so the ladder reads like item quality: poor,
   common, uncommon, rare, epic, legendary.
+- Each row's crest frames the faction's emblem art, resolved by
+  `factionEmblemImageUrl` (`src/ui/currency_art.ts`), the same resolver the
+  world quest hover card uses for its standing reward, so the two never show
+  different art for one faction.
 - The reset countdown reuses `worldQuestTimeRemainingText` from
   `world_quest_view.ts` so the tab and the map tooltip never disagree.
 - Standing reaches the online client through the `fac` owner key

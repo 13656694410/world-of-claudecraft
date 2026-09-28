@@ -439,6 +439,19 @@ function drawMapNavigationFallback(
   ctx.fillStyle = colors.portalDot;
   ctx.strokeStyle = colors.outline;
   ctx.lineWidth = geometry.markerOutlineWidth;
+  if (marker.kind === 'hoard-entrance') {
+    for (let pass = 0; pass < 2; pass++) {
+      ctx.strokeStyle = pass === 0 ? colors.outline : colors.questBadgeFill;
+      ctx.lineWidth = geometry.markerOutlineWidth * (pass === 0 ? 4 : 2);
+      ctx.beginPath();
+      ctx.moveTo(marker.mx - radius, marker.my - radius);
+      ctx.lineTo(marker.mx + radius, marker.my + radius);
+      ctx.moveTo(marker.mx + radius, marker.my - radius);
+      ctx.lineTo(marker.mx - radius, marker.my + radius);
+      ctx.stroke();
+    }
+    return;
+  }
   if (marker.kind === 'delve-entrance') {
     ctx.beginPath();
     ctx.arc(marker.mx, marker.my, radius, Math.PI, Math.PI * 2);
@@ -913,6 +926,12 @@ export class MapWindowPainter {
     // Long labels would collide with POIs at the full-zone scale; hover/tap owns
     // the localized name while this high-salience layer stays immediately legible.
     for (const marker of model.navigation) {
+      if (marker.kind === 'hoard-entrance') {
+        const size =
+          MAP_MARKER_SIZES[profile === 'compact' ? 'mapNavigationCompact' : 'mapNavigation'];
+        drawMapNavigationFallback(ctx, marker, size, colors, geometry);
+        continue;
+      }
       const artId: MapMarkerArtId =
         marker.kind === 'delve-entrance'
           ? 'delve-entrance'

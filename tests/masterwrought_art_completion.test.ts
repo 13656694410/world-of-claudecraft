@@ -824,7 +824,7 @@ describe('Masterwrought art completion evidence', () => {
     // 17 (faction-ladder-icons-2026-09-23): 1,322. the Viridian Valestrider's reins (release/v0.44.0 base merge): 1,323.
     // + the trinket slot's 18 (trinket-slot-icons-2026-09-23, PR 4173): 1,341. Warfare Season 2's four painted
     // weapons (warfare-season2-weapons-2026-09-25): 1,345, likewise outside it.
-    expect(currentOwnerIds).toHaveLength(1345);
+    expect(currentOwnerIds).toHaveLength(1464);
     for (const id of datedIds) {
       expect(currentOwnerIds.includes(id), `${id} still has a current mapping owner`).toBe(true);
     }
@@ -942,9 +942,28 @@ describe('Masterwrought art completion evidence', () => {
     expect(datedIds.filter((id) => season2WeaponIds.has(id))).toEqual([]);
     expect(currentOwnerIds.filter((id) => season2WeaponIds.has(id))).toHaveLength(4);
 
+    // The Buried Hoards branch's three batches (faction reward paintings,
+    // treasure-map family, hoard boss loot): 18 + 5 + 96 = 119 ids, additive
+    // the same way.
+    const hoardBranchBatchIds: readonly (string | undefined)[] = [
+      'faction-rewards-icons-2026-09-17',
+      'buried-hoard-treasure-maps-2026-09-19',
+      'hoard-boss-loot-icons-2026-09-20',
+    ];
+    const hoardBranchIds = new Set(
+      mapping.generatedBatches
+        .filter(({ batchId }) => hoardBranchBatchIds.includes(batchId))
+        .flatMap(({ itemIds }) => itemIds),
+    );
+    expect(hoardBranchIds.size).toBe(119);
+    expect(datedIds.filter((id) => hoardBranchIds.has(id))).toEqual([]);
+    expect(currentOwnerIds.filter((id) => hoardBranchIds.has(id))).toHaveLength(119);
+
     // Strip all six later additive waves (Crucible professions, the Field Kit, the
     // Nythraxis gap-fill weapon renders, Roots' Bramblehide/gap-fill paintings,
-    // the OSSBrain mount reins, and the Valestrider's reins)
+    // the OSSBrain mount reins, the Valestrider's reins, the world-quest,
+    // faction quartermaster, and Clue Scroll batches, and the Buried Hoards
+    // branch's three batches)
     // back out of the live mapping by their EXACT ids, so the underlying 1,209-item
     // completion union equation below stays isolated to exactly the same set as
     // completionDatedIds above. This filters by the exact ids of those additions only,
@@ -965,7 +984,8 @@ describe('Masterwrought art completion evidence', () => {
         // beyond the dated completion union, like the Field Kit.
         id !== 'emissary_cache' &&
         id !== 'reins_avian_strider' &&
-        !season2WeaponIds.has(id),
+        !season2WeaponIds.has(id) &&
+        !hoardBranchIds.has(id),
     );
     expect(completionOwnerIds).toHaveLength(1209);
     expect(sorted(completionOwnerIds)).toEqual(completionDatedIds);

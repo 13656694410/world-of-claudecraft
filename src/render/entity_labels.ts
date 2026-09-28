@@ -12,6 +12,7 @@ import { dungeonDisplayName, poiMarkLabel, tEntity, zoneDisplayName } from '../u
 import { feastTitleFor } from '../ui/hud/professions/feast_title';
 import { mobileStationTitleFor } from '../ui/hud/professions/mobile_station_title';
 import { t } from '../ui/i18n';
+import { localizeRiftPlaceName } from '../ui/rift_text_i18n';
 import { localizeSimText } from '../ui/sim_i18n';
 import { forgeObjectLabel } from '../ui/world_quest_forge_view';
 
@@ -50,7 +51,7 @@ export function objectDisplayName(entity: Entity): string {
   if (entity.templateId === 'delve_locked_chest') {
     return t('worldContent.delveLockedChestInteract');
   }
-  if (entity.templateId === 'delve_reward_chest') {
+  if (entity.templateId === 'delve_reward_chest' || entity.templateId === 'hoard_reward_chest') {
     return t('worldContent.delveRewardChestInteract');
   }
   if (entity.templateId === 'delve_surface_exit') {
@@ -118,6 +119,14 @@ export function objectDisplayName(entity: Entity): string {
   // their authored entity names an exact localization source.
   if (entity.objectItemId && Object.hasOwn(IGNIVAR_LORE_OBJECTS, entity.objectItemId)) {
     return localizeSimText(entity.name) ?? entity.name;
+  }
+  // Rift portals and Buried Hoard entrances carry the generator's English place
+  // name ("The Rime Abyss", "The Buried Spore Hoard"); rebuild it from keys.
+  if (entity.templateId === 'rift_portal' || entity.templateId === 'hoard_entrance') {
+    return localizeRiftPlaceName(entity.name) ?? entity.name;
+  }
+  if (entity.templateId === 'dawn_battle_standard') {
+    return tEntity({ kind: 'item', id: 'dawn_battle_standard', field: 'name' });
   }
   // Collectible/quest ground objects carry the item id they grant; localize the
   // nameplate through the item dictionary instead of the raw English name.

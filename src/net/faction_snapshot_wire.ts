@@ -4,26 +4,41 @@
 // previous mirror and a malformed value is clamped by the same sanitizers the
 // save/load boundary uses, so a hostile or skewed snapshot can never leave the
 // client holding out-of-range standing or an unknown hunt.
+
 import { sanitizeClueHunt } from '../sim/clue_scrolls';
+import type { TreasureMapRarity } from '../sim/content/treasure_maps';
 import type { FactionId } from '../sim/factions';
-import { sanitizeFactionReputation } from '../sim/factions';
+import { sanitizeFactionCurrencies, sanitizeFactionReputation } from '../sim/factions';
+import { sanitizeTreasureMap } from '../sim/treasure_vault';
 import { sanitizeWorldQuestReplacements } from '../sim/world_quest_reroll';
 import { sanitizeWorldQuestCycle } from '../sim/world_quests';
 
 export interface FactionSelfMirrors {
   factions: Readonly<Record<FactionId, number>>;
+  factionCurrencies: Readonly<Record<FactionId, number>>;
   worldQuestRerollCycle: string;
   worldQuestReplacements: Readonly<Record<string, string>>;
   clueHunt: Readonly<{ huntId: string; step: number }> | null;
+  treasureMap: Readonly<{ rarity: TreasureMapRarity; siteId: string }> | null;
 }
 
-/** Apply the `fac`, `wqrr`, `wqrep` and `cluh` self keys; each is independent. */
+/** Apply the `fac`, `facCur`, `wqrr`, `wqrep`, `cluh` and `tmap` self keys; each is independent. */
 export function applyFactionSelfWire(
   target: Partial<FactionSelfMirrors> & { worldQuestCycle?: string },
-  self: { fac?: unknown; wqrr?: unknown; wqrep?: unknown; cluh?: unknown },
+  self: {
+    fac?: unknown;
+    facCur?: unknown;
+    wqrr?: unknown;
+    wqrep?: unknown;
+    cluh?: unknown;
+    tmap?: unknown;
+  },
 ): void {
   if (self.fac !== undefined) {
     target.factions = Object.freeze(sanitizeFactionReputation(self.fac));
+  }
+  if (self.facCur !== undefined) {
+    target.factionCurrencies = Object.freeze(sanitizeFactionCurrencies(self.facCur));
   }
   if (self.wqrr !== undefined) {
     target.worldQuestRerollCycle = sanitizeWorldQuestCycle(self.wqrr);
@@ -41,5 +56,11 @@ export function applyFactionSelfWire(
     // the mirror can never name a hunt the tracker has no clues for.
     const hunt = sanitizeClueHunt(self.cluh);
     target.clueHunt = hunt ? Object.freeze(hunt) : null;
+  }
+  if (self.tmap !== undefined) {
+    // The read treasure map, through the save boundary's sanitizer (junk or an
+    // unknown site decodes to null); the seed never leaves the server.
+    const map = sanitizeTreasureMap(self.tmap);
+    target.treasureMap = map ? Object.freeze({ rarity: map.rarity, siteId: map.siteId }) : null;
   }
 }

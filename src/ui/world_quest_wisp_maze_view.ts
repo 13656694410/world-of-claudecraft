@@ -23,6 +23,11 @@ export function wispMazeInstructionLines(progress: WorldQuestProgress): string[]
   ];
 }
 
+/** How long the panel stays up after the last purse, so the win reads, before
+ *  it closes. The won state itself stays on the quest progress until the daily
+ *  reset, so without this the panel followed the player out of the maze. */
+export const WISP_MAZE_WON_LINGER_MS = 4_000;
+
 /** A reused projection and feedback cursor; attaching to a snapshot never replays old sounds. */
 export function createWispMazeHudView() {
   const view = {
@@ -37,23 +42,33 @@ export function createWispMazeHudView() {
     sound: null as string | null,
   };
   let lastSeed: number | undefined;
+  // When this view first saw the current run won: undefined while it runs,
+  // -Infinity for a run that was already won before this view ever saw it.
+  let wonAtMs: number | undefined;
   let lastTick = -1,
     lastSerial = -1,
     lastCollected = 0,
     lastHits = 0,
     lastBanished = 0;
   return {
-    tick(progress?: WorldQuestProgress) {
+    tick(progress?: WorldQuestProgress, nowMs = 0) {
       const state = progress?.wispMaze;
       view.sound = null;
-      view.visible = !!state && !state.paused;
-      view.active = view.visible && state?.phase !== 'won';
       if (!state) {
+        view.visible = false;
+        view.active = false;
         lastSeed = undefined;
+        wonAtMs = undefined;
         return view;
       }
       const fresh =
         lastSeed !== state.seed || state.tick < lastTick || state.feedbackSerial < lastSerial;
+      if (lastSeed !== state.seed) wonAtMs = undefined;
+      if (state.phase !== 'won') wonAtMs = undefined;
+      else if (wonAtMs === undefined) wonAtMs = lastSeed === state.seed ? nowMs : -Infinity;
+      const lingering = state.phase !== 'won' || nowMs - (wonAtMs ?? 0) < WISP_MAZE_WON_LINGER_MS;
+      view.visible = !state.paused && lingering;
+      view.active = view.visible && state.phase !== 'won';
       if (!fresh && view.visible && state.feedbackSerial !== lastSerial) {
         view.sound =
           state.phase === 'won'

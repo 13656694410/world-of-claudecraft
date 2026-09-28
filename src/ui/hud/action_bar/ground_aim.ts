@@ -1,3 +1,5 @@
+import { ABILITIES } from '../../../sim/data';
+import type { ResolvedAbility } from '../../../sim/sim';
 import type { AbilityEffect, Entity } from '../../../sim/types';
 
 export interface AimPoint {
@@ -148,4 +150,17 @@ export function abilityAoeRadius(res: { effects: readonly AbilityEffect[] }): nu
   );
   if (effect?.type === 'temporalHourglass') return effect.captureRadius;
   return effect && 'radius' in effect ? effect.radius : DEFAULT_GROUND_AOE_RADIUS;
+}
+
+export function resolveGroundAimAbility(
+  known: ReadonlyArray<ResolvedAbility>,
+  id: string,
+): ResolvedAbility | null {
+  const match = known.find((k) => k.def.id === id);
+  if (match) return match;
+  if (id === 'clockwork_shock_bomb' && ABILITIES.clockwork_shock_bomb) {
+    const def = ABILITIES.clockwork_shock_bomb;
+    return { def, effects: def.effects ?? [] } as ResolvedAbility;
+  }
+  return null;
 }

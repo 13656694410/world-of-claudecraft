@@ -312,7 +312,7 @@ export function bestKitBag(): ItemDef | null {
   // Deliberately the same kind-based filter server/pbe_boost.ts bestBoostBag
   // uses, so a mis-authored bag def cannot make the two pickers disagree.
   const bags = Object.values(ITEMS).filter(
-    (item) => item.kind === 'bag' && !isMaterialsOnlyBag(item),
+    (item) => item.kind === 'bag' && !isMaterialsOnlyBag(item) && !item.unique,
   );
   return bestBy(bags, (item) => item.bagSlots ?? 0);
 }

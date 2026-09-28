@@ -488,6 +488,19 @@ function drawSemanticObjectFallback(
   ctx.lineWidth = geometry.markerOutlineWidth;
 
   switch (semantic.kind) {
+    case 'hoard-entrance': {
+      for (let pass = 0; pass < 2; pass++) {
+        ctx.strokeStyle = pass === 0 ? colors.outline : colors.objectLoot;
+        ctx.lineWidth = geometry.markerOutlineWidth * (pass === 0 ? 4 : 2);
+        ctx.beginPath();
+        ctx.moveTo(x - radius, y - radius);
+        ctx.lineTo(x + radius, y + radius);
+        ctx.moveTo(x + radius, y - radius);
+        ctx.lineTo(x - radius, y + radius);
+        ctx.stroke();
+      }
+      return;
+    }
     case 'rift-entrance': {
       ctx.fillStyle = colors.portal;
       ctx.beginPath();
@@ -518,6 +531,19 @@ function drawSemanticObjectFallback(
     }
     case 'rift-return': {
       ctx.fillStyle = colors.portal;
+      if (semantic.route === 'hoard') {
+        for (let pass = 0; pass < 2; pass++) {
+          ctx.strokeStyle = pass === 0 ? colors.outline : colors.objectLoot;
+          ctx.lineWidth = geometry.markerOutlineWidth * (pass === 0 ? 4 : 2);
+          ctx.beginPath();
+          ctx.moveTo(x - radius, y - radius);
+          ctx.lineTo(x + radius, y + radius);
+          ctx.moveTo(x + radius, y - radius);
+          ctx.lineTo(x - radius, y + radius);
+          ctx.stroke();
+        }
+        return;
+      }
       if (semantic.route === 'beacon') {
         beginDiamond(ctx, x, y, radius);
         ctx.fill();

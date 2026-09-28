@@ -1938,6 +1938,81 @@ export const BASE_ITEMS: Record<string, ItemDef> = {
     noMarketList: true,
     noDiscard: false,
   },
+  // Treasure maps (src/sim/treasure_vault.ts, content/treasure_maps.ts): the
+  // daily board's reward. Read one to mark a dig site, use it again on the X to
+  // open its vault. The rarity picks the vault's Rift rank. Bound to the
+  // finder; a read map can be raised a rarity for faction currency.
+  treasure_map_common: {
+    id: 'treasure_map_common',
+    name: 'Weathered Treasure Map',
+    kind: 'quest',
+    quality: 'uncommon',
+    use: { type: 'treasureMap', rarity: 'common' },
+    stackSize: 5,
+    sellValue: 0,
+    soulbound: true,
+    noVendorSell: true,
+    noMarketList: true,
+    noDiscard: false,
+  },
+  treasure_map_rare: {
+    id: 'treasure_map_rare',
+    name: 'Inked Treasure Map',
+    kind: 'quest',
+    quality: 'rare',
+    use: { type: 'treasureMap', rarity: 'rare' },
+    stackSize: 5,
+    sellValue: 0,
+    soulbound: true,
+    noVendorSell: true,
+    noMarketList: true,
+    noDiscard: false,
+  },
+  treasure_map_epic: {
+    id: 'treasure_map_epic',
+    name: 'Gilded Treasure Map',
+    kind: 'quest',
+    quality: 'epic',
+    use: { type: 'treasureMap', rarity: 'epic' },
+    stackSize: 5,
+    sellValue: 0,
+    soulbound: true,
+    noVendorSell: true,
+    noMarketList: true,
+    noDiscard: false,
+  },
+  treasure_map_legendary: {
+    id: 'treasure_map_legendary',
+    name: 'Sovereign Treasure Map',
+    kind: 'quest',
+    quality: 'legendary',
+    use: { type: 'treasureMap', rarity: 'legendary' },
+    stackSize: 5,
+    sellValue: 0,
+    soulbound: true,
+    noVendorSell: true,
+    noMarketList: true,
+    noDiscard: false,
+  },
+  // Cartographer's Ink (content/treasure_maps.ts): every faction quartermaster
+  // sells it for their currency; using it redraws the READ treasure map one
+  // rarity finer (1, 3 or 8 inks by the map's current rarity).
+  cartographers_ink: {
+    id: 'cartographers_ink',
+    name: "Cartographer's Ink",
+    kind: 'quest',
+    quality: 'uncommon',
+    use: { type: 'cartographersInk' },
+    stackSize: 20,
+    // Faction stock rule (tests/faction_vendors.test.ts): priced in currency
+    // only (buyValue 0) with a token sell value; noVendorSell keeps it unsold.
+    buyValue: 0,
+    sellValue: 1,
+    soulbound: true,
+    noVendorSell: true,
+    noMarketList: true,
+    noDiscard: false,
+  },
   // The casket the last step of a hunt hands over; opening it pays the
   // treasure table (src/sim/clue_casket.ts). Bound to the digger like the
   // Emissary's Cache, one per bag slot so a stack never hides a second roll.

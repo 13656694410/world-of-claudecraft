@@ -29,6 +29,7 @@ import {
   type ClueStepDef,
   TREASURE_CASKET_ITEM_ID,
 } from './content/clue_hunts';
+import { TREASURE_MAP_ITEM_IDS } from './content/treasure_maps';
 import { zoneAt } from './data';
 import {
   awardFactionReputation,
@@ -38,6 +39,7 @@ import {
 } from './factions';
 import type { PlayerMeta } from './sim';
 import type { SimContext } from './sim_context';
+import { rollTreasureMapRarity } from './treasure_vault';
 import { dist2d, type Entity, INTERACT_RANGE } from './types';
 import { playerActiveWorldQuests } from './world_quest_reroll';
 import { ALWAYS_ACTIVE_WORLD_QUEST_IDS } from './world_quest_rotation';
@@ -133,7 +135,7 @@ export function canHoldAnotherClueScroll(ctx: SimContext, meta: PlayerMeta): boo
 /**
  * The completion arm of creditWorldQuest calls this right after the turn-in
  * lands. Pays at most once per cycle: the cycle is marked paid BEFORE the bag
- * check, so a lost scroll (stack full, bags full) is lost for the day, as the
+ * check, so a lost treasure map (bags full) is lost for the day, as the
  * design page says, and never re-rolls on the next turn-in.
  */
 export function maybeAwardClueScroll(ctx: SimContext, meta: PlayerMeta, player: Entity): void {
@@ -142,11 +144,15 @@ export function maybeAwardClueScroll(ctx: SimContext, meta: PlayerMeta, player: 
   if (!worldQuestSlateComplete(meta, player.level)) return;
   meta.clueScrollCycle = meta.worldQuestCycle;
   const pid = meta.entityId;
-  if (canHoldAnotherClueScroll(ctx, meta)) {
-    ctx.addItem(CLUE_SCROLL_ITEM_ID, 1, pid);
-    ctx.emit({ type: 'clueScrollEarned', pid });
+  // The board pays a treasure map of a rolled rarity (src/sim/treasure_vault.ts).
+  // The rarity is always drawn, so the rng sequence never depends on bag space.
+  const rarity = rollTreasureMapRarity(ctx);
+  const itemId = TREASURE_MAP_ITEM_IDS[rarity];
+  if (canAddItem(meta.inventory, bagPools(meta.bags), itemId, 1)) {
+    ctx.addItem(itemId, 1, pid);
+    ctx.emit({ type: 'treasureMapEarned', rarity, pid });
   } else {
-    ctx.emit({ type: 'clueScrollLost', pid });
+    ctx.emit({ type: 'treasureMapLost', pid });
   }
 }
 

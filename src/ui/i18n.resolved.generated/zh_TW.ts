@@ -1166,7 +1166,10 @@ export const zh_TW: EnTranslations = {
       "count": "（{count}）",
       "objectiveValue": "{current} / {total}",
       "collapseHint": "收合任務追蹤器",
-      "expandHint": "展開任務追蹤器"
+      "expandHint": "展開任務追蹤器",
+      "worldQuests": "世界任務",
+      "worldQuestsCollapseHint": "收合世界任務",
+      "worldQuestsExpandHint": "展開世界任務"
     },
     "interfaceTabs": {
       "general": "一般",
@@ -1661,6 +1664,10 @@ export const zh_TW: EnTranslations = {
     },
     "riftTracker": {
       "title": "裂隙",
+      "hoardTitle": "埋藏的寶藏",
+      "hoardGoal": "擊敗寶藏守護者",
+      "hoardChestGoal": "打開寶藏箱",
+      "hoardClaimedGoal": "寶藏歸你了",
       "floor": "第 {current} 層，共 {total} 層",
       "closesIn": "裂隙將在 {time} 後關閉",
       "clockMs": "{minutes}:{seconds}",
@@ -2870,6 +2877,19 @@ export const zh_TW: EnTranslations = {
       "crafting": "製作",
       "openProfessions": "開啟專業"
     },
+    "treasureMap": {
+      "close": "關閉藏寶圖",
+      "zone": "{zone}的某處",
+      "hint": "找到這張地圖所示的地方，站在 X 標記上，再次使用地圖進行挖掘。一處埋藏的寶藏將為你和你的隊伍開啟。",
+      "upgradeNote": "將其重繪為{rarity}地圖需要 {inks} 瓶製圖師的墨水（你持有 {held} 瓶）。各陣營軍需官均有出售。",
+      "upgradeMaxed": "沒有哪位製圖師能讓這張地圖更進一步。",
+      "rarity": {
+        "common": "普通",
+        "rare": "稀有",
+        "epic": "史詩",
+        "legendary": "傳說"
+      }
+    },
     "currencies": {
       "intro": "這些都不佔背包空間。金幣照舊放在背包裡。",
       "activities": "活動",
@@ -2884,7 +2904,24 @@ export const zh_TW: EnTranslations = {
       "walletNotLinked": "未連結錢包",
       "wocPreview": "預覽餘額，尚未驗證",
       "lifetime": "累計 {amount}",
-      "factionPending": "陣營貨幣：待第二階段"
+      "factionPending": "陣營貨幣：待第二階段",
+      "riftWatchMark": "裂隙守望徽章",
+      "riftWatchMarkNote": "裂隙守望區域的世界任務",
+      "churchOrderCrest": "修會徽記",
+      "churchOrderCrestNote": "教會修會區域的世界任務",
+      "automatonCog": "機械齒輪",
+      "automatonCogNote": "機械造物區域的世界任務"
+    },
+    "worldQuestTooltip": {
+      "factionLine": "陣營：{faction}",
+      "timeRemaining": "剩餘時間：",
+      "standingAmount": "{amount} {faction}",
+      "currencyAmount": "{amount} {currency}",
+      "standingReward": "{faction}聲望 +{amount}",
+      "currencyReward": "+{amount} {currency}"
+    },
+    "worldQuestBanner": {
+      "subtitle": "世界任務"
     },
     "reputation": {
       "intro": "三個陣營同時推進：每個世界任務都會計入其所在區域的陣營。",
@@ -5293,6 +5330,9 @@ export const zh_TW: EnTranslations = {
       "enchant_chest_lucent_stamina": "胸部蝕刻：瑩光耐力",
       "enchant_feet_lucent_agility": "腳部蝕刻：瑩光敏捷",
       "enchant_lucent_infusion": "瑩光灌注",
+      "enchant_offhand_spirit": "副手蝕刻：精神",
+      "enchant_feet_shadowstride": "靴子蝕刻：影行",
+      "enchant_gloves_forged_might": "手套蝕刻：鍛造之力",
       "enchant_weapon_riftwalkers_grace": "裂隙行者之優雅",
       "enchant_weapon_dawnfire_etching": "武器蝕刻：黎明之火",
       "enchant_weapon_dawns_benediction": "武器蝕刻：黎明祝福",
@@ -5304,6 +5344,22 @@ export const zh_TW: EnTranslations = {
       "enchant_weapon_dawnfire_etching": "為一把武器永久蝕刻18點法術強度。法術強度同樣計入治療強度。固定加成，不會隨任何屬性縮放。",
       "enchant_weapon_dawns_benediction": "為一把武器永久蝕刻34點治療強度。治療強度只提高治療效果，從不提高法術傷害。固定加成，不會隨任何屬性縮放。",
       "enchant_weapon_piston_drive": "為一把雙手武器永久蝕刻12點力量和25點暴擊等級。無法施加於單手武器。固定加成，不會隨任何屬性縮放。"
+    },
+    "factionRewards": {
+      "alliedHearthstoneUse": "使用：將你傳送至已校準的陣營據點。（施法 10 秒，冷卻 15 分鐘）",
+      "alliedHearthstoneAttuned": "已校準至：{hub}",
+      "hub_none": "無（在陣營據點附近使用以校準）",
+      "hub_rift_watch": "漂流港（裂隙守望）",
+      "hub_church_order": "東溪谷（教會修會）",
+      "hub_automatons": "南境（機械鑄造廠）",
+      "riftGliderUse": "使用：展開滑翔翼，降低下落速度，持續 30 秒。著陸或受到傷害會取消該效果。（冷卻 2 分鐘）",
+      "targetDummyUse": "使用：在野外部署一個機械訓練假人，持續 2 分鐘，用於練習戰鬥技能。（冷卻 5 分鐘）",
+      "battleStandardUse": "使用：插下神聖黎明戰旗，持續 5 分鐘，大幅提高附近所有盟友的非戰鬥生命與法力恢復。在其附近停留 10 秒還會獲得黎明祝福（所有屬性提高 5%，持續 30 分鐘）。（冷卻 5 分鐘）",
+      "shockBombUse": "使用：向最遠 30 碼處投擲一枚震盪炸彈，對 5 碼內的所有敵人造成 120 到 160 點自然傷害。（冷卻 1 分鐘）",
+      "invisibilityUse": "使用：使你進入潛行狀態，持續 6 秒。（冷卻 2 分鐘）",
+      "armorKitUse": "使用：強化你的胸甲，使護甲提高 12 點，持續 1 小時。",
+      "sharpeningStoneUse": "使用：打磨你的主手武器，使攻擊強度提高 6 點，持續 30 分鐘。",
+      "manaElixirUse": "使用：精神提高 6 點，持續 1 小時。"
     },
     "professions": {
       "title": "專業",
@@ -6076,6 +6132,7 @@ export const zh_TW: EnTranslations = {
       "sourceActivityCorpseHarvest": "採集生物屍體時獲得",
       "sourceActivityMasterworkCraft": "製作傑作時獲得",
       "sourceActivityRiftFirstClear": "授予率先通關分級裂隙的隊伍全體成員",
+      "sourceActivityBuriedHoard": "在埋藏寶藏的獎勵寶箱中找到，即藏寶圖所指引的寶庫",
       "cellMissingSourceAria": "{name}，尚未獲得，{source}",
       "cellOwnedClearsAria": "{name}，已收錄，首次獲得於第 {count} 次通關",
       "searchPlaceholder": "搜尋聖物",
@@ -6814,54 +6871,82 @@ export const zh_TW: EnTranslations = {
       "1": "一位遠沙丘的守望者守在東邊的沙地上，在駐軍以北。找到斥候耶林，問問風帶來了什麼。",
       "2": "駐軍倉庫的守護者自上次巡邏以來就沒吃過東西。給軍需官賽拉帶去 2 x 鄉村麵包。",
       "3": "在餘燼堆成沙丘之處以東略偏南，一片焦土藏著灰燼掩埋的東西。在那裡使用卷軸並挖掘。",
-      "title": "門前餘燼"
+      "title": "門前餘燼",
+      "reply": {
+        "1": "風從東邊的沙丘吹來，帶著灰燼，而空蕩蕩的沙地不會吹出灰燼。駐軍倉庫的塞拉記著每一次巡邏。只要有人給她帶點吃的，她就會開口。",
+        "2": "總算有麵包了，謝天謝地。巡邏隊發誓，他們看見沙丘以東略偏南的光禿沙地上冒起了煙，那裡早已沒有可燒的東西。"
+      }
     },
     "hunt_frostveil_aurora_vigil": {
       "0": "在台地向夜裡舞動的光攀升之處，跪在極光台階上，讓天空注意到你。",
       "1": "讀光之人就等在台階附近。和極光師薇拉談談天空拼出了什麼。",
       "2": "呼嘯台地以東略偏南，積雪平得反常。在那裡使用卷軸並挖掘。",
-      "title": "台階上的極光"
+      "title": "台階上的極光",
+      "reply": {
+        "1": "你一跪下，光便回應了你。昨夜它們越過台地向東彎去，直直指向雪地。"
+      }
     },
     "hunt_amberfall_lantern_ferry": {
       "0": "在燈湖鎮以北的水邊，燈渡船的掌管者知道哪盞燈滅了。和渡船長卡多談談。",
       "1": "大湖東北方，一塊比鎮子還古老的孤石斜倚著天空。站到斜碑旁。",
       "2": "鎏金果園的守護者親手澆灌果園，自己卻渴得很。給果園師波梅琳帶去 3 x 冰涼井水。",
       "3": "燼楓燒得通紅的山坡東北方，落葉圍成一個不是風擺出來的圓圈。在那裡使用卷軸並挖掘。",
-      "title": "湖上燈火"
+      "title": "湖上燈火",
+      "reply": {
+        "0": "昨夜有一盞燈滅了，就是朝著水對岸那塊古石的那盞。我的船夫們都不敢靠近。也許你敢。",
+        "2": "冰涼的井水，正是果樹想要的。紅楓坡那邊，落葉圍成一個圈落下，我的樹可從不會把葉子落得那麼整齊。"
+      }
     },
     "hunt_willowfen_fenwitch_salt": {
       "0": "垂柳灣的沼澤女巫不會理睬空手而來的人。給莎草大娘帶去 1 x 烹飪用鹽。",
       "1": "在沼澤變得平坦、空氣讓人昏昏欲睡的地方，站在沉眠淺灘上嘆氣，就像女巫吩咐的那樣。",
       "2": "沼中閃光的水池東南方，有一處旱丘終年乾燥。在那裡使用卷軸並挖掘。",
-      "title": "沼澤女巫的鹽"
+      "title": "沼澤女巫的鹽",
+      "reply": {
+        "0": "鹽。好，你肯聽話。蘆葦那邊的淺灘讓每個人都昏昏欲睡。去那裡真心實意地嘆口氣，沼澤會告訴你剩下的事。"
+      }
     },
     "hunt_nightbloom_sleepless_vigil": {
       "0": "月棲鎮東北方，石頭守著永不結束的崗，站到守望石陣旁。",
       "1": "守望處的觀星者數星星像別人數錢幣一樣。和天文學家卡西安談談那顆墜落的星。",
       "2": "鎮子以北躺著一座古塚，裡面的長眠者從不安息。向不眠古塚敬禮，讓長眠者知道有朋友來了。",
       "3": "暮色聚集的花田東南方，月光積在一塊光禿的泥土上。在那裡使用卷軸並挖掘。",
-      "title": "不眠者的守望"
+      "title": "不眠者的守望",
+      "reply": {
+        "1": "三天前的夜裡有顆星墜落了，落向鎮子北邊的古塚。那裡的死者從不安眠。像士兵那樣向他們致意吧。"
+      }
     },
     "hunt_wraithwood_mournstone_candles": {
       "0": "絞湖鎮的製燭人把光賣給怕黑的人。和寡婦坦西談談那支從未付錢的蠟燭。",
       "1": "哀石最後的牧師一直只靠禱告果腹。給牧師克里爾帶去 2 x 鹽漬肉乾。",
       "2": "鎮子東北方，穿過烏鴉，有一片林地掛著它自己的怪異果實。站到吊影林地中。",
       "3": "獵手設下陷阱的林隙東南方，落葉層最近被翻動過。在那裡使用卷軸並挖掘。",
-      "title": "哀石的蠟燭"
+      "title": "哀石的蠟燭",
+      "reply": {
+        "0": "牧師訂了那支蠟燭，卻一直沒付錢。從那以後他就只靠禱告，什麼也不吃。給他帶點能嚼的東西，問問他為什麼。",
+        "1": "謝謝你，朋友。那支蠟燭我從沒點過。夜裡有東西在烏鴉那邊的林地裡遊蕩，我不敢面對它。如果你敢，就去那裡站一站。"
+      }
     },
     "hunt_palmreach_sunken_idol": {
       "0": "在叢林深處、潟湖西北方，藤蔓像瀑布一樣傾瀉而下。站到垂藤林旁。",
       "1": "一位走進叢林又走了出來的隱士住在垂藤附近。和奧克里姆談談他在下面看到了什麼。",
       "2": "往東，一尊神像半沉水中，仍在注視。在沉沒神像前畏縮，就像隱士說的潛水者那樣。",
       "3": "叢林向大海張開的入口東北方，沙子堆得比潮水能到的地方還高。在那裡使用卷軸並挖掘。",
-      "title": "神像的秘密"
+      "title": "神像的秘密",
+      "reply": {
+        "1": "潛水者們在藤蔓下面找到了一尊神像，而神像不喜歡他們。在它面前挺直身子的人都沒能回來。在它面前把自己放低些。"
+      }
     },
     "hunt_evergarden_beacon_road": {
       "0": "籬苑鎮以北步道旁的花壇園丁發誓她的花床快餓死了。給農婦維貝娜帶去 2 x 堆肥。",
       "1": "在花園的東南角落，一座老磨坊仍在為不存在的磨坊主轉動。站到老磨坊旁。",
       "2": "沿大路向南越過邊界進入疾風崖，一直走到海岸。老燈塔的守護者守燈人布蘭姆掌握著最後一句話。",
       "3": "老燈塔西北方，就在從燈塔下來的小路旁，草皮被切開又鋪了回去。在那裡使用卷軸並挖掘。",
-      "title": "燈塔與花"
+      "title": "燈塔與花",
+      "reply": {
+        "0": "像樣的堆肥，花床有救了。老磨坊主離開前埋了些東西。他的磨坊還在花園最遠的角落裡轉著。去它旁邊站一站吧。",
+        "2": "原來是磨坊把你一路送到了海岸路上。燈塔還藏著最後一個秘密：在它西北方，就在小路旁，草皮被切開又鋪了回去。就在那裡挖。"
+      }
     }
   },
   "guide": {
@@ -10164,6 +10249,11 @@ export const zh_TW: EnTranslations = {
       "pylonLit": "一座符文尖塔亮起（{lit}/{total}）。",
       "wayDownOpens": "通往下層的裂口被撕開了。",
       "exitOpens": "裂隙震顫。一條歸途在倒下的敵人身後撕裂開來。",
+      "hoardEnter": "你向下爬進了{name}。",
+      "hoardExitOpens": "寶藏已經屬於你。返回入口並爬出去。",
+      "hoardStepBack": "你從寶藏入口爬回了地面。",
+      "hoardNotYours": "這處寶藏是另一支隊伍挖出的。",
+      "hoardEntrantsFull": "這處寶藏已經接納了五名冒險者。",
       "portalOpens": "一道{tier}級裂隙在{zone}撕裂而開！",
       "portalSealed": "{zone}的{tier}級裂隙已被封印。",
       "portalCollapses": "{zone}的{tier}級裂隙坍塌了。",
@@ -10203,7 +10293,152 @@ export const zh_TW: EnTranslations = {
       "detonateLightningRod": "避雷針雷擊！",
       "detonateStormcallersWrath": "風暴召喚者之怒爆發！",
       "detonateAbyssalMaw": "深淵之口合攏！",
-      "detonateCrushingDepth": "粉碎深淵碾壓！"
+      "detonateCrushingDepth": "粉碎深淵碾壓！",
+      "yell": {
+        "mushroomEngage": "孢子會吞沒你。",
+        "mushroomSummon": "生長吧，我的孩子們！",
+        "moleEngage": "這片大地歸我所有。",
+        "moleSummon": "給我下來！",
+        "batEngage": "吱吱吱！",
+        "batSummon": "到我身邊來，我的族群！",
+        "mimicEngage": "餓……好餓……",
+        "mimicSummon": "更多金子，更多金子！",
+        "frostBigCast": "白風已起。",
+        "frostDeathZoneCast": "寒霜將你吞噬。",
+        "frostDeathZoneStrike": "深寒之中，無物可存。",
+        "frostEngage": "寒冷終將帶走一切。",
+        "frostEnrage": "凍結吧！",
+        "emberBigCast": "燃燒！",
+        "emberDeathZoneCast": "岩漿湧起。",
+        "emberDeathZoneStrike": "熔爐吞噬一切！",
+        "emberEngage": "熔爐飢渴難耐。",
+        "emberSummon": "從熔渣中崛起！",
+        "emberEnrage": "化為灰燼與餘火！",
+        "venomBigCast": "淹沒在毒液之中吧！",
+        "venomDeathZoneCast": "溺斃於劇毒之中。",
+        "venomDeathZoneStrike": "你逃不過我的孩子們！",
+        "venomEngage": "我的孩子們永遠飢餓。",
+        "venomSummon": "飽餐吧，小傢伙們！",
+        "necroBigCast": "你們的靈魂歸我了。",
+        "necroDeathZoneCast": "你的靈魂歸我了。",
+        "necroDeathZoneStrike": "死亡吞噬一切！",
+        "necroEngage": "死亡只是開始。",
+        "necroSummon": "起來！",
+        "bruteBigCast": "我要打碎你！",
+        "bruteDeathZoneCast": "大地崩裂！",
+        "bruteDeathZoneStrike": "你將葬身於此！",
+        "bruteEngage": "我會碾碎你！",
+        "bruteEnrage": "吼啊啊啊！",
+        "arcaneBigCast": "見證真正的力量吧。",
+        "arcaneDeathZoneCast": "現實正在撕裂。",
+        "arcaneDeathZoneStrike": "灰飛煙滅！",
+        "arcaneEngage": "你不該來這裡。",
+        "arcaneEnrage": "跪下！",
+        "stormBigCast": "蒼穹回應了！",
+        "stormDeathZoneCast": "蒼穹回應你的呼喚。",
+        "stormDeathZoneStrike": "風暴吞噬一切！",
+        "stormEngage": "風暴聽命於我！",
+        "stormEnrage": "天穹崩塌！",
+        "tideDeathZoneCast": "深淵將你帶走。",
+        "tideDeathZoneStrike": "墜入深淵吧！",
+        "tideEngage": "深淵將你吞沒。",
+        "tideSummon": "從深處崛起！",
+        "ritualistBigCast": "契約已以烈火封印！",
+        "ritualistEngage": "你擅闖了受縛之地。",
+        "ritualistSummon": "回應我，地底之物！",
+        "pitlordBigCast": "深坑將你吞噬！",
+        "pitlordEngage": "跪下，或者燃燒。",
+        "pitlordEnrage": "要塞吞噬一切！"
+      },
+      "place": {
+        "hoardFloor": "{theme}埋藏寶藏",
+        "sanctumFloor": "{theme}聖所：第{depth}層",
+        "reachesFloor": "{theme}疆域：第{depth}層",
+        "upgradedFloor": "{title}：{theme}第{depth}層",
+        "hoardPlan": "埋藏的{noun}寶藏",
+        "riftPlan": "{noun}{suffix}",
+        "citadelPlan": "{noun}要塞",
+        "infernalCitadel": "煉獄要塞",
+        "hoardEntrance": "埋藏寶藏入口",
+        "theme": {
+          "frost": "霜縛",
+          "ember": "燼爐",
+          "venom": "毒林",
+          "bone": "骸骨場",
+          "brute": "戰營",
+          "void": "虛痕",
+          "storm": "風暴尖塔",
+          "tide": "沉沒",
+          "spore": "孢子洞穴",
+          "burrow": "幽深地穴",
+          "roost": "蝙蝠棲巢",
+          "mimic": "偽寶庫",
+          "infernal": "煉獄要塞"
+        },
+        "noun": {
+          "rime": "白霜",
+          "hoarfrost": "霧凇",
+          "glacier": "冰川",
+          "frost": "寒霜",
+          "ember": "餘燼",
+          "cinder": "焦燼",
+          "magma": "熔岩",
+          "ash": "灰燼",
+          "venom": "毒液",
+          "thorn": "荊棘",
+          "bramble": "荊叢",
+          "spider": "蜘蛛",
+          "bone": "骸骨",
+          "marrow": "骨髓",
+          "ossuary": "藏骨堂",
+          "grave": "墓穴",
+          "war": "戰爭",
+          "skull": "顱骨",
+          "iron": "鋼鐵",
+          "blood": "鮮血",
+          "void": "虛空",
+          "shadow": "暗影",
+          "umbral": "幽影",
+          "dusk": "暮光",
+          "storm": "風暴",
+          "tempest": "暴風",
+          "thunder": "雷霆",
+          "gale": "疾風",
+          "sunken": "沉沒",
+          "abyssal": "淵獄",
+          "drowned": "溺亡",
+          "tide": "潮汐",
+          "spore": "孢子",
+          "toadstool": "毒蕈",
+          "mould": "黴菌",
+          "mycelium": "菌絲",
+          "burrow": "地穴",
+          "tunnel": "隧道",
+          "delve": "深掘",
+          "loam": "沃土",
+          "roost": "棲巢",
+          "echo": "迴響",
+          "guano": "蝠糞",
+          "hollow": "空洞",
+          "coffer": "寶匣",
+          "strongbox": "鐵箱",
+          "tithe": "什一稅",
+          "gilt": "鎏金",
+          "brimstone": "硫磺",
+          "pitfire": "坑焰",
+          "pactbound": "契縛"
+        },
+        "suffix": {
+          "abyss": "深淵",
+          "depths": "深處",
+          "descent": "墜道",
+          "hollow": "幽谷",
+          "labyrinth": "迷宮",
+          "warren": "巢穴",
+          "sanctum": "聖所",
+          "rift": "裂隙"
+        }
+      }
     },
     "delve": {
       "cannotEnterNow": "你現在無法進入秘探。",
@@ -10273,6 +10508,9 @@ export const zh_TW: EnTranslations = {
       "moveCloserStairs": "再靠近階梯一些。",
       "nhaliaCantorShield": "誦經者們，穩住音符！",
       "nhaliaBlackwaterMark": "{name}用黑水標記了{player}！"
+    },
+    "factionVendor": {
+      "currencyRequired": "你需要 {amount} 個{currency}才能購買。"
     },
     "lockpick": {
       "lockYields": "鎖開了！{tier}戰利品。",
@@ -10894,6 +11132,7 @@ export const zh_TW: EnTranslations = {
       "alreadyInWorld": "角色已在世界中。",
       "accountSessionLimit": "此帳號已有太多角色在世界中。",
       "takenOver": "你的角色已被另一個工作階段接管。",
+      "vaultMailRecovering": "寶庫獎勵郵件正在恢復中。請稍後再試。",
       "renameBeforeEntering": "此角色必須先更名才能進入世界。",
       "renameNotPermitted": "不允許為此角色更名。",
       "unsupportedMediaType": "不支援的請求格式。",
@@ -11237,6 +11476,8 @@ export const zh_TW: EnTranslations = {
         "dungeonExit": "地城出口",
         "delveEntrance": "秘探入口：{name}",
         "worldPassage": "通往{zone}的通道",
+        "hoardEntrance": "埋藏寶藏入口",
+        "hoardReturnEntrance": "寶藏返回入口",
         "riftEntrance": "裂隙入口：{name}",
         "hostileEnemy": "敵對目標",
         "aggressiveEnemy": "正在攻擊你的敵人",
@@ -11880,6 +12121,7 @@ export const zh_TW: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "攻擊",
+      "cooldownMinutes": "{minutes}m",
       "attackTooltip": "對目標開啟或關閉自動攻擊。右鍵點擊敵人也會發起攻擊。",
       "attackRemoveHint": "右鍵點擊可將其從動作列移除並空出欄位。",
       "emptySlot": "空欄位",
@@ -11971,7 +12213,35 @@ export const zh_TW: EnTranslations = {
       "rift_storm_execution": "避雷針",
       "rift_storm_strike": "風暴召喚者之怒",
       "rift_tide_execution": "深淵之口",
-      "rift_tide_strike": "粉碎深淵"
+      "rift_tide_strike": "粉碎深淵",
+      "hoard_cast_fear": "恐懼咆哮",
+      "hoard_cast_stun": "震暈重擊",
+      "hoard_cast_drowning_hook": "溺亡鉤",
+      "hoard_cast_rime_beam": "Rime Beam",
+      "hoard_cast_cinder_bolt": "餘燼箭",
+      "hoard_cast_void_empower": "虛空強化",
+      "hoard_cast_webbing": "蛛網纏繞",
+      "hoard_cast_doom_ritual": "末日儀式",
+      "hoard_cast_charge": "猛力衝撞",
+      "hoard_cast_silk_snare": "絲網陷阱",
+      "hoard_cast_silence": "沉默尖嘯",
+      "hoard_cast_hex": "妖術",
+      "hoard_lightning_strike": "雷霆打擊",
+      "hoard_ice_age": "冰河時代",
+      "hoard_pulsar_overload": "脈衝星過載",
+      "hoard_rolling_boulder": "滾石",
+      "hoard_goblin_escape": "逃跑",
+      "hoard_cast_mole_rake": "利爪耙擊",
+      "hoard_cast_burrow": "鑽地",
+      "hoard_cast_tunnel": "地下潛行",
+      "hoard_cast_emerge": "破土而出",
+      "hoard_cast_collapse": "洞頂坍塌",
+      "hoard_cast_bat_dive_aim": "俯衝",
+      "hoard_cast_bat_dive": "俯衝中",
+      "hoard_cast_screech": "震耳尖嘯",
+      "hoard_cast_mimic_bite": "貪婪撕咬",
+      "hoard_cast_mimic_leap": "碾壓跳躍",
+      "hoard_cast_coin_spit": "詛咒金幣"
     }
   },
   "questUi": {
@@ -12398,7 +12668,17 @@ export const zh_TW: EnTranslations = {
       "clueHuntStep": "已解開第{step}/{total}條線索：{title}",
       "clueHuntDone": "尋寶完成：{title}。寶箱歸你了。",
       "clueHuntAbandoned": "已放棄尋寶：{title}",
-      "clueCasketOpened": "寶箱中有{money}和{items}。"
+      "clueCasketOpened": "寶箱中有{money}和{items}。",
+      "treasureMapEarned": "今日所有世界任務均已完成：你找到了一張{map}。",
+      "treasureMapLost": "今日所有世界任務均已完成，但你的背包沒有空間放藏寶圖。",
+      "treasureMapRead": "你研究了{map}。X 標記位於{zone}的某處。",
+      "treasureMapUpgraded": "地圖以更精細的墨水重繪：現在它是一張{map}。",
+      "treasureVaultOpened": "地面塌陷。一處埋藏的寶藏在你面前敞開。",
+      "treasureVaultLooted": "寶藏中有{money}和{items}。",
+      "treasureVaultCapped": "你今天已經分享了足夠多的寶藏；這一處不會給你任何獎勵。",
+      "hoardGoblinSighted": "哥布林竊賊出現了！",
+      "hoardGoblinSightedHint": "在牠帶著金幣逃走前幹掉牠！",
+      "hoardGoblinExplain": "一隻背著一袋贓金的哥布林竊賊藏在這處寶藏裡。牠從不還手，只會逃跑。你的第一次攻擊會開啟{seconds}秒的逃跑計時條：計時條走完時牠若還活著，就會打開傳送門帶著金幣消失。如果沒人碰牠，牠會在{minutes}分鐘後自行離開。及時擊殺牠，房間裡的所有人都能獲得金幣。"
     },
     "errors": {
       "unavailable": "該任務不可用。",
@@ -12811,6 +13091,10 @@ export const zh_TW: EnTranslations = {
       "sport_second_wind": {
         "name": "重振旗鼓",
         "description": "找回狀態：移動速度提高50%，持續4秒。"
+      },
+      "clockwork_shock_bomb": {
+        "name": "發條震盪炸彈",
+        "description": "向目標位置投擲一枚發條震盪炸彈，對5碼內的敵人造成120到160點自然傷害。"
       },
       "flamestrike": {
         "name": "烈焰風暴",
@@ -17393,6 +17677,363 @@ export const zh_TW: EnTranslations = {
       "stormhymn_chain_treads": {
         "name": "風暴頌歌鏈甲之靴"
       },
+      "allied_hearthstone": {
+        "name": "盟約爐石"
+      },
+      "allied_vanguard_duffel": {
+        "name": "盟約先鋒行囊"
+      },
+      "rift_feather_glider": {
+        "name": "裂隙羽翼滑翔翼"
+      },
+      "formula_enchant_feet_shadowstride": {
+        "name": "配方：附魔靴子 - 影行"
+      },
+      "recipe_potion_of_invisibility": {
+        "name": "配方：隱形藥水"
+      },
+      "potion_of_invisibility": {
+        "name": "隱形藥水"
+      },
+      "pattern_reinforced_armor_kit": {
+        "name": "圖樣：強化護甲片"
+      },
+      "reinforced_armor_kit": {
+        "name": "強化護甲片"
+      },
+      "dawn_battle_standard": {
+        "name": "黎明戰旗"
+      },
+      "formula_enchant_offhand_spirit": {
+        "name": "配方：附魔副手 - 精神"
+      },
+      "recipe_elixir_of_mana_regeneration": {
+        "name": "配方：法力回復藥劑"
+      },
+      "elixir_of_mana_regeneration": {
+        "name": "法力回復藥劑"
+      },
+      "clockwork_target_dummy": {
+        "name": "發條訓練假人"
+      },
+      "schematic_clockwork_shock_bomb": {
+        "name": "結構圖：發條震盪炸彈"
+      },
+      "clockwork_shock_bomb": {
+        "name": "發條震盪炸彈"
+      },
+      "plans_dense_sharpening_stone": {
+        "name": "設計圖：緻密磨刀石"
+      },
+      "dense_sharpening_stone": {
+        "name": "緻密磨刀石"
+      },
+      "formula_enchant_gloves_forged_might": {
+        "name": "配方：附魔手套 - 鍛造之力"
+      },
+      "treasure_map_common": {
+        "name": "風化的藏寶圖"
+      },
+      "treasure_map_rare": {
+        "name": "墨繪藏寶圖"
+      },
+      "treasure_map_epic": {
+        "name": "鎏金藏寶圖"
+      },
+      "treasure_map_legendary": {
+        "name": "至尊藏寶圖"
+      },
+      "cartographers_ink": {
+        "name": "製圖師的墨水"
+      },
+      "collapsar_band_of_nyxaris": {
+        "name": "尼克薩里斯的坍縮星指環"
+      },
+      "rare_collapsar_band_of_nyxaris": {
+        "name": "失色的尼克薩里斯的坍縮星指環"
+      },
+      "legendary_collapsar_band_of_nyxaris": {
+        "name": "至尊尼克薩里斯的坍縮星指環"
+      },
+      "orb_collapsing_void": {
+        "name": "坍縮虛空寶珠"
+      },
+      "rare_orb_collapsing_void": {
+        "name": "失色的坍縮虛空寶珠"
+      },
+      "legendary_orb_collapsing_void": {
+        "name": "至尊坍縮虛空寶珠"
+      },
+      "cowl_of_event_horizon": {
+        "name": "事件視界兜帽"
+      },
+      "rare_cowl_of_event_horizon": {
+        "name": "失色的事件視界兜帽"
+      },
+      "legendary_cowl_of_event_horizon": {
+        "name": "至尊事件視界兜帽"
+      },
+      "mantle_of_singularity": {
+        "name": "奇點披肩"
+      },
+      "rare_mantle_of_singularity": {
+        "name": "失色的奇點披肩"
+      },
+      "legendary_mantle_of_singularity": {
+        "name": "至尊奇點披肩"
+      },
+      "glacier_hewn_bulwark": {
+        "name": "冰川鑿成的壁壘"
+      },
+      "rare_glacier_hewn_bulwark": {
+        "name": "失色的冰川鑿成的壁壘"
+      },
+      "legendary_glacier_hewn_bulwark": {
+        "name": "至尊冰川鑿成的壁壘"
+      },
+      "permafrost_legguards": {
+        "name": "永凍護腿"
+      },
+      "rare_permafrost_legguards": {
+        "name": "失色的永凍護腿"
+      },
+      "legendary_permafrost_legguards": {
+        "name": "至尊永凍護腿"
+      },
+      "frostbitten_rime_slippers": {
+        "name": "霜噬白霜便鞋"
+      },
+      "rare_frostbitten_rime_slippers": {
+        "name": "失色的霜噬白霜便鞋"
+      },
+      "legendary_frostbitten_rime_slippers": {
+        "name": "至尊霜噬白霜便鞋"
+      },
+      "rime_crusted_grips": {
+        "name": "覆霜護手"
+      },
+      "rare_rime_crusted_grips": {
+        "name": "失色的覆霜護手"
+      },
+      "legendary_rime_crusted_grips": {
+        "name": "至尊覆霜護手"
+      },
+      "ember_wrought_crown": {
+        "name": "餘燼鍛造之冠"
+      },
+      "rare_ember_wrought_crown": {
+        "name": "失色的餘燼鍛造之冠"
+      },
+      "legendary_ember_wrought_crown": {
+        "name": "至尊餘燼鍛造之冠"
+      },
+      "cinder_stitched_robes": {
+        "name": "灰燼縫製長袍"
+      },
+      "rare_cinder_stitched_robes": {
+        "name": "失色的灰燼縫製長袍"
+      },
+      "legendary_cinder_stitched_robes": {
+        "name": "至尊灰燼縫製長袍"
+      },
+      "chained_ember_choker": {
+        "name": "鎖鏈餘燼項圈"
+      },
+      "rare_chained_ember_choker": {
+        "name": "失色的鎖鏈餘燼項圈"
+      },
+      "legendary_chained_ember_choker": {
+        "name": "至尊鎖鏈餘燼項圈"
+      },
+      "molten_clinker_girdle": {
+        "name": "熔渣腰帶"
+      },
+      "rare_molten_clinker_girdle": {
+        "name": "失色的熔渣腰帶"
+      },
+      "legendary_molten_clinker_girdle": {
+        "name": "至尊熔渣腰帶"
+      },
+      "storm_tuned_buckler": {
+        "name": "風暴調諧圓盾"
+      },
+      "rare_storm_tuned_buckler": {
+        "name": "失色的風暴調諧圓盾"
+      },
+      "legendary_storm_tuned_buckler": {
+        "name": "至尊風暴調諧圓盾"
+      },
+      "hauberk_tempest_gale": {
+        "name": "暴風烈風鎖甲"
+      },
+      "rare_hauberk_tempest_gale": {
+        "name": "失色的暴風烈風鎖甲"
+      },
+      "legendary_hauberk_tempest_gale": {
+        "name": "至尊暴風烈風鎖甲"
+      },
+      "gale_strider_boots": {
+        "name": "疾風行者長靴"
+      },
+      "rare_gale_strider_boots": {
+        "name": "失色的疾風行者長靴"
+      },
+      "legendary_gale_strider_boots": {
+        "name": "至尊疾風行者長靴"
+      },
+      "tempest_strike_grips": {
+        "name": "暴風打擊護手"
+      },
+      "rare_tempest_strike_grips": {
+        "name": "失色的暴風打擊護手"
+      },
+      "legendary_tempest_strike_grips": {
+        "name": "至尊暴風打擊護手"
+      },
+      "breastplate_tectonic_might": {
+        "name": "地殼之力胸甲"
+      },
+      "rare_breastplate_tectonic_might": {
+        "name": "失色的地殼之力胸甲"
+      },
+      "legendary_breastplate_tectonic_might": {
+        "name": "至尊地殼之力胸甲"
+      },
+      "band_mountains_weight": {
+        "name": "山嶽之重指環"
+      },
+      "rare_band_mountains_weight": {
+        "name": "失色的山嶽之重指環"
+      },
+      "legendary_band_mountains_weight": {
+        "name": "至尊山嶽之重指環"
+      },
+      "monolithic_shoulderguards": {
+        "name": "巨石護肩"
+      },
+      "rare_monolithic_shoulderguards": {
+        "name": "失色的巨石護肩"
+      },
+      "legendary_monolithic_shoulderguards": {
+        "name": "至尊巨石護肩"
+      },
+      "earthshaker_warboots": {
+        "name": "撼地戰靴"
+      },
+      "rare_earthshaker_warboots": {
+        "name": "失色的撼地戰靴"
+      },
+      "legendary_earthshaker_warboots": {
+        "name": "至尊撼地戰靴"
+      },
+      "silkstalker_woven_vest": {
+        "name": "絲獵者的編織背心"
+      },
+      "rare_silkstalker_woven_vest": {
+        "name": "失色的絲獵者的編織背心"
+      },
+      "legendary_silkstalker_woven_vest": {
+        "name": "至尊絲獵者的編織背心"
+      },
+      "spun_venom_spaulders": {
+        "name": "紡毒護肩"
+      },
+      "rare_spun_venom_spaulders": {
+        "name": "失色的紡毒護肩"
+      },
+      "legendary_spun_venom_spaulders": {
+        "name": "至尊紡毒護肩"
+      },
+      "broodmother_chitin_cowl": {
+        "name": "育母的甲殼兜帽"
+      },
+      "rare_broodmother_chitin_cowl": {
+        "name": "失色的育母的甲殼兜帽"
+      },
+      "legendary_broodmother_chitin_cowl": {
+        "name": "至尊育母的甲殼兜帽"
+      },
+      "venom_etched_waistcord": {
+        "name": "蝕毒腰繩"
+      },
+      "rare_venom_etched_waistcord": {
+        "name": "失色的蝕毒腰繩"
+      },
+      "legendary_venom_etched_waistcord": {
+        "name": "至尊蝕毒腰繩"
+      },
+      "bone_studded_pauldrons": {
+        "name": "鑲骨肩鎧"
+      },
+      "rare_bone_studded_pauldrons": {
+        "name": "失色的鑲骨肩鎧"
+      },
+      "legendary_bone_studded_pauldrons": {
+        "name": "至尊鑲骨肩鎧"
+      },
+      "legguards_of_the_ossuary": {
+        "name": "藏骨堂護腿"
+      },
+      "rare_legguards_of_the_ossuary": {
+        "name": "失色的藏骨堂護腿"
+      },
+      "legendary_legguards_of_the_ossuary": {
+        "name": "至尊藏骨堂護腿"
+      },
+      "seal_of_the_cryptwalker": {
+        "name": "墓穴行者之印"
+      },
+      "rare_seal_of_the_cryptwalker": {
+        "name": "失色的墓穴行者之印"
+      },
+      "legendary_seal_of_the_cryptwalker": {
+        "name": "至尊墓穴行者之印"
+      },
+      "ossuary_bone_crown": {
+        "name": "藏骨堂骨冠"
+      },
+      "rare_ossuary_bone_crown": {
+        "name": "失色的藏骨堂骨冠"
+      },
+      "legendary_ossuary_bone_crown": {
+        "name": "至尊藏骨堂骨冠"
+      },
+      "chalice_of_living_tides": {
+        "name": "活潮聖杯"
+      },
+      "rare_chalice_of_living_tides": {
+        "name": "失色的活潮聖杯"
+      },
+      "legendary_chalice_of_living_tides": {
+        "name": "至尊活潮聖杯"
+      },
+      "pendant_continuous_flow": {
+        "name": "不息流動吊墜"
+      },
+      "rare_pendant_continuous_flow": {
+        "name": "失色的不息流動吊墜"
+      },
+      "legendary_pendant_continuous_flow": {
+        "name": "至尊不息流動吊墜"
+      },
+      "coral_encrusted_girdle": {
+        "name": "珊瑚鑲嵌腰帶"
+      },
+      "rare_coral_encrusted_girdle": {
+        "name": "失色的珊瑚鑲嵌腰帶"
+      },
+      "legendary_coral_encrusted_girdle": {
+        "name": "至尊珊瑚鑲嵌腰帶"
+      },
+      "riptide_handwraps": {
+        "name": "激流裹手"
+      },
+      "rare_riptide_handwraps": {
+        "name": "失色的激流裹手"
+      },
+      "legendary_riptide_handwraps": {
+        "name": "至尊激流裹手"
+      },
       "vanguard_warrior_arms_helmet": {
         "name": "劍痕巨盔"
       },
@@ -19090,6 +19731,51 @@ export const zh_TW: EnTranslations = {
       "stable_horse": {
         "name": "廄馬"
       },
+      "hoard_brood_egg": {
+        "name": "蟲卵群"
+      },
+      "hoard_brood_hatchling": {
+        "name": "維斯卡的幼蛛"
+      },
+      "hoard_healing_tide_totem": {
+        "name": "治療之潮圖騰"
+      },
+      "hoard_bound_pulsar": {
+        "name": "受縛脈衝星"
+      },
+      "hoard_abyssal_tentacle": {
+        "name": "深淵之喉的觸手"
+      },
+      "hoard_silk_cocoon": {
+        "name": "絲繭"
+      },
+      "hoard_brood_cocoon": {
+        "name": "育雛之繭"
+      },
+      "hoard_coinsack_scurrier": {
+        "name": "錢袋竄賊"
+      },
+      "hoard_boss_mushroom": {
+        "name": "蘑菇之母"
+      },
+      "hoard_sporeling": {
+        "name": "孢子仔"
+      },
+      "hoard_bloat_cap": {
+        "name": "膨脹菌蓋"
+      },
+      "hoard_boss_mole": {
+        "name": "深耙"
+      },
+      "hoard_boss_bat": {
+        "name": "巨型蝙蝠"
+      },
+      "hoard_boss_mimic": {
+        "name": "貪婪寶箱"
+      },
+      "hoard_bat_swarmling": {
+        "name": "洞穴群蝠"
+      },
       "rift_spawnling": {
         "name": "裂隙孽生體"
       },
@@ -19119,6 +19805,9 @@ export const zh_TW: EnTranslations = {
       },
       "rift_marrow_troll": {
         "name": "骨髓巨魔"
+      },
+      "rift_marrow_golem": {
+        "name": "骨髓魔像"
       },
       "rift_void_acolyte": {
         "name": "虛空侍僧"
@@ -23252,6 +23941,11 @@ export const zh_TW: EnTranslations = {
         "sender": "交易所經紀人",
         "subject": "你的交易所掛單已售出",
         "body": "你的掛單已售出，買家已足額付款。所得款項在結算交易中直接匯入你綁定的錢包（已扣除交易所費用）；交易所從未經手你的錢款。\n\n這筆交易的紀錄已存入交易所帳冊。\n\n- 交易所經紀人"
+      },
+      "hoard_vault_reward": {
+        "sender": "渡鴉郵局",
+        "subject": "你的寶藏獎勵",
+        "body": "寶藏已被攻克，但你沒有從寶箱領取自己的那份獎勵。渡鴉已將你獲得的物品和金幣送到這裡。\n\n- 渡鴉郵局"
       }
     },
     "itemSets": {

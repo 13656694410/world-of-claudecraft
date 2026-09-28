@@ -2538,7 +2538,13 @@ describe('a pick of nothing but unmapped families is refused, claim intact (#250
     // practice targets, not corpses to butcher: 196.
     // 200, not 196: the world-quest infiltrator and the three regional freight
     // caravans ship untagged the same way (a disguised NPC and three wagons).
-    expect(Object.keys(MOBS).length - tagged.length).toBe(200);
+    // 216, not 200, at the 2026-09-28 release/v0.44.0 merge into
+    // feature/buried-hoards: the sixteen Buried Hoards templates (content/rift/mobs.ts:
+    // the fifteen hoard_* bosses, adds and summons, the Healing Tide Totem among
+    // them, plus the Boneyard's rift_marrow_golem) ship untagged like every rift
+    // template the release already carries, so they grow MOBS without touching
+    // `tagged`.
+    expect(Object.keys(MOBS).length - tagged.length).toBe(216);
     withMixedTemplates(() => {
       const mixed = mixedTemplates();
       expect(mixed.map(([id]) => id).sort()).toEqual(

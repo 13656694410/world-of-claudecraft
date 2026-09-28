@@ -2407,6 +2407,7 @@ export class ClientWorld extends ReconWireState implements IWorld {
         this.applyRiftStateEvent(ev as SimEvent);
         this.applyRiftDeathZoneSpawnEvent(ev as SimEvent);
         this.applyRiftDeathZoneClearEvent(ev as SimEvent);
+        this.hoardBossCueMirror?.apply(ev as SimEvent);
         this.applyMasterworkEvent(ev as SimEvent);
         this.applyDisenchantResultEvent(ev as SimEvent);
         this.applyEnchantResultEvent(ev as SimEvent);
@@ -2743,6 +2744,7 @@ export class ClientWorld extends ReconWireState implements IWorld {
         e.color = w.c ?? 0xffffff;
         e.dungeonId = w.dgn ?? null;
         e.riftTier = typeof w.rt === 'string' ? (w.rt as RiftTier) : undefined; // rift rank badge
+        e.vaultRarity = ['common', 'rare', 'epic', 'legendary'].includes(w.vr) ? w.vr : undefined;
         e.objectItemId = w.obj ?? null;
         Object.assign(e, decodePlayerIdentityWire(w)); // guild, pledge, tier, deed title/border, spec
         if (e.kind === 'npc') {

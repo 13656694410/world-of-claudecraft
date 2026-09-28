@@ -142,6 +142,8 @@ const hudStringsEn = {
         dungeonExit: 'Dungeon exit',
         delveEntrance: 'Delve entrance: {name}',
         worldPassage: 'Passage to {zone}',
+        hoardEntrance: 'Buried Hoard entrance',
+        hoardReturnEntrance: 'Hoard return entrance',
         riftEntrance: 'Rift entrance: {name}',
         hostileEnemy: 'Hostile enemy',
         aggressiveEnemy: 'Enemy attacking you',

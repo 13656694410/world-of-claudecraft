@@ -37,6 +37,7 @@ import { gardenFeaturesPreloadInternalsForTest } from '../src/render/garden_feat
 import { gatherNodePreloadInternalsForTest } from '../src/render/gather_nodes';
 import { gliderCourseVisualPreloadInternalsForTest } from '../src/render/glider_course_visual';
 import { harborRouteMarkerInternalsForTest } from '../src/render/harbor_route_markers';
+import { hoardEntrancePreloadInternalsForTest } from '../src/render/hoard_entrance';
 import { ignivarEnvPropsInternalsForTest } from '../src/render/ignivar_env_props';
 import { mailboxPreloadInternalsForTest } from '../src/render/mailbox';
 import { propPreloadInternalsForTest } from '../src/render/props';
@@ -46,6 +47,7 @@ import { transportShipInternalsForTest } from '../src/render/transport_ship';
 import { wickharborHarborInternalsForTest } from '../src/render/wickharbor_harbor';
 import { wickharborWharfInternalsForTest } from '../src/render/wickharbor_wharf';
 import { wildheartPropsPreloadInternalsForTest } from '../src/render/wildheart_props';
+import { wispMazeKitPreloadInternalsForTest } from '../src/render/wisp_maze_kit';
 import { wyrmwatchHarborInternalsForTest } from '../src/render/wyrmwatch_harbor';
 import { yumiMazePreloadInternalsForTest } from '../src/render/yumi_maze';
 import { EASTBROOK_GRAND_ARMOURY } from '../src/sim/building_layout';
@@ -497,6 +499,13 @@ async function expectArmouryGlbContract(
 }
 
 describe('GLB-replacement asset preload sets resolve to real, manifested files', () => {
+  it('buried hoard entrance asset', () => {
+    for (const url of hoardEntrancePreloadInternalsForTest.urls)
+      expectAssetExistsAndManifested(url);
+  });
+  it('wisp maze kit asset', () => {
+    for (const url of wispMazeKitPreloadInternalsForTest.urls) expectAssetExistsAndManifested(url);
+  });
   it('leaping fish asset', () => {
     expectAssetExistsAndManifested(fishPreloadInternalsForTest.fishAssetUrl);
   });

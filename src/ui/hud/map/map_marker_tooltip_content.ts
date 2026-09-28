@@ -1,10 +1,11 @@
 // Localized HTML for map marker tooltips. This domain helper owns the gather
 // resolve memo and quest grouping so Hud only supplies the current IWorld and
-// routes the finished string to the shared tooltip painter.
+// routes the finished string to the shared tooltip painter. A world quest marker
+// paints the rich hover card (world_quest_tooltip_view.ts + _html.ts).
 
 import { QUESTS } from '../../../sim/data';
 import type { QuestObjectiveRef } from '../../../sim/quest_targets';
-import { questObjectiveRequired } from '../../../sim/types';
+import { type ItemDef, questObjectiveRequired } from '../../../sim/types';
 import type { IWorld } from '../../../world_api';
 import { tEntity } from '../../entity_i18n';
 import { esc } from '../../esc';
@@ -24,14 +25,14 @@ import { questMarkerTooltipTag } from '../../quest_marker_tags';
 import {
   worldQuestDef,
   worldQuestDisplayName,
-  worldQuestFactionLine,
   worldQuestObjectiveLabel,
   worldQuestRewardLine,
-  worldQuestStatusText,
   worldQuestTimeRemainingText,
 } from '../../world_quest_view';
 import { stationNameText } from '../professions/crafting_window';
 import { buildGatherNodeTooltip } from '../professions/gathering_view';
+import { worldQuestTooltipHtml } from './world_quest_tooltip_html';
+import { buildWorldQuestTooltip } from './world_quest_tooltip_view';
 
 function questTitle(questId: string): string {
   return tEntity({ kind: 'quest', id: questId, field: 'title' });
@@ -58,10 +59,20 @@ function questProgressText(label: string, current: number, total: number): strin
   });
 }
 
+/** Host-supplied presentation the tooltips embed but this module cannot build. */
+export interface MapMarkerTooltipContentDeps {
+  /** The shared item tooltip card (Hud.itemTooltip); a world quest item reward
+   *  embeds it. Without it the reward shows its name and item level only. */
+  itemTooltip?(item: ItemDef): string;
+}
+
 export class MapMarkerTooltipContent {
   private gatherMemo: MapGatherTipMemo | null = null;
 
-  constructor(private readonly world: IWorld) {}
+  constructor(
+    private readonly world: IWorld,
+    private readonly deps: MapMarkerTooltipContentDeps = {},
+  ) {}
 
   clearMemo(): void {
     this.gatherMemo = null;
@@ -116,25 +127,16 @@ export class MapMarkerTooltipContent {
   worldQuest(marker: MapWorldQuestMarker, nowMs: number): string {
     const quest = worldQuestDef(marker.questId);
     if (!quest) return '';
-    const progress = this.world.worldQuestLog.get(marker.questId);
-    const current = Math.min(progress?.count ?? 0, quest.count);
-    const timeRemaining = worldQuestTimeRemainingText(this.world.worldQuestExpiresAtMs, nowMs);
-    return (
-      `<div class="tt-title">${esc(worldQuestDisplayName(marker.questId))}</div>` +
-      `<div>${esc(worldQuestFactionLine(quest))}</div>` +
-      `<div>${esc(worldQuestStatusText(marker.state))}</div>` +
-      `<div>${esc(
-        questProgressText(worldQuestObjectiveLabel(marker.questId), current, quest.count),
-      )}</div>` +
-      `<div>${esc(
-        worldQuestRewardLine(quest, {
-          level: this.world.player.level,
-          cls: this.world.cfg.playerClass,
-          cycle: this.world.worldQuestCycle,
-        }),
-      )}</div>` +
-      (timeRemaining ? `<div>${esc(timeRemaining)}</div>` : '')
-    );
+    const model = buildWorldQuestTooltip({
+      quest,
+      progressCount: this.world.worldQuestLog.get(marker.questId)?.count ?? 0,
+      playerLevel: this.world.player.level,
+      playerClass: this.world.cfg.playerClass,
+      cycle: this.world.worldQuestCycle,
+      expiresAtMs: this.world.worldQuestExpiresAtMs,
+      nowMs,
+    });
+    return worldQuestTooltipHtml(model, this.deps);
   }
 
   /** Plain-text counterpart used by the map's always-present screen-reader summary. */

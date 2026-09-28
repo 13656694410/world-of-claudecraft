@@ -968,6 +968,7 @@ describe('minimap_painter: tiny procedural symbols carry identity without hue', 
 
   it('draws every semantic-object family and rift mechanic without canvas text', () => {
     const semantics: MinimapObjectSemantic[] = [
+      { kind: 'hoard-entrance' },
       { kind: 'rift-entrance', rank: 'S' },
       { kind: 'rift-descent' },
       { kind: 'rift-return', route: 'beacon', rank: null },
@@ -1009,6 +1010,23 @@ describe('minimap_painter: tiny procedural symbols carry identity without hue', 
       expect(trace.minimapTextCalls, JSON.stringify(semantic)).toBe(0);
       expect(trace.minimapFontWrites, JSON.stringify(semantic)).toBe(0);
     }
+  });
+
+  it('draws the Buried Hoard as a treasure X without requesting Rift art', () => {
+    const markerArt = fakeMarkerArt([...MAP_MARKER_ART_IDS]);
+    const hoard = drawSymbols(
+      [{ kind: 'semantic-object', mx: 20, my: 30, semantic: { kind: 'hoard-entrance' } }],
+      'standard',
+      markerArt.art,
+    );
+    const rift = drawSymbols([
+      { kind: 'semantic-object', mx: 20, my: 30, semantic: { kind: 'rift-entrance', rank: null } },
+    ]);
+    expect(markerArt.calls).toEqual([]);
+    expect(hoard.segments).not.toEqual(rift.segments);
+    expect(hoard.strokedArcs).toEqual([]);
+    expect(hoard.segments).toHaveLength(4);
+    expect(hoard.minimapTextCalls).toBe(0);
   });
 
   it.each([

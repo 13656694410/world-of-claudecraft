@@ -122,6 +122,9 @@ export const shellStrings = {
         alreadyInWorld: 'Character is already in world.',
         accountSessionLimit: 'Too many characters on this account are already in the world.',
         takenOver: 'Your character was taken over by another session.',
+        // A fresh join while the character's vault reward mail is still being
+        // restored (server/vault_mail_take_guard.ts joinError).
+        vaultMailRecovering: 'Your vault reward mail is being restored. Try again shortly.',
         renameBeforeEntering: 'This character must be renamed before entering the world.',
         renameNotPermitted: 'Renaming this character is not allowed.',
         unsupportedMediaType: 'Unsupported request format.',

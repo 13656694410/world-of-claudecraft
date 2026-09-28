@@ -1,5 +1,6 @@
+import type { TreasureMapRarity } from '../sim/content/treasure_maps';
 import type { FactionId } from '../sim/factions';
-import { freshFactionReputation } from '../sim/factions';
+import { freshFactionCurrencies, freshFactionReputation } from '../sim/factions';
 import type {
   CannonActionId,
   CannonPoint,
@@ -10,6 +11,8 @@ import type {
 } from '../sim/types';
 import type { ActivityChoice } from '../sim/world_quest_activity';
 import type { NearbyWorldQuestTrace } from '../sim/world_quest_trace_public';
+import type { HoardBossCueView } from '../world_api/dungeons';
+import { HoardBossCueMirror } from './hoard_boss_cue_mirror';
 import { applyQuestSelfWire } from './quest_snapshot_wire';
 import { decodeVehicleSession } from './vehicle_session_wire';
 import { decodeActiveWorldBossIds } from './world_boss_snapshot_wire';
@@ -46,10 +49,16 @@ export class QuestWorldWireState {
   weeklyQuestResetAtMs = 0;
   nearbyWorldQuestTraces: readonly NearbyWorldQuestTrace[] = [];
   factions: Readonly<Record<FactionId, number>> = freshFactionReputation();
+  factionCurrencies: Readonly<Record<FactionId, number>> = freshFactionCurrencies();
   worldQuestReplacements: Readonly<Record<string, string>> = Object.freeze({});
   worldQuestRerollCycle = '';
   /** The active clue hunt mirrored from the `cluh` self key (null when none). */
   clueHunt: Readonly<{ huntId: string; step: number }> | null = null;
+  /** The read treasure map mirrored from the `tmap` self key (null when none). */
+  treasureMap: Readonly<{ rarity: TreasureMapRarity; siteId: string }> | null = null;
+  /** Client clock mirror of the authoritative Buried Hoard boss telegraphs;
+   *  the host feeds it every routed event (ClientWorld's event loop). */
+  protected readonly hoardBossCueMirror = new HoardBossCueMirror(() => performance.now());
   private activeWorldBossIds = new Set<string>();
   private questWorldTransport: ((command: QuestWorldCommand) => void) | null = null;
   private questWorldRestBase = '';
@@ -65,6 +74,10 @@ export class QuestWorldWireState {
       throw new Error('Quest world command transport is not configured');
     }
     this.questWorldTransport(command);
+  }
+
+  hoardBossCues(): HoardBossCueView[] {
+    return this.hoardBossCueMirror?.views() ?? [];
   }
 
   worldQuestLeaderboard(board: string, page = 0, pageSize?: number, viewer?: string) {
@@ -193,6 +206,7 @@ export class QuestWorldWireState {
     this.weeklyQuest = null;
     this.weeklyQuestResetAtMs = 0;
     this.clueHunt = null;
+    this.treasureMap = null;
     this.nearbyWorldQuestTraces = [];
     this.activeWorldBossIds = new Set();
   }

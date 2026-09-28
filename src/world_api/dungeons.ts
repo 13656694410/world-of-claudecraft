@@ -47,6 +47,27 @@ export interface RiftBossDeathZoneView {
   total: number;
 }
 
+/** One authoritative Buried Hoard boss telegraph on the local player's floor. */
+export interface HoardBossCueView {
+  instanceId: number;
+  cueId: number;
+  kind: 'sweep' | 'mark';
+  variant?: import('../sim/rift/types').HoardBossCueVariant;
+  phase: 'warning' | 'hazard';
+  x: number;
+  z: number;
+  radius: number;
+  remaining: number;
+  total: number;
+  facing?: number;
+  halfAngle?: number;
+  innerRadius?: number;
+  waveGap?: number;
+  waveSpan?: number;
+  waveLead?: number;
+  targetId?: number;
+}
+
 export interface IWorldDungeons {
   enterDungeon(dungeonId: string): WorldInteractionOutcome;
   leaveDungeon(): WorldInteractionOutcome;
@@ -83,6 +104,9 @@ export interface IWorldDungeons {
   // before the A-rank mechanic fires). The renderer draws a pulsing red decal ring
   // at each zone position so players can see and react to the telegraph.
   riftBossDeathZones(): RiftBossDeathZoneView[];
+  // Live Buried Hoard boss telegraphs on the current floor. This stateful seam
+  // keeps actionable warnings correct after reconnects and late interest entry.
+  hoardBossCues(): HoardBossCueView[];
   // Milliseconds remaining before the current rift's backing world event stops
   // admitting new parties (see closeNaturalRiftPortal in sim/rift/portals.ts: an
   // already in-progress run plays out past this deadline, only the overworld

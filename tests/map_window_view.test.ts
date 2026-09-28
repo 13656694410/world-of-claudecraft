@@ -743,7 +743,7 @@ describe('buildOverworldMapModel (pure draw model)', () => {
     ).toHaveLength(PORTALS.length * 2);
   });
 
-  it('shows only live Rift portal entities within the inclusive 80-yard disclosure range', () => {
+  it('shows distinct live Rift and Buried Hoard entrances within the disclosure range', () => {
     const world = makeOverworldWorld('sim') as unknown as {
       player: { pos: { x: number; z: number } };
       entities: Map<number, Record<string, unknown>>;
@@ -760,10 +760,14 @@ describe('buildOverworldMapModel (pure draw model)', () => {
     world.entities.set(20, rift(20, p.x + 80));
     world.entities.set(21, rift(21, p.x - 80.01));
     world.entities.set(22, rift(22, p.x + 10, 'mailbox'));
+    world.entities.set(23, rift(23, p.x + 12, 'hoard_entrance'));
 
     const model = buildOverworldMapModel(input(world as unknown as IWorld, 1));
     expect(model.navigation.filter((marker) => marker.kind === 'rift-entrance')).toEqual([
       expect.objectContaining({ kind: 'rift-entrance', name: 'Rift 20', rank: 'S' }),
+    ]);
+    expect(model.navigation.filter((marker) => marker.kind === 'hoard-entrance')).toEqual([
+      expect.objectContaining({ kind: 'hoard-entrance' }),
     ]);
   });
 

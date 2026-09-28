@@ -37,6 +37,7 @@ export interface CurrenciesViewInput {
   readonly honor: number;
   readonly lifetimeHonor: number;
   readonly delveMarks: number;
+  readonly factionCurrencies?: Readonly<Record<FactionId, number>>;
   readonly woc: {
     readonly enabled: boolean;
     readonly balance: number | null;
@@ -79,6 +80,10 @@ export function buildCurrenciesView(input: CurrenciesViewInput): CurrenciesView 
   }
   return {
     activities,
-    factions: FACTION_IDS.map((factionId) => ({ factionId, amount: 0, pending: true })),
+    factions: FACTION_IDS.map((factionId) => ({
+      factionId,
+      amount: whole(input.factionCurrencies?.[factionId] ?? 0),
+      pending: false,
+    })),
   };
 }

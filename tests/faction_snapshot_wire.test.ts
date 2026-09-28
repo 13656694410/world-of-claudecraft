@@ -10,35 +10,53 @@ import { bareClient } from './helpers/bare_client';
 const cycle = worldQuestCycleForResetDay('2026-08-31');
 
 describe('faction standing and reroll owner wire', () => {
-  it('applies a well-formed standing record and freezes the mirror', () => {
-    const target = { factions: undefined, worldQuestRerollCycle: '', worldQuestReplacements: {} };
-    applyFactionSelfWire(target, { fac: { rift_watch: 30, church_order: 1_200, automatons: 0 } });
+  it('applies a well-formed standing and currency record and freezes the mirror', () => {
+    const target = {
+      factions: undefined,
+      factionCurrencies: undefined,
+      worldQuestRerollCycle: '',
+      worldQuestReplacements: {},
+    };
+    applyFactionSelfWire(target, {
+      fac: { rift_watch: 30, church_order: 1_200, automatons: 0 },
+      facCur: { rift_watch: 25, church_order: 10, automatons: 0 },
+    });
     expect(target.factions).toEqual({ rift_watch: 30, church_order: 1_200, automatons: 0 });
+    expect(target.factionCurrencies).toEqual({ rift_watch: 25, church_order: 10, automatons: 0 });
     expect(Object.isFrozen(target.factions)).toBe(true);
+    expect(Object.isFrozen(target.factionCurrencies)).toBe(true);
   });
 
   it('omission retains the previous mirror; a malformed record is clamped, never trusted', () => {
     const target = {
       factions: Object.freeze({ rift_watch: 30, church_order: 0, automatons: 0 }),
+      factionCurrencies: Object.freeze({ rift_watch: 15, church_order: 0, automatons: 0 }),
       worldQuestRerollCycle: cycle,
       worldQuestReplacements: Object.freeze({}),
     };
     applyFactionSelfWire(target, {});
     expect(target.factions).toEqual({ rift_watch: 30, church_order: 0, automatons: 0 });
+    expect(target.factionCurrencies).toEqual({ rift_watch: 15, church_order: 0, automatons: 0 });
     expect(target.worldQuestRerollCycle).toBe(cycle);
     applyFactionSelfWire(target, {
       fac: { rift_watch: -5, church_order: MAX_STANDING * 10, automatons: 'x', bogus: 9 },
+      facCur: { rift_watch: -10, church_order: 50.8, automatons: 'invalid', bogus: 99 },
     });
     expect(target.factions.rift_watch).toBe(0);
     expect(target.factions.church_order).toBe(MAX_STANDING);
     expect(target.factions.automatons).toBe(0);
     expect('bogus' in target.factions).toBe(false);
+    expect(target.factionCurrencies.rift_watch).toBe(0);
+    expect(target.factionCurrencies.church_order).toBe(50);
+    expect(target.factionCurrencies.automatons).toBe(0);
+    expect('bogus' in target.factionCurrencies).toBe(false);
   });
 
   it('keeps a replacement only for a quest active on the mirrored day', () => {
     const active = WORLD_QUESTS.filter((quest) => quest.zoneId === 'eastbrook_vale').slice(0, 2);
     const target = {
       factions: undefined,
+      factionCurrencies: undefined,
       worldQuestCycle: cycle,
       worldQuestRerollCycle: '',
       worldQuestReplacements: Object.freeze({}),
@@ -58,11 +76,16 @@ describe('faction standing and reroll owner wire', () => {
     const client = bareClient(1);
     client.applyQuestSelfSnapshot({
       fac: { rift_watch: 60, church_order: 0, automatons: 0 },
+      facCur: { rift_watch: 30, church_order: 10, automatons: 5 },
       wqrr: cycle,
       wqrep: {},
     });
     expect(Object.keys(client.factions).sort()).toEqual(Object.keys(sim.factions).sort());
     expect(client.factions.rift_watch).toBe(60);
+    expect(Object.keys(client.factionCurrencies).sort()).toEqual(
+      Object.keys(sim.factionCurrencies).sort(),
+    );
+    expect(client.factionCurrencies.rift_watch).toBe(30);
     expect(client.worldQuestRerollCycle).toBe(cycle);
     expect(typeof sim.worldQuestRerollCycle).toBe(typeof client.worldQuestRerollCycle);
     // Clue Scrolls: both worlds expose the same cursor shape; a fresh

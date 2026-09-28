@@ -31,9 +31,17 @@ describe('quest event presentation', () => {
       pid: 1,
     });
     expect(started).toMatchObject({ sound: 'quest_accept' });
-    expect(started?.bannerText).toBe(started?.logText);
+    // The chat keeps the durable sentence; the screen gets the entry plate:
+    // the quest name as the title, "World Quest" under it, queued (never
+    // ambient) so it cannot wipe or be wiped by a zone-entry name.
     expect(started?.logText).toContain('World quest started:');
     expect(started?.logText).toContain(worldQuestDisplayName(quest.id));
+    expect(started).toMatchObject({
+      bannerText: worldQuestDisplayName(quest.id),
+      bannerSubtext: 'World Quest',
+      bannerVariant: 'worldQuest',
+      bannerClass: 'deed',
+    });
 
     const progress = questEventPresentation({
       type: 'worldQuestProgress',

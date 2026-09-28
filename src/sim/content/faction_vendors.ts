@@ -41,22 +41,53 @@
 // pins each row against the raid or heroic row it mirrors.
 // Item ids shipped in the golden (tests/shipped_item_ids.golden.json) are
 // never deleted: the first-cut ids keep their slot and were re-statted.
+//
+// PRICE. Every row is bought with the selling faction's marks (earned from its
+// World Quests), never coin: buyValue is 0 and the gate carries the mark cost
+// (the one exception is the Valestrider reins, which keep their classic coin
+// price in content/items.ts),
+// one figure per standing tier (MARKS below), formulas and recipes a step
+// under the gear of their tier. The allied rows (Cartographer's Ink, the
+// Allied Hearthstone and the Vanguard Duffel) carry no faction: every
+// quartermaster sells them for its own marks, gated on the best standing.
 
 import type { FactionId, StandingTier } from '../factions';
 import { STANDING_THRESHOLDS } from '../factions';
 import type { ItemDef, NpcDef } from '../types';
 
 export interface FactionVendorGate {
-  readonly factionId: FactionId;
+  /** Absent on an allied row: any quartermaster sells it, gated on the best standing. */
+  readonly factionId?: FactionId;
   readonly standingTier: StandingTier;
   readonly requiredStanding: number;
+  /** Marks of the selling faction the row costs. */
+  readonly currencyCost: number;
 }
 
-function gate(factionId: FactionId, standingTier: StandingTier): FactionVendorGate {
+/** Mark cost per standing tier for gear, bags and weapons. */
+const MARKS: Readonly<Record<StandingTier, number>> = Object.freeze({
+  unknown: 0,
+  recognized: 15,
+  trusted: 35,
+  proven: 75,
+  vanguard: 150,
+  champion: 200,
+});
+/** Formulas, recipes, plans and schematics: a step under the gear of their tier. */
+const FORMULA_MARKS = 50;
+/** Trusted-tier toys (the glider, the target dummy, the battle standard). */
+const TOY_MARKS = 40;
+
+function gate(
+  factionId: FactionId | undefined,
+  standingTier: StandingTier,
+  currencyCost: number = MARKS[standingTier],
+): FactionVendorGate {
   return Object.freeze({
-    factionId,
+    ...(factionId ? { factionId } : {}),
     standingTier,
     requiredStanding: STANDING_THRESHOLDS[standingTier],
+    currencyCost,
   });
 }
 
@@ -66,23 +97,31 @@ export const FACTION_VENDOR_GATES: Readonly<Record<string, FactionVendorGate>> =
   tidewatchers_locket: gate('rift_watch', 'recognized'),
   rift_watchers_band: gate('rift_watch', 'trusted'),
   rift_surveyors_satchel: gate('rift_watch', 'trusted'),
+  rift_feather_glider: gate('rift_watch', 'trusted', TOY_MARKS),
   riftwalkers_tunic: gate('rift_watch', 'proven'),
   riftwalkers_cord: gate('rift_watch', 'proven'),
   riftwalkers_treads: gate('rift_watch', 'proven'),
-  formula_riftwalkers_grace: gate('rift_watch', 'proven'),
+  formula_riftwalkers_grace: gate('rift_watch', 'proven', FORMULA_MARKS),
+  formula_enchant_feet_shadowstride: gate('rift_watch', 'proven', FORMULA_MARKS),
+  recipe_potion_of_invisibility: gate('rift_watch', 'proven', FORMULA_MARKS),
+  pattern_reinforced_armor_kit: gate('rift_watch', 'proven', FORMULA_MARKS),
   riftwarden_voidblade: gate('rift_watch', 'vanguard'),
   champion_rift_band: gate('rift_watch', 'champion'),
   riftwardens_pendant: gate('rift_watch', 'champion'),
-  reins_avian_strider: gate('rift_watch', 'champion'),
+  // The mount keeps its classic 100 gold coin price (content/items.ts), no marks.
+  reins_avian_strider: gate('rift_watch', 'champion', 0),
 
   // Church Order
   order_prayer_beads: gate('church_order', 'recognized'),
   acolytes_signet: gate('church_order', 'trusted'),
+  dawn_battle_standard: gate('church_order', 'trusted', TOY_MARKS),
   vestments_of_the_acolyte: gate('church_order', 'proven'),
   cord_of_the_dawn: gate('church_order', 'proven'),
   dawnlit_slippers: gate('church_order', 'proven'),
-  formula_dawnfire_etching: gate('church_order', 'proven'),
-  formula_dawns_benediction: gate('church_order', 'proven'),
+  formula_dawnfire_etching: gate('church_order', 'proven', FORMULA_MARKS),
+  formula_dawns_benediction: gate('church_order', 'proven', FORMULA_MARKS),
+  formula_enchant_offhand_spirit: gate('church_order', 'proven', FORMULA_MARKS),
+  recipe_elixir_of_mana_regeneration: gate('church_order', 'proven', FORMULA_MARKS),
   dawnkeeper_consecrated_mace: gate('church_order', 'vanguard'),
   templar_dawn_shield: gate('church_order', 'vanguard'),
   champion_dawn_medallion: gate('church_order', 'champion'),
@@ -93,13 +132,22 @@ export const FACTION_VENDOR_GATES: Readonly<Record<string, FactionVendorGate>> =
   cogwork_choker: gate('automatons', 'recognized'),
   automaton_cog_ring: gate('automatons', 'trusted'),
   clockwork_tinkers_pack: gate('automatons', 'trusted'),
+  clockwork_target_dummy: gate('automatons', 'trusted', TOY_MARKS),
   artificers_welding_cowl: gate('automatons', 'proven'),
   forgemasters_girdle: gate('automatons', 'proven'),
   forgemasters_sabatons: gate('automatons', 'proven'),
-  formula_piston_drive: gate('automatons', 'proven'),
+  formula_piston_drive: gate('automatons', 'proven', FORMULA_MARKS),
+  formula_enchant_gloves_forged_might: gate('automatons', 'proven', FORMULA_MARKS),
+  schematic_clockwork_shock_bomb: gate('automatons', 'proven', FORMULA_MARKS),
+  plans_dense_sharpening_stone: gate('automatons', 'proven', FORMULA_MARKS),
   forgemaster_crag_cleaver: gate('automatons', 'vanguard'),
   champion_forged_loop: gate('automatons', 'champion'),
   forgewall_gorget: gate('automatons', 'champion'),
+
+  // Allied rows: every quartermaster, its own marks, the best standing.
+  cartographers_ink: gate(undefined, 'recognized', 60),
+  allied_hearthstone: gate(undefined, 'vanguard', 100),
+  allied_vanguard_duffel: gate(undefined, 'vanguard', 120),
 });
 
 export interface FactionVendorRowGateState {
@@ -117,12 +165,15 @@ export function resolveFactionVendorRowGate(
     return { locked: false };
   }
   const requirement = FACTION_VENDOR_GATES[itemId];
-  const currentStanding = factions?.[requirement.factionId] ?? 0;
+  const currentStanding = requirement.factionId
+    ? (factions?.[requirement.factionId] ?? 0)
+    : Math.max(0, ...(Object.values(factions ?? {}) as number[]));
   const locked = currentStanding < requirement.requiredStanding;
   return { locked, requirement, currentStanding };
 }
 
-// Tier prices, one per standing tier, in copper (50s, 1g50, 3g50, 8g, 15g).
+// Coin value per standing tier, in copper (50s, 1g50, 3g50, 8g, 15g). Rows are
+// bought with marks (buyValue 0); a vendor buys one back at a quarter of this.
 const PRICE: Readonly<Record<StandingTier, number>> = Object.freeze({
   unknown: 0,
   recognized: 5_000,
@@ -150,7 +201,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('recognized'),
-    buyValue: PRICE.recognized,
+    buyValue: 0,
   },
   // Trusted: the heroic vendor's Agility ring shape (Sutil's Gambit).
   rift_watchers_band: {
@@ -164,7 +215,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('trusted'),
-    buyValue: PRICE.trusted,
+    buyValue: 0,
   },
   rift_surveyors_satchel: {
     id: 'rift_surveyors_satchel',
@@ -174,7 +225,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     quality: 'uncommon',
     soulbound: true,
     sellValue: sell('trusted'),
-    buyValue: PRICE.trusted,
+    buyValue: 0,
   },
   // Proven: the heroic five-man leather Agility chest (Basin Stalker's Tunic).
   riftwalkers_tunic: {
@@ -189,7 +240,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('proven'),
-    buyValue: PRICE.proven,
+    buyValue: 0,
   },
   // Proven: the raid offset leather Agility waist and feet (Slagstalker Belt,
   // Ashrunner Boots).
@@ -206,7 +257,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('proven'),
-    buyValue: PRICE.proven,
+    buyValue: 0,
   },
   riftwalkers_treads: {
     id: 'riftwalkers_treads',
@@ -221,7 +272,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('proven'),
-    buyValue: PRICE.proven,
+    buyValue: 0,
   },
   formula_riftwalkers_grace: {
     id: 'formula_riftwalkers_grace',
@@ -231,7 +282,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     teachesEnchantId: 'enchant_weapon_riftwalkers_grace',
     quality: 'epic',
     sellValue: 0,
-    buyValue: PRICE.proven,
+    buyValue: 0,
     noVendorSell: true,
   },
   // Vanguard: the game's first fast (1.6) non-dagger one-hander, on the heroic
@@ -249,7 +300,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('vanguard'),
-    buyValue: PRICE.vanguard,
+    buyValue: 0,
     requiredClass: ['warrior', 'rogue', 'hunter', 'shaman'],
     weaponProcs: [
       {
@@ -274,7 +325,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('champion'),
-    buyValue: PRICE.champion,
+    buyValue: 0,
   },
   riftwardens_pendant: {
     id: 'riftwardens_pendant',
@@ -287,7 +338,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('champion'),
-    buyValue: PRICE.champion,
+    buyValue: 0,
   },
 
   // ---------------------------------------------------------------- Church Order
@@ -304,7 +355,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('recognized'),
-    buyValue: PRICE.recognized,
+    buyValue: 0,
   },
   // Trusted: the heroic vendor's caster ring shape (Zense Meridian).
   acolytes_signet: {
@@ -318,7 +369,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('trusted'),
-    buyValue: PRICE.trusted,
+    buyValue: 0,
   },
   // Proven: the heroic five-man cloth healer chest (Shroud of the Gravewyrm).
   vestments_of_the_acolyte: {
@@ -333,7 +384,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('proven'),
-    buyValue: PRICE.proven,
+    buyValue: 0,
   },
   // Proven: the raid offset cloth caster waist (Cord of the Last Flame) and
   // healer feet (Steps of Quiet Water).
@@ -351,7 +402,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('proven'),
-    buyValue: PRICE.proven,
+    buyValue: 0,
   },
   dawnlit_slippers: {
     id: 'dawnlit_slippers',
@@ -367,7 +418,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('proven'),
-    buyValue: PRICE.proven,
+    buyValue: 0,
   },
   formula_dawnfire_etching: {
     id: 'formula_dawnfire_etching',
@@ -377,7 +428,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     teachesEnchantId: 'enchant_weapon_dawnfire_etching',
     quality: 'epic',
     sellValue: 0,
-    buyValue: PRICE.proven,
+    buyValue: 0,
     noVendorSell: true,
   },
   formula_dawns_benediction: {
@@ -388,7 +439,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     teachesEnchantId: 'enchant_weapon_dawns_benediction',
     quality: 'epic',
     sellValue: 0,
-    buyValue: PRICE.proven,
+    buyValue: 0,
     noVendorSell: true,
   },
   // Vanguard: a healer mace on the Springtouched Crozier's damage line with a
@@ -407,7 +458,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('vanguard'),
-    buyValue: PRICE.vanguard,
+    buyValue: 0,
     requiredClass: ['priest', 'paladin', 'shaman', 'druid'],
     weaponProcs: [
       {
@@ -434,7 +485,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('vanguard'),
-    buyValue: PRICE.vanguard,
+    buyValue: 0,
     requiredClass: ['paladin', 'shaman'],
   },
   // Champion: a haste caster neck, and the SECOND caster and healer rings the
@@ -451,7 +502,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('champion'),
-    buyValue: PRICE.champion,
+    buyValue: 0,
   },
   champions_dawn_loop: {
     id: 'champions_dawn_loop',
@@ -465,7 +516,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('champion'),
-    buyValue: PRICE.champion,
+    buyValue: 0,
   },
   dawnkeepers_circle: {
     id: 'dawnkeepers_circle',
@@ -479,7 +530,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('champion'),
-    buyValue: PRICE.champion,
+    buyValue: 0,
   },
 
   // ------------------------------------------------------------------ Automatons
@@ -495,7 +546,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('recognized'),
-    buyValue: PRICE.recognized,
+    buyValue: 0,
   },
   // Trusted: the heroic vendor's Strength ring shape (Seal of the Nine Oaths).
   automaton_cog_ring: {
@@ -509,7 +560,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('trusted'),
-    buyValue: PRICE.trusted,
+    buyValue: 0,
   },
   clockwork_tinkers_pack: {
     id: 'clockwork_tinkers_pack',
@@ -519,7 +570,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     quality: 'uncommon',
     soulbound: true,
     sellValue: sell('trusted'),
-    buyValue: PRICE.trusted,
+    buyValue: 0,
   },
   // Proven: the heroic five-man mail Strength helm (Cryptplate Helm).
   artificers_welding_cowl: {
@@ -534,7 +585,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('proven'),
-    buyValue: PRICE.proven,
+    buyValue: 0,
   },
   // Proven: the raid offset mail Strength waist and feet (Warforged
   // Waistguard, Furnace March Greaves).
@@ -551,7 +602,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('proven'),
-    buyValue: PRICE.proven,
+    buyValue: 0,
   },
   forgemasters_sabatons: {
     id: 'forgemasters_sabatons',
@@ -566,7 +617,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('proven'),
-    buyValue: PRICE.proven,
+    buyValue: 0,
   },
   formula_piston_drive: {
     id: 'formula_piston_drive',
@@ -576,7 +627,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     teachesEnchantId: 'enchant_weapon_piston_drive',
     quality: 'epic',
     sellValue: 0,
-    buyValue: PRICE.proven,
+    buyValue: 0,
     noVendorSell: true,
   },
   // Vanguard: a two-hander on the heroic five-man two-hander bar (Deathless
@@ -596,7 +647,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('vanguard'),
-    buyValue: PRICE.vanguard,
+    buyValue: 0,
     requiredClass: ['warrior', 'paladin', 'shaman', 'hunter'],
     weaponProcs: [
       {
@@ -624,7 +675,7 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('champion'),
-    buyValue: PRICE.champion,
+    buyValue: 0,
   },
   forgewall_gorget: {
     id: 'forgewall_gorget',
@@ -637,7 +688,185 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
     requiredLevel: 20,
     soulbound: true,
     sellValue: sell('champion'),
-    buyValue: PRICE.champion,
+    buyValue: 0,
+  },
+  // Blaine's quartermaster extras: toys, recipes, formulas, plans, their
+  // crafted outputs, and the allied rows.
+  rift_feather_glider: {
+    id: 'rift_feather_glider',
+    name: 'Rift Feather Glider',
+    kind: 'tool',
+    quality: 'rare',
+    unique: true,
+    use: { type: 'riftGlider' },
+    sellValue: 6250,
+    buyValue: 0,
+  },
+  formula_enchant_feet_shadowstride: {
+    id: 'formula_enchant_feet_shadowstride',
+    name: 'Formula: Enchant Boots - Shadowstride',
+    kind: 'recipe',
+    quality: 'uncommon',
+    teachesRecipeId: 'enchant_feet_shadowstride',
+    teachesEnchantId: 'enchant_feet_shadowstride',
+    sellValue: 0,
+    buyValue: 0,
+  },
+  recipe_potion_of_invisibility: {
+    id: 'recipe_potion_of_invisibility',
+    name: 'Recipe: Potion of Invisibility',
+    kind: 'recipe',
+    quality: 'rare',
+    teachesRecipeId: 'recipe_potion_of_invisibility',
+    sellValue: 0,
+    buyValue: 0,
+  },
+  potion_of_invisibility: {
+    id: 'potion_of_invisibility',
+    name: 'Potion of Invisibility',
+    kind: 'potion',
+    quality: 'rare',
+    use: { type: 'invisibility' },
+    stackSize: 20,
+    sellValue: 35,
+    buyValue: 150,
+  },
+  pattern_reinforced_armor_kit: {
+    id: 'pattern_reinforced_armor_kit',
+    name: 'Pattern: Reinforced Armor Kit',
+    kind: 'recipe',
+    quality: 'uncommon',
+    teachesRecipeId: 'pattern_reinforced_armor_kit',
+    sellValue: 0,
+    buyValue: 0,
+  },
+  reinforced_armor_kit: {
+    id: 'reinforced_armor_kit',
+    name: 'Reinforced Armor Kit',
+    kind: 'tool',
+    quality: 'uncommon',
+    use: { type: 'armorKit' },
+    stackSize: 20,
+    sellValue: 30,
+    buyValue: 120,
+  },
+  dawn_battle_standard: {
+    id: 'dawn_battle_standard',
+    name: 'Dawn Battle Standard',
+    kind: 'tool',
+    quality: 'rare',
+    unique: true,
+    use: { type: 'dawnStandard' },
+    sellValue: 6250,
+    buyValue: 0,
+  },
+  formula_enchant_offhand_spirit: {
+    id: 'formula_enchant_offhand_spirit',
+    name: 'Formula: Enchant Off-Hand - Spirit',
+    kind: 'recipe',
+    quality: 'uncommon',
+    teachesRecipeId: 'enchant_offhand_spirit',
+    teachesEnchantId: 'enchant_offhand_spirit',
+    sellValue: 0,
+    buyValue: 0,
+  },
+  recipe_elixir_of_mana_regeneration: {
+    id: 'recipe_elixir_of_mana_regeneration',
+    name: 'Recipe: Elixir of Mana Regeneration',
+    kind: 'recipe',
+    quality: 'uncommon',
+    teachesRecipeId: 'recipe_elixir_of_mana_regeneration',
+    sellValue: 0,
+    buyValue: 0,
+  },
+  elixir_of_mana_regeneration: {
+    id: 'elixir_of_mana_regeneration',
+    name: 'Elixir of Mana Regeneration',
+    kind: 'potion',
+    quality: 'uncommon',
+    use: { type: 'manaElixir' },
+    stackSize: 20,
+    sellValue: 20,
+    buyValue: 100,
+  },
+  clockwork_target_dummy: {
+    id: 'clockwork_target_dummy',
+    name: 'Clockwork Target Dummy',
+    kind: 'tool',
+    quality: 'rare',
+    unique: true,
+    use: { type: 'targetDummy' },
+    sellValue: 6250,
+    buyValue: 0,
+  },
+  schematic_clockwork_shock_bomb: {
+    id: 'schematic_clockwork_shock_bomb',
+    name: 'Schematic: Clockwork Shock Bomb',
+    kind: 'recipe',
+    quality: 'rare',
+    teachesRecipeId: 'schematic_clockwork_shock_bomb',
+    sellValue: 0,
+    buyValue: 0,
+  },
+  clockwork_shock_bomb: {
+    id: 'clockwork_shock_bomb',
+    name: 'Clockwork Shock Bomb',
+    kind: 'tool',
+    quality: 'rare',
+    use: { type: 'shockBomb' },
+    stackSize: 10,
+    sellValue: 25,
+    buyValue: 100,
+  },
+  plans_dense_sharpening_stone: {
+    id: 'plans_dense_sharpening_stone',
+    name: 'Plans: Dense Sharpening Stone',
+    kind: 'recipe',
+    quality: 'uncommon',
+    teachesRecipeId: 'plans_dense_sharpening_stone',
+    sellValue: 0,
+    buyValue: 0,
+  },
+  dense_sharpening_stone: {
+    id: 'dense_sharpening_stone',
+    name: 'Dense Sharpening Stone',
+    kind: 'tool',
+    quality: 'common',
+    use: { type: 'sharpeningStone' },
+    stackSize: 20,
+    sellValue: 20,
+    buyValue: 80,
+  },
+  formula_enchant_gloves_forged_might: {
+    id: 'formula_enchant_gloves_forged_might',
+    name: 'Formula: Enchant Gloves - Forged Might',
+    kind: 'recipe',
+    quality: 'uncommon',
+    teachesRecipeId: 'enchant_gloves_forged_might',
+    teachesEnchantId: 'enchant_gloves_forged_might',
+    sellValue: 0,
+    buyValue: 0,
+  },
+  allied_hearthstone: {
+    id: 'allied_hearthstone',
+    name: 'Allied Hearthstone',
+    kind: 'tool',
+    quality: 'rare',
+    unique: true,
+    use: { type: 'alliedHearthstone' },
+    sellValue: 20000,
+    buyValue: 0,
+  },
+  allied_vanguard_duffel: {
+    id: 'allied_vanguard_duffel',
+    name: 'Allied Vanguard Duffel',
+    kind: 'bag',
+    bagSlots: 16,
+    quality: 'epic',
+    unique: true,
+    soulbound: true,
+    sellValue: 20000,
+    buyValue: 0,
   },
 };
 
@@ -645,13 +874,20 @@ export const FACTION_VENDOR_ITEMS: Record<string, ItemDef> = {
 export const FACTION_VENDOR_STOCK: Readonly<Record<FactionId, readonly string[]>> = Object.freeze({
   rift_watch: Object.freeze([
     'tidewatchers_locket',
+    'cartographers_ink',
     'rift_watchers_band',
     'rift_surveyors_satchel',
+    'rift_feather_glider',
     'riftwalkers_tunic',
     'riftwalkers_cord',
     'riftwalkers_treads',
     'formula_riftwalkers_grace',
+    'formula_enchant_feet_shadowstride',
+    'recipe_potion_of_invisibility',
+    'pattern_reinforced_armor_kit',
     'riftwarden_voidblade',
+    'allied_hearthstone',
+    'allied_vanguard_duffel',
     'champion_rift_band',
     'riftwardens_pendant',
     // The Viridian Valestrider (content/items.ts, PR 4175): the ladder's
@@ -660,27 +896,40 @@ export const FACTION_VENDOR_STOCK: Readonly<Record<FactionId, readonly string[]>
   ]),
   church_order: Object.freeze([
     'order_prayer_beads',
+    'cartographers_ink',
     'acolytes_signet',
+    'dawn_battle_standard',
     'vestments_of_the_acolyte',
     'cord_of_the_dawn',
     'dawnlit_slippers',
     'formula_dawnfire_etching',
     'formula_dawns_benediction',
+    'formula_enchant_offhand_spirit',
+    'recipe_elixir_of_mana_regeneration',
     'dawnkeeper_consecrated_mace',
     'templar_dawn_shield',
+    'allied_hearthstone',
+    'allied_vanguard_duffel',
     'champion_dawn_medallion',
     'champions_dawn_loop',
     'dawnkeepers_circle',
   ]),
   automatons: Object.freeze([
     'cogwork_choker',
+    'cartographers_ink',
     'automaton_cog_ring',
     'clockwork_tinkers_pack',
+    'clockwork_target_dummy',
     'artificers_welding_cowl',
     'forgemasters_girdle',
     'forgemasters_sabatons',
     'formula_piston_drive',
+    'formula_enchant_gloves_forged_might',
+    'schematic_clockwork_shock_bomb',
+    'plans_dense_sharpening_stone',
     'forgemaster_crag_cleaver',
+    'allied_hearthstone',
+    'allied_vanguard_duffel',
     'champion_forged_loop',
     'forgewall_gorget',
   ]),
@@ -744,3 +993,29 @@ export const FACTION_VENDOR_NPCS: Record<string, NpcDef> = {
       'The allied factions post assignments across the realm every day. If an assignment does not suit your skills, you may request one daily reassignment.',
   },
 };
+
+/** Teleport arrival destinations for the Allied Hearthstone. */
+export const FACTION_HUB_LANDINGS: Readonly<
+  Record<
+    FactionId,
+    {
+      readonly x: number;
+      readonly y: number;
+      readonly z: number;
+      readonly facing: number;
+      readonly name: string;
+    }
+  >
+> = Object.freeze({
+  church_order: Object.freeze({ x: 8, y: 0, z: -80, facing: 3.14, name: 'Eastbrook Vale' }),
+  rift_watch: Object.freeze({ x: -302, y: 0, z: 812, facing: 0.8, name: 'Drifthaven' }),
+  automatons: Object.freeze({ x: 402, y: 0, z: 1912, facing: -0.4, name: 'Wyrmwatch' }),
+});
+
+/** Return the faction associated with a quartermaster NPC template, if any. */
+export function vendorFactionForNpc(templateId?: string): FactionId | undefined {
+  if (templateId === 'npc_rift_watch_quartermaster') return 'rift_watch';
+  if (templateId === 'npc_church_order_quartermaster') return 'church_order';
+  if (templateId === 'npc_automaton_quartermaster') return 'automatons';
+  return undefined;
+}

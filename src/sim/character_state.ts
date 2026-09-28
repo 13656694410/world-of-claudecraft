@@ -115,6 +115,7 @@ export interface CharacterState {
     cycle: string;
     progress: WorldQuestProgress[];
     factions?: Partial<Record<string, number>>;
+    factionCurrencies?: Partial<Record<string, number>>;
     rerollCycle?: string;
     replacements?: Record<string, string>;
     // Clue Scrolls (src/sim/clue_scrolls.ts). Each is optional and written
@@ -124,9 +125,17 @@ export interface CharacterState {
     clueHunt?: { huntId: string; step: number };
     clueScrollCycle?: string;
     clueCasketsOpened?: number;
+    // Treasure maps (src/sim/treasure_vault.ts), written only when set.
+    treasureMap?: { rarity: string; siteId: string; seed: number };
+    vaultAttempt?: { id: string; rarity: string; siteId: string; seed: number };
+    vaultAttemptSeq?: number;
+    vaultGuestCycle?: string;
+    vaultGuestPayouts?: number;
   };
   // Faction standing (JSONB; optional so pre-reputation saves load cleanly).
   factions?: Partial<Record<string, number>>;
+  // Spendable faction currencies (JSONB; optional so pre-feature saves load cleanly).
+  factionCurrencies?: Partial<Record<string, number>>;
   // The weekly emissary's pick. Optional and omitted while there is none, so
   // every pre-feature save loads with no charge taken.
   weeklyQuest?: WeeklyQuestProgress;

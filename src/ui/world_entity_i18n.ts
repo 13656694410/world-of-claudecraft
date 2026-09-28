@@ -138,6 +138,21 @@ const MOB_IDS = [
   'stable_horse',
   // Procedural Rift creature pool (src/sim/content/rift/mobs.ts). Dev/endless
   // content; English names come from the MOBS table like every other id here.
+  'hoard_brood_egg',
+  'hoard_brood_hatchling',
+  'hoard_healing_tide_totem',
+  'hoard_bound_pulsar',
+  'hoard_abyssal_tentacle',
+  'hoard_silk_cocoon',
+  'hoard_brood_cocoon',
+  'hoard_coinsack_scurrier',
+  'hoard_boss_mushroom',
+  'hoard_sporeling',
+  'hoard_bloat_cap',
+  'hoard_boss_mole',
+  'hoard_boss_bat',
+  'hoard_boss_mimic',
+  'hoard_bat_swarmling',
   'rift_spawnling',
   'rift_bonewalker',
   'rift_frost_revenant',
@@ -148,6 +163,7 @@ const MOB_IDS = [
   'rift_thornback',
   'rift_boneclad',
   'rift_marrow_troll',
+  'rift_marrow_golem',
   'rift_void_acolyte',
   'rift_dread_stalker',
   'rift_storm_caller',
@@ -727,6 +743,7 @@ const LETTER_IDS = [
   'woc_market_delivery',
   'woc_market_return',
   'woc_market_sold',
+  'hoard_vault_reward',
 ] as const;
 
 type MobId = (typeof MOB_IDS)[number];

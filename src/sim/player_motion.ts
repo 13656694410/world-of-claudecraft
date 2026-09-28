@@ -729,9 +729,15 @@ function verticalPass(
     p.fallStartY = p.pos.y;
   }
   if (!p.onGround) {
-    p.vy -= GRAVITY * DT;
+    const gliderIdx = p.auras.findIndex((a) => a.id === 'rift_feather_glider');
+    if (gliderIdx >= 0) {
+      p.vy = Math.max(p.vy - GRAVITY * DT, -2.5);
+      p.fallStartY = p.pos.y;
+    } else {
+      p.vy -= GRAVITY * DT;
+      p.fallStartY = Math.max(p.fallStartY, p.pos.y);
+    }
     p.pos.y += p.vy * DT;
-    p.fallStartY = Math.max(p.fallStartY, p.pos.y);
     if (deepWater && p.pos.y <= waterHere - 0.75) {
       // Splashing into deep water breaks the fall — and the harder the hit,
       // the deeper the body drives under before buoyancy lifts it back
@@ -753,6 +759,8 @@ function verticalPass(
       p.onGround = true;
       p.jumping = false;
       p.fallStartY = p.pos.y;
+      const gWaterIdx = p.auras.findIndex((a) => a.id === 'rift_feather_glider');
+      if (gWaterIdx >= 0) p.auras.splice(gWaterIdx, 1);
       return;
     }
     if (p.pos.y <= support) {
@@ -766,14 +774,22 @@ function verticalPass(
       p.vz = 0;
       p.onGround = true;
       p.jumping = false;
-      const drop = p.fallStartY - support;
-      if (drop > FALL_SAFE_DISTANCE) {
-        const dmg = Math.round(p.maxHp * (drop - FALL_SAFE_DISTANCE) * 0.07);
-        if (dmg > 0) deps.dealDamage(null, p, dmg, false, 'physical', 'Falling', 'hit', true);
+      const gLandIdx = p.auras.findIndex((a) => a.id === 'rift_feather_glider');
+      if (gLandIdx >= 0) {
+        p.auras.splice(gLandIdx, 1);
+        p.fallStartY = support;
+      } else {
+        const drop = p.fallStartY - support;
+        if (drop > FALL_SAFE_DISTANCE) {
+          const dmg = Math.round(p.maxHp * (drop - FALL_SAFE_DISTANCE) * 0.07);
+          if (dmg > 0) deps.dealDamage(null, p, dmg, false, 'physical', 'Falling', 'hit', true);
+        }
+        p.fallStartY = support;
       }
-      p.fallStartY = support;
     }
   } else {
+    const gGroundIdx = p.auras.findIndex((a) => a.id === 'rift_feather_glider');
+    if (gGroundIdx >= 0) p.auras.splice(gGroundIdx, 1);
     // Distinguish a walkable downhill slope from a genuine cliff/ledge. The
     // drop the surface can take in one tick scales with how far we moved: a
     // slope no steeper than MAX_CLIMB_SLOPE (the same gate that blocks uphill

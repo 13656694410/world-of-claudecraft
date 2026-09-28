@@ -517,7 +517,8 @@ export function spawnArmyPortalBurstEvent(
   if (
     (ev.ability !== 'army_of_the_dead' &&
       ev.ability !== 'Forge Legion Portal' &&
-      ev.ability !== 'Raider Rift') ||
+      ev.ability !== 'Raider Rift' &&
+      ev.ability !== 'Hoard Bone Legion') ||
     ev.fx !== 'burst'
   ) {
     return;

@@ -1166,7 +1166,10 @@ export const ja_JP: EnTranslations = {
       "count": "（{count}）",
       "objectiveValue": "{current} / {total}",
       "collapseHint": "クエストトラッカーを折りたたむ",
-      "expandHint": "クエストトラッカーを展開する"
+      "expandHint": "クエストトラッカーを展開する",
+      "worldQuests": "ワールドクエスト",
+      "worldQuestsCollapseHint": "ワールドクエストを折りたたむ",
+      "worldQuestsExpandHint": "ワールドクエストを展開する"
     },
     "interfaceTabs": {
       "general": "全般",
@@ -1661,6 +1664,10 @@ export const ja_JP: EnTranslations = {
     },
     "riftTracker": {
       "title": "リフト",
+      "hoardTitle": "埋もれた財宝",
+      "hoardGoal": "財宝の番人を倒せ",
+      "hoardChestGoal": "宝の箱を開けよう",
+      "hoardClaimedGoal": "財宝はあなたのもの",
       "floor": "フロア {current}/{total}",
       "closesIn": "リフトは{time}後に閉じます",
       "clockMs": "{minutes}:{seconds}",
@@ -2870,6 +2877,19 @@ export const ja_JP: EnTranslations = {
       "crafting": "製作",
       "openProfessions": "職業を開く"
     },
+    "treasureMap": {
+      "close": "宝の地図を閉じる",
+      "zone": "{zone}のどこか",
+      "hint": "この地図が示す場所を見つけ、X印の上に立ち、もう一度地図を使って掘りましょう。あなたとパーティーのために埋もれた財宝が開かれます。",
+      "upgradeNote": "{rarity}の地図として描き直すには地図職人のインクが{inks}個必要です（所持: {held}）。各勢力の補給係が販売しています。",
+      "upgradeMaxed": "どんな地図職人もこの地図をこれ以上良くはできません。",
+      "rarity": {
+        "common": "コモン",
+        "rare": "レア",
+        "epic": "エピック",
+        "legendary": "レジェンダリー"
+      }
+    },
     "currencies": {
       "intro": "いずれもバッグの枠を使いません。コインはこれまで通りバッグにあります。",
       "activities": "アクティビティ",
@@ -2884,7 +2904,24 @@ export const ja_JP: EnTranslations = {
       "walletNotLinked": "ウォレット未連携",
       "wocPreview": "プレビュー残高（未検証）",
       "lifetime": "累計 {amount}",
-      "factionPending": "勢力通貨：第2段階で決定"
+      "factionPending": "勢力通貨：第2段階で決定",
+      "riftWatchMark": "リフトの見張りの徽章",
+      "riftWatchMarkNote": "リフトの見張り地域のワールドクエスト",
+      "churchOrderCrest": "修道会の紋章",
+      "churchOrderCrestNote": "教会修道会地域のワールドクエスト",
+      "automatonCog": "オートマトンの歯車",
+      "automatonCogNote": "オートマトン地域のワールドクエスト"
+    },
+    "worldQuestTooltip": {
+      "factionLine": "勢力：{faction}",
+      "timeRemaining": "残り時間：",
+      "standingAmount": "{amount} {faction}",
+      "currencyAmount": "{amount} {currency}",
+      "standingReward": "{faction}の評判 +{amount}",
+      "currencyReward": "+{amount} {currency}"
+    },
+    "worldQuestBanner": {
+      "subtitle": "ワールドクエスト"
     },
     "reputation": {
       "intro": "3つの勢力は同時に進行します。各ワールドクエストは、その地域の勢力に加算されます。",
@@ -5293,6 +5330,9 @@ export const ja_JP: EnTranslations = {
       "enchant_chest_lucent_stamina": "胸銘刻：光輝のスタミナ",
       "enchant_feet_lucent_agility": "足銘刻：光輝の敏捷性",
       "enchant_lucent_infusion": "光輝の注入",
+      "enchant_offhand_spirit": "オフハンドの刻印：精神",
+      "enchant_feet_shadowstride": "ブーツの刻印：影歩き",
+      "enchant_gloves_forged_might": "グローブの刻印：鍛えられた力",
       "enchant_weapon_riftwalkers_grace": "裂け目歩きの優雅",
       "enchant_weapon_dawnfire_etching": "武器銘刻：暁火",
       "enchant_weapon_dawns_benediction": "武器銘刻：暁の祝福",
@@ -5304,6 +5344,22 @@ export const ja_JP: EnTranslations = {
       "enchant_weapon_dawnfire_etching": "武器に呪文威力18を永続的に銘刻する。呪文威力は治癒力にも加算される。固定値のボーナスで、他の能力値によって増減しない。",
       "enchant_weapon_dawns_benediction": "武器に治癒力34を永続的に銘刻する。治癒力は回復のみを高め、呪文ダメージは高めない。固定値のボーナスで、他の能力値によって増減しない。",
       "enchant_weapon_piston_drive": "両手武器に筋力12とクリティカルレーティング25を永続的に銘刻する。片手武器には施せない。固定値のボーナスで、他の能力値によって増減しない。"
+    },
+    "factionRewards": {
+      "alliedHearthstoneUse": "使用: 同調した勢力の拠点へテレポートします。（詠唱 10 秒、クールダウン 15 分）",
+      "alliedHearthstoneAttuned": "同調先：{hub}",
+      "hub_none": "なし（勢力の拠点の近くで使用すると同調します）",
+      "hub_rift_watch": "ドリフトヘイヴン（リフトの見張り）",
+      "hub_church_order": "イーストブルック渓谷（教会修道会）",
+      "hub_automatons": "サウスリーチ（オートマトン鋳造所）",
+      "riftGliderUse": "使用: グライダーを広げ、30 秒間落下速度を下げます。着地するかダメージを受けると効果が解除されます。（クールダウン 2 分）",
+      "targetDummyUse": "使用: 戦闘技能の練習用に、機械仕掛けの訓練人形をフィールドに 2 分間設置します。（クールダウン 5 分）",
+      "battleStandardUse": "使用: 聖なる夜明けの軍旗を 5 分間設置し、周囲のすべての味方の非戦闘時の体力とマナの回復を大きく高めます。10 秒間その近くにとどまると、夜明けの祝福（全能力値 +5%、30 分）も得られます。（クールダウン 5 分）",
+      "shockBombUse": "使用: 最大 30 ヤード先に衝撃爆弾を投げ、5 ヤード以内のすべての敵に 120～160 の自然ダメージを与えます。（クールダウン 1 分）",
+      "invisibilityUse": "使用: 6 秒間ステルス状態になります。（クールダウン 2 分）",
+      "armorKitUse": "使用: 胸部防具を強化し、1 時間アーマーが 12 上昇します。",
+      "sharpeningStoneUse": "使用: メインハンド武器を研ぎ、30 分間攻撃力が 6 上昇します。",
+      "manaElixirUse": "使用: 1 時間精神が 6 上昇します。"
     },
     "professions": {
       "title": "専門技能",
@@ -6076,6 +6132,7 @@ export const ja_JP: EnTranslations = {
       "sourceActivityCorpseHarvest": "敵の死体の採取で入手",
       "sourceActivityMasterworkCraft": "傑作の製作で入手",
       "sourceActivityRiftFirstClear": "ランク付きリフトの初回クリアを制したパーティーの全員に授与",
+      "sourceActivityBuriedHoard": "宝の地図が導く「埋もれた財宝」の報酬の宝箱から手に入る",
       "cellMissingSourceAria": "{name}、未発見、{source}",
       "cellOwnedClearsAria": "{name}、収蔵済み、初回入手はクリア {count} 回目",
       "searchPlaceholder": "聖遺物を検索",
@@ -6814,54 +6871,82 @@ export const ja_JP: EnTranslations = {
       "1": "遠い砂丘の見張りが、駐屯地の北、東の砂地に居座っている。斥候イェリンを見つけ、風が何を運んできたか尋ねよ。",
       "2": "駐屯地の倉庫を守る者は、前の巡回からずっと食べていない。補給将校セラに 2 x 田舎パン を届けよ。",
       "3": "燃えかすが砂丘へ流れ込むあたりの東、やや南に、灰が埋めたものを隠す焦げた地面がある。そこで巻物を使い、掘れ。",
-      "title": "門前の灰"
+      "title": "門前の灰",
+      "reply": {
+        "1": "風は東の砂丘から灰を運んできた。何もない砂から灰は飛んでこない。駐屯地の倉庫のセラが巡回をすべて記録している。誰かが食べ物を持っていけば話してくれるだろう。",
+        "2": "やっとパンだ、ありがたい。巡回兵たちは、砂丘の東、やや南の何もない砂地から煙が上がるのを見たと言っている。燃えるものなど何も残っていない場所だ。"
+      }
     },
     "hunt_frostveil_aurora_vigil": {
       "0": "夜に踊る光へと段丘が登っていく場所、オーロラの階段にひざまずき、空に気づいてもらえ。",
       "1": "光を読む者が階段のすぐそばで待っている。オーロラ読みヴェイラに、空が綴ったものについて話を聞け。",
       "2": "咆哮のテラスの東、少し南で、雪があるべき以上に平らに積もっている。そこで巻物を使い、掘れ。",
-      "title": "階段の上の光"
+      "title": "階段の上の光",
+      "reply": {
+        "1": "あなたがひざまずくと、光が応えた。昨夜、光はテラスを越えて東へ曲がり、雪の上をまっすぐ指し示した。"
+      }
     },
     "hunt_amberfall_lantern_ferry": {
       "0": "ランタンミアの北の水際で、ランタンの渡し船を預かる者がどの灯りが消えたかを知っている。渡し守キャドウと話せ。",
       "1": "大いなる湖の北東で、町より古い一本の石が空にもたれている。傾いた石碑のそばに立て。",
       "2": "黄金の果樹園を守る者は手ずから木々に水をやり、自分は喉が渇いている。果樹園主ポメリーヌに 3 x 冷たい井戸水 を届けよ。",
       "3": "シンダーメイプルが赤く燃える丘の北東で、風の仕業ではない輪を落ち葉が描いている。そこで巻物を使い、掘れ。",
-      "title": "湖上のランタン"
+      "title": "湖上のランタン",
+      "reply": {
+        "0": "昨夜、灯りがひとつ消えた。水の向こうの古い石に面した灯りだ。うちの渡し守たちは近づこうとしない。あなたなら行けるかもしれない。",
+        "2": "冷たい井戸水、木々が欲しがっていたものだ。赤いカエデの丘の向こうで、落ち葉が輪を描いて落ちている。うちの木はあんなにきれいに葉を落とさない。"
+      }
     },
     "hunt_willowfen_fenwitch_salt": {
       "0": "ウィローウィープの沼の魔女は、手ぶらで来る者とは口をきかない。マザー・セッジに 1 x 調理用の塩 を届けよ。",
       "1": "沼が平らになり、空気が誰をも眠たくさせる場所、まどろみの浅瀬に立ち、魔女に言われたとおりため息をつけ。",
       "2": "沼で光る池の南東に、一年じゅう乾いたままの小さな丘がある。そこで巻物を使い、掘れ。",
-      "title": "沼の魔女の塩"
+      "title": "沼の魔女の塩",
+      "reply": {
+        "0": "塩だね。よし、話を聞く気はあるようだ。葦の向こうの浅瀬は誰でも眠たくさせる。そこで心からため息をつけば、沼が残りを教えてくれる。"
+      }
     },
     "hunt_nightbloom_sleepless_vigil": {
       "0": "ムーンレストの北東、石たちが終わらぬ見張りを続ける場所、見張りの石環に立て。",
       "1": "見張り場の観測者は、他人が銭を数えるように星を数える。天文学者カシアンに、落ちた一つの星について話を聞け。",
       "2": "町の北に、眠る者が決して安らがぬ塚がある。不眠の塚に敬礼し、友が来たと眠る者に知らせよ。",
       "3": "宵闇の集まる花野の南東で、月光がむき出しの土の一画に溜まっている。そこで巻物を使い、掘れ。",
-      "title": "眠らぬ者の見張り"
+      "title": "眠らぬ者の見張り",
+      "reply": {
+        "1": "三晩前に星がひとつ落ちた。町の北の古い塚のほうへ。あそこの死者は決して眠らない。兵士のように挨拶してやれ。"
+      }
     },
     "hunt_wraithwood_mournstone_candles": {
       "0": "ギベットミアの蝋燭職人は、闇を恐れる者に光を売っている。寡婦タンジーに、ついに代金の払われなかった蝋燭について話を聞け。",
       "1": "哀石の最後の司祭は祈りだけで断食を続けている。司祭クリールに 2 x 塩漬けの干し肉 を届けよ。",
       "2": "町の北東、鴉たちを過ぎた先に、奇妙な実を自ら吊るす林間地がある。吊るしの林間地に立て。",
       "3": "狩人が罠を仕掛けた広場の南東で、落ち葉が最近掘り返されている。そこで巻物を使い、掘れ。",
-      "title": "哀石の蝋燭"
+      "title": "哀石の蝋燭",
+      "reply": {
+        "0": "司祭さまはあの蝋燭を注文して、代金を払わなかった。それからずっと祈るだけで断食している。何か噛めるものを持っていって、わけを聞いてごらん。",
+        "1": "ありがとう、友よ。私はあの蝋燭を灯さなかった。夜になると鴉の先の林間地を何かが歩く。私には向き合えなかった。行けるなら、そこに立ってみなさい。"
+      }
     },
     "hunt_palmreach_sunken_idol": {
       "0": "密林の奥、潟の北西で、蔓が滝のように流れ落ちている。蔓垂の森に立て。",
       "1": "密林へ入り、そして戻ってきた隠者が、垂れる蔓の近くに住んでいる。オクリムに、あの下で何を見たか話を聞け。",
       "2": "東では、半ば沈んだ神像がなお見つめている。沈んだ神像の前でおびえよ、隠者が言った潜り手たちのように。",
       "3": "密林が海へ口を開く場所の北東で、砂が潮の届く高さより高く盛られている。そこで巻物を使い、掘れ。",
-      "title": "神像の秘密"
+      "title": "神像の秘密",
+      "reply": {
+        "1": "蔓の下で、潜り手たちは神像を見つけた。そして神像は彼らを嫌った。その前で胸を張った者は戻らなかった。あれの前では小さくなれ。"
+      }
     },
     "hunt_evergarden_beacon_road": {
       "0": "ヘッジウィックの北の散歩道の花壇の庭師が、花壇が飢えていると言い張っている。農婦ヴァーベナに 2 x 堆肥 を届けよ。",
       "1": "庭園のはるか南東の隅で、粉屋のいない古い風車がまだ回っている。古い風車小屋のそばに立て。",
       "2": "道を南へ、境を越えてゲイルクレストへ入り、海岸まで出よ。古い灯台の番人、灯台守ブラムが最後の言葉を持っている。",
       "3": "オールドビーコンの北西、灯りから下る小道のすぐ脇で、芝が切り取られて元に戻されている。そこで巻物を使い、掘れ。",
-      "title": "灯台と花"
+      "title": "灯台と花",
+      "reply": {
+        "0": "ちゃんとした堆肥だね、これで花壇は生き返る。昔の粉屋は去る前に何かを埋めていった。庭園の奥の隅で、あの風車はまだ回っている。そのそばに立ってごらん。",
+        "2": "風車があなたを海沿いの道へ送ったか。灯台には最後の秘密がひとつある。北西、小道のすぐ脇で、芝が切られて元に戻されている。そこを掘れ。"
+      }
     }
   },
   "guide": {
@@ -10164,6 +10249,11 @@ export const ja_JP: EnTranslations = {
       "pylonLit": "ルーンの尖塔が光を放った（{lit}/{total}）。",
       "wayDownOpens": "下層への道が裂け開いた。",
       "exitOpens": "裂け目が震える。倒れた敵の後ろに帰り道が裂け開いた。",
+      "hoardEnter": "{name}へと降りていった。",
+      "hoardExitOpens": "財宝はあなたのものです。入口に戻って外へ登ってください。",
+      "hoardStepBack": "財宝庫の入口から地上へ戻った。",
+      "hoardNotYours": "この財宝は別のパーティーが掘り当てたものです。",
+      "hoardEntrantsFull": "この秘宝の間には、すでに5人の冒険者が入っています。",
       "portalOpens": "{zone}に{tier}ランクの裂け目が裂け開いた！",
       "portalSealed": "{zone}の{tier}ランクの裂け目が封印された。",
       "portalCollapses": "{zone}の{tier}ランクの裂け目が崩れ落ちた。",
@@ -10203,7 +10293,152 @@ export const ja_JP: EnTranslations = {
       "detonateLightningRod": "避雷針が雷撃する！",
       "detonateStormcallersWrath": "嵐の使者の怒りが爆発する！",
       "detonateAbyssalMaw": "深淵の顎が閉じる！",
-      "detonateCrushingDepth": "粉砕の深淵が押しつぶす！"
+      "detonateCrushingDepth": "粉砕の深淵が押しつぶす！",
+      "yell": {
+        "mushroomEngage": "胞子がお前を捕らえる。",
+        "mushroomSummon": "育て、我が子らよ！",
+        "moleEngage": "この大地は我のものだ。",
+        "moleSummon": "落ちてこい！",
+        "batEngage": "キィィィィッ！",
+        "batSummon": "集え、我が群れよ！",
+        "mimicEngage": "腹が……減った……",
+        "mimicSummon": "もっと金を、もっと金を！",
+        "frostBigCast": "白き風が吹き荒れる。",
+        "frostDeathZoneCast": "霜がお前を呑み込む。",
+        "frostDeathZoneStrike": "深き冷気の中で生き残るものはない。",
+        "frostEngage": "寒さはやがてすべてを奪う。",
+        "frostEnrage": "凍てつけ！",
+        "emberBigCast": "燃えろ！",
+        "emberDeathZoneCast": "溶岩が湧き上がる。",
+        "emberDeathZoneStrike": "炉はすべてを喰らう！",
+        "emberEngage": "炉が飢えている。",
+        "emberSummon": "鉱滓より立ち上がれ！",
+        "emberEnrage": "灰と燼となれ！",
+        "venomBigCast": "毒に溺れろ！",
+        "venomDeathZoneCast": "毒に溺れるがいい。",
+        "venomDeathZoneStrike": "我が子らからは逃れられぬ！",
+        "venomEngage": "我が子らはいつも飢えている。",
+        "venomSummon": "喰らえ、子らよ！",
+        "necroBigCast": "貴様らの魂はもらい受ける。",
+        "necroDeathZoneCast": "貴様の魂はもらい受ける。",
+        "necroDeathZoneStrike": "死はすべてを奪う！",
+        "necroEngage": "死は始まりにすぎぬ。",
+        "necroSummon": "蘇れ！",
+        "bruteBigCast": "叩き壊してやる！",
+        "bruteDeathZoneCast": "大地が砕ける！",
+        "bruteDeathZoneStrike": "ここで倒れろ！",
+        "bruteEngage": "叩き潰してやる！",
+        "bruteEnrage": "グオオオォッ！",
+        "arcaneBigCast": "真の力を見るがいい。",
+        "arcaneDeathZoneCast": "現実が裂ける。",
+        "arcaneDeathZoneStrike": "消え失せろ！",
+        "arcaneEngage": "来るべきではなかったな。",
+        "arcaneEnrage": "跪け！",
+        "stormBigCast": "天が応えた！",
+        "stormDeathZoneCast": "天がお前の呼び声に応える。",
+        "stormDeathZoneStrike": "嵐がすべてを喰らう！",
+        "stormEngage": "嵐は我に従う！",
+        "stormEnrage": "天が墜ちる！",
+        "tideDeathZoneCast": "深淵がお前を連れ去る。",
+        "tideDeathZoneStrike": "奈落へ引きずり込まれろ！",
+        "tideEngage": "深淵がお前を求めている。",
+        "tideSummon": "深みより浮かび上がれ！",
+        "ritualistBigCast": "盟約は炎にて封じられた！",
+        "ritualistEngage": "縛られし地に踏み入ったな。",
+        "ritualistSummon": "応えよ、地の底に潜むものども！",
+        "pitlordBigCast": "奈落がお前を喰らう！",
+        "pitlordEngage": "跪け、さもなくば燃え尽きよ。",
+        "pitlordEnrage": "城塞がすべてを喰らう！"
+      },
+      "place": {
+        "hoardFloor": "{theme}の埋もれた財宝",
+        "sanctumFloor": "{theme}の聖域：第{depth}層",
+        "reachesFloor": "{theme}の辺境：第{depth}層",
+        "upgradedFloor": "{title}：{theme} 第{depth}層",
+        "hoardPlan": "埋もれし{noun}の財宝",
+        "riftPlan": "{noun}の{suffix}",
+        "citadelPlan": "{noun}の城塞",
+        "infernalCitadel": "業火の城塞",
+        "hoardEntrance": "埋もれた財宝の入口",
+        "theme": {
+          "frost": "氷縛",
+          "ember": "燼炉",
+          "venom": "毒森",
+          "bone": "骨塚",
+          "brute": "戦陣",
+          "void": "ヴォイドスカー",
+          "storm": "嵐の尖塔",
+          "tide": "水没の地",
+          "spore": "胞子の洞",
+          "burrow": "深き巣穴",
+          "roost": "蝙蝠のねぐら",
+          "mimic": "偽りの宝物庫",
+          "infernal": "業火の城塞"
+        },
+        "noun": {
+          "rime": "樹氷",
+          "hoarfrost": "霧氷",
+          "glacier": "氷河",
+          "frost": "霜",
+          "ember": "残り火",
+          "cinder": "燃えさし",
+          "magma": "マグマ",
+          "ash": "灰",
+          "venom": "毒",
+          "thorn": "茨",
+          "bramble": "茨藪",
+          "spider": "蜘蛛",
+          "bone": "骨",
+          "marrow": "骨髄",
+          "ossuary": "納骨堂",
+          "grave": "墓",
+          "war": "戦",
+          "skull": "髑髏",
+          "iron": "鉄",
+          "blood": "血",
+          "void": "虚空",
+          "shadow": "影",
+          "umbral": "冥影",
+          "dusk": "黄昏",
+          "storm": "嵐",
+          "tempest": "暴風",
+          "thunder": "雷",
+          "gale": "疾風",
+          "sunken": "水底",
+          "abyssal": "奈落",
+          "drowned": "溺死者",
+          "tide": "潮",
+          "spore": "胞子",
+          "toadstool": "毒茸",
+          "mould": "黴",
+          "mycelium": "菌糸",
+          "burrow": "巣穴",
+          "tunnel": "隧道",
+          "delve": "坑道",
+          "loam": "壌土",
+          "roost": "ねぐら",
+          "echo": "残響",
+          "guano": "グアノ",
+          "hollow": "虚ろ",
+          "coffer": "宝箱",
+          "strongbox": "金庫",
+          "tithe": "貢納",
+          "gilt": "金箔",
+          "brimstone": "硫黄",
+          "pitfire": "坑炎",
+          "pactbound": "盟約"
+        },
+        "suffix": {
+          "abyss": "深淵",
+          "depths": "深層",
+          "descent": "降下路",
+          "hollow": "窪地",
+          "labyrinth": "迷宮",
+          "warren": "穴蔵",
+          "sanctum": "聖域",
+          "rift": "リフト"
+        }
+      }
     },
     "delve": {
       "cannotEnterNow": "今はデルヴに入れない。",
@@ -10273,6 +10508,9 @@ export const ja_JP: EnTranslations = {
       "moveCloserStairs": "階段にもっと近づけ。",
       "nhaliaCantorShield": "詠唱者たちよ、音を保て！",
       "nhaliaBlackwaterMark": "{name}が{player}に黒水の刻印を刻む！"
+    },
+    "factionVendor": {
+      "currencyRequired": "購入するには{currency}が {amount} 個必要です。"
     },
     "lockpick": {
       "lockYields": "錠が開いた! {tier}の戦利品だ。",
@@ -10894,6 +11132,7 @@ export const ja_JP: EnTranslations = {
       "alreadyInWorld": "キャラクターは既に世界にいます。",
       "accountSessionLimit": "このアカウントでは既に多くのキャラクターが世界にいます。",
       "takenOver": "あなたのキャラクターは別のセッションに引き継がれました。",
+      "vaultMailRecovering": "宝物庫の報酬メールを復旧しています。少し待ってからもう一度お試しください。",
       "renameBeforeEntering": "このキャラクターは世界に入る前に名前変更が必要です。",
       "renameNotPermitted": "このキャラクターの名前変更は許可されていません。",
       "unsupportedMediaType": "サポートされていないリクエスト形式です。",
@@ -11237,6 +11476,8 @@ export const ja_JP: EnTranslations = {
         "dungeonExit": "ダンジョン出口",
         "delveEntrance": "デルヴ入口：{name}",
         "worldPassage": "{zone}への通路",
+        "hoardEntrance": "埋もれた宝物庫の入口",
+        "hoardReturnEntrance": "財宝庫の帰還口",
         "riftEntrance": "リフト入口：{name}",
         "hostileEnemy": "敵対対象",
         "aggressiveEnemy": "あなたを攻撃中の敵",
@@ -11880,6 +12121,7 @@ export const ja_JP: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "攻撃",
+      "cooldownMinutes": "{minutes}m",
       "attackTooltip": "対象への自動攻撃を切り替えます。敵を右クリックしても攻撃します。",
       "attackRemoveHint": "右クリックでバーから外し、スロットを空けます。",
       "emptySlot": "空きスロット",
@@ -11971,7 +12213,35 @@ export const ja_JP: EnTranslations = {
       "rift_storm_execution": "避雷針",
       "rift_storm_strike": "嵐の使者の怒り",
       "rift_tide_execution": "深淵の顎",
-      "rift_tide_strike": "粉砕の深淵"
+      "rift_tide_strike": "粉砕の深淵",
+      "hoard_cast_fear": "戦慄の咆哮",
+      "hoard_cast_stun": "昏倒の一撃",
+      "hoard_cast_drowning_hook": "溺れの鉤",
+      "hoard_cast_rime_beam": "Rime Beam",
+      "hoard_cast_cinder_bolt": "燃えさしの矢",
+      "hoard_cast_void_empower": "虚無の強化",
+      "hoard_cast_webbing": "蜘蛛の巣",
+      "hoard_cast_doom_ritual": "破滅の儀式",
+      "hoard_cast_charge": "猛進突撃",
+      "hoard_cast_silk_snare": "絹の罠",
+      "hoard_cast_silence": "沈黙の金切り声",
+      "hoard_cast_hex": "呪術",
+      "hoard_lightning_strike": "落雷",
+      "hoard_ice_age": "氷河期",
+      "hoard_pulsar_overload": "パルサー過負荷",
+      "hoard_rolling_boulder": "転がる大岩",
+      "hoard_goblin_escape": "逃走中",
+      "hoard_cast_mole_rake": "爪の掻き裂き",
+      "hoard_cast_burrow": "穴掘り",
+      "hoard_cast_tunnel": "地中移動",
+      "hoard_cast_emerge": "噴出",
+      "hoard_cast_collapse": "天井崩落",
+      "hoard_cast_bat_dive_aim": "急降下",
+      "hoard_cast_bat_dive": "急降下中",
+      "hoard_cast_screech": "耳をつんざく叫び",
+      "hoard_cast_mimic_bite": "貪欲な噛みつき",
+      "hoard_cast_mimic_leap": "押し潰す跳躍",
+      "hoard_cast_coin_spit": "呪われた金貨"
     }
   },
   "questUi": {
@@ -12398,7 +12668,17 @@ export const ja_JP: EnTranslations = {
       "clueHuntStep": "手がかり{step}/{total}を解いた：{title}",
       "clueHuntDone": "宝探し完了：{title}。宝箱は君のものだ。",
       "clueHuntAbandoned": "宝探しを放棄：{title}",
-      "clueCasketOpened": "宝箱には{money}と{items}が入っていた。"
+      "clueCasketOpened": "宝箱には{money}と{items}が入っていた。",
+      "treasureMapEarned": "本日のワールドクエストをすべて達成：{map}を見つけました。",
+      "treasureMapLost": "本日のワールドクエストをすべて達成しましたが、宝の地図を入れるバッグの空きがありません。",
+      "treasureMapRead": "{map}を調べた。X印は{zone}のどこかにある。",
+      "treasureMapUpgraded": "地図がより上質なインクで描き直された：今や{map}だ。",
+      "treasureVaultOpened": "地面が崩れ落ちた。目の前に埋もれた財宝が口を開けている。",
+      "treasureVaultLooted": "財宝には{money}と{items}が入っていた。",
+      "treasureVaultCapped": "今日はもう十分な数の財宝の分け前を得ました。この財宝からは何も得られません。",
+      "hoardGoblinSighted": "ゴブリンの盗賊が現れた！",
+      "hoardGoblinSightedHint": "金貨を持って逃げられる前に倒せ！",
+      "hoardGoblinExplain": "盗んだ金貨の袋を背負ったゴブリンの盗賊がこの財宝に潜んでいる。反撃はせず、ひたすら逃げ回る。最初の一撃で{seconds}秒の逃走バーが始まる。バーが尽きた時にまだ生きていれば、ポータルを開いて金貨ごと消えてしまう。誰も手を出さなければ{minutes}分後に立ち去る。間に合えば、部屋にいる全員が金貨を受け取れる。"
     },
     "errors": {
       "unavailable": "そのクエストは利用できません。",
@@ -12811,6 +13091,10 @@ export const ja_JP: EnTranslations = {
       "sport_second_wind": {
         "name": "フレッシュレッグス",
         "description": "脚を取り戻す:4秒間、移動速度が50%上昇する。"
+      },
+      "clockwork_shock_bomb": {
+        "name": "ぜんまい式ショックボム",
+        "description": "目標地点にぜんまい式ショックボムを投げ、5ヤード以内の敵に120～160の自然ダメージを与える。"
       },
       "flamestrike": {
         "name": "フレイムストライク",
@@ -17393,6 +17677,363 @@ export const ja_JP: EnTranslations = {
       "stormhymn_chain_treads": {
         "name": "嵐の賛歌の鎖の靴"
       },
+      "allied_hearthstone": {
+        "name": "同盟のハースストーン"
+      },
+      "allied_vanguard_duffel": {
+        "name": "同盟先遣隊の雑嚢"
+      },
+      "rift_feather_glider": {
+        "name": "リフトの羽根グライダー"
+      },
+      "formula_enchant_feet_shadowstride": {
+        "name": "製法書：ブーツエンチャント - 影歩き"
+      },
+      "recipe_potion_of_invisibility": {
+        "name": "レシピ：透明化のポーション"
+      },
+      "potion_of_invisibility": {
+        "name": "透明化のポーション"
+      },
+      "pattern_reinforced_armor_kit": {
+        "name": "型紙：強化アーマーキット"
+      },
+      "reinforced_armor_kit": {
+        "name": "強化アーマーキット"
+      },
+      "dawn_battle_standard": {
+        "name": "夜明けの軍旗"
+      },
+      "formula_enchant_offhand_spirit": {
+        "name": "製法書：オフハンドエンチャント - 精神"
+      },
+      "recipe_elixir_of_mana_regeneration": {
+        "name": "レシピ：マナ回復のエリクサー"
+      },
+      "elixir_of_mana_regeneration": {
+        "name": "マナ回復のエリクサー"
+      },
+      "clockwork_target_dummy": {
+        "name": "ぜんまい式訓練人形"
+      },
+      "schematic_clockwork_shock_bomb": {
+        "name": "設計図：ぜんまい式衝撃爆弾"
+      },
+      "clockwork_shock_bomb": {
+        "name": "ぜんまい式衝撃爆弾"
+      },
+      "plans_dense_sharpening_stone": {
+        "name": "設計図：高密度の砥石"
+      },
+      "dense_sharpening_stone": {
+        "name": "高密度の砥石"
+      },
+      "formula_enchant_gloves_forged_might": {
+        "name": "製法書：グローブエンチャント - 鍛えられた力"
+      },
+      "treasure_map_common": {
+        "name": "風化した宝の地図"
+      },
+      "treasure_map_rare": {
+        "name": "墨入りの宝の地図"
+      },
+      "treasure_map_epic": {
+        "name": "金箔の宝の地図"
+      },
+      "treasure_map_legendary": {
+        "name": "至高の宝の地図"
+      },
+      "cartographers_ink": {
+        "name": "地図職人のインク"
+      },
+      "collapsar_band_of_nyxaris": {
+        "name": "ニクサリスの崩壊星の指輪"
+      },
+      "rare_collapsar_band_of_nyxaris": {
+        "name": "くすんだニクサリスの崩壊星の指輪"
+      },
+      "legendary_collapsar_band_of_nyxaris": {
+        "name": "至高のニクサリスの崩壊星の指輪"
+      },
+      "orb_collapsing_void": {
+        "name": "崩壊する虚無のオーブ"
+      },
+      "rare_orb_collapsing_void": {
+        "name": "くすんだ崩壊する虚無のオーブ"
+      },
+      "legendary_orb_collapsing_void": {
+        "name": "至高の崩壊する虚無のオーブ"
+      },
+      "cowl_of_event_horizon": {
+        "name": "事象の地平面の頭巾"
+      },
+      "rare_cowl_of_event_horizon": {
+        "name": "くすんだ事象の地平面の頭巾"
+      },
+      "legendary_cowl_of_event_horizon": {
+        "name": "至高の事象の地平面の頭巾"
+      },
+      "mantle_of_singularity": {
+        "name": "特異点のマント"
+      },
+      "rare_mantle_of_singularity": {
+        "name": "くすんだ特異点のマント"
+      },
+      "legendary_mantle_of_singularity": {
+        "name": "至高の特異点のマント"
+      },
+      "glacier_hewn_bulwark": {
+        "name": "氷河削りの大盾"
+      },
+      "rare_glacier_hewn_bulwark": {
+        "name": "くすんだ氷河削りの大盾"
+      },
+      "legendary_glacier_hewn_bulwark": {
+        "name": "至高の氷河削りの大盾"
+      },
+      "permafrost_legguards": {
+        "name": "永久凍土の脚甲"
+      },
+      "rare_permafrost_legguards": {
+        "name": "くすんだ永久凍土の脚甲"
+      },
+      "legendary_permafrost_legguards": {
+        "name": "至高の永久凍土の脚甲"
+      },
+      "frostbitten_rime_slippers": {
+        "name": "凍てつく霧氷の上靴"
+      },
+      "rare_frostbitten_rime_slippers": {
+        "name": "くすんだ凍てつく霧氷の上靴"
+      },
+      "legendary_frostbitten_rime_slippers": {
+        "name": "至高の凍てつく霧氷の上靴"
+      },
+      "rime_crusted_grips": {
+        "name": "霧氷まみれの手袋"
+      },
+      "rare_rime_crusted_grips": {
+        "name": "くすんだ霧氷まみれの手袋"
+      },
+      "legendary_rime_crusted_grips": {
+        "name": "至高の霧氷まみれの手袋"
+      },
+      "ember_wrought_crown": {
+        "name": "熾火鍛えの王冠"
+      },
+      "rare_ember_wrought_crown": {
+        "name": "くすんだ熾火鍛えの王冠"
+      },
+      "legendary_ember_wrought_crown": {
+        "name": "至高の熾火鍛えの王冠"
+      },
+      "cinder_stitched_robes": {
+        "name": "燃え殻縫いのローブ"
+      },
+      "rare_cinder_stitched_robes": {
+        "name": "くすんだ燃え殻縫いのローブ"
+      },
+      "legendary_cinder_stitched_robes": {
+        "name": "至高の燃え殻縫いのローブ"
+      },
+      "chained_ember_choker": {
+        "name": "鎖付き熾火のチョーカー"
+      },
+      "rare_chained_ember_choker": {
+        "name": "くすんだ鎖付き熾火のチョーカー"
+      },
+      "legendary_chained_ember_choker": {
+        "name": "至高の鎖付き熾火のチョーカー"
+      },
+      "molten_clinker_girdle": {
+        "name": "溶けた鉱滓の腰帯"
+      },
+      "rare_molten_clinker_girdle": {
+        "name": "くすんだ溶けた鉱滓の腰帯"
+      },
+      "legendary_molten_clinker_girdle": {
+        "name": "至高の溶けた鉱滓の腰帯"
+      },
+      "storm_tuned_buckler": {
+        "name": "嵐に調律された円盾"
+      },
+      "rare_storm_tuned_buckler": {
+        "name": "くすんだ嵐に調律された円盾"
+      },
+      "legendary_storm_tuned_buckler": {
+        "name": "至高の嵐に調律された円盾"
+      },
+      "hauberk_tempest_gale": {
+        "name": "暴風の鎖帷子"
+      },
+      "rare_hauberk_tempest_gale": {
+        "name": "くすんだ暴風の鎖帷子"
+      },
+      "legendary_hauberk_tempest_gale": {
+        "name": "至高の暴風の鎖帷子"
+      },
+      "gale_strider_boots": {
+        "name": "疾風を渡る者の長靴"
+      },
+      "rare_gale_strider_boots": {
+        "name": "くすんだ疾風を渡る者の長靴"
+      },
+      "legendary_gale_strider_boots": {
+        "name": "至高の疾風を渡る者の長靴"
+      },
+      "tempest_strike_grips": {
+        "name": "嵐撃の手甲"
+      },
+      "rare_tempest_strike_grips": {
+        "name": "くすんだ嵐撃の手甲"
+      },
+      "legendary_tempest_strike_grips": {
+        "name": "至高の嵐撃の手甲"
+      },
+      "breastplate_tectonic_might": {
+        "name": "地殻の剛力の胸当て"
+      },
+      "rare_breastplate_tectonic_might": {
+        "name": "くすんだ地殻の剛力の胸当て"
+      },
+      "legendary_breastplate_tectonic_might": {
+        "name": "至高の地殻の剛力の胸当て"
+      },
+      "band_mountains_weight": {
+        "name": "山の重みの指輪"
+      },
+      "rare_band_mountains_weight": {
+        "name": "くすんだ山の重みの指輪"
+      },
+      "legendary_band_mountains_weight": {
+        "name": "至高の山の重みの指輪"
+      },
+      "monolithic_shoulderguards": {
+        "name": "一枚岩の肩当て"
+      },
+      "rare_monolithic_shoulderguards": {
+        "name": "くすんだ一枚岩の肩当て"
+      },
+      "legendary_monolithic_shoulderguards": {
+        "name": "至高の一枚岩の肩当て"
+      },
+      "earthshaker_warboots": {
+        "name": "大地を揺るがす軍靴"
+      },
+      "rare_earthshaker_warboots": {
+        "name": "くすんだ大地を揺るがす軍靴"
+      },
+      "legendary_earthshaker_warboots": {
+        "name": "至高の大地を揺るがす軍靴"
+      },
+      "silkstalker_woven_vest": {
+        "name": "糸の狩人の織りベスト"
+      },
+      "rare_silkstalker_woven_vest": {
+        "name": "くすんだ糸の狩人の織りベスト"
+      },
+      "legendary_silkstalker_woven_vest": {
+        "name": "至高の糸の狩人の織りベスト"
+      },
+      "spun_venom_spaulders": {
+        "name": "毒紡ぎの肩甲"
+      },
+      "rare_spun_venom_spaulders": {
+        "name": "くすんだ毒紡ぎの肩甲"
+      },
+      "legendary_spun_venom_spaulders": {
+        "name": "至高の毒紡ぎの肩甲"
+      },
+      "broodmother_chitin_cowl": {
+        "name": "母胎のキチン頭巾"
+      },
+      "rare_broodmother_chitin_cowl": {
+        "name": "くすんだ母胎のキチン頭巾"
+      },
+      "legendary_broodmother_chitin_cowl": {
+        "name": "至高の母胎のキチン頭巾"
+      },
+      "venom_etched_waistcord": {
+        "name": "毒刻みの腰紐"
+      },
+      "rare_venom_etched_waistcord": {
+        "name": "くすんだ毒刻みの腰紐"
+      },
+      "legendary_venom_etched_waistcord": {
+        "name": "至高の毒刻みの腰紐"
+      },
+      "bone_studded_pauldrons": {
+        "name": "骨鋲の肩鎧"
+      },
+      "rare_bone_studded_pauldrons": {
+        "name": "くすんだ骨鋲の肩鎧"
+      },
+      "legendary_bone_studded_pauldrons": {
+        "name": "至高の骨鋲の肩鎧"
+      },
+      "legguards_of_the_ossuary": {
+        "name": "納骨堂の脚甲"
+      },
+      "rare_legguards_of_the_ossuary": {
+        "name": "くすんだ納骨堂の脚甲"
+      },
+      "legendary_legguards_of_the_ossuary": {
+        "name": "至高の納骨堂の脚甲"
+      },
+      "seal_of_the_cryptwalker": {
+        "name": "墓所を歩む者の印章"
+      },
+      "rare_seal_of_the_cryptwalker": {
+        "name": "くすんだ墓所を歩む者の印章"
+      },
+      "legendary_seal_of_the_cryptwalker": {
+        "name": "至高の墓所を歩む者の印章"
+      },
+      "ossuary_bone_crown": {
+        "name": "納骨堂の骨冠"
+      },
+      "rare_ossuary_bone_crown": {
+        "name": "くすんだ納骨堂の骨冠"
+      },
+      "legendary_ossuary_bone_crown": {
+        "name": "至高の納骨堂の骨冠"
+      },
+      "chalice_of_living_tides": {
+        "name": "生ける潮の聖杯"
+      },
+      "rare_chalice_of_living_tides": {
+        "name": "くすんだ生ける潮の聖杯"
+      },
+      "legendary_chalice_of_living_tides": {
+        "name": "至高の生ける潮の聖杯"
+      },
+      "pendant_continuous_flow": {
+        "name": "絶えざる流れのペンダント"
+      },
+      "rare_pendant_continuous_flow": {
+        "name": "くすんだ絶えざる流れのペンダント"
+      },
+      "legendary_pendant_continuous_flow": {
+        "name": "至高の絶えざる流れのペンダント"
+      },
+      "coral_encrusted_girdle": {
+        "name": "珊瑚まといの腰帯"
+      },
+      "rare_coral_encrusted_girdle": {
+        "name": "くすんだ珊瑚まといの腰帯"
+      },
+      "legendary_coral_encrusted_girdle": {
+        "name": "至高の珊瑚まといの腰帯"
+      },
+      "riptide_handwraps": {
+        "name": "離岸流の手巻き"
+      },
+      "rare_riptide_handwraps": {
+        "name": "くすんだ離岸流の手巻き"
+      },
+      "legendary_riptide_handwraps": {
+        "name": "至高の離岸流の手巻き"
+      },
       "vanguard_warrior_arms_helmet": {
         "name": "刃波の兜"
       },
@@ -19090,6 +19731,51 @@ export const ja_JP: EnTranslations = {
       "stable_horse": {
         "name": "厩舎の馬"
       },
+      "hoard_brood_egg": {
+        "name": "卵嚢の群れ"
+      },
+      "hoard_brood_hatchling": {
+        "name": "ヴィスカの幼蜘蛛"
+      },
+      "hoard_healing_tide_totem": {
+        "name": "癒やしの潮のトーテム"
+      },
+      "hoard_bound_pulsar": {
+        "name": "縛られしパルサー"
+      },
+      "hoard_abyssal_tentacle": {
+        "name": "深淵の顎の触手"
+      },
+      "hoard_silk_cocoon": {
+        "name": "絹の繭"
+      },
+      "hoard_brood_cocoon": {
+        "name": "孵化の繭"
+      },
+      "hoard_coinsack_scurrier": {
+        "name": "小銭袋のすばしっこ"
+      },
+      "hoard_boss_mushroom": {
+        "name": "キノコの母"
+      },
+      "hoard_sporeling": {
+        "name": "胞子っ子"
+      },
+      "hoard_bloat_cap": {
+        "name": "膨れ笠"
+      },
+      "hoard_boss_mole": {
+        "name": "ディープレイク"
+      },
+      "hoard_boss_bat": {
+        "name": "巨大コウモリ"
+      },
+      "hoard_boss_mimic": {
+        "name": "貪欲な宝箱"
+      },
+      "hoard_bat_swarmling": {
+        "name": "洞窟の群れコウモリ"
+      },
       "rift_spawnling": {
         "name": "リフトの落とし子"
       },
@@ -19119,6 +19805,9 @@ export const ja_JP: EnTranslations = {
       },
       "rift_marrow_troll": {
         "name": "髄のトロル"
+      },
+      "rift_marrow_golem": {
+        "name": "骨髄のゴーレム"
       },
       "rift_void_acolyte": {
         "name": "虚空傷の侍祭"
@@ -23252,6 +23941,11 @@ export const ja_JP: EnTranslations = {
         "sender": "取引所仲買人",
         "subject": "取引所への出品が売れました",
         "body": "出品した品が売れ、買い手が全額を支払いました。取引所手数料を差し引いた売上金は、決済トランザクションの中で直接あなたの連携ウォレットへ送られました。取引所があなたのお金を預かることは一度もありません。\n\nこの取引の記録は取引所の台帳に残ります。\n\n- 取引所仲買人"
+      },
+      "hoard_vault_reward": {
+        "sender": "カラス便",
+        "subject": "宝物庫の報酬",
+        "body": "宝物庫は攻略されましたが、あなたの取り分は宝箱から受け取られていません。獲得した品とお金をカラス便がお届けします。\n\n- カラス便"
       }
     },
     "itemSets": {

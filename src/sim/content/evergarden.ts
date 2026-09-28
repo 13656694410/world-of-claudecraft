@@ -687,7 +687,9 @@ export const EVERGARDEN_PROPS: ZonePropsDef = {
     { x: 264, z: 850, r: 2.8 },
     { x: 390, z: 902, r: 2.6 },
     { x: 316, z: 1122, r: 3.0 },
-    { x: 462, z: 1068, r: 2.6 },
+    // moved off (462, 1068): its modeled root flare (reaching about 11yd from
+    // the trunk at this scale) grew 5yd into the wisp maze trial's south wall
+    { x: 474, z: 1084, r: 2.6 },
     { x: 244, z: 1034, r: 2.6 },
   ],
   // The built garden (KayKit Medieval Hexagon buildings + the wrought-iron

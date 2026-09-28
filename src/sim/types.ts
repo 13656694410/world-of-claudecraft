@@ -8,6 +8,7 @@ import type { ChatSenderFlair, StreamerLinks } from './account_flair';
 import type { MountKey } from './content/mounts';
 import type { CraftDef, GatheringProfessionId, ToolEffectId } from './content/professions';
 import type { RealmBuilderHonour } from './content/realm_builders';
+import type { TreasureMapRarity } from './content/treasure_maps';
 import type { LockSession, LootTier, PickAction, StepResult, VisibleCell } from './lockpick';
 import type { GliderFlightResult, GliderFlightState } from './minigames/glider_flight';
 import type { WispMazeState } from './minigames/wisp_maze';
@@ -18,6 +19,7 @@ import type {
   PerfectingSwapRequest,
 } from './professions/perfecting_swap';
 import type { RespawnWindow } from './respawn_policy';
+import type { HoardControlCast } from './rift/hoard_control_casts';
 import type {
   VarkhulAssemblyDifficulty,
   VarkhulAssemblyPhase,
@@ -203,6 +205,7 @@ export const TOOL_RECHARGE_CAST_ID = 'tool_recharge';
 // harvest_admission.ts) is the frozen duration; professions/
 // corpse_harvest_session.ts owns the whole session.
 export const CORPSE_HARVEST_CAST_ID = 'corpse_harvest';
+export const ALLIED_HEARTHSTONE_CAST_ID = 'allied_hearthstone';
 // The non-spell casts: castingAbility sentinels that are activities, not
 // abilities. They share one semantics bundle at the casting choke points:
 // exempt from silence and school lockouts, no blink-through, no spell queue,
@@ -220,7 +223,8 @@ export function isNonSpellCast(castId: string | null): boolean {
     castId === SALVAGE_CAST_ID ||
     castId === SUNDER_CAST_ID ||
     castId === TOOL_RECHARGE_CAST_ID ||
-    castId === CORPSE_HARVEST_CAST_ID
+    castId === CORPSE_HARVEST_CAST_ID ||
+    castId === ALLIED_HEARTHSTONE_CAST_ID
   );
 }
 
@@ -365,6 +369,7 @@ export type AiState = 'idle' | 'chase' | 'attack' | 'flee' | 'evade' | 'dead';
 export type AuraKind =
   | 'dot'
   | 'doctrine'
+  | 'slow_fall'
   // Temporary authoritative displacement state (Oath Chain). It is harmful for
   // UI/dispel classification, but intentionally bypasses root/slow immunity.
   | 'forced_move'
@@ -990,6 +995,10 @@ export type ItemUse =
   | { type: 'clueScroll' }
   // A Treasure Casket (src/sim/clue_casket.ts): consumed to pay the hunt's reward.
   | { type: 'clueCasket' }
+  /** A treasure map (src/sim/treasure_vault.ts): read it, then dig on the X. */
+  | { type: 'treasureMap'; rarity: TreasureMapRarity }
+  /** Cartographer's Ink: redraws the read treasure map one rarity finer. */
+  | { type: 'cartographersInk' }
   // Starts the one-time hammer quest; the Ember is consumed by crafting.
   | { type: 'forgebreakerEmber' }
   | { type: 'mechChroma'; chromaId: string }
@@ -1024,6 +1033,15 @@ export type ItemUse =
   // craft-id union today; CRAFT_RING types its ids as string), so this
   // documents the domain without changing the checked type.
   | { type: 'placeMobileStation'; stationCraftId: CraftDef['id'] }
+  | { type: 'alliedHearthstone' }
+  | { type: 'riftGlider' }
+  | { type: 'targetDummy' }
+  | { type: 'dawnStandard' }
+  | { type: 'manaElixir' }
+  | { type: 'invisibility' }
+  | { type: 'sharpeningStone' }
+  | { type: 'shockBomb' }
+  | { type: 'armorKit' }
   // A container: using it hands the owner its contents and consumes one unit
   // (src/sim/emissary_cache.ts owns the one container shipped so far).
   | { type: 'container'; container: 'emissary_cache' };
@@ -1168,6 +1186,8 @@ interface BaseItemDef {
   // `duration` the buff length in seconds. Folds through the normal aura/stat path.
   elixir?: TimedStatBuffPayload;
   quality?: 'poor' | 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary'; // gray/white/green/blue/purple/orange name colors
+  // Unique: only one copy of this item can be carried or equipped at a time.
+  unique?: boolean;
   // bags (kind:'bag'): extra inventory slots granted while equipped in one of
   // the 4 bag sockets (see src/sim/bags.ts; the 16-slot backpack is implicit).
   bagSlots?: number;
@@ -1198,6 +1218,11 @@ interface BaseItemDef {
   // key of its own and the heroic distinction shows as the separate "[HEROIC]"
   // tag instead (the item tooltip's quality line, the Apply Enchant target row).
   heroicOf?: string;
+  // Collection identity only: this item is another TIER of `relicOf` (the Buried
+  // Hoard pieces, content/hoard_loot.ts), so obtaining it also discovers that
+  // item and fills its Reliquary slot. Unlike heroicOf it changes nothing else:
+  // the tier keeps its own name, art, item level and unique-equip family.
+  relicOf?: string;
   // Marks a bespoke heroic-tier item (e.g. the Heroic Nythraxis raid epics) for
   // tooltip chrome; these keep their own name key, unlike heroicOf variants.
   heroic?: boolean;
@@ -5898,9 +5923,40 @@ export interface Entity extends ClientMirroredEntityFields {
   // both hosts render above the portal and the Heroic Mark payout on sealing.
   // Absent on dev-spawned portals.
   riftTier?: RiftTier;
+  // Treasure vault portals (src/sim/treasure_vault.ts): the character whose map
+  // opened it (only they and their party may enter), the map's rarity, and the
+  // sim time the unentered portal closes.
+  vaultOwnerPid?: number;
+  /** Stable owner identity across disconnect/reconnect; runtime pid may change. */
+  vaultOwnerCharacterId?: number;
+  /** Frozen before map consumption, so an owner who disconnects before the
+   * first party entrant still has a reward claim when the boss falls. */
+  vaultOwnerRewardSnapshot?: {
+    characterId: number;
+    name: string;
+    cls: PlayerClass;
+    level: number;
+    mountOwned: boolean;
+    guestCapped: boolean;
+    guestCycle: string;
+  };
+  /** Party members already with the owner when the map was consumed remain
+   * authorized if the owner's connection drops before the first entry. */
+  vaultInitialPartyCharacterIds?: number[];
+  vaultAttemptId?: string;
+  vaultOpenPending?: boolean;
+  vaultRarity?: TreasureMapRarity;
+  vaultExpiresAt?: number;
+  // Dev only (`/dev hoard ... goblin`, src/sim/dev/hoard_travel.ts): the hoard
+  // this descriptor opens always holds a Coinsack Scurrier.
+  devForceHoardGoblin?: true;
   // Sim time of the last "level too low" rift denial shown to this player, so
   // standing inside the portal trigger radius does not spam the toast per tick.
   riftDeniedAt?: number;
+  // A hard control this mob is CASTING inside a Buried Hoard instead of landing
+  // it instantly (src/sim/rift/hoard_control_casts.ts). Sim-only, never wired:
+  // the cast bar itself rides castingAbility / castRemaining.
+  hoardControlCast?: HoardControlCast;
   // Sim time of the last "pool full" / "event already cleared" denial shown to
   // this player on walk-in, so a 20 Hz trigger does not spam the error toast.
   riftPoolFullAt?: number;
@@ -6913,6 +6969,39 @@ export type SimEvent = { pid?: number } & (
   | { type: 'clueHuntAbandoned'; huntId: string }
   /** One id per grant (the Heroic Marks stack appears once) plus the copper paid. */
   | { type: 'clueCasketOpened'; itemIds: string[]; copper: number }
+  // Treasure maps and vaults (src/sim/treasure_vault.ts). The sim emits ids
+  // only; the client resolves the prose and opens the map window on a read.
+  | { type: 'treasureMapEarned'; rarity: TreasureMapRarity }
+  | { type: 'treasureMapLost' }
+  | { type: 'treasureMapRead'; rarity: TreasureMapRarity; siteId: string; fresh: boolean }
+  | { type: 'treasureMapUpgraded'; rarity: TreasureMapRarity; inks: number }
+  | { type: 'treasureVaultOpened'; rarity: TreasureMapRarity }
+  /** Server-only durable settlement input, never forwarded to clients. */
+  | {
+      type: 'treasureVaultOutcomePending';
+      attemptId: string;
+      ownerCharacterId: number;
+      claims: {
+        characterId: number;
+        recipientName: string;
+        items: { itemId: string; count: number }[];
+        copper: number;
+        guestCycle?: string;
+      }[];
+    }
+  /** Server-only request; the chest grants nothing until the fenced save commits. */
+  | { type: 'treasureVaultClaimRequested'; attemptId: string; characterId: number }
+  | {
+      type: 'treasureVaultLooted';
+      rarity: TreasureMapRarity;
+      capped: boolean;
+      itemIds?: string[];
+      copper?: number;
+    }
+  /** The room this player just climbed into holds a living Coinsack Scurrier
+   *  (src/sim/rift/hoard_goblin.ts): its escape bar length and the seconds it
+   *  has left before leaving untouched, so the explanation never drifts. */
+  | { type: 'hoardGoblinSighted'; escapeSec: number; idleSec: number }
   | {
       type: 'varkhulCallout';
       sourceId: number;
@@ -7524,6 +7613,7 @@ export type SimEvent = { pid?: number } & (
       // 'tick' is a ground-zone pulse (Consecration et al) anchored at the
       // ZONE, not the caster; the other kinds are impact/lifetime visuals.
       fx:
+        | 'hoardDig'
         | 'burst'
         | 'nova'
         | 'orb'
@@ -8080,6 +8170,25 @@ export type SimEvent = { pid?: number } & (
       name: string;
       themeName: string;
       tier: RiftTier | null;
+      hoardCues?: Array<{
+        instanceId: number;
+        cueId: number;
+        kind: 'sweep' | 'mark';
+        variant?: import('./rift/types').HoardBossCueVariant;
+        phase: 'warning' | 'hazard';
+        x: number;
+        z: number;
+        radius: number;
+        remaining: number;
+        total: number;
+        facing?: number;
+        halfAngle?: number;
+        innerRadius?: number;
+        waveGap?: number;
+        waveSpan?: number;
+        waveLead?: number;
+        targetId?: number;
+      }>;
       // Epoch-ms deadline (via ctx.lockoutNowMs, the same conversion
       // rift/persistence.ts uses for save/load) after which the rift's backing
       // world event stops admitting new parties. Null for a dev-spawned rift
@@ -8345,6 +8454,27 @@ export type SimEvent = { pid?: number } & (
   // phantom "about to detonate" telegraph for the rest of the fuse. Personal
   // (pid = each instance member) so delivery never depends on interest radius.
   | { type: 'riftDeathZoneClear'; pid: number }
+  | {
+      type: 'hoardBossCue';
+      pid: number;
+      instanceId: number;
+      cueId: number;
+      kind: 'sweep' | 'mark';
+      variant?: import('./rift/types').HoardBossCueVariant;
+      phase: 'warning' | 'hazard';
+      x: number;
+      z: number;
+      radius: number;
+      durationSecs: number;
+      facing?: number;
+      halfAngle?: number;
+      innerRadius?: number;
+      waveGap?: number;
+      waveSpan?: number;
+      waveLead?: number;
+      targetId?: number;
+    }
+  | { type: 'hoardBossCueClear'; pid: number }
   // Trend nudge (Professions 2.0): a soft, at-most-once-per-window
   // reminder that an unattuned crafter's skills are leaning toward an adjacent
   // pair (professions/prof_nudges.ts). Personal (pid = the crafter) and
@@ -9202,7 +9332,10 @@ export type DeedStatKey =
   // Orange promotions performed (Masterwrought phase 13): bumped once per
   // legendary promotion at the promotePerfectedCopy stamp site
   // (professions/perfecting.ts, reached via resolvePerfectingAttempt's internal promotion arm), feeding prog_legendmaker.
-  | 'legendariesForged';
+  | 'legendariesForged'
+  // Coinsack Scurriers caught in a Buried Hoard (rift/hoard_goblin.ts): bumped
+  // for every player paid off one, feeding cmb_coinsack_caught.
+  | 'hoardGoblinKills';
 
 // The canonical counter key list (init/serialize iterate it in this fixed
 // order so equal states always serialize byte-equal).
@@ -9235,6 +9368,7 @@ export const DEED_STAT_KEYS: readonly DeedStatKey[] = [
   'riftSRankClears',
   'tutorialGraduations',
   'legendariesForged',
+  'hoardGoblinKills',
 ];
 
 // Numeric readings computed from already-persisted PlayerMeta state (never new

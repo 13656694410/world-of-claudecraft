@@ -56,7 +56,7 @@ import { overworldDungeonPortals } from './map_dungeon_portals';
 import { MAP_MARKER_SIZES } from './map_marker_icon_art';
 import type { MapMarkerProfile } from './map_marker_profile_core';
 import {
-  isNearbyLiveRiftZoneMapEntity,
+  classifyNearbyLiveZoneMapEntrance,
   STABLE_MAP_NAVIGATION_LANDMARKS,
 } from './map_navigation_landmarks_core';
 import {
@@ -328,6 +328,7 @@ export interface MapServiceMarker {
  * identities come from authored content; Rift name/rank come only from a live
  * entity inside the host-fair disclosure range. */
 export type MapNavigationMarker =
+  | { kind: 'hoard-entrance'; mx: number; my: number }
   | {
       kind: 'delve-entrance';
       mx: number;
@@ -1215,10 +1216,15 @@ export function buildOverworldMapModel(input: OverworldMapInput): OverworldMapMo
     }
   }
   for (const entity of world.entities.values()) {
-    if (!isNearbyLiveRiftZoneMapEntity(entity, p.pos)) continue;
+    const kind = classifyNearbyLiveZoneMapEntrance(entity, p.pos);
+    if (!kind) continue;
     if (!inZone(entity.pos.x, entity.pos.z)) continue;
     const placed = placeNavigation(entity.pos.x, entity.pos.z);
     if (!placed) continue;
+    if (kind === 'hoard-entrance') {
+      navigation.push({ kind, mx: placed.mx, my: placed.my });
+      continue;
+    }
     navigation.push({
       kind: 'rift-entrance',
       mx: placed.mx,

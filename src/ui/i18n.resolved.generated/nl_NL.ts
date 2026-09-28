@@ -1166,7 +1166,10 @@ export const nl_NL: EnTranslations = {
       "count": "({count})",
       "objectiveValue": "{current} / {total}",
       "collapseHint": "Queestevolger inklappen",
-      "expandHint": "Queestevolger uitklappen"
+      "expandHint": "Queestevolger uitklappen",
+      "worldQuests": "World Quests",
+      "worldQuestsCollapseHint": "Collapse world quests",
+      "worldQuestsExpandHint": "Expand world quests"
     },
     "interfaceTabs": {
       "general": "Algemeen",
@@ -1661,6 +1664,10 @@ export const nl_NL: EnTranslations = {
     },
     "riftTracker": {
       "title": "Rift",
+      "hoardTitle": "Buried Hoard",
+      "hoardGoal": "Defeat the hoard keeper",
+      "hoardChestGoal": "Open the hoard chest",
+      "hoardClaimedGoal": "The hoard is yours",
       "floor": "Verdieping {current} van {total}",
       "closesIn": "Sluit over {time}",
       "clockMs": "{minutes}:{seconds}",
@@ -2870,6 +2877,19 @@ export const nl_NL: EnTranslations = {
       "crafting": "Knutselen",
       "openProfessions": "Open beroepen"
     },
+    "treasureMap": {
+      "close": "Close treasure map",
+      "zone": "Somewhere in {zone}",
+      "hint": "Find the ground this map shows, stand on the X, and use the map again to dig. A buried hoard opens for you and your party.",
+      "upgradeNote": "Redrawing it as a {rarity} map takes {inks} Cartographer's Ink (you hold {held}). The faction quartermasters sell it.",
+      "upgradeMaxed": "No cartographer could better this map.",
+      "rarity": {
+        "common": "Common",
+        "rare": "Rare",
+        "epic": "Epic",
+        "legendary": "Legendary"
+      }
+    },
     "currencies": {
       "intro": "Geen van deze nemen rugzakruimte in beslag. Munten blijven altijd in je rugzak.",
       "activities": "Activiteiten",
@@ -2884,7 +2904,24 @@ export const nl_NL: EnTranslations = {
       "walletNotLinked": "Geen portefeuille gekoppeld",
       "wocPreview": "Voorbeeld van saldo, nog niet geverifieerd",
       "lifetime": "Totaal {amount}",
-      "factionPending": "Factie-munt: wacht op Fase 2"
+      "factionPending": "Factie-munt: wacht op Fase 2",
+      "riftWatchMark": "Rift Watch Mark",
+      "riftWatchMarkNote": "World Quests in Rift Watch zones",
+      "churchOrderCrest": "Order Crest",
+      "churchOrderCrestNote": "World Quests in Church Order zones",
+      "automatonCog": "Automaton Cog",
+      "automatonCogNote": "World Quests in Automaton zones"
+    },
+    "worldQuestTooltip": {
+      "factionLine": "Faction: {faction}",
+      "timeRemaining": "Time remaining:",
+      "standingAmount": "{amount} {faction}",
+      "currencyAmount": "{amount} {currency}",
+      "standingReward": "+{amount} {faction} Standing",
+      "currencyReward": "+{amount} {currency}"
+    },
+    "worldQuestBanner": {
+      "subtitle": "World Quest"
     },
     "reputation": {
       "intro": "Alle drie facties groeien tegelijk: elke wereldquest telt mee voor de factie van die zone.",
@@ -5293,6 +5330,9 @@ export const nl_NL: EnTranslations = {
       "enchant_chest_lucent_stamina": "Borstinscriptie: Lichtende Uithouding",
       "enchant_feet_lucent_agility": "Schoeninscriptie: Lichtende Behendigheid",
       "enchant_lucent_infusion": "Lichtende infusie",
+      "enchant_offhand_spirit": "Offhand Etching: Spirit",
+      "enchant_feet_shadowstride": "Boot Etching: Shadowstride",
+      "enchant_gloves_forged_might": "Glove Etching: Forged Might",
       "enchant_weapon_riftwalkers_grace": "Riftwandelaar's Genade",
       "enchant_weapon_dawnfire_etching": "Wapengravure: Dageraadvuur",
       "enchant_weapon_dawns_benediction": "Wapengravure: Dageraadzegen",
@@ -5304,6 +5344,22 @@ export const nl_NL: EnTranslations = {
       "enchant_weapon_dawnfire_etching": "Graveer permanent een wapen met 18 Spreukenkracht. Vervaar op een wapen.",
       "enchant_weapon_dawns_benediction": "Graveer permanent een wapen met 34 Genezingskracht. Vervaar op een wapen.",
       "enchant_weapon_piston_drive": "Graveer permanent een tweehandig wapen met 12 Kracht. Vervaar op een tweehandig wapen."
+    },
+    "factionRewards": {
+      "alliedHearthstoneUse": "Use: Teleports you to your attuned faction hub. (10 sec cast, 15 min cooldown)",
+      "alliedHearthstoneAttuned": "Attuned to: {hub}",
+      "hub_none": "None (Use near a faction hub to attune)",
+      "hub_rift_watch": "Drifthaven (The Rift Watch)",
+      "hub_church_order": "Eastbrook Vale (The Church Order)",
+      "hub_automatons": "South Reach (The Automaton Foundry)",
+      "riftGliderUse": "Use: Unfolds the glider, slowing falling speed for 30 sec. Landing or taking damage cancels the effect. (2 min cooldown)",
+      "targetDummyUse": "Use: Deploys a mechanical target dummy in the open world for 2 minutes to practice combat abilities. (5 min cooldown)",
+      "battleStandardUse": "Use: Plants the Consecrated Dawn Battle Standard for 5 minutes, significantly increasing out-of-combat health and mana regeneration for all nearby allies. Remaining near it for 10 seconds also grants Blessing of the Dawn (+5% to all stats for 30 min). (5 min cooldown)",
+      "shockBombUse": "Use: Throws a shock bomb up to 30 yards, dealing 120 to 160 Nature damage to all enemies within 5 yards. (1 min cooldown)",
+      "invisibilityUse": "Use: Shrouds you in stealth for 6 sec. (2 min cooldown)",
+      "armorKitUse": "Use: Reinforces your chest armor, increasing Armor by 12 for 1 hour.",
+      "sharpeningStoneUse": "Use: Sharpens your main hand weapon, increasing Attack Power by 6 for 30 min.",
+      "manaElixirUse": "Use: Increases Spirit by 6 for 1 hour."
     },
     "professions": {
       "title": "Beroepen",
@@ -6076,6 +6132,7 @@ export const nl_NL: EnTranslations = {
       "sourceActivityCorpseHarvest": "Geborgen bij het oogsten van kadavers van wezens",
       "sourceActivityMasterworkCraft": "Verdiend door een meesterwerk te vervaardigen",
       "sourceActivityRiftFirstClear": "Toegekend aan elk lid van de groep die de eerste voltooiing van een gerangschikte Rift wint",
+      "sourceActivityBuriedHoard": "Found in the reward chest of a Buried Hoard, the vault a treasure map leads to",
       "cellMissingSourceAria": "{name}, nog niet gevonden, {source}",
       "cellOwnedClearsAria": "{name}, gecatalogiseerd, voor het eerst gevonden bij voltooiing {count}",
       "searchPlaceholder": "Relieken zoeken",
@@ -6814,54 +6871,82 @@ export const nl_NL: EnTranslations = {
       "1": "Een verkenner van de duinen houdt zich in het oosten, ten noorden van de garnizoenspost. Vind Verkenner Yerrin en vraag wat de wind heeft meegebracht.",
       "2": "De beheerder van de garnizoensvoorraden heeft sinds de laatste patrouille niets gegeten. Breng Kwartiermeester Sela 2 x Plattebrood.",
       "3": "Oostwaarts en iets ten zuiden van waar de sintels in duinen vervagen, verbergt een verschroeid stukje grond wat de as bedolf. Gebruik de rol daar en graaf.",
-      "title": "As bij de Poort"
+      "title": "As bij de Poort",
+      "reply": {
+        "1": "The wind came off the eastern dunes carrying ash, and ash does not blow in from empty sand. Sela at the garrison stores logs every patrol. She will talk, once someone feeds her.",
+        "2": "Bread at last, bless you. The patrol swore it saw smoke rising from bare sand, east and a little south of the dunes, where nothing is left to burn."
+      }
     },
     "hunt_frostveil_aurora_vigil": {
       "0": "Waar de terrassen omhoog klimmen naar de lichten die nacht voor nacht dansen, kniel op de Aurorastappen en laat de hemel je zien.",
       "1": "Degene die de lichten leest wacht dicht bij de stappen. Spreek met Auroristen Veyla over wat de hemel heeft gespeld.",
       "2": "Oostwaarts van de huilende terrassen, iets meer naar het zuiden, ligt de sneeuw vlakker dan verwacht. Gebruik de rol daar en graaf.",
-      "title": "Lichten boven de Stappen"
+      "title": "Lichten boven de Stappen",
+      "reply": {
+        "1": "You knelt, and the lights answered. Last night they bent east past the terraces and pointed straight down at the snow."
+      }
     },
     "hunt_amberfall_lantern_ferry": {
       "0": "Aan het water in het noorden van Lanternmere weet de beheerder van de lichtveren welk licht is gedoofd. Spreek met Veermeester Caddow.",
       "1": "Een enkele steen leunt tegen de lucht ten noordoosten van de grote plas, ouder dan de stad. Ga naar de Schuine Monoliet.",
       "2": "De beheerder van de gouden rijen begiet haar boomgaard met eigen handen en sterft van dorst. Breng Fruitier Pomeline 3 x Koud Bronwater.",
       "3": "Ten noordoosten van de helling waar cinderahoorns rood branden, liggen bladeren in een cirkel die geen wind maakte. Gebruik de rol daar en graaf.",
-      "title": "Lantaarns op de Plas"
+      "title": "Lantaarns op de Plas",
+      "reply": {
+        "0": "One lantern went dark last night, the one that faces the old stone across the water. My ferrymen will not go near it. Perhaps you will.",
+        "2": "Cold well water, just what the trees wanted. Up past the red maples the leaves have been falling in a ring, and no tree of mine drops its leaves that neatly."
+      }
     },
     "hunt_willowfen_fenwitch_salt": {
       "0": "De veenheks van Wilgenheuvel spreekt niet met iemand die leeg komt. Breng Moeder Zegge 1 x Keukenzout.",
       "1": "Waar het veenland vlak wordt en de lucht iedereen slaperig maakt, ga op de Slaperige Vlakten staan en zucht, zoals de heks zei.",
       "2": "Ten zuidoosten van de plas die in het moeras glanst, ligt een verhoginkje droge grond dat het hele jaar droog blijft. Gebruik de rol daar en graaf.",
-      "title": "Het Zout van de Veenheks"
+      "title": "Het Zout van de Veenheks",
+      "reply": {
+        "0": "Salt. Good, you listen. The flats beyond the reeds make everyone drowsy. Go and sigh there like you mean it, and the fen will show you the rest."
+      }
     },
     "hunt_nightbloom_sleepless_vigil": {
       "0": "Ten noordoosten van Maanrust, waar de stenen een wacht houden die nooit eindigt, ga naar de Stenen Wacht.",
       "1": "De wachter bij de wacht telt sterren zoals anderen munten tellen. Spreek met Sterrenkundige Cassian over degene die is gevallen.",
       "2": "Ten noorden van de stad ligt een grafheuve wiens slaper nooit rust. Eer de Slapeloos Grafheuve zodat de slaper weet dat een vriend is gekomen.",
       "3": "Ten zuidoosten van het veld waar de schemer verzamelt, staat het maanlicht op een enkel stuk blote grond. Gebruik de rol daar en graaf.",
-      "title": "Wacht van de Slapeloos"
+      "title": "Wacht van de Slapeloos",
+      "reply": {
+        "1": "A star fell three nights ago, and it fell toward the old barrow north of town. The dead there never sleep. Greet them as a soldier would."
+      }
     },
     "hunt_wraithwood_mournstone_candles": {
       "0": "De kandelmaker van Galgenmoeras verkoopt licht aan mensen die het donker vrezen. Spreek met Weduwe Tansy over een kaars die nooit is betaald.",
       "1": "De laatste vicaris van de Rouwsteen vasten alleen op gebeden. Breng Vicaris Creel 2 x Gezouten Jerky.",
       "2": "Ten noordoosten van de stad, voorbij de kraaien, hangt een open plek haar eigen vreemd fruit. Ga in de Hangende Laan.",
       "3": "Ten zuidoosten van de open plek waar de jager zijn netten zette, is het bladerendek onlangs omgekeerd. Gebruik de rol daar en graaf.",
-      "title": "Kaarsen voor de Rouwsteen"
+      "title": "Kaarsen voor de Rouwsteen",
+      "reply": {
+        "0": "The vicar ordered that candle and never paid for it. He has been fasting ever since, praying and nothing else. Take him something to chew and ask him why.",
+        "1": "Thank you, friend. I never lit that candle. Something walks the glade past the crows at night, and I could not face it. Go and stand there, if you can."
+      }
     },
     "hunt_palmreach_sunken_idol": {
       "0": "Diep in het gerank, ten noordwesten van de lagune, vallen de ranken als een waterval. Ga naar de Rankenval.",
       "1": "Een kluizenaar die in het gerank ging en eruit kwam woont dicht bij de vallende ranken. Spreek met Okrim over wat hij daar zag.",
       "2": "Oostwaarts staat een afgod half ondergedoken en kijkt nog steeds. Hurk bij de Verzonden Afgod, zoals de kluizenaar zei dat duikers doen.",
       "3": "Ten noordoosten van waar het gerank zijn mond naar zee opent, is het zand hoger opgestapeld dan het tij bereikt. Gebruik de rol daar en graaf.",
-      "title": "Het Geheim van de Afgod"
+      "title": "Het Geheim van de Afgod",
+      "reply": {
+        "1": "Below the vines the divers found an idol, and the idol did not like them. Anyone who stood tall before it did not come back. Be small before it."
+      }
     },
     "hunt_evergarden_beacon_road": {
       "0": "De tuinierster van de bloembedden langs de weg ten noorden van Haaggenoort zweert dat haar bedden uitgehongerd zijn. Breng Boer Verbena 2 x Compost.",
       "1": "In de verre zuidoosthoek van de tuin staat nog steeds een oude molen te draaien, al heeft zij geen molenaar meer. Ga naar de Oude Molen.",
       "2": "Volg de weg zuidwaarts over de grens in de Stormkuil en uit naar de kust. De bewaker van de oude vuurtoren, Bewaker Bram, heeft het laatste woord.",
       "3": "Ten noordwesten van de oude vuurtoren, net van het pad af dat naar beneden gaat, is het gras gesneden en teruggelegd. Gebruik de rol daar en graaf.",
-      "title": "Vuurtoren en Bloemen"
+      "title": "Vuurtoren en Bloemen",
+      "reply": {
+        "0": "Proper compost, the beds will live. The old miller buried something before he left. His mill still turns in the far corner of the gardens. Go and stand by it.",
+        "2": "So the mill sent you down the coast road. The beacon keeps one last secret: northwest of it, just off the path, the turf was cut and laid back. Dig there."
+      }
     }
   },
   "guide": {
@@ -10164,6 +10249,11 @@ export const nl_NL: EnTranslations = {
       "pylonLit": "Een runenpyloon ontwaakt tot leven ({lit}/{total}).",
       "wayDownOpens": "De weg naar beneden scheurt open.",
       "exitOpens": "De rift beeft. Een weg naar huis scheurt open achter de gevallenen.",
+      "hoardEnter": "You climb down into {name}.",
+      "hoardExitOpens": "The hoard is yours. Return to the entrance to climb out.",
+      "hoardStepBack": "You climb back out through the hoard entrance.",
+      "hoardNotYours": "This hoard was dug up by another party.",
+      "hoardEntrantsFull": "This hoard has already admitted five adventurers.",
       "portalOpens": "Een {tier}-rangs rift scheurt open in {zone}!",
       "portalSealed": "De {tier}-rangs rift in {zone} is verzegeld.",
       "portalCollapses": "De {tier}-rangs rift in {zone} stort in.",
@@ -10203,7 +10293,152 @@ export const nl_NL: EnTranslations = {
       "detonateLightningRod": "Bliksemstaaf slaat in!",
       "detonateStormcallersWrath": "Woede van de Stormroeper barst los!",
       "detonateAbyssalMaw": "Afgrondmuil sluit zich!",
-      "detonateCrushingDepth": "Verpletterende Diepte verplettert!"
+      "detonateCrushingDepth": "Verpletterende Diepte verplettert!",
+      "yell": {
+        "mushroomEngage": "De sporen krijgen jullie wel.",
+        "mushroomSummon": "Groei, mijn kleintjes!",
+        "moleEngage": "De grond is van mij.",
+        "moleSummon": "Naar beneden jij!",
+        "batEngage": "Krieieieiep!",
+        "batSummon": "Naar mij, mijn zwerm!",
+        "mimicEngage": "Honger... zoveel honger.",
+        "mimicSummon": "Meer goud, meer goud!",
+        "frostBigCast": "De witte wind steekt op.",
+        "frostDeathZoneCast": "De vorst eist je op.",
+        "frostDeathZoneStrike": "Niets overleeft de diepe kou.",
+        "frostEngage": "Uiteindelijk neemt de kou alles.",
+        "frostEnrage": "BEVRIES!",
+        "emberBigCast": "BRAND.",
+        "emberDeathZoneCast": "Het magma stijgt.",
+        "emberDeathZoneStrike": "DE SMIDSE VERSLINDT ALLES.",
+        "emberEngage": "De smidse hongert.",
+        "emberSummon": "Rijs op uit de slakken!",
+        "emberEnrage": "AS EN SINTELS!",
+        "venomBigCast": "Verdrink in gif!",
+        "venomDeathZoneCast": "Verdrink in venijn.",
+        "venomDeathZoneStrike": "JE ONTKOMT MIJN KINDEREN NIET.",
+        "venomEngage": "Mijn kinderen hebben altijd honger.",
+        "venomSummon": "Smul maar, kleintjes!",
+        "necroBigCast": "Jullie zielen zijn verbeurd.",
+        "necroDeathZoneCast": "Je ziel is verbeurd.",
+        "necroDeathZoneStrike": "DE DOOD EIST ALLES OP.",
+        "necroEngage": "De dood is slechts het begin.",
+        "necroSummon": "Rijs op!",
+        "bruteBigCast": "IK BREEK JULLIE!",
+        "bruteDeathZoneCast": "DE AARDE SPLIJT.",
+        "bruteDeathZoneStrike": "HIER VALLEN JULLIE.",
+        "bruteEngage": "Ik verpletter jullie!",
+        "bruteEnrage": "GRAAAH!",
+        "arcaneBigCast": "Aanschouw ware macht.",
+        "arcaneDeathZoneCast": "De werkelijkheid scheurt.",
+        "arcaneDeathZoneStrike": "VERNIETIGD.",
+        "arcaneEngage": "Jullie hadden niet moeten komen.",
+        "arcaneEnrage": "KNIEL!",
+        "stormBigCast": "De hemel antwoordt!",
+        "stormDeathZoneCast": "De hemel beantwoordt je roep.",
+        "stormDeathZoneStrike": "DE STORM VERSLINDT.",
+        "stormEngage": "De storm gehoorzaamt mij!",
+        "stormEnrage": "DE HEMEL STORT NEER!",
+        "tideDeathZoneCast": "De diepte neemt je mee.",
+        "tideDeathZoneStrike": "DE AFGROND IN GESLEURD.",
+        "tideEngage": "De diepte eist je op.",
+        "tideSummon": "Rijs op uit de diepten!",
+        "ritualistBigCast": "Het pact is bezegeld in vuur!",
+        "ritualistEngage": "Jullie betreden gebonden grond.",
+        "ritualistSummon": "Antwoord mij, wezens van beneden!",
+        "pitlordBigCast": "DE PUT EIST JE OP.",
+        "pitlordEngage": "Kniel, of brand.",
+        "pitlordEnrage": "DE CITADEL VERSLINDT!"
+      },
+      "place": {
+        "hoardFloor": "Begraven schat: {theme}",
+        "sanctumFloor": "Heiligdom {theme}: diepte {depth}",
+        "reachesFloor": "Uithoeken {theme}: diepte {depth}",
+        "upgradedFloor": "{title}: {theme}, diepte {depth}",
+        "hoardPlan": "De begraven {noun}-schat",
+        "riftPlan": "{noun}-{suffix}",
+        "citadelPlan": "De {noun}-citadel",
+        "infernalCitadel": "De Helse Citadel",
+        "hoardEntrance": "Ingang van de begraven schat",
+        "theme": {
+          "frost": "Vorstgreep",
+          "ember": "Sintelsmid",
+          "venom": "Gifwoud",
+          "bone": "Knekelveld",
+          "brute": "Oorlogskamp",
+          "void": "Leegtelitteken",
+          "storm": "Stormspits",
+          "tide": "Zeebodem",
+          "spore": "Sporenholte",
+          "burrow": "Diephol",
+          "roost": "Vleermuizennest",
+          "mimic": "Valse Kluis",
+          "infernal": "Helse Citadel"
+        },
+        "noun": {
+          "rime": "Rijp",
+          "hoarfrost": "IJzel",
+          "glacier": "Gletsjer",
+          "frost": "Vorst",
+          "ember": "Gloed",
+          "cinder": "Sintel",
+          "magma": "Magma",
+          "ash": "As",
+          "venom": "Gif",
+          "thorn": "Doorn",
+          "bramble": "Braam",
+          "spider": "Spinnen",
+          "bone": "Knekel",
+          "marrow": "Merg",
+          "ossuary": "Knekelhuis",
+          "grave": "Graf",
+          "war": "Oorlog",
+          "skull": "Schedel",
+          "iron": "IJzer",
+          "blood": "Bloed",
+          "void": "Leegte",
+          "shadow": "Schaduw",
+          "umbral": "Duister",
+          "dusk": "Schemer",
+          "storm": "Stormvlaag",
+          "tempest": "Onweer",
+          "thunder": "Donder",
+          "gale": "Rukwind",
+          "sunken": "Diepzee",
+          "abyssal": "Oerdiep",
+          "drowned": "Zeegraf",
+          "tide": "Getij",
+          "spore": "Sporen",
+          "toadstool": "Paddenstoel",
+          "mould": "Schimmel",
+          "mycelium": "Zwamvlok",
+          "burrow": "Hol",
+          "tunnel": "Gang",
+          "delve": "Mijnschacht",
+          "loam": "Leem",
+          "roost": "Stok",
+          "echo": "Weerklank",
+          "guano": "Guano",
+          "hollow": "Holte",
+          "coffer": "Kist",
+          "strongbox": "Geldkist",
+          "tithe": "Tiende",
+          "gilt": "Bladgoud",
+          "brimstone": "Zwavel",
+          "pitfire": "Putvuur",
+          "pactbound": "Pact"
+        },
+        "suffix": {
+          "abyss": "Afgrond",
+          "depths": "Diepten",
+          "descent": "Afdaling",
+          "hollow": "Grot",
+          "labyrinth": "Doolhof",
+          "warren": "Gangenstelsel",
+          "sanctum": "Heiligdom",
+          "rift": "Kloof"
+        }
+      }
     },
     "delve": {
       "cannotEnterNow": "Je kunt nu geen delve betreden.",
@@ -10273,6 +10508,9 @@ export const nl_NL: EnTranslations = {
       "moveCloserStairs": "Kom dichter bij de trap.",
       "nhaliaCantorShield": "Cantors, houd de noot aan!",
       "nhaliaBlackwaterMark": "{name} markeert {player} met Zwartwater!"
+    },
+    "factionVendor": {
+      "currencyRequired": "You need {amount} {currency} to purchase that."
     },
     "lockpick": {
       "lockYields": "Het slot geeft toe! {tier} buit.",
@@ -10894,6 +11132,7 @@ export const nl_NL: EnTranslations = {
       "alreadyInWorld": "Personage is al in de wereld.",
       "accountSessionLimit": "Te veel personages op dit account zijn al in de wereld.",
       "takenOver": "Je personage is overgenomen door een andere sessie.",
+      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
       "renameBeforeEntering": "Dit personage moet hernoemd worden voordat het de wereld kan betreden.",
       "renameNotPermitted": "Dit personage hernoemen is niet toegestaan.",
       "unsupportedMediaType": "Niet-ondersteund verzoekformaat.",
@@ -11237,6 +11476,8 @@ export const nl_NL: EnTranslations = {
         "dungeonExit": "Kerkeruitgang",
         "delveEntrance": "Delve-ingang: {name}",
         "worldPassage": "Doorgang naar {zone}",
+        "hoardEntrance": "Buried Hoard entrance",
+        "hoardReturnEntrance": "Hoard return entrance",
         "riftEntrance": "Rift-ingang: {name}",
         "hostileEnemy": "Vijandig doelwit",
         "aggressiveEnemy": "Vijand valt je aan",
@@ -11880,6 +12121,7 @@ export const nl_NL: EnTranslations = {
   "abilityUi": {
     "actionBar": {
       "attackName": "Aanvallen",
+      "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Schakel auto-aanval op je doelwit in of uit. Rechtsklikken op een vijand valt ook aan.",
       "attackRemoveHint": "Klik met rechts om het van de balk te verwijderen en de plek vrij te maken.",
       "emptySlot": "Lege sleuf",
@@ -11971,7 +12213,35 @@ export const nl_NL: EnTranslations = {
       "rift_storm_execution": "Bliksemstaaf",
       "rift_storm_strike": "Woede van de Stormroeper",
       "rift_tide_execution": "Afgrondmuil",
-      "rift_tide_strike": "Verpletterende Diepte"
+      "rift_tide_strike": "Verpletterende Diepte",
+      "hoard_cast_fear": "Terrifying Roar",
+      "hoard_cast_stun": "Stunning Blow",
+      "hoard_cast_drowning_hook": "Drowning Hook",
+      "hoard_cast_rime_beam": "Rime Beam",
+      "hoard_cast_cinder_bolt": "Cinder Bolt",
+      "hoard_cast_void_empower": "Void Empowerment",
+      "hoard_cast_webbing": "Webbing",
+      "hoard_cast_doom_ritual": "Doom Ritual",
+      "hoard_cast_charge": "Headlong Charge",
+      "hoard_cast_silk_snare": "Silk Snare",
+      "hoard_cast_silence": "Silencing Shriek",
+      "hoard_cast_hex": "Hex",
+      "hoard_lightning_strike": "Lightning Strike",
+      "hoard_ice_age": "Ice Age",
+      "hoard_pulsar_overload": "Pulsar Overload",
+      "hoard_rolling_boulder": "Rolling Boulder",
+      "hoard_goblin_escape": "Escaping",
+      "hoard_cast_mole_rake": "Claw Rake",
+      "hoard_cast_burrow": "Burrow",
+      "hoard_cast_tunnel": "Tunneling",
+      "hoard_cast_emerge": "Eruption",
+      "hoard_cast_collapse": "Ceiling Collapse",
+      "hoard_cast_bat_dive_aim": "Plunging Dive",
+      "hoard_cast_bat_dive": "Diving",
+      "hoard_cast_screech": "Deafening Screech",
+      "hoard_cast_mimic_bite": "Voracious Bite",
+      "hoard_cast_mimic_leap": "Crushing Leap",
+      "hoard_cast_coin_spit": "Cursed Coins"
     }
   },
   "questUi": {
@@ -12398,7 +12668,17 @@ export const nl_NL: EnTranslations = {
       "clueHuntStep": "Aanwijzing {step} van {total} opgelost: {title}",
       "clueHuntDone": "Schatzoektocht voltooid: {title}. De kist is van jou.",
       "clueHuntAbandoned": "Schatzoektocht verlaten: {title}",
-      "clueCasketOpened": "De kist bevat {money} en {items}."
+      "clueCasketOpened": "De kist bevat {money} en {items}.",
+      "treasureMapEarned": "Every world quest of the day is done: you found a {map}.",
+      "treasureMapLost": "Every world quest of the day is done, but your bags have no room for the treasure map.",
+      "treasureMapRead": "You study the {map}. The X lies somewhere in {zone}.",
+      "treasureMapUpgraded": "The map is redrawn in finer ink: it is now a {map}.",
+      "treasureVaultOpened": "The ground gives way. A buried hoard lies open before you.",
+      "treasureVaultLooted": "The hoard holds {money} and {items}.",
+      "treasureVaultCapped": "You have shared in enough hoards today; this one pays you nothing.",
+      "hoardGoblinSighted": "A goblin thief appears!",
+      "hoardGoblinSightedHint": "Kill it before it escapes with the gold!",
+      "hoardGoblinExplain": "A goblin thief is hiding in this hoard with a sack of stolen gold. It never fights back, it only runs. Your first hit starts a {seconds}-second escape bar: if it is still alive when the bar runs out, it opens a portal and is gone with the gold. Left alone, it slips away after {minutes} minutes. Kill it in time and everyone in the room is paid in gold."
     },
     "errors": {
       "unavailable": "Die quest is niet beschikbaar.",
@@ -12811,6 +13091,10 @@ export const nl_NL: EnTranslations = {
       "sport_second_wind": {
         "name": "Frisse Benen",
         "description": "Vind je benen terug: beweeg 4 sec lang 50% sneller."
+      },
+      "clockwork_shock_bomb": {
+        "name": "Mechanische schokbom",
+        "description": "Gooit een Mechanische schokbom op de doellocatie en doet 120 tot 160 Natuurschade aan vijanden binnen 5 meter."
       },
       "flamestrike": {
         "name": "Vlammenslag",
@@ -17393,6 +17677,363 @@ export const nl_NL: EnTranslations = {
       "stormhymn_chain_treads": {
         "name": "Stormhymne-kettinglaarzen"
       },
+      "allied_hearthstone": {
+        "name": "Allied Hearthstone"
+      },
+      "allied_vanguard_duffel": {
+        "name": "Allied Vanguard Duffel"
+      },
+      "rift_feather_glider": {
+        "name": "Rift Feather Glider"
+      },
+      "formula_enchant_feet_shadowstride": {
+        "name": "Formula: Enchant Boots - Shadowstride"
+      },
+      "recipe_potion_of_invisibility": {
+        "name": "Recipe: Potion of Invisibility"
+      },
+      "potion_of_invisibility": {
+        "name": "Potion of Invisibility"
+      },
+      "pattern_reinforced_armor_kit": {
+        "name": "Pattern: Reinforced Armor Kit"
+      },
+      "reinforced_armor_kit": {
+        "name": "Reinforced Armor Kit"
+      },
+      "dawn_battle_standard": {
+        "name": "Dawn Battle Standard"
+      },
+      "formula_enchant_offhand_spirit": {
+        "name": "Formula: Enchant Off-Hand - Spirit"
+      },
+      "recipe_elixir_of_mana_regeneration": {
+        "name": "Recipe: Elixir of Mana Regeneration"
+      },
+      "elixir_of_mana_regeneration": {
+        "name": "Elixir of Mana Regeneration"
+      },
+      "clockwork_target_dummy": {
+        "name": "Clockwork Target Dummy"
+      },
+      "schematic_clockwork_shock_bomb": {
+        "name": "Schematic: Clockwork Shock Bomb"
+      },
+      "clockwork_shock_bomb": {
+        "name": "Clockwork Shock Bomb"
+      },
+      "plans_dense_sharpening_stone": {
+        "name": "Plans: Dense Sharpening Stone"
+      },
+      "dense_sharpening_stone": {
+        "name": "Dense Sharpening Stone"
+      },
+      "formula_enchant_gloves_forged_might": {
+        "name": "Formula: Enchant Gloves - Forged Might"
+      },
+      "treasure_map_common": {
+        "name": "Weathered Treasure Map"
+      },
+      "treasure_map_rare": {
+        "name": "Inked Treasure Map"
+      },
+      "treasure_map_epic": {
+        "name": "Gilded Treasure Map"
+      },
+      "treasure_map_legendary": {
+        "name": "Sovereign Treasure Map"
+      },
+      "cartographers_ink": {
+        "name": "Cartographer's Ink"
+      },
+      "collapsar_band_of_nyxaris": {
+        "name": "Collapsar Band of Nyxaris"
+      },
+      "rare_collapsar_band_of_nyxaris": {
+        "name": "Tarnished Collapsar Band of Nyxaris"
+      },
+      "legendary_collapsar_band_of_nyxaris": {
+        "name": "Sovereign Collapsar Band of Nyxaris"
+      },
+      "orb_collapsing_void": {
+        "name": "Orb of Collapsing Void"
+      },
+      "rare_orb_collapsing_void": {
+        "name": "Tarnished Orb of Collapsing Void"
+      },
+      "legendary_orb_collapsing_void": {
+        "name": "Sovereign Orb of Collapsing Void"
+      },
+      "cowl_of_event_horizon": {
+        "name": "Cowl of the Event Horizon"
+      },
+      "rare_cowl_of_event_horizon": {
+        "name": "Tarnished Cowl of the Event Horizon"
+      },
+      "legendary_cowl_of_event_horizon": {
+        "name": "Sovereign Cowl of the Event Horizon"
+      },
+      "mantle_of_singularity": {
+        "name": "Mantle of Singularity"
+      },
+      "rare_mantle_of_singularity": {
+        "name": "Tarnished Mantle of Singularity"
+      },
+      "legendary_mantle_of_singularity": {
+        "name": "Sovereign Mantle of Singularity"
+      },
+      "glacier_hewn_bulwark": {
+        "name": "Glacier-Hewn Bulwark"
+      },
+      "rare_glacier_hewn_bulwark": {
+        "name": "Tarnished Glacier-Hewn Bulwark"
+      },
+      "legendary_glacier_hewn_bulwark": {
+        "name": "Sovereign Glacier-Hewn Bulwark"
+      },
+      "permafrost_legguards": {
+        "name": "Permafrost Legguards"
+      },
+      "rare_permafrost_legguards": {
+        "name": "Tarnished Permafrost Legguards"
+      },
+      "legendary_permafrost_legguards": {
+        "name": "Sovereign Permafrost Legguards"
+      },
+      "frostbitten_rime_slippers": {
+        "name": "Frostbitten Rime Slippers"
+      },
+      "rare_frostbitten_rime_slippers": {
+        "name": "Tarnished Frostbitten Rime Slippers"
+      },
+      "legendary_frostbitten_rime_slippers": {
+        "name": "Sovereign Frostbitten Rime Slippers"
+      },
+      "rime_crusted_grips": {
+        "name": "Rime-Crusted Grips"
+      },
+      "rare_rime_crusted_grips": {
+        "name": "Tarnished Rime-Crusted Grips"
+      },
+      "legendary_rime_crusted_grips": {
+        "name": "Sovereign Rime-Crusted Grips"
+      },
+      "ember_wrought_crown": {
+        "name": "Ember-Wrought Crown"
+      },
+      "rare_ember_wrought_crown": {
+        "name": "Tarnished Ember-Wrought Crown"
+      },
+      "legendary_ember_wrought_crown": {
+        "name": "Sovereign Ember-Wrought Crown"
+      },
+      "cinder_stitched_robes": {
+        "name": "Cinder-Stitched Robes"
+      },
+      "rare_cinder_stitched_robes": {
+        "name": "Tarnished Cinder-Stitched Robes"
+      },
+      "legendary_cinder_stitched_robes": {
+        "name": "Sovereign Cinder-Stitched Robes"
+      },
+      "chained_ember_choker": {
+        "name": "Chained Ember Choker"
+      },
+      "rare_chained_ember_choker": {
+        "name": "Tarnished Chained Ember Choker"
+      },
+      "legendary_chained_ember_choker": {
+        "name": "Sovereign Chained Ember Choker"
+      },
+      "molten_clinker_girdle": {
+        "name": "Molten Clinker Girdle"
+      },
+      "rare_molten_clinker_girdle": {
+        "name": "Tarnished Molten Clinker Girdle"
+      },
+      "legendary_molten_clinker_girdle": {
+        "name": "Sovereign Molten Clinker Girdle"
+      },
+      "storm_tuned_buckler": {
+        "name": "Storm-Tuned Buckler"
+      },
+      "rare_storm_tuned_buckler": {
+        "name": "Tarnished Storm-Tuned Buckler"
+      },
+      "legendary_storm_tuned_buckler": {
+        "name": "Sovereign Storm-Tuned Buckler"
+      },
+      "hauberk_tempest_gale": {
+        "name": "Hauberk of the Tempest Gale"
+      },
+      "rare_hauberk_tempest_gale": {
+        "name": "Tarnished Hauberk of the Tempest Gale"
+      },
+      "legendary_hauberk_tempest_gale": {
+        "name": "Sovereign Hauberk of the Tempest Gale"
+      },
+      "gale_strider_boots": {
+        "name": "Gale-Strider Boots"
+      },
+      "rare_gale_strider_boots": {
+        "name": "Tarnished Gale-Strider Boots"
+      },
+      "legendary_gale_strider_boots": {
+        "name": "Sovereign Gale-Strider Boots"
+      },
+      "tempest_strike_grips": {
+        "name": "Tempest-Strike Grips"
+      },
+      "rare_tempest_strike_grips": {
+        "name": "Tarnished Tempest-Strike Grips"
+      },
+      "legendary_tempest_strike_grips": {
+        "name": "Sovereign Tempest-Strike Grips"
+      },
+      "breastplate_tectonic_might": {
+        "name": "Breastplate of Tectonic Might"
+      },
+      "rare_breastplate_tectonic_might": {
+        "name": "Tarnished Breastplate of Tectonic Might"
+      },
+      "legendary_breastplate_tectonic_might": {
+        "name": "Sovereign Breastplate of Tectonic Might"
+      },
+      "band_mountains_weight": {
+        "name": "Band of the Mountain's Weight"
+      },
+      "rare_band_mountains_weight": {
+        "name": "Tarnished Band of the Mountain's Weight"
+      },
+      "legendary_band_mountains_weight": {
+        "name": "Sovereign Band of the Mountain's Weight"
+      },
+      "monolithic_shoulderguards": {
+        "name": "Monolithic Shoulderguards"
+      },
+      "rare_monolithic_shoulderguards": {
+        "name": "Tarnished Monolithic Shoulderguards"
+      },
+      "legendary_monolithic_shoulderguards": {
+        "name": "Sovereign Monolithic Shoulderguards"
+      },
+      "earthshaker_warboots": {
+        "name": "Earthshaker Warboots"
+      },
+      "rare_earthshaker_warboots": {
+        "name": "Tarnished Earthshaker Warboots"
+      },
+      "legendary_earthshaker_warboots": {
+        "name": "Sovereign Earthshaker Warboots"
+      },
+      "silkstalker_woven_vest": {
+        "name": "Woven Vest of the Silkstalker"
+      },
+      "rare_silkstalker_woven_vest": {
+        "name": "Tarnished Woven Vest of the Silkstalker"
+      },
+      "legendary_silkstalker_woven_vest": {
+        "name": "Sovereign Woven Vest of the Silkstalker"
+      },
+      "spun_venom_spaulders": {
+        "name": "Spun-Venom Spaulders"
+      },
+      "rare_spun_venom_spaulders": {
+        "name": "Tarnished Spun-Venom Spaulders"
+      },
+      "legendary_spun_venom_spaulders": {
+        "name": "Sovereign Spun-Venom Spaulders"
+      },
+      "broodmother_chitin_cowl": {
+        "name": "Chitin Cowl of the Broodmother"
+      },
+      "rare_broodmother_chitin_cowl": {
+        "name": "Tarnished Chitin Cowl of the Broodmother"
+      },
+      "legendary_broodmother_chitin_cowl": {
+        "name": "Sovereign Chitin Cowl of the Broodmother"
+      },
+      "venom_etched_waistcord": {
+        "name": "Venom-Etched Waistcord"
+      },
+      "rare_venom_etched_waistcord": {
+        "name": "Tarnished Venom-Etched Waistcord"
+      },
+      "legendary_venom_etched_waistcord": {
+        "name": "Sovereign Venom-Etched Waistcord"
+      },
+      "bone_studded_pauldrons": {
+        "name": "Bone-Studded Pauldrons"
+      },
+      "rare_bone_studded_pauldrons": {
+        "name": "Tarnished Bone-Studded Pauldrons"
+      },
+      "legendary_bone_studded_pauldrons": {
+        "name": "Sovereign Bone-Studded Pauldrons"
+      },
+      "legguards_of_the_ossuary": {
+        "name": "Legguards of the Ossuary"
+      },
+      "rare_legguards_of_the_ossuary": {
+        "name": "Tarnished Legguards of the Ossuary"
+      },
+      "legendary_legguards_of_the_ossuary": {
+        "name": "Sovereign Legguards of the Ossuary"
+      },
+      "seal_of_the_cryptwalker": {
+        "name": "Seal of the Cryptwalker"
+      },
+      "rare_seal_of_the_cryptwalker": {
+        "name": "Tarnished Seal of the Cryptwalker"
+      },
+      "legendary_seal_of_the_cryptwalker": {
+        "name": "Sovereign Seal of the Cryptwalker"
+      },
+      "ossuary_bone_crown": {
+        "name": "Ossuary Bone Crown"
+      },
+      "rare_ossuary_bone_crown": {
+        "name": "Tarnished Ossuary Bone Crown"
+      },
+      "legendary_ossuary_bone_crown": {
+        "name": "Sovereign Ossuary Bone Crown"
+      },
+      "chalice_of_living_tides": {
+        "name": "Chalice of the Living Tides"
+      },
+      "rare_chalice_of_living_tides": {
+        "name": "Tarnished Chalice of the Living Tides"
+      },
+      "legendary_chalice_of_living_tides": {
+        "name": "Sovereign Chalice of the Living Tides"
+      },
+      "pendant_continuous_flow": {
+        "name": "Pendant of Continuous Flow"
+      },
+      "rare_pendant_continuous_flow": {
+        "name": "Tarnished Pendant of Continuous Flow"
+      },
+      "legendary_pendant_continuous_flow": {
+        "name": "Sovereign Pendant of Continuous Flow"
+      },
+      "coral_encrusted_girdle": {
+        "name": "Coral-Encrusted Girdle"
+      },
+      "rare_coral_encrusted_girdle": {
+        "name": "Tarnished Coral-Encrusted Girdle"
+      },
+      "legendary_coral_encrusted_girdle": {
+        "name": "Sovereign Coral-Encrusted Girdle"
+      },
+      "riptide_handwraps": {
+        "name": "Riptide Handwraps"
+      },
+      "rare_riptide_handwraps": {
+        "name": "Tarnished Riptide Handwraps"
+      },
+      "legendary_riptide_handwraps": {
+        "name": "Sovereign Riptide Handwraps"
+      },
       "vanguard_warrior_arms_helmet": {
         "name": "Klingenwake Groothelm"
       },
@@ -19090,6 +19731,51 @@ export const nl_NL: EnTranslations = {
       "stable_horse": {
         "name": "Stalpaard"
       },
+      "hoard_brood_egg": {
+        "name": "Brood Clutch"
+      },
+      "hoard_brood_hatchling": {
+        "name": "Vysska's Hatchling"
+      },
+      "hoard_healing_tide_totem": {
+        "name": "Healing Tide Totem"
+      },
+      "hoard_bound_pulsar": {
+        "name": "Bound Pulsar"
+      },
+      "hoard_abyssal_tentacle": {
+        "name": "Tentacle of the Maw"
+      },
+      "hoard_silk_cocoon": {
+        "name": "Silk Cocoon"
+      },
+      "hoard_brood_cocoon": {
+        "name": "Brood Cocoon"
+      },
+      "hoard_coinsack_scurrier": {
+        "name": "Coinsack Scurrier"
+      },
+      "hoard_boss_mushroom": {
+        "name": "Mother of Mushrooms"
+      },
+      "hoard_sporeling": {
+        "name": "Sporeling"
+      },
+      "hoard_bloat_cap": {
+        "name": "Bloated Cap"
+      },
+      "hoard_boss_mole": {
+        "name": "Deeprake"
+      },
+      "hoard_boss_bat": {
+        "name": "Colossal Bat"
+      },
+      "hoard_boss_mimic": {
+        "name": "Voracious Chest"
+      },
+      "hoard_bat_swarmling": {
+        "name": "Cave Swarmer"
+      },
       "rift_spawnling": {
         "name": "Riftbroedsel"
       },
@@ -19119,6 +19805,9 @@ export const nl_NL: EnTranslations = {
       },
       "rift_marrow_troll": {
         "name": "Mergtrol"
+      },
+      "rift_marrow_golem": {
+        "name": "Marrow Golem"
       },
       "rift_void_acolyte": {
         "name": "Leegtelitteken-Acoliet"
@@ -23252,6 +23941,11 @@ export const nl_NL: EnTranslations = {
         "sender": "De Beursmakelaar",
         "subject": "Je aanbieding op de Beurs is verkocht",
         "body": "Je aanbieding is verkocht en de koper heeft volledig afgerekend. Het beursregister bevat het verslag van de verkoop, en je beursactiviteit toont het afgerekende bedrag met de bijbehorende uitsplitsing.\n\n- De Beursmakelaar"
+      },
+      "hoard_vault_reward": {
+        "sender": "The Ravenpost",
+        "subject": "Your vault reward",
+        "body": "The vault was cleared, but your share was not collected from the chest. The ravens have brought it to you here, with the goods and coin you earned attached.\n\n- The Ravenpost"
       }
     },
     "itemSets": {

@@ -71,6 +71,7 @@ import { mendingCurrentTargetCapped } from '../../../sim/combat/shaman_spiritmen
 import { flowStateDiscountedCost } from '../../../sim/combat/shaman_talents';
 import { thundercallPayoffGlowActive } from '../../../sim/combat/shaman_thundercall';
 import { leavingRestrictedToggle } from '../../../sim/combat/toggle_buff';
+import { getItemCooldownDuration } from '../../../sim/content/item_cooldowns';
 import { countRawInSlots } from '../../../sim/item_lock';
 import { isAscensionEmpoweredAbility } from '../../../sim/paladin_devotion';
 import {
@@ -214,6 +215,10 @@ export interface ActionBarDescriptor {
 /** Injected localization helpers. The core builds the final aria string via t() so
  *  it produces localized text without importing the i18n module (testable with a t
  *  spy); names + the slot label are wrapped by the host. */
+/** A slot shows its cooldown in whole minutes from this many seconds up (the
+ *  allied hearthstone); potions and trinkets stay in seconds like abilities. */
+const LONG_ITEM_COOLDOWN_MINUTES_FROM_SEC = 600;
+
 export interface ActionBarDeps {
   t(key: TranslationKey, values?: InterpolationValues): string;
   abilityName(def: AbilityDef): string;
@@ -673,14 +678,19 @@ export function createActionBarView(
           // A trinket is used where it is worn: its slot reads the equipment and
           // its own use cooldown instead of the bag count (trinket_slot_core.ts).
           const trinket = trinketSlotState(item.id, world.wornTrinketId, player.cooldowns);
-          // Potions share one global cooldown, so any potion slot paints the same
-          // swipe; other items have no cooldown.
-          const itemCd = trinket
-            ? trinket.cooldownRemaining
-            : item.kind === 'potion'
-              ? player.potionCdRemaining
-              : 0;
-          const itemCdTotal = trinket ? trinket.cooldownTotal : POTION_COOLDOWN;
+          // Potions share one global cooldown; an item with its own use cooldown
+          // (the allied hearthstone, the toys) reads it from content/item_cooldowns.
+          const potionCd = item.kind === 'potion' ? player.potionCdRemaining : 0;
+          const directCd = player.cooldowns.get(item.id) ?? 0;
+          const baseCd = getItemCooldownDuration(item.id);
+          const itemCd = trinket ? trinket.cooldownRemaining : potionCd > 0 ? potionCd : directCd;
+          const itemCdTotal = trinket
+            ? trinket.cooldownTotal
+            : potionCd > 0
+              ? POTION_COOLDOWN
+              : baseCd > 0
+                ? baseCd
+                : itemCd;
           slot.kind = 'item';
           slot.abilityId = null;
           slot.itemId = item.id;
@@ -694,12 +704,21 @@ export function createActionBarView(
                   (itemCd / Math.max(COOLDOWN_DENOM_FLOOR, itemCdTotal)) * MAX_COOLDOWN_PERCENT,
                 )
               : 0;
-          slot.cdText = itemCd > COOLDOWN_TEXT_THRESHOLD ? deps.formatCount(Math.ceil(itemCd)) : '';
+          slot.cdText =
+            itemCd > COOLDOWN_TEXT_THRESHOLD
+              ? itemCd >= LONG_ITEM_COOLDOWN_MINUTES_FROM_SEC
+                ? deps.t('abilityUi.actionBar.cooldownMinutes', {
+                    minutes: deps.formatCount(Math.ceil(itemCd / 60)),
+                  })
+                : deps.formatCount(Math.ceil(itemCd))
+              : '';
           // The worn trinket shows no bag count (a "0" would read as "none left").
           slot.count = trinket?.worn ? '' : deps.formatCount(count);
           slot.isCharges = false;
           slot.rechargePercent = 0;
-          slot.usable = trinket ? trinket.worn && !player.dead : !(count <= 0 || player.dead);
+          slot.usable = trinket
+            ? trinket.worn && !player.dead
+            : !(count <= 0 || player.dead || itemCd > 0);
           slot.outOfRange = false;
           slot.queued = false;
           slot.procGlow = false;

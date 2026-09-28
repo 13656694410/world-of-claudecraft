@@ -778,6 +778,10 @@ export const hudChromeStrings = {
     objectiveValue: '{current} / {total}',
     collapseHint: 'Collapse quest tracker',
     expandHint: 'Expand quest tracker',
+    // The tracker's own section for active world quests (quest_tracker_controller.ts).
+    worldQuests: 'World Quests',
+    worldQuestsCollapseHint: 'Collapse world quests',
+    worldQuestsExpandHint: 'Expand world quests',
   },
   interfaceTabs: {
     general: 'General',
@@ -1745,6 +1749,12 @@ export const hudChromeStrings = {
   // separator stays a plain colon, like every other HUD clock (vcup, finder).
   riftTracker: {
     title: 'Rift',
+    // A Buried Hoard (a treasure map's vault) replaces the floor line with its goal.
+    hoardTitle: 'Buried Hoard',
+    hoardGoal: 'Defeat the hoard keeper',
+    // Once the keeper falls the goal becomes the reward chest it leaves, then rests.
+    hoardChestGoal: 'Open the hoard chest',
+    hoardClaimedGoal: 'The hoard is yours',
     // {current}/{total} are 1-based floor numbers (e.g. "Floor 2 of 5").
     floor: 'Floor {current} of {total}',
     // {time} is a pre-built clock string (see clockMs/clockHms below). This is
@@ -3502,6 +3512,22 @@ export const hudChromeStrings = {
   // The Currencies tab (src/ui/hud/currencies/): every spendable balance that
   // is not coin. The faction rows stay pending until the World Quests scope's
   // Stage 2 chooses the currency model.
+  // The treasure map window (src/ui/hud/treasure/): the parchment a read map
+  // opens, and the faction-currency offer to raise it a rarity.
+  treasureMap: {
+    close: 'Close treasure map',
+    zone: 'Somewhere in {zone}',
+    hint: 'Find the ground this map shows, stand on the X, and use the map again to dig. A buried hoard opens for you and your party.',
+    upgradeNote:
+      "Redrawing it as a {rarity} map takes {inks} Cartographer's Ink (you hold {held}). The faction quartermasters sell it.",
+    upgradeMaxed: 'No cartographer could better this map.',
+    rarity: {
+      common: 'Common',
+      rare: 'Rare',
+      epic: 'Epic',
+      legendary: 'Legendary',
+    },
+  },
   currencies: {
     intro: 'None of these take bag space. Coin stays in your bag as always.',
     activities: 'Activities',
@@ -3517,6 +3543,27 @@ export const hudChromeStrings = {
     wocPreview: 'Preview balance, not yet verified',
     lifetime: 'Lifetime {amount}',
     factionPending: 'Faction currency: pending Stage 2',
+    riftWatchMark: 'Rift Watch Mark',
+    riftWatchMarkNote: 'World Quests in Rift Watch zones',
+    churchOrderCrest: 'Order Crest',
+    churchOrderCrestNote: 'World Quests in Church Order zones',
+    automatonCog: 'Automaton Cog',
+    automatonCogNote: 'World Quests in Automaton zones',
+  },
+  // The world quest hover card (src/ui/hud/map/world_quest_tooltip_view.ts) and the
+  // plain reward texts world_quest_view.ts builds for the screen-reader summary.
+  worldQuestTooltip: {
+    factionLine: 'Faction: {faction}',
+    timeRemaining: 'Time remaining:',
+    standingAmount: '{amount} {faction}',
+    currencyAmount: '{amount} {currency}',
+    standingReward: '+{amount} {faction} Standing',
+    currencyReward: '+{amount} {currency}',
+  },
+  // The world quest entry banner (src/ui/hud/quest/world_quest_banner_view.ts):
+  // the smaller line under the quest name when a world quest becomes active.
+  worldQuestBanner: {
+    subtitle: 'World Quest',
   },
   // The Reputation tab (src/ui/hud/reputation/). Faction and tier names are
   // PROVISIONAL: the World Quests scope leaves the final names to narrative.
@@ -7548,6 +7595,9 @@ export const hudChromeStrings = {
     enchant_chest_lucent_stamina: 'Chest Etching: Lucent Stamina',
     enchant_feet_lucent_agility: 'Boot Etching: Lucent Agility',
     enchant_lucent_infusion: 'Lucent Infusion',
+    enchant_offhand_spirit: 'Offhand Etching: Spirit',
+    enchant_feet_shadowstride: 'Boot Etching: Shadowstride',
+    enchant_gloves_forged_might: 'Glove Etching: Forged Might',
     // The four learned faction formulas (docs/design/factions.md).
     enchant_weapon_riftwalkers_grace: "Riftwalker's Grace",
     enchant_weapon_dawnfire_etching: 'Weapon Etching: Dawnfire',
@@ -7565,6 +7615,28 @@ export const hudChromeStrings = {
       'Permanently etches a weapon with 34 Healing Power. Healing Power raises heals only, never spell damage. A flat bonus; it does not scale.',
     enchant_weapon_piston_drive:
       'Permanently etches a two-handed weapon with 12 Strength and 25 Critical Strike Rating. Cannot be applied to a one-handed weapon. A flat bonus; it does not scale.',
+  },
+  factionRewards: {
+    alliedHearthstoneUse:
+      'Use: Teleports you to your attuned faction hub. (10 sec cast, 15 min cooldown)',
+    alliedHearthstoneAttuned: 'Attuned to: {hub}',
+    hub_none: 'None (Use near a faction hub to attune)',
+    hub_rift_watch: 'Drifthaven (The Rift Watch)',
+    hub_church_order: 'Eastbrook Vale (The Church Order)',
+    hub_automatons: 'South Reach (The Automaton Foundry)',
+    riftGliderUse:
+      'Use: Unfolds the glider, slowing falling speed for 30 sec. Landing or taking damage cancels the effect. (2 min cooldown)',
+    targetDummyUse:
+      'Use: Deploys a mechanical target dummy in the open world for 2 minutes to practice combat abilities. (5 min cooldown)',
+    battleStandardUse:
+      'Use: Plants the Consecrated Dawn Battle Standard for 5 minutes, significantly increasing out-of-combat health and mana regeneration for all nearby allies. Remaining near it for 10 seconds also grants Blessing of the Dawn (+5% to all stats for 30 min). (5 min cooldown)',
+    shockBombUse:
+      'Use: Throws a shock bomb up to 30 yards, dealing 120 to 160 Nature damage to all enemies within 5 yards. (1 min cooldown)',
+    invisibilityUse: 'Use: Shrouds you in stealth for 6 sec. (2 min cooldown)',
+    armorKitUse: 'Use: Reinforces your chest armor, increasing Armor by 12 for 1 hour.',
+    sharpeningStoneUse:
+      'Use: Sharpens your main hand weapon, increasing Attack Power by 6 for 30 min.',
+    manaElixirUse: 'Use: Increases Spirit by 6 for 1 hour.',
   },
   // Professions window (Professions 2.0): the read-only craft-wheel
   // window. Craft and pair NAMES resolve through craftName / archetypePair
@@ -8858,6 +8930,10 @@ export const hudChromeStrings = {
     // the old fills carried the race reading but not those qualifiers).
     sourceActivityRiftFirstClear:
       "Awarded to every member of the party that wins a ranked Rift's first clear",
+    // The Buried Hoard pieces (content/hoard_loot.ts): rolled from the reward
+    // chest, never from the keeper's own loot, and at the tier the map buys.
+    sourceActivityBuriedHoard:
+      'Found in the reward chest of a Buried Hoard, the vault a treasure map leads to',
     // The aria label folds the lines through formatList (Intl.ListFormat), so
     // there is no join key to translate: CLDR owns the separators per locale,
     // including the final-conjunction shapes a pairwise key cannot express.

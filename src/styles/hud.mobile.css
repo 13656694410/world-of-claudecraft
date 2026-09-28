@@ -4417,6 +4417,31 @@
     width: 34px;
     height: 34px;
   }
+  /* The world quest entry plate on touch: smaller type and padding, and a
+     tighter gap, but the same bottom anchor above the subzone line (the token
+     is re-pinned per orientation, never the plate), so it cannot collide there
+     either. This layer already beats the hud.css variant; inside it, the class
+     compound outranks the landscape block's plain `body.mobile-touch #banner`
+     restatement, whatever the source order. The title stays on ONE line
+     (ellipsis past the width): the plate grows upward from its anchor, so a
+     wrapped title on a short phone would climb off the top edge. */
+  body.mobile-touch #banner.banner-world-quest {
+    --banner-stack-gap: 6px;
+    top: calc(var(--subzone-banner-top) - var(--banner-stack-gap));
+    min-width: 0;
+    padding: 6px 30px 12px;
+    font-size: calc(22px * var(--mobile-chrome-scale, 1));
+  }
+  body.mobile-touch #banner.banner-world-quest .banner-subtext {
+    font-size: calc(13px * var(--mobile-chrome-scale, 1));
+  }
+  body.mobile-touch #banner.banner-world-quest .banner-title {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   body.mobile-touch .window {
     max-width: calc(var(--app-vw, 100vw) / var(--window-scale, 1) - 20px);
     /* --window-scale, never --ui-scale: this generic rule also governs the
@@ -4741,6 +4766,24 @@
     right: 10px;
     top: 10px;
     width: auto;
+    transform: none;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  /* The Buried Hoard treasure map parchment: the same inset sheet as the
+     world-quest puzzle window, so it never overflows a phone. */
+  body.mobile-touch #treasure-map-window {
+    left: calc(max(10px, env(safe-area-inset-left)) / var(--ui-scale, 1));
+    right: calc(max(10px, env(safe-area-inset-right)) / var(--ui-scale, 1));
+    top: calc(max(10px, env(safe-area-inset-top)) / var(--ui-scale, 1));
+    width: auto;
+    max-width: none;
+    max-height: calc(
+      var(--app-vh) /
+      var(--ui-scale, 1) -
+      (max(10px, env(safe-area-inset-top)) / var(--ui-scale, 1)) -
+      (max(10px, env(safe-area-inset-bottom)) / var(--ui-scale, 1))
+    );
     transform: none;
     box-sizing: border-box;
     overflow-y: auto;
@@ -6210,6 +6253,14 @@
   }
   body.mobile-touch #char-window .char-model-panel {
     min-width: 0;
+  }
+  /* The Reputation tab's crest on touch: the window scales down to fit a phone,
+     so the faction emblem gets a larger frame to stay recognizable there. */
+  body.mobile-touch #char-window .char-rep-crest {
+    flex-basis: 40px;
+    width: 40px;
+    height: 44px;
+    border-radius: 5px 5px 19px 19px;
   }
   body.mobile-touch #char-window .paperdoll {
     display: grid;
@@ -9418,8 +9469,10 @@
       white-space: normal;
       overflow-wrap: anywhere;
     }
+    body.mobile-touch {
+      --subzone-banner-top: 25%;
+    }
     body.mobile-touch #subzone-banner {
-      top: 25%;
       font-size: 18px;
     }
     body.mobile-touch #error-msg {

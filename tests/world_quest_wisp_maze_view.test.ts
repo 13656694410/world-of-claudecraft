@@ -3,6 +3,7 @@ import { createWispMaze, WISP_MAZE_LAYOUT } from '../src/sim/minigames/wisp_maze
 import type { WorldQuestProgress } from '../src/sim/types';
 import {
   createWispMazeHudView,
+  WISP_MAZE_WON_LINGER_MS,
   wispMazeInstructionLines,
 } from '../src/ui/world_quest_wisp_maze_view';
 
@@ -79,4 +80,31 @@ it('deduplicates pickups, ten-wisp milestones, hit, banish and completion withou
   s.phase = 'countdown';
   s.feedbackSerial = 0;
   expect(view.tick(p).sound).toBeNull();
+});
+it('closes the panel a few seconds after the maze is won, instead of lingering everywhere', () => {
+  // The owner finished the maze, walked away, and the lives/power panel stayed
+  // on screen: the won state stays on the quest progress until the reset.
+  const p = progress(),
+    s = maze(p),
+    view = createWispMazeHudView();
+  s.phase = 'active';
+  expect(view.tick(p, 1_000).visible).toBe(true);
+  s.phase = 'won';
+  s.feedbackSerial++;
+  const won = view.tick(p, 2_000);
+  expect(won.visible).toBe(true);
+  expect(won.sound).toBe('ui_quest_done');
+  expect(won.cue).toBe('Every coin purse is recovered!');
+  expect(view.tick(p, 2_000 + WISP_MAZE_WON_LINGER_MS - 1).visible).toBe(true);
+  expect(view.tick(p, 2_000 + WISP_MAZE_WON_LINGER_MS).visible).toBe(false);
+  expect(view.tick(p, 60_000).visible).toBe(false);
+  // A maze already won before this view ever saw it running (a reload, a
+  // relog) never pops the panel back up.
+  const fresh = createWispMazeHudView();
+  expect(fresh.tick(structuredClone(p), 90_000).visible).toBe(false);
+  // A new run (new seed) shows it again.
+  const again = progress();
+  maze(again).phase = 'active';
+  maze(again).seed = s.seed + 1;
+  expect(view.tick(again, 95_000).visible).toBe(true);
 });

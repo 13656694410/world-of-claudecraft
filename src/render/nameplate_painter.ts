@@ -16,6 +16,7 @@ import { investigationDisguiseHidden } from '../sim/world_quest_investigation_vi
 import { shadowGuardHidden } from '../sim/world_quest_shadow_visibility';
 import { abilityDisplayNameFromSource } from '../ui/ability_display_name';
 import { resolveHudAuraIconId } from '../ui/aura_icon_runtime';
+import { castDisplayName } from '../ui/cast_display_name';
 import { cheaterTagLabel } from '../ui/cheater_tag';
 import { deedBorderSlug } from '../ui/deed_border_view';
 import { deedTitleText } from '../ui/deed_i18n';
@@ -167,6 +168,14 @@ export interface NameplatePainterDeps {
    *  live setting (nameplate_dot_scale.ts); injectable so a test can drive it. */
   nameplateDotScale?: () => number;
   isHostilePlayer: (e: Entity) => boolean;
+}
+
+/** A scripted mob cast (a rift execution, a Buried Hoard control) is no ABILITIES
+ *  row, so it names itself through the shared cast resolver; anything that one
+ *  does not know keeps the source-name matcher it always had. */
+function scriptedCastLabel(castId: string): string {
+  const named = castDisplayName(castId);
+  return named !== castId ? named : abilityDisplayNameFromSource(castId);
 }
 
 export class NameplatePainter {
@@ -528,7 +537,7 @@ export class NameplatePainter {
           ? t('abilityUi.cast.gathering')
           : ABILITIES[cast.label]
             ? tEntity({ kind: 'ability', id: cast.label, field: 'name' })
-            : abilityDisplayNameFromSource(cast.label);
+            : scriptedCastLabel(cast.label);
     } else if (!cast.visible) {
       state.castSource = '';
       state.castLabel = '';

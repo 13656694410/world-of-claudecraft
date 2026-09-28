@@ -158,7 +158,11 @@ describe('mob aura icon art', () => {
     expect(LIVE_MOB_AURA_FAMILIES).toHaveLength(44);
     expect(census.populatedFamilyCount).toBe(44);
     // The Fenbridge infiltrator reuses the drowned dead's existing aura art.
-    expect(census.carrierCount).toBe(109);
+    // 110 at the 2026-09-28 release/v0.44.0 merge into feature/buried-hoards:
+    // the Buried Hoard Marrow Golem (rift_marrow_golem) carries frenzyOnHit,
+    // whose shared blood_frenzy runtime id already resolves to painted art, so
+    // the identity count holds.
+    expect(census.carrierCount).toBe(110);
     expect(census.identities.size).toBe(90);
     expect([...MOB_AURA_IMAGE_IDS].sort()).toEqual([...new Set(census.identities.values())].sort());
     expect(MOB_AURA_IMAGE_IDS.size).toBe(44);

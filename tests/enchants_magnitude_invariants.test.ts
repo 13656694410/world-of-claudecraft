@@ -23,6 +23,10 @@ const PROC_ENCHANT_ID = 'enchant_weapon_lastflame_zeal';
 // so a new learned row is still a deliberate red here, never a quiet pass.
 const LEARNED_ENCHANT_IDS = [
   PROC_ENCHANT_ID,
+  // The three quartermaster formulas (Buried Hoards / World Quest marks).
+  'enchant_offhand_spirit',
+  'enchant_feet_shadowstride',
+  'enchant_gloves_forged_might',
   'enchant_weapon_riftwalkers_grace',
   'enchant_weapon_dawnfire_etching',
   'enchant_weapon_dawns_benediction',
@@ -119,7 +123,7 @@ describe('enchant table magnitude invariants', () => {
     }
   });
 
-  it('the learned class is exactly Zeal plus the four faction formulas, and Zeal bakes no permanent stats', () => {
+  it('the learned class is exactly Zeal plus the seven faction formulas, and Zeal bakes no permanent stats', () => {
     expect(
       Object.values(ENCHANTS)
         .filter((enchant) => enchant.weaponProc)
@@ -439,6 +443,9 @@ describe('frozen enchant magnitudes (the #2415 replace-exactness premise)', () =
       enchant_chest_lucent_stamina: { sta: 10 },
       enchant_feet_lucent_agility: { agi: 3 },
       enchant_lucent_infusion: { sta: 13 },
+      enchant_offhand_spirit: { spi: 3 },
+      enchant_feet_shadowstride: { agi: 2 },
+      enchant_gloves_forged_might: { str: 3 },
     });
   });
 });
@@ -510,6 +517,18 @@ describe('the learned faction formulas (world-quest reputation)', () => {
   const DAWNFIRE = ENCHANTS.enchant_weapon_dawnfire_etching;
   const BENEDICTION = ENCHANTS.enchant_weapon_dawns_benediction;
   const PISTON = ENCHANTS.enchant_weapon_piston_drive;
+
+  it('the three quartermaster formulas are skill-40 learned etchings, one small stat each', () => {
+    expect(
+      ['enchant_offhand_spirit', 'enchant_feet_shadowstride', 'enchant_gloves_forged_might'].map(
+        (id) => [id, ENCHANTS[id].acquisition, ENCHANTS[id].skillReq, ENCHANTS[id].itemSlot],
+      ),
+    ).toEqual([
+      ['enchant_offhand_spirit', 'drop', 40, 'offhand'],
+      ['enchant_feet_shadowstride', 'drop', 40, 'feet'],
+      ['enchant_gloves_forged_might', 'drop', 40, 'gloves'],
+    ]);
+  });
 
   it('every faction formula shares the learned contract: drop-acquired, skill 100, weapon slot, shard reagents', () => {
     for (const e of [GRACE, DAWNFIRE, BENEDICTION, PISTON]) {

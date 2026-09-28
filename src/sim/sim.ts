@@ -42,8 +42,10 @@ import { extractTradableCopyImpl, grantTradableCopyImpl } from './broker_custody
 import { campSpawnOffset } from './camp_scatter';
 import type { CharacterState, PetState } from './character_state';
 import { restoreCharacterStorage, savedCharacterStorage } from './character_storage';
+import type { TreasureMapProgress } from './content/treasure_maps';
 import type { FactionId } from './factions';
 import type { ItemCopyAnchor } from './item_copy_anchor';
+import * as treasureVaultMod from './treasure_vault';
 import type { CannonActionId, CannonPoint, VehicleSession } from './types';
 import * as vehicleMod from './vehicles';
 
@@ -748,6 +750,7 @@ import {
   onRecipeCraftedForQuests,
 } from './quests/quest_credit';
 import { migrateRestoredQuestProgress } from './quests/quest_progress_migration';
+import { createRiftInstance } from './rift/instance_state';
 import { type NaturalRiftPortal, updateRiftPortals as updateRiftPortalsImpl } from './rift/portals';
 import {
   type RiftForgeResult,
@@ -765,6 +768,7 @@ import {
 import {
   advanceRiftRollers as advanceRiftRollersImpl,
   enterRift as enterRiftImpl,
+  hoardBossCueViewsForPlayer,
   leaveRift as leaveRiftImpl,
   liftRiftEntities as liftRiftEntitiesImpl,
   riftInstanceAtPos,
@@ -1580,6 +1584,14 @@ export interface PlayerMeta extends worldQuestState.WorldQuestPlayerState {
   // change (recomputeTalents), never walked on the combat or stat hot path.
   talents: TalentAllocation;
   talentMods: TalentModifiers;
+  // Allied faction reward and toy tracking (session-only, cooldown timers)
+  alliedHearthstoneReadyAt?: number;
+  alliedHearthstoneAttunement?: FactionId;
+  riftGliderReadyAt?: number;
+  targetDummyReadyAt?: number;
+  dawnStandardReadyAt?: number;
+  dawnStandardSeconds?: number;
+  shockBombReadyAt?: number;
   // Battle Rhythm's every-third-ability counter. Session-only: a new login
   // starts a fresh rhythm and persistence never needs to migrate it.
   abilityRhythm: number;
@@ -2469,55 +2481,7 @@ export class Sim {
 
     // Procedural rift instance pool (empty until a portal is entered).
     for (let i = 0; i < RIFT_SLOT_COUNT; i++) {
-      this.riftInstances.push({
-        slot: i,
-        instanceId: 0,
-        eventId: null,
-        partyKey: null,
-        memberIds: new Set(),
-        startedAt: 0,
-        finishedAt: null,
-        outcome: 'abandoned',
-        upgrade: null,
-        seed: 0,
-        baseLevel: 1,
-        floorIndex: 0,
-        floorCount: 0,
-        mobIds: [],
-        objectIds: [],
-        bossId: null,
-        bossDiedAtTick: null,
-        exitId: null,
-        descentAt: null,
-        descentId: null,
-        descentOpen: false,
-        pylonIds: [],
-        litPylons: new Set(),
-        pylonTotal: 0,
-        puzzleSolved: false,
-        boulderIds: [],
-        boulderPads: [],
-        seqRuneIds: [],
-        seqStep: 0,
-        beaconId: null,
-        rollerIds: [],
-        cacheId: null,
-        lockpick: null,
-        gateId: null,
-        switchId: null,
-        gateOpen: true,
-        minibossId: null,
-        orbId: null,
-        orbActive: false,
-        returnPos: { x: 0, z: 0 },
-        emptyFor: 0,
-        tier: null,
-        portalId: null,
-        rewarded: false,
-        progressed: false,
-        seqResetAt: -Infinity,
-        bossDeathZones: [],
-      });
+      this.riftInstances.push(createRiftInstance(i));
     }
 
     // Noticeboard collision reads the active WorldContent registry, so spawn
@@ -3223,7 +3187,13 @@ export class Sim {
         }
       }
       for (const q of s.questsDone) meta.questsDone.add(q);
-      worldQuestState.restoreWorldQuestState(meta, s.worldQuests, s.factions, s.weeklyQuest);
+      worldQuestState.restoreWorldQuestState(
+        meta,
+        s.worldQuests,
+        s.factions,
+        s.weeklyQuest,
+        s.factionCurrencies,
+      );
       // A rev reset zeroes COLLECT counts too, and those are derived state only
       // onInventoryChangedForQuests re-credits: re-sync once (inventory is already
       // restored above) so a migrated character holding the collect items is not
@@ -4666,6 +4636,12 @@ export class Sim {
   get factions(): Readonly<Record<FactionId, number>> {
     return this.primary.factions;
   }
+  get factionCurrencies(): Readonly<Record<FactionId, number>> {
+    return this.primary.factionCurrencies;
+  }
+  get alliedHearthstoneAttunement(): FactionId | undefined {
+    return this.primary.alliedHearthstoneAttunement;
+  }
   get worldQuestReplacements(): Readonly<Record<string, string>> {
     return this.primary.worldQuestReplacements;
   }
@@ -4677,6 +4653,9 @@ export class Sim {
   }
   abandonClueHunt(pid?: number): void {
     clueMod.abandonClueHunt(this.ctx, pid);
+  }
+  get treasureMap(): Readonly<TreasureMapProgress> | null {
+    return this.primary.treasureMap;
   }
   canRerollWorldQuest(questId: string, pid?: number): { canReroll: boolean; reason?: string } {
     const meta = pid !== undefined ? this.players.get(pid) : this.primary;
@@ -6150,6 +6129,7 @@ export class Sim {
     tickRiftLockpicksImpl(this.ctx); // per-tick rift-cache lockpick step clock
     tickRiftBossDeathZonesImpl(this.ctx); // lethal boss zone fuses + detonation
     if (this.cfg.riftPortals) updateRiftPortalsImpl(this.ctx);
+    treasureVaultMod.updateVaultPortals(this.ctx);
     // Escort runs walk their NPC + watch ambush waves (rng-free; src/sim/escort.ts).
     updateEscortsImpl(this.ctx);
     lap?.('instances');
@@ -8322,11 +8302,20 @@ export class Sim {
 
   useItem(
     itemId: string,
-    pidOrTarget?: number | { slotIndex: number },
+    pidOrTarget?: number | { slotIndex?: number; aim?: { x: number; z: number } },
     slotIndex?: number,
+    aim?: { x: number; z: number },
   ): ItemUseResult | undefined {
-    const { pid, named } = foldNamedSlotTarget(pidOrTarget, slotIndex);
-    return items.useItem(this.ctx, itemId, pid, named);
+    const slotTarget =
+      typeof pidOrTarget === 'object' && pidOrTarget !== null && pidOrTarget.slotIndex !== undefined
+        ? { slotIndex: pidOrTarget.slotIndex }
+        : typeof pidOrTarget === 'number'
+          ? pidOrTarget
+          : undefined;
+    const { pid, named } = foldNamedSlotTarget(slotTarget, slotIndex);
+    const targetAim =
+      typeof pidOrTarget === 'object' && pidOrTarget !== null ? (pidOrTarget.aim ?? aim) : aim;
+    return items.useItem(this.ctx, itemId, pid, named, targetAim);
   }
 
   // ONE explicit shape, no overloads (phase 21): the request rides an options
@@ -10486,7 +10475,13 @@ export class Sim {
   hasCustodyParcel(custodyRef: string): boolean {
     return this.postOffice.hasCustodyParcel(custodyRef);
   }
-
+  canBookVaultRewardMail = (id: number): boolean => this.postOffice.canBookVaultRewardMail(id);
+  // The vault mail take / recovery seams (server/vault_mail_take_*.ts).
+  takeDirtyMailPartition = (key: string) => this.postOffice.takeDirtyMailPartition(key);
+  restoreVaultLetter = (...a: Parameters<PostOffice['restoreVaultLetter']>) =>
+    this.postOffice.restoreVaultLetter(...a);
+  vaultCustodyRefFor = (mailId: number, pid: number) =>
+    this.postOffice.vaultCustodyRefFor(mailId, pid);
   mailUnreadFor(pid: number): number {
     return this.postOffice.mailUnreadFor(pid);
   }
@@ -11246,8 +11241,7 @@ export class Sim {
     return runsMod.delveDailyWire(this.ctx, pid);
   }
 
-  // The primary player's active procedural Rift floor (offline IWorld read). The
-  // renderer regenerates geometry/style from this descriptor; null outside a rift.
+  // The primary player's active procedural Rift floor for the offline IWorld read.
   get riftFloor(): import('../world_api/dungeons').RiftFloorView | null {
     // The renderer reads this per frame (camera clamp, per-entity ground
     // reference): cache the derived view per tick instead of reallocating it
@@ -11257,10 +11251,8 @@ export class Sim {
     this.riftFloorView = buildRiftFloorView(this.ctx);
     return this.riftFloorView;
   }
-
   private riftFloorViewTick = -1;
   private riftFloorView: import('../world_api/dungeons').RiftFloorView | null = null;
-
   riftBossDeathZones(): import('../world_api/dungeons').RiftBossDeathZoneView[] {
     const p = this.entities.get(this.primaryId);
     if (!p) return [];
@@ -11268,9 +11260,11 @@ export class Sim {
     if (!inst || inst.partyKey === null) return [];
     return inst.bossDeathZones;
   }
-
-  // Milliseconds remaining before the current rift's backing world event stops
-  // admitting new parties (null outside a rift, or for a dev-spawned rift with no
+  hoardBossCues(): import('../world_api/dungeons').HoardBossCueView[] {
+    return hoardBossCueViewsForPlayer(this.ctx, this.primaryId);
+  }
+  // Milliseconds remaining before the current rift's backing event stops admitting
+  // parties (null outside a rift, or for a dev-spawned rift with no
   // backing RiftEvent). Sim-clock arithmetic only (event.expiresAt and this.time are
   // both sim-clock seconds), recomputed fresh on every call so a repeated read ticks
   // down like raidLockouts() does, with no caching to go stale between ticks.

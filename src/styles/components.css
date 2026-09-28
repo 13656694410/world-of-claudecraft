@@ -206,6 +206,103 @@
     text-align: center;
   }
 
+  /* ---------- treasure map (src/ui/hud/treasure/) ---------- */
+  #treasure-map-window {
+    width: 380px;
+    max-width: 94vw;
+    max-height: calc(var(--app-vh, 100vh) * 0.94);
+    overflow-y: auto;
+    --window-pad: 14px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    --tmap-rarity: var(--color-quality-uncommon);
+  }
+  #treasure-map-window[data-rarity="rare"] {
+    --tmap-rarity: var(--color-quality-rare);
+  }
+  #treasure-map-window[data-rarity="epic"] {
+    --tmap-rarity: var(--color-quality-epic);
+  }
+  #treasure-map-window[data-rarity="legendary"] {
+    --tmap-rarity: var(--color-quality-legendary);
+  }
+  #treasure-map-window .tmap-title {
+    color: var(--tmap-rarity);
+  }
+  #treasure-map-window .tmap-parchment {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    margin: 10px 0 8px;
+    border: 2px solid var(--tmap-rarity);
+    border-radius: 6px;
+    background: var(--color-treasure-parchment);
+  }
+  #treasure-map-window .tmap-plate {
+    position: absolute;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /* Old ink on old paper: the terrain plate washed to sepia. */
+    filter: sepia(0.9) saturate(0.7) contrast(1.05) brightness(1.05);
+    opacity: 0.92;
+  }
+  #treasure-map-window .tmap-mark {
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(-8deg);
+    font: 700 34px / 1 var(--font-display);
+    color: var(--color-treasure-ink);
+    text-shadow: 0 0 2px var(--color-treasure-parchment);
+    pointer-events: none;
+  }
+  #treasure-map-window .tmap-zone {
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+  }
+  #treasure-map-window .tmap-hint {
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 6px 0 10px;
+    text-align: center;
+    opacity: 0.9;
+  }
+  #treasure-map-window .tmap-upgrade-head {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  #treasure-map-window .tmap-upgrade-row {
+    display: flex;
+    gap: 6px;
+  }
+  #treasure-map-window .tmap-upgrade-btn {
+    flex: 1 1 0;
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  #treasure-map-window .tmap-upgrade-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+  #treasure-map-window .tmap-balance {
+    opacity: 0.75;
+  }
+  #treasure-map-window .tmap-maxed {
+    font-size: 12px;
+    text-align: center;
+    opacity: 0.8;
+  }
+
   /* ---------- lockpicking minigame ("Tumbler's Path") ---------- */
   /* #delve-rite-panel (the Drowned Reliquary Rite difficulty popup) reuses the
      lp-ante-* selector family by design (rite_window.ts mirrors the ante picker). */
@@ -1932,13 +2029,25 @@
     gap: var(--spacing-sm);
   }
   .char-rep-crest {
-    flex: 0 0 28px;
-    width: 28px;
-    height: 32px;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 38px;
     border: 2px solid var(--char-rep-tier);
-    border-radius: 4px 4px 14px 14px;
+    border-radius: 4px 4px 16px 16px;
     background: var(--socket-fill);
     box-shadow: inset 0 0 8px color-mix(in srgb, var(--color-keyline) 60%, transparent);
+    overflow: hidden;
+  }
+  /* The faction emblem fills the crest frame (the faction's own currency art,
+     the same image the world quest card shows for standing). The art is an
+     opaque square on a dark field, so it covers the frame and the shield's
+     rounded foot clips it into the crest shape. */
+  .char-rep-emblem {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
   }
   .char-rep-copy {
     flex: 1 1 auto;
@@ -7859,10 +7968,13 @@
     font-size: 11px;
   }
   .vendor-item .vi-price .warfare-price,
-  .warfare-balance {
+  .vendor-item .vi-price .faction-currency-price,
+  .warfare-balance,
+  .faction-currency-balance {
     color: var(--gold);
   }
-  .warfare-balance {
+  .warfare-balance,
+  .faction-currency-balance {
     margin: 6px 5px;
     font-family: var(--title-font);
     font-size: 12px;
@@ -8563,7 +8675,8 @@
      in the language. Restated at the .warfare-price specificity because the
      gold honor color would otherwise outrank the .vi-price.unaffordable rule
      on the inner span. */
-  .vendor-item .vi-price .warfare-price.unaffordable {
+  .vendor-item .vi-price .warfare-price.unaffordable,
+  .vendor-item .vi-price .faction-currency-price.unaffordable {
     color: var(--color-text-error);
   }
   /* A piece the viewer already wears or carries. The tile still sells (a second
