@@ -96,6 +96,7 @@ const {
   shouldRescueMissingGpu,
 } = require('./gpu_backend.cjs');
 const { gpuBackendPolicy } = require('./gpu_backend_policy.cjs');
+const { applyShaderDiskCacheSwitches, decideShaderDiskCache } = require('./shader_disk_cache.cjs');
 const { launchSettingsSnapshot, restartApp } = require('./launch_settings.cjs');
 const { gpuStatusPayload } = require('./gpu_status_events.cjs');
 const { presentationStatePayload } = require('./presentation_events.cjs');
@@ -316,6 +317,20 @@ if (gpuPolicy.why !== '') {
 // one), whether or not this launch climbed, so the cadence measures launches since the
 // last ATTEMPT rather than since anything at all.
 mergeDesktopPrefs(launchCounterAfterAutoLaunch({ prefs: desktopPrefs, launch: gpuBackendLaunch }));
+
+// Keep compiled shader programs between sessions (electron/shader_disk_cache.cjs): a Chromium
+// feature that lets programs linked in parallel reach the GPU disk cache, and a larger cache.
+// Before app 'ready' like every switch; its feature is merged into `enable-features` with the
+// Vulkan rungs' own, never a second value that would replace them.
+const shaderDiskCache = decideShaderDiskCache({
+  platform: process.platform,
+  env: process.env,
+  prefs: desktopPrefs,
+});
+applyShaderDiskCacheSwitches(app, shaderDiskCache);
+log.info(
+  `[gpu] shader disk cache: ${shaderDiskCache.enabled ? 'on' : 'off'} (${shaderDiskCache.reason})`,
+);
 
 // Steam preloads its overlay into every native Linux game, and with that library mapped
 // Chromium's GPU process cannot start: the browser process gives up with a CHECK and the app
