@@ -125,6 +125,10 @@ describe('private world-space wisp trial', () => {
     sim.startWorldQuestActivity(WISP_MAZE_QUEST_ID, 'hard');
     expect(progress.wispMaze).not.toBe(state);
     expect(progress.wispMaze?.difficulty).toBe('hard');
+    const hardWire = worldQuestProgressForWire(progress);
+    expect(hardWire.wispMaze).toBeDefined();
+    expect(hardWire.wispMaze?.difficulty).toBe('hard');
+    expect(hardWire.wispMaze?.enemies).toHaveLength(5);
     progress.wispMaze!.phase = 'won';
     sim.tick();
     expect(meta.copper).toBe(copper);
@@ -141,6 +145,12 @@ describe('private world-space wisp trial', () => {
     ).toBeUndefined();
     expect(
       decodeWispMazeState({ ...state, playerX: Infinity }, WISP_MAZE_QUEST_ID),
+    ).toBeUndefined();
+    expect(
+      decodeWispMazeState(
+        { ...state, enemies: Array(6).fill(state.enemies[0]) },
+        WISP_MAZE_QUEST_ID,
+      ),
     ).toBeUndefined();
     const decoded = decodeWispMazeState(state, WISP_MAZE_QUEST_ID)!;
     expect(decoded).toBeDefined();
