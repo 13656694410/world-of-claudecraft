@@ -34,25 +34,15 @@ export const pending: Record<string, readonly string[]> = {
     "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
-  "zh_CN": [
-    "abilityUi.actionBar.moveHint"
-  ],
-  "zh_TW": [
-    "abilityUi.actionBar.moveHint"
-  ],
-  "ko_KR": [
-    "abilityUi.actionBar.moveHint"
-  ],
-  "ja_JP": [
-    "abilityUi.actionBar.moveHint"
-  ],
+  "zh_CN": [],
+  "zh_TW": [],
+  "ko_KR": [],
+  "ja_JP": [],
   "pt_BR": [
     "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
-  "ru_RU": [
-    "abilityUi.actionBar.moveHint"
-  ],
+  "ru_RU": [],
   "cs_CZ": [
     "abilityUi.actionBar.moveHint",
     "hudChrome.weeklyRewards.previewClaimNotice"

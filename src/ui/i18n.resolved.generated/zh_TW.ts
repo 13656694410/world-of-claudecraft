@@ -12125,7 +12125,7 @@ export const zh_TW: EnTranslations = {
       "cooldownMinutes": "{minutes}分鐘",
       "attackTooltip": "對目標開啟或關閉自動攻擊。右鍵點擊敵人也會發起攻擊。",
       "attackRemoveHint": "右鍵點擊可將其從動作列移除並空出欄位。",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Shift-拖曳以移動",
       "emptySlot": "空欄位",
       "slotAria": "動作欄位 {slot}：{ability}",
       "emptySlotAria": "動作欄位 {slot}：空",
