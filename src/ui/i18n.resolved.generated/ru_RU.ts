@@ -503,7 +503,8 @@ export const ru_RU: EnTranslations = {
         "dungeon_heroic": "Добыча из героических подземелий",
         "world": "Добыча за локальные задания",
         "pvp": "Снаряжение Боевой мощи"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "Расписание парома",

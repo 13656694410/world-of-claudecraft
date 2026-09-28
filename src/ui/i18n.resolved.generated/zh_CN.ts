@@ -503,7 +503,8 @@ export const zh_CN: EnTranslations = {
         "dungeon_heroic": "英雄地下城战利品",
         "world": "世界任务战利品",
         "pvp": "战争装备"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "渡船时刻表",

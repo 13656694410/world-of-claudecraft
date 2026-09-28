@@ -14977,6 +14977,10 @@
     flex-direction: column;
     max-height: min(700px, 80vh);
   }
+  #dungeon-finder-window.df-vault-mode {
+    width: min(980px, 96vw);
+    max-height: min(780px, 88vh);
+  }
   .df-tabs {
     display: flex;
     gap: 6px;
@@ -15001,6 +15005,22 @@
   .df-body-catalogue {
     display: flex;
     overflow: hidden;
+  }
+  .df-body-vault {
+    display: flex;
+    overflow: hidden;
+  }
+  .df-vault-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .df-vault-container .weekly-rewards {
+    flex: 1;
+    overflow-y: auto;
+    padding: 4px 12px 12px;
   }
   .df-cols {
     display: grid;
@@ -24153,6 +24173,26 @@
   .weekly-start-claim {
     align-self: flex-start;
     padding: 10px 22px;
+  }
+  .weekly-preview-notice {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 8px 14px;
+    background: var(--color-ink-deep);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-size: 13px;
+    border-radius: var(--radius-sm);
+  }
+  .weekly-preview-notice-icon {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-accent);
+  }
+  .weekly-preview-notice-icon .ui-icon {
+    width: 20px;
+    height: 20px;
   }
   .weekly-claim-tracks {
     display: grid;

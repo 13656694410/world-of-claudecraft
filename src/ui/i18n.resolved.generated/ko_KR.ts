@@ -503,7 +503,8 @@ export const ko_KR: EnTranslations = {
         "dungeon_heroic": "영웅 던전 전리품",
         "world": "전역 퀘스트 전리품",
         "pvp": "워페어 장비"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "여객선 시간표",

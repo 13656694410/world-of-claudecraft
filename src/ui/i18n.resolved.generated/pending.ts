@@ -9,25 +9,65 @@
 // Reproducibility is checked by tests/i18n_resolved_equivalence.test.ts.
 
 export const pending: Record<string, readonly string[]> = {
-  "es": [],
-  "es_ES": [],
-  "fr_FR": [],
-  "fr_CA": [],
+  "es": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "es_ES": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "fr_FR": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "fr_CA": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
   "en_CA": [],
-  "it_IT": [],
-  "de_DE": [],
-  "zh_CN": [],
-  "zh_TW": [],
-  "ko_KR": [],
-  "ja_JP": [],
-  "pt_BR": [],
-  "ru_RU": [],
-  "cs_CZ": [],
-  "nl_NL": [],
-  "pl_PL": [],
-  "id_ID": [],
-  "tr_TR": [],
-  "sv_SE": [],
-  "vi_VN": [],
-  "da_DK": []
+  "it_IT": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "de_DE": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "zh_CN": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "zh_TW": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "ko_KR": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "ja_JP": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "pt_BR": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "ru_RU": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "cs_CZ": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "nl_NL": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "pl_PL": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "id_ID": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "tr_TR": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "sv_SE": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "vi_VN": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ],
+  "da_DK": [
+    "hudChrome.weeklyRewards.previewClaimNotice"
+  ]
 };

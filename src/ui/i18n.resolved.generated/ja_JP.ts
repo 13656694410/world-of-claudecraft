@@ -503,7 +503,8 @@ export const ja_JP: EnTranslations = {
         "dungeon_heroic": "ヒロイックダンジョンの戦利品",
         "world": "ワールドクエストの戦利品",
         "pvp": "ウォーフェア装備"
-      }
+      },
+      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
     },
     "ferry": {
       "regionLabel": "渡し船の時刻表",
