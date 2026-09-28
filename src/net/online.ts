@@ -1809,11 +1809,9 @@ export class ClientWorld extends ReconWireState implements IWorld {
   private handleForegroundBackground(visible: boolean): void {
     if (!visible) {
       // Backgrounding (tab switch, tab close, phone lock) is the last reliable
-      // beat to get an in-flight debounced layout edit to the server while the
-      // socket is still open, so a "rearrange then close the tab" never strands
-      // the final edit for a second device. Bounded: a no-op unless a save is
-      // pending. A raw tab close routes through pagehide, not sendLogout, so this
-      // is what covers it.
+      // beat to get a debounced layout edit out while the socket is still open
+      // (a raw tab close routes through pagehide, not sendLogout). A no-op
+      // unless a save is pending; a refused send waits for the reconnect flush.
       this.actionBarUploader.flush();
       return;
     }
@@ -2190,19 +2188,20 @@ export class ClientWorld extends ReconWireState implements IWorld {
     return this.connected && this.ws.readyState === WebSocket.OPEN;
   }
 
-  private rawCmd(payload: Record<string, unknown>): void {
-    if (!this.canSendCommand()) return;
+  private rawCmd(payload: Record<string, unknown>): boolean {
+    if (!this.canSendCommand()) return false;
     this.ws.send(JSON.stringify({ t: 'cmd', ...payload }));
+    return true;
   }
 
-  // Typed IWorld command send (W0b): `cmd` must be a ClientCommand, i.e. a token
-  // from the shared COMMAND_NAMES table that is NOT dispatch-only. This is what
-  // makes "every ClientWorld send is in the server's dispatch-set" a compile-time
-  // guarantee rather than a runtime hope: a send of an unknown or dispatch-only
-  // token fails `tsc`. The raw escape hatch (devCmd) stays untyped on purpose.
-  private cmd(payload: { cmd: ClientCommand } & Record<string, unknown>): void {
-    if (typeof this.spectating === 'string' && payload.cmd !== 'chat') return;
-    this.rawCmd(payload);
+  // Typed IWorld command send (W0b): `cmd` must be a ClientCommand, a token from
+  // the shared COMMAND_NAMES table that is NOT dispatch-only, so a send of an
+  // unknown or dispatch-only token fails `tsc` (every ClientWorld send is in the
+  // server's dispatch-set by construction; devCmd stays untyped on purpose).
+  // Returns whether the frame reached the socket (a closed transport drops it).
+  private cmd(payload: { cmd: ClientCommand } & Record<string, unknown>): boolean {
+    if (typeof this.spectating === 'string' && payload.cmd !== 'chat') return false;
+    return this.rawCmd(payload);
   }
 
   private cmdWithOutcome(
@@ -3528,6 +3527,7 @@ export class ClientWorld extends ReconWireState implements IWorld {
         enabled: this.lastStopAutoAttackOnTargetSwitch,
       });
     }
+    this.actionBarUploader?.flush(); // a layout save the dead socket refused goes out now
   }
 
   // --- IWorldTelemetry: fire-and-forget metrics sink ---
