@@ -992,7 +992,10 @@ const MONOLITHS: MonolithRow[] = [
     // (Reuben's call): both parent pins for the record, the release 12684 and the
     // branch 12782; the two sides' additions compose to 12687 by wc -l on the merged
     // tree (after biome). Exact count, zero slack.
-    ceiling: 12687,
+    // RE-PINNED 12687 -> 12688 at the second release merge into the same branch,
+    // after PR 3847 landed on the release (its renderer.ts wiring adds one line;
+    // the release pin stays 12684): wc -l on the merged tree. Exact count, zero slack.
+    ceiling: 12688,
     seam: 'a new src/render/<thing>.ts module the renderer calls (src/render/CLAUDE.md)',
   },
   {

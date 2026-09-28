@@ -23,7 +23,18 @@ export function hasWorldQuestDeliveryCargo(entity: Pick<Entity, 'auras'>): boole
   );
 }
 
-export function takeWorldQuestDeliveryCargo(ctx: SimContext, entity: Entity): boolean {
+/** Stable ground-object id of the crate in this player's hands. */
+export function worldQuestDeliverySourceId(entity: Pick<Entity, 'auras'>): number | undefined {
+  return entity.auras.find(
+    (aura) => aura.id === WORLD_QUEST_DELIVERY_AURA_ID && aura.kind === 'world_quest_cargo',
+  )?.sourceId;
+}
+
+export function takeWorldQuestDeliveryCargo(
+  ctx: SimContext,
+  entity: Entity,
+  sourceId = entity.id,
+): boolean {
   if (hasWorldQuestDeliveryCargo(entity)) return false;
   // Freight is carried on foot. This also cancels an in-flight mount summon.
   ctx.forceDismount(entity);
@@ -36,7 +47,7 @@ export function takeWorldQuestDeliveryCargo(ctx: SimContext, entity: Entity): bo
     duration: 0,
     permanent: true,
     undispellable: true,
-    sourceId: entity.id,
+    sourceId,
     school: 'physical',
   });
   return true;

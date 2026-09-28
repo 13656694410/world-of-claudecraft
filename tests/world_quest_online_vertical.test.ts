@@ -239,9 +239,20 @@ describe('online world-quest command path', () => {
     expect(hasWorldQuestDeliveryCargo(player)).toBe(false);
     expect(joined.server.sim.meta(joined.pid)?.worldQuestLog.get(deliveryQuest.id)?.count).toBe(1);
 
-    teleportEntity(player, freightCrate.pos.x, freightCrate.pos.z, joined.server.sim.cfg.seed);
+    const nextFreightCrate = [...joined.server.sim.entities.values()].find(
+      (entity) =>
+        entity.objectItemId === deliveryObjective.pickupObjectItemId &&
+        entity.id !== freightCrate.id,
+    );
+    if (!nextFreightCrate) throw new Error('Missing next freight crate');
+    teleportEntity(
+      player,
+      nextFreightCrate.pos.x,
+      nextFreightCrate.pos.z,
+      joined.server.sim.cfg.seed,
+    );
     joined.server.sim.ctx.rebucket(player);
-    const disconnectPickup = client.pickUpObject(freightCrate.id);
+    const disconnectPickup = client.pickUpObject(nextFreightCrate.id);
     const disconnectPickupFrame = socket.sent.pop();
     if (!disconnectPickupFrame) throw new Error('Client did not send disconnect pickup command');
     joined.server.handleMessage(joined.session, disconnectPickupFrame);

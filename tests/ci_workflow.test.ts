@@ -324,6 +324,7 @@ describe('CI workflow parity', () => {
       '            /docs/screenshots/bank-vault-tab/',
       '            /docs/screenshots/buried-hoard-entrance/',
       '            /docs/screenshots/buried-hoard-valley/',
+      '            /docs/screenshots/clue-character-panel/',
       '            /docs/screenshots/cosmetics-window/',
       '            /docs/screenshots/confection-cascade/',
       '            /docs/screenshots/confection-cascade-v3/',
