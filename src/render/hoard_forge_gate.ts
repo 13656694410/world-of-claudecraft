@@ -14,6 +14,7 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { FORGE_HAMMER } from '../sim/rift/hoard_forge_hammer_core';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { surfaceMat } from './gfx';
 import {
   FORGE_GATE_LOOK,
@@ -131,7 +132,7 @@ export class HoardForgeGate {
     );
     this.floor.name = 'ForgeGateFloor';
     this.floor.frustumCulled = false;
-    this.floor.renderOrder = 20;
+    this.floor.renderOrder = floorVfxRenderOrder('encounter', 19);
     this.floor.visible = false;
     root.add(this.floor);
     this.shown = new Array<boolean>(rings).fill(false);

@@ -11,6 +11,7 @@ import {
   COMBO_RECIPES,
   COMMON_RECIPES,
   ENGINEERING_ONRAMP_RECIPES,
+  FACTION_REWARD_RECIPES,
   FARM_RECIPES,
   HOE_RECIPES,
   INSCRIPTION_RECIPES,
@@ -463,6 +464,9 @@ describe('craftItem command (#1127)', () => {
       ...BAG_RECIPES,
       ...CRUCIBLE_COLLECTION_RECIPES,
       ...FORGEBREAKER_RECIPES,
+      // The five quartermaster rows (the 2026-09-28 release/v0.44.0 merge
+      // into feature/buried-hoards): 204 to 209.
+      ...FACTION_REWARD_RECIPES,
     ]
       .map((r) => r.id)
       .sort();
@@ -490,8 +494,10 @@ describe('craftItem command (#1127)', () => {
         ENGINEERING_ONRAMP_RECIPES.length +
         BAG_RECIPES.length +
         CRUCIBLE_COLLECTION_RECIPES.length +
-        FORGEBREAKER_RECIPES.length,
+        FORGEBREAKER_RECIPES.length +
+        FACTION_REWARD_RECIPES.length,
     );
+    expect(FACTION_REWARD_RECIPES).toHaveLength(5);
     expect(CRUCIBLE_COLLECTION_RECIPES).toHaveLength(33);
     expect(FORGEBREAKER_RECIPES.map((recipe) => recipe.id)).toEqual([
       'recipe_varkhul_forgebreaker',

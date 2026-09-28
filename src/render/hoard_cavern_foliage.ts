@@ -1,16 +1,23 @@
 import * as THREE from 'three';
 import { loadGltf } from './assets/loader';
 import { registerDeferredPreload } from './assets/preload';
+import { treeUrl } from './foliage_field_models';
 import { hoardCavernHeroSpots } from './hoard_cavern_foliage_core';
 import type { HoardValleyPlan } from './hoard_valley_core';
 import { markSharedGeometry, markSharedMaterial } from './shared_resource';
 
+// The cavern's trees stand at the world field's own scale, so they draw the
+// field's variants through its model table (treeUrl picks the decimated-bark copy
+// where the field does) and share the sources the field already loaded.
+const OAK_1 = `/${treeUrl('oak', 1)}`;
+const PINE_1 = `/${treeUrl('pine', 1)}`;
+
 const URLS = {
-  autumn_tree: '/models/foliage/oak_1_field.glb',
+  autumn_tree: OAK_1,
   basalt_spire: '/models/foliage/dead_1.glb',
-  ice_spire: '/models/foliage/pine_1_field.glb',
-  windswept_grass: '/models/foliage/oak_1_field.glb',
-  moon_bloom: '/models/foliage/oak_1_field.glb',
+  ice_spire: PINE_1,
+  windswept_grass: OAK_1,
+  moon_bloom: OAK_1,
   palm: '/models/biome/beach_palm_1.glb',
   reeds: '/models/props/willow_tree.glb',
   dead_tree: '/models/foliage/dead_1.glb',

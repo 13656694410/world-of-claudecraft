@@ -17,6 +17,7 @@ import * as THREE from 'three';
 import { resolveUiEffectsProfile } from '../game/ui_effects_profile';
 import type { IWorld } from '../world_api';
 import type { HoardBossCueView } from '../world_api/dungeons';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX, type GfxTier } from './gfx';
 import {
@@ -133,7 +134,7 @@ export class HoardCocoonFx {
       const points = new THREE.Points(geometry, this.keep(sparkMaterial()));
       points.visible = false;
       points.frustumCulled = false;
-      points.renderOrder = 30;
+      points.renderOrder = floorVfxRenderOrder('encounter', 29);
       this.root.add(points);
       this.shreds = {
         points,
@@ -220,17 +221,37 @@ export class HoardCocoonFx {
           }),
         ),
       ),
-      strand: this.ribbon(1, LOOK.silk, false, 'CocoonStrand', 19),
+      strand: this.ribbon(
+        1,
+        LOOK.silk,
+        false,
+        'CocoonStrand',
+        floorVfxRenderOrder('encounter', 18),
+      ),
       // Alpha blended, never additive: it must read on any floor, and its colour
       // (calm to urgent) is the message.
-      ring: this.ribbon(RING_SEGMENTS, LOOK.calm, false, 'CocoonRing', 18),
-      feed: this.low ? undefined : this.ribbon(FEED_SEGMENTS, LOOK.feed, true, 'CocoonFeed', 21),
+      ring: this.ribbon(
+        RING_SEGMENTS,
+        LOOK.calm,
+        false,
+        'CocoonRing',
+        floorVfxRenderOrder('encounter', 17),
+      ),
+      feed: this.low
+        ? undefined
+        : this.ribbon(
+            FEED_SEGMENTS,
+            LOOK.feed,
+            true,
+            'CocoonFeed',
+            floorVfxRenderOrder('encounter', 20),
+          ),
       look: makeCocoonLook(),
     };
     rig.web.name = 'CocoonWeb';
     rig.web.visible = false;
     rig.web.frustumCulled = false;
-    rig.web.renderOrder = 17;
+    rig.web.renderOrder = floorVfxRenderOrder('encounter', 16);
     this.root.add(rig.web);
     return rig;
   }

@@ -4770,6 +4770,24 @@
     box-sizing: border-box;
     overflow-y: auto;
   }
+  /* The Buried Hoard treasure map parchment: the same inset sheet as the
+     world-quest puzzle window, so it never overflows a phone. */
+  body.mobile-touch #treasure-map-window {
+    left: calc(max(10px, env(safe-area-inset-left)) / var(--ui-scale, 1));
+    right: calc(max(10px, env(safe-area-inset-right)) / var(--ui-scale, 1));
+    top: calc(max(10px, env(safe-area-inset-top)) / var(--ui-scale, 1));
+    width: auto;
+    max-width: none;
+    max-height: calc(
+      var(--app-vh) /
+      var(--ui-scale, 1) -
+      (max(10px, env(safe-area-inset-top)) / var(--ui-scale, 1)) -
+      (max(10px, env(safe-area-inset-bottom)) / var(--ui-scale, 1))
+    );
+    transform: none;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
   body.mobile-touch #world-quest-puzzle-window {
     left: calc(max(10px, env(safe-area-inset-left)) / var(--ui-scale, 1));
     right: calc(max(10px, env(safe-area-inset-right)) / var(--ui-scale, 1));

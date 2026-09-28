@@ -11,6 +11,7 @@ import { isPulsarVariant } from '../sim/rift/hoard_pulsars_core';
 import { isTentacleVariant } from '../sim/rift/hoard_tentacles_core';
 import { vaultSeedZone } from '../sim/rift/vault_seed';
 import type { HoardBossCueView } from '../world_api/dungeons';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX } from './gfx';
 import { type HoardCuePalette, hoardCueAppearance, hoardCueVisualPlan } from './hoard_boss_fx_core';
@@ -444,8 +445,8 @@ export class HoardBossFx {
       genericSweep.name = 'hoard-boss-shaped-sweep';
       const sectorFill = new THREE.Mesh(sectorDisc, frostFill);
       const sectorEdge = new THREE.Mesh(sectorRing, frostEdge);
-      sectorFill.renderOrder = 18;
-      sectorEdge.renderOrder = 20;
+      sectorFill.renderOrder = floorVfxRenderOrder('encounter', 17);
+      sectorEdge.renderOrder = floorVfxRenderOrder('encounter', 19);
       genericSweep.add(sectorFill, sectorEdge);
 
       const wave = new THREE.Group();
@@ -490,11 +491,11 @@ export class HoardBossFx {
       const warningRing = new THREE.Mesh(markRing, markGoldMaterial);
       const warningSlashA = new THREE.Mesh(slashA, markGoldMaterial);
       const warningSlashB = new THREE.Mesh(slashB, markGoldMaterial);
-      warningFill.renderOrder = 18;
-      countdown.renderOrder = 19;
-      warningRing.renderOrder = 20;
-      warningSlashA.renderOrder = 21;
-      warningSlashB.renderOrder = 21;
+      warningFill.renderOrder = floorVfxRenderOrder('encounter', 17);
+      countdown.renderOrder = floorVfxRenderOrder('encounter', 18);
+      warningRing.renderOrder = floorVfxRenderOrder('encounter', 19);
+      warningSlashA.renderOrder = floorVfxRenderOrder('encounter', 20);
+      warningSlashB.renderOrder = floorVfxRenderOrder('encounter', 20);
       markWarning.add(warningFill, countdown, warningRing, warningSlashA, warningSlashB);
 
       const markHazard = new THREE.Group();
@@ -503,10 +504,10 @@ export class HoardBossFx {
       const hazardRing = new THREE.Mesh(markRing, hazardEdgeMaterial);
       const hazardSlashA = new THREE.Mesh(slashA, hazardEdgeMaterial);
       const hazardSlashB = new THREE.Mesh(slashB, hazardEdgeMaterial);
-      hazardFill.renderOrder = 18;
-      hazardRing.renderOrder = 20;
-      hazardSlashA.renderOrder = 21;
-      hazardSlashB.renderOrder = 21;
+      hazardFill.renderOrder = floorVfxRenderOrder('encounter', 17);
+      hazardRing.renderOrder = floorVfxRenderOrder('encounter', 19);
+      hazardSlashA.renderOrder = floorVfxRenderOrder('encounter', 20);
+      hazardSlashB.renderOrder = floorVfxRenderOrder('encounter', 20);
       markHazard.add(hazardFill, hazardRing, hazardSlashA, hazardSlashB);
 
       group.add(sweep, ...bruteSweeps, genericSweep, wave, tether, markWarning, markHazard, rider);

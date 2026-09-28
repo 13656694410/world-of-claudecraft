@@ -17,6 +17,7 @@
 import * as THREE from 'three';
 import { resolveUiEffectsProfile } from '../game/ui_effects_profile';
 import type { HoardBossCueView } from '../world_api/dungeons';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX, type GfxTier } from './gfx';
 import { hoardHash } from './hoard_boss_dressing_core';
@@ -158,8 +159,8 @@ class RibbonPool {
       mesh.renderOrder = order;
       return mesh;
     };
-    this.halo = build(COLORS[palette].halo, 0.42, 24);
-    this.core = build(COLORS[palette].core, 0.95, 25);
+    this.halo = build(COLORS[palette].halo, 0.42, floorVfxRenderOrder('encounter', 23));
+    this.core = build(COLORS[palette].core, 0.95, floorVfxRenderOrder('encounter', 24));
     this.corePosition = this.core.geometry.getAttribute('position') as THREE.BufferAttribute;
     this.haloPosition = this.halo.geometry.getAttribute('position') as THREE.BufferAttribute;
   }
@@ -329,9 +330,15 @@ export class HoardSpellFx {
     disc.rotateX(-Math.PI / 2);
     const column = own(new THREE.CylinderGeometry(1, 1, 1, 24, 1, true));
     column.translate(0, 0.5, 0);
-    this.rings = new ShapePool(this.root, ring, RINGS, 23, keep);
-    this.discs = new ShapePool(this.root, disc, DISCS, 22, keep);
-    this.columns = new ShapePool(this.root, column, COLUMNS, 22, keep);
+    this.rings = new ShapePool(this.root, ring, RINGS, floorVfxRenderOrder('encounter', 22), keep);
+    this.discs = new ShapePool(this.root, disc, DISCS, floorVfxRenderOrder('encounter', 21), keep);
+    this.columns = new ShapePool(
+      this.root,
+      column,
+      COLUMNS,
+      floorVfxRenderOrder('encounter', 21),
+      keep,
+    );
     for (let index = 0; index < TRACKED; index++) {
       this.tracked.push({
         instanceId: -1,

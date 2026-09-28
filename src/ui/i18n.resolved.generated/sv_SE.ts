@@ -6715,8 +6715,7 @@ export const sv_SE: EnTranslations = {
       "taken_over": "Din karaktär togs över av en annan session.",
       "rename_required": "Denna karaktär måste byta namn innan den går in i världen.",
       "invalid_appearance": "Det utseendet kunde inte sparas. Justera designen och försök igen.",
-      "reroll_unavailable": "Den här karaktären har ingen gratis omformning tillgänglig.",
-      "vault_mail_recovering": "Your vault reward mail is being restored. Try again shortly."
+      "reroll_unavailable": "Den här karaktären har ingen gratis omformning tillgänglig."
     },
     "moderation": {
       "suspended_until": "Detta konto är avstängt till {date}.",
@@ -11133,6 +11132,7 @@ export const sv_SE: EnTranslations = {
       "alreadyInWorld": "Karaktären är redan i världen.",
       "accountSessionLimit": "För många karaktärer på detta konto är redan i världen.",
       "takenOver": "Din karaktär togs över av en annan session.",
+      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
       "renameBeforeEntering": "Denna karaktär måste byta namn innan den går in i världen.",
       "renameNotPermitted": "Det är inte tillåtet att byta namn på denna karaktär.",
       "unsupportedMediaType": "Formatet på begäran stöds inte.",
@@ -12222,7 +12222,7 @@ export const sv_SE: EnTranslations = {
       "hoard_cast_void_empower": "Void Empowerment",
       "hoard_cast_webbing": "Webbing",
       "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Charge",
+      "hoard_cast_charge": "Headlong Charge",
       "hoard_cast_silk_snare": "Silk Snare",
       "hoard_cast_silence": "Silencing Shriek",
       "hoard_cast_hex": "Hex",

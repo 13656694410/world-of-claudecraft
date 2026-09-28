@@ -650,7 +650,7 @@ export class QuestDialogController {
     // refusal is the feedback), so it closes WITH the trap's focus restore.
     this.deps.element.querySelector('[data-clue-step]')?.addEventListener('click', () => {
       const liveWorld = this.deps.world();
-      const talk = clueTalkFor(liveWorld.clueHunt, npc.templateId, liveWorld.inventory);
+      const talk = clueTalkFor(liveWorld.clueHunt, npc.templateId, liveWorld.inventory ?? []);
       liveWorld.targetEntity(npc.id);
       liveWorld.interact();
       if (talk?.ready) this.renderClueReply(npc, talk.huntId, talk.step);

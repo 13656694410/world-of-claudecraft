@@ -68,13 +68,13 @@ describe('vault mail take guard', () => {
     };
     const sim = {
       mailInfoFor: () => ({ messages: [letter] }),
-      postOffice: { vaultCustodyRefFor: () => 'vault:test:7:1:7' },
+      vaultCustodyRefFor: () => 'vault:test:7:1:7',
       mailTake: () => {
         letter.copper = 0;
         letter.items = [];
         letter.read = true;
       },
-    } as unknown as Pick<Sim, 'mailInfoFor' | 'mailTake' | 'postOffice'>;
+    } as unknown as Pick<Sim, 'mailInfoFor' | 'mailTake' | 'vaultCustodyRefFor'>;
     handleVaultMailTake(guard, sim, 7, 70, 1, save, undefined, onSaved);
     expect(save).toHaveBeenCalledOnce();
     expect(guard.isLocked(7)).toBe(true);
@@ -88,12 +88,12 @@ describe('vault mail take guard', () => {
     const letter = { id: 1, letterId: 'hoard_vault_reward', copper: 12, items: [], read: false };
     const sim = {
       mailInfoFor: () => ({ messages: [letter] }),
-      postOffice: { vaultCustodyRefFor: () => 'vault:test:7:1:7' },
+      vaultCustodyRefFor: () => 'vault:test:7:1:7',
       mailTake: () => {
         letter.copper = 0;
         letter.read = true;
       },
-    } as unknown as Pick<Sim, 'mailInfoFor' | 'mailTake' | 'postOffice'>;
+    } as unknown as Pick<Sim, 'mailInfoFor' | 'mailTake' | 'vaultCustodyRefFor'>;
     handleVaultMailTake(guard, sim, 7, 70, 1, async () => false, onFailure, onSaved);
     await vi.waitFor(() => expect(onFailure).toHaveBeenCalledOnce());
     expect(onSaved).not.toHaveBeenCalled();

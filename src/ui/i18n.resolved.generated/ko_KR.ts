@@ -6715,8 +6715,7 @@ export const ko_KR: EnTranslations = {
       "taken_over": "다른 세션이 캐릭터를 넘겨받았습니다.",
       "rename_required": "이 캐릭터는 세계에 들어가기 전에 이름을 변경해야 합니다.",
       "invalid_appearance": "해당 외형을 저장할 수 없습니다. 디자인을 조정한 뒤 다시 시도하세요.",
-      "reroll_unavailable": "이 캐릭터는 무료 재디자인을 사용할 수 없습니다.",
-      "vault_mail_recovering": "보물고 보상 우편을 복구하고 있습니다. 잠시 후 다시 시도해 주세요."
+      "reroll_unavailable": "이 캐릭터는 무료 재디자인을 사용할 수 없습니다."
     },
     "moderation": {
       "suspended_until": "이 계정은 {date}까지 정지되었습니다.",
@@ -11133,6 +11132,7 @@ export const ko_KR: EnTranslations = {
       "alreadyInWorld": "캐릭터가 이미 세계에 있습니다.",
       "accountSessionLimit": "이 계정의 너무 많은 캐릭터가 이미 세계에 있습니다.",
       "takenOver": "다른 세션이 캐릭터를 넘겨받았습니다.",
+      "vaultMailRecovering": "보물고 보상 우편을 복구하고 있습니다. 잠시 후 다시 시도해 주세요.",
       "renameBeforeEntering": "이 캐릭터는 세계에 들어가기 전에 이름을 변경해야 합니다.",
       "renameNotPermitted": "이 캐릭터의 이름을 변경할 수 없습니다.",
       "unsupportedMediaType": "지원되지 않는 요청 형식입니다.",
@@ -12222,7 +12222,7 @@ export const ko_KR: EnTranslations = {
       "hoard_cast_void_empower": "공허 강화",
       "hoard_cast_webbing": "거미줄",
       "hoard_cast_doom_ritual": "파멸의 의식",
-      "hoard_cast_charge": "돌진",
+      "hoard_cast_charge": "저돌적 돌진",
       "hoard_cast_silk_snare": "비단 올가미",
       "hoard_cast_silence": "침묵의 비명",
       "hoard_cast_hex": "주술",

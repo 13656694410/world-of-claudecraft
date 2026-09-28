@@ -90,7 +90,7 @@ export class HoardMimicCoinsFx {
     this.geometry = new THREE.CylinderGeometry(
       COIN_LOOK.radius,
       COIN_LOOK.radius,
-      COIN_LOOK.thickness,
+      COIN_LOOK.height,
       12,
     );
     this.material = new THREE.MeshStandardMaterial({
@@ -149,7 +149,7 @@ export class HoardMimicCoinsFx {
         slot.sinking = -1;
         slot.elapsed = 0;
         this.mouth(cue.x, cue.z, slot.from);
-        slot.to.set(cue.x, this.groundY(cue.x, cue.z) + COIN_LOOK.thickness / 2, cue.z);
+        slot.to.set(cue.x, this.groundY(cue.x, cue.z) + COIN_LOOK.height / 2, cue.z);
         // Seen in its warning: it lands exactly as the warning ends. Seen late (or
         // with reduced motion): it settles in at once.
         slot.flightSec =

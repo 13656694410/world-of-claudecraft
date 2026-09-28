@@ -6715,8 +6715,7 @@ export const zh_TW: EnTranslations = {
       "taken_over": "你的角色已被另一個工作階段接管。",
       "rename_required": "此角色必須先更名才能進入世界。",
       "invalid_appearance": "無法儲存該外觀。請調整設計後再試一次。",
-      "reroll_unavailable": "此角色沒有可用的免費重新設計。",
-      "vault_mail_recovering": "寶庫獎勵郵件正在恢復中。請稍後再試。"
+      "reroll_unavailable": "此角色沒有可用的免費重新設計。"
     },
     "moderation": {
       "suspended_until": "此帳號停權至 {date}。",
@@ -11133,6 +11132,7 @@ export const zh_TW: EnTranslations = {
       "alreadyInWorld": "角色已在世界中。",
       "accountSessionLimit": "此帳號已有太多角色在世界中。",
       "takenOver": "你的角色已被另一個工作階段接管。",
+      "vaultMailRecovering": "寶庫獎勵郵件正在恢復中。請稍後再試。",
       "renameBeforeEntering": "此角色必須先更名才能進入世界。",
       "renameNotPermitted": "不允許為此角色更名。",
       "unsupportedMediaType": "不支援的請求格式。",
@@ -12222,7 +12222,7 @@ export const zh_TW: EnTranslations = {
       "hoard_cast_void_empower": "虛空強化",
       "hoard_cast_webbing": "蛛網纏繞",
       "hoard_cast_doom_ritual": "末日儀式",
-      "hoard_cast_charge": "衝鋒",
+      "hoard_cast_charge": "猛力衝撞",
       "hoard_cast_silk_snare": "絲網陷阱",
       "hoard_cast_silence": "沉默尖嘯",
       "hoard_cast_hex": "妖術",

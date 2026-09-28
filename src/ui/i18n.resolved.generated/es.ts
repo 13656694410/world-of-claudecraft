@@ -6715,8 +6715,7 @@ export const es: EnTranslations = {
       "taken_over": "Otra sesión tomó el control de tu personaje.",
       "rename_required": "Este personaje debe cambiar de nombre antes de entrar al mundo.",
       "invalid_appearance": "No se pudo guardar esa apariencia. Ajusta el diseño e inténtalo de nuevo.",
-      "reroll_unavailable": "Este personaje no tiene disponible un rediseño gratuito.",
-      "vault_mail_recovering": "Your vault reward mail is being restored. Try again shortly."
+      "reroll_unavailable": "Este personaje no tiene disponible un rediseño gratuito."
     },
     "moderation": {
       "suspended_until": "Esta cuenta está suspendida hasta {date}.",
@@ -11133,6 +11132,7 @@ export const es: EnTranslations = {
       "alreadyInWorld": "El personaje ya está en el mundo.",
       "accountSessionLimit": "Demasiados personajes de esta cuenta ya están en el mundo.",
       "takenOver": "Otra sesión tomó el control de tu personaje.",
+      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
       "renameBeforeEntering": "Este personaje debe cambiar de nombre antes de entrar al mundo.",
       "renameNotPermitted": "No se permite cambiar el nombre de este personaje.",
       "unsupportedMediaType": "Formato de solicitud no compatible.",
@@ -12222,7 +12222,7 @@ export const es: EnTranslations = {
       "hoard_cast_void_empower": "Void Empowerment",
       "hoard_cast_webbing": "Webbing",
       "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Charge",
+      "hoard_cast_charge": "Headlong Charge",
       "hoard_cast_silk_snare": "Silk Snare",
       "hoard_cast_silence": "Silencing Shriek",
       "hoard_cast_hex": "Hex",

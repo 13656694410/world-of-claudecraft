@@ -51,7 +51,7 @@ export class VaultMailTakeGuard {
   }
 
   take(
-    sim: Pick<Sim, 'mailInfoFor' | 'mailTake' | 'postOffice'>,
+    sim: Pick<Sim, 'mailInfoFor' | 'mailTake' | 'vaultCustodyRefFor'>,
     characterId: number,
     pid: number,
     mailId: number,
@@ -59,7 +59,7 @@ export class VaultMailTakeGuard {
   ): boolean {
     const before = sim.mailInfoFor(pid)?.messages.find((mail) => mail.id === mailId);
     if (before?.letterId !== 'hoard_vault_reward') return false;
-    const custodyRef = sim.postOffice.vaultCustodyRefFor(mailId, pid);
+    const custodyRef = sim.vaultCustodyRefFor(mailId, pid);
     if (!custodyRef) return true;
     const beforeView: MailView = {
       copper: before.copper,
@@ -121,7 +121,7 @@ export class VaultMailTakeGuard {
 
 export function handleVaultMailTake(
   guard: VaultMailTakeGuard,
-  sim: Pick<Sim, 'mailInfoFor' | 'mailTake' | 'postOffice'>,
+  sim: Pick<Sim, 'mailInfoFor' | 'mailTake' | 'vaultCustodyRefFor'>,
   characterId: number,
   pid: number,
   mailId: number,

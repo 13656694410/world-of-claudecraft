@@ -16,6 +16,7 @@
 
 import * as THREE from 'three';
 import { loadGltf, releaseGltf } from './assets/loader';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import type { RoomKitFloorMark, RoomKitPlan, RoomKitTier } from './hoard_room_kit_core';
 import { BOSS_ROOM_THEMES } from './hoard_room_themes_core';
 import { markSharedGeometry, markSharedMaterial } from './shared_resource';
@@ -262,7 +263,7 @@ function fanMesh(plan: RoomKitPlan): THREE.Mesh | null {
     }),
   );
   mesh.name = 'HoardRoomKitFloorLight';
-  mesh.renderOrder = 2;
+  mesh.renderOrder = floorVfxRenderOrder('ground', 1);
   return mesh;
 }
 

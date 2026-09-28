@@ -10,7 +10,10 @@ export const COIN_LOOK = Object.freeze({
   glow: 0x6b4a08,
   /** One coin, in yards: a little larger than life so it reads from the camera. */
   radius: 0.15,
-  thickness: 0.035,
+  /** A coin's height as a cylinder, in yards: how far a coin lying flat rises
+   *  off the floor. Not named `thickness`, which is a material volume key the
+   *  transmission guard (tests/transmission_neutralize.test.ts) forbids. */
+  height: 0.035,
   count: 28,
   lowCount: 14,
   /** Where the sack rides: up the back, a step behind the body. */
@@ -128,7 +131,7 @@ export function spawnCoins(
 }
 
 function layDown(c: Coin, floor: number): void {
-  c.y = floor + COIN_LOOK.thickness / 2;
+  c.y = floor + COIN_LOOK.height / 2;
   c.vx = 0;
   c.vy = 0;
   c.vz = 0;
@@ -150,14 +153,14 @@ export function stepCoin(c: Coin, dt: number, ground: (x: number, z: number) => 
   c.ry += c.spinY * dt;
   c.rz += c.spinZ * dt;
   const floor = ground(c.x, c.z);
-  if (c.y > floor + L.thickness / 2 || c.vy > 0) return;
+  if (c.y > floor + L.height / 2 || c.vy > 0) return;
   const fall = -c.vy;
   if (c.bounces >= L.maxBounces || fall * L.restitution < L.settleSpeed) {
     layDown(c, floor);
     return;
   }
   c.bounces++;
-  c.y = floor + L.thickness / 2;
+  c.y = floor + L.height / 2;
   c.vy = fall * L.restitution;
   c.vx *= L.friction;
   c.vz *= L.friction;

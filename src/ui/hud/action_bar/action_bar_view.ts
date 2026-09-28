@@ -215,6 +215,10 @@ export interface ActionBarDescriptor {
 /** Injected localization helpers. The core builds the final aria string via t() so
  *  it produces localized text without importing the i18n module (testable with a t
  *  spy); names + the slot label are wrapped by the host. */
+/** A slot shows its cooldown in whole minutes from this many seconds up (the
+ *  allied hearthstone); potions and trinkets stay in seconds like abilities. */
+const LONG_ITEM_COOLDOWN_MINUTES_FROM_SEC = 600;
+
 export interface ActionBarDeps {
   t(key: TranslationKey, values?: InterpolationValues): string;
   abilityName(def: AbilityDef): string;
@@ -702,7 +706,7 @@ export function createActionBarView(
               : 0;
           slot.cdText =
             itemCd > COOLDOWN_TEXT_THRESHOLD
-              ? itemCd >= 60
+              ? itemCd >= LONG_ITEM_COOLDOWN_MINUTES_FROM_SEC
                 ? deps.t('abilityUi.actionBar.cooldownMinutes', {
                     minutes: deps.formatCount(Math.ceil(itemCd / 60)),
                   })

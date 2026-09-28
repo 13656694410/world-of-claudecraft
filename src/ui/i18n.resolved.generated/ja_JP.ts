@@ -6715,8 +6715,7 @@ export const ja_JP: EnTranslations = {
       "taken_over": "あなたのキャラクターは別のセッションに引き継がれました。",
       "rename_required": "このキャラクターは世界に入る前に名前変更が必要です。",
       "invalid_appearance": "この外見は保存できませんでした。デザインを調整してもう一度お試しください。",
-      "reroll_unavailable": "このキャラクターには無料の再デザインがありません。",
-      "vault_mail_recovering": "宝物庫の報酬メールを復旧しています。少し待ってからもう一度お試しください。"
+      "reroll_unavailable": "このキャラクターには無料の再デザインがありません。"
     },
     "moderation": {
       "suspended_until": "このアカウントは {date} まで停止されています。",
@@ -11133,6 +11132,7 @@ export const ja_JP: EnTranslations = {
       "alreadyInWorld": "キャラクターは既に世界にいます。",
       "accountSessionLimit": "このアカウントでは既に多くのキャラクターが世界にいます。",
       "takenOver": "あなたのキャラクターは別のセッションに引き継がれました。",
+      "vaultMailRecovering": "宝物庫の報酬メールを復旧しています。少し待ってからもう一度お試しください。",
       "renameBeforeEntering": "このキャラクターは世界に入る前に名前変更が必要です。",
       "renameNotPermitted": "このキャラクターの名前変更は許可されていません。",
       "unsupportedMediaType": "サポートされていないリクエスト形式です。",
@@ -12222,7 +12222,7 @@ export const ja_JP: EnTranslations = {
       "hoard_cast_void_empower": "虚無の強化",
       "hoard_cast_webbing": "蜘蛛の巣",
       "hoard_cast_doom_ritual": "破滅の儀式",
-      "hoard_cast_charge": "突撃",
+      "hoard_cast_charge": "猛進突撃",
       "hoard_cast_silk_snare": "絹の罠",
       "hoard_cast_silence": "沈黙の金切り声",
       "hoard_cast_hex": "呪術",

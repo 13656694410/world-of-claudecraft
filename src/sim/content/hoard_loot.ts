@@ -122,34 +122,40 @@ export function hoardLootTierForMap(rarity: TreasureMapRarity): HoardLootTier {
 /** Armour per item level, by armour class and slot: the median of every shipped
  *  piece of that class and slot between item level 24 and 36. A hoard piece sits
  *  exactly on the curve the game already draws; tests/hoard_loot.test.ts
- *  re-derives every median from the live catalog, so the table cannot rot. */
+ *  re-derives every median from the live catalog, so the table cannot rot.
+ *  Re-derived at the 2026-09-28 release/v0.44.0 merge (two decimals, same
+ *  derivation): the release's 135 Warfare Season 2 vanguard armour pieces
+ *  (content/pvp_honor_season2.ts, item level 35) joined the window and moved
+ *  seven medians (cloth gloves, legs and shoulder; leather gloves and legs;
+ *  mail gloves and shoulder) past the test's tolerance, and three more (cloth
+ *  chest and helmet, mail chest) by a few hundredths. */
 export const HOARD_ARMOR_PER_ILVL: Readonly<Record<ArmorType, Partial<Record<PieceSlot, number>>>> =
   {
     cloth: {
-      chest: 3.0,
+      chest: 2.95,
       feet: 2.0,
-      gloves: 2.14,
-      helmet: 2.57,
-      legs: 2.71,
-      shoulder: 2.29,
+      gloves: 1.94,
+      helmet: 2.51,
+      legs: 2.46,
+      shoulder: 2.17,
       waist: 2.14,
     },
     leather: {
       chest: 6.14,
       feet: 4.14,
-      gloves: 4.29,
+      gloves: 3.89,
       helmet: 5.29,
-      legs: 5.57,
+      legs: 5.03,
       shoulder: 4.71,
       waist: 4.29,
     },
     mail: {
-      chest: 10.86,
+      chest: 10.81,
       feet: 7.06,
-      gloves: 7.47,
+      gloves: 6.94,
       helmet: 9.29,
       legs: 9.86,
-      shoulder: 8.29,
+      shoulder: 7.74,
       waist: 7.4,
     },
   };

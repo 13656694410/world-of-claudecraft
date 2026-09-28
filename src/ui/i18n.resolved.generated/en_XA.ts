@@ -6715,8 +6715,7 @@ export const en_XA: EnTranslations = {
       "taken_over": "[Ýóúŕ çĥáŕáçţéŕ ŵáš ţáķéñ óʋéŕ ƀý áñóţĥéŕ šéššíóñ.]",
       "rename_required": "[Ţĥíš çĥáŕáçţéŕ ɱúšţ ƀé ŕéñáɱéð ƀéƒóŕé éñţéŕíñĝ ţĥé ŵóŕļð.]",
       "invalid_appearance": "[Ţĥáţ áþþéáŕáñçé çóúļð ñóţ ƀé šáʋéð. Áðĵúšţ ţĥé ðéšíĝñ áñð ţŕý áĝáíñ.]",
-      "reroll_unavailable": "[Ţĥíš çĥáŕáçţéŕ ðóéš ñóţ ĥáʋé á ƒŕéé ŕéðéšíĝñ áʋáíļáƀļé.]",
-      "vault_mail_recovering": "[Ýóúŕ ʋáúļţ ŕéŵáŕð ɱáíļ íš ƀéíñĝ ŕéšţóŕéð. Ţŕý áĝáíñ šĥóŕţļý.]"
+      "reroll_unavailable": "[Ţĥíš çĥáŕáçţéŕ ðóéš ñóţ ĥáʋé á ƒŕéé ŕéðéšíĝñ áʋáíļáƀļé.]"
     },
     "moderation": {
       "suspended_until": "[Ţĥíš áççóúñţ íš šúšþéñðéð úñţíļ {date}.]",
@@ -11133,6 +11132,7 @@ export const en_XA: EnTranslations = {
       "alreadyInWorld": "[Çĥáŕáçţéŕ íš áļŕéáðý íñ ŵóŕļð.]",
       "accountSessionLimit": "[Ţóó ɱáñý çĥáŕáçţéŕš óñ ţĥíš áççóúñţ áŕé áļŕéáðý íñ ţĥé ŵóŕļð.]",
       "takenOver": "[Ýóúŕ çĥáŕáçţéŕ ŵáš ţáķéñ óʋéŕ ƀý áñóţĥéŕ šéššíóñ.]",
+      "vaultMailRecovering": "[Ýóúŕ ʋáúļţ ŕéŵáŕð ɱáíļ íš ƀéíñĝ ŕéšţóŕéð. Ţŕý áĝáíñ šĥóŕţļý.]",
       "renameBeforeEntering": "[Ţĥíš çĥáŕáçţéŕ ɱúšţ ƀé ŕéñáɱéð ƀéƒóŕé éñţéŕíñĝ ţĥé ŵóŕļð.]",
       "renameNotPermitted": "[Ŕéñáɱíñĝ ţĥíš çĥáŕáçţéŕ íš ñóţ áļļóŵéð.]",
       "unsupportedMediaType": "[Úñšúþþóŕţéð ŕéɋúéšţ ƒóŕɱáţ.]",
@@ -12222,7 +12222,7 @@ export const en_XA: EnTranslations = {
       "hoard_cast_void_empower": "[Ʋóíð Éɱþóŵéŕɱéñţ]",
       "hoard_cast_webbing": "[Ŵéƀƀíñĝ]",
       "hoard_cast_doom_ritual": "[Ðóóɱ Ŕíţúáļ]",
-      "hoard_cast_charge": "[Çĥáŕĝé]",
+      "hoard_cast_charge": "[Ĥéáðļóñĝ Çĥáŕĝé]",
       "hoard_cast_silk_snare": "[Šíļķ Šñáŕé]",
       "hoard_cast_silence": "[Šíļéñçíñĝ Šĥŕíéķ]",
       "hoard_cast_hex": "[Ĥéẋ]",

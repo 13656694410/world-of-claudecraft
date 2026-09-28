@@ -24,6 +24,7 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hud.core.mapMarkerLabels.hoardReturnEntrance': 'Обратный вход в сокровищницу',
   'sim.rift.hoardExitOpens': 'Сокровища ваши. Вернитесь ко входу, чтобы выбраться наружу.',
   'sim.rift.hoardStepBack': 'Вы выбираетесь наружу через вход в сокровищницу.',
+  'abilityUi.cast.hoard_cast_charge': 'Безудержный рывок',
   'abilityUi.cast.hoard_cast_fear': 'Ужасающий рёв',
   'abilityUi.cast.hoard_cast_stun': 'Оглушающий удар',
   'abilityUi.cast.hoard_cast_silence': 'Заглушающий визг',
@@ -96,7 +97,7 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.hoard_boss_mimic.name': 'Ненасытный сундук',
   'entities.mobs.hoard_bat_swarmling.name': 'Пещерный роевик',
   'entities.mobs.hoard_silk_cocoon.name': 'Шёлковый кокон',
-  'apiError.character.vault_mail_recovering':
+  'errors.api.vaultMailRecovering':
     'Письмо с наградой хранилища восстанавливается. Повторите попытку чуть позже.',
   'entities.abilities.clockwork_shock_bomb.description':
     'Бросает Механическую шоковую бомбу в выбранное место, нанося врагам в радиусе 5 м от 120 до 160 ед. урона от сил природы.',
@@ -372,7 +373,6 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'entities.letters.hoard_vault_reward.subject': 'Ваша награда из хранилища',
   'entities.letters.hoard_vault_reward.body':
     'Хранилище пройдено, но вы не забрали свою долю из сундука. Вороны доставили вам заработанные предметы и монеты.\n\n- Воронья почта',
-  'abilityUi.cast.hoard_cast_charge': 'Рывок',
   'abilityUi.cast.hoard_cast_cinder_bolt': 'Угольная стрела',
   'abilityUi.cast.hoard_cast_doom_ritual': 'Ритуал рока',
   'abilityUi.cast.hoard_cast_drowning_hook': 'Топящий крюк',

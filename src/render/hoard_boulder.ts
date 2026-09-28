@@ -23,6 +23,7 @@ import type { IWorld } from '../world_api';
 import type { HoardBossCueView } from '../world_api/dungeons';
 import { loadGltf } from './assets/loader';
 import { registerDeferredPreload } from './assets/preload';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX, type GfxTier, surfaceMat } from './gfx';
 import {
@@ -176,7 +177,7 @@ export class HoardBoulderFx {
       const points = new THREE.Points(geometry, this.keep(sparkMaterial()));
       points.visible = false;
       points.frustumCulled = false;
-      points.renderOrder = 30;
+      points.renderOrder = floorVfxRenderOrder('encounter', 29);
       this.root.add(points);
       this.dust = {
         points,
@@ -239,7 +240,7 @@ export class HoardBoulderFx {
     mesh.name = name;
     mesh.visible = false;
     mesh.frustumCulled = false;
-    mesh.renderOrder = 18;
+    mesh.renderOrder = floorVfxRenderOrder('encounter', 17);
     this.root.add(mesh);
     return { ...made, mesh, material };
   }
@@ -299,7 +300,7 @@ export class HoardBoulderFx {
       rig.shadow.name = 'BoulderShadow';
       rig.shadow.visible = false;
       rig.shadow.frustumCulled = false;
-      rig.shadow.renderOrder = 16;
+      rig.shadow.renderOrder = floorVfxRenderOrder('encounter', 15);
       this.root.add(rig.shadow);
     }
     for (let p = 0; p < LOOK.pips; p++) {
@@ -307,7 +308,7 @@ export class HoardBoulderFx {
       pip.name = 'BoulderPip';
       pip.visible = false;
       pip.frustumCulled = false;
-      pip.renderOrder = 20;
+      pip.renderOrder = floorVfxRenderOrder('encounter', 19);
       this.root.add(pip);
       rig.pips.push(pip);
     }

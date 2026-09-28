@@ -15,6 +15,9 @@ import { hoardBossGesture, hoardGestureDue } from './hoard_boss_gestures_core';
  *  cues are laid at the boss's feet; Ice Age is centred on the room. */
 const OWNER_REACH = 60;
 
+/** Cue ids per boss instance stay far below this, so instance * span + cue is unique. */
+const CUE_ID_SPAN = 2 ** 20;
+
 export class HoardBossGestures {
   private readonly played = new Set<number>();
   private readonly live = new Set<number>();
@@ -36,7 +39,7 @@ export class HoardBossGestures {
       const gesture = hoardBossGesture(cue.variant);
       if (!gesture) continue;
       // Cue ids restart per instance, so the instance is part of the key.
-      const key = cue.instanceId * 1_000_000 + cue.cueId;
+      const key = cue.instanceId * CUE_ID_SPAN + cue.cueId;
       this.live.add(key);
       if (this.played.has(key)) continue;
       const late = cue.total - cue.remaining - gesture.startAt(cue.total);

@@ -9,7 +9,7 @@ describe('vault mail take recovery', () => {
     const ref = 'vault:test:7:1:7';
     guard.begin(7, 70, ref);
     const restoreVaultLetter = vi.fn(() => true);
-    const sim = { postOffice: { restoreVaultLetter } } as unknown as Sim;
+    const sim = { restoreVaultLetter } as unknown as Sim;
     const source = {
       recipientName: 'Owner',
       copper: 12,
@@ -36,7 +36,7 @@ describe('vault mail take recovery', () => {
     const guard = new VaultMailTakeGuard();
     guard.begin(7, 70, 'vault:test:7:1:7');
     const restoreVaultLetter = vi.fn(() => true);
-    const sim = { postOffice: { restoreVaultLetter } } as unknown as Sim;
+    const sim = { restoreVaultLetter } as unknown as Sim;
     const recovery = new VaultMailTakeRecovery(
       guard,
       () => sim,

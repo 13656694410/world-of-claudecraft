@@ -99,7 +99,7 @@ export class VaultMailTakeRecovery {
     void this.withPermit(() => this.load(characterId, ref), controller.signal)
       .then((source) => {
         if (this.guard.recoveryRef(characterId) !== ref) return;
-        if (source && !this.sim().postOffice.restoreVaultLetter(String(characterId), ref, source))
+        if (source && !this.sim().restoreVaultLetter(String(characterId), ref, source))
           throw new Error(`vault mail ${ref} could not be restored`);
         this.guard.recovered(characterId, ref);
       })

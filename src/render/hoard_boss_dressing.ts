@@ -17,6 +17,7 @@ import { HOARD_STORM_SURGE_MAX_STACKS } from '../sim/rift/hoard_boss_kits';
 import { HOARD_STORM_SURGE_AURA_ID } from '../sim/rift/hoard_storm_surge';
 import type { IWorld } from '../world_api';
 import type { HoardBossCueView } from '../world_api/dungeons';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX, type GfxTier } from './gfx';
 import {
@@ -224,7 +225,7 @@ export class HoardBossDressing {
       shards.castShadow = false;
       const glow = new THREE.Mesh(glowGeometry, glowMaterial);
       glow.position.y = 0.16;
-      glow.renderOrder = 17;
+      glow.renderOrder = floorVfxRenderOrder('encounter', 16);
       group.add(glow, shards);
       this.root.add(group);
       this.iceSlots.push({
@@ -258,8 +259,8 @@ export class HoardBossDressing {
       );
       core.frustumCulled = false;
       halo.frustumCulled = false;
-      core.renderOrder = 23;
-      halo.renderOrder = 22;
+      core.renderOrder = floorVfxRenderOrder('encounter', 22);
+      halo.renderOrder = floorVfxRenderOrder('encounter', 21);
       group.add(halo, core);
       this.root.add(group);
       this.fieldSlots.push({
@@ -302,10 +303,10 @@ export class HoardBossDressing {
       this.surgeBoltsHalo,
     ]) {
       mesh.frustumCulled = false;
-      mesh.renderOrder = 24;
+      mesh.renderOrder = floorVfxRenderOrder('encounter', 23);
     }
     this.surgeGlow.frustumCulled = false;
-    this.surgeGlow.renderOrder = 23;
+    this.surgeGlow.renderOrder = floorVfxRenderOrder('encounter', 22);
     this.surge.add(
       this.surgeGlow,
       this.surgeShell,

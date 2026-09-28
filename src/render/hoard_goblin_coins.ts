@@ -94,7 +94,7 @@ export class HoardGoblinCoinsFx {
 
     // A coin: a short cylinder lying in the XZ plane, gold with a little glow
     // of its own so it still reads on a dark cave floor.
-    const geometry = new THREE.CylinderGeometry(LOOK.radius, LOOK.radius, LOOK.thickness, 12);
+    const geometry = new THREE.CylinderGeometry(LOOK.radius, LOOK.radius, LOOK.height, 12);
     this.geometries.push(geometry);
     const material = new THREE.MeshStandardMaterial({
       color: LOOK.gold,
@@ -228,7 +228,7 @@ export class HoardGoblinCoinsFx {
       );
       if (this.glints) {
         const glint = coinGlint(slot.age, i, this.time) * size;
-        this.glints.position.setXYZ(base + i, c.x, c.y + LOOK.thickness, c.z);
+        this.glints.position.setXYZ(base + i, c.x, c.y + LOOK.height, c.z);
         this.glints.size.setX(base + i, GLINT_SIZE * glint);
         this.glints.alpha.setX(base + i, glint);
       }

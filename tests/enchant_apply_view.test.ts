@@ -308,6 +308,7 @@ describe('enchant_apply_view: enchantSectionsForReagent', () => {
   it('sorts each section by paperdoll slot, then by name key', () => {
     const PAPERDOLL: readonly string[] = [
       'mainhand',
+      'offhand',
       'helmet',
       'neck',
       'shoulder',

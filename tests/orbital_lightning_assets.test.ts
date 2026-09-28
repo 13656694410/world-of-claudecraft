@@ -9,11 +9,15 @@ import { buildComponent, sourceFingerprint } from '../scripts/assets/orbital_lig
 import { MEDIA_ASSETS } from '../src/render/assets/manifest.generated';
 
 const ROOT = path.join(__dirname, '..');
+// Rebuilt with build.mjs at the 2026-09-28 release/v0.44.0 merge into
+// feature/buried-hoards: pnpm-lock.yaml (a fingerprinted input) moved with the
+// patched three's patch hash, so only the embedded source fingerprint changed
+// (same components, same byte lengths).
 const ASSETS = [
   {
     kind: 'orb',
     bytes: 20488,
-    sha: '6200d962d97f665d17bf8ceb35f098adb0d84c85272ef1a60c36b5b99cce1f32',
+    sha: 'ea6561f3b5dd1a208e4079939af92983fa8ab51cd4c4eb543f49556c7e5ff856',
     names: ['Core', 'LocalArcs', 'OuterEnergy', 'Sparks'],
     triangles: [80, 732, 1068, 108],
     min: [-0.844265, -0.540179, -0.906207],
@@ -22,7 +26,7 @@ const ASSETS = [
   {
     kind: 'impact',
     bytes: 18452,
-    sha: '22e946c4d54688fe726ff6d8a5af53b7d1eed571d0593781a9eb7bab5c88c944',
+    sha: '6d170adf9275bc42fbd96ce917e01231875ad9bb3401c678706c3bddca4bb039',
     names: ['Crown', 'GroundArcs', 'ImpactCore', 'RadialBurst', 'Sparks'],
     triangles: [168, 612, 80, 516, 108],
     min: [-1.02133, -0.1232, -1.051493],

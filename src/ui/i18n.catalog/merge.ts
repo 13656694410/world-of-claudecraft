@@ -548,7 +548,7 @@ const mergeStringsEn = {
       hoard_cast_void_empower: 'Void Empowerment',
       hoard_cast_webbing: 'Webbing',
       hoard_cast_doom_ritual: 'Doom Ritual',
-      hoard_cast_charge: 'Charge',
+      hoard_cast_charge: 'Headlong Charge',
       hoard_cast_silk_snare: 'Silk Snare',
       hoard_cast_silence: 'Silencing Shriek',
       hoard_cast_hex: 'Hex',

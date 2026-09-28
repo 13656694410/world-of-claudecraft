@@ -24,6 +24,7 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'hud.core.mapMarkerLabels.hoardReturnEntrance': '보물 귀환 입구',
   'sim.rift.hoardExitOpens': '보물은 당신의 것입니다. 입구로 돌아가 밖으로 올라가세요.',
   'sim.rift.hoardStepBack': '보물 입구를 통해 지상으로 올라왔습니다.',
+  'abilityUi.cast.hoard_cast_charge': '저돌적 돌진',
   'abilityUi.cast.hoard_cast_fear': '공포의 포효',
   'abilityUi.cast.hoard_cast_stun': '기절의 일격',
   'abilityUi.cast.hoard_cast_silence': '침묵의 비명',
@@ -95,7 +96,7 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.hoard_boss_mimic.name': '탐욕스러운 상자',
   'entities.mobs.hoard_bat_swarmling.name': '동굴 떼박쥐',
   'entities.mobs.hoard_silk_cocoon.name': '비단 고치',
-  'apiError.character.vault_mail_recovering':
+  'errors.api.vaultMailRecovering':
     '보물고 보상 우편을 복구하고 있습니다. 잠시 후 다시 시도해 주세요.',
   'entities.abilities.clockwork_shock_bomb.description':
     '대상 위치에 태엽 충격 폭탄을 던져 5미터 내의 적에게 120~160의 자연 피해를 입힙니다.',
@@ -362,7 +363,6 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'entities.letters.hoard_vault_reward.subject': '보물 창고 보상',
   'entities.letters.hoard_vault_reward.body':
     '보물 창고가 공략되었지만 보물 상자에서 당신의 몫을 받지 않았습니다. 획득한 물품과 동전을 까마귀가 이곳으로 배달했습니다.\n\n- 까마귀 우편국',
-  'abilityUi.cast.hoard_cast_charge': '돌진',
   'abilityUi.cast.hoard_cast_cinder_bolt': '잿불 화살',
   'abilityUi.cast.hoard_cast_doom_ritual': '파멸의 의식',
   'abilityUi.cast.hoard_cast_drowning_hook': '익사의 갈고리',

@@ -10476,6 +10476,12 @@ export class Sim {
     return this.postOffice.hasCustodyParcel(custodyRef);
   }
   canBookVaultRewardMail = (id: number): boolean => this.postOffice.canBookVaultRewardMail(id);
+  // The vault mail take / recovery seams (server/vault_mail_take_*.ts).
+  takeDirtyMailPartition = (key: string) => this.postOffice.takeDirtyMailPartition(key);
+  restoreVaultLetter = (...a: Parameters<PostOffice['restoreVaultLetter']>) =>
+    this.postOffice.restoreVaultLetter(...a);
+  vaultCustodyRefFor = (mailId: number, pid: number) =>
+    this.postOffice.vaultCustodyRefFor(mailId, pid);
   mailUnreadFor(pid: number): number {
     return this.postOffice.mailUnreadFor(pid);
   }

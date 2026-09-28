@@ -97,6 +97,9 @@ const FLOOR_VFX_LAYERED_MODULES: readonly FloorVfxModule[] = [
   { file: 'src/render/decor_torch_fx.ts', layer: 'ground', strict: true },
   { file: 'src/render/impact_site.ts', layer: 'ground', strict: true },
   { file: 'src/render/hill_ring.ts', layer: 'ground', strict: true },
+  // A Buried Hoard boss room's additive floor light under its kit props, kept on
+  // the order it shipped with (2, the ground band's second rung).
+  { file: 'src/render/hoard_room_kit.ts', layer: 'ground', strict: true },
   // A worn trinket's ground glow (the Last Flame Lantern): a player-band floor
   // effect that every encounter telegraph must still paint over.
   { file: 'src/render/trinket_relics.ts', layer: 'player', strict: true },
@@ -149,6 +152,25 @@ const FLOOR_VFX_LAYERED_MODULES: readonly FloorVfxModule[] = [
   { file: 'src/render/varkhul_encounter.ts', layer: 'encounter', strict: true },
   { file: 'src/render/varkhul_frontal_visual.ts', layer: 'encounter', strict: true },
   { file: 'src/render/rift_death_zone.ts', layer: 'encounter', strict: true },
+  // Buried Hoard boss mechanics (the 2026-09-28 release/v0.44.0 merge into
+  // feature/buried-hoards): the floor telegraphs, their standing pieces and the
+  // cosmetic dressing and spell effects drawn over them, all on the encounter
+  // rule (step = the order they shipped with, minus one), so the stack they were
+  // authored with against the reused Ignivar frontal telegraph, the rift death
+  // zone and the rift mobs' rune circles is kept exactly.
+  { file: 'src/render/hoard_boss_fx.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_boss_dressing.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_encounter_accents.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_spell_fx.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_bone_reaper.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_boulder.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_cocoon.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_forge_hammer.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_forge_gate.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_ice_age.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_orbital_lightning.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_pulsars.ts', layer: 'encounter', strict: true },
+  { file: 'src/render/hoard_tentacles.ts', layer: 'encounter', strict: true },
   // the player's own ground aim guide (additive: it brightens what lies under it)
   { file: 'src/render/ground_aim_reticle_visual.ts', layer: 'reticle', strict: true },
 ];
@@ -202,6 +224,13 @@ const FLOOR_VFX_OUT_OF_SCOPE: readonly string[] = [
   'src/render/fenbridge_town.ts',
   'src/render/frost_sky.ts',
   'src/render/haunt_features.ts',
+  // the Buried Hoard valley floor's shadow catcher: the static ground itself
+  'src/render/hoard_cavern_ground.ts',
+  // Buried Hoard loot shows: the Coinsack Scurrier's additive coin glints over
+  // opaque coins, and the reward chest's additive light cards and motes, which
+  // appear only once the room's boss is dead, so no floor mechanic is under them
+  'src/render/hoard_goblin_coins.ts',
+  'src/render/hoard_reward_chest.ts',
   'src/render/placed_assets.ts',
   'src/render/props.ts',
   'src/render/realm_builder_monument_fx.ts',

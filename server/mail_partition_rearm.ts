@@ -13,11 +13,9 @@ import { saveMailPartitions } from './db';
 export interface MailPartitionRearmSim {
   markMailPartitionsDirty(recipientKeys: readonly string[]): void;
   takeDirtyMailPartitions(): { recipientKey: string; letters: MailSave['mail'] }[];
-  postOffice?: {
-    takeDirtyMailPartition(
-      recipientKey: string,
-    ): { recipientKey: string; letters: MailSave['mail'] }[];
-  };
+  takeDirtyMailPartition?(
+    recipientKey: string,
+  ): { recipientKey: string; letters: MailSave['mail'] }[];
 }
 
 export function rearmMailPartitionsOnFailure(
@@ -36,11 +34,10 @@ export function takeMailPartitionsForCharacterSave(
   onlyOwn = false,
 ): { recipientKey: string; letters: MailSave['mail'] }[] {
   const ownKey = String(characterId);
-  const postOffice = sim.postOffice;
-  if (onlyOwn && !postOffice) throw new Error('targeted mail drain unavailable');
+  if (onlyOwn && !sim.takeDirtyMailPartition) throw new Error('targeted mail drain unavailable');
   const drained =
-    postOffice && onlyOwn
-      ? postOffice.takeDirtyMailPartition(ownKey)
+    onlyOwn && sim.takeDirtyMailPartition
+      ? sim.takeDirtyMailPartition(ownKey)
       : sim.takeDirtyMailPartitions();
   const deferred = drained.filter(
     (partition) =>

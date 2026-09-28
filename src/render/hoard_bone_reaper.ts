@@ -31,6 +31,7 @@ import type { IWorld } from '../world_api';
 import type { HoardBossCueView } from '../world_api/dungeons';
 import { loadGltf } from './assets/loader';
 import { registerDeferredPreload } from './assets/preload';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX, type GfxTier, surfaceMat } from './gfx';
 import {
@@ -293,7 +294,7 @@ export class HoardBoneReaperFx {
       mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
       for (let s = 0; s < SOUL_SLOTS; s++) mesh.setColorAt(s, this.color.setRGB(1, 1, 1));
       mesh.instanceColor?.setUsage(THREE.DynamicDrawUsage);
-      mesh.renderOrder = i === 3 ? 27 : 25;
+      mesh.renderOrder = floorVfxRenderOrder('encounter', i === 3 ? 26 : 24);
       mesh.count = 0;
       this.root.add(mesh);
       this.soulParts.push(mesh);
@@ -307,7 +308,7 @@ export class HoardBoneReaperFx {
     this.soulMarkers.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     for (let s = 0; s < SOUL_SLOTS; s++) this.soulMarkers.setColorAt(s, this.color.setRGB(1, 1, 1));
     this.soulMarkers.instanceColor?.setUsage(THREE.DynamicDrawUsage);
-    this.soulMarkers.renderOrder = 21;
+    this.soulMarkers.renderOrder = floorVfxRenderOrder('encounter', 20);
     this.soulMarkers.count = 0;
     this.root.add(this.soulMarkers);
     // A soft halo behind each soul: what makes one findable across the room.
@@ -320,7 +321,7 @@ export class HoardBoneReaperFx {
     this.soulHalos.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     for (let s = 0; s < SOUL_SLOTS; s++) this.soulHalos.setColorAt(s, this.color.setRGB(1, 1, 1));
     this.soulHalos.instanceColor?.setUsage(THREE.DynamicDrawUsage);
-    this.soulHalos.renderOrder = 24;
+    this.soulHalos.renderOrder = floorVfxRenderOrder('encounter', 23);
     this.soulHalos.count = 0;
     this.root.add(this.soulHalos);
     if (!this.low) {
@@ -329,7 +330,7 @@ export class HoardBoneReaperFx {
       const material = this.keep(ribbonMaterial(LOOK.soul));
       const mesh = new THREE.Mesh(this.own(tails.geometry), material);
       mesh.frustumCulled = false;
-      mesh.renderOrder = 24;
+      mesh.renderOrder = floorVfxRenderOrder('encounter', 23);
       mesh.visible = false;
       this.root.add(mesh);
       this.soulTrails = { ...tails, mesh, material };
@@ -358,7 +359,7 @@ export class HoardBoneReaperFx {
       for (const mesh of [flash, ring]) {
         mesh.visible = false;
         mesh.frustumCulled = false;
-        mesh.renderOrder = 28;
+        mesh.renderOrder = floorVfxRenderOrder('encounter', 27);
         this.root.add(mesh);
       }
       this.endings.push({ age: -1, absorbed: false, x: 0, y: 0, z: 0, flash, ring });
@@ -377,7 +378,7 @@ export class HoardBoneReaperFx {
       geometry.setAttribute('tint', tint);
       const points = new THREE.Points(geometry, this.keep(sparkMaterial()));
       points.frustumCulled = false;
-      points.renderOrder = 29;
+      points.renderOrder = floorVfxRenderOrder('encounter', 28);
       points.visible = false;
       this.root.add(points);
       this.sparks = {
@@ -398,14 +399,14 @@ export class HoardBoneReaperFx {
     for (const mesh of [this.ribs, this.aura]) {
       mesh.visible = false;
       mesh.frustumCulled = false;
-      mesh.renderOrder = 22;
+      mesh.renderOrder = floorVfxRenderOrder('encounter', 21);
       this.root.add(mesh);
     }
     for (let o = 0; o < 4; o++) {
       const orb = new THREE.Mesh(ball, this.keep(this.basic(LOOK.soul, 0.9, true)));
       orb.visible = false;
       orb.frustumCulled = false;
-      orb.renderOrder = 26;
+      orb.renderOrder = floorVfxRenderOrder('encounter', 25);
       this.root.add(orb);
       this.orbiters.push(orb);
     }
@@ -500,7 +501,7 @@ export class HoardBoneReaperFx {
     this.buildWeapon(rig, asset);
     const sector = new THREE.Mesh(sectorGeometry, rig.sectorMaterial);
     sector.position.y = 0.05;
-    sector.renderOrder = 20;
+    sector.renderOrder = floorVfxRenderOrder('encounter', 19);
     const edge = new THREE.Line(edgeGeometry, rig.sectorEdgeMaterial);
     edge.position.y = 0.07;
     rig.floorSpin.add(sector, edge);
@@ -508,12 +509,12 @@ export class HoardBoneReaperFx {
     rings.forEach((geometry, i) => {
       const mesh = new THREE.Mesh(geometry, ringMaterials[i]);
       mesh.position.y = 0.06;
-      mesh.renderOrder = 21;
+      mesh.renderOrder = floorVfxRenderOrder('encounter', 20);
       rig.pivot.add(mesh);
     });
     // The pivot's own light: the eye finds the centre of the hazard first.
     rig.hubGlow.frustumCulled = false;
-    rig.hubGlow.renderOrder = 24;
+    rig.hubGlow.renderOrder = floorVfxRenderOrder('encounter', 23);
     rig.hubGlow.position.y = LOOK.bladeHeight + 0.4;
     rig.hubGlow.scale.setScalar(4.2);
     rig.pivot.add(rig.hubGlow);
@@ -523,7 +524,7 @@ export class HoardBoneReaperFx {
         const material = this.keep(ribbonMaterial(color));
         const mesh = new THREE.Mesh(this.own(built.geometry), material);
         mesh.frustumCulled = false;
-        mesh.renderOrder = 23;
+        mesh.renderOrder = floorVfxRenderOrder('encounter', 22);
         mesh.visible = false;
         this.root.add(mesh);
         return { ...built, mesh, material };

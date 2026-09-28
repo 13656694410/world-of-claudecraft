@@ -27,6 +27,7 @@ import { TENTACLES } from '../sim/rift/hoard_tentacles_core';
 import type { HoardBossCueView } from '../world_api/dungeons';
 import { loadGltf } from './assets/loader';
 import { registerDeferredPreload } from './assets/preload';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX, type GfxTier, surfaceMat } from './gfx';
 import { ribbonMaterial, sparkMaterial, strip } from './hoard_fx_materials';
@@ -270,7 +271,7 @@ export class HoardTentaclesFx {
       const points = new THREE.Points(geometry, this.keep(sparkMaterial()));
       points.visible = false;
       points.frustumCulled = false;
-      points.renderOrder = 30;
+      points.renderOrder = floorVfxRenderOrder('encounter', 29);
       this.root.add(points);
       this.spray = {
         points,
@@ -471,17 +472,51 @@ export class HoardTentaclesFx {
       warnRing: new THREE.Mesh(ring, this.keep(this.basic(LOOK.warn, true))),
       // The whip's lane is a flat quad over uneven floor: drawn as an overlay, so a
       // rise of the ground never cuts it (it flickered as the camera moved, playtest).
-      lane: this.ribbon(1, LOOK.danger, false, 'TentacleLane', 18, false),
-      laneFill: this.ribbon(1, LOOK.danger, true, 'TentacleLaneFill', 19, false),
-      ring: this.ribbon(RING_SEGMENTS, LOOK.danger, false, 'TentacleSweepRing', 18),
-      arm: this.ribbon(ARM_SEGMENTS, LOOK.danger, true, 'TentacleSweepArm', 20),
-      wake: this.low ? undefined : this.ribbon(WAKE_SEGMENTS, LOOK.warn, true, 'TentacleWake', 19),
+      lane: this.ribbon(
+        1,
+        LOOK.danger,
+        false,
+        'TentacleLane',
+        floorVfxRenderOrder('encounter', 17),
+        false,
+      ),
+      laneFill: this.ribbon(
+        1,
+        LOOK.danger,
+        true,
+        'TentacleLaneFill',
+        floorVfxRenderOrder('encounter', 18),
+        false,
+      ),
+      ring: this.ribbon(
+        RING_SEGMENTS,
+        LOOK.danger,
+        false,
+        'TentacleSweepRing',
+        floorVfxRenderOrder('encounter', 17),
+      ),
+      arm: this.ribbon(
+        ARM_SEGMENTS,
+        LOOK.danger,
+        true,
+        'TentacleSweepArm',
+        floorVfxRenderOrder('encounter', 19),
+      ),
+      wake: this.low
+        ? undefined
+        : this.ribbon(
+            WAKE_SEGMENTS,
+            LOOK.warn,
+            true,
+            'TentacleWake',
+            floorVfxRenderOrder('encounter', 18),
+          ),
     };
     rig.warnDisc.name = 'TentacleWarning';
     for (const mesh of [rig.warnDisc, rig.warnRing]) {
       mesh.visible = false;
       mesh.frustumCulled = false;
-      mesh.renderOrder = 17;
+      mesh.renderOrder = floorVfxRenderOrder('encounter', 16);
       this.root.add(mesh);
     }
     return rig;

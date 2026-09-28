@@ -23,6 +23,7 @@ import { FORGE_HAMMER, forgeGapAngle } from '../sim/rift/hoard_forge_hammer_core
 import type { HoardBossCueView } from '../world_api/dungeons';
 import { loadGltf } from './assets/loader';
 import { registerDeferredPreload } from './assets/preload';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX, type GfxTier, surfaceMat } from './gfx';
 import { HoardForgeGate } from './hoard_forge_gate';
@@ -177,7 +178,7 @@ export class HoardForgeHammerFx {
       const points = new THREE.Points(geometry, this.keep(sparkMaterial()));
       points.visible = false;
       points.frustumCulled = false;
-      points.renderOrder = 30;
+      points.renderOrder = floorVfxRenderOrder('encounter', 29);
       this.root.add(points);
       this.embers = {
         points,
@@ -258,7 +259,9 @@ export class HoardForgeHammerFx {
   ): StrikeRig {
     const doors: StrikeRig['doors'] = [];
     for (let gap = 0; gap < FORGE_HAMMER.gaps; gap++) {
-      doors.push(this.ribbon(DOOR_SEGMENTS, LOOK.door, 'ForgeDoor', 19));
+      doors.push(
+        this.ribbon(DOOR_SEGMENTS, LOOK.door, 'ForgeDoor', floorVfxRenderOrder('encounter', 18)),
+      );
     }
     const rig: StrikeRig = {
       instanceId: -1,
@@ -280,8 +283,8 @@ export class HoardForgeHammerFx {
       markerRing: new THREE.Mesh(ring, this.keep(this.basic(LOOK.fireHot, 0, true))),
       scorch: new THREE.Mesh(disc, this.keep(this.basic(LOOK.scorch, 0, false))),
       flash: new THREE.Mesh(card, this.keep(glowMaterial(LOOK.fire, false))),
-      band: this.ribbon(SEGMENTS, LOOK.fire, 'ForgeRing', 21),
-      wall: this.ribbon(SEGMENTS, LOOK.fireHot, 'ForgeWall', 22),
+      band: this.ribbon(SEGMENTS, LOOK.fire, 'ForgeRing', floorVfxRenderOrder('encounter', 20)),
+      wall: this.ribbon(SEGMENTS, LOOK.fireHot, 'ForgeWall', floorVfxRenderOrder('encounter', 21)),
       doors,
       mask: new Float32Array(SEGMENTS + 1),
       edge: new Float32Array(SEGMENTS + 1),
@@ -306,10 +309,10 @@ export class HoardForgeHammerFx {
     for (let i = 0; i < floor.length; i++) {
       floor[i].visible = false;
       floor[i].frustumCulled = false;
-      floor[i].renderOrder = 16 + i;
+      floor[i].renderOrder = floorVfxRenderOrder('encounter', 15 + i);
       this.root.add(floor[i]);
     }
-    rig.flash.renderOrder = 27;
+    rig.flash.renderOrder = floorVfxRenderOrder('encounter', 26);
     this.buildHammer(rig, asset);
     return rig;
   }

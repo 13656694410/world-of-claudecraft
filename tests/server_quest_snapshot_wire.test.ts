@@ -41,6 +41,8 @@ describe('quest snapshot wire', () => {
       ['fac', meta.factions],
       ['facCur', meta.factionCurrencies],
       ['cluh', { huntId: 'hunt_test', step: 2 }],
+      // The Buried Hoard treasure map (null until one is read).
+      ['tmap', null],
       ['wqrr', meta.worldQuestRerollCycle],
       ['wqrep', { wq_test: 'wq_other' }],
       ['wkq', null],

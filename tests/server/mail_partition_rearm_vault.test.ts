@@ -68,12 +68,10 @@ describe('vault mail take partition lock', () => {
         dirty.clear();
         return taken;
       },
-      postOffice: {
-        takeDirtyMailPartition: (key: string) => {
-          const taken = dirty.get(key);
-          dirty.delete(key);
-          return taken ? [taken] : [];
-        },
+      takeDirtyMailPartition: (key: string) => {
+        const taken = dirty.get(key);
+        dirty.delete(key);
+        return taken ? [taken] : [];
       },
       markMailPartitionsDirty: (keys: readonly string[]) => {
         for (const key of keys) dirty.set(key, { recipientKey: key, letters: [] });
@@ -99,7 +97,7 @@ describe('vault mail take partition lock', () => {
         ),
       ).toBe(true);
     }
-    expect(sim.postOffice.takeDirtyMailPartition('7').map((p) => p.recipientKey)).toEqual(['7']);
+    expect(sim.takeDirtyMailPartition('7').map((p) => p.recipientKey)).toEqual(['7']);
     expect(sim.takeDirtyMailPartitions().map((p) => p.recipientKey)).toEqual(['8']);
   });
 });

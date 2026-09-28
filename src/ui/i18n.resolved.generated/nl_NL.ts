@@ -6715,8 +6715,7 @@ export const nl_NL: EnTranslations = {
       "taken_over": "Je personage is overgenomen door een andere sessie.",
       "rename_required": "Dit personage moet hernoemd worden voordat het de wereld kan betreden.",
       "invalid_appearance": "Dat uiterlijk kon niet worden opgeslagen. Pas het ontwerp aan en probeer het opnieuw.",
-      "reroll_unavailable": "Dit personage heeft geen gratis herontwerp beschikbaar.",
-      "vault_mail_recovering": "Your vault reward mail is being restored. Try again shortly."
+      "reroll_unavailable": "Dit personage heeft geen gratis herontwerp beschikbaar."
     },
     "moderation": {
       "suspended_until": "Dit account is geschorst tot {date}.",
@@ -11133,6 +11132,7 @@ export const nl_NL: EnTranslations = {
       "alreadyInWorld": "Personage is al in de wereld.",
       "accountSessionLimit": "Te veel personages op dit account zijn al in de wereld.",
       "takenOver": "Je personage is overgenomen door een andere sessie.",
+      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
       "renameBeforeEntering": "Dit personage moet hernoemd worden voordat het de wereld kan betreden.",
       "renameNotPermitted": "Dit personage hernoemen is niet toegestaan.",
       "unsupportedMediaType": "Niet-ondersteund verzoekformaat.",
@@ -12222,7 +12222,7 @@ export const nl_NL: EnTranslations = {
       "hoard_cast_void_empower": "Void Empowerment",
       "hoard_cast_webbing": "Webbing",
       "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Charge",
+      "hoard_cast_charge": "Headlong Charge",
       "hoard_cast_silk_snare": "Silk Snare",
       "hoard_cast_silence": "Silencing Shriek",
       "hoard_cast_hex": "Hex",

@@ -6715,8 +6715,7 @@ export const vi_VN: EnTranslations = {
       "taken_over": "Nhân vật của bạn đã bị một phiên khác chiếm quyền.",
       "rename_required": "Nhân vật này phải được đổi tên trước khi vào thế giới.",
       "invalid_appearance": "Không thể lưu ngoại hình đó. Hãy chỉnh sửa thiết kế rồi thử lại.",
-      "reroll_unavailable": "Nhân vật này hiện không có lượt làm lại ngoại hình miễn phí nào.",
-      "vault_mail_recovering": "Your vault reward mail is being restored. Try again shortly."
+      "reroll_unavailable": "Nhân vật này hiện không có lượt làm lại ngoại hình miễn phí nào."
     },
     "moderation": {
       "suspended_until": "Tài khoản này bị đình chỉ đến {date}.",
@@ -11133,6 +11132,7 @@ export const vi_VN: EnTranslations = {
       "alreadyInWorld": "Nhân vật đã ở trong thế giới.",
       "accountSessionLimit": "Quá nhiều nhân vật trên tài khoản này đã ở trong thế giới.",
       "takenOver": "Nhân vật của bạn đã bị một phiên khác chiếm quyền.",
+      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
       "renameBeforeEntering": "Nhân vật này phải được đổi tên trước khi vào thế giới.",
       "renameNotPermitted": "Không được phép đổi tên nhân vật này.",
       "unsupportedMediaType": "Định dạng yêu cầu không được hỗ trợ.",
@@ -12222,7 +12222,7 @@ export const vi_VN: EnTranslations = {
       "hoard_cast_void_empower": "Void Empowerment",
       "hoard_cast_webbing": "Webbing",
       "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Charge",
+      "hoard_cast_charge": "Headlong Charge",
       "hoard_cast_silk_snare": "Silk Snare",
       "hoard_cast_silence": "Silencing Shriek",
       "hoard_cast_hex": "Hex",

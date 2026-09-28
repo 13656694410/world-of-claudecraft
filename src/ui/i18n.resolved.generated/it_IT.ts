@@ -6715,8 +6715,7 @@ export const it_IT: EnTranslations = {
       "taken_over": "Il tuo personaggio è stato preso in controllo da un'altra sessione.",
       "rename_required": "Questo personaggio deve essere rinominato prima di entrare nel mondo.",
       "invalid_appearance": "Non è stato possibile salvare questo aspetto. Modifica il design e riprova.",
-      "reroll_unavailable": "Questo personaggio non ha un ridisegno gratuito disponibile.",
-      "vault_mail_recovering": "Your vault reward mail is being restored. Try again shortly."
+      "reroll_unavailable": "Questo personaggio non ha un ridisegno gratuito disponibile."
     },
     "moderation": {
       "suspended_until": "Questo account è sospeso fino al {date}.",
@@ -11133,6 +11132,7 @@ export const it_IT: EnTranslations = {
       "alreadyInWorld": "Il personaggio è già nel mondo.",
       "accountSessionLimit": "Troppi personaggi di questo account sono già nel mondo.",
       "takenOver": "Il tuo personaggio è stato preso in controllo da un'altra sessione.",
+      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
       "renameBeforeEntering": "Questo personaggio deve essere rinominato prima di entrare nel mondo.",
       "renameNotPermitted": "Non è consentito rinominare questo personaggio.",
       "unsupportedMediaType": "Formato della richiesta non supportato.",
@@ -12222,7 +12222,7 @@ export const it_IT: EnTranslations = {
       "hoard_cast_void_empower": "Void Empowerment",
       "hoard_cast_webbing": "Webbing",
       "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Charge",
+      "hoard_cast_charge": "Headlong Charge",
       "hoard_cast_silk_snare": "Silk Snare",
       "hoard_cast_silence": "Silencing Shriek",
       "hoard_cast_hex": "Hex",

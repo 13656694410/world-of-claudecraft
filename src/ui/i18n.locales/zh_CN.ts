@@ -24,6 +24,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hud.core.mapMarkerLabels.hoardReturnEntrance': '宝藏返回入口',
   'sim.rift.hoardExitOpens': '宝藏已经属于你。返回入口并爬出去。',
   'sim.rift.hoardStepBack': '你从宝藏入口爬回了地面。',
+  'abilityUi.cast.hoard_cast_charge': '猛力冲撞',
   'abilityUi.cast.hoard_cast_fear': '恐惧咆哮',
   'abilityUi.cast.hoard_cast_stun': '震晕重击',
   'abilityUi.cast.hoard_cast_silence': '沉默尖啸',
@@ -92,7 +93,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.hoard_boss_mimic.name': '贪婪宝箱',
   'entities.mobs.hoard_bat_swarmling.name': '洞穴群蝠',
   'entities.mobs.hoard_silk_cocoon.name': '丝茧',
-  'apiError.character.vault_mail_recovering': '宝库奖励邮件正在恢复中。请稍后重试。',
+  'errors.api.vaultMailRecovering': '宝库奖励邮件正在恢复中。请稍后重试。',
   'entities.abilities.clockwork_shock_bomb.description':
     '向目标位置投掷一枚发条震荡炸弹，对5码内的敌人造成120到160点自然伤害。',
   'entities.abilities.clockwork_shock_bomb.name': '发条震荡炸弹',
@@ -358,7 +359,6 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.letters.hoard_vault_reward.subject': '你的宝藏奖励',
   'entities.letters.hoard_vault_reward.body':
     '宝藏已被攻克，但你没有从宝箱领取自己的那份奖励。渡鸦已将你获得的物品和金币送到这里。\n\n- 渡鸦邮局',
-  'abilityUi.cast.hoard_cast_charge': '冲锋',
   'abilityUi.cast.hoard_cast_cinder_bolt': '余烬箭',
   'abilityUi.cast.hoard_cast_doom_ritual': '末日仪式',
   'abilityUi.cast.hoard_cast_drowning_hook': '溺亡钩',

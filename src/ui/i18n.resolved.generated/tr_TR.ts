@@ -6715,8 +6715,7 @@ export const tr_TR: EnTranslations = {
       "taken_over": "Karakteriniz başka bir oturum tarafından devralındı.",
       "rename_required": "Bu karakter dünyaya girmeden önce yeniden adlandırılmalıdır.",
       "invalid_appearance": "Bu görünüm kaydedilemedi. Tasarımı düzenleyip tekrar deneyin.",
-      "reroll_unavailable": "Bu karakterin kullanılabilir bir ücretsiz yeniden tasarım hakkı yok.",
-      "vault_mail_recovering": "Your vault reward mail is being restored. Try again shortly."
+      "reroll_unavailable": "Bu karakterin kullanılabilir bir ücretsiz yeniden tasarım hakkı yok."
     },
     "moderation": {
       "suspended_until": "Bu hesap {date} tarihine kadar askıya alındı.",
@@ -11133,6 +11132,7 @@ export const tr_TR: EnTranslations = {
       "alreadyInWorld": "Karakter zaten dünyada.",
       "accountSessionLimit": "Bu hesaba ait çok fazla karakter zaten dünyada.",
       "takenOver": "Karakteriniz başka bir oturum tarafından devralındı.",
+      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
       "renameBeforeEntering": "Bu karakter dünyaya girmeden önce yeniden adlandırılmalıdır.",
       "renameNotPermitted": "Bu karakterin yeniden adlandırılmasına izin verilmiyor.",
       "unsupportedMediaType": "Desteklenmeyen istek biçimi.",
@@ -12222,7 +12222,7 @@ export const tr_TR: EnTranslations = {
       "hoard_cast_void_empower": "Void Empowerment",
       "hoard_cast_webbing": "Webbing",
       "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Charge",
+      "hoard_cast_charge": "Headlong Charge",
       "hoard_cast_silk_snare": "Silk Snare",
       "hoard_cast_silence": "Silencing Shriek",
       "hoard_cast_hex": "Hex",

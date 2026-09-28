@@ -35,7 +35,7 @@ describe('the coin look (pure)', () => {
     settle(list, FLAT);
     for (const c of list) {
       expect(c.resting).toBe(true);
-      expect(c.y).toBeCloseTo(COIN_LOOK.thickness / 2, 9);
+      expect(c.y).toBeCloseTo(COIN_LOOK.height / 2, 9);
       expect(c.rx).toBe(0);
       expect(c.rz).toBe(0);
       // Scattered round the body, never flung out of the room.
@@ -53,7 +53,7 @@ describe('the coin look (pure)', () => {
     const list = coins();
     spawnCoins(list, 10, 0, 0, dais, 7, false);
     settle(list, dais);
-    for (const c of list) expect(c.y).toBeCloseTo(dais(c.x) + COIN_LOOK.thickness / 2, 9);
+    for (const c of list) expect(c.y).toBeCloseTo(dais(c.x) + COIN_LOOK.height / 2, 9);
   });
 
   it('bursts from the sack on the back, not the chest', () => {
@@ -69,7 +69,7 @@ describe('the coin look (pure)', () => {
     spawnCoins(list, 0, 0, 0, FLAT, 9, true);
     for (const c of list) {
       expect(c.resting).toBe(true);
-      expect(c.y).toBeCloseTo(COIN_LOOK.thickness / 2, 9);
+      expect(c.y).toBeCloseTo(COIN_LOOK.height / 2, 9);
     }
   });
 

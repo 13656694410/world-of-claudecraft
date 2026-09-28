@@ -19,7 +19,7 @@
 //     value is pinned in tests/browser/quest_strip.browser.test.ts.
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { QUESTS } from '../src/sim/data';
+import { QUESTS, WORLD_QUESTS_BY_ID } from '../src/sim/data';
 import type { QuestProgress } from '../src/sim/types';
 import { buildQuestStrip } from '../src/ui/hud/quest/quest_strip_controller';
 import { QUEST_STRIP_MAX_OBJECTIVES } from '../src/ui/hud/quest/quest_strip_core';
@@ -393,7 +393,15 @@ describe('the tracker hands its projection to the strip on touch', () => {
       world: () =>
         ({
           cfg: { playerClass: 'warrior' },
-          player: { name: 'Adventurer' },
+          // Standing in the quest's area: the tracker lists a world quest only there.
+          player: {
+            name: 'Adventurer',
+            pos: {
+              x: WORLD_QUESTS_BY_ID[questId].area.x,
+              y: 0,
+              z: WORLD_QUESTS_BY_ID[questId].area.z,
+            },
+          },
           questLog: new Map(),
           worldQuestLog: new Map([
             [questId, { questId, count: 0, state: 'active', puzzleRotations: Array(9).fill(0) }],

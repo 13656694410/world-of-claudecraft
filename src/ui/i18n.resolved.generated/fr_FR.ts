@@ -6715,8 +6715,7 @@ export const fr_FR: EnTranslations = {
       "taken_over": "Votre personnage a été pris en main par une autre session.",
       "rename_required": "Ce personnage doit être renommé avant d'entrer dans le monde.",
       "invalid_appearance": "Cette apparence n'a pas pu être enregistrée. Modifiez-la et réessayez.",
-      "reroll_unavailable": "Ce personnage ne dispose pas d'un remodelage gratuit.",
-      "vault_mail_recovering": "Your vault reward mail is being restored. Try again shortly."
+      "reroll_unavailable": "Ce personnage ne dispose pas d'un remodelage gratuit."
     },
     "moderation": {
       "suspended_until": "Ce compte est suspendu jusqu'au {date}.",
@@ -11133,6 +11132,7 @@ export const fr_FR: EnTranslations = {
       "alreadyInWorld": "Le personnage est déjà dans le monde.",
       "accountSessionLimit": "Trop de personnages de ce compte sont déjà dans le monde.",
       "takenOver": "Votre personnage a été pris en main par une autre session.",
+      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
       "renameBeforeEntering": "Ce personnage doit être renommé avant d'entrer dans le monde.",
       "renameNotPermitted": "Le changement de nom de ce personnage n'est pas autorisé.",
       "unsupportedMediaType": "Format de requête non pris en charge.",
@@ -12222,7 +12222,7 @@ export const fr_FR: EnTranslations = {
       "hoard_cast_void_empower": "Void Empowerment",
       "hoard_cast_webbing": "Webbing",
       "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Charge",
+      "hoard_cast_charge": "Headlong Charge",
       "hoard_cast_silk_snare": "Silk Snare",
       "hoard_cast_silence": "Silencing Shriek",
       "hoard_cast_hex": "Hex",

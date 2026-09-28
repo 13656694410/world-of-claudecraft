@@ -28,6 +28,7 @@ import {
 import type { HoardBossCueView } from '../world_api/dungeons';
 import { loadGltf } from './assets/loader';
 import { registerDeferredPreload } from './assets/preload';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX, type GfxTier, surfaceMat } from './gfx';
 import { glowMaterial, ribbonMaterial, sparkMaterial, strip } from './hoard_fx_materials';
@@ -240,13 +241,13 @@ export class HoardIceAgeFx {
     this.gather = new THREE.Mesh(card, this.keep(glowMaterial(LOOK.glow, false)));
     this.gather.visible = false;
     this.gather.frustumCulled = false;
-    this.gather.renderOrder = 27;
+    this.gather.renderOrder = floorVfxRenderOrder('encounter', 26);
     this.root.add(this.gather);
     if (!this.low) {
       this.floorFrost = new THREE.Mesh(disc, this.keep(this.basic(LOOK.chill, 0, false)));
       this.floorFrost.visible = false;
       this.floorFrost.frustumCulled = false;
-      this.floorFrost.renderOrder = 16;
+      this.floorFrost.renderOrder = floorVfxRenderOrder('encounter', 15);
       this.root.add(this.floorFrost);
     }
     this.wave = new THREE.Mesh(ring, this.keep(this.basic(0xffffff, 0, true)));
@@ -255,7 +256,7 @@ export class HoardIceAgeFx {
     for (const mesh of [this.wave, this.waveGlow]) {
       mesh.visible = false;
       mesh.frustumCulled = false;
-      mesh.renderOrder = 24;
+      mesh.renderOrder = floorVfxRenderOrder('encounter', 23);
       this.root.add(mesh);
     }
 
@@ -290,7 +291,7 @@ export class HoardIceAgeFx {
       points.name = 'IceAgeSnow';
       points.visible = false;
       points.frustumCulled = false;
-      points.renderOrder = 28;
+      points.renderOrder = floorVfxRenderOrder('encounter', 27);
       this.root.add(points);
       this.snow = { points, position, size, alpha, angle, distance, height, pace };
     }
@@ -329,7 +330,7 @@ export class HoardIceAgeFx {
       mesh.name = 'IceAgeGusts';
       mesh.visible = false;
       mesh.frustumCulled = false;
-      mesh.renderOrder = 27;
+      mesh.renderOrder = floorVfxRenderOrder('encounter', 26);
       this.root.add(mesh);
       this.gusts = { mesh, position, alpha, angle, distance, height, pace, length, width };
     }
@@ -351,7 +352,7 @@ export class HoardIceAgeFx {
       const points = new THREE.Points(burstGeometry, this.keep(sparkMaterial()));
       points.visible = false;
       points.frustumCulled = false;
-      points.renderOrder = 29;
+      points.renderOrder = floorVfxRenderOrder('encounter', 28);
       this.root.add(points);
       this.bursts = {
         points,
@@ -443,7 +444,7 @@ export class HoardIceAgeFx {
     );
     leeEdge.visible = false;
     leeEdge.frustumCulled = false;
-    leeEdge.renderOrder = 21;
+    leeEdge.renderOrder = floorVfxRenderOrder('encounter', 20);
     const rig: PillarRig = {
       instanceId: -1,
       cueId: -1,
@@ -487,16 +488,16 @@ export class HoardIceAgeFx {
     }
     // Near-coplanar, depth-write-free layers: each its own order, so the stack
     // never reshuffles as the camera orbits.
-    rig.frost.renderOrder = 17;
-    rig.shadow.renderOrder = 18;
-    rig.shadowRing.renderOrder = 19;
-    rig.shock.renderOrder = 22;
+    rig.frost.renderOrder = floorVfxRenderOrder('encounter', 16);
+    rig.shadow.renderOrder = floorVfxRenderOrder('encounter', 17);
+    rig.shadowRing.renderOrder = floorVfxRenderOrder('encounter', 18);
+    rig.shock.renderOrder = floorVfxRenderOrder('encounter', 21);
     rig.mist.visible = false;
     rig.mist.frustumCulled = false;
-    rig.mist.renderOrder = 26;
+    rig.mist.renderOrder = floorVfxRenderOrder('encounter', 25);
     leeMesh.visible = false;
     leeMesh.frustumCulled = false;
-    leeMesh.renderOrder = 20;
+    leeMesh.renderOrder = floorVfxRenderOrder('encounter', 19);
     this.root.add(leeMesh, leeEdge, rig.root);
     this.buildBody(rig, asset, variant);
     return rig;
@@ -607,7 +608,7 @@ export class HoardIceAgeFx {
         if (entry.index) geometry.setIndex(entry.index);
         const mesh = new THREE.Mesh(geometry, pick(entry.name));
         mesh.castShadow = entry.name !== 'IceGlow';
-        if (entry.name === 'IceGlow') mesh.renderOrder = 23;
+        if (entry.name === 'IceGlow') mesh.renderOrder = floorVfxRenderOrder('encounter', 22);
         node.add(mesh);
       }
       if (!isChunk) {

@@ -9,6 +9,7 @@ import {
 import type { HoardBossCueView } from '../world_api/dungeons';
 import { loadGltf } from './assets/loader';
 import { registerDeferredPreload } from './assets/preload';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX, type GfxTier } from './gfx';
 import {
@@ -252,7 +253,7 @@ export class HoardOrbitalLightning {
     mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     for (let i = 0; i < count; i++) mesh.setColorAt(i, this.color.setRGB(1, 1, 1));
     mesh.instanceColor?.setUsage(THREE.DynamicDrawUsage);
-    mesh.renderOrder = 24;
+    mesh.renderOrder = floorVfxRenderOrder('encounter', 23);
     root.add(mesh);
     return mesh;
   }

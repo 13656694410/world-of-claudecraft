@@ -6715,8 +6715,7 @@ export const ru_RU: EnTranslations = {
       "taken_over": "Вашего персонажа перехватила другая сессия.",
       "rename_required": "Перед входом в мир этому персонажу нужно сменить имя.",
       "invalid_appearance": "Не удалось сохранить этот облик. Измените дизайн и попробуйте снова.",
-      "reroll_unavailable": "У этого персонажа нет доступного бесплатного редизайна.",
-      "vault_mail_recovering": "Письмо с наградой хранилища восстанавливается. Повторите попытку чуть позже."
+      "reroll_unavailable": "У этого персонажа нет доступного бесплатного редизайна."
     },
     "moderation": {
       "suspended_until": "Эта учетная запись заблокирована до {date}.",
@@ -11133,6 +11132,7 @@ export const ru_RU: EnTranslations = {
       "alreadyInWorld": "Персонаж уже находится в мире.",
       "accountSessionLimit": "Слишком много персонажей этой учетной записи уже находятся в мире.",
       "takenOver": "Вашего персонажа перехватила другая сессия.",
+      "vaultMailRecovering": "Письмо с наградой хранилища восстанавливается. Повторите попытку чуть позже.",
       "renameBeforeEntering": "Перед входом в мир этому персонажу нужно сменить имя.",
       "renameNotPermitted": "Переименование этого персонажа не разрешено.",
       "unsupportedMediaType": "Неподдерживаемый формат запроса.",
@@ -12222,7 +12222,7 @@ export const ru_RU: EnTranslations = {
       "hoard_cast_void_empower": "Усиление Бездны",
       "hoard_cast_webbing": "Паутина",
       "hoard_cast_doom_ritual": "Ритуал рока",
-      "hoard_cast_charge": "Рывок",
+      "hoard_cast_charge": "Безудержный рывок",
       "hoard_cast_silk_snare": "Шёлковый силок",
       "hoard_cast_silence": "Заглушающий визг",
       "hoard_cast_hex": "Сглаз",

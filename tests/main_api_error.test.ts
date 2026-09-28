@@ -207,7 +207,7 @@ describe('userFacingApiError prose fallback (un-migrated routes, until Phase 25)
 
   it('re-localizes the WebSocket disconnect reasons', () => {
     expect(userFacingApiError('Vault reward mail is still recovering. Please retry shortly.')).toBe(
-      t('apiError.character.vault_mail_recovering'),
+      t('errors.api.vaultMailRecovering'),
     );
     expect(userFacingApiError('Connection to the server was lost.')).toBe(
       t('loading.connectionLost'),

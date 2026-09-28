@@ -6,17 +6,17 @@
     "bytes": 1510,
     "sha256": "bb0b6bacba9acb12568c3bbbe536e4442cb2964266cffef890f27ee4915dcf2a"
   },
-  "rendererFingerprint": "a4ecbfb8c53e75abb861725371705a9efea1ad30dafc9fb80d3deef4c7d160f3",
+  "rendererFingerprint": "1c3e30093abd51f886f97051e73f0f155c2f851016a45fbf484916c6f0af2ee2",
   "renderEnv": {
     "schemaVersion": 1,
-    "platform": "win32",
-    "arch": "x64",
+    "platform": "darwin",
+    "arch": "arm64",
     "gpuVendor": "Google Inc. (Google)",
-    "gpuRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "gpuRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
     "browserMajor": "153",
-    "browserVersion": "Edg/153.0.4234.48",
+    "browserVersion": "Chrome/153.0.8010.53",
     "requestedBackend": "swiftshader",
-    "fingerprint": "1e20b2b6d2d59cc8f4b804141fdbe6a011e07e40a953c202402d3b2e19cd108d"
+    "fingerprint": "0a3b64b4bd845e00754f67090cf5f9d89309cc7c18d44ad56c12b92ae55548ce"
   },
   "renderer": {
     "trackedFiles": [
@@ -38,8 +38,8 @@
     ],
     "browserBundle": {
       "entry": "scripts/wiki/stills_render_entry.js",
-      "bytes": 5019142,
-      "sha256": "cf26f512d0c61f9be458533cf07f8c02cfb7a58bb3bd3e35f384673d27391343",
+      "bytes": 5232363,
+      "sha256": "abd95b6cdeee7fab9b5524a27c46100f056479ed40e6c156ff5604aee37e874f",
       "esbuildVersion": "0.28.1"
     },
     "output": {
@@ -3418,8 +3418,8 @@
         "model": {
           "url": "models/creatures/hoard_boss_bat.glb",
           "path": "public/models/creatures/hoard_boss_bat.glb",
-          "bytes": 735572,
-          "sha256": "97a53873e49e593a8cb0863c429c0d6de423db7ca670a94f26b8861849ba7f9f"
+          "bytes": 1180708,
+          "sha256": "6dd4d6bb0b0165c2fc7076ffff462d432cfe69f44f87b93fdf28d8ac32a269fb"
         },
         "idle": "Idle",
         "height": 1.5,
@@ -3436,11 +3436,11 @@
         "resolved": "#9a8a8a",
         "strength": 0.5
       },
-      "sourceFingerprint": "b41749e45a7ba67762317ee2bbb9c4138ab8f33365afd185093440cb514f3637",
+      "sourceFingerprint": "640f4840479a44a43f1cf22743929f9ce0c37edc87492d41492651f3e3665ec3",
       "output": {
         "path": "public/ui/mobs/hoard_bat_swarmling.webp",
-        "bytes": 2056,
-        "sha256": "fd6984230c1c843b42d326d36f834b496987467bdc5ed686dcc76261616cc78a"
+        "bytes": 2048,
+        "sha256": "23aaeb9a8c0a9577be8a3d86bbdd8100e1e2cd55545ba548ce8e95fdb90c031e"
       }
     },
     {
@@ -3452,8 +3452,8 @@
         "model": {
           "url": "models/creatures/hoard_bloat_cap.glb",
           "path": "public/models/creatures/hoard_bloat_cap.glb",
-          "bytes": 46940,
-          "sha256": "75a8a2e89cc7fc89b27f4b759e27e2718cc374981a8c1d15fb19df9c479488b8"
+          "bytes": 374668,
+          "sha256": "06ff1f39762d002b39baaac4115c0beae68255f63b3341dfc9e4176d06c5239c"
         },
         "idle": "Idle",
         "height": 2,
@@ -3470,11 +3470,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "b6ae40c36f1d7947e4358bd9a0a3644e67e9e9e10ced446d9835ce02929ec069",
+      "sourceFingerprint": "aa5b984c443c8a2699a5479df738e83848cee38d1f5879de8dbbc6b0022ae7ca",
       "output": {
         "path": "public/ui/mobs/hoard_bloat_cap.webp",
-        "bytes": 1888,
-        "sha256": "d1b665cd8b0c430d31f101c5d0b0a11d3d52330c2900a3af574f607986e697bf"
+        "bytes": 1880,
+        "sha256": "8201b246b55daa04cffed01674f41387ff1004ef508bf06842b1efcf96da078d"
       }
     },
     {
@@ -3486,8 +3486,8 @@
         "model": {
           "url": "models/creatures/hoard_boss_bat.glb",
           "path": "public/models/creatures/hoard_boss_bat.glb",
-          "bytes": 735572,
-          "sha256": "97a53873e49e593a8cb0863c429c0d6de423db7ca670a94f26b8861849ba7f9f"
+          "bytes": 1180708,
+          "sha256": "6dd4d6bb0b0165c2fc7076ffff462d432cfe69f44f87b93fdf28d8ac32a269fb"
         },
         "idle": "Idle",
         "height": 1.5,
@@ -3504,11 +3504,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "2c21e037b9d96f967fa8fafc756075fecdb9b98dc3a6bbfdd18c75600945dfcd",
+      "sourceFingerprint": "a5c5d31e48bbe6ff9dc75cebe01530b8e280f2e3bdf1c0e0b1d7de6ecc3af6e5",
       "output": {
         "path": "public/ui/mobs/hoard_boss_bat.webp",
-        "bytes": 2092,
-        "sha256": "d54de4a586473e9bf273688efeed2594194845327c6330867d099501dd8100fa"
+        "bytes": 2080,
+        "sha256": "8b0d919eb98a4b3f08415374ac7dbfb10ab76f4da90f65f22d0f374de2c9dc5f"
       }
     },
     {
@@ -3520,8 +3520,8 @@
         "model": {
           "url": "models/creatures/hoard_boss_mimic.glb",
           "path": "public/models/creatures/hoard_boss_mimic.glb",
-          "bytes": 682248,
-          "sha256": "847ead1bc5a3e73b4ec7f486ba9f6cf32793ef27dc2f115922b4ef0fdd848331"
+          "bytes": 1134596,
+          "sha256": "5b688c1eddc25b79852b83d61798246f1e1863f553115d0aea4bd1a8785f8009"
         },
         "idle": "Idle",
         "height": 1.6,
@@ -3538,11 +3538,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "438307bb11ff64661a6fb4f78091bb54a31220de3dd5234de5a87305fa364aef",
+      "sourceFingerprint": "c9fb063a3176e62cb859f071eb19d2cb4701fda7ed57991badb620bfbf0807a4",
       "output": {
         "path": "public/ui/mobs/hoard_boss_mimic.webp",
-        "bytes": 2498,
-        "sha256": "199037e2e736b8ce2a7a04ab491629e5bf9107c7b30c05b05da025536e914a0b"
+        "bytes": 2480,
+        "sha256": "663bbe6d610af0fcc7cdc1933d38b2ae457919a48fa681679f9b016ee77d6289"
       }
     },
     {
@@ -3554,8 +3554,8 @@
         "model": {
           "url": "models/creatures/hoard_boss_mole.glb",
           "path": "public/models/creatures/hoard_boss_mole.glb",
-          "bytes": 631836,
-          "sha256": "f2df8e3e874c492bf59d27bc6d53b1ebefec9d78b0227271adac43a9dd5bb187"
+          "bytes": 1013504,
+          "sha256": "72b0008d45cc4355f8ce8de134955b269d840bcc0acad3ff865203cb88992c59"
         },
         "idle": "Idle",
         "height": 1.4,
@@ -3572,11 +3572,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "c4bb4cb50433f04ba9df66f1766db383420102caa8f13d8fc3541d0162c55a6d",
+      "sourceFingerprint": "427b5f52f10d0e761d83935b9f3143aa5f4d314fc7c76d11137e78bc4b069eb4",
       "output": {
         "path": "public/ui/mobs/hoard_boss_mole.webp",
-        "bytes": 2262,
-        "sha256": "79966aaf3be53221c75c22573d1e200eac0fe45cdbaab86cf26de000986c91b3"
+        "bytes": 2248,
+        "sha256": "d4125fe7801c6e455c46861b35ca17dcefead0c4e277ee9ae7a7ccb2836365af"
       }
     },
     {
@@ -3588,8 +3588,8 @@
         "model": {
           "url": "models/creatures/hoard_boss_mushroom.glb",
           "path": "public/models/creatures/hoard_boss_mushroom.glb",
-          "bytes": 739212,
-          "sha256": "09b5e7d303248d035445b3d5008485c23d062df884b1ed2643149d94c0cbda79"
+          "bytes": 2401252,
+          "sha256": "194d8b09d2863713a9ad1304ab902a526cdbbd2402f0f90291427d6a1acbd163"
         },
         "idle": "Idle",
         "height": 2.2,
@@ -3606,11 +3606,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "0aa25ca72bece421083adcc6d892c2c8f3962bcc9beeb0c3e293371181e52618",
+      "sourceFingerprint": "01104371015ac85c1b79ea2cfaafe575d08635d85d644c9548bee0376af4ee31",
       "output": {
         "path": "public/ui/mobs/hoard_boss_mushroom.webp",
-        "bytes": 3234,
-        "sha256": "236643bdaa2f1961996352d65d021f727f6080157a647344f4da944c3492e71f"
+        "bytes": 3274,
+        "sha256": "db605368c373f478dde84f76566e8b493eb95bd1010128ac1cd839d28c976a11"
       }
     },
     {
@@ -3758,8 +3758,8 @@
         "model": {
           "url": "models/creatures/hoard_coinsack_scurrier.glb",
           "path": "public/models/creatures/hoard_coinsack_scurrier.glb",
-          "bytes": 670368,
-          "sha256": "aad2199d7499d4c87756940e9758413ad52bf2e332018aeb30c7414788da37b5"
+          "bytes": 2010552,
+          "sha256": "47da570e74b34d835ec47e78e40586314ca6f423dff70ecc6f319ab87881b8a4"
         },
         "idle": "Idle",
         "height": 2,
@@ -3776,11 +3776,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "69d4fccdae7b728baf7badcbc6a09fbc8b7a22a5ec9fae66d425950687f0e2a2",
+      "sourceFingerprint": "196c11c9073ebd7cb1e4a54bc826cff98bd39caabe1ef23d1d33d94a89e8b72c",
       "output": {
         "path": "public/ui/mobs/hoard_coinsack_scurrier.webp",
-        "bytes": 2788,
-        "sha256": "9f843547917a91f2f391740dfc0f50cf66c4e5762909cf2b254a72bda9a453ba"
+        "bytes": 2766,
+        "sha256": "ae8641f7340cd50f2b2cd2a71d0a0e7855c314b3f308c0a279dc18eab5a08865"
       }
     },
     {
@@ -3860,8 +3860,8 @@
         "model": {
           "url": "models/creatures/hoard_boss_mushroom.glb",
           "path": "public/models/creatures/hoard_boss_mushroom.glb",
-          "bytes": 739212,
-          "sha256": "09b5e7d303248d035445b3d5008485c23d062df884b1ed2643149d94c0cbda79"
+          "bytes": 2401252,
+          "sha256": "194d8b09d2863713a9ad1304ab902a526cdbbd2402f0f90291427d6a1acbd163"
         },
         "idle": "Idle",
         "height": 2.2,
@@ -3878,11 +3878,11 @@
         "resolved": "#d8e08a",
         "strength": 0.55
       },
-      "sourceFingerprint": "4c5d717c12655a3c6512068dc8ea276833fe911f29c232cebcb1128b393ff2d8",
+      "sourceFingerprint": "50dea2028995fe37fdd7946de44dc6be28be66f1def3d0040dc16fb28091b30f",
       "output": {
         "path": "public/ui/mobs/hoard_sporeling.webp",
-        "bytes": 3074,
-        "sha256": "a1a587baae765a471152da635b88c399b321e056851079b140e37d2ba6527cbc"
+        "bytes": 3098,
+        "sha256": "c94ecc1ecdda7f3418a2d3fb32fe1074d95730168effaa21d9cf8d29c5cd07e0"
       }
     },
     {
@@ -6228,8 +6228,8 @@
         "model": {
           "url": "models/creatures/hoard_boneclad_warrior.glb",
           "path": "public/models/creatures/hoard_boneclad_warrior.glb",
-          "bytes": 751116,
-          "sha256": "fc17f59f11c5623f81af47a66cec301967760ad6347db8a89defec7866bcdad3"
+          "bytes": 2262508,
+          "sha256": "3d4b92059636a30da31191013388e4dd61d3c6d2d92b6030fe78a6aabc40f335"
         },
         "idle": "Idle",
         "height": 3.5,
@@ -6246,11 +6246,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "db8acc356076842bd0a617a371d77e2677e5e1b1c2132164a36246f20b02029d",
+      "sourceFingerprint": "616a16a44224f50e0af58870b35d9f020689f1b6cb3942fb229e0c9d564002f4",
       "output": {
         "path": "public/ui/mobs/rift_boneclad.webp",
-        "bytes": 2780,
-        "sha256": "24df30e4a9adab1caa501ebb33bac30924e4ea0aeaf203ed80b891b7919af149"
+        "bytes": 2768,
+        "sha256": "0093a029643c8314aeb63017f4187a3d8134afc3a0f1b244bb6a1eb64171084b"
       }
     },
     {
@@ -6296,8 +6296,8 @@
         "model": {
           "url": "models/creatures/hoard_archon_nyxaris.glb",
           "path": "public/models/creatures/hoard_archon_nyxaris.glb",
-          "bytes": 670452,
-          "sha256": "0322aa40ba1c29cbac1fa06eb1574e4e1068403df144ebfc6c5ebc54b4686499"
+          "bytes": 1654428,
+          "sha256": "8dba339c6eab465f4bf7e146ad705e36e315c366a5f3b48da9f38a00b40575d7"
         },
         "idle": "Idle",
         "height": 2.4,
@@ -6314,11 +6314,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "a99e6a54ae3e0d4d1a295b0c5f075da72dca7868f0bb3dbb491bac11c04d1f6f",
+      "sourceFingerprint": "3131e92b28fb30a2a461e7b1f1fb5ffd1f0f934f18f6ba529a2c63ed35a3bf75",
       "output": {
         "path": "public/ui/mobs/rift_boss_arcane.webp",
-        "bytes": 1892,
-        "sha256": "5e346bb6591dcac45c0f44ffed1b691dcb65095f560071afe0f10bada6e405b5"
+        "bytes": 1900,
+        "sha256": "fb34c91cd4ade1a1fe69f2499e71be25a644f8b43938472a834358b829e97a8b"
       }
     },
     {
@@ -6364,8 +6364,8 @@
         "model": {
           "url": "models/creatures/hoard_emberforge_tyrant.glb",
           "path": "public/models/creatures/hoard_emberforge_tyrant.glb",
-          "bytes": 847088,
-          "sha256": "57a9a7ae50ffc31c407b9df2697685fa665c6908951f468e02c9c0d515372448"
+          "bytes": 2048476,
+          "sha256": "5fbe5fd10601da9be205fdf63fcdeed024f21b93c294ddc7689c206b3159b584"
         },
         "idle": "Idle",
         "height": 2.6,
@@ -6395,11 +6395,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "cee3426d642f33800892ac0d4eae4ba95de9d5eb418ca76951fb34a16b3e7ce7",
+      "sourceFingerprint": "59c924bbdf0a964470268d142a91f383beab64d0cf6261519ea27172bfabd4ae",
       "output": {
         "path": "public/ui/mobs/rift_boss_ember.webp",
-        "bytes": 2554,
-        "sha256": "6d83039815873394a9efec8fa72800c838b1c8ca4b528645506535d4bead41af"
+        "bytes": 2504,
+        "sha256": "f8c9717ae4ffa85b36512335253394a68dfdf1b45b20a26dbce8401a089082bb"
       }
     },
     {
@@ -6411,8 +6411,8 @@
         "model": {
           "url": "models/creatures/hoard_hoarfrost_warden.glb",
           "path": "public/models/creatures/hoard_hoarfrost_warden.glb",
-          "bytes": 1523784,
-          "sha256": "ae692a4161fc410f9cacabe8b59cf1362fe8b859ed79e8f1c1b91df831eb9187"
+          "bytes": 1934580,
+          "sha256": "12746142e61c4e7c8accba47f7a8ae05a4feb02157482f4865a271a5d09e760e"
         },
         "idle": "Idle",
         "height": 2.6,
@@ -6429,11 +6429,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "60f3581154544c3631fb633b38e66b3e888b19a017ac62d3e0a9ddd767c1208a",
+      "sourceFingerprint": "c4f777c1626b49f4d3fbf79b07973ce909a61afa58f834b0ce423606b5e39369",
       "output": {
         "path": "public/ui/mobs/rift_boss_frost.webp",
-        "bytes": 3220,
-        "sha256": "6beae1411127f89312f1e951a10aa483fff764b551abc7c0fb9da633570a5247"
+        "bytes": 3214,
+        "sha256": "567e4ef57e9b3b952e1f21dc3bfc6321da2b51e007af86127a5ce191341a8acf"
       }
     },
     {
@@ -6547,8 +6547,8 @@
         "model": {
           "url": "models/creatures/hoard_tempest_vharok.glb",
           "path": "public/models/creatures/hoard_tempest_vharok.glb",
-          "bytes": 813508,
-          "sha256": "1893267784fc4c31c005cafe5478a2fb7bbdcc7ce1429b93316066794dde9517"
+          "bytes": 2245232,
+          "sha256": "305ac4e6532a8cd6afce0bd7289e06200721300cb5bdb737ecf858ee11669d27"
         },
         "idle": "Idle",
         "height": 2.5,
@@ -6565,11 +6565,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "05d7a65866b3d5dc7fc7a8908a522d4db9157b7c41dda14c07866aab23ea68d5",
+      "sourceFingerprint": "90589ee1c60bcc2201fb2e61b0fcd77dae6f387307d227170b547e19039b05b9",
       "output": {
         "path": "public/ui/mobs/rift_boss_storm.webp",
-        "bytes": 2470,
-        "sha256": "77e8356ea24084e342f68f51c17d8d7655d87d6f58d921d8b5361a52b955f3d3"
+        "bytes": 2476,
+        "sha256": "27a6932edd8773562a4ab811acbdc48e58424e4ca2320b9783e88cc6a2989dde"
       }
     },
     {
@@ -6581,8 +6581,8 @@
         "model": {
           "url": "models/creatures/hoard_abyssal_maw.glb",
           "path": "public/models/creatures/hoard_abyssal_maw.glb",
-          "bytes": 686392,
-          "sha256": "92421142d9617b834ea3b123b4cae76a279794dbd0304466b00b1a7e20bd818e"
+          "bytes": 1058408,
+          "sha256": "4c7f426c6492f213d1d539d7c8ca35c4a311ca9c415b9f6f64dd4bc18de56f88"
         },
         "idle": "Idle",
         "height": 2.3,
@@ -6599,11 +6599,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "15cc23395d8c5765375622d5752d17b8b7669789e4a0e464e0d45f5c3fa90467",
+      "sourceFingerprint": "17c3b6289ffe9345aa33f55bddf3efcf10c064795d6aac70b0c9d51901d86dbb",
       "output": {
         "path": "public/ui/mobs/rift_boss_tide.webp",
-        "bytes": 2264,
-        "sha256": "2d6ff71a42af998a5e47f495c409b7f291a4c8e2ee4e28e3bba88a0e10d2b8f9"
+        "bytes": 2248,
+        "sha256": "e9974bc149570abead8fba8d88daefe99c896d4f0cca1e6e6f3e1a5606c0af59"
       }
     },
     {
@@ -6649,8 +6649,8 @@
         "model": {
           "url": "models/creatures/hoard_deep_lurker.glb",
           "path": "public/models/creatures/hoard_deep_lurker.glb",
-          "bytes": 436596,
-          "sha256": "c898c18e443c24ca921af1e8e7cd63b834f81b55db8702c3a60da2b3c2ed3b0a"
+          "bytes": 822924,
+          "sha256": "fb1160df797ca6b6aa89f02a60721b7bfe3760f7b97986d4e708925dcd034a46"
         },
         "idle": "Idle",
         "height": 2,
@@ -6667,11 +6667,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "b32c805d2bf6ae97ab3db6611fc500a2440c40a2b9f1f4fc087fde83551a3f55",
+      "sourceFingerprint": "8b7f7aeb406b868bd4fcb2fa61e50171181389f0449f4c507dc0fdeb8277ab5c",
       "output": {
         "path": "public/ui/mobs/rift_deep_lurker.webp",
-        "bytes": 1702,
-        "sha256": "07f12acc48eda9367f5ea2939fc6acb3a932e87796b79eea1df494f852b1ff11"
+        "bytes": 1682,
+        "sha256": "398c436aa3b31ed83467e8b1ea98e0f7a60a5eea09d30166888163a3f4762dfd"
       }
     },
     {
@@ -6683,8 +6683,8 @@
         "model": {
           "url": "models/creatures/hoard_dread_stalker.glb",
           "path": "public/models/creatures/hoard_dread_stalker.glb",
-          "bytes": 586340,
-          "sha256": "22b3a040cc09bd1b8d73f80ad9ff7e7281b3774c3a449b19d8da039a19fd62b9"
+          "bytes": 979176,
+          "sha256": "514af241a67481df7e09b4026ce70247a07ed216874e11f1699b725ffbcfd501"
         },
         "idle": "Idle",
         "height": 2.5,
@@ -6701,11 +6701,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "6f6a3c25b38e8f9663893819dded9fb8fcefb1c25a25ddda1abaebe152306d4c",
+      "sourceFingerprint": "e39466c488bd23e705a5666730c03161f6d3c997deec971d7f59bea667dfea93",
       "output": {
         "path": "public/ui/mobs/rift_dread_stalker.webp",
-        "bytes": 1744,
-        "sha256": "4a2668b7c58cd01d734444df5f945d9cda524625626dc44137d9c5c8ccc670df"
+        "bytes": 1754,
+        "sha256": "d0878b772c382db9036f2bf2dd78fb1a95778bace89206a8712672377baa46d7"
       }
     },
     {
@@ -6717,8 +6717,8 @@
         "model": {
           "url": "models/creatures/hoard_ember_fiend.glb",
           "path": "public/models/creatures/hoard_ember_fiend.glb",
-          "bytes": 653872,
-          "sha256": "b939055dee7fe374765bf1853d49a3c46a0967a94115eede8d54948bb884205d"
+          "bytes": 1972996,
+          "sha256": "8713146041d0ec6eb3d0dff3ff7bdbe127b385205c8f1cdf4a1d86c1856c677a"
         },
         "idle": "Idle",
         "height": 2.9,
@@ -6735,11 +6735,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "87c5ba3074f3e0dfd1f07e09b9a9f10550329a5ced0aff3a0e5e01578cbe378d",
+      "sourceFingerprint": "c3783d8c33c870de14da6f90971b11a50aeda7f761dd4986d21b6c5efe9875c2",
       "output": {
         "path": "public/ui/mobs/rift_ember_fiend.webp",
-        "bytes": 2040,
-        "sha256": "03e3fe8eb112c770c1b43a8d375344f288e94ae5bebca065009305831786161f"
+        "bytes": 2050,
+        "sha256": "6d40948784d6cf845431cb3591b6c5796465eaa349a91215c7eb455643a985ac"
       }
     },
     {
@@ -6751,8 +6751,8 @@
         "model": {
           "url": "models/creatures/hoard_frost_revenant.glb",
           "path": "public/models/creatures/hoard_frost_revenant.glb",
-          "bytes": 819492,
-          "sha256": "24545fea6a8c2b2e4070391b100a6e34ffbd59850bdd02ee874a9e192d206656"
+          "bytes": 2579768,
+          "sha256": "de8ccda356e5ed496c9cd9393393a59a249779280eb8e9071fa4bc5e80e96a04"
         },
         "idle": "Idle",
         "height": 3.6,
@@ -6769,11 +6769,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "ec92002f117df5af32b4a320e04abf86fe52cd20afc542882a1d25265448bfe2",
+      "sourceFingerprint": "53012bf5f64e93e36a124cf5f7ac8aad59f9b51303f182373c2f1898f5db9da6",
       "output": {
         "path": "public/ui/mobs/rift_frost_revenant.webp",
-        "bytes": 2248,
-        "sha256": "4344a235a813ea06291e0c26847abef26fb6a08520e04817203dbe42e0c39e07"
+        "bytes": 2338,
+        "sha256": "dbc3b32816ef7087e43a2c5ef31142d9b8494a6f8e91378f1138ed74293ccee9"
       }
     },
     {
@@ -6819,8 +6819,8 @@
         "model": {
           "url": "models/creatures/hoard_magma_brute.glb",
           "path": "public/models/creatures/hoard_magma_brute.glb",
-          "bytes": 638156,
-          "sha256": "ff157aa0d5c691821caa94b4a11339751ceb13b5805f581418ae391baadd4762"
+          "bytes": 1944796,
+          "sha256": "474f4608e3358a67d4c307c868a320d29fc0fa55360b50763c6ea660d5bdd3c5"
         },
         "idle": "Idle",
         "height": 4.1,
@@ -6837,11 +6837,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "28019908c6c94774f55e6db3cdf54e88d87fabd148a81c2132cd3ae7545bb850",
+      "sourceFingerprint": "3fae7fdf5ebaba1420fef5c34e2f8d2297047d1c246c0127f30bebffa19c118d",
       "output": {
         "path": "public/ui/mobs/rift_magma_brute.webp",
-        "bytes": 2248,
-        "sha256": "3d0a7cab9a1ceb2793239e5c593d97040a324b3da920bd3d34c775304ed9c853"
+        "bytes": 2340,
+        "sha256": "fa04aaa2147e48b36b721a8782e1b9ecc94b967199af50057b8b11aa1dcc292e"
       }
     },
     {
@@ -6975,8 +6975,8 @@
         "model": {
           "url": "models/creatures/hoard_rime_elemental.glb",
           "path": "public/models/creatures/hoard_rime_elemental.glb",
-          "bytes": 476484,
-          "sha256": "8fde6dd73f24c91dbfbceb1fe42e0477b51069da914123327d63d72b44e28089"
+          "bytes": 794868,
+          "sha256": "d358238863159c91c58b8e81086b1954c8ad6f4d0f3931358acb825599259c5e"
         },
         "idle": "Idle",
         "height": 3.9,
@@ -6993,11 +6993,11 @@
         "resolved": "#8fd8ff",
         "strength": 0.35
       },
-      "sourceFingerprint": "b835f1f746ffe8c45c9db925fce6f0d56a06debd8613a6a939c21b22c3b0f77c",
+      "sourceFingerprint": "36f3709e710cd64840f3237af8e3b7037175d173bca00bfc82a00124728e80d1",
       "output": {
         "path": "public/ui/mobs/rift_rime_elemental.webp",
-        "bytes": 1960,
-        "sha256": "a5c4619a7140943029a9092cc797e6d80987c39b97629683f90c45ebe904ec75"
+        "bytes": 1926,
+        "sha256": "492f99df5f236b858cc8deb8193fcf3c6200906c6ac67b48ba5cb15cb49ff3bb"
       }
     },
     {
@@ -7077,8 +7077,8 @@
         "model": {
           "url": "models/creatures/hoard_storm_caller.glb",
           "path": "public/models/creatures/hoard_storm_caller.glb",
-          "bytes": 773008,
-          "sha256": "57e89d898ac711ac8a55a1244da162b91615402d22a1038d1fa5dd336c1adc20"
+          "bytes": 2422196,
+          "sha256": "e85ac27e27bd7f5369dd3cebe1cabcd88fb292a414d5189c696d60b249c1d0b3"
         },
         "idle": "Idle",
         "height": 4.4,
@@ -7095,11 +7095,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "94dcc4726eab27a3928b687330728def0f16ad052a2c2bfa862d2a031a87149e",
+      "sourceFingerprint": "8cf942b5274c0cad5fe8a4797291ba5b32de7112c6ef36b4b1b63b4cd413a716",
       "output": {
         "path": "public/ui/mobs/rift_storm_caller.webp",
-        "bytes": 2550,
-        "sha256": "39857f2a201b6d55bfbf3c7e2ccb126fb27fd580d7ed0738d744f4c94b7eafbf"
+        "bytes": 2530,
+        "sha256": "d4f5cdbf5fba9c65b2eb67030bc0dbdf9d7a6732709f7b6bc2c719d935174c76"
       }
     },
     {
@@ -7111,8 +7111,8 @@
         "model": {
           "url": "models/creatures/hoard_stormscale_drake.glb",
           "path": "public/models/creatures/hoard_stormscale_drake.glb",
-          "bytes": 646028,
-          "sha256": "fe82b528ddd8bc0a278d0a980d1387641636134b5731771d5469e5b4b04504bd"
+          "bytes": 1126964,
+          "sha256": "39078b78f1da88222301cda15578309f0d8305f3d2b21fa3c4452d34b8d20dbe"
         },
         "idle": "Idle",
         "height": 3,
@@ -7129,11 +7129,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "5973ed4be56fb32090b828940232b08e0bcea79aad3c6fd71b0f23353964fd60",
+      "sourceFingerprint": "4dd93f0152b1ecff12b82bc7991613e319477c7e2e73d11bedffb9927e05ff70",
       "output": {
         "path": "public/ui/mobs/rift_stormscale.webp",
-        "bytes": 2018,
-        "sha256": "3979227f9c8f27e16e8ab952d222fbc06e02f6d8b5536456b7fde80414ba4edd"
+        "bytes": 2006,
+        "sha256": "929b6485ba3fc0d0f5945093c2b4faf3a473ee553dc3f87b8775830c63ab8a2d"
       }
     },
     {
@@ -7145,8 +7145,8 @@
         "model": {
           "url": "models/creatures/hoard_thornback_stalker.glb",
           "path": "public/models/creatures/hoard_thornback_stalker.glb",
-          "bytes": 598376,
-          "sha256": "407ee606e0a5272c90487dd31b109314ceb1876d001028801313b49e9142433c"
+          "bytes": 988144,
+          "sha256": "16ccbc5c4457cdc42e741af0e9872b695b40b8b379e7c963eb2cfa4235d9823c"
         },
         "idle": "Idle",
         "height": 3.4,
@@ -7163,11 +7163,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "f755c43c4e0864e157a3e9086f2c91548a7f84b6174d57c37c04230e7c258322",
+      "sourceFingerprint": "ec1e8b85ff5d44f8a1a4acb5a1291d5745a353ee8a0a7cd4d5fe2fc61d194889",
       "output": {
         "path": "public/ui/mobs/rift_thornback.webp",
-        "bytes": 2666,
-        "sha256": "9898605a2b1337c33f0c81c71bbc9c65bef4f9ac81556c6c94e5d41d552614a5"
+        "bytes": 2670,
+        "sha256": "eb46c9a682f5c7352ddb9797399fce383e25ab50a27b8299781a593197d0650a"
       }
     },
     {
@@ -7179,8 +7179,8 @@
         "model": {
           "url": "models/creatures/hoard_tide_thrall.glb",
           "path": "public/models/creatures/hoard_tide_thrall.glb",
-          "bytes": 725108,
-          "sha256": "04a5d8f3b67baa56b5520dcf495c2bdad48e0896eaf0c2715046d56676d53384"
+          "bytes": 2212384,
+          "sha256": "684ed54e0a97208fbe5d44b0e5d1b73a197f5390cba61a98d0bef2c2bb0a874f"
         },
         "idle": "Idle",
         "height": 4.6,
@@ -7197,11 +7197,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "0778adb457814054f8348d708a182c1c975c720dbc8c5b02ad387e1b83c53aea",
+      "sourceFingerprint": "fb2b85aebbf2e70f5a8627aafeec4d238a463b729144e3f26e6d518fdd6e3573",
       "output": {
         "path": "public/ui/mobs/rift_tide_thrall.webp",
-        "bytes": 2158,
-        "sha256": "536e5ad89edeb03db4e10f783c0ecbc6b730259aba7249a46c73401ffecc4046"
+        "bytes": 2208,
+        "sha256": "abaff4cd0b8fee95a6fb16c13d6c2582c39f0d9ea4aededa47634c8520aded0a"
       }
     },
     {
@@ -7213,8 +7213,8 @@
         "model": {
           "url": "models/creatures/hoard_venom_weaver.glb",
           "path": "public/models/creatures/hoard_venom_weaver.glb",
-          "bytes": 450320,
-          "sha256": "155815584c4b4b478aae6b7fe4e6cbdb5101a9368364ea7ebf83e3e50e762509"
+          "bytes": 859972,
+          "sha256": "cec3ab3810543498b630270a23aa0fe615a44523f670f6101adac95d2c8ab5d1"
         },
         "idle": "Idle",
         "height": 1.8,
@@ -7231,11 +7231,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "b25bab564faa97deac84125ef0011bbd19e37a349540c6526579843bdcc36253",
+      "sourceFingerprint": "62813c8e3dd3aaae8f8727dd6e6fbc730d83612beed507cb3da7e0eede884380",
       "output": {
         "path": "public/ui/mobs/rift_venom_weaver.webp",
-        "bytes": 1816,
-        "sha256": "55b8aafb0147a64a9aba65910b2ba31f3f5eb721cb4c0e55389a58b0189d05c3"
+        "bytes": 1824,
+        "sha256": "6b8e81ba6e93250b5a70b4154afe551d7c5cbe25c0d2220f58a473c803a3d0d3"
       }
     },
     {
@@ -7247,8 +7247,8 @@
         "model": {
           "url": "models/creatures/hoard_void_acolyte.glb",
           "path": "public/models/creatures/hoard_void_acolyte.glb",
-          "bytes": 692364,
-          "sha256": "ea78393791856f9e9e11811c62821e288b8e711618d740c162492d8247f629fe"
+          "bytes": 1986904,
+          "sha256": "9465f25cb1e7ae7bde5f5f1e43cd8453d2beea0362e60ddebdfe84ca167a5b4f"
         },
         "idle": "Idle",
         "height": 4.2,
@@ -7265,11 +7265,11 @@
         "resolved": null,
         "strength": null
       },
-      "sourceFingerprint": "ea9acdf9a716c6092588f29c8b1acbd56fb0a3d3353ca29a64123cab21c25076",
+      "sourceFingerprint": "b92bc6f5e9999c82268737d59afcfaeb252779e0ab17ab17dc0de9a2ab823973",
       "output": {
         "path": "public/ui/mobs/rift_void_acolyte.webp",
-        "bytes": 2048,
-        "sha256": "433c8927e1265de386fc2ac502ef2ef5cc14442b951cebfcba8acfec1593aced"
+        "bytes": 2038,
+        "sha256": "bb8cf492e4ba7f161e59a5cf5b8685b22327181827188c2ca58fc252c0fa5b35"
       }
     },
     {

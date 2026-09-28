@@ -24,6 +24,7 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hud.core.mapMarkerLabels.hoardReturnEntrance': '財宝庫の帰還口',
   'sim.rift.hoardExitOpens': '財宝はあなたのものです。入口に戻って外へ登ってください。',
   'sim.rift.hoardStepBack': '財宝庫の入口から地上へ戻った。',
+  'abilityUi.cast.hoard_cast_charge': '猛進突撃',
   'abilityUi.cast.hoard_cast_fear': '戦慄の咆哮',
   'abilityUi.cast.hoard_cast_stun': '昏倒の一撃',
   'abilityUi.cast.hoard_cast_silence': '沈黙の金切り声',
@@ -94,7 +95,7 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.hoard_boss_mimic.name': '貪欲な宝箱',
   'entities.mobs.hoard_bat_swarmling.name': '洞窟の群れコウモリ',
   'entities.mobs.hoard_silk_cocoon.name': '絹の繭',
-  'apiError.character.vault_mail_recovering':
+  'errors.api.vaultMailRecovering':
     '宝物庫の報酬メールを復旧しています。少し待ってからもう一度お試しください。',
   'entities.abilities.clockwork_shock_bomb.description':
     '目標地点にぜんまい式ショックボムを投げ、5ヤード以内の敵に120～160の自然ダメージを与える。',
@@ -361,7 +362,6 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.letters.hoard_vault_reward.subject': '宝物庫の報酬',
   'entities.letters.hoard_vault_reward.body':
     '宝物庫は攻略されましたが、あなたの取り分は宝箱から受け取られていません。獲得した品とお金をカラス便がお届けします。\n\n- カラス便',
-  'abilityUi.cast.hoard_cast_charge': '突撃',
   'abilityUi.cast.hoard_cast_cinder_bolt': '燃えさしの矢',
   'abilityUi.cast.hoard_cast_doom_ritual': '破滅の儀式',
   'abilityUi.cast.hoard_cast_drowning_hook': '溺れの鉤',

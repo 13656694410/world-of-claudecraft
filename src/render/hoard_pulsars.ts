@@ -37,6 +37,7 @@ import type { IWorld } from '../world_api';
 import type { HoardBossCueView } from '../world_api/dungeons';
 import { loadGltf } from './assets/loader';
 import { registerDeferredPreload } from './assets/preload';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX, type GfxTier, surfaceMat } from './gfx';
 import { glowMaterial, ribbonMaterial, sparkMaterial, strip } from './hoard_fx_materials';
@@ -259,7 +260,7 @@ export class HoardPulsarFx {
     for (const mesh of [this.ward, this.wardGlow]) {
       mesh.visible = false;
       mesh.frustumCulled = false;
-      mesh.renderOrder = 23;
+      mesh.renderOrder = floorVfxRenderOrder('encounter', 22);
       this.root.add(mesh);
     }
 
@@ -281,7 +282,7 @@ export class HoardPulsarFx {
       const points = new THREE.Points(geometry, this.keep(sparkMaterial()));
       points.visible = false;
       points.frustumCulled = false;
-      points.renderOrder = 30;
+      points.renderOrder = floorVfxRenderOrder('encounter', 29);
       this.root.add(points);
       this.sparks = {
         points,
@@ -423,7 +424,7 @@ export class HoardPulsarFx {
     rig.root.visible = false;
     rig.root.add(rig.spin, rig.halo);
     rig.halo.frustumCulled = false;
-    rig.halo.renderOrder = 25;
+    rig.halo.renderOrder = floorVfxRenderOrder('encounter', 24);
     this.root.add(rig.root);
     if (!this.low) {
       const pulseMaterial = this.keep(this.basic(0xffffff, 0.85, true));
@@ -444,13 +445,15 @@ export class HoardPulsarFx {
     for (let i = 0; i < floating.length; i++) {
       floating[i].visible = false;
       floating[i].frustumCulled = false;
-      floating[i].renderOrder = 24 + i;
+      // Past the band's top rung the stack clamps there; every floating piece is
+      // additive, so a shared rung is colour-invariant.
+      floating[i].renderOrder = floorVfxRenderOrder('encounter', 23 + i);
       this.root.add(floating[i]);
     }
     if (trail) {
       trail.mesh.visible = false;
       trail.mesh.frustumCulled = false;
-      trail.mesh.renderOrder = 22;
+      trail.mesh.renderOrder = floorVfxRenderOrder('encounter', 21);
       this.root.add(trail.mesh);
     }
     this.buildOrb(rig, asset);

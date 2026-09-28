@@ -6715,8 +6715,7 @@ export const id_ID: EnTranslations = {
       "taken_over": "Karakter Anda telah diambil alih oleh sesi lain.",
       "rename_required": "Karakter ini harus diganti namanya sebelum memasuki dunia.",
       "invalid_appearance": "Tampilan itu tidak dapat disimpan. Sesuaikan desainnya, lalu coba lagi.",
-      "reroll_unavailable": "Karakter ini tidak memiliki desain ulang gratis yang tersedia.",
-      "vault_mail_recovering": "Your vault reward mail is being restored. Try again shortly."
+      "reroll_unavailable": "Karakter ini tidak memiliki desain ulang gratis yang tersedia."
     },
     "moderation": {
       "suspended_until": "Akun ini ditangguhkan hingga {date}.",
@@ -11133,6 +11132,7 @@ export const id_ID: EnTranslations = {
       "alreadyInWorld": "Karakter sudah berada di dalam dunia.",
       "accountSessionLimit": "Terlalu banyak karakter dari akun ini yang sudah berada di dalam dunia.",
       "takenOver": "Karakter Anda telah diambil alih oleh sesi lain.",
+      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
       "renameBeforeEntering": "Karakter ini harus diganti namanya sebelum memasuki dunia.",
       "renameNotPermitted": "Mengganti nama karakter ini tidak diperbolehkan.",
       "unsupportedMediaType": "Format permintaan tidak didukung.",
@@ -12222,7 +12222,7 @@ export const id_ID: EnTranslations = {
       "hoard_cast_void_empower": "Void Empowerment",
       "hoard_cast_webbing": "Webbing",
       "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Charge",
+      "hoard_cast_charge": "Headlong Charge",
       "hoard_cast_silk_snare": "Silk Snare",
       "hoard_cast_silence": "Silencing Shriek",
       "hoard_cast_hex": "Hex",

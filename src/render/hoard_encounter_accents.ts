@@ -16,6 +16,7 @@ import { HOARD_ADD_CAST_SCHOOLS } from '../sim/rift/hoard_add_casts';
 import { HOARD_CONTROL_CAST_SCHOOLS } from '../sim/rift/hoard_control_casts';
 import type { IWorld } from '../world_api';
 import type { HoardBossCueView } from '../world_api/dungeons';
+import { floorVfxRenderOrder } from './floor_vfx_layer';
 import { attachSceneGroupGated } from './gated_scene_attach';
 import { GFX, type GfxTier } from './gfx';
 import {
@@ -222,8 +223,8 @@ export class HoardEncounterAccents {
       );
       arc.frustumCulled = false;
       scorch.frustumCulled = false;
-      arc.renderOrder = 23;
-      scorch.renderOrder = 21;
+      arc.renderOrder = floorVfxRenderOrder('encounter', 22);
+      scorch.renderOrder = floorVfxRenderOrder('encounter', 20);
       group.add(scorch, arc, shards);
       this.root.add(group);
       this.slams.push({
@@ -259,7 +260,7 @@ export class HoardEncounterAccents {
       const inner = new THREE.Mesh(reticle, ringMaterial);
       for (const mesh of [outer, inner]) {
         mesh.frustumCulled = false;
-        mesh.renderOrder = 22;
+        mesh.renderOrder = floorVfxRenderOrder('encounter', 21);
       }
       outer.position.y = 0.2;
       inner.position.y = 0.24;

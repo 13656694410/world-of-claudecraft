@@ -65,11 +65,11 @@ function cardMaterial(kind: CardKind): THREE.ShaderMaterial {
     // A pool of light: bright heart, long soft falloff.
     glow: 'float d = length((vUv-.5)*2.); float a = pow(max(0.,1.-d),2.2);',
     // A wedge of light: born at the gap, widening and thinning as it climbs.
-    ray: 'float w = mix(.18,1.,vUv.y); float s = 1.-smoothstep(0.,w,abs(vUv.x-.5)*2.); float a = s*s*pow(1.-vUv.y,1.6)*smoothstep(0.,.08,vUv.y);',
+    ray: 'float w = mix(.18,1.,vUv.y); float s = 1.-smoothstep(0.,w,abs(vUv.x-.5)*2.); float a = s*s*pow(max(0.,1.-vUv.y),1.6)*smoothstep(0.,.08,vUv.y);',
     // A shockwave: a thin bright band at the rim.
     ring: 'float d = length((vUv-.5)*2.); float a = smoothstep(.62,.9,d)*(1.-smoothstep(.9,1.,d));',
     // The burst the chest appears inside: bright at the ground, gone by the top.
-    column: 'float a = pow(1.-vUv.y,1.4)*.85;',
+    column: 'float a = pow(max(0.,1.-vUv.y),1.4)*.85;',
   }[kind];
   material = markSharedMaterial(
     new THREE.ShaderMaterial({

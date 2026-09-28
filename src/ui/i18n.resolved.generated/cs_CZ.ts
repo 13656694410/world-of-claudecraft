@@ -6715,8 +6715,7 @@ export const cs_CZ: EnTranslations = {
       "taken_over": "Tvoje postava byla převzata jinou relací.",
       "rename_required": "Tato postava musí být před vstupem do světa přejmenována.",
       "invalid_appearance": "Tento vzhled se nepodařilo uložit. Uprav návrh a zkus to znovu.",
-      "reroll_unavailable": "Tato postava nemá k dispozici žádnou volnou změnu vzhledu.",
-      "vault_mail_recovering": "Your vault reward mail is being restored. Try again shortly."
+      "reroll_unavailable": "Tato postava nemá k dispozici žádnou volnou změnu vzhledu."
     },
     "moderation": {
       "suspended_until": "Tento účet je pozastavený do {date}.",
@@ -11133,6 +11132,7 @@ export const cs_CZ: EnTranslations = {
       "alreadyInWorld": "Postava už je ve světě.",
       "accountSessionLimit": "Příliš mnoho postav na tomto účtu už je ve světě.",
       "takenOver": "Tvoje postava byla převzata jinou relací.",
+      "vaultMailRecovering": "Your vault reward mail is being restored. Try again shortly.",
       "renameBeforeEntering": "Tato postava musí být před vstupem do světa přejmenována.",
       "renameNotPermitted": "Přejmenování této postavy není povoleno.",
       "unsupportedMediaType": "Nepodporovaný formát požadavku.",
@@ -12222,7 +12222,7 @@ export const cs_CZ: EnTranslations = {
       "hoard_cast_void_empower": "Void Empowerment",
       "hoard_cast_webbing": "Webbing",
       "hoard_cast_doom_ritual": "Doom Ritual",
-      "hoard_cast_charge": "Charge",
+      "hoard_cast_charge": "Headlong Charge",
       "hoard_cast_silk_snare": "Silk Snare",
       "hoard_cast_silence": "Silencing Shriek",
       "hoard_cast_hex": "Hex",

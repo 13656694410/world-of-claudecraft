@@ -6715,8 +6715,7 @@ export const zh_CN: EnTranslations = {
       "taken_over": "你的角色已被另一个会话接管。",
       "rename_required": "此角色必须先改名才能进入世界。",
       "invalid_appearance": "无法保存该外观。请调整设计后重试。",
-      "reroll_unavailable": "此角色没有可用的免费重新设计。",
-      "vault_mail_recovering": "宝库奖励邮件正在恢复中。请稍后重试。"
+      "reroll_unavailable": "此角色没有可用的免费重新设计。"
     },
     "moderation": {
       "suspended_until": "此账号被停用至 {date}。",
@@ -11133,6 +11132,7 @@ export const zh_CN: EnTranslations = {
       "alreadyInWorld": "角色已在世界中。",
       "accountSessionLimit": "此账号已有太多角色在世界中。",
       "takenOver": "你的角色已被另一个会话接管。",
+      "vaultMailRecovering": "宝库奖励邮件正在恢复中。请稍后重试。",
       "renameBeforeEntering": "此角色必须先改名才能进入世界。",
       "renameNotPermitted": "不允许为此角色改名。",
       "unsupportedMediaType": "不支持的请求格式。",
@@ -12222,7 +12222,7 @@ export const zh_CN: EnTranslations = {
       "hoard_cast_void_empower": "虚空强化",
       "hoard_cast_webbing": "蛛网缠绕",
       "hoard_cast_doom_ritual": "末日仪式",
-      "hoard_cast_charge": "冲锋",
+      "hoard_cast_charge": "猛力冲撞",
       "hoard_cast_silk_snare": "丝网陷阱",
       "hoard_cast_silence": "沉默尖啸",
       "hoard_cast_hex": "妖术",
