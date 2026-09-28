@@ -504,7 +504,7 @@ export const ru_RU: EnTranslations = {
         "world": "Добыча за локальные задания",
         "pvp": "Снаряжение Боевой мощи"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Награды ждут вас. Посетите смотрителя хранилища в Иствруке, чтобы открыть хранилища и получить награду."
     },
     "ferry": {
       "regionLabel": "Расписание парома",

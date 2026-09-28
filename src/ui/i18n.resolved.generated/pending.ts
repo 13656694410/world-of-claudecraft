@@ -28,24 +28,14 @@ export const pending: Record<string, readonly string[]> = {
   "de_DE": [
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
-  "zh_CN": [
-    "hudChrome.weeklyRewards.previewClaimNotice"
-  ],
-  "zh_TW": [
-    "hudChrome.weeklyRewards.previewClaimNotice"
-  ],
-  "ko_KR": [
-    "hudChrome.weeklyRewards.previewClaimNotice"
-  ],
-  "ja_JP": [
-    "hudChrome.weeklyRewards.previewClaimNotice"
-  ],
+  "zh_CN": [],
+  "zh_TW": [],
+  "ko_KR": [],
+  "ja_JP": [],
   "pt_BR": [
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],
-  "ru_RU": [
-    "hudChrome.weeklyRewards.previewClaimNotice"
-  ],
+  "ru_RU": [],
   "cs_CZ": [
     "hudChrome.weeklyRewards.previewClaimNotice"
   ],

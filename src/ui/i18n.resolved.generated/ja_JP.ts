@@ -504,7 +504,7 @@ export const ja_JP: EnTranslations = {
         "world": "ワールドクエストの戦利品",
         "pvp": "ウォーフェア装備"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "報酬が待っています。イーストブルックの宝物庫の番人を訪ね、宝物庫を開けて報酬を受け取ってください。"
     },
     "ferry": {
       "regionLabel": "渡し船の時刻表",
