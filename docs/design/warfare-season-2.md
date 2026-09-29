@@ -16,7 +16,7 @@ cheaper entry tier:
   entry tier.
 - **Season weapons:** a strength two-handed sword, a strength one-hander, an agility
   one-hander, a caster staff, and the druid-only Vanguard's Feral Staff.
-  The feral staff carries 19 Strength, 11 Stamina, 73 Warfare Offense Rating,
+  The feral staff carries 10 Strength, 9 Agility, 11 Stamina, 73 Warfare Offense Rating,
   and 112 Warfare Defense Rating, with the same two-handed damage budget as the caster staff.
 - **Jewelry** stays entry tier: at item level 35 it would out-stat the badge jewelry.
 - **Item level 35:** source level 29 plus the epic bump of 6. That is level with the Ignivar

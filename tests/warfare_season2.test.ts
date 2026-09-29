@@ -127,11 +127,11 @@ describe('the Season 2 stock', () => {
 });
 
 describe('the stat rules (the honor discount at item level 35)', () => {
-  it('offers druids a class-locked Strength staff at the Season 2 weapon price', () => {
+  it('offers druids a class-locked Strength and Agility staff at the Season 2 weapon price', () => {
     const staff = ITEMS.vanguard_feral_staff;
     expect(staff.kind).toBe('weapon');
     expect(handOf(staff)).toBe('twohand');
-    expect(staff.stats).toEqual({ str: 19, sta: 11 });
+    expect(staff.stats).toEqual({ str: 10, agi: 9, sta: 11 });
     expect(staff.priceHonor).toBe(1800);
     expect(staff.classLocked).toBe(true);
     expect(staff.requiredClass).toEqual(['druid']);
