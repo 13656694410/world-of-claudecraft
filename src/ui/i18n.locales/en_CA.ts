@@ -26,7 +26,4 @@ export const en_CA: Partial<Record<TranslationKey, string>> = {
   'itemUi.kind.armor': 'Armour',
   'itemUi.stats.armor': 'Armour',
   'itemUi.tooltip.armorStat': '{value} Armour',
-  'entities.itemSets.vanguard_druid_feral.bonus2':
-    'Reduces the cooldowns of Lunge and Bruin Rush by 3 sec.',
-  'entities.itemSets.vanguard_druid_feral.bonus4': "Dash's cooldown is reduced by 15 sec.",
 };
