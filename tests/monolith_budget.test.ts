@@ -543,7 +543,8 @@ const MONOLITHS: MonolithRow[] = [
     // slot move: the slot tooltip's edit-gesture hints live in
     // slot_edit_hints_core.ts and the attack slot's dragstart payload sits on
     // one line. wc -l on the merged tree after biome. Exact count, zero slack.
-    ceiling: 18071,
+    // Banner payload and expiry policy moved to banner_queue.ts for hill warnings.
+    ceiling: 18034,
     seam: 'pure view core + thin painter on PainterHost (src/ui/CLAUDE.md)',
   },
   {
