@@ -633,6 +633,7 @@ const UI_PURE_CORES = [
   'src/ui/hud/battleground/battleground_window_view.ts',
   'src/ui/hud/world_pvp/world_pvp_window_view.ts',
   'src/ui/hud/hill/hill_bar_view.ts',
+  'src/ui/hud/hill/hill_map_view.ts',
   'src/ui/hud/battleground/bg_end_banner_view.ts',
   'src/ui/hud/battleground/battleground_scoreboard_view.ts',
   'src/ui/leaderboard_view.ts',

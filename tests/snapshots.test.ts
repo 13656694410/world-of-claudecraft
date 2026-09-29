@@ -6566,7 +6566,7 @@ describe('full self-state snapshot delta fixture', () => {
       holder: 'none',
       inZone: false,
       inside: false,
-      minutesLeft: 45,
+      minutesLeft: 30,
     });
     expect(['drakelands', 'frostveil', 'amberfall']).toContain(client.hillInfo?.zoneId);
     expect(client.restedXp).toBe(222); // rxp -> restedXp

@@ -50,6 +50,7 @@ import { activeWorldQuestsForCycle } from '../sim/world_quest_rotation';
 import type { FriendInfo, IWorld } from '../world_api';
 import { buildCastlePlanMarkers, type CastlePlanMarker } from './castle_plan_core';
 import { dungeonMapActive } from './dungeon_map_view';
+import { buildZoneMapHillMarker, type MapHillMarker } from './hud/hill/hill_map_view';
 import { viewerUsableToolTier } from './hud/professions/gathering_view';
 import { dawnholdMapActive, lastKeepMapActive } from './lastkeep_map_view';
 import { overworldDungeonPortals } from './map_dungeon_portals';
@@ -843,6 +844,9 @@ export interface OverworldMapModel {
   questAreas: MapQuestAreaMarker[];
   worldQuests: MapWorldQuestMarker[];
   worldBosses: MapWorldBossMarker[];
+  /** King of the Hill: the announced or standing hill's circle and badge when
+   *  its zone is the one on screen, else null (src/ui/hud/hill/hill_map_view.ts). */
+  hill: MapHillMarker | null;
   /** Gather nodes in the committed zone (all zoom levels). Empty only when
    *  the zone has no authored nodes in view. */
   gatherNodes: MapGatherNodeMarker[];
@@ -1106,6 +1110,11 @@ export function buildOverworldMapModel(input: OverworldMapInput): OverworldMapMo
     const { mx, my } = toMap(boss.pos.x, boss.pos.z);
     worldBosses.push({ bossId: boss.templateId, mx, my });
   }
+
+  // King of the Hill: every viewer's IWorld.hillInfo carries the hill's zone,
+  // centre and radius wherever they stand, so the circle shows whenever its
+  // zone is the one framed (the continent map shows it from anywhere).
+  const hill = buildZoneMapHillMarker(world.hillInfo, zone.id, inView, toMap, S / spanX);
 
   // Dungeon portals owned by the current zone (shown at every zoom).
   const portals: MapPortalMarker[] = [];
@@ -1405,6 +1414,7 @@ export function buildOverworldMapModel(input: OverworldMapInput): OverworldMapMo
     questAreas,
     worldQuests,
     worldBosses,
+    hill,
     gatherNodes,
     stations,
     services,

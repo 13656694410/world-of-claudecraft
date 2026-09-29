@@ -563,7 +563,8 @@ resolve every kill identically (`tests/world_pvp.test.ts`,
 
 ## King of the Hill
 
-Once every `HILL_WINDOW_SECONDS` (three hours) a hill rises somewhere in one of
+Once every `HILL_WINDOW_SECONDS` (two hours; owner spec 2026-09-29, down from
+three) a hill rises somewhere in one of
 the free-for-all zones (`src/sim/pvp/hill.ts`, rules in `hill_rules.ts`, the
 zone set from `worldPvpFfaZones`). The moment is random: the warning's offset
 inside the window is drawn by a private rng derived from the seed and the
@@ -588,8 +589,13 @@ A hill has three moments, each announced to the whole realm:
    window whose planned stand passes before any spot is found is skipped.
 2. **The rise** (`hillRiseLine`), `HILL_WARNING_SECONDS` (15 minutes) after the
    warning. The contest and the payouts run from here.
-3. **The fall** (`hillFallenLine`), `HILL_DURATION_SECONDS` (45 minutes) after
-   the rise. Banked seconds short of a payout are lost with it.
+3. **The fall** (`hillFallenLine`), `HILL_DURATION_SECONDS` (30 minutes; owner
+   spec 2026-09-29, down from 45) after the rise. Banked seconds short of a
+   payout are lost with it. The final standings follow (see below).
+
+While the hill stands, every `HILL_NOTICE_SECONDS` (five minutes) after the rise
+the realm hears where it still stands and when it falls
+(`hillStillStandsLine`), followed by the hold standings.
 
 The realm's `WORLD_PVP_DISABLED` switch turns the hill off with the rest of
 world PvP. A realm that slept through whole windows plans the current one.
@@ -610,17 +616,42 @@ needs no flag of its own.
 Honor RAMPS with the hold (owner tuning 2026-09-25, replacing a flat 1 a minute
 that paid 45 for a whole stand): each counted holder standing inside banks a
 second per pass, and every `HILL_ACCRUAL_SECONDS` (60) pays `hillHonorPerPayout`
-of the seconds the current holder has held the hill, `HILL_RAMP_STEP_HONOR` (2) a
-minute for the first `HILL_RAMP_STEP_SECONDS` (five minutes), 2 more each further
-five minutes, capped at `HILL_RAMP_MAX_HONOR` (12). The streak belongs to the
+of the seconds the current holder has held the hill, `HILL_RAMP_STEP_HONOR` (3) a
+minute for the first `HILL_RAMP_STEP_SECONDS` (200 seconds), 3 more each further
+200 seconds, capped at `HILL_RAMP_MAX_HONOR` (18). When the stand shortened from
+45 to 30 minutes (owner spec 2026-09-29: "reward the same total honour") the old
+ramp (2 a minute, +2 every five minutes, capped at 12) was compressed rather than
+cut: each step is two thirds as long and pays half as much again, so a full
+uncontested hold pays 381 against the old 388 (pinned in
+`tests/hill_rules.test.ts`). The streak belongs to the
 holding party and restarts when the hill changes hands, so a long hold is the
 thing worth taking. A party's size (five) is the payee cap. A holder who steps
 out banks nothing but keeps what they banked; leaving the party or the realm
 forfeits it, and a capture clears the books. A full party holding an uncontested
 hill for its whole stand earns about 380 each, about three Thornhollow Fields wins
 at the doubled award; two held hills a day is about 760, so 10,000 Honor is about
-13 days, level with a committed battleground day at the live result floor. No
-diminishing returns: the cap and the pace are the limit.
+13 days, level with a committed battleground day at the live result floor. The
+two-hour window offers twelve hills a day where the three-hour one offered eight,
+so the ceiling for a player who chases every hill rises by half while each hill
+pays what it did. No diminishing returns: the cap and the pace are the limit.
+
+The hold ranking (`src/sim/pvp/hill_ranking.ts`, owner spec 2026-09-29): every
+group that takes the hill opens a record (`ActiveHill.holds`) that banks each
+pass it holds the hill, whether or not a member stands inside, summed across
+every separate hold of the same stand, and collects every member who stood
+inside while it held. A party is named by its leader, a lone player by their own
+name. The standings (`hillRanking`, longest first, a tie in first-held order,
+`HILL_RANKING_SHOWN` deep, each hold in whole minutes rounded up, `hillRankLine`)
+are announced with each five-minute reminder and once more after the fall line.
+When the hill falls on its own or through `/dev hill end`, every player who
+stood inside for the group that held it longest (every group tied at the top,
+`hillVaultPayees`, each player once) and is still in the realm earns one win on
+the Weekly Vault's PvP row (`recordWeeklyPvpWin`, capped at the row's five, the
+same credit a rated battleground or ranked arena win gives) and is told
+(`HILL_VAULT_LINE`). The credit is injected by the host (`HillVaultCredit`: the
+Sim passes it into `updateHill`, the dev arm into `endHillNow`) because the vault
+module reaches `entity.ts`, which imports the pvp barrel. A realm switched off
+mid-stand drops the hill silently: no standings, no credit.
 
 The readout (`IWorld.hillInfo`, the `hill` self key) carries the geometry, the
 phase, the holder from the viewer's seat, whether the viewer counts
@@ -631,8 +662,12 @@ changes. The HUD bar (`src/ui/hud/hill/`) shows in that zone: while announced,
 the rise countdown and the distance to the marked circle; once risen, who holds
 it, you against them, the contest fill, the distance and the fall countdown;
 and in both, a note when the viewer does not count. The renderer draws the
-circle (`src/render/hill_ring.ts`) in the holder's colour; `/hill` in chat says
-where it stands or will rise. The state is session-only and never persisted.
+circle (`src/render/hill_ring.ts`) in the holder's colour. The maps show it to
+everyone wherever they stand (`src/ui/hud/hill/hill_map_view.ts`): the zone map
+draws the circle at its true size with a pennant badge and a caption (the
+event's name and when it rises or falls) whenever the hill's zone is framed,
+dashed and gold while announced; the continent overview badges it with its name
+from anywhere. `/hill` in chat says where it stands or will rise. The state is session-only and never persisted.
 
 Test levers (dev realms only, `ALLOW_DEV_COMMANDS`; also buttons in the dev
 command window's Scenarios tab): `/dev hill [zone]` raises a hill at once and

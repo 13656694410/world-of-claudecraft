@@ -9,6 +9,7 @@ import {
   HILL_DURATION_SECONDS,
   HILL_FIRST_WINDOW_AT_SECONDS,
   HILL_LATEST_WARN_OFFSET_SECONDS,
+  HILL_NOTICE_SECONDS,
   HILL_RADIUS,
   HILL_RAMP_MAX_HONOR,
   HILL_RAMP_STEP_HONOR,
@@ -33,16 +34,19 @@ import {
 describe('the tuning literals the copy and the docs quote', () => {
   it('pins the radius, the window, the warning, the stand, the capture length and the trickle', () => {
     expect(HILL_RADIUS).toBe(50);
-    expect(HILL_WINDOW_SECONDS).toBe(3 * 3_600);
+    // Owner spec 2026-09-29: every two hours (was three), a 30-minute stand
+    // (was 45), reminded every five minutes.
+    expect(HILL_WINDOW_SECONDS).toBe(2 * 3_600);
     expect(HILL_WARNING_SECONDS).toBe(15 * 60);
-    expect(HILL_DURATION_SECONDS).toBe(45 * 60);
+    expect(HILL_DURATION_SECONDS).toBe(30 * 60);
+    expect(HILL_NOTICE_SECONDS).toBe(5 * 60);
     expect(HILL_FIRST_WINDOW_AT_SECONDS).toBe(120);
-    expect(HILL_LATEST_WARN_OFFSET_SECONDS).toBe(2 * 3_600);
+    expect(HILL_LATEST_WARN_OFFSET_SECONDS).toBe(4_500);
     expect(HILL_CAPTURE_SECONDS).toBe(60);
     expect(HILL_ACCRUAL_SECONDS).toBe(60);
-    expect(HILL_RAMP_STEP_SECONDS).toBe(5 * 60);
-    expect(HILL_RAMP_STEP_HONOR).toBe(2);
-    expect(HILL_RAMP_MAX_HONOR).toBe(12);
+    expect(HILL_RAMP_STEP_SECONDS).toBe(200);
+    expect(HILL_RAMP_STEP_HONOR).toBe(3);
+    expect(HILL_RAMP_MAX_HONOR).toBe(18);
   });
 });
 
@@ -170,24 +174,24 @@ describe('hillSpotIsOpen', () => {
     expect(hillSpotIsOpen(open({ blocked: (x) => x > 45 }), 'zone', 0, 0, 50)).toBe(true);
   });
 });
-describe('the three-hour schedule', () => {
-  it('opens the first window two minutes in and one every three hours after', () => {
+describe('the two-hour schedule', () => {
+  it('opens the first window two minutes in and one every two hours after', () => {
     expect(hillWindowAt(0)).toBe(-1);
     expect(hillWindowAt(119)).toBe(-1);
     expect(hillWindowAt(120)).toBe(0);
-    expect(hillWindowAt(120 + 10_799)).toBe(0);
-    expect(hillWindowAt(120 + 10_800)).toBe(1);
+    expect(hillWindowAt(120 + 7_199)).toBe(0);
+    expect(hillWindowAt(120 + 7_200)).toBe(1);
   });
 
-  it('warns at the offset, rises 15 minutes on, falls 45 after, always inside the window', () => {
-    expect(hillTimes(0, 0)).toEqual({ warnAt: 120, risesAt: 120 + 900, closesAt: 120 + 3_600 });
+  it('warns at the offset, rises 15 minutes on, falls 30 after, always inside the window', () => {
+    expect(hillTimes(0, 0)).toEqual({ warnAt: 120, risesAt: 120 + 900, closesAt: 120 + 2_700 });
     expect(hillTimes(2, 600)).toEqual({
-      warnAt: 120 + 21_600 + 600,
-      risesAt: 120 + 21_600 + 1_500,
-      closesAt: 120 + 21_600 + 4_200,
+      warnAt: 120 + 14_400 + 600,
+      risesAt: 120 + 14_400 + 1_500,
+      closesAt: 120 + 14_400 + 3_300,
     });
     // The latest offset ends exactly at the window's close; past it clamps.
-    expect(hillTimes(0, HILL_LATEST_WARN_OFFSET_SECONDS).closesAt).toBe(120 + 10_800);
+    expect(hillTimes(0, HILL_LATEST_WARN_OFFSET_SECONDS).closesAt).toBe(120 + 7_200);
     expect(hillTimes(0, 99_999)).toEqual(hillTimes(0, HILL_LATEST_WARN_OFFSET_SECONDS));
     expect(hillTimes(0, -5)).toEqual(hillTimes(0, 0));
     expect(hillWindowAt(hillTimes(4, 1234).closesAt - 1)).toBe(4);
@@ -225,22 +229,32 @@ describe('hillContains', () => {
 });
 
 describe('hillHonorPerPayout: the hold ramp', () => {
-  it('pays 2 a minute for the first five minutes, +2 each five after, capped at 12', () => {
-    expect(hillHonorPerPayout(0)).toBe(2);
-    expect(hillHonorPerPayout(299)).toBe(2);
-    expect(hillHonorPerPayout(300)).toBe(4);
-    expect(hillHonorPerPayout(10 * 60)).toBe(6);
-    expect(hillHonorPerPayout(20 * 60)).toBe(10);
-    expect(hillHonorPerPayout(25 * 60)).toBe(12);
-    expect(hillHonorPerPayout(45 * 60)).toBe(12);
-    expect(hillHonorPerPayout(-5)).toBe(2);
+  it('pays 3 a minute for the first 200 seconds, +3 each 200 after, capped at 18', () => {
+    expect(hillHonorPerPayout(0)).toBe(3);
+    expect(hillHonorPerPayout(199)).toBe(3);
+    expect(hillHonorPerPayout(200)).toBe(6);
+    expect(hillHonorPerPayout(400)).toBe(9);
+    expect(hillHonorPerPayout(600)).toBe(12);
+    expect(hillHonorPerPayout(800)).toBe(15);
+    expect(hillHonorPerPayout(999)).toBe(15);
+    expect(hillHonorPerPayout(1_000)).toBe(18);
+    expect(hillHonorPerPayout(30 * 60)).toBe(18);
+    expect(hillHonorPerPayout(-5)).toBe(3);
   });
 
-  it('pays about 380 for a full uncontested stand (owner tuning: doubled with the battlegrounds)', () => {
-    // One payout per minute of the 45-minute stand after the 60-second capture.
-    let total = 0;
-    for (let minute = 1; minute <= 44; minute++) total += hillHonorPerPayout(minute * 60);
-    expect(total).toBeGreaterThanOrEqual(360);
-    expect(total).toBeLessThanOrEqual(400);
+  it('pays the 30-minute stand the same total the 45-minute stand paid (owner spec 2026-09-29)', () => {
+    // The retired ramp, verbatim: 2 a minute, +2 every five minutes, capped
+    // at 12, over the 45-minute stand after the 60-second capture.
+    const retired = (held: number): number => Math.min(12, 2 * (1 + Math.floor(held / 300)));
+    let before = 0;
+    for (let minute = 1; minute <= 44; minute++) before += retired(minute * 60);
+    // The live ramp over the 30-minute stand after the same capture.
+    let after = 0;
+    const paidMinutes = HILL_DURATION_SECONDS / 60 - HILL_CAPTURE_SECONDS / 60;
+    for (let minute = 1; minute <= paidMinutes; minute++) after += hillHonorPerPayout(minute * 60);
+    expect(before).toBe(388);
+    expect(after).toBe(381);
+    // Within 2% of the old stand: the same Honor, redistributed.
+    expect(Math.abs(after - before) / before).toBeLessThanOrEqual(0.02);
   });
 });

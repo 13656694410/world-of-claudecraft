@@ -481,6 +481,14 @@
     --color-map-world-quest-area-stroke: rgba(255, 221, 92, 0.72);
     --color-map-world-quest-available: #4aa3ff;
     --color-map-world-boss: #a970ff;
+    /* King of the Hill (src/ui/hud/hill/hill_map_painter.ts): the renderer's
+       ring colours (src/render/hill_ring_core.ts), gold unheld or announced,
+       green yours, red another group's, over a faint gold wash */
+    --color-map-hill-unheld: #d9a441;
+    --color-map-hill-yours: #4fd36a;
+    --color-map-hill-others: #ff4f3f;
+    --color-map-hill-area-fill: rgba(217, 164, 65, 0.16);
+    --color-map-hill-glyph: #1a140a;
     /* the numbered quest badge on each area (gold circle, dark numeral) */
     --color-map-quest-badge-fill: #ffd100;
     --color-map-quest-badge-text: #3a2b00;

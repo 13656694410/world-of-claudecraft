@@ -37,6 +37,7 @@ import {
   type ContinentZoneRegion,
 } from './continent_map_view';
 import { zoneDisplayName } from './entity_i18n';
+import { type HillMapColors, hillMapCaption, paintHillMapBadge } from './hud/hill/hill_map_painter';
 import { t } from './i18n';
 
 // Typography (Georgia, matching the per-zone map painter).
@@ -68,6 +69,10 @@ const SHADOW_NONE = 'transparent';
 const HERE_DOT_RADIUS = 3.5;
 const HERE_RING_RADIUS = 6.5;
 const HERE_RING_LINE_WIDTH = 2;
+// King of the Hill's badge, and the gap from its top to its caption.
+const HILL_BADGE_RADIUS = 6;
+const HILL_BADGE_LINE_WIDTH = 1.5;
+const HILL_CAPTION_GAP = 7;
 // Party member dots (issue 2652): smaller than the player's own dot and with a
 // thinner outline, so self stays the emphasized marker at a glance.
 const PARTY_DOT_RADIUS = 3;
@@ -84,6 +89,11 @@ const CONTINENT_COLOR_TOKENS = {
   outline: '--color-map-outline',
   player: '--color-map-player',
   partyDead: '--color-map-party-dead',
+  hillUnheld: '--color-map-hill-unheld',
+  hillYours: '--color-map-hill-yours',
+  hillOthers: '--color-map-hill-others',
+  hillAreaFill: '--color-map-hill-area-fill',
+  hillGlyph: '--color-map-hill-glyph',
   regionHoverFill: '--color-map-region-hover-fill',
   regionCurrentFill: '--color-map-region-current-fill',
   regionCurrentLabel: '--color-map-region-current-label',
@@ -299,6 +309,29 @@ export class ContinentMapPainter {
     if (hovered) {
       ctx.font = LABEL_HOVER_FONT;
       this.label(ctx, hovered, colors);
+    }
+
+    // King of the Hill: the pennant badge where the hill stands, captioned with
+    // the event's name so a player anywhere in the world can find it. Drawn
+    // under the party and the player so self always reads on top.
+    if (model.hill) {
+      const hillColors: HillMapColors = {
+        unheld: colors.hillUnheld,
+        yours: colors.hillYours,
+        others: colors.hillOthers,
+        areaFill: colors.hillAreaFill,
+        outline: colors.outline,
+        glyph: colors.hillGlyph,
+      };
+      paintHillMapBadge(ctx, model.hill, hillColors, HILL_BADGE_RADIUS, HILL_BADGE_LINE_WIDTH);
+      const title = hillMapCaption(model.hill).title;
+      const captionY = model.hill.my - HILL_BADGE_RADIUS - HILL_CAPTION_GAP;
+      ctx.font = LABEL_FONT;
+      ctx.lineWidth = LABEL_LINE_WIDTH;
+      ctx.strokeStyle = colors.outline;
+      ctx.fillStyle = colors.label;
+      ctx.strokeText(title, model.hill.mx, captionY);
+      ctx.fillText(title, model.hill.mx, captionY);
     }
 
     // Party members (issue 2652): one class-colored dot per member (the dead

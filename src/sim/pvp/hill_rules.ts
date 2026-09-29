@@ -1,10 +1,13 @@
-// King of the Hill: the pure rules. Once every three hours, at a random
+// King of the Hill: the pure rules. Once every two hours, at a random
 // moment inside the window, a hill is announced somewhere in one of the
 // free-for-all zones; it rises HILL_WARNING_SECONDS later as a HILL_RADIUS
 // circle on dry, open ground and stands for HILL_DURATION_SECONDS. The PARTY
 // with the most members standing inside it contests it, holds it after
 // HILL_CAPTURE_SECONDS of unbroken majority, and every holder standing inside
-// earns a slow trickle of Honor for as long as they hold it. Raid members do
+// earns a slow trickle of Honor for as long as they hold it. While it stands
+// the realm hears where it is every HILL_NOTICE_SECONDS, with the standings
+// (hill_ranking.ts): the group that held it longest in total earns a point
+// toward the Weekly Vault's PvP row when it falls. Raid members do
 // not count; every level does. No SimContext, no rng, no clock: every function here is a plain function of its arguments so the
 // sim (hill.ts), the HUD bar and the tests read the same verdicts. The
 // ctx-bound system that owns the schedule, the presence pass, the contest
@@ -12,13 +15,18 @@
 
 /** The circle's radius in yards (owner spec). */
 export const HILL_RADIUS = 50;
-/** One hill per window of this length (owner spec: "once every 3 hours"). */
-export const HILL_WINDOW_SECONDS = 3 * 60 * 60;
+/** One hill per window of this length (owner spec 2026-09-29: "once every
+ *  2 hours", down from 3). */
+export const HILL_WINDOW_SECONDS = 2 * 60 * 60;
 /** The realm is told where the hill will rise this long before it does
  *  (owner spec: a 15 minute warning), so parties can form and travel. */
 export const HILL_WARNING_SECONDS = 15 * 60;
-/** A risen hill stands this long, then falls (owner spec: 45 minutes). */
-export const HILL_DURATION_SECONDS = 45 * 60;
+/** A risen hill stands this long, then falls (owner spec 2026-09-29: 30
+ *  minutes, down from 45, for the same total Honor; see the ramp below). */
+export const HILL_DURATION_SECONDS = 30 * 60;
+/** While a hill stands the realm is reminded where it is, and told the
+ *  standings, this often (owner spec 2026-09-29: every 5 minutes). */
+export const HILL_NOTICE_SECONDS = 5 * 60;
 /** The first window opens this long after boot (the natural rift portal
  *  precedent: never at tick zero). Sim time, so offline the first window
  *  opens two minutes into a session. */
@@ -32,19 +40,22 @@ export const HILL_LATEST_WARN_OFFSET_SECONDS =
 export const HILL_CAPTURE_SECONDS = 60;
 /** Each holder standing inside accrues this many seconds of presence before a
  *  payout, and each payout RAMPS with how long the holding party has held the
- *  hill (hillHonorPerPayout): HILL_RAMP_STEP_HONOR a minute for the first five
- *  minutes, that much more each further five minutes, capped at
+ *  hill (hillHonorPerPayout): HILL_RAMP_STEP_HONOR a minute for the first
+ *  HILL_RAMP_STEP_SECONDS, that much more each further step, capped at
  *  HILL_RAMP_MAX_HONOR a minute. A full uncontested stand pays about 380 each
  *  (owner tuning 2026-09-25: King of the Hill is a real road to Warfare gear,
- *  doubled alongside the Thornhollow Fields awards). The streak belongs to the party and resets when the
+ *  doubled alongside the Thornhollow Fields awards). The 30-minute stand
+ *  (2026-09-29) keeps that total by compressing the old 45-minute ramp: each
+ *  step is two thirds as long and pays half as much again, so the ramp reaches
+ *  the same point of the stand and the whole hold pays the same. The streak belongs to the party and resets when the
  *  hill changes hands, so a long hold is the thing worth taking. Only a party
  *  can hold, so a party's size is the payee cap. */
 export const HILL_ACCRUAL_SECONDS = 60;
 /** Held seconds per step of the ramp, the Honor each step adds to a minute's
  *  payout, and the per-minute cap it climbs to. */
-export const HILL_RAMP_STEP_SECONDS = 300;
-export const HILL_RAMP_STEP_HONOR = 2;
-export const HILL_RAMP_MAX_HONOR = 12;
+export const HILL_RAMP_STEP_SECONDS = 200;
+export const HILL_RAMP_STEP_HONOR = 3;
+export const HILL_RAMP_MAX_HONOR = 18;
 
 /** The Honor one payout is worth after the holding party has held the hill
  *  for `heldSeconds`: HILL_RAMP_STEP_HONOR, then that much more every

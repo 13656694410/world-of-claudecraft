@@ -8241,6 +8241,7 @@ export type TranslationKeyFlat =
   | 'guide.worldPvpPage.heading'
   | 'guide.worldPvpPage.hillBody'
   | 'guide.worldPvpPage.hillBodyRamp'
+  | 'guide.worldPvpPage.hillBodyRanked'
   | 'guide.worldPvpPage.hillHeading'
   | 'guide.worldPvpPage.intro'
   | 'guide.worldPvpPage.introZones'

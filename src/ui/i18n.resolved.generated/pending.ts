@@ -9,25 +9,65 @@
 // Reproducibility is checked by tests/i18n_resolved_equivalence.test.ts.
 
 export const pending: Record<string, readonly string[]> = {
-  "es": [],
-  "es_ES": [],
-  "fr_FR": [],
-  "fr_CA": [],
+  "es": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "es_ES": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "fr_FR": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "fr_CA": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
   "en_CA": [],
-  "it_IT": [],
-  "de_DE": [],
-  "zh_CN": [],
-  "zh_TW": [],
-  "ko_KR": [],
-  "ja_JP": [],
-  "pt_BR": [],
-  "ru_RU": [],
-  "cs_CZ": [],
-  "nl_NL": [],
-  "pl_PL": [],
-  "id_ID": [],
-  "tr_TR": [],
-  "sv_SE": [],
-  "vi_VN": [],
-  "da_DK": []
+  "it_IT": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "de_DE": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "zh_CN": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "zh_TW": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "ko_KR": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "ja_JP": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "pt_BR": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "ru_RU": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "cs_CZ": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "nl_NL": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "pl_PL": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "id_ID": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "tr_TR": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "sv_SE": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "vi_VN": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ],
+  "da_DK": [
+    "guide.worldPvpPage.hillBodyRanked"
+  ]
 };
