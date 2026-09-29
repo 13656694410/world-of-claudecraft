@@ -319,6 +319,8 @@ describe('v0.36 placeholder-art completion evidence', () => {
       'vanguard_oath_blade',
       'vanguard_fang_dagger',
       'vanguard_warstaff',
+      // Separate feral staff painting (warfare-season2-feral-staff-2026-09-29).
+      'vanguard_feral_staff',
     ];
     expect(targets.weaponItems).toEqual(
       sorted(
