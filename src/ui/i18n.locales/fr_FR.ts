@@ -1318,8 +1318,6 @@ export const fr_FR: Partial<Record<TranslationKey, string>> = {
     "Partout ailleurs, le terrain est contesté : seuls deux joueurs marqués peuvent s'affronter.",
   'hudChrome.worldPvp.groundFfa':
     "Les Terres du Dragon, le Voile de Givre et la Chute d'Ambre sont en mêlée générale : tout le monde peut s'y battre, marqué ou non.",
-  'hudChrome.worldPvp.groundSanctuary':
-    "Le Rivage de l'Épreuve et le Val d'Eastbrook sont des sanctuaires : aucun JcJ mondial n'y a cours.",
   'hudChrome.worldPvp.groupLine':
     "Les membres d'un groupe ou d'un raid ne sont jamais hostiles entre eux. Les membres de guilde hors de votre groupe peuvent s'affronter.",
   'hudChrome.worldPvp.honorLine':
@@ -2455,8 +2453,6 @@ export const fr_FR: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     "Une fois toutes les trois heures, à un moment que personne ne peut prévoir, tout le royaume est averti qu'une colline va surgir dans l'une des zones de combat libre d'ici quinze minutes, et le cercle où elle se dressera est marqué en terrain découvert. Une fois surgie, elle tient quarante-cinq minutes, puis disparaît. Le groupe comptant le plus de joueurs à l'intérieur en dispute la possession, et après une minute de majorité ininterrompue, la colline lui revient ; un joueur seul compte comme un groupe d'une personne, mais les membres de raid ne comptent pas du tout. Tant qu'un groupe tient la colline, chacun de ses membres présents à l'intérieur gagne de l'Honneur chaque minute, et plus le même groupe la tient longtemps, plus chaque minute rapporte : un groupe complet qui tient une colline sans contestation pendant toute sa durée gagne à peu près autant que trois victoires de champ de bataille. Quand la colline change de mains, les nouveaux détenteurs reprennent le compte à zéro. Une barre au-dessus du terrain indique qui la tient, vos forces face aux leurs, et le chronomètre de la contestation ; /hill dans la discussion indique où elle se trouve.",
   'guide.worldPvpPage.hillHeading': 'Le roi de la colline',
-  'guide.worldPvpPage.introZones':
-    "Le combat joueur contre joueur en monde ouvert est facultatif, et le terrain sur lequel vous vous trouvez détermine ce que cela signifie. Levez votre drapeau JcJ et tout autre joueur porteur du drapeau qui n'est pas dans votre groupe ou votre raid devient un ennemi en territoire contesté ; baissez-le et, après un court délai, vous redevenez un simple spectateur. Deux zones sont des sanctuaires où aucun combat en monde ouvert n'a jamais lieu, et les trois zones les plus au nord sont des zones de combat libre où toute personne présente est une cible légitime, drapeau ou pas. Les membres de votre groupe et de votre raid ne sont jamais vos ennemis, où que ce soit ; les membres de votre guilde hors de votre groupe sont des cibles légitimes comme n'importe qui d'autre.",
   'guide.worldPvpPage.limitsBodyRaids':
     "Vaincre le même joueur encore et encore rapporte de moins en moins puis bientôt plus rien, et votre compteur contre ce joueur ne repart de zéro qu'environ une heure après la première de ces victoires, si bien que camper une seule victime ne vaut jamais l'attente. Une cible très en dessous de votre niveau ne rapporte rien du tout. Les champs de bataille et les arènes suivent leurs propres règles tant que vous vous y trouvez, et ils rapportent plus d'Honneur que le monde ouvert, si bien que le JcJ en monde ouvert est la voie la plus lente vers le même marchand. Les raids ne gagnent rien des victoires en monde ouvert : un membre de raid ne reçoit ni Honneur ni or et ne réduit la part de personne d'autre, alors combattez en groupe pour être payé.",
   'guide.worldPvpPage.limitsHeading': 'Règles de fair-play',
@@ -2465,8 +2461,6 @@ export const fr_FR: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'Ce que rapporte une victoire',
   'guide.worldPvpPage.stakesUnflaggedTake':
     "Un combattant non porteur du drapeau n'en reçoit pas non plus : l'or ne change de mains qu'entre deux joueurs porteurs du drapeau, mais l'Honneur revient tout de même à tous ceux qui ont aidé.",
-  'guide.worldPvpPage.zonesBody':
-    "Le monde comporte trois types de terrain. Le Rivage de l'Épreuve et le Val d'Eastbrook sont des sanctuaires : aucun JcJ en monde ouvert n'y a jamais lieu, drapeau ou pas, si bien qu'un nouveau personnage ne peut jamais être combattu avant de savoir ce qu'est le drapeau. La majeure partie du monde est un territoire contesté, où la règle du drapeau ci-dessus résume tout. Les Terres du Dragon, le Voile de Givre et la Chute d'Ambre, les trois zones les plus au nord, sont des zones de combat libre : quiconque s'y trouve peut attaquer quiconque d'autre s'y trouve, avec ou sans drapeau, et vous en êtes averti en y entrant comme en en sortant. Attaquer là-bas un joueur non porteur du drapeau lève votre propre drapeau, si bien que l'agresseur porte toujours le risque au bout du compte. Frapper un joueur déjà porteur du drapeau ne le lève jamais, ce qui signifie que vous défendre, ou défendre quelqu'un qui n'est pas porteur du drapeau, ne vous coûte rien.",
   'guide.worldPvpPage.zonesHeading': 'Où se déroule le JcJ en monde ouvert',
   'landing.headline': "Partez à l'aventure entre amis.",
   'landing.contribute': 'Contribuer au jeu',

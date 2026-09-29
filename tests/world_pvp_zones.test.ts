@@ -8,11 +8,11 @@ import { describe, expect, it } from 'vitest';
 import { INSTANCE_X_BASE, WORLD_MAX_Z, ZONES } from '../src/sim/data';
 import { worldPvpZonePolicyAt, worldPvpZonePolicyOf } from '../src/sim/pvp/world_pvp_zones';
 
-const SANCTUARIES = ['eastbrook_vale', 'proving_shore'];
+const SANCTUARIES = ['proving_shore'];
 const FREE_FOR_ALL = ['drakelands', 'frostveil', 'amberfall'];
 
 describe('the zone table', () => {
-  it('pins the two sanctuaries and the three free-for-all zones', () => {
+  it('pins the only sanctuary and the three free-for-all zones', () => {
     expect(ZONES.filter((z) => z.worldPvp === 'sanctuary').map((z) => z.id)).toEqual(SANCTUARIES);
     expect(ZONES.filter((z) => z.worldPvp === 'ffa').map((z) => z.id)).toEqual(FREE_FOR_ALL);
     // Every other zone is contested (no field at all, never a third value).
@@ -22,7 +22,7 @@ describe('the zone table', () => {
     }
   });
 
-  it('the sanctuaries are the tutorial island and the starter zone', () => {
+  it('the only sanctuary is the tutorial island', () => {
     for (const id of SANCTUARIES) {
       const zone = ZONES.find((z) => z.id === id);
       expect(zone?.levelRange[0]).toBe(1);

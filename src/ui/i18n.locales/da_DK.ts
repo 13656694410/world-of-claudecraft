@@ -1266,8 +1266,6 @@ export const da_DK: Partial<Record<TranslationKey, string>> = {
     'Overalt andet er omstridt: kun to markerede spillere kan kæmpe.',
   'hudChrome.worldPvp.groundFfa':
     'Drakelands, Frostveil Reach og Amberfall er free-for-all: alle der kan kæmpe, markeret eller ej.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'Proving Shore og Eastbrook Vale er helligdommer: ingen verden PvP overhovedet.',
   'hudChrome.worldPvp.groupLine':
     'Gruppe- og raidmedlemmer er aldrig fjendtlige over for hinanden. Gildekammerater uden for din gruppe kan kæmpe.',
   'hudChrome.worldPvp.honorLine': '{honor} Ære pr. drab, delt blandt alle der hjalp.',
@@ -2365,8 +2363,6 @@ export const da_DK: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     'Hver tredje time, på et tidspunkt ingen kan forudsige, hele riget fortalt at en bakke vil stige i en af fri-for-alt-zonerne på femten minutter, og cirklen hvor det vil stå markeres på åbent land. Når det stiger står det i 45 minutter, derefter falder. Partiet med de fleste spillere stående indenfor strides bakken, og efter et minuts ubrudt majoritet bakken er deres; en ensom spiller tæller som et parti på en, men raid-medlemmer tæller slet ikke. Mens en parti holder bakken, hver af dets medlemmer stående indenfor tjener Ære hver minut, og jo længere det samme parti holder det, jo mere hver minut betaler: et fuldt parti holder en omstridt bakke for hele sit stå tjener omkring så meget som tre battleground sejre. Når bakken skifter hænder, start de nye indehavere tællingen fra begyndelsen. En bar over marken viser hvem der holder det, dine numre mod deres, og konkurrenceuret; /hill i chat siger hvor det står.',
   'guide.worldPvpPage.hillHeading': 'Konge af Bakken',
-  'guide.worldPvpPage.introZones':
-    'Åben verden spiller-mod-spiller er opt-in, og det grund du står på afgør hvad det betyder. Hæv dit PvP-flag og enhver anden flagget spiller der ikke er i din parti eller raid bliver en fjende på omstridt grund; sænk det og, efter en kort forsinkelse, du er en tilskuer igen. To zoner er helligdomme hvor ingen verden kamp sker overhovedet, og de tre nordligste zoner er fri-for-alt-grund hvor alle til stede er fair spil, flag eller nej. Parti og raid-kammerater er aldrig fjender til dig et hvilken som helst sted; guildmates uden for din gruppe er fair spil som alle andre.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Besejring det samme spiller igen og igen betaler mindre hver gang og snart ingenting, og din tælling mod det spiller kun starter over omkring en time efter først af disse drab, så lejring en offer er aldrig værd ventetid. Et mål langt under dit niveau betaler ingenting overhovedet. Battlegrounds og Arenaer køre deres egne regler mens du er inden i dem, og de betaler mere Ære end åben verden, så verden PvP er den langsommere vej til samme forhandler. Raids tjener ingenting fra verden drab: et raid medlem tager ingen Ære eller guld og gør ikke skrumpe nogen anden aktie, så kæmp som en parti til at blive betalt.',
   'guide.worldPvpPage.limitsHeading': 'Fair play regler',
@@ -2375,8 +2371,6 @@ export const da_DK: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'Hvad et drab værd',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'En uflaget kæmper får heller intet: guld skifter kun hænder mellem to flagede spillere, selvom alle der hjalp stadig optjener Ære.',
-  'guide.worldPvpPage.zonesBody':
-    'Verden har tre slags grund. Prøvestranden og Østbæk Dal er fredede områder: der foregår ingen verdenskamp dér overhovedet, flaget eller ej, så en ny karakter kan aldrig blive angrebet før de ved, hvad flaget betyder. Størstedelen af verden er omstridt, hvor flagereglerne ovenfor er hele historien. Dragelandet, Frostsløret og Ravfaldet, de tre nordligste zoner, er frit fremme-område: alle der står i dem kan angribe alle andre der står i dem, med eller uden flag, og du bliver advaret når du træder ind og igen når du forlader. At angribe en spiller der ikke er flaget der rejser dit eget flag, så en angriber bærer altid risikoen. At ramme en spiller der allerede er flaget rejser det aldrig, hvilket betyder at forsvare dig selv, eller forsvare nogen der ikke er flaget, koster dig intet.',
   'guide.worldPvpPage.zonesHeading': 'Hvor verdenskamp foregår',
   'landing.headline': 'Eventyr med venner.',
   'landing.contribute': 'Bidrag til spillet',

@@ -3365,6 +3365,12 @@ export const hudChromeStrings = {
   // number is a resolved value from src/sim/pvp/world_pvp_rules.ts, never a
   // literal in the copy, so a retune never strands the text.
   worldPvp: {
+    rewardBonus:
+      'Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.',
+    rewardTitles:
+      'Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.',
+    rewardPaused: 'Current PvP streak: {time} played (paused on the Proving Shore)',
+    rewardProgress: 'Current PvP streak: {time} played',
     tab: 'World PvP',
     title: 'World PvP',
     blurb:
@@ -3385,7 +3391,8 @@ export const hudChromeStrings = {
     realmDisabled: 'World PvP is disabled on this realm.',
     // The stakes list, in reading order: where you can fight, what raises your
     // flag for you, what a kill moves, and how to put the flag back down.
-    groundSanctuary: 'The Proving Shore and Eastbrook Vale are sanctuaries: no world PvP at all.',
+    groundSanctuary:
+      'The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.',
     groundContested: 'Everywhere else is contested: only two flagged players can fight.',
     groundFfa:
       'The Drakelands, the Frostveil Reach and the Amberfall are free-for-all: everyone there can fight, flag or not.',

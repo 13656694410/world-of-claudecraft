@@ -1261,8 +1261,6 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
     'Ở những nơi khác là tranh chấp: chỉ hai người chơi có cờ có thể chiến đấu.',
   'hudChrome.worldPvp.groundFfa':
     'Drakelands, Frostveil Reach và Amberfall là vùng chiến đấu tự do: mọi người ở đó đều có thể chiến đấu, có cờ hay không.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'Proving Shore và Eastbrook Vale là những nơi bảo vệ: không có World PvP nào cả.',
   'hudChrome.worldPvp.groupLine':
     'Các thành viên trong nhóm và cuộc tập kích không bao giờ thù địch với nhau. Các guildmate ngoài nhóm của bạn có thể chiến đấu.',
   'hudChrome.worldPvp.honorLine':
@@ -2356,8 +2354,6 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     'Một lần mỗi ba giờ, vào một thời điểm không ai có thể dự đoán, toàn bộ vương quốc được thông báo rằng một ngọn đồi sẽ mọc lên ở một trong các khu vực tự do trong năm phút, và vòng tròn nơi nó sẽ đứng được đánh dấu trên mặt đất mở. Khi nó mọc lên nó đứng trong bốn mươi lăm phút, rồi rơi. Bên có nhiều người chơi nhất đứng bên trong tranh giành ngọn đồi, và sau một phút đa số không bị phá vỡ ngọn đồi là của họ; một người chơi cô lập được tính như một bên của một, nhưng các thành viên đột kích không tính ở tất cả. Trong khi một bên giữ ngọn đồi, mỗi thành viên của nó đứng bên trong kiếm Danh dự mỗi phút, và càng lâu bên cùng giữ nó, càng nhiều tiền mỗi phút trả: một bên đầy đủ giữ một ngọn đồi tranh chấp cho toàn bộ đứng kiếm được khoảng như ba chiến thắng sân vận động. Khi ngọn đồi thay đổi tay, những chủ mới bắt đầu số lượng từ đầu. Một thanh trên trường cho thấy ai nắm giữ nó, số của bạn chống lại số của họ, và đồng hồ cuộc thi; /hill trong trò chuyện nói nơi nó đứng.',
   'guide.worldPvpPage.hillHeading': 'Vua Của Ngọn Đồi',
-  'guide.worldPvpPage.introZones':
-    'Chiến tranh của người chơi mở trong thế giới là tùy chọn, và mặt đất bạn đang đứng quyết định ý nghĩa của nó. Nâng cờ PvP của bạn lên và mỗi người chơi cờ khác không ở trong nhóm hoặc đột kích của bạn trở thành một kẻ thù trên mặt đất tranh chấp; hạ xuống và, sau một khoảng thời gian ngắn, bạn là một người xem lại. Hai khu vực là những nơi thánh thiện nơi không có chiến đấu thế giới nào xảy ra cả, và ba khu vực phía bắc nhất là mặt đất tự do cho tất cả nơi mọi người có mặt là công bằng trò chơi, cờ hay không cờ. Bè nhóm và các đồng chủ đột kích không bao giờ là kẻ thù của bạn ở bất kỳ nơi nào; các thành viên bang ngoài nhóm của bạn là công bằng trò chơi giống như bất kỳ ai khác.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Đánh bại cùng một người chơi lại và lại trả ít hơn mỗi lần và sớm không gì cả, và số lượng của bạn chống lại người chơi đó chỉ bắt đầu lại khoảng một giờ sau những vết sưng đầu tiên của những vết sưng đó, vì vậy cắm trại một nạn nhân không bao giờ đáng chờ đợi. Một mục tiêu xa dưới cấp độ của bạn trả không gì cả. Các sân vận động chiến đấu và Arena chạy các quy tắc riêng của họ trong khi bạn ở bên trong chúng, và họ trả nhiều Danh dự hơn thế giới mở, vì vậy chiến tranh thế giới là con đường chậm hơn đến cùng một người bán hàng. Đột kích không kiếm được gì từ vết sưng thế giới: một thành viên đột kích không lấy Danh dự hoặc vàng và không làm nhỏ lại chia sẻ của bất kỳ ai khác, vì vậy hãy chiến đấu như một bên để được trả tiền.',
   'guide.worldPvpPage.limitsHeading': 'Quy Tắc Chơi Công Bằng',
@@ -2366,8 +2362,6 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'Một Chiến Thắng Được Thưởng Gì',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Một chiến binh không cắm cờ cũng không nhận được gì: vàng chỉ chuyển tay giữa hai người chơi đã cắm cờ, mặc dù tất cả những người giúp đỡ vẫn kiếm được Danh Dự.',
-  'guide.worldPvpPage.zonesBody':
-    'Thế giới có ba loại địa thế. Bờ Biển Thử Thách và Thung Lũng Đông Khê là những nơi bảo vệ: không có tranh chấp PvP nào xảy ra ở đó cả, cắm cờ hay không, vì vậy một nhân vật mới không bao giờ có thể bị tấn công trước khi họ biết cờ là gì. Hầu hết thế giới là vùng tranh chấp, nơi quy tắc cờ ở trên là cả câu chuyện. Vùng Đất Rồng, Đỉnh Sương Giá và Xứ Thu Hổ Phách, ba vùng phía bắc nhất, là chiến trường tự do: mọi người đứng ở đó có thể tấn công mọi người khác đứng ở đó, cắm cờ hay không, và bạn được thông báo khi bạn bước vào và lại khi bạn rời đi. Tấn công một người chơi không cắm cờ ở đó sẽ cắm cờ cho chính mình, vì vậy kẻ xâm lược luôn kết thúc lúc chịu rủi ro. Đánh một người chơi đã cắm cờ không bao giờ cắm cờ, điều này có nghĩa là tự vệ, hoặc bảo vệ ai đó không cắm cờ, hoàn toàn không tốn kém gì.',
   'guide.worldPvpPage.zonesHeading': 'Nơi Tranh Chấp PvP Xảy Ra',
   'landing.headline': 'Phiêu lưu cùng bạn bè.',
   'landing.contribute': 'Đóng góp cho trò chơi',

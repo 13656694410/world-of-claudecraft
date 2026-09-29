@@ -27,6 +27,7 @@ import {
   worldPvpKillLine,
 } from '../src/sim/pvp/world_pvp';
 import type { Entity } from '../src/sim/types';
+import { ArenaWindow } from '../src/ui/arena_window';
 import {
   buildWorldPvpWindowView,
   disarmClockText,
@@ -42,13 +43,13 @@ import {
   type PvpHostileWorld,
 } from '../src/ui/pvp_hostile_core';
 import { localizeSimText } from '../src/ui/sim_i18n';
-import type { WorldPvpInfo } from '../src/world_api';
+import type { IWorld, WorldPvpInfo } from '../src/world_api';
 
 // Thornpeak Heights (contested), the Drakelands (free-for-all) and
-// Eastbrook Vale (a sanctuary), by the zone table's own rectangles.
+// The Proving Shore (the sanctuary), by the zone table's own rectangles.
 const CONTESTED_SPOT = { x: 0, y: 0, z: 700 };
 const FFA_SPOT = { x: 360, y: 0, z: 2100 };
-const SANCTUARY_SPOT = { x: 0, y: 0, z: 0 };
+const SANCTUARY_SPOT = { x: -360, y: 0, z: 0 };
 
 const info = (over: Partial<WorldPvpInfo> = {}): WorldPvpInfo => ({
   flagged: false,
@@ -288,7 +289,7 @@ describe('applySocialSelfWire: the wpvp self key (the ClientWorld mirror)', () =
 
   it('adopts a readout, keeps it when the key is omitted, clears it on null', () => {
     const target = mirrors();
-    const readout = info({ flagged: true, kills: 2 });
+    const readout = info({ flagged: true, kills: 2, rewardSeconds: 3599 });
     applySocialSelfWire(target, { wpvp: readout });
     expect(target.worldPvpInfo).toBe(readout);
     applySocialSelfWire(target, { honor: 5 });
@@ -611,7 +612,7 @@ describe('the World PvP tab: the stakes list states the live rules', () => {
 
   it('names all three kinds of ground, and the zones that are not contested', () => {
     const html = stakesHtml();
-    expect(html).toContain('The Proving Shore and Eastbrook Vale are sanctuaries');
+    expect(html).toContain('The Proving Shore is the only sanctuary');
     expect(html).toContain('Everywhere else is contested: only two flagged players can fight.');
     expect(html).toContain(
       'The Drakelands, the Frostveil Reach and the Amberfall are free-for-all',
@@ -672,5 +673,77 @@ describe('the World PvP tab: the free-for-all tone', () => {
     expect(at).toBeGreaterThan(-1);
     const rule = css.slice(at, css.indexOf('}', at));
     expect(rule).toContain('var(--color-hostile)');
+  });
+});
+
+describe('World PvP reward display', () => {
+  it('updates the real window clock without replacing scrolled content or focused controls', () => {
+    setLanguage('en');
+    const root = document.createElement('div');
+    document.body.append(root);
+    const world = {
+      worldPvpInfo: info({ flagged: true, rewardSeconds: 3600 }),
+      honor: 0,
+      arenaInfo: null,
+      bgInfo: null,
+    } as unknown as IWorld;
+    const panel = new ArenaWindow({
+      root: () => root,
+      world: () => world,
+      closeOthers: () => {},
+      captureFocus: () => null,
+      restoreFocus: () => {},
+    });
+    panel.openTab('world');
+    const content = root.querySelector<HTMLElement>('.arena-layout')!;
+    const button = root.querySelector<HTMLButtonElement>('[data-act="pvp-disable"]')!;
+    root.scrollTop = 150;
+    content.scrollTop = 120;
+    button.focus();
+    world.worldPvpInfo!.rewardSeconds = 3660;
+    panel.render();
+    expect(root.querySelector('.arena-layout')).toBe(content);
+    expect(root.scrollTop).toBe(150);
+    expect(content.scrollTop).toBe(120);
+    expect(document.activeElement).toBe(button);
+    expect(root.querySelector('[data-pvp-reward-progress]')!.textContent).toBe(
+      'Current PvP streak: 1:01 played',
+    );
+    root.remove();
+  });
+
+  it('blocks raising in sanctuary but permits lowering an existing flag and explains the pause', () => {
+    const view = (flagged: boolean, disarmRemaining: number | null = null) =>
+      buildWorldPvpWindowView({
+        info: info({ flagged, zone: 'sanctuary', disarmRemaining, rewardSeconds: 120 }),
+        honor: 0,
+        confirming: false,
+      });
+    expect(view(false)).toMatchObject({ action: 'sanctuary' });
+    expect(view(true, 20)).toMatchObject({ action: 'sanctuary' });
+    expect(view(true)).toMatchObject({ action: 'disable' });
+    expect(worldPvpBodyHtml(view(true))).toContain('paused on the Proving Shore');
+    expect(worldPvpBodyHtml(view(false))).toContain('aria-disabled="true"');
+  });
+
+  it('displays the bonus and streak rules, without progress in the repaint signature', () => {
+    setLanguage('en');
+    const first = buildWorldPvpWindowView({
+      info: info({ flagged: true, rewardSeconds: 3600 }),
+      honor: 0,
+      confirming: false,
+    });
+    const next = buildWorldPvpWindowView({
+      info: info({ flagged: true, rewardSeconds: 3601 }),
+      honor: 0,
+      confirming: false,
+    });
+    expect(first.sig).toBe(next.sig);
+    const html = worldPvpBodyHtml(first);
+    expect(html).toContain('20% more experience and faction reputation');
+    expect(html).toContain('Logout and visiting the Proving Shore pause the timer');
+    expect(html).toContain('Switching off resets it');
+    expect(html).toContain('Current PvP streak: 1:00 played');
+    expect(html).toContain('7 days');
   });
 });

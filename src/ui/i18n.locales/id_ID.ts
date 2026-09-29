@@ -1281,8 +1281,6 @@ export const id_ID: Partial<Record<TranslationKey, string>> = {
     'Di mana pun yang lain adalah tanah yang diperebutkan: hanya dua pemain yang sudah naikkan bendera yang bisa melawan.',
   'hudChrome.worldPvp.groundFfa':
     'Tanah Naga, Jangkauan Embun Beku, dan Amberfall adalah bebas untuk semua: semua orang di sini adalah target yang sah.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'Tepi Pembuktian dan Lembah Eastbrook adalah tempat perlindungan: tidak ada pertempuran dunia sama sekali.',
   'hudChrome.worldPvp.groupLine':
     'Anggota pesta dan serbuan tidak pernah bermusuhan satu sama lain. Rekan guild di luar grup mu masih bisa dilawan.',
   'hudChrome.worldPvp.honorLine':
@@ -2388,8 +2386,6 @@ export const id_ID: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     'Setiap tiga jam sekali, pada saat tidak ada yang bisa diprediksi, seluruh realm diberitahu bahwa bukit akan naik di salah satu zona pertarungan bebas dalam lima belas menit, dan lingkaran di mana itu akan berdiri ditandai di tanah terbuka. Ketika naik itu berdiri selama empat puluh lima menit, kemudian jatuh. Pihak dengan pemain paling banyak di dalam memperebutkan bukit, dan setelah satu menit mayoritas tanpa gangguan bukit itu milik mereka; pemain tunggal dihitung sebagai pihak dari satu, tetapi anggota raid tidak dihitung sama sekali. Saat pihak memegang bukit, masing-masing anggotanya berdiri di dalam memperoleh Kehormatan setiap menit, dan semakin lama pihak yang sama memegangnya, semakin banyak setiap menit membayar: pihak penuh memegang bukit yang tidak diperebutkan selama seluruh berdiri menghasilkan sekitar jumlah tiga kemenangan medan pertempuran. Ketika bukit berganti tangan, pemegang baru memulai hitungan dari awal. Bilah di atas bidang menunjukkan siapa memegang itu, nomor kamu melawan mereka, dan jam kontes; /hill dalam obrolan mengatakan di mana itu berdiri.',
   'guide.worldPvpPage.hillHeading': 'Raja Bukit',
-  'guide.worldPvpPage.introZones':
-    'Pemain-versus-pemain dunia terbuka adalah opt-in, dan tanah tempat kamu berdiri memutuskan apa artinya itu. Angkat bendera Peperangan Dunia kamu dan setiap pemain lain dengan bendera yang bukan dalam pihak atau raid kamu menjadi musuh di tanah yang diperebutkan; turunkannya dan, setelah penundaan pendek, kamu adalah pengamat lagi. Dua zona adalah tempat suci di mana pertarungan dunia tidak terjadi sama sekali, dan tiga zona paling utara adalah tanah pertarungan bebas di mana semua orang hadir adalah permainan yang adil, bendera atau tidak ada bendera. Pihak dan anggota raid kamu tidak pernah menjadi musuh kamu di mana saja; anggota guild di luar grup kamu adalah permainan yang adil seperti siapa pun yang lain.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Mengalahkan pemain yang sama lagi dan lagi membayar lebih sedikit setiap kali dan segera tidak ada, dan hitungan kamu melawan pemain itu hanya dimulai lagi sekitar satu jam setelah yang pertama dari pembunuhan itu, jadi mengepung satu korban tidak pernah sepadan dengan menunggu. Target jauh di bawah level kamu tidak membayar apa pun sama sekali. Medan pertempuran dan Arena menjalankan aturan mereka sendiri saat kamu berada di dalam, dan mereka membayar lebih banyak Kehormatan daripada dunia terbuka, jadi Peperangan Dunia adalah jalan yang lebih lambat ke vendor yang sama. Raid tidak memperoleh apa pun dari pembunuhan dunia: anggota raid tidak mengambil Kehormatan atau emas dan tidak mengecilkan bagian siapa pun, jadi bertarung sebagai pihak untuk dibayar.',
   'guide.worldPvpPage.limitsHeading': 'Aturan Permainan Adil',
@@ -2398,8 +2394,6 @@ export const id_ID: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'Apa yang Dibayar untuk Pembunuhan',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Pejuang yang tidak bertanda pun tidak menerima apa pun: emas hanya berganti tangan di antara dua pemain bertanda, namun siapa pun yang membantu tetap mendapat Kehormatan.',
-  'guide.worldPvpPage.zonesBody':
-    'Dunia memiliki tiga jenis medan. Pantai Pembuktian dan Lembah Eastbrook adalah tempat suci: tidak ada PvP dunia yang terjadi di sana sama sekali, bertanda atau tidak, jadi karakter baru tidak pernah bisa bertarung sebelum mereka tahu apa itu bendera. Sebagian besar dunia adalah medan yang diperebutkan, di mana aturan bendera di atas adalah seluruh ceritanya. Drakelands, Jangkauan Frostveil, dan Amberfall, tiga zona paling utara, adalah medan bebas-untuk-semua: semua orang yang berdiri di dalamnya bisa menyerang semua orang lain yang berdiri di dalamnya, dengan atau tanpa bendera, dan kamu diberitahu saat memasuki dan lagi saat keluar. Menyerang pemain yang tidak bertanda di sana menaikkan bendera milikmu sendiri, jadi penyerang selalu berakhir menanggung risikonya. Memukul pemain yang sudah bertanda tidak pernah menaikkannya, yang berarti membela diri atau membela seseorang yang tidak bertanda tidak membebanani Anda sama sekali.',
   'guide.worldPvpPage.zonesHeading': 'Tempat Terjadinya PvP Dunia',
   'landing.headline': 'Bertualang bersama teman.',
   'landing.contribute': 'Berkontribusi untuk game ini',

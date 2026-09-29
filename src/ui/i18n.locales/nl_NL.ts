@@ -1281,8 +1281,6 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
     'Overal elders is omstreden: alleen twee gevlagde spelers kunnen vechten.',
   'hudChrome.worldPvp.groundFfa':
     'De Drakenlandse, de Vorstrijke en de Amberrode zijn vrij voor iedereen: iedereen daar kan vechten, gevlagd of niet.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'De Beproevingskust en de Oostbeekse dalen zijn heiligdommen: geen wereldgevecht op deze plaatsen.',
   'hudChrome.worldPvp.groupLine':
     'Partijleden en raidleden zijn nooit vijandig tegen elkaar. Gildeverbroedering buiten je groep kan vechten.',
   'hudChrome.worldPvp.honorLine': '{honor} Eer per kill, verdeeld onder iedereen die hielp.',
@@ -2400,8 +2398,6 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     'Eenmaal per drie uur, op een moment dat niemand kan voorspellen, wordt het hele rijk verteld dat een heuvel in één van de vrije-voor-allen zones in vijftien minuten omhoog zal rijzen, en de cirkel waar hij zal staan is op open terrein gemarkeerd. Wanneer hij omhoog rijst staat hij voor vijfenveertig minuten, dan valt. De partij met de meeste spelers die erin staan betwist de heuvel, en na een minuut ononderbroken meerderheid is de heuvel van hen; een enkele speler telt als een partij van één, maar raidleden tellen helemaal niet. Terwijl een partij de heuvel houdt, verdient elk van zijn leden die erin staan Eer elke minuut, en hoe langer dezelfde partij het houdt, hoe meer elke minuut uitbetaalt: een volle partij die een ongetegenspoken heuvel voor de hele duur houdt verdient ongeveer zoveel als drie battleground-winsten. Wanneer de heuvel van handen verandert, beginnen de nieuwe houders de telling opnieuw. Een balk over het veld toont wie het houdt, jouw getallen tegen die van hen, en de concurrentie-klok; /hill in chat zegt waar het staat.',
   'guide.worldPvpPage.hillHeading': 'Koning van de Heuvel',
-  'guide.worldPvpPage.introZones':
-    'Open-wereld speler-tegen-speler is opt-in, en de grond waarop je staat bepaalt wat dat betekent. Verhef je PvP-vlag en elke andere gevlagde speler die niet in je partij of raid zit wordt een vijand op betwist terrein; verlaag het en, na een korte vertraging, ben je weer een toeschouwer. Twee zones zijn heiligdommen waar geen wereldgevecht plaatsvindt, en de drie noordelijkste zones zijn vrije-voor-allen terrein waar iedereen aanwezig rechtvaardig spel is, vlag of geen vlag. Partij- en raidmaten zijn nooit vijanden van je overal; gildenieuwelingen buiten je groep zijn rechtvaardig spel zoals iedereen anders.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Het herhaaldelijk verslaan van dezelfde speler betaalt steeds minder en binnenkort niets, en je telling tegen die speler begint slechts ongeveer een uur na het eerste van die kills opnieuw, dus het kamperen op één slachtoffer is nooit de wacht waard. Een doelwit veel onder je niveau betaalt niets. Battlegrounds en Arenas voeren hun eigen regels uit terwijl je erin bent, en ze betalen meer Eer dan de open wereld, dus wereld-PvP is de langzamere weg naar dezelfde verkoper. Raids verdienen niets uit wereldkills: een raidlid neemt geen Eer of goud aan en verkleint niemand anders aandeel, dus vecht als partij om betaald te krijgen.',
   'guide.worldPvpPage.limitsHeading': 'Fair-play regels',
@@ -2410,8 +2406,6 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'Waarde van een dood',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Ook een strijder zonder vlag krijgt niets: goud wisselt alleen van hand tussen twee spelers met een vlag, hoewel iedereen die hielp toch Eer verdient.',
-  'guide.worldPvpPage.zonesBody':
-    'De wereld heeft drie soorten grondgebied. De Beproevingskust en Oostbeekdal zijn heiligdommen: daar vindt helemaal geen PvP plaats, of je nu een vlag hebt of niet, dus een nieuw karakter kan nooit worden aangevallen voordat het weet wat de vlag betekent. Het meeste van de wereld is omstreden terrein, waar de regel van hierboven het hele verhaal is. De Drakenlanden, De Vorstsluier en De Amberval, de drie noordelijkste zones, zijn vrij-voor-alles terrein: iedereen kan iedereen aanvallen, met of zonder vlag, en je krijgt waarschuwing wanneer je binnenkomt en opnieuw wanneer je vertrekt. Een speler zonder vlag aanvallen verhoogt je eigen vlag, dus een aanvaller loopt altijd risico. Een speler slaan die al een vlag heeft verhoogt je vlag nooit, dus jezelf verdedigen, of iemand zonder vlag verdedigen, kost je niets.',
   'guide.worldPvpPage.zonesHeading': 'Waar PvP plaatsvindt',
   'landing.headline': 'Op avontuur met vrienden.',
   'landing.contribute': 'Draag bij aan het spel',

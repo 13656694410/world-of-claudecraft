@@ -3,8 +3,7 @@
 // data-as-code in src/sim/content/<zone>.ts):
 //
 // - 'sanctuary': no world PvP at all, flagged or not. The Proving Shore (the
-//   tutorial island) and Eastbrook Vale (the starter zone and its town), so a
-//   new character can never be fought before they know what the flag is.
+//   tutorial island) is the only sanctuary. Eastbrook Vale is contested.
 // - 'ffa': free-for-all. Everyone standing in the zone can attack everyone else
 //   there who is not in their party or raid, flag or no flag. The three
 //   northernmost zones, the top row of the map (owner pick): the Drakelands,

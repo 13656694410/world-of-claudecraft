@@ -1157,8 +1157,6 @@ export const es: Partial<Record<TranslationKey, string>> = {
     'En cualquier otro lugar, el terreno está disputado: solo pueden luchar dos jugadores marcados.',
   'hudChrome.worldPvp.groundFfa':
     'Las Tierras del Dragón, el Velo de Escarcha y la Cascada de Ámbar son de todos contra todos: allí puede luchar cualquiera, tenga la bandera alzada o no.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'La Costa de la Prueba y el Valle de Eastbrook son santuarios: allí no hay JcJ mundial de ningún tipo.',
   'hudChrome.worldPvp.groupLine':
     'Los miembros de grupo y de banda nunca son hostiles entre sí. Los compañeros de hermandad que no estén en tu grupo sí pueden luchar.',
   'hudChrome.worldPvp.honorLine':
@@ -2156,8 +2154,6 @@ export const es: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     'Una vez cada tres horas, en un momento que nadie puede predecir, se avisa a todo el reino de que una colina se alzará en una de las zonas de todos contra todos dentro de quince minutos, y el círculo donde se alzará queda marcado sobre terreno abierto. Al alzarse, permanece cuarenta y cinco minutos, y luego cae. El grupo con más jugadores dentro disputa la colina, y tras un minuto de mayoría ininterrumpida la colina es suya; un jugador solo cuenta como un grupo de uno, pero los miembros de banda no cuentan en absoluto. Mientras un grupo controla la colina, cada uno de sus miembros que esté dentro gana Honor cada minuto, y cuanto más tiempo la controle el mismo grupo, más paga cada minuto: un grupo completo que controle una colina sin disputa durante toda su duración gana aproximadamente lo mismo que tres victorias en Campos Espinosos. Cuando la colina cambia de manos, los nuevos controladores empiezan la cuenta desde el principio. Una barra sobre el campo muestra quién la controla, tus números frente a los suyos, y el reloj de la disputa; /hill en el chat indica dónde se encuentra.',
   'guide.worldPvpPage.hillHeading': 'El Rey de la Colina',
-  'guide.worldPvpPage.introZones':
-    'El combate entre jugadores en el mundo abierto es voluntario, y el terreno donde te encuentras decide lo que eso significa. Levanta tu bandera de JcJ y todo jugador marcado que no esté en tu grupo o banda se convierte en enemigo en terreno disputado; bájala y, tras una breve demora, vuelves a ser un espectador. Dos zonas son santuarios donde no ocurre ningún combate mundial en absoluto, y las tres zonas más al norte son terreno de todos contra todos, donde cualquiera presente es blanco legítimo, con bandera o sin ella. Los compañeros de grupo y de banda nunca son enemigos tuyos en ningún sitio; los compañeros de hermandad fuera de tu grupo son blanco legítimo como cualquier otro.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Derrotar al mismo jugador una y otra vez paga cada vez menos y pronto no paga nada, y tu cuenta contra ese jugador solo se reinicia alrededor de una hora después de la primera de esas muertes, así que acechar a una sola víctima nunca vale la espera. Un objetivo muy por debajo de tu nivel no paga absolutamente nada. Los Campos Espinosos y las Arenas siguen sus propias reglas mientras estás dentro, y pagan más Honor que el mundo abierto, así que el JcJ mundial es el camino más lento hacia el mismo vendedor. Las bandas no ganan nada con las muertes en el mundo: un miembro de banda no recibe Honor ni oro y no reduce la parte de nadie más, así que lucha en grupo para que te paguen.',
   'guide.worldPvpPage.limitsHeading': 'Reglas de juego limpio',
@@ -2166,8 +2162,6 @@ export const es: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'Cuánto vale una muerte',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Tampoco un luchador sin marcar recibe nada: el oro solo cambia de manos entre dos jugadores marcados, aunque todos los que ayudaron sí ganan el Honor.',
-  'guide.worldPvpPage.zonesBody':
-    'El mundo tiene tres tipos de terreno. La Costa de la Prueba y el Valle de Eastbrook son santuarios: allí no ocurre ningún JcJ mundial, con bandera o sin ella, así que un personaje nuevo jamás puede ser atacado antes de saber qué es la bandera. La mayor parte del mundo es terreno disputado, donde la regla de la bandera de arriba es toda la historia. Las Tierras del Dragón, El Velo de Escarcha y la Cascada de Ámbar, las tres zonas más al norte, son terreno de todos contra todos: todo el que se encuentra en ellas puede atacar a todos los demás que estén allí, con bandera o sin ella, y se te avisa tanto al entrar como al salir. Atacar a un jugador que no está marcado allí levanta tu propia bandera, así que un agresor siempre acaba cargando con el riesgo. Golpear a un jugador que ya está marcado nunca la levanta, lo que significa que defenderte a ti mismo, o defender a alguien que no está marcado, no te cuesta nada.',
   'guide.worldPvpPage.zonesHeading': 'Dónde ocurre el JcJ mundial',
   'guide.questsPage.cluesBody':
     'En las zonas lejanas, el tablón diario de misiones mundiales esconde una recompensa más para quien complete toda la lista: un Pergamino de Pistas, y la búsqueda del tesoro escrita en él.',

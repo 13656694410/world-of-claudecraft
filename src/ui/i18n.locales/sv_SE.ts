@@ -1262,8 +1262,6 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
     'Överallt annars är omstritt: endast två flaggade spelare kan slåss.',
   'hudChrome.worldPvp.groundFfa':
     'Draklandet, Frostslöjans räckvidd och Glödskogen är free-for-all: alla där kan slåss, flaggade eller inte.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'Provstranden och Östbrooks dal är helgedomar: ingen världskamp alls.',
   'hudChrome.worldPvp.groupLine':
     'Grupp- och raidmedlemmar är aldrig fientliga mot varandra. Gildekamrater utanför din grupp kan slåss.',
   'hudChrome.worldPvp.honorLine': '{honor} Heder per seger, delad mellan alla som hjälpte.',
@@ -2370,8 +2368,6 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     'En gång var tredje timme, vid ett tillfälle ingen kan förutsäga, blir hela riket berättat att en kulle kommer att stiga i en av fritt-för-allt-zonerna om femton minuter, och cirkeln där det kommer att stå markeras på öppen mark. När den stiger står den i fyrtiofem minuter, sedan faller. Partiet med mest spelare som står innanför bestrid kullen, och efter en minut av obruten majoritet är kullen deras; en ensamspelare räknas som ett parti av en, men raid-medlemmar räknas inte alls. Medan ett parti håller kullen, tjänar var och en av dess medlemmar som står innanför Ära varje minut, och ju längre samma parti håller det, desto mer varje minut betalar: ett fullt parti som håller en omtvistet kulle för hela sin tid tjänar ungefär lika mycket som tre slagfält-segrar. När kullen byter händer startar de nya innehavarna räkningen från början. En stapel över fältet visar vem som håller det, dina nummer mot deras, och tävlingsklockan; /hill i chatten säger var den står.',
   'guide.worldPvpPage.hillHeading': 'Kullens kung',
-  'guide.worldPvpPage.introZones':
-    'Öppen världsspeler-mot-spelare är val-in, och marken du står på bestämmer vad det betyder. Höj din PvP-flagga och varje annan flaggad spelare som inte är i ditt parti eller raid blir en fiende på omstridigt område; sänk den och, efter en kort fördröjning, är du en åskådare igen. Två zoner är helgedomar där ingen världsstrid händer alls, och de tre nordligaste zonerna är fritt-för-allt-område där alla närvarande är rättvis spel, flagga eller ingen flagga. Parti- och raid-kamrater är aldrig dina fiender någonstans; skickekamrater utanför din grupp är rättvis spel som vilken som helst.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Att besegra samma spelare igen och igen betalar mindre varje gång och snart ingenting, och din räkning mot den spelaren börjar bara igen ungefär en timme efter den första av dessa dödningar, så att läger en offer är aldrig värt väntan. Ett mål långt under din nivå betalar ingenting alls. Slagfält och Arenor kör sina egna regler medan du är inne i dem, och de betalar mer Ära än den öppna världen, så världens PvP är den långsammare vägen till samma leverantör. Raid tjänar ingenting från världsdödningar: en raid-medlem tar ingen Ära eller guld och krymper inte någon annans andel, så slå som ett parti för att bli betald.',
   'guide.worldPvpPage.limitsHeading': 'Fair play-regler',
@@ -2380,8 +2376,6 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'Vad en dödning är värd',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'En oflaggrad kämpare får inte heller någon: guld byter endast ägare mellan två flaggade spelare, men alla som hjälpte tjänar fortfarande Heder.',
-  'guide.worldPvpPage.zonesBody':
-    'Världen är uppdelad i tre sorters mark. Prövostranden och Östbäcksdalen är fredade områden: ingen världs-PvP förekommer där överhuvudtaget, flaggad eller inte, så en ny karaktär kan aldrig anfallas innan de förstår vad flaggan betyder. Det mesta av världen är omstritt, där flaggreglerna ovan är hela berättelsen. Drakländerna, Frostslöjans vidder och Bärnstensfallet, de tre nordligaste zonerna, är fri-för-allmark: alla som står där kan anfalla alla andra som står där, med eller utan flagga, och du underrättas när du går in och igen när du går ut. Att anfalla en spelare som inte är flaggad där höjer din egen flagga, så en angripare slutar alltid med att bära risken. Att slå en spelare som redan är flaggad höjer aldrig den, vilket betyder att försvara dig själv eller försvara någon som inte är flaggad inte kostar dig något.',
   'guide.worldPvpPage.zonesHeading': 'Var världs-PvP förekommer',
   'landing.headline': 'Äventyr med vänner.',
   'landing.contribute': 'Bidra till spelet',

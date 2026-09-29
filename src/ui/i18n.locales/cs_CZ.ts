@@ -1262,8 +1262,6 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
     'Všude jinde je území sporné: bojovat mohou jen dva hráči se zvednutou vlajkou.',
   'hudChrome.worldPvp.groundFfa':
     'Dračí země, Kraj Mrazivého závoje a Jantarový pád jsou volné území: tam může bojovat kdokoli, s vlajkou i bez ní.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'Zkušební pobřeží a Eastbrookské údolí jsou útočiště: žádné světové PvP tam vůbec neprobíhá.',
   'hudChrome.worldPvp.groupLine':
     'Členové skupiny a raidu vůči sobě nikdy nejsou nepřátelští. Cechovní spolubojovníci mimo tvou skupinu mohou bojovat.',
   'hudChrome.worldPvp.honorLine': '{honor} cti za zabití, rozděleno mezi všechny, kdo pomohli.',
@@ -2362,8 +2360,6 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     'Jednou za tři hodiny, v okamžiku, který nikdo nedokáže předvídat, se celé říši oznámí, že za patnáct minut vyroste kopec v jedné ze zón volno pro všechny, a kruh, kde bude stát, je vyznačen na volné zemi. Když vyroste, stojí čtyřicet pět minut, pak padne. O kopec soupeří skupina s nejvíce hráči uvnitř, a po minutě nepřerušené většiny kopec připadne jí; osamělý hráč se počítá jako skupina o jednom, ale členové výpravy se nepočítají vůbec. Dokud skupina drží kopec, každý její člen uvnitř získává každou minutu Čest, a čím déle stejná skupina kopec drží, tím víc každá minuta vyplácí: plná skupina, která drží nesporný kopec po celou dobu jeho stání, vydělá zhruba tolik jako tři výhry na bojišti. Když kopec změní držitele, noví držitelé začnou počítat od začátku. Lišta nad bojištěm ukazuje, kdo kopec drží, tvá čísla proti jejich a čas souboje; /hill v chatu řekne, kde kopec stojí.',
   'guide.worldPvpPage.hillHeading': 'Král kopce',
-  'guide.worldPvpPage.introZones':
-    'Boj hráč proti hráči v otevřeném světě je dobrovolný, a to, na jaké zemi zrovna stojíš, rozhoduje, co to znamená. Zvedni svou PvP vlajku a každý jiný označený hráč, který není v tvé skupině ani výpravě, se na sporném území stane nepřítelem; stáhni ji a po krátkém zpoždění jsi zase jen přihlížející. Dvě zóny jsou svatyně, kde se vůbec neodehrává žádný světový boj, a tři nejsevernější zóny jsou území volno pro všechny, kde je každý přítomný férovým cílem, ať má vlajku, nebo ne. Spoluhráči ze skupiny a výpravy nejsou nikdy nikde tvými nepřáteli; spoluhráči z gildy mimo tvou skupinu jsou férovým cílem jako kdokoli jiný.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Porážení stejného hráče znovu a znovu vyplácí pokaždé méně a brzy nic, a tvůj počet proti tomu hráči se resetuje až zhruba hodinu po prvním z těch zabití, takže čekání na jedné oběti se nikdy nevyplatí. Cíl hluboko pod tvou úrovní nevyplatí vůbec nic. Bojiště a Arény se řídí vlastními pravidly, dokud jsi uvnitř, a vyplácí víc Cti než otevřený svět, takže světové PvP je pomalejší cesta ke stejnému obchodníkovi. Výpravy nezískávají ze světových zabití nic: člen výpravy nedostane žádnou Čest ani zlato a nezmenší podíl nikoho jiného, takže boj jako skupina se vyplatí.',
   'guide.worldPvpPage.limitsHeading': 'Pravidla fair play',
@@ -2372,8 +2368,6 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'Co vyplácí zabití',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Ani neoznačený bojovník nedostane nic: zlato mění majitele jen mezi dvěma označenými hráči, i když Čest si stále vydělá každý, kdo pomohl.',
-  'guide.worldPvpPage.zonesBody':
-    'Svět má tři druhy území. Zkušební pobřeží a Eastbrookské údolí jsou svatyně: neodehrává se tam vůbec žádné světové PvP, s vlajkou ani bez ní, takže nová postava nikdy nemůže být napadena dřív, než pozná, co vlajka znamená. Většina světa je sporné území, kde výše popsané pravidlo vlajky je celý příběh. Dračí země, Kraj Mrazivého závoje a Jantarový pád, tři nejsevernější zóny, jsou území volno pro všechny: každý, kdo v nich stojí, může zaútočit na kohokoli jiného, kdo v nich stojí, s vlajkou i bez ní, a je ti to řečeno, jakmile do nich vstoupíš, a znovu, když je opustíš. Útok na hráče, který tam není označen, zvedne tvou vlastní vlajku, takže útočník vždy nakonec nese riziko. Zásah hráče, který je už označen, ji nikdy nezvedne, což znamená, že bránit sebe sama, nebo bránit někoho, kdo není označen, tě nic nestojí.',
   'guide.worldPvpPage.zonesHeading': 'Kde se odehrává světové PvP',
   'landing.headline': 'Dobrodružství s přáteli.',
   'landing.contribute': 'Přispěj do hry',

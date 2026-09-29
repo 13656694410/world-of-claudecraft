@@ -1260,8 +1260,6 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
     'Başka yerlerde tartışılı: sadece iki bayraklı oyuncu savaşabilir.',
   'hudChrome.worldPvp.groundFfa':
     'Drakelands, Frostveil Reach ve Amberfall serbest oyun alanıdır: orada herkes savaşabilir, bayraklı olsun ya da olmasın.',
-  'hudChrome.worldPvp.groundSanctuary':
-    "Proving Shore ve Eastbrook Vale kutsal bölgelerdir: hiç dünya PvP'si yoktur.",
   'hudChrome.worldPvp.groupLine':
     'Grup ve rezzalı arkadaşlar asla birbirlerine düşman değildir. Loncandaki diğer oyuncular savaşabilir.',
   'hudChrome.worldPvp.honorLine': 'Öldürme başına {honor} Onur, yardımcılar arasında bölünür.',
@@ -2353,8 +2351,6 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.hillBodyRamp':
     'Üç saatte bir, hiç kimsenin tahmin edemediği bir anda, tüm krallığa bir tepe serbest oyun alanlarından birinde on beş dakika içinde yükselecek söylenir ve üzerinde durduğu daire açık arazide işaretlenir. Yükseldiğinde kırk beş dakika durur, sonra düşer. Çoğu oyuncu içinde duran taraf tepeyi yarışır, ve kırılmaz çoğunluk dakikası sonra tepe onlarındır; yalnız oyuncu kendisinin partisidir, ama raid üyeleri hiç saymaz. Bir taraf tepeyi tutarken, içinde duran üyeleri dakikada Her Zaman Onur kazanır, ve aynı taraf onu ne kadar uzun tutarsa, her dakika ne kadar çoğu ödediğini: tam taraf tutmuş çekişmeli olmayan bir tepesinin tümü kadar bir saat üç zafer ve oyun kazancı. Tepe el değiştirdiğinde, yeni sahipçiler baştan başlar. Sahası üzerinde bir çubuk onu tutar, sayılarınız onlarına karşı, ve yarış saati; sohbete /hill nerede durduğunu söyler.',
   'guide.worldPvpPage.hillHeading': 'Tepe Derdine',
-  'guide.worldPvpPage.introZones':
-    'Açık-dünya oyuncu-versus-oyuncu tercih sağlayıcı ve durduğunuz toprak ne anlama geldiğine karar verir. PvP bayrağını kaldırın ve tarafınız ya da raid partisinde olmayan diğer bayraklı oyuncu rakip tartışmalı araziede olur; kapatın ve kısa gecikme sonrası, yeniden izleyicisiniz. İki bölge hiçbir dünya dövüşü olmuyor kutsal alanlar, ve üç en kuzey bölge herkes serbest oyun varsa bayrak olsun ya da olmasın adildir. Puan ve raid yoldaşları hiçbir yerde sizin düşman değildir; lonca üyeleri grubunuzun dışında adildir.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Aynı oyuncu tekrar tekrar mağlup etmek daha az az çoğu zaman hiçbir şey öder, ve o oyuncu yönü sayarınız ilk öldürülerinden bir saat sonra baştan başlar, böylece bir kurban değerli bekleme beklemez. Seviyeniz çok aşağı bir hedef hiçbir şey öder. Dövüşlü Alanları ve Arenalar onlara içinde iken kendi kuralları yürütür, ve açık dünyaya daha fazla Onur ödedikleri, böylece dünya PvP aynı satıcıya yavaş yoldur. Raid dünya öldürüleridaten hiç almaz: bir raid üyesi Onur ya da altın almaz ve başkasının hissesini kabusmaz, böylece parti olarak dövüş almak için ödenir.',
   'guide.worldPvpPage.limitsHeading': 'Adil Oyun Kuralları',
@@ -2363,8 +2359,6 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.stakesHeading': 'Bir Ölümün Değeri',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Bayraklanmamış bir savaşçı da hiçbir şey almaz: altın yalnızca iki bayraklı oyuncu arasında değişir, ancak yardım eden herkes yine de Onur kazanır.',
-  'guide.worldPvpPage.zonesBody':
-    "Dünya üç tür zemine sahiptir. İspat Kıyısı ve Doğudere Vadisi kutsal topraklardır: hiç dünya PvP'si orada olmaz, bayraklı ya da değil, bu yüzden yeni bir karakter bayrak nedir bilmeden asla saldırıya uğramaz. Dünyanın çoğu uyuşmazlık bölgesidir; yukarıdaki bayrak kuralı tüm hikayedir. Ejder Toprakları, Kırağı Diyarı ve Kehribar Vadisi, en kuzey üç bölge, serbest savaş alanıdır: içlerinde duran herkes içlerinde duran herkese saldırabilir, bayraklı ya da değil, ve girişte ve çıkışta sana bildirilir. Bayraklanmamış bir oyuncuya saldırmak senin bayraını kaldırır, bu yüzden saldırgan her zaman riski taşır. Zaten bayraklı bir oyuncuya vurmak asla kaldırmaz, bu da kendini savunmak ya da bayraklanmamış birini savunmak hiçbir şeye mal olmaz.",
   'guide.worldPvpPage.zonesHeading': "Dünya PvP'si Nerede Olur",
   'landing.headline': 'Arkadaşlarınla maceraya atıl.',
   'landing.contribute': 'Oyuna katkıda bulun',
