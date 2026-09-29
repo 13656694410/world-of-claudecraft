@@ -1,5 +1,5 @@
-// King of the Hill (src/sim/pvp/hill.ts): the two-hour schedule (a random
-// warning inside each window, the rise fifteen minutes on, the fall 30 minutes
+// King of the Hill (src/sim/pvp/hill.ts): the three-hour schedule (a random
+// warning inside each window, the rise fifteen minutes on, the fall 45 minutes
 // after) and its realm announcements, the spot (dry, open, clear of the hub,
 // wholly inside a free-for-all zone, the same on every host, drawn from a
 // private rng, a retry searching new ground), the contest (a party as one
@@ -129,7 +129,7 @@ function hillWorld(names: string[]): { sim: Sim; pids: number[] } {
 }
 
 describe('the schedule and the announcements', () => {
-  it('warns the realm at a random moment in the window, rises 15 minutes on, falls 30 after', () => {
+  it('warns the realm at a random moment in the window, rises 15 minutes on, falls 45 after', () => {
     const sim = world();
     const a = addPlayer(sim, 'Aleph');
     const plan = hillPlanFor(sim.ctx, 0);
@@ -163,7 +163,7 @@ describe('the schedule and the announcements', () => {
     seen = tickSeconds(sim, 2);
     expect(hill.phase).toBe('active');
     expect(logLines(seen)).toContain(hillRiseLine(zone.name));
-    expect(sim.hillInfoFor(a)).toMatchObject({ phase: 'active', minutesLeft: 30 });
+    expect(sim.hillInfoFor(a)).toMatchObject({ phase: 'active', minutesLeft: 45 });
     // The fall.
     jumpTo(sim, plan.closesAt - 1);
     seen = tickSeconds(sim, 2);
@@ -511,15 +511,15 @@ describe('the Honor trickle', () => {
     expect(honorEvents(seen, a)).toEqual([]);
     seen = tickSeconds(sim, 3);
     expect(honorEvents(seen, a)).toEqual([
-      { type: 'honor', pid: a, amount: 4, reason: 'hill_hold' },
+      { type: 'honor', pid: a, amount: 2, reason: 'hill_hold' },
     ]);
-    expect(sim.meta(a)!.honor).toBe(4);
+    expect(sim.meta(a)!.honor).toBe(2);
     seen = tickSeconds(sim, 4 * HILL_ACCRUAL_SECONDS);
     expect(honorEvents(seen, a)).toHaveLength(4);
-    // Minutes one to three pay 4 each; the fourth and fifth land past the first
-    // ramp step (210 seconds held) and pay 8 (hillHonorPerPayout).
-    expect(sim.meta(a)!.honor).toBe(28);
-    expect(sim.hillState.active!.honorPaid).toBe(28);
+    // Minutes one to four pay 2 each; the fifth lands on the first ramp step
+    // (five minutes held) and pays 4 (hillHonorPerPayout).
+    expect(sim.meta(a)!.honor).toBe(12);
+    expect(sim.hillState.active!.honorPaid).toBe(12);
     // Stepping out banks nothing but keeps what was banked, so a holder who
     // steps off the rim to fight does not forfeit the minute they stood.
     tickSeconds(sim, 30);
@@ -599,8 +599,7 @@ describe('the Honor trickle', () => {
     tickSeconds(sim, HILL_CAPTURE_SECONDS + 1);
     expect(sim.hillState.active!.holder).toBe(`party:${sim.partyOf(b)!.id}`);
     expect(sim.hillState.active!.accrual.size).toBeLessThanOrEqual(2);
-    // The one minute banked before the capture paid, at the ramp's first step.
-    expect(sim.meta(a)!.honor).toBe(HILL_RAMP_STEP_HONOR);
+    expect(sim.meta(a)!.honor).toBe(2); // the one minute banked before the capture paid
   });
 });
 
@@ -635,10 +634,10 @@ describe('the readout and the chat arms', () => {
       (ev): ev is Extract<SimEvent, { type: 'error' }> => ev.type === 'error',
     );
     expect(errors.find((ev) => ev.pid === a)?.text).toBe(
-      'The hill stands in The Drakelands: your group holds it. It falls in 29 minutes.',
+      'The hill stands in The Drakelands: your group holds it. It falls in 44 minutes.',
     );
     expect(errors.find((ev) => ev.pid === b)?.text).toBe(
-      'The hill stands in The Drakelands: another group holds it. It falls in 29 minutes.',
+      'The hill stands in The Drakelands: another group holds it. It falls in 44 minutes.',
     );
     const quiet = world();
     const q = addPlayer(quiet, 'Quiet');

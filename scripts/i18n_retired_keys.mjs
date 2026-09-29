@@ -65,11 +65,6 @@ export const RETIRED_KEYS = [
   'guide.worldPvpPage.limitsBodyHour', // -> guide.worldPvpPage.limitsBodyRaids (the raid rule)
   'guide.worldPvpPage.hillBody', // -> guide.worldPvpPage.hillBodyRamp (the hold ramp)
   'guide.worldPvpPage.hillBodyRamp', // -> guide.worldPvpPage.hillBodyRanked (2 h, 30 min, ranking)
-  // The Weekly Vault PvP row also counts the King of the Hill longest hold.
-  'hudChrome.weeklyRewards.completedTask.pvpOne', // -> completedTask.pvpWinOne
-  'hudChrome.weeklyRewards.completedTask.pvpMany', // -> completedTask.pvpWinMany
-  'hudChrome.weeklyRewards.requiredTask.pvpOne', // -> requiredTask.pvpWinOne
-  'hudChrome.weeklyRewards.requiredTask.pvpMany', // -> requiredTask.pvpWinMany
   'guide.commandsPage.pvp', // -> guide.commandsPage.pvpZones
 
   // -- Content the game no longer has, so the wiki must not define it.

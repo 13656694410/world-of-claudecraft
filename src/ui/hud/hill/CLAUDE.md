@@ -32,17 +32,6 @@ through `IWorld.hillInfo`), behind the `index.ts` barrel:
   name resolves through `zoneDisplayName`; durations through `durationText`,
   counts through `formatNumber`. The numbers the copy quotes resolve from
   `src/sim/pvp/hill_rules.ts`, never literals.
-- `hill_map_view.ts`: the pure core (in `UI_PURE_CORES`) that projects
-  `IWorld.hillInfo` onto the maps for every viewer wherever they stand:
-  `buildZoneMapHillMarker` (the circle at its true size, only when the hill's
-  zone is the one framed and its centre is in view; composed by
-  `map_window_view.ts` into `OverworldMapModel.hill`),
-  `buildContinentHillMarker` (a badge from anywhere; `ContinentMapModel.hill`)
-  and `hillMapTone` (the renderer's ring colour rule). `hill_map_painter.ts` is
-  its thin painter: the dashed-while-announced circle, the pennant badge, and
-  the caption (`hudChrome.hill.title` plus `rises` / `falls`); the two map
-  painters resolve the `--color-map-hill-*` tokens once per redraw and blit the
-  caption through their own text paths.
 - The circle itself is drawn by the renderer (`src/render/hill_ring.ts`; still
   and faint while announced); the `/hill` chat readout and the warning, rise,
   five-minute reminder, standings, fall and Weekly Vault announcements come

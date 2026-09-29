@@ -29,7 +29,6 @@ import {
   zoneAt,
 } from '../sim/data';
 import type { IWorld } from '../world_api';
-import { buildContinentHillMarker, type MapHillMarker } from './hud/hill/hill_map_view';
 
 /** An axis-aligned rectangle in canvas-pixel space. */
 export interface ContinentRect {
@@ -81,9 +80,6 @@ export interface ContinentMapModel {
   /** Party members other than self, at their live world position (issue 2652).
    *  Empty solo, with no party formed, or when every member is off the world. */
   party: ContinentPartyMarker[];
-  /** King of the Hill: the announced or standing hill's badge, wherever the
-   *  viewer is, or null while none is (src/ui/hud/hill/hill_map_view.ts). */
-  hill: MapHillMarker | null;
   /** The zone id the player currently stands in (the on-canvas subtitle). */
   currentZoneId: string;
 }
@@ -192,7 +188,6 @@ export function buildContinentMapModel(input: ContinentMapInput): ContinentMapMo
     regions,
     player,
     party,
-    hill: buildContinentHillMarker(world.hillInfo, inWorld, toMap),
     currentZoneId,
   };
 }

@@ -46,12 +46,6 @@ import { type Decoration, generateDecorationsInBounds } from '../sim/world';
 import type { IWorld } from '../world_api';
 import type { CastlePlanMarker } from './castle_plan_core';
 import { dungeonDisplayName, riftFloorLabel, zoneDisplayName, zonePoiLabel } from './entity_i18n';
-import {
-  type HillMapColors,
-  hillMapCaption,
-  paintHillMapArea,
-  paintHillMapBadge,
-} from './hud/hill/hill_map_painter';
 import { formatNumber } from './i18n';
 import {
   EMPTY_MAP_MARKER_ART,
@@ -136,11 +130,6 @@ const WORLD_BOSS_SKULL_JAW_HALF_RATIO = 0.22;
 const WORLD_BOSS_SKULL_JAW_TOP_RATIO = 0.13;
 const WORLD_BOSS_SKULL_JAW_HEIGHT_RATIO = 0.26;
 const WORLD_BOSS_SKULL_EYE_RATIO = 0.085;
-// King of the Hill's caption rows BELOW its badge (the continent map's
-// placement; a POI label sits above its own point): the baseline drop of the
-// first row under the badge and the step to the second.
-const HILL_CAPTION_DROP = 18;
-const HILL_CAPTION_STEP = 14;
 
 function drawWorldBossSkull(
   ctx: CanvasRenderingContext2D,
@@ -383,11 +372,6 @@ export const MAP_COLOR_TOKENS = {
   worldQuestAreaStroke: '--color-map-world-quest-area-stroke',
   worldQuestAvailable: '--color-map-world-quest-available',
   worldBoss: '--color-map-world-boss',
-  hillUnheld: '--color-map-hill-unheld',
-  hillYours: '--color-map-hill-yours',
-  hillOthers: '--color-map-hill-others',
-  hillAreaFill: '--color-map-hill-area-fill',
-  hillGlyph: '--color-map-hill-glyph',
   questBadgeFill: '--color-map-quest-badge-fill',
   questBadgeText: '--color-map-quest-badge-text',
   player: '--color-map-player',
@@ -425,18 +409,6 @@ export const MAP_COLOR_TOKENS = {
 } as const;
 
 type MapColors = Record<keyof typeof MAP_COLOR_TOKENS, string>;
-
-/** The hill painter's slice of this redraw's resolved colours. */
-function hillColors(colors: MapColors): HillMapColors {
-  return {
-    unheld: colors.hillUnheld,
-    yours: colors.hillYours,
-    others: colors.hillOthers,
-    areaFill: colors.hillAreaFill,
-    outline: colors.outline,
-    glyph: colors.hillGlyph,
-  };
-}
 
 function navigationRankCount(rank: RiftTier | null): number {
   switch (rank) {
@@ -784,9 +756,6 @@ export class MapWindowPainter {
       }
     }
 
-    // King of the Hill's circle, under every marker like the objective rings.
-    if (model.hill) paintHillMapArea(ctx, model.hill, hillColors(colors));
-
     // Gather nodes: profession-colored type silhouettes over the quest-area
     // blobs (a resource field still reads inside a blue objective region) but
     // under the zone title, POI labels, portals, and quest markers, so label
@@ -1053,23 +1022,6 @@ export class MapWindowPainter {
       ctx.fill();
       ctx.stroke();
       drawWorldBossSkull(ctx, marker.mx, marker.my, radius, colors.player, colors.outline);
-    }
-
-    // King of the Hill: a holder-coloured pennant badge at the circle's centre,
-    // captioned with the event's name and when it rises or falls.
-    if (model.hill) {
-      const radius = geometry.questBadgeRadius + WORLD_QUEST_BADGE_OUTER_ADD;
-      paintHillMapBadge(ctx, model.hill, hillColors(colors), radius, geometry.questBadgeLineWidth);
-      const caption = hillMapCaption(model.hill);
-      const captionStyle: TextSpriteStyle = {
-        font: geometry.portalNameFont,
-        fill: colors.label,
-        stroke: colors.outline,
-        lineWidth: geometry.textOutlineWidth,
-      };
-      const titleY = model.hill.my + radius + HILL_CAPTION_DROP;
-      this.labels.draw(ctx, caption.title, model.hill.mx, titleY, captionStyle);
-      this.labels.draw(ctx, caption.when, model.hill.mx, titleY + HILL_CAPTION_STEP, captionStyle);
     }
 
     // Dungeon Finder "Show on Map" highlight: a steady double ring around the

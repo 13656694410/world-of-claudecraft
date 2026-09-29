@@ -1,4 +1,4 @@
-// King of the Hill: the pure rules. Once every two hours, at a random
+// King of the Hill: the pure rules. Once every three hours, at a random
 // moment inside the window, a hill is announced somewhere in one of the
 // free-for-all zones; it rises HILL_WARNING_SECONDS later as a HILL_RADIUS
 // circle on dry, open ground and stands for HILL_DURATION_SECONDS. The PARTY
@@ -6,8 +6,8 @@
 // HILL_CAPTURE_SECONDS of unbroken majority, and every holder standing inside
 // earns a slow trickle of Honor for as long as they hold it. While it stands
 // the realm hears where it is every HILL_NOTICE_SECONDS, with the standings
-// (hill_ranking.ts): the group that held it longest in total earns a point
-// toward the Weekly Vault's PvP row when it falls. Raid members do
+// (hill_ranking.ts): the group that held it longest earns a point toward the
+// Weekly Vault's PvP row when it falls. Raid members do
 // not count; every level does. No SimContext, no rng, no clock: every function here is a plain function of its arguments so the
 // sim (hill.ts), the HUD bar and the tests read the same verdicts. The
 // ctx-bound system that owns the schedule, the presence pass, the contest
@@ -15,15 +15,13 @@
 
 /** The circle's radius in yards (owner spec). */
 export const HILL_RADIUS = 50;
-/** One hill per window of this length (owner spec 2026-09-29: "once every
- *  2 hours", down from 3). */
-export const HILL_WINDOW_SECONDS = 2 * 60 * 60;
+/** One hill per window of this length (owner spec: "once every 3 hours"). */
+export const HILL_WINDOW_SECONDS = 3 * 60 * 60;
 /** The realm is told where the hill will rise this long before it does
  *  (owner spec: a 15 minute warning), so parties can form and travel. */
 export const HILL_WARNING_SECONDS = 15 * 60;
-/** A risen hill stands this long, then falls (owner spec 2026-09-29: 30
- *  minutes, down from 45, for the same total Honor; see the ramp below). */
-export const HILL_DURATION_SECONDS = 30 * 60;
+/** A risen hill stands this long, then falls (owner spec: 45 minutes). */
+export const HILL_DURATION_SECONDS = 45 * 60;
 /** While a hill stands the realm is reminded where it is, and told the
  *  standings, this often (owner spec 2026-09-29: every 5 minutes). */
 export const HILL_NOTICE_SECONDS = 5 * 60;
@@ -40,22 +38,19 @@ export const HILL_LATEST_WARN_OFFSET_SECONDS =
 export const HILL_CAPTURE_SECONDS = 60;
 /** Each holder standing inside accrues this many seconds of presence before a
  *  payout, and each payout RAMPS with how long the holding party has held the
- *  hill (hillHonorPerPayout): HILL_RAMP_STEP_HONOR a minute for the first
- *  HILL_RAMP_STEP_SECONDS, that much more each further step, capped at
+ *  hill (hillHonorPerPayout): HILL_RAMP_STEP_HONOR a minute for the first five
+ *  minutes, that much more each further five minutes, capped at
  *  HILL_RAMP_MAX_HONOR a minute. A full uncontested stand pays about 380 each
  *  (owner tuning 2026-09-25: King of the Hill is a real road to Warfare gear,
- *  doubled alongside the Thornhollow Fields awards). The 30-minute stand
- *  (owner spec 2026-09-29: "reward the same total honour") redistributes the
- *  old 45-minute ramp (2 a minute, +2 every five minutes, capped at 12) into a
- *  steeper one that pays a full hold exactly the same 388. The streak belongs to the party and resets when the
+ *  doubled alongside the Thornhollow Fields awards). The streak belongs to the party and resets when the
  *  hill changes hands, so a long hold is the thing worth taking. Only a party
  *  can hold, so a party's size is the payee cap. */
 export const HILL_ACCRUAL_SECONDS = 60;
 /** Held seconds per step of the ramp, the Honor each step adds to a minute's
  *  payout, and the per-minute cap it climbs to. */
-export const HILL_RAMP_STEP_SECONDS = 210;
-export const HILL_RAMP_STEP_HONOR = 4;
-export const HILL_RAMP_MAX_HONOR = 16;
+export const HILL_RAMP_STEP_SECONDS = 300;
+export const HILL_RAMP_STEP_HONOR = 2;
+export const HILL_RAMP_MAX_HONOR = 12;
 /** The Weekly Vault point for the longest hold (hill_ranking.ts) pays only a
  *  player who stood inside for at least this long while their group held the
  *  hill, and who is still in that group when it falls: a one-second visit, or

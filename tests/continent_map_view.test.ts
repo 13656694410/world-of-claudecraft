@@ -19,7 +19,7 @@ import {
   type ContinentMapInput,
   continentZoneAt,
 } from '../src/ui/continent_map_view';
-import type { HillInfo, IWorld } from '../src/world_api';
+import type { IWorld } from '../src/world_api';
 
 const CANVAS = 560;
 
@@ -407,52 +407,5 @@ describe('buildContinentMapModel: party markers', () => {
     const client = buildContinentMapModel(input(partyWorldAt('client', 0, 0, roster), 0.86));
     expect(sim.party).toHaveLength(2);
     expect(sim).toEqual(client);
-  });
-});
-
-// King of the Hill (src/ui/hud/hill/hill_map_view.ts): the continent overview
-// shows the announced or standing hill wherever the viewer stands.
-describe('buildContinentMapModel: King of the Hill', () => {
-  const drakelands = ZONES.find((z) => z.id === 'drakelands')!;
-  const hx = ((drakelands.xMin ?? -180) + (drakelands.xMax ?? 180)) / 2;
-  const hz = (drakelands.zMin + drakelands.zMax) / 2;
-  const hill: HillInfo = {
-    zoneId: 'drakelands',
-    x: hx,
-    z: hz,
-    radius: 50,
-    phase: 'warning',
-    minutesLeft: 9,
-    inZone: false,
-    standing: 'counted',
-    holder: 'none',
-    inside: false,
-    holderCount: 0,
-    yourCount: 0,
-    challenger: 'none',
-    challengerCount: 0,
-    contest: 0,
-  };
-
-  it('badges the hill from anywhere, in both hosts, at the projected centre', () => {
-    for (const shape of ['sim', 'client'] as const) {
-      const world = worldAt(shape, 0, 0) as IWorld & { hillInfo: unknown };
-      world.hillInfo = hill;
-      const m = buildContinentMapModel(input(world, 0.5));
-      expect(m.currentZoneId).not.toBe('drakelands');
-      const at = projectPoint(hx, hz, m.image);
-      expect(m.hill).toEqual({
-        mx: expect.closeTo(at.mx, 6),
-        my: expect.closeTo(at.my, 6),
-        radius: 0,
-        phase: 'warning',
-        holder: 'none',
-        minutesLeft: 9,
-      });
-    }
-  });
-
-  it('shows no badge while no hill is announced', () => {
-    expect(buildContinentMapModel(input(worldAt('client', 0, 0), 0.5)).hill).toBeNull();
   });
 });

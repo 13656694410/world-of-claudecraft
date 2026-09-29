@@ -1297,64 +1297,6 @@ describe('world-boss zone markers', () => {
   });
 });
 
-// King of the Hill (src/ui/hud/hill/hill_map_view.ts): every viewer's
-// hillInfo carries the hill's zone and centre wherever they stand, so the zone
-// map draws the circle whenever that zone is framed, in both hosts alike.
-describe('King of the Hill zone marker', () => {
-  const hillZone = ZONES.find((z) => z.id === 'drakelands')!;
-  const hx = ((hillZone.xMin ?? STRIP_MIN_X) + (hillZone.xMax ?? STRIP_MAX_X)) / 2;
-  const hz = (hillZone.zMin + hillZone.zMax) / 2;
-  const hillInfo = {
-    zoneId: 'drakelands',
-    x: hx,
-    z: hz,
-    radius: 50,
-    phase: 'active' as const,
-    minutesLeft: 12,
-    inZone: false,
-    standing: 'counted' as const,
-    holder: 'other' as const,
-    inside: false,
-    holderCount: 0,
-    yourCount: 0,
-    challenger: 'none' as const,
-    challengerCount: 0,
-    contest: 0,
-  };
-
-  function hillModel(shape: 'sim' | 'client', zoneId = 'drakelands', info = hillInfo) {
-    const world = makeOverworldWorld(shape) as IWorld & { hillInfo: typeof hillInfo | null };
-    world.hillInfo = info;
-    return buildOverworldMapModel({
-      ...input(world, 1),
-      zone: ZONES.find((z) => z.id === zoneId)!,
-    });
-  }
-
-  it("draws the hill's circle at its true size on its zone's map, identically in both hosts", () => {
-    const sim = hillModel('sim');
-    expect(hillModel('client').hill).toEqual(sim.hill);
-    const { view, region } = sim;
-    expect(sim.hill).toEqual({
-      mx: ((region.maxX - hx) / view.spanX) * CANVAS,
-      my: ((region.maxZ - hz) / view.spanZ) * CANVAS,
-      radius: (50 / view.spanX) * CANVAS,
-      phase: 'active',
-      holder: 'other',
-      minutesLeft: 12,
-    });
-  });
-
-  it('shows nothing on another zone map, or with no hill announced', () => {
-    expect(hillModel('sim', ZONES.find((z) => z.id !== 'drakelands')!.id).hill).toBeNull();
-    expect(hillModel('sim', 'drakelands', null as unknown as typeof hillInfo).hill).toBeNull();
-    // A world stub with no hillInfo field at all (an older mirror) is no hill.
-    expect(
-      buildOverworldMapModel({ ...input(makeOverworldWorld('sim'), 1), zone: hillZone }).hill,
-    ).toBeNull();
-  });
-});
-
 // Zone-map gather nodes: every authored ore/wood/herb in the committed zone,
 // at full-zone zoom (the surface the player asked for) and when zoomed in.
 // Distinct from the quest-area gather blobs above (those only mark active

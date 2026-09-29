@@ -836,10 +836,6 @@ const CANVAS_PAINTERS: ReadonlyArray<ScannedPainter> = [
   { file: 'hud/delve/delve_map_painter.ts', allow: {}, reflowAllow: { getComputedStyle: 1 } },
   { file: 'hud/rift/rift_map_painter.ts', allow: {}, reflowAllow: { getComputedStyle: 1 } },
   { file: 'hud/battleground/battleground_atlas_marks_painter.ts', allow: {}, reflowAllow: {} },
-  // King of the Hill's zone-map and continent-map marks: handed its context and
-  // its resolved colour slice by the two map painters, so it resolves nothing,
-  // reads nothing and owns no element (the battleground marks precedent).
-  { file: 'hud/hill/hill_map_painter.ts', allow: {}, reflowAllow: {} },
   // the M-map Thornhollow Fields plan: canvas-only, redrawn on the map cadence;
   // like minimap it caches its one --color-* group resolve for the session
   {

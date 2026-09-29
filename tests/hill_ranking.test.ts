@@ -244,12 +244,15 @@ describe('the five-minute reminder', () => {
     expect(hill.phase).toBe('active');
     // Each reminder sounds on its own pass: step the clock to just before each.
     const reminders: string[] = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 10; i++) {
       jumpTo(sim, Math.min(hill.nextNoticeAt, hill.closesAt) - 0.5);
       reminders.push(...stillStands(tickSeconds(sim, 2)));
     }
-    // At 5, 10, 15, 20 and 25 minutes; at 30 it falls instead.
+    // Every five minutes of the 45-minute stand; at 45 it falls instead.
     expect(reminders).toEqual([
+      hillStillStandsLine('The Drakelands', 40),
+      hillStillStandsLine('The Drakelands', 35),
+      hillStillStandsLine('The Drakelands', 30),
       hillStillStandsLine('The Drakelands', 25),
       hillStillStandsLine('The Drakelands', 20),
       hillStillStandsLine('The Drakelands', 15),
