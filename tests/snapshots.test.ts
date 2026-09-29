@@ -6066,7 +6066,7 @@ function dirtyEveryDeltaField(): {
   // World PvP: the wpvp self readout (meta) and the pvp entity bit (entity).
   meta.worldPvp = { flagged: true, disarmAt: null, kills: 2, deaths: 1 };
   sim.entities.get(lp)!.pvpFlag = true;
-  // King of the Hill: a hill stands (in a free-for-all zone the leader is not
+  // King of the Hill: a hill stands (in a northern zone the leader is not
   // in), so the hill self readout rides the snapshot.
   spawnHillNow(sim.ctx);
   meta.restedXp = 222;
@@ -6559,15 +6559,16 @@ describe('full self-state snapshot delta fixture', () => {
     expect(client.player.pvpFlag).toBe(true);
     // hill -> hillInfo (social_self_wire.ts): the standing hill from the
     // leader's seat (outside its zone, so the live fields are zero; the
-    // fixture leader is ungrouped, so counts as a group of one).
+    // fixture leader is below level 10, so cannot count on the hill).
+    expect(client.player.level).toBeLessThan(10);
     expect(client.hillInfo).toMatchObject({
       radius: 50,
       phase: 'active',
-      standing: 'counted',
+      standing: 'level',
       holder: 'none',
       inZone: false,
       inside: false,
-      minutesLeft: 45,
+      minutesLeft: 30,
     });
     expect(['drakelands', 'frostveil', 'amberfall']).toContain(client.hillInfo?.zoneId);
     expect(client.restedXp).toBe(222); // rxp -> restedXp
