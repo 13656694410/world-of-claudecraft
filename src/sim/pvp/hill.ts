@@ -124,6 +124,11 @@ export interface ActiveHill extends HillTimes {
  *  actually moved (false at its weekly cap), so the notice never lies. */
 export type HillVaultCredit = (ctx: SimContext, pid: number) => boolean;
 
+/** No Weekly Vault credit: the default for a caller that drives the hill
+ *  without a vault (a unit test stepping `updateHill` directly). The Sim always
+ *  passes the real credit, so production never falls back to this. */
+export const NO_HILL_VAULT_CREDIT: HillVaultCredit = () => false;
+
 /** The Sim-owned session state, exposed on SimContext as a live view. */
 export interface HillState {
   active: ActiveHill | null;
@@ -337,7 +342,10 @@ export function riseHillNow(ctx: SimContext): ActiveHill | null {
 /** End the announced or standing hill now, exactly as if its time had come:
  *  the realm's fall line, the final standings and the longest hold's Weekly
  *  Vault credit. Null when there is none. */
-export function endHillNow(ctx: SimContext, credit: HillVaultCredit): ActiveHill | null {
+export function endHillNow(
+  ctx: SimContext,
+  credit: HillVaultCredit = NO_HILL_VAULT_CREDIT,
+): ActiveHill | null {
   const hill = ctx.hillState.active;
   if (!hill) return null;
   fallHill(ctx, hill, credit);
@@ -378,7 +386,10 @@ function fallHill(ctx: SimContext, hill: ActiveHill, credit: HillVaultCredit): v
  *  own zone and spot, the full warning), and that window is spent, exactly as
  *  if its random moment had come. Ends any hill that stands first. Null when no
  *  spot was found this attempt (the schedule then retries it on its own). */
-export function warnNextHillNow(ctx: SimContext, credit: HillVaultCredit): ActiveHill | null {
+export function warnNextHillNow(
+  ctx: SimContext,
+  credit: HillVaultCredit = NO_HILL_VAULT_CREDIT,
+): ActiveHill | null {
   const state = ctx.hillState;
   if (state.active) endHillNow(ctx, credit);
   const current = hillWindowAt(ctx.time);
@@ -568,7 +579,7 @@ function recordHold(ctx: SimContext, hill: ActiveHill, holder: string, dt: numbe
  * standings, no Weekly Vault credit). `credit` is the host's Weekly Vault PvP
  * credit for the longest hold when a hill falls (HillVaultCredit).
  */
-export function updateHill(ctx: SimContext, credit: HillVaultCredit): void {
+export function updateHill(ctx: SimContext, credit: HillVaultCredit = NO_HILL_VAULT_CREDIT): void {
   const state = ctx.hillState;
   if (ctx.tickCount - state.passTick < PASS_TICKS) return;
   state.passTick = ctx.tickCount;

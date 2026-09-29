@@ -21,6 +21,7 @@ import {
   hillRankLine,
   hillStillStandsLine,
   hillVaultPayees,
+  NO_HILL_VAULT_CREDIT,
   spawnHillNow,
 } from '../src/sim/pvp';
 import { Sim } from '../src/sim/sim';
@@ -244,21 +245,23 @@ describe('the five-minute reminder', () => {
     expect(hill.phase).toBe('active');
     // Each reminder sounds on its own pass: step the clock to just before each.
     const reminders: string[] = [];
-    for (let i = 0; i < 10; i++) {
+    const passes = HILL_DURATION_SECONDS / HILL_NOTICE_SECONDS + 1;
+    for (let i = 0; i < passes; i++) {
       jumpTo(sim, Math.min(hill.nextNoticeAt, hill.closesAt) - 0.5);
       reminders.push(...stillStands(tickSeconds(sim, 2)));
     }
-    // Every five minutes of the 45-minute stand; at 45 it falls instead.
-    expect(reminders).toEqual([
-      hillStillStandsLine('The Drakelands', 40),
-      hillStillStandsLine('The Drakelands', 35),
-      hillStillStandsLine('The Drakelands', 30),
-      hillStillStandsLine('The Drakelands', 25),
-      hillStillStandsLine('The Drakelands', 20),
-      hillStillStandsLine('The Drakelands', 15),
-      hillStillStandsLine('The Drakelands', 10),
-      hillStillStandsLine('The Drakelands', 5),
-    ]);
+    // Every five minutes of the stand, counting down; at its end the hill falls
+    // instead (read off HILL_DURATION_SECONDS so a retuned stand keeps this true).
+    const expected: string[] = [];
+    for (
+      let left = HILL_DURATION_SECONDS - HILL_NOTICE_SECONDS;
+      left > 0;
+      left -= HILL_NOTICE_SECONDS
+    ) {
+      expected.push(hillStillStandsLine('The Drakelands', left / 60));
+    }
+    expect(expected.length).toBeGreaterThanOrEqual(5);
+    expect(reminders).toEqual(expected);
     expect(HILL_NOTICE_SECONDS).toBe(300);
     expect(hill.zoneId).toBe('drakelands');
     expect(sim.hillState.active).toBeNull();
@@ -454,6 +457,20 @@ describe('the Weekly Vault point', () => {
     for (let i = 0; i < 6; i++) results.push(recordWeeklyPvpWin(sim.ctx, a));
     expect(results).toEqual([true, true, true, true, true, false]);
     expect(vaultPvp(sim, a)).toBe(5);
+  });
+
+  it('a caller that passes no credit (a test driving the pass) pays no vault point', () => {
+    const { sim, pids } = hillWorld(['Aleph']);
+    const [a] = pids;
+    inside(sim, a);
+    tickSeconds(sim, HILL_CAPTURE_SECONDS + 65);
+    sim.events = [];
+    expect(NO_HILL_VAULT_CREDIT(sim.ctx, a)).toBe(false);
+    endHillNow(sim.ctx);
+    expect(vaultPvp(sim, a)).toBe(0);
+    expect(logLines(sim.events, a)).not.toContain(HILL_VAULT_LINE);
+    // The standings are still told: only the vault credit is the host's.
+    expect(logLines(sim.events).some((l) => l.startsWith('Hill ranking #1: Aleph'))).toBe(true);
   });
 
   it('a realm switched off mid-stand drops the hill with no standings and no point', () => {

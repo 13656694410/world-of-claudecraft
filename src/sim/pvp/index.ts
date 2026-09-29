@@ -16,6 +16,7 @@ export {
   hillRiseLine,
   hillStillStandsLine,
   hillWarningLine,
+  NO_HILL_VAULT_CREDIT,
   newHillState,
   pickHillSpot,
   riseHillNow,
