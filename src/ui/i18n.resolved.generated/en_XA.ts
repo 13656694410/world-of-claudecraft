@@ -18457,6 +18457,9 @@ export const en_XA: EnTranslations = {
       "vanguard_warstaff": {
         "name": "[Ʋáñĝúáŕð'š Ŵáŕšţáƒƒ]"
       },
+      "vanguard_feral_staff": {
+        "name": "[Ʋáñĝúáŕð'š Ƒéŕáļ Šţáƒƒ]"
+      },
       "conjured_water4": {
         "name": "[Çóñĵúŕéð Šþŕíñĝŵáţéŕ]"
       },
@@ -24185,8 +24188,8 @@ export const en_XA: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "[Ɓļóóðɱáñé Ĥíðé]",
-        "bonus2": "[Ɓŕúíñ Ŕúšĥ'š çóóļðóŵñ íš ŕéðúçéð ƀý 3 šéç.]",
-        "bonus4": "[Ɓŕúíñ Ŕúšĥ šĥíéļðš ýóú ƒóŕ 6 þéŕçéñţ óƒ ýóúŕ ɱáẋíɱúɱ ĥéáļţĥ ƒóŕ 6 šéç.]"
+        "bonus2": "[Ŕéðúçéš ţĥé çóóļðóŵñš óƒ Ļúñĝé áñð Ɓŕúíñ Ŕúšĥ ƀý 3 šéç.]",
+        "bonus4": "[Ðášĥ'š çóóļðóŵñ íš ŕéðúçéð ƀý 15 šéç.]"
       },
       "vanguard_druid_restoration": {
         "name": "[Ţĥíšţļéƀļóóɱ Ʋéšţɱéñţ]",

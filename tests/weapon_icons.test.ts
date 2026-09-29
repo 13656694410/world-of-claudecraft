@@ -63,7 +63,8 @@ describe('painted weapon inventory icons', () => {
     // faction-vendor-icons-2026-09-16), landed by the wq-reputation merge.
     // 141 -> 145: the four Warfare Season 2 honor weapons, painted in
     // warfare-season2-weapons-2026-09-25 (second release/v0.44.0 base merge).
-    expect(baseWeapons).toHaveLength(145);
+    // The feral Season 2 staff adds one more authored weapon.
+    expect(baseWeapons).toHaveLength(146);
     expect([...WEAPON_IMAGE_IDS].sort()).toEqual(baseWeapons);
     expect(Object.keys(ITEM_WEAPON_VARIANTS).sort()).toEqual(baseWeapons);
     for (const id of baseWeapons) {
@@ -107,7 +108,8 @@ describe('painted weapon inventory icons', () => {
     // Eight with the faction quartermaster epics' batch
     // (faction-vendor-icons-2026-09-16, asserted below as `factionBatch`), nine
     // with the Warfare Season 2 weapons (warfare-season2-weapons-2026-09-25).
-    expect(weaponBatches).toHaveLength(9);
+    // Ten with the separate feral staff painting batch.
+    expect(weaponBatches).toHaveLength(10);
     const historicalBatch = weaponBatches.find(
       ({ batchId }) => batchId === 'placeholder-art-completion-weapons-2026-08-09',
     );
@@ -243,6 +245,10 @@ describe('painted weapon inventory icons', () => {
       'vanguard_verdict_greatsword',
       'vanguard_warstaff',
     ]);
+    const feralStaffBatch = weaponBatches.find(
+      ({ batchId }) => batchId === 'warfare-season2-feral-staff-2026-09-29',
+    );
+    expect(feralStaffBatch?.itemIds).toEqual(['vanguard_feral_staff']);
     expect(historicalBatch?.itemIds).toEqual(
       expected.filter(
         (id) =>
@@ -253,7 +259,8 @@ describe('painted weapon inventory icons', () => {
           !varkhulWeaponIds.includes(id) &&
           !gapWeaponIds.includes(id) &&
           !factionWeaponIds.includes(id) &&
-          !season2WeaponIds.includes(id),
+          !season2WeaponIds.includes(id) &&
+          id !== 'vanguard_feral_staff',
       ),
     );
     expect(
@@ -305,7 +312,8 @@ describe('painted weapon inventory icons', () => {
         !varkhulWeaponIds.includes(id) &&
         !gapWeaponIds.includes(id) &&
         !factionWeaponIds.includes(id) &&
-        !season2WeaponIds.includes(id),
+        !season2WeaponIds.includes(id) &&
+        id !== 'vanguard_feral_staff',
     );
     expect(chunkA.assets.map(({ id }) => id)).toEqual(campaignExpected.slice(0, 40));
     expect(chunkB.assets.map(({ id }) => id)).toEqual(campaignExpected.slice(40, 80));

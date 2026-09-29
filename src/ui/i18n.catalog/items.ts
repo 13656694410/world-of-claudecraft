@@ -3374,6 +3374,7 @@ const ITEM_ENTITY_IDS = [
   'vanguard_oath_blade',
   'vanguard_fang_dagger',
   'vanguard_warstaff',
+  'vanguard_feral_staff',
 ] as const;
 
 type ItemEntityId = (typeof ITEM_ENTITY_IDS)[number];
@@ -4309,6 +4310,7 @@ const APPENDED_ITEM_NAMES: Partial<Record<ItemEntityId, string>> = {
   vanguard_oath_blade: "Vanguard's Oath",
   vanguard_fang_dagger: "Vanguard's Fang",
   vanguard_warstaff: "Vanguard's Warstaff",
+  vanguard_feral_staff: "Vanguard's Feral Staff",
 };
 
 function itemTranslations(names: readonly string[]): ItemEntityTranslations {

@@ -18457,6 +18457,9 @@ export const zh_CN: EnTranslations = {
       "vanguard_warstaff": {
         "name": "先锋之战杖"
       },
+      "vanguard_feral_staff": {
+        "name": "先锋野性法杖"
+      },
       "conjured_water4": {
         "name": "魔法泉水"
       },
@@ -24185,8 +24188,8 @@ export const zh_CN: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "血鬃兽皮",
-        "bonus2": "熊冲的冷却时间缩短3秒。",
-        "bonus4": "熊冲为你提供相当于最大生命值6%的护盾，持续6秒。"
+        "bonus2": "扑击和巨熊冲锋的冷却时间缩短3秒。",
+        "bonus4": "急奔的冷却时间缩短15秒。"
       },
       "vanguard_druid_restoration": {
         "name": "蓟花法衣",

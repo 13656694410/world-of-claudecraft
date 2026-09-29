@@ -970,7 +970,7 @@ const WARFARE_ARMORY_ITEM_IDS = [
   ...WARFARE_TRINKET_STOCK,
 ];
 // Warfare Season 2 ("Vanguard", content/pvp_honor_season2.ts) is sold by the same
-// two quartermasters: its 27 spec sets and four weapons fill one page, in stock
+// two quartermasters: its spec sets and weapons fill one page, in stock
 // order (class, then spec, each helmet to gloves, then the weapons).
 const VANGUARD_GALLERY_ITEM_IDS = [...SEASON2_STOCK];
 

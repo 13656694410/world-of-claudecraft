@@ -18457,6 +18457,9 @@ export const ko_KR: EnTranslations = {
       "vanguard_warstaff": {
         "name": "선봉대의 전투지팡이"
       },
+      "vanguard_feral_staff": {
+        "name": "선봉대의 야성 지팡이"
+      },
       "conjured_water4": {
         "name": "창조된 샘물"
       },
@@ -24185,8 +24188,8 @@ export const ko_KR: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "피갈기 가죽",
-        "bonus2": "2세트: Bruin Rush의 재사용 대기시간이 3초 감소합니다.",
-        "bonus4": "4세트: Bruin Rush가 최대 생명력 6%의 보호막을 6초 동안 부여합니다."
+        "bonus2": "도약 습격과 큰곰 돌진의 재사용 대기시간이 3초 감소합니다.",
+        "bonus4": "질주의 재사용 대기시간이 15초 감소합니다."
       },
       "vanguard_druid_restoration": {
         "name": "엉겅꽃 의복",

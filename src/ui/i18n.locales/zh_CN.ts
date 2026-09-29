@@ -856,6 +856,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_fang_dagger.name': '先锋之牙',
   'entities.items.vanguard_oath_blade.name': '先锋之誓约',
   'entities.items.vanguard_verdict_greatsword.name': '先锋之裁决',
+  'entities.items.vanguard_feral_staff.name': '先锋野性法杖',
   'entities.items.vanguard_warstaff.name': '先锋之战杖',
   'entities.npcs.glider_apprentice.name': '斯凯',
   'devCommand.actions.hillend.description': '让当前山丘立即回落。',
@@ -18638,9 +18639,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_warlock_destruction.bonus4':
     '每第二次烧燃会使你8秒内的下一次毁灭箭变为瞬发。',
   'entities.itemSets.vanguard_druid_feral.name': '血鬃兽皮',
-  'entities.itemSets.vanguard_druid_feral.bonus2': '熊冲的冷却时间缩短3秒。',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    '熊冲为你提供相当于最大生命值6%的护盾，持续6秒。',
+  'entities.itemSets.vanguard_druid_feral.bonus2': '扑击和巨熊冲锋的冷却时间缩短3秒。',
+  'entities.itemSets.vanguard_druid_feral.bonus4': '急奔的冷却时间缩短15秒。',
   'entities.itemSets.vanguard_druid_restoration.name': '蓟花法衣',
   'entities.itemSets.vanguard_druid_restoration.bonus2': '迅愈的冷却时间缩短1秒。',
   'entities.itemSets.vanguard_druid_restoration.bonus4': '迅愈还会使你的移动速度提高30%，持续3秒。',

@@ -18457,6 +18457,9 @@ export const zh_TW: EnTranslations = {
       "vanguard_warstaff": {
         "name": "先鋒之戰杖"
       },
+      "vanguard_feral_staff": {
+        "name": "先鋒野性法杖"
+      },
       "conjured_water4": {
         "name": "魔法泉水"
       },
@@ -24185,8 +24188,8 @@ export const zh_TW: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "血鬃獸皮",
-        "bonus2": "2件：Bruin Rush冷卻縮短3秒。",
-        "bonus4": "4件：Bruin Rush提供相當於最大生命值6%的護盾，持續6秒。"
+        "bonus2": "撲擊和巨熊衝鋒的冷卻時間縮短3秒。",
+        "bonus4": "急奔的冷卻時間縮短15秒。"
       },
       "vanguard_druid_restoration": {
         "name": "薊花法衣",

@@ -1008,6 +1008,7 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_warrior_prot_helmet.name': '鐵軍頭盔',
   'entities.items.vanguard_warrior_prot_legs.name': '鐵軍腿甲',
   'entities.items.vanguard_warrior_prot_shoulder.name': '鐵軍肩甲',
+  'entities.items.vanguard_feral_staff.name': '先鋒野性法杖',
   'entities.items.vanguard_warstaff.name': '先鋒之戰杖',
   'entities.npcs.glider_apprentice.name': '絲凱',
   'guide.arenaPage.vanguardBody':
@@ -18655,9 +18656,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_warlock_destruction.bonus4':
     '4件：每第二次Conflagrate使8秒內下一次Ruinbolt瞬發。',
   'entities.itemSets.vanguard_druid_feral.name': '血鬃獸皮',
-  'entities.itemSets.vanguard_druid_feral.bonus2': '2件：Bruin Rush冷卻縮短3秒。',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    '4件：Bruin Rush提供相當於最大生命值6%的護盾，持續6秒。',
+  'entities.itemSets.vanguard_druid_feral.bonus2': '撲擊和巨熊衝鋒的冷卻時間縮短3秒。',
+  'entities.itemSets.vanguard_druid_feral.bonus4': '急奔的冷卻時間縮短15秒。',
   'entities.itemSets.vanguard_druid_restoration.name': '薊花法衣',
   'entities.itemSets.vanguard_druid_restoration.bonus2': '2件：Fleetmend冷卻縮短1秒。',
   'entities.itemSets.vanguard_druid_restoration.bonus4':
