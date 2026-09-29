@@ -711,6 +711,26 @@ afterEach(() => {
 });
 
 describe('minimap_painter: tiny procedural symbols carry identity without hue', () => {
+  it('keeps an off-screen hill circle in place while drawing its skull on the rim', () => {
+    const trace = drawSymbols([
+      {
+        kind: 'hill',
+        mx: -20,
+        my: 80,
+        radius: 50,
+        phase: 'active',
+        skull: { mx: 12, my: 80 },
+      },
+    ]);
+    expect(trace.strokedArcs).toContainEqual({
+      x: -20,
+      y: 80,
+      radius: 50,
+      strokeStyle: 'paint:worldQuestAvailable',
+      lineWidth: 2,
+    });
+    expect(trace.filledArcs[0]).toMatchObject({ x: 12, y: 80, radius: 8 });
+  });
   it('draws the actual hill radius with a skull centred inside it on both profiles', () => {
     for (const profile of ['standard', 'compact'] as const) {
       const trace = drawSymbols(

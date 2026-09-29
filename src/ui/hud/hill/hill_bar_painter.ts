@@ -23,6 +23,7 @@ export interface HillBarDeps {
   /** The HUD layer the strip mounts into (null before the HUD exists). */
   layer: () => HTMLElement | null;
   writers: PainterHostWriters;
+  onPvpEntry?: () => void;
 }
 
 interface Slots {
@@ -54,6 +55,13 @@ export class HillBar {
     }
     const root = this.ensureRoot();
     if (!root) return;
+    if (
+      view.phase === 'active' &&
+      view.inside &&
+      !(this.lastView?.phase === 'active' && this.lastView.inside)
+    ) {
+      this.deps.onPvpEntry?.();
+    }
     if (view.sig !== this.lastSig) {
       this.lastSig = view.sig;
       this.build(root, view);

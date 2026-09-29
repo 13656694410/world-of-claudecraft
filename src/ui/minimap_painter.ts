@@ -1451,7 +1451,7 @@ export class MinimapPainter {
           ctx.restore();
           drawHillMapMarker(
             ctx,
-            m,
+            m.skull ? { ...m.skull, phase: m.phase } : m,
             profile === 'compact' ? 6 : 8,
             colors.worldQuestAvailable,
             colors.outline,

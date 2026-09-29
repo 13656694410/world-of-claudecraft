@@ -191,10 +191,7 @@ export function buildContinentMapModel(input: ContinentMapInput): ContinentMapMo
     player,
     party,
     currentZoneId,
-    hill:
-      hill && inWorld(hill.x, hill.z)
-        ? { ...toMap(hill.x, hill.z), phase: hill.phase }
-        : null,
+    hill: hill && inWorld(hill.x, hill.z) ? { ...toMap(hill.x, hill.z), phase: hill.phase } : null,
   };
 }
 

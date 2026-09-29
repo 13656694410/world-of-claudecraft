@@ -128,7 +128,7 @@ describe('buildHillBarView', () => {
 });
 
 describe('HillBar (the painter)', () => {
-  function harness() {
+  function harness(onPvpEntry?: () => void) {
     const layer = document.createElement('div');
     document.body.appendChild(layer);
     const calls: string[] = [];
@@ -168,9 +168,29 @@ describe('HillBar (the painter)', () => {
         else el.setAttribute(name, value);
       },
     };
-    const bar = new HillBar({ layer: () => layer, writers });
+    const bar = new HillBar({ layer: () => layer, writers, onPvpEntry });
     return { layer, bar, calls };
   }
+
+  it('announces active entry and activation inside once, and rearms after leaving', () => {
+    let entries = 0;
+    const { bar } = harness(() => entries++);
+    const update = (over: Partial<HillInfo>) =>
+      bar.update(buildHillBarView(info(over), { x: 360, z: 1540 }));
+    update({ inside: false });
+    update({ inside: true, phase: 'warning' });
+    expect(entries).toBe(0);
+    update({ inside: true });
+    update({ inside: true, holder: 'you' });
+    bar.relocalize();
+    expect(entries).toBe(1);
+    update({ inside: false });
+    update({ inside: true, standing: 'raid' });
+    expect(entries).toBe(2);
+    bar.update(buildHillBarView(null, null));
+    update({ inside: true });
+    expect(entries).toBe(3);
+  });
 
   it('mounts once with the status attributes and paints the unheld state', () => {
     const { layer, bar, calls } = harness();

@@ -10512,6 +10512,10 @@
   #banner.banner-no-motion {
     transition: none;
   }
+  #banner.banner-pvp {
+    --color-text-light: var(--color-danger);
+    text-transform: uppercase;
+  }
   /* The quest-progress flash (quest_progress_banner.ts): small yellow lines
      stacked at the top-center, above the zone banner's slot, the classic
      "Forest Wolf slain: 3/8" cue. Lines are appended by the banner module and

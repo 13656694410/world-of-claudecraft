@@ -1146,7 +1146,7 @@ const PET_MODE_DESC_KEYS: Record<PetMode, TranslationKey> = {
  *  players reading routine gathering progress as leveling. 'skill' is the
  *  gathering skill milestone plate: copper craft framing with the profession
  *  crest, so a Mining 50 plate can never steal the character level-up reading. */
-export type BannerVariant = 'default' | 'deed' | 'skill' | 'worldQuest';
+export type BannerVariant = 'default' | 'deed' | 'skill' | 'worldQuest' | 'pvp';
 
 /** Everything one banner paint needs, held whole so a queued banner (R38)
  *  renders later exactly as it would have rendered immediately. */
@@ -5613,6 +5613,7 @@ export class Hud {
   private readonly hillBar = new HillBar({
     layer: () => document.getElementById('ui'),
     writers: this.writerFacet,
+    onPvpEntry: () => this.showBanner(t('hudChrome.pvp.mobileLabel'), true, undefined, 'pvp'),
   });
   // Character window painter (char_view.ts core + char_window.ts painter). It composes
   // presentation helpers with HUD-built stats/progression plus the unequip + drag
@@ -14454,6 +14455,7 @@ export class Hud {
     this.bannerEl.classList.toggle('banner-deed', variant === 'deed');
     this.bannerEl.classList.toggle('banner-skill', variant === 'skill');
     this.bannerEl.classList.toggle('banner-world-quest', variant === 'worldQuest');
+    this.bannerEl.classList.toggle('banner-pvp', variant === 'pvp');
     if (variant === 'worldQuest') this.questBanner.yieldToPlate(durationMs);
     this.bannerEl.classList.toggle('banner-loot', payload.bannerClass === 'loot');
     // Reduced-motion celebrations (craft plan.motion) show and hide the

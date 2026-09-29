@@ -1611,9 +1611,10 @@ describe('King of the Hill minimap marker', () => {
           phase: 'active',
         });
       }
-      // An off-screen centre stays off-screen while the circle intersects the view.
+      // The circle stays at its true centre; its skull stays visible at the rim.
       Object.assign(world, { hillInfo: { x: 100, z: PZ, radius: 50, phase: 'warning' } });
       expect(builder.build(world, S, 1).markers.find((m) => m.kind === 'hill')).toMatchObject({
+        skull: { mx: S / 2 - minimapSafeCenterRadius(S, 12), my: S / 2 },
         mx: S / 2 - 100,
         radius: 50,
         phase: 'warning',
