@@ -843,6 +843,7 @@ export interface OverworldMapModel {
   questAreas: MapQuestAreaMarker[];
   worldQuests: MapWorldQuestMarker[];
   worldBosses: MapWorldBossMarker[];
+  hill: { mx: number; my: number; phase: 'warning' | 'active' } | null;
   /** Gather nodes in the committed zone (all zoom levels). Empty only when
    *  the zone has no authored nodes in view. */
   gatherNodes: MapGatherNodeMarker[];
@@ -929,6 +930,7 @@ export function buildOverworldMapModel(input: OverworldMapInput): OverworldMapMo
   const filters = input.filters ?? DEFAULT_MAP_ATLAS_FILTERS;
   const landmarkPlacement = MAP_LANDMARK_PLACEMENT_BY_PROFILE[input.markerProfile ?? 'standard'];
   const p = world.player;
+  const hill = world.hillInfo;
 
   // Inside a rift the overworld zone (the current-zone frame below still keys
   // off `zone`, which the player's far-off rift x displaces past any real
@@ -1405,6 +1407,10 @@ export function buildOverworldMapModel(input: OverworldMapInput): OverworldMapMo
     questAreas,
     worldQuests,
     worldBosses,
+    hill:
+      hill && hill.zoneId === zone.id && inView(hill.x, hill.z)
+        ? { ...toMap(hill.x, hill.z), phase: hill.phase }
+        : null,
     gatherNodes,
     stations,
     services,

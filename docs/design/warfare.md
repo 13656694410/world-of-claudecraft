@@ -613,7 +613,11 @@ the rise countdown and the distance to the marked circle; once risen, who holds
 it, you against them, the contest fill, the distance and the fall countdown;
 and in both, a note when the viewer does not count. The renderer draws the
 circle (`src/render/hill_ring.ts`) in the holder's colour; `/hill` in chat says
-where it stands or will rise. The state is session-only and never persisted.
+where it stands or will rise. The minimap draws the real capture radius with a
+central skull; warning circles are dashed and active circles are solid. The zone
+map and continent overview also show a skull at the hill location during both
+warning and active phases. All markers disappear when the hill ends. The state
+is session-only and never persisted.
 
 Test levers (dev realms only, `ALLOW_DEV_COMMANDS`; also buttons in the dev
 command window's Scenarios tab): `/dev hill [zone]` raises a hill at once and
