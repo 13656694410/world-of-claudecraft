@@ -180,11 +180,18 @@ import { BagsWindow, dismissBagPrompts } from './bags_window';
 import { BankWindow } from './bank_window';
 import { makeBankWindowFocus } from './bank_window_focus';
 import {
+  BANNER_ADVANCE_GAP_MS,
   type BannerClass,
   type BannerEnqueueOutcome,
+  type BannerPayload,
   BannerQueue,
+  type BannerVariant,
   bannerSubtextLines,
+  isBannerStale,
 } from './banner_queue';
+
+export type { BannerVariant } from './banner_queue';
+
 import { blockLandingLogKey } from './block_landing_feedback_core';
 import { BootcampOverlay } from './bootcamp';
 import { CalendarWindow } from './calendar_window';
@@ -1138,49 +1145,6 @@ const PET_MODE_DESC_KEYS: Record<PetMode, TranslationKey> = {
   defensive: 'hud.pet.defensiveDesc',
   aggressive: 'hud.pet.aggressiveDesc',
 };
-/** The visual language the shared #banner slot paints in. 'default' is the
- *  bare gold celebration text every milestone has always used (level up, zone
- *  crossing, craft masterwork, duel result). 'deed' is the Book of Deeds
- *  plate: a framed, quieter parchment treatment, because a deed accomplishment
- *  firing an identical gold banner to a real level-up is a known cause of
- *  players reading routine gathering progress as leveling. 'skill' is the
- *  gathering skill milestone plate: copper craft framing with the profession
- *  crest, so a Mining 50 plate can never steal the character level-up reading. */
-export type BannerVariant = 'default' | 'deed' | 'skill' | 'worldQuest';
-
-/** Everything one banner paint needs, held whole so a queued banner (R38)
- *  renders later exactly as it would have rendered immediately. */
-interface BannerPayload {
-  text: string;
-  motion: boolean;
-  decorativeIconUrl?: string;
-  variant: BannerVariant;
-  /** The secondary lines stacked under the title, ALREADY normalized by
-   *  `bannerSubtextLines` (never an empty array, never an empty string). Several
-   *  exist for the battleground verdict, whose facts (score plus rating swing,
-   *  why the match ended, the first-win bonus) are INDEPENDENT sentences: each
-   *  stays its own `t()` key on its own line instead of being concatenated. */
-  subtext?: string[];
-  durationMs: number;
-  source: 'unstuck' | null;
-  /** The R38 class, kept on the payload so the advance chain can tell a
-   *  deferred AMBIENT (droppable when stale) from a celebration. */
-  bannerClass: BannerClass;
-  /** performance.now() at enqueue, for the ambient max-defer below. */
-  enqueuedAt: number;
-}
-
-/** The fade gap between a finished banner and the next queued one. */
-const BANNER_ADVANCE_GAP_MS = 250;
-
-/** How long a parked AMBIENT banner stays worth replaying. An ambient is
- *  current-state, not history: behind ONE celebration (2600ms + gap) a zone
- *  name or prompt is still fresh enough to show, but behind a celebration
- *  CHAIN a "starting now" or countdown digit replayed many seconds late
- *  misleads (the phase 14 QA finding), so the advance chain drops anything
- *  parked longer than this. Celebrations never age out: "you leveled" stays
- *  true however late it shows. */
-const AMBIENT_MAX_DEFER_MS = 4000;
 // Classic class colors (CLASSES[cls].color is a 0xRRGGBB number) as a CSS
 // string, used to color-code party members on the minimap and in the frames.
 const classCss = (cls: string): string =>
@@ -5613,6 +5577,7 @@ export class Hud {
   private readonly hillBar = new HillBar({
     layer: () => document.getElementById('ui'),
     writers: this.writerFacet,
+    onPvpEntry: () => this.showBanner(t('hudChrome.hill.pvpBanner'), true, undefined, 'pvp'),
   });
   // Character window painter (char_view.ts core + char_window.ts painter). It composes
   // presentation helpers with HUD-built stats/progression plus the unequip + drag
@@ -14454,6 +14419,7 @@ export class Hud {
     this.bannerEl.classList.toggle('banner-deed', variant === 'deed');
     this.bannerEl.classList.toggle('banner-skill', variant === 'skill');
     this.bannerEl.classList.toggle('banner-world-quest', variant === 'worldQuest');
+    this.bannerEl.classList.toggle('banner-pvp', variant === 'pvp');
     if (variant === 'worldQuest') this.questBanner.yieldToPlate(durationMs);
     this.bannerEl.classList.toggle('banner-loot', payload.bannerClass === 'loot');
     // Reduced-motion celebrations (craft plan.motion) show and hide the
@@ -14474,15 +14440,12 @@ export class Hud {
 
   /** Advance the banner slot to the next queued payload, dropping any parked
    *  AMBIENT older than AMBIENT_MAX_DEFER_MS (stale current-state; the doc
-   *  above the constant). Celebrations paint however late they surface. */
+   *  in banner_queue.ts). Celebrations paint however late they surface. */
   private advanceBannerSlot(): void {
     for (;;) {
       const next = this.bannerQueue?.advance();
       if (!next) return;
-      if (
-        next.bannerClass === 'ambient' &&
-        performance.now() - next.enqueuedAt > AMBIENT_MAX_DEFER_MS
-      ) {
+      if (isBannerStale(next, performance.now())) {
         continue;
       }
       this.paintBanner(next);

@@ -449,9 +449,13 @@ describe('isPvpHostilePlayer: the ground on the client', () => {
     expect(isPvpHostilePlayer(worldOf(selfOut, [otherIn]), otherIn)).toBe(false);
   });
 
-  it('a free-for-all zone under both is red with no flag; a party mate stays grey', () => {
+  it('northern ground needs both flags; a party mate stays grey', () => {
     const self = player(1, { pos: { ...FFA_SPOT } });
     const other = player(2, { pos: { x: FFA_SPOT.x + 3, y: 0, z: FFA_SPOT.z } });
+    expect(isPvpHostilePlayer(worldOf(self, [other]), other)).toBe(false);
+    self.pvpFlag = true;
+    expect(isPvpHostilePlayer(worldOf(self, [other]), other)).toBe(false);
+    other.pvpFlag = true;
     expect(isPvpHostilePlayer(worldOf(self, [other]), other)).toBe(true);
     expect(isPvpHostileTargetId(worldOf(self, [other]), 2)).toBe(true);
     const party = { members: [{ pid: 2 }] } as unknown as PvpHostileWorld['partyInfo'];
@@ -477,7 +481,7 @@ describe('isPvpHostilePlayer: the ground on the client', () => {
     const self = player(1, { pos: { ...FFA_SPOT } });
     const other = player(2, { pos: { x: FFA_SPOT.x + 3, y: 0, z: FFA_SPOT.z } });
     const stale = worldOf(self, [other], { worldPvpInfo: info({ zone: 'contested' }) });
-    expect(isPvpHostilePlayer(stale, other)).toBe(true);
+    expect(isPvpHostilePlayer(stale, other)).toBe(false);
     const selfOut = player(1, { pos: { ...CONTESTED_SPOT } });
     const early = worldOf(selfOut, [other], { worldPvpInfo: info({ zone: 'ffa' }) });
     expect(isPvpHostilePlayer(early, other)).toBe(false);
@@ -615,7 +619,7 @@ describe('the World PvP tab: the stakes list states the live rules', () => {
     expect(html).toContain('The Proving Shore is the only sanctuary');
     expect(html).toContain('Everywhere else is contested: only two flagged players can fight.');
     expect(html).toContain(
-      'The Drakelands, the Frostveil Reach and the Amberfall are free-for-all',
+      'The Drakelands, the Frostveil Reach and the Amberfall use normal PvP flags',
     );
     expect(html).toContain(
       'Party and raid members are never hostile to each other. Guildmates outside your group can fight.',
@@ -634,7 +638,7 @@ describe('the World PvP tab: the stakes list states the live rules', () => {
   it('states what raises your flag for you: the first strike and aid to a flagged ally', () => {
     const html = stakesHtml();
     expect(html).toContain(
-      'Attacking an unflagged player there raises your own flag; attacking a flagged one never does.',
+      'Entering an active hill circle enables World PvP. Leaving the circle keeps your flag up.',
     );
     expect(html).toContain(
       'Healing, shielding or buffing a flagged player in a world fight raises your flag.',
@@ -645,7 +649,7 @@ describe('the World PvP tab: the stakes list states the live rules', () => {
     const html = stakesHtml();
     expect(html).toContain('5g'); // the cap, through the money formatter
     expect(html).toContain('10%'); // the fraction, through the percent formatter
-    expect(html).toContain('An unflagged player killed on free-for-all ground loses no gold.');
+    expect(html).toContain('Unflagged players cannot be attacked in the open world.');
     expect(html).toContain(
       'An unflagged fighter takes no gold either: it only moves between two flagged players.',
     );
@@ -662,7 +666,9 @@ describe('the World PvP tab: the stakes list states the live rules', () => {
   it('states the five-minute disarm, resolved from the sim constant', () => {
     const html = stakesHtml();
     expect(WORLD_PVP_DISARM_SECONDS / 60).toBe(5);
-    expect(html).toContain('Switching off takes 5 minutes and waits for combat to end.');
+    expect(html).toContain(
+      'Switching off takes 5 minutes and waits until you leave the active hill and combat ends.',
+    );
   });
 });
 

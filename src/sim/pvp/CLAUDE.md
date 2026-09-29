@@ -46,9 +46,9 @@ ratings.
   a zone record (`worldPvpZonePolicyOf`), read off `ZoneDef.worldPvp`
   (data-as-code in `src/sim/content/`, absent meaning contested). A sanctuary
   under EITHER player switches the world off (only the Proving Shore;
-  Eastbrook Vale is contested); both players on free-for-all
-  ground are hostile with no flag at all (the Drakelands, the Frostveil Reach and
-  the Amberfall, the map's top row); everything else is the mutual-flag rule. The lookup is the strict
+  Eastbrook Vale is contested). The Drakelands, Frostveil Reach and Amberfall
+  are also contested: normal mutual flags are required. The generic free-for-all
+  policy remains supported, but these zones no longer select it. The lookup is the strict
   rectangle containment (`zoneContaining`, never the clamping `zoneAt`), so the
   instance plane reads as contested and the open-world policy cannot leak into a
   dungeon, delve, arena or battleground floor. Pure and host-agnostic: the sim's
@@ -58,8 +58,10 @@ ratings.
   flag state (`PlayerMeta.worldPvp`, absent until first raised; `Entity.pvpFlag`
   is its display mirror and the ONLY writer is this module, the away.ts
   meta<->entity precedent), the 5-minute disarm clock (deferred while in
-  combat, ticked from `Sim.tick` in the battleground lap behind a
-  `nextDisarmAt` watermark so an idle realm pays one comparison), the toggle
+  combat or inside an active hill, ticked from `Sim.tick` in the battleground
+  lap behind a `nextDisarmAt` watermark). Active hill entry is checked every
+  simulation tick and raises the ordinary flag with the normal eligibility
+  gates; leaving or ending a hill does not clear it. It also owns the toggle
   cooldown, the realm kill switch (`ctx.worldPvpDisabled`, server env
   `WORLD_PVP_DISABLED=1`), the session books (`Sim.worldPvpBooks`, a live
   `ctx.worldPvpBooks` view: the assist recency rows, the paid-death guard, the
@@ -132,31 +134,35 @@ ratings.
 ## King of the Hill
 
 - `hill_rules.ts` owns the PURE rules: who counts (`hillStanding`: parties
-  only, so a raid member does not; any level does), the group key (`hillGroupKey`: a party, or a lone
+  only, so a raid member does not; level 10 or above), the group key (`hillGroupKey`: a party, or a lone
   player as a group of one; null for a raid), the strict-maximum leader
   (`hillLeader`, null on a tie), the majority verdict (`hillChallengeStands`),
   the contest clock (`hillContestStep`), the spot probe (`hillSpotIsOpen` over a
   `HillSpotProbe` the sim binds to the terrain, the water bodies, the collider
-  grid and the static zones), the three-hour schedule (`hillWindowAt`,
+  grid and the static zones), the two-hour schedule (`hillWindowAt`,
   `hillTimes` from a window and a warning offset, `hillMinutesUntil`) and the
   circle test. No ctx, no rng, no clock. Every tuning literal (`HILL_RADIUS`,
   `HILL_WINDOW_SECONDS`, `HILL_WARNING_SECONDS`, `HILL_DURATION_SECONDS`,
   `HILL_CAPTURE_SECONDS`, `HILL_ACCRUAL_SECONDS`, the payout ramp `hillHonorPerPayout` with `HILL_RAMP_STEP_SECONDS` and `HILL_RAMP_MAX_HONOR`) lives
-  here and the copy resolves from it.
+  here and the copy resolves from it. Hills last 30 minutes; payout and ramp
+  intervals are compressed by 29/44 to preserve 388 Honor for a full uncontested
+  hold after the one-minute capture. `hill_zones.ts` selects the three northern
+  spawn zones independently of their World PvP ground policy.
 - `hill.ts` owns the SYSTEM behind the `SimContext` seam: the session state as
   ONE live view (`Sim.hillState`, `ctx.hillState`: the announced or standing
   hill with its phase, the next window's plan and spot retries, the presence
   counts, the contest clock, the accruals; never persisted), the plan
   (`hillPlanFor`: the warning's offset inside the window from a PRIVATE rng
-  derived from the seed and the window's ordinal, the rift portal precedent, so
-  the world stream never moves), the spawn (`spawnHill`, whose spot rng salts
+  derived from the seed and window zero, reused each window so scheduled hills
+  are exactly two hours apart; the world stream never moves), the spawn (`spawnHill`, whose spot rng salts
   in the attempt number so a retry searches new ground), the `/dev hill` test
   levers (`spawnHillNow`, `riseHillNow`, `endHillNow`, `warnNextHillNow`; their
   argument grammar is the pure `hill_dev.ts`), the once-a-second `updateHill` pass (the
   phases warning, risen, fallen, each announced to the realm; then, only while
   risen, presence by party, contest, payouts through `grantHonor` with reason
   `hill_hold`), the readout (`hillInfoFor`, live fields only for a viewer in the
-  hill's zone while it is risen, so the self wire elides it elsewhere), the
+  hill's zone while it is risen; geometry and phase remain available elsewhere
+  and during the warning for the map markers), the
   `/hill` readout line, and the notice lines the client matcher re-localizes
   (`hillWarningLine`, `hillRiseLine`, `hillFallenLine` with the zone name,
   `HILL_TAKEN_LINE`, `HILL_LOST_LINE`). The realm switch

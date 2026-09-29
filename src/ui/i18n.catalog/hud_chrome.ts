@@ -3395,14 +3395,14 @@ export const hudChromeStrings = {
       'The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.',
     groundContested: 'Everywhere else is contested: only two flagged players can fight.',
     groundFfa:
-      'The Drakelands, the Frostveil Reach and the Amberfall are free-for-all: everyone there can fight, flag or not.',
+      'The Drakelands, the Frostveil Reach and the Amberfall use normal PvP flags. Entering an active King of the Hill circle enables your flag.',
     groupLine:
       'Party and raid members are never hostile to each other. Guildmates outside your group can fight.',
     markLine:
-      'Attacking an unflagged player there raises your own flag; attacking a flagged one never does.',
+      'Entering an active hill circle enables World PvP. Leaving the circle keeps your flag up.',
     aidLine: 'Healing, shielding or buffing a flagged player in a world fight raises your flag.',
     stakeLine: 'The loser pays {cap} or {percent} of their purse, whichever is less.',
-    noStakeLine: 'An unflagged player killed on free-for-all ground loses no gold.',
+    noStakeLine: 'Unflagged players cannot be attacked in the open world.',
     noTakeLine:
       'An unflagged fighter takes no gold either: it only moves between two flagged players.',
     honorLine: '{honor} Honor per kill, split between everyone who helped.',
@@ -3410,7 +3410,8 @@ export const hudChromeStrings = {
     repeatLine:
       'Repeat kills of one player pay {second}, then {third}, then nothing; the count clears {reset} after the first kill.',
     greyLine: 'Players more than {levels} levels below you pay nothing.',
-    disarmLine: 'Switching off takes {minutes} minutes and waits for combat to end.',
+    disarmLine:
+      'Switching off takes {minutes} minutes and waits until you leave the active hill and combat ends.',
     record: 'Record: {kills} kills, {deaths} deaths',
     enable: 'Enable World PvP',
     disable: 'Disable World PvP',
@@ -3441,6 +3442,8 @@ export const hudChromeStrings = {
     distance: '{yards} yd to the circle',
     rises: 'Rises in {minutes}',
     falls: 'Falls in {minutes}',
+    pvpEntry: 'Entering the active circle enables World PvP.',
+    pvpBanner: 'PvP',
     standingRaid: 'Raid members do not count: only parties can hold the hill',
   },
   // The WARFARE quartermaster's sectioned honor shop (#warfare-window,

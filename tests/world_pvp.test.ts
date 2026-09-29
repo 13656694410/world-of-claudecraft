@@ -7,7 +7,7 @@
 // and their healers; the grey rule; the persisted per-victim diminishing
 // returns; the paid-death guard), the healer auto-flag, the books sweep, the
 // persistence round trip, and the determinism guarantees.
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { applyHeal } from '../src/sim/combat/heal';
 import { BUILTIN_WORLD, PLAYER_START, ZONES } from '../src/sim/data';
 import {
@@ -1011,6 +1011,13 @@ describe('the ground: sanctuaries', () => {
 });
 
 describe('the ground: free-for-all zones', () => {
+  // Synthetic FFA ground preserves generic rule coverage; no shipped zone is FFA.
+  beforeEach(() => {
+    ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp = 'ffa';
+  });
+  afterEach(() => {
+    delete ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp;
+  });
   function brawl(): { sim: Sim; a: number; b: number } {
     const sim = world();
     const a = addFighter(sim, 'Aleph', 20, 1001);
@@ -1240,6 +1247,13 @@ describe('the ground: free-for-all zones', () => {
 });
 
 describe('aid: shields and buffs count like heals', () => {
+  // Synthetic FFA ground preserves generic rule coverage; no shipped zone is FFA.
+  beforeEach(() => {
+    ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp = 'ffa';
+  });
+  afterEach(() => {
+    delete ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp;
+  });
   function fight(): { sim: Sim; a: number; victim: number; priest: number } {
     const sim = world();
     const a = addFighter(sim, 'Aleph', 20, 1);
@@ -1339,6 +1353,13 @@ describe('aid: shields and buffs count like heals', () => {
 });
 
 describe('periodic harm follows the live verdict (src/sim/combat/periodic_harm.ts)', () => {
+  // Synthetic FFA ground preserves generic rule coverage; no shipped zone is FFA.
+  beforeEach(() => {
+    ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp = 'ffa';
+  });
+  afterEach(() => {
+    delete ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp;
+  });
   /** An unflagged priest opens on an unflagged stranger in a free-for-all
    *  zone with a pure damage-over-time spell. The bolt lands a tick later and
    *  the first damaging tick is still three seconds out, so at return nobody

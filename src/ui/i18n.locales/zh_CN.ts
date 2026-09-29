@@ -18654,4 +18654,6 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '开启世界PvP的游戏时间达到{thresholds}时，可获得永久头衔。离线或身处试炼之滨时计时暂停。关闭PvP会重置计时。',
   'hudChrome.worldPvp.rewardPaused': '当前PvP连续游戏时间：{time}（在试炼之滨暂停）',
   'hudChrome.worldPvp.rewardProgress': '当前PvP连续游戏时间：{time}',
+  'hudChrome.hill.pvpEntry': '进入激活的圆圈会开启世界PvP。',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

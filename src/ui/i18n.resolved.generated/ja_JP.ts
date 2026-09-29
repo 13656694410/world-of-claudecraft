@@ -2841,6 +2841,8 @@ export const ja_JP: EnTranslations = {
       "distance": "円まで{yards}ヤード",
       "rises": "{minutes}後に出現",
       "falls": "{minutes}後に消滅",
+      "pvpEntry": "有効な円に入るとワールドPvPが有効になります。",
+      "pvpBanner": "PvP",
       "standingRaid": "レイドメンバーはカウントされません：丘を保持できるのはパーティのみです"
     },
     "warfareShop": {

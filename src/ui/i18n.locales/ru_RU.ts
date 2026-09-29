@@ -19989,4 +19989,6 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardPaused':
     'Текущая серия PvP: {time} игрового времени (приостановлена на Берегу Испытаний)',
   'hudChrome.worldPvp.rewardProgress': 'Текущая серия PvP: {time} игрового времени',
+  'hudChrome.hill.pvpEntry': 'Вход в активный круг включает PvP в открытом мире.',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

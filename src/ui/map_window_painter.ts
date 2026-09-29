@@ -46,6 +46,7 @@ import { type Decoration, generateDecorationsInBounds } from '../sim/world';
 import type { IWorld } from '../world_api';
 import type { CastlePlanMarker } from './castle_plan_core';
 import { dungeonDisplayName, riftFloorLabel, zoneDisplayName, zonePoiLabel } from './entity_i18n';
+import { drawHillMapMarker, drawMapSkull } from './hill_map_marker_painter';
 import { formatNumber } from './i18n';
 import {
   EMPTY_MAP_MARKER_ART,
@@ -125,37 +126,6 @@ const WORLD_QUEST_BADGE_INNER_RATIO = 0.62;
 const WORLD_QUEST_STAR_RADIUS_RATIO = 0.72;
 const WORLD_QUEST_STAR_CORNER_RATIO = 0.34;
 const WORLD_QUEST_CHECK_WIDTH_RATIO = 0.22;
-const WORLD_BOSS_SKULL_CRANIUM_RATIO = 0.34;
-const WORLD_BOSS_SKULL_JAW_HALF_RATIO = 0.22;
-const WORLD_BOSS_SKULL_JAW_TOP_RATIO = 0.13;
-const WORLD_BOSS_SKULL_JAW_HEIGHT_RATIO = 0.26;
-const WORLD_BOSS_SKULL_EYE_RATIO = 0.085;
-
-function drawWorldBossSkull(
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  radius: number,
-  fill: string,
-  socket: string,
-): void {
-  const craniumRadius = radius * WORLD_BOSS_SKULL_CRANIUM_RATIO;
-  const jawHalf = radius * WORLD_BOSS_SKULL_JAW_HALF_RATIO;
-  const jawTop = y + radius * WORLD_BOSS_SKULL_JAW_TOP_RATIO;
-  const jawHeight = radius * WORLD_BOSS_SKULL_JAW_HEIGHT_RATIO;
-  const eyeRadius = radius * WORLD_BOSS_SKULL_EYE_RATIO;
-  ctx.fillStyle = fill;
-  ctx.beginPath();
-  ctx.arc(x, y - radius * 0.08, craniumRadius, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillRect(x - jawHalf, jawTop, jawHalf * 2, jawHeight);
-  ctx.fillStyle = socket;
-  ctx.beginPath();
-  ctx.arc(x - craniumRadius * 0.42, y - radius * 0.08, eyeRadius, 0, Math.PI * 2);
-  ctx.arc(x + craniumRadius * 0.42, y - radius * 0.08, eyeRadius, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillRect(x - eyeRadius * 0.35, jawTop, eyeRadius * 0.7, jawHeight);
-}
 // Zone-map gathering fallbacks mirror the loader's cached state grammar while
 // an image is loading or unavailable. The normal painted path is one blit.
 const GATHER_READY_RADIUS_RATIO = 0.275;
@@ -1021,7 +991,17 @@ export class MapWindowPainter {
       ctx.arc(marker.mx, marker.my, radius, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
-      drawWorldBossSkull(ctx, marker.mx, marker.my, radius, colors.player, colors.outline);
+      drawMapSkull(ctx, marker.mx, marker.my, radius, colors.player, colors.outline);
+    }
+
+    if (model.hill) {
+      drawHillMapMarker(
+        ctx,
+        model.hill,
+        geometry.questBadgeRadius + WORLD_QUEST_BADGE_OUTER_ADD,
+        colors.worldQuestAvailable,
+        colors.outline,
+      );
     }
 
     // Dungeon Finder "Show on Map" highlight: a steady double ring around the

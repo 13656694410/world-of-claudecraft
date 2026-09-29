@@ -1593,3 +1593,49 @@ describe('harvest marker full silhouette at the circular rim', () => {
     expect(harvest()).toHaveLength(1);
   });
 });
+
+describe('King of the Hill minimap marker', () => {
+  it.each(['sim', 'client'] as const)(
+    'projects the real circle and centre for %s, at every zoom',
+    (shape) => {
+      const world = makeWorld(shape);
+      Object.assign(world, { hillInfo: { x: 10, z: PZ + 5, radius: 50, phase: 'active' } });
+      const builder = createMinimapMarkers();
+      for (const scale of [0.5, 1, 2]) {
+        const hill = builder.build(world, S, scale).markers.find((m) => m.kind === 'hill');
+        expect(hill).toEqual({
+          kind: 'hill',
+          mx: S / 2 - 10 * scale,
+          my: S / 2 - 5 * scale,
+          radius: 50 * scale,
+          phase: 'active',
+        });
+      }
+      // The circle stays at its true centre; its skull stays visible at the rim.
+      Object.assign(world, { hillInfo: { x: 100, z: PZ, radius: 50, phase: 'warning' } });
+      expect(builder.build(world, S, 1).markers.find((m) => m.kind === 'hill')).toMatchObject({
+        skull: { mx: S / 2 - minimapSafeCenterRadius(S, 12), my: S / 2 },
+        mx: S / 2 - 100,
+        radius: 50,
+        phase: 'warning',
+      });
+      Object.assign(world, { hillInfo: { x: 200, z: PZ, radius: 50, phase: 'active' } });
+      expect(builder.build(world, S, 1).markers.some((m) => m.kind === 'hill')).toBe(false);
+      Object.assign(world, { hillInfo: null });
+      expect(builder.build(world, S, 1).markers.some((m) => m.kind === 'hill')).toBe(false);
+    },
+  );
+
+  it('never puts an overworld hill on an interior minimap', () => {
+    const world = makeWorld('client');
+    Object.assign(world, {
+      hillInfo: { x: 0, z: PZ, radius: 50, phase: 'active' },
+      riftFloor: { name: 'Rift', tier: 'C' },
+    });
+    expect(
+      createMinimapMarkers()
+        .build(world, S, 1)
+        .markers.some((m) => m.kind === 'hill'),
+    ).toBe(false);
+  });
+});
