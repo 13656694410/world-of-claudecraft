@@ -2052,8 +2052,16 @@ export const TARGETS = [
   },
   {
     key: 'hill',
-    label: 'King of the Hill: the in-zone bar (desktop + mobile) and the circle on the ground',
-    when: ['ui/hud/hill/', 'sim/pvp/hill.ts', 'sim/pvp/hill_rules.ts', 'render/hill_ring'],
+    label:
+      'King of the Hill: the in-zone bar (desktop + mobile), the circle on the ground, and the zone and continent map markers',
+    when: [
+      'ui/hud/hill/',
+      'sim/pvp/hill.ts',
+      'sim/pvp/hill_rules.ts',
+      'render/hill_ring',
+      'ui/map_window_',
+      'ui/continent_map_',
+    ],
     variants: [
       // The whole viewport first (the ring drawn on the ground beside the player):
       // the zone loading screen fades after the teleport, and the first variant on
@@ -2061,6 +2069,11 @@ export const TARGETS = [
       { key: 'field', scene: 'field' },
       { key: 'bar', scene: 'bar' },
       { key: 'bar-mobile', scene: 'bar', mobile: true },
+      // The M-key map on the hill's zone (the circle, badge and caption), then
+      // pulled back to the continent overview (the badge from anywhere).
+      { key: 'map', scene: 'map' },
+      { key: 'map-continent', scene: 'continent' },
+      { key: 'map-mobile', scene: 'map', mobile: true },
     ],
     async capture(page, variant) {
       const scene = variant?.scene ?? 'bar';
@@ -2100,6 +2113,18 @@ export const TARGETS = [
       const bar = await pollForSize(page, '#hill-bar');
       if (!bar) throw new Error('the hill bar never showed');
       if (scene === 'field') return {};
+      if (scene === 'map' || scene === 'continent') {
+        await page.evaluate((level) => {
+          const game = window.__game;
+          if (!document.querySelector('#map-window.open, #map-window[style*="block"]'))
+            game.hud.toggleMap();
+          if (level === 'continent') document.querySelector('#map-level-toggle')?.click();
+        }, scene);
+        const map = await pollForSize(page, '#map-window');
+        if (!map) throw new Error('the map window never showed');
+        await wait(1_500);
+        return { clip: '#map-window' };
+      }
       const rect = await page.evaluate(() => {
         const el = document.querySelector('#hill-bar');
         if (!(el instanceof HTMLElement)) return null;

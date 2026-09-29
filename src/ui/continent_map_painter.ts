@@ -69,10 +69,12 @@ const SHADOW_NONE = 'transparent';
 const HERE_DOT_RADIUS = 3.5;
 const HERE_RING_RADIUS = 6.5;
 const HERE_RING_LINE_WIDTH = 2;
-// King of the Hill's badge, and the gap from its top to its caption.
+// King of the Hill's badge, and its caption BELOW it (the zone's own label sits
+// at the cell's centre, often just above a hill near the middle of its zone).
 const HILL_BADGE_RADIUS = 6;
 const HILL_BADGE_LINE_WIDTH = 1.5;
-const HILL_CAPTION_GAP = 7;
+const HILL_CAPTION_GAP = 9;
+const HILL_CAPTION_FONT = 'bold 11px Georgia';
 // Party member dots (issue 2652): smaller than the player's own dot and with a
 // thinner outline, so self stays the emphasized marker at a glance.
 const PARTY_DOT_RADIUS = 3;
@@ -325,8 +327,8 @@ export class ContinentMapPainter {
       };
       paintHillMapBadge(ctx, model.hill, hillColors, HILL_BADGE_RADIUS, HILL_BADGE_LINE_WIDTH);
       const title = hillMapCaption(model.hill).title;
-      const captionY = model.hill.my - HILL_BADGE_RADIUS - HILL_CAPTION_GAP;
-      ctx.font = LABEL_FONT;
+      const captionY = model.hill.my + HILL_BADGE_RADIUS + HILL_CAPTION_GAP;
+      ctx.font = HILL_CAPTION_FONT;
       ctx.lineWidth = LABEL_LINE_WIDTH;
       ctx.strokeStyle = colors.outline;
       ctx.fillStyle = colors.label;

@@ -136,9 +136,10 @@ const WORLD_BOSS_SKULL_JAW_HALF_RATIO = 0.22;
 const WORLD_BOSS_SKULL_JAW_TOP_RATIO = 0.13;
 const WORLD_BOSS_SKULL_JAW_HEIGHT_RATIO = 0.26;
 const WORLD_BOSS_SKULL_EYE_RATIO = 0.085;
-// King of the Hill's caption rows above its badge: the gap under the lower row
-// and the step between the two rows.
-const HILL_CAPTION_GAP = 6;
+// King of the Hill's caption rows BELOW its badge (the continent map's
+// placement; a POI label sits above its own point): the baseline drop of the
+// first row under the badge and the step to the second.
+const HILL_CAPTION_DROP = 18;
 const HILL_CAPTION_STEP = 14;
 
 function drawWorldBossSkull(
@@ -1066,9 +1067,9 @@ export class MapWindowPainter {
         stroke: colors.outline,
         lineWidth: geometry.textOutlineWidth,
       };
-      const whenY = model.hill.my - radius - HILL_CAPTION_GAP;
-      this.labels.draw(ctx, caption.when, model.hill.mx, whenY, captionStyle);
-      this.labels.draw(ctx, caption.title, model.hill.mx, whenY - HILL_CAPTION_STEP, captionStyle);
+      const titleY = model.hill.my + radius + HILL_CAPTION_DROP;
+      this.labels.draw(ctx, caption.title, model.hill.mx, titleY, captionStyle);
+      this.labels.draw(ctx, caption.when, model.hill.mx, titleY + HILL_CAPTION_STEP, captionStyle);
     }
 
     // Dungeon Finder "Show on Map" highlight: a steady double ring around the
