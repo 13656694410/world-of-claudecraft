@@ -1069,6 +1069,7 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_fang_dagger.name': 'Клык Авангарда',
   'entities.items.vanguard_oath_blade.name': 'Клятва Авангарда',
   'entities.items.vanguard_verdict_greatsword.name': 'Приговор Авангарда',
+  'entities.items.vanguard_feral_staff.name': 'Посох дикой силы авангарда',
   'entities.items.vanguard_warstaff.name': 'Боевой посох Авангарда',
   'hudChrome.paperdoll.trinketSlot': 'Аксессуар',
   'questUi.worldQuest.practiceRewards':
@@ -19968,9 +19969,9 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
     '4 предмета: каждый второй Conflagrate делает следующий Ruinbolt в течение 8 сек. мгновенным.',
   'entities.itemSets.vanguard_druid_feral.name': 'Шкура кровавой гривы',
   'entities.itemSets.vanguard_druid_feral.bonus2':
-    '2 предмета: время восстановления Bruin Rush сокращается на 3 сек.',
+    'Время восстановления Выпада и Натиска бурого сокращается на 3 сек.',
   'entities.itemSets.vanguard_druid_feral.bonus4':
-    '4 предмета: Bruin Rush накладывает щит на 6% максимального здоровья на 6 сек.',
+    'Время восстановления Рывка сокращается на 15 сек.',
   'entities.itemSets.vanguard_druid_restoration.name': 'Облачение чертополоха',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     '2 предмета: время восстановления Fleetmend сокращается на 1 сек.',

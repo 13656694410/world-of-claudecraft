@@ -18457,6 +18457,9 @@ export const cs_CZ: EnTranslations = {
       "vanguard_warstaff": {
         "name": "Bojová hůl Předvoje"
       },
+      "vanguard_feral_staff": {
+        "name": "Vanguard's Feral Staff"
+      },
       "conjured_water4": {
         "name": "Vyčarovaná pramenitá voda"
       },

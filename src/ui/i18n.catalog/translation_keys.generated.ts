@@ -3862,6 +3862,7 @@ export type TranslationKeyFlat =
   | 'entities.items.vanguard_druid_restoration_legs.name'
   | 'entities.items.vanguard_druid_restoration_shoulder.name'
   | 'entities.items.vanguard_fang_dagger.name'
+  | 'entities.items.vanguard_feral_staff.name'
   | 'entities.items.vanguard_hunter_beast_mastery_chest.name'
   | 'entities.items.vanguard_hunter_beast_mastery_gloves.name'
   | 'entities.items.vanguard_hunter_beast_mastery_helmet.name'

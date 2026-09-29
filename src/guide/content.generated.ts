@@ -8869,6 +8869,10 @@ export const GUIDE_RELIQUARY: GuideReliquaryPage[] = [
       {
         "kind": "item",
         "name": "Vanguard's Warstaff"
+      },
+      {
+        "kind": "item",
+        "name": "Vanguard's Feral Staff"
       }
     ]
   }

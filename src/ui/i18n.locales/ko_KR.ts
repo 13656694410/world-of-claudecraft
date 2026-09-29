@@ -1041,6 +1041,7 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_fang_dagger.name': '선봉대의 송곳니',
   'entities.items.vanguard_oath_blade.name': '선봉대의 맹세',
   'entities.items.vanguard_verdict_greatsword.name': '선봉대의 심판',
+  'entities.items.vanguard_feral_staff.name': '선봉대의 야성 지팡이',
   'entities.items.vanguard_warstaff.name': '선봉대의 전투지팡이',
   'entities.npcs.glider_apprentice.name': '스카이',
   'guide.arenaPage.vanguardBody':
@@ -19590,9 +19591,8 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
     '4세트: 두 번째 Conflagrate마다 8초 안의 다음 Ruinbolt를 즉시 시전하게 합니다.',
   'entities.itemSets.vanguard_druid_feral.name': '피갈기 가죽',
   'entities.itemSets.vanguard_druid_feral.bonus2':
-    '2세트: Bruin Rush의 재사용 대기시간이 3초 감소합니다.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    '4세트: Bruin Rush가 최대 생명력 6%의 보호막을 6초 동안 부여합니다.',
+    '도약 습격과 큰곰 돌진의 재사용 대기시간이 3초 감소합니다.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': '질주의 재사용 대기시간이 15초 감소합니다.',
   'entities.itemSets.vanguard_druid_restoration.name': '엉겅꽃 의복',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     '2세트: Fleetmend의 재사용 대기시간이 1초 감소합니다.',

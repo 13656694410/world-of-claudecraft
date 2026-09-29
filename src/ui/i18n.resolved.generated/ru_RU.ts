@@ -18457,6 +18457,9 @@ export const ru_RU: EnTranslations = {
       "vanguard_warstaff": {
         "name": "Боевой посох Авангарда"
       },
+      "vanguard_feral_staff": {
+        "name": "Посох дикой силы авангарда"
+      },
       "conjured_water4": {
         "name": "Сотворённая родниковая вода"
       },
@@ -24185,8 +24188,8 @@ export const ru_RU: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Шкура кровавой гривы",
-        "bonus2": "2 предмета: время восстановления Bruin Rush сокращается на 3 сек.",
-        "bonus4": "4 предмета: Bruin Rush накладывает щит на 6% максимального здоровья на 6 сек."
+        "bonus2": "Время восстановления Выпада и Натиска бурого сокращается на 3 сек.",
+        "bonus4": "Время восстановления Рывка сокращается на 15 сек."
       },
       "vanguard_druid_restoration": {
         "name": "Облачение чертополоха",

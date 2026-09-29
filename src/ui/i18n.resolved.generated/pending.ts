@@ -11,6 +11,7 @@
 export const pending: Record<string, readonly string[]> = {
   "es": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -22,6 +23,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "es_ES": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -33,6 +35,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "fr_FR": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -44,6 +47,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "fr_CA": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -56,6 +60,7 @@ export const pending: Record<string, readonly string[]> = {
   "en_CA": [],
   "it_IT": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -67,6 +72,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "de_DE": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -82,6 +88,7 @@ export const pending: Record<string, readonly string[]> = {
   "ja_JP": [],
   "pt_BR": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -94,6 +101,7 @@ export const pending: Record<string, readonly string[]> = {
   "ru_RU": [],
   "cs_CZ": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -105,6 +113,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "nl_NL": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -116,6 +125,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "pl_PL": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -127,6 +137,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "id_ID": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -138,6 +149,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "tr_TR": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -149,6 +161,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "sv_SE": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -160,6 +173,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "vi_VN": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -171,6 +185,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "da_DK": [
     "abilityUi.actionBar.moveHint",
+    "entities.items.vanguard_feral_staff.name",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",

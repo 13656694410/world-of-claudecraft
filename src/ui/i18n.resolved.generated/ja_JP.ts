@@ -18457,6 +18457,9 @@ export const ja_JP: EnTranslations = {
       "vanguard_warstaff": {
         "name": "ヴァンガードの戦杖"
       },
+      "vanguard_feral_staff": {
+        "name": "先陣の野性の杖"
+      },
       "conjured_water4": {
         "name": "魔法の湧き水"
       },
@@ -24185,8 +24188,8 @@ export const ja_JP: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "血たてがみの皮装",
-        "bonus2": "2点：Bruin Rushのクールダウンが3秒短縮。",
-        "bonus4": "4点：Bruin Rushが最大体力6%のシールドを6秒付与。"
+        "bonus2": "ランジとブルーインラッシュのクールダウンを3秒短縮する。",
+        "bonus4": "ダッシュのクールダウンを15秒短縮する。"
       },
       "vanguard_druid_restoration": {
         "name": "アザミ花の祭服",

@@ -18457,6 +18457,9 @@ export const en: EnTranslations = {
       "vanguard_warstaff": {
         "name": "Vanguard's Warstaff"
       },
+      "vanguard_feral_staff": {
+        "name": "Vanguard's Feral Staff"
+      },
       "conjured_water4": {
         "name": "Conjured Springwater"
       },
@@ -24185,8 +24188,8 @@ export const en: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Bloodmane Hide",
-        "bonus2": "Bruin Rush's cooldown is reduced by 3 sec.",
-        "bonus4": "Bruin Rush shields you for 6 percent of your maximum health for 6 sec."
+        "bonus2": "Reduces the cooldowns of Lunge and Bruin Rush by 3 sec.",
+        "bonus4": "Dash's cooldown is reduced by 15 sec."
       },
       "vanguard_druid_restoration": {
         "name": "Thistlebloom Vestment",

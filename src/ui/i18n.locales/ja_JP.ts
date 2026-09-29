@@ -1044,6 +1044,7 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_warrior_prot_helmet.name': '鉄壁進撃の兜',
   'entities.items.vanguard_warrior_prot_legs.name': '鉄壁進撃の脚甲',
   'entities.items.vanguard_warrior_prot_shoulder.name': '鉄壁進撃の肩鎧',
+  'entities.items.vanguard_feral_staff.name': '先陣の野性の杖',
   'entities.items.vanguard_warstaff.name': 'ヴァンガードの戦杖',
   'entities.npcs.glider_apprentice.name': 'スカイ',
   'guide.arenaPage.vanguardBody':
@@ -19610,9 +19611,9 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_warlock_destruction.bonus4':
     '4点：2回ごとのConflagrateで8秒以内の次のRuinboltが即時発動。',
   'entities.itemSets.vanguard_druid_feral.name': '血たてがみの皮装',
-  'entities.itemSets.vanguard_druid_feral.bonus2': '2点：Bruin Rushのクールダウンが3秒短縮。',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    '4点：Bruin Rushが最大体力6%のシールドを6秒付与。',
+  'entities.itemSets.vanguard_druid_feral.bonus2':
+    'ランジとブルーインラッシュのクールダウンを3秒短縮する。',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'ダッシュのクールダウンを15秒短縮する。',
   'entities.itemSets.vanguard_druid_restoration.name': 'アザミ花の祭服',
   'entities.itemSets.vanguard_druid_restoration.bonus2': '2点：Fleetmendのクールダウンが1秒短縮。',
   'entities.itemSets.vanguard_druid_restoration.bonus4': '4点：Fleetmendで移動速度が3秒間30%上昇。',
