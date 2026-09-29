@@ -2841,6 +2841,7 @@ export const zh_TW: EnTranslations = {
       "distance": "距圓圈 {yards} 碼",
       "rises": "將於 {minutes} 分鐘後升起",
       "falls": "將於 {minutes} 分鐘後消失",
+      "pvpEntry": "進入啟用的圓圈會開啟世界PvP。",
       "standingRaid": "團隊成員不計入人數：只有隊伍才能佔據山丘"
     },
     "warfareShop": {

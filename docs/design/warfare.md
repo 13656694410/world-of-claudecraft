@@ -441,17 +441,8 @@ whichever overworld zone a clamping lookup would misreport:
 - `'sanctuary'`: no world PvP at all, flagged or not, under EITHER player. The
   Proving Shore (`content/proving_shore.ts`) is the only sanctuary. Raising
   a flag is refused there; Eastbrook Vale is contested.
-- `'ffa'`: free-for-all. Everyone standing there is hostile to everyone else
-  standing there, flag or no flag, whatever their levels (owner spec,
-  2026-09-24: anyone on free-for-all ground is fair game), and every level
-  hears the crossing notices. The flag's level gate still holds for the flag
-  itself: an under-level character cannot raise one, so their hits there mark
-  nobody and they stake no gold; the grey rule keeps their deaths worthless to
-  a far higher killer. The
-  Drakelands, the Frostveil Reach and the Amberfall (`content/drakelands.ts`,
-  `content/frostveil.ts`, `content/amberfall.ts`): the three northernmost zones,
-  the top row of the map (owner pick, 2026-09-24), the far edge of the world and
-  its richest ground carrying the most risk.
+- `'ffa'`: generic free-for-all policy, unused by shipped zones. The three
+  northern zones (Drakelands, Frostveil Reach and Amberfall) are contested.
 - `'contested'`: everywhere else, and the default for a zone record with no
   `worldPvp` field. Two flagged players and nothing more.
 
@@ -562,19 +553,13 @@ resolve every kill identically (`tests/world_pvp.test.ts`,
 
 ## King of the Hill
 
-Once every `HILL_WINDOW_SECONDS` (three hours) a hill rises somewhere in one of
-the free-for-all zones (`src/sim/pvp/hill.ts`, rules in `hill_rules.ts`, the
-zone set from `worldPvpFfaZones`). The moment is random: the warning's offset
-inside the window is drawn by a private rng derived from the seed and the
-window's ordinal (`hillPlanFor`, the natural rift portal precedent, so the
-world's own rng stream never moves for a hill and every host resolves the same
-time and spot), anywhere from the window's opening to
-`HILL_LATEST_WARN_OFFSET_SECONDS` into it, so on schedule the whole hill fits
-inside its own window. Only one hill stands at a time. A hill whose warning
-sounds late (a spot retry, a `/dev hill` still standing, a realm switched back
-on) slides whole (`hillTimesFrom`), so every hill keeps its full warning and
-its full stand; the next window waits for it. The first window opens
-`HILL_FIRST_WINDOW_AT_SECONDS` after boot.
+Once every `HILL_WINDOW_SECONDS` (two hours) a hill rises in one of the three
+northern zones (`hillZones` in `src/sim/pvp/hill_zones.ts`). Their ordinary
+ground policy is contested, independent of hill eligibility. A seed-specific
+warning offset is drawn once and reused each window, so scheduled rises are
+exactly two hours apart. Spot selection remains private-rng and deterministic.
+The first window opens `HILL_FIRST_WINDOW_AT_SECONDS` after boot. A late warning
+slides the full warning and stand together; only one hill stands at a time.
 
 A hill has three moments, each announced to the whole realm:
 
@@ -587,7 +572,7 @@ A hill has three moments, each announced to the whole realm:
    window whose planned stand passes before any spot is found is skipped.
 2. **The rise** (`hillRiseLine`), `HILL_WARNING_SECONDS` (15 minutes) after the
    warning. The contest and the payouts run from here.
-3. **The fall** (`hillFallenLine`), `HILL_DURATION_SECONDS` (45 minutes) after
+3. **The fall** (`hillFallenLine`), `HILL_DURATION_SECONDS` (30 minutes) after
    the rise. Banked seconds short of a payout are lost with it.
 
 The realm's `WORLD_PVP_DISABLED` switch turns the hill off with the rest of
@@ -595,31 +580,28 @@ world PvP. A realm that slept through whole windows plans the current one.
 
 Control is by headcount inside the circle, by PARTY (owner spec, 2026-09-24:
 parties only). A party is one group and a lone player a group of one
-(`hillGroupKey`); a raid member does not count at all (`hillStanding`). Any
-level counts, since anyone on free-for-all ground is fair game. The
+(`hillGroupKey`); a raid member does not count at all (`hillStanding`). Only players meeting the normal World PvP level requirement count. The
 largest group that beats the holder's present members by a strict majority
 (`hillChallengeStands`; a tie never moves the hill, an absent holder is beaten
 by anyone) is the challenger, and after `HILL_CAPTURE_SECONDS` (60) of
 unbroken majority it takes the hill (`hillContestStep`: a lapsed challenge
 starts over, a new challenger starts its own clock). The dead do not count.
-Everyone standing in the zone is already hostile to every stranger there (the
-free-for-all arm, and guildmates outside one party are strangers), so the hill
-needs no flag of its own.
+Entering the active circle automatically raises the ordinary World PvP flag,
+including for raid members. The warning phase and the rest of the surrounding
+zone do not flag anyone. Dead, jailed, under-level and instanced-PvP players
+cannot be flagged or counted. Party and raid exemptions, stakes, honor kills
+and the realm kill switch retain their normal rules. Leaving or ending a hill
+does not clear the flag. `/pvp off` starts the normal five-minute countdown;
+its expiry is deferred while in combat or inside an active circle.
 
-Honor RAMPS with the hold (owner tuning 2026-09-25, replacing a flat 1 a minute
-that paid 45 for a whole stand): each counted holder standing inside banks a
-second per pass, and every `HILL_ACCRUAL_SECONDS` (60) pays `hillHonorPerPayout`
-of the seconds the current holder has held the hill, `HILL_RAMP_STEP_HONOR` (2) a
-minute for the first `HILL_RAMP_STEP_SECONDS` (five minutes), 2 more each further
-five minutes, capped at `HILL_RAMP_MAX_HONOR` (12). The streak belongs to the
-holding party and restarts when the hill changes hands, so a long hold is the
-thing worth taking. A party's size (five) is the payee cap. A holder who steps
-out banks nothing but keeps what they banked; leaving the party or the realm
-forfeits it, and a capture clears the books. A full party holding an uncontested
-hill for its whole stand earns about 380 each, about three Thornhollow Fields wins
-at the doubled award; two held hills a day is about 760, so 10,000 Honor is about
-13 days, level with a committed battleground day at the live result floor. No
-diminishing returns: the cap and the pace are the limit.
+The honor ramp retains payouts of 2, 4, 6, 8, 10 and then 12. Both the payout
+interval and the ramp-step interval are scaled by 29/44: the new 29-minute
+holding period after the unchanged 60-second capture replaces the old 44-minute
+holding period. Payouts occur about every 39.55 seconds, with a ramp step about
+every 197.73 seconds. A full uncontested event pays exactly 388 honor per holder,
+the same as the former 45-minute event. A capture resets the ramp and accruals;
+stepping out pauses personal accrual without erasing it. No diminishing returns
+apply to hill presence rewards.
 
 The readout (`IWorld.hillInfo`, the `hill` self key) carries the geometry, the
 phase, the holder from the viewer's seat, whether the viewer counts

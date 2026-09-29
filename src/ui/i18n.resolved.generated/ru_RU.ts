@@ -2841,6 +2841,7 @@ export const ru_RU: EnTranslations = {
       "distance": "{yards} ярдов до круга",
       "rises": "Появится через {minutes}",
       "falls": "Падёт через {minutes}",
+      "pvpEntry": "Вход в активный круг включает PvP в открытом мире.",
       "standingRaid": "Участники рейда не учитываются: удерживать холм могут только группы"
     },
     "warfareShop": {

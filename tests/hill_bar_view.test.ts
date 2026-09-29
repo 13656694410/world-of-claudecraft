@@ -192,7 +192,9 @@ describe('HillBar (the painter)', () => {
     expect(root.textContent).toContain('Losing the hill: 12 seconds of 1 minute');
     expect(root.textContent).toContain('50 yd to the circle');
     expect(root.textContent).toContain('Falls in 42 minutes');
-    expect(root.querySelector('.hill-note')).toBeNull();
+    expect(root.querySelector('.hill-note')?.textContent).toBe(
+      'Entering the active circle enables World PvP.',
+    );
     expect((root.querySelector('.hill-fill') as HTMLElement).style.width).toBe('20%');
     expect(root.classList.contains('is-contested')).toBe(true);
     expect(root.classList.contains('is-you-contesting')).toBe(false);
@@ -275,7 +277,15 @@ describe('HillBar (the painter)', () => {
       'Raid members do not count: only parties can hold the hill',
     );
     bar.update(buildHillBarView(info(), { x: 360, z: 1540 }));
-    expect(root.querySelector('.hill-note')).toBeNull();
+    expect(root.querySelector('.hill-note')?.textContent).toBe(
+      'Entering the active circle enables World PvP.',
+    );
+  });
+
+  it('shows the ordinary PvP level requirement to an ineligible player', () => {
+    const { layer, bar } = harness();
+    bar.update(buildHillBarView(info({ standing: 'level' }), { x: 360, z: 1540 }));
+    expect(layer.querySelector('.hill-note')?.textContent).toBe('Requires level 10.');
   });
 
   it('hides when the hill closes or the player leaves the zone, and relocalizes in place', () => {

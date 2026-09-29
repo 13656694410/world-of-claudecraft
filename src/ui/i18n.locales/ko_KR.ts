@@ -19609,4 +19609,5 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
     '월드 PvP를 켠 플레이 시간이 {thresholds}에 도달하면 영구 칭호를 얻습니다. 로그아웃하거나 수련의 해안에 머무는 동안 타이머가 멈춥니다. PvP를 끄면 초기화됩니다.',
   'hudChrome.worldPvp.rewardPaused': '현재 PvP 유지 시간: {time} (수련의 해안에서 일시 정지)',
   'hudChrome.worldPvp.rewardProgress': '현재 PvP 유지 시간: {time}',
+  'hudChrome.hill.pvpEntry': '활성화된 원 안에 들어가면 월드 PvP가 활성화됩니다.',
 };

@@ -12,6 +12,7 @@
 // the union, never interpolated from the wire, and the state is carried by
 // text as well as colour.
 
+import { WORLD_PVP_MIN_LEVEL } from '../../../sim/pvp';
 import { durationText } from '../../duration_text';
 import { zoneDisplayName } from '../../entity_i18n';
 import { formatNumber, t } from '../../i18n';
@@ -155,9 +156,11 @@ export class HillBar {
   }
 }
 
-/** The note for a viewer who does not count on the hill, or null. */
+/** Explain ineligibility, or warn that entering the active circle raises PvP. */
 function standingNote(view: HillBarLive): string | null {
-  return view.standing === 'raid' ? t('hudChrome.hill.standingRaid') : null;
+  if (view.standing === 'level')
+    return t('hudChrome.worldPvp.levelReq', { level: formatNumber(WORLD_PVP_MIN_LEVEL) });
+  return view.standing === 'raid' ? t('hudChrome.hill.standingRaid') : t('hudChrome.hill.pvpEntry');
 }
 
 function heldText(view: HillBarLive): string {

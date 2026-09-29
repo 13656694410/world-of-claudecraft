@@ -43,6 +43,7 @@ import type { PlayerMeta } from '../sim';
 import type { SimContext } from '../sim_context';
 import type { Entity } from '../types';
 import { TICK_RATE } from '../types';
+import { hillContains } from './hill_rules';
 import { grantHonor } from './honor';
 import { updatePvpVitality } from './vitality';
 import { updateWorldPvpRewards } from './world_pvp_rewards';
@@ -228,6 +229,26 @@ function autoRaiseTarget(ctx: SimContext, e: Entity): PlayerMeta | null {
   return ctx.players.get(e.id) ?? null;
 }
 
+/** Active hills use the ordinary flag and its eligibility gates. Raid members
+ * are flagged too, even though they cannot capture or earn hill honor. */
+export function worldPvpOnHillPresence(ctx: SimContext, e: Entity): boolean {
+  if (
+    ctx.worldPvpDisabled ||
+    e.dead ||
+    e.jailed ||
+    e.level < WORLD_PVP_MIN_LEVEL ||
+    inInstancedPvp(ctx, e.id) ||
+    worldPvpZonePolicyAt(e.pos.x, e.pos.z) === 'sanctuary'
+  )
+    return false;
+  const meta = ctx.players.get(e.id);
+  if (!meta) return false;
+  if (!meta.worldPvp?.flagged) {
+    raiseFlag(ctx, e, meta, 'World PvP enabled: other flagged players can attack you.');
+  }
+  return true;
+}
+
 /**
  * Raise or lower the flag. Raising it during the disarm countdown cancels the
  * countdown (the flag never dropped, so nothing re-announces the enable).
@@ -356,6 +377,22 @@ function noticeZoneChanges(ctx: SimContext, books: WorldPvpBooks): void {
  * minute the books are swept.
  */
 export function updateWorldPvp(ctx: SimContext): void {
+  // Movement has already run: crossing the live rim raises the flag this tick,
+  // even if the player leaves before the slower hill capture/payout pass.
+  const activeHill = ctx.hillState.active;
+  if (
+    !ctx.worldPvpDisabled &&
+    activeHill?.phase === 'active' &&
+    ctx.time >= activeHill.risesAt &&
+    ctx.time < activeHill.closesAt
+  ) {
+    for (const meta of ctx.players.values()) {
+      const e = ctx.entities.get(meta.entityId);
+      if (e && !e.pvpFlag && hillContains(activeHill, e.pos.x, e.pos.z)) {
+        worldPvpOnHillPresence(ctx, e);
+      }
+    }
+  }
   updateWorldPvpRewards(ctx);
   const books = ctx.worldPvpBooks;
   if (ctx.time >= books.nextDisarmAt) {
@@ -370,7 +407,14 @@ export function updateWorldPvp(ctx: SimContext): void {
         next = Math.min(next, state.disarmAt);
         continue;
       }
-      if (e.inCombat) {
+      const hill = ctx.hillState.active;
+      const onHill =
+        !ctx.worldPvpDisabled &&
+        hill?.phase === 'active' &&
+        ctx.time >= hill.risesAt &&
+        ctx.time < hill.closesAt &&
+        hillContains(hill, e.pos.x, e.pos.z);
+      if (e.inCombat || onHill) {
         next = Math.min(next, ctx.time);
         continue;
       }

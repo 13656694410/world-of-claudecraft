@@ -9,25 +9,55 @@
 // Reproducibility is checked by tests/i18n_resolved_equivalence.test.ts.
 
 export const pending: Record<string, readonly string[]> = {
-  "es": [],
-  "es_ES": [],
-  "fr_FR": [],
-  "fr_CA": [],
+  "es": [
+    "hudChrome.hill.pvpEntry"
+  ],
+  "es_ES": [
+    "hudChrome.hill.pvpEntry"
+  ],
+  "fr_FR": [
+    "hudChrome.hill.pvpEntry"
+  ],
+  "fr_CA": [
+    "hudChrome.hill.pvpEntry"
+  ],
   "en_CA": [],
-  "it_IT": [],
-  "de_DE": [],
+  "it_IT": [
+    "hudChrome.hill.pvpEntry"
+  ],
+  "de_DE": [
+    "hudChrome.hill.pvpEntry"
+  ],
   "zh_CN": [],
   "zh_TW": [],
   "ko_KR": [],
   "ja_JP": [],
-  "pt_BR": [],
+  "pt_BR": [
+    "hudChrome.hill.pvpEntry"
+  ],
   "ru_RU": [],
-  "cs_CZ": [],
-  "nl_NL": [],
-  "pl_PL": [],
-  "id_ID": [],
-  "tr_TR": [],
-  "sv_SE": [],
-  "vi_VN": [],
-  "da_DK": []
+  "cs_CZ": [
+    "hudChrome.hill.pvpEntry"
+  ],
+  "nl_NL": [
+    "hudChrome.hill.pvpEntry"
+  ],
+  "pl_PL": [
+    "hudChrome.hill.pvpEntry"
+  ],
+  "id_ID": [
+    "hudChrome.hill.pvpEntry"
+  ],
+  "tr_TR": [
+    "hudChrome.hill.pvpEntry"
+  ],
+  "sv_SE": [
+    "hudChrome.hill.pvpEntry"
+  ],
+  "vi_VN": [
+    "hudChrome.hill.pvpEntry"
+  ],
+  "da_DK": [
+    "hudChrome.hill.pvpEntry"
+  ]
 };

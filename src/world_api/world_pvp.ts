@@ -44,9 +44,9 @@ export type HillSide = 'none' | 'you' | 'other';
  *  'active': risen; the contest and the payouts run. */
 export type HillPhaseInfo = 'warning' | 'active';
 
-/** Whether the viewer counts on the hill: parties only, so a raid member
- *  does not. Any level counts. */
-export type HillStandingInfo = 'counted' | 'raid';
+/** Whether the viewer counts on the hill: no raid members or players below
+ *  the ordinary World PvP level requirement. */
+export type HillStandingInfo = 'counted' | 'raid' | 'level';
 
 /** The announced or standing hill (src/sim/pvp/hill.ts), from one viewer's
  *  seat. The geometry, the phase and the holder are realm facts; `inZone`,
