@@ -350,7 +350,7 @@ import {
   actionBarRowForSlot,
 } from './hud/action_bar/action_bar_layout_core';
 import { actionBarLayoutProfileForSurface } from './hud/action_bar/action_bar_layout_sync';
-import { isActionBarEditAllowed } from './hud/action_bar/action_bar_lock';
+import { isActionBarEditAllowed, isSlotMoveDragAllowed } from './hud/action_bar/action_bar_lock';
 import { ActionBarPainter } from './hud/action_bar/action_bar_painter';
 import {
   type ActionBarToggleControl,
@@ -416,6 +416,7 @@ import { buildMobileActionRing } from './hud/action_bar/mobile_action_ring_contr
 import type { MobileActionRingPainter } from './hud/action_bar/mobile_action_ring_painter';
 import { playerStealthed } from './hud/action_bar/player_stealthed';
 import { RADIAL_DIRECTIONS, type RadialDirection } from './hud/action_bar/radial_action_core';
+import { slotEditHintLines } from './hud/action_bar/slot_edit_hints_core';
 import { AuraTrackFamily } from './hud/aura_tracks';
 import {
   BattlegroundKillFeed,
@@ -7690,16 +7691,16 @@ export class Hud {
           return `<div class="tt-title">${esc(t('abilityUi.actionBar.attackName'))}</div><div class="tt-sub">${esc(t('abilityUi.actionBar.attackTooltip'))}</div><div class="tt-sub">${esc(t('abilityUi.actionBar.attackRemoveHint'))}</div>`;
         }
         const known = this.abilityForSlot(slot);
-        const clearHint = `<div class="tt-sub">${esc(t('abilityUi.actionBar.clearHint'))}</div>`;
-        if (known) return this.abilityTooltip(known) + clearHint;
+        const editHints = slotEditHintLines();
+        if (known) return this.abilityTooltip(known) + editHints;
         const freed = slot === 0 && this.freedAttackSlotAbility();
         if (freed)
-          return `<div class="tt-title">${esc(abilityDisplayName(freed.def))}</div><div class="tt-sub">${esc(t('abilityUi.tooltip.unavailable'))}</div>${clearHint}`;
+          return `<div class="tt-title">${esc(abilityDisplayName(freed.def))}</div><div class="tt-sub">${esc(t('abilityUi.tooltip.unavailable'))}</div>${editHints}`;
         const item = this.itemForSlot(slot);
         if (item) {
           const worn = item.id === this.sim.equipment.trinket;
           return (
-            this.itemTooltip(item) + itemInBagsLine(this.inventoryCount(item.id), worn) + clearHint
+            this.itemTooltip(item) + itemInBagsLine(this.inventoryCount(item.id), worn) + editHints
           );
         }
         return `<div class="tt-sub">${esc(t('abilityUi.actionBar.emptySlot'))}<br>${esc(t('abilityUi.actionBar.clearHint'))}</div>`;
@@ -7718,7 +7719,7 @@ export class Hud {
         };
         bindShiftClear(btn, clearSlot);
         btn.addEventListener('dragstart', (e) => {
-          if (!isActionBarEditAllowed(this.actionBarsLocked(), 'drag')) {
+          if (!isSlotMoveDragAllowed(this.actionBarsLocked(), e)) {
             e.preventDefault();
             return;
           }
@@ -7816,7 +7817,7 @@ export class Hud {
           handleShiftClearKeydown(e, clearAttackSlotAction);
         });
         btn.addEventListener('dragstart', (e) => {
-          if (!isActionBarEditAllowed(this.actionBarsLocked(), 'drag')) {
+          if (!isSlotMoveDragAllowed(this.actionBarsLocked(), e)) {
             e.preventDefault();
             return;
           }
@@ -7825,11 +7826,7 @@ export class Hud {
             e.preventDefault();
             return;
           }
-          this.dragAction = {
-            action,
-            sourceIndex: null,
-            sourceAttackSlot: true,
-          };
+          this.dragAction = { action, sourceIndex: null, sourceAttackSlot: true };
           writeHotbarDragData(e.dataTransfer, action);
           if (e.dataTransfer) e.dataTransfer.effectAllowed = 'move';
           this.hideTooltip();

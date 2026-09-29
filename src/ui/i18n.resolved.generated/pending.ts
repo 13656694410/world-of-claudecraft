@@ -10,6 +10,7 @@
 
 export const pending: Record<string, readonly string[]> = {
   "es": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -20,6 +21,7 @@ export const pending: Record<string, readonly string[]> = {
     "hudChrome.worldPvp.rewardTitles"
   ],
   "es_ES": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -30,6 +32,7 @@ export const pending: Record<string, readonly string[]> = {
     "hudChrome.worldPvp.rewardTitles"
   ],
   "fr_FR": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -40,6 +43,7 @@ export const pending: Record<string, readonly string[]> = {
     "hudChrome.worldPvp.rewardTitles"
   ],
   "fr_CA": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -51,6 +55,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "en_CA": [],
   "it_IT": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -61,6 +66,7 @@ export const pending: Record<string, readonly string[]> = {
     "hudChrome.worldPvp.rewardTitles"
   ],
   "de_DE": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -75,6 +81,7 @@ export const pending: Record<string, readonly string[]> = {
   "ko_KR": [],
   "ja_JP": [],
   "pt_BR": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -86,6 +93,7 @@ export const pending: Record<string, readonly string[]> = {
   ],
   "ru_RU": [],
   "cs_CZ": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -96,6 +104,7 @@ export const pending: Record<string, readonly string[]> = {
     "hudChrome.worldPvp.rewardTitles"
   ],
   "nl_NL": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -106,6 +115,7 @@ export const pending: Record<string, readonly string[]> = {
     "hudChrome.worldPvp.rewardTitles"
   ],
   "pl_PL": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -116,6 +126,7 @@ export const pending: Record<string, readonly string[]> = {
     "hudChrome.worldPvp.rewardTitles"
   ],
   "id_ID": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -126,6 +137,7 @@ export const pending: Record<string, readonly string[]> = {
     "hudChrome.worldPvp.rewardTitles"
   ],
   "tr_TR": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -136,6 +148,7 @@ export const pending: Record<string, readonly string[]> = {
     "hudChrome.worldPvp.rewardTitles"
   ],
   "sv_SE": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -146,6 +159,7 @@ export const pending: Record<string, readonly string[]> = {
     "hudChrome.worldPvp.rewardTitles"
   ],
   "vi_VN": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",
@@ -156,6 +170,7 @@ export const pending: Record<string, readonly string[]> = {
     "hudChrome.worldPvp.rewardTitles"
   ],
   "da_DK": [
+    "abilityUi.actionBar.moveHint",
     "guide.worldPvpPage.introZones",
     "guide.worldPvpPage.zonesBody",
     "hudChrome.weeklyRewards.previewClaimNotice",

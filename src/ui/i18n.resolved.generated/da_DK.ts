@@ -12129,6 +12129,7 @@ export const da_DK: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Slå automatisk angreb til/fra på dit mål. Højreklik på en fjende angriber også.",
       "attackRemoveHint": "Højreklik for at fjerne den fra bjælken og frigøre pladsen.",
+      "moveHint": "Shift-drag to move",
       "emptySlot": "Tom plads",
       "slotAria": "Handlingsplads {slot}: {ability}",
       "emptySlotAria": "Handlingsplads {slot}: tom",

@@ -12129,6 +12129,7 @@ export const pt_BR: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Ativa ou desativa o autoataque no alvo. Clicar com o botão direito em um inimigo também ataca.",
       "attackRemoveHint": "Clique com o botão direito para removê-lo da barra e liberar o espaço.",
+      "moveHint": "Shift-drag to move",
       "emptySlot": "Espaço vazio",
       "slotAria": "Espaço de ação {slot}: {ability}",
       "emptySlotAria": "Espaço de ação {slot}: vazio",

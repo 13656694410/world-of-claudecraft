@@ -4167,6 +4167,7 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'abilityUi.actionBar.attackName': '攻擊',
   'abilityUi.actionBar.attackTooltip': '對目標開啟或關閉自動攻擊。右鍵點擊敵人也會發起攻擊。',
   'abilityUi.actionBar.attackRemoveHint': '右鍵點擊可將其從動作列移除並空出欄位。',
+  'abilityUi.actionBar.moveHint': 'Shift-拖曳以移動',
   'abilityUi.actionBar.emptySlot': '空欄位',
   'abilityUi.actionBar.slotAria': '動作欄位 {slot}：{ability}',
   'abilityUi.actionBar.emptySlotAria': '動作欄位 {slot}：空',

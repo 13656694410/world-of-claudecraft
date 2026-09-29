@@ -4165,6 +4165,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'abilityUi.actionBar.attackName': '攻击',
   'abilityUi.actionBar.attackTooltip': '对目标开启或关闭自动攻击。右键点击敌人也会发起攻击。',
   'abilityUi.actionBar.attackRemoveHint': '右键点击可将其从动作栏移除并空出栏位。',
+  'abilityUi.actionBar.moveHint': 'Shift-拖动以移动',
   'abilityUi.actionBar.emptySlot': '空栏位',
   'abilityUi.actionBar.slotAria': '动作栏位 {slot}：{ability}',
   'abilityUi.actionBar.emptySlotAria': '动作栏位 {slot}：空',

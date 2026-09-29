@@ -24,6 +24,7 @@ export type TranslationKeyFlat =
   | 'abilityUi.actionBar.emptySlotAria'
   | 'abilityUi.actionBar.itemInBags'
   | 'abilityUi.actionBar.itemNoneInBags'
+  | 'abilityUi.actionBar.moveHint'
   | 'abilityUi.actionBar.slotAria'
   | 'abilityUi.cast.crafting'
   | 'abilityUi.cast.demonHeal'

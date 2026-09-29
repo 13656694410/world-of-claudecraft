@@ -12129,6 +12129,7 @@ export const it_IT: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Attiva o disattiva l'autoattacco sul bersaglio. Anche il clic destro su un nemico attacca.",
       "attackRemoveHint": "Clic destro per rimuoverlo dalla barra e liberare lo slot.",
+      "moveHint": "Shift-drag to move",
       "emptySlot": "Slot vuoto",
       "slotAria": "Slot azione {slot}: {ability}",
       "emptySlotAria": "Slot azione {slot}: vuoto",

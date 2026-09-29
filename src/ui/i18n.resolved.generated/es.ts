@@ -12129,6 +12129,7 @@ export const es: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Activa o desactiva el autoataque sobre tu objetivo. Hacer clic derecho en un enemigo también ataca.",
       "attackRemoveHint": "Clic derecho para quitarlo de la barra y liberar el espacio.",
+      "moveHint": "Shift-drag to move",
       "emptySlot": "Ranura vacía",
       "slotAria": "Ranura de acción {slot}: {ability}",
       "emptySlotAria": "Ranura de acción {slot}: vacía",

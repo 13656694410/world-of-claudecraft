@@ -12129,6 +12129,7 @@ export const ko_KR: EnTranslations = {
       "cooldownMinutes": "{minutes}분",
       "attackTooltip": "대상에게 자동 공격을 켜거나 끕니다. 적을 우클릭해도 공격합니다.",
       "attackRemoveHint": "우클릭하면 바에서 제거하고 칸을 비웁니다.",
+      "moveHint": "Shift-드래그로 이동",
       "emptySlot": "빈 칸",
       "slotAria": "행동 칸 {slot}: {ability}",
       "emptySlotAria": "행동 칸 {slot}: 비어 있음",

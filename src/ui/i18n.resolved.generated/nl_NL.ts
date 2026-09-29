@@ -12129,6 +12129,7 @@ export const nl_NL: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Schakel auto-aanval op je doelwit in of uit. Rechtsklikken op een vijand valt ook aan.",
       "attackRemoveHint": "Klik met rechts om het van de balk te verwijderen en de plek vrij te maken.",
+      "moveHint": "Shift-drag to move",
       "emptySlot": "Lege sleuf",
       "slotAria": "Actiesleuf {slot}: {ability}",
       "emptySlotAria": "Actiesleuf {slot}: leeg",

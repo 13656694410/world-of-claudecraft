@@ -4347,6 +4347,7 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'abilityUi.actionBar.attackTooltip':
     '対象への自動攻撃を切り替えます。敵を右クリックしても攻撃します。',
   'abilityUi.actionBar.attackRemoveHint': '右クリックでバーから外し、スロットを空けます。',
+  'abilityUi.actionBar.moveHint': 'Shift-ドラッグで移動',
   'abilityUi.actionBar.emptySlot': '空きスロット',
   'abilityUi.actionBar.slotAria': 'アクションスロット {slot}: {ability}',
   'abilityUi.actionBar.emptySlotAria': 'アクションスロット {slot}: 空き',
