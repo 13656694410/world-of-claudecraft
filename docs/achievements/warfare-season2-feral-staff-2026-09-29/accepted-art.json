@@ -62,15 +62,7 @@
     "status": "pass",
     "image": "tmp/feral-staff-art/review.png",
     "inGameScreenshots": "Not captured in sparse worktree; UI layout unchanged.",
-    "sizesInspected": [
-      512,
-      128,
-      40,
-      28,
-      22,
-      "28-grayscale",
-      "64-circle"
-    ],
+    "sizesInspected": [512, 128, 40, 28, 22, "28-grayscale", "64-circle"],
     "findings": "Complete staff silhouette, opaque ground, readable claw head and grip, distinct materials, no writing or baked frame. Reviewed generated original and normalized master plus shipping small-size sheet."
   }
 }
