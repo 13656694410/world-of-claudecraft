@@ -3443,6 +3443,7 @@ export const hudChromeStrings = {
     rises: 'Rises in {minutes}',
     falls: 'Falls in {minutes}',
     pvpEntry: 'Entering the active circle enables World PvP.',
+    pvpBanner: 'PvP',
     standingRaid: 'Raid members do not count: only parties can hold the hill',
   },
   // The WARFARE quartermaster's sectioned honor shop (#warfare-window,

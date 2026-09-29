@@ -19628,4 +19628,5 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardPaused': '現在のPvP継続時間：{time}（修練の浜で一時停止中）',
   'hudChrome.worldPvp.rewardProgress': '現在のPvP継続時間：{time}',
   'hudChrome.hill.pvpEntry': '有効な円に入るとワールドPvPが有効になります。',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

@@ -5577,7 +5577,7 @@ export class Hud {
   private readonly hillBar = new HillBar({
     layer: () => document.getElementById('ui'),
     writers: this.writerFacet,
-    onPvpEntry: () => this.showBanner(t('hudChrome.pvp.mobileLabel'), true, undefined, 'pvp'),
+    onPvpEntry: () => this.showBanner(t('hudChrome.hill.pvpBanner'), true, undefined, 'pvp'),
   });
   // Character window painter (char_view.ts core + char_window.ts painter). It composes
   // presentation helpers with HUD-built stats/progression plus the unequip + drag

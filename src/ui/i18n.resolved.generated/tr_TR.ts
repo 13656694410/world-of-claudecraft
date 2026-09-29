@@ -2842,6 +2842,7 @@ export const tr_TR: EnTranslations = {
       "rises": "{minutes} içinde yükseliyor",
       "falls": "{minutes} içinde düşüyor",
       "pvpEntry": "Entering the active circle enables World PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "Akın üyeleri sayılmaz: yalnızca partiler tepeyi tutabilir"
     },
     "warfareShop": {

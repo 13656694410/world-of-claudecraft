@@ -4,7 +4,8 @@
 // is announced: the title and the zone, "not yet risen", the distance to the
 // marked circle and when it rises. Once risen: who holds the hill, "you N vs
 // them M", the contest clock as a fill bar, the distance and when it falls.
-// Either way a note says so when the viewer does not count (a raid member). The skeleton is rebuilt in ONE innerHTML write when
+// A note explains ineligibility or warns that entering enables PvP.
+// The skeleton is rebuilt in ONE innerHTML write when
 // the structural sig changes (a new hill, the rise, a holder or challenger
 // change, crossing the circle's edge); every
 // per-second value rides the PainterHost elided writers, so an idle second
@@ -17,7 +18,7 @@ import { durationText } from '../../duration_text';
 import { zoneDisplayName } from '../../entity_i18n';
 import { formatNumber, t } from '../../i18n';
 import type { PainterHostWriters } from '../../painter_host';
-import type { HillBarLive, HillBarView } from './hill_bar_view';
+import { type HillBarLive, type HillBarView, shouldAnnounceHillPvp } from './hill_bar_view';
 
 export interface HillBarDeps {
   /** The HUD layer the strip mounts into (null before the HUD exists). */
@@ -55,11 +56,7 @@ export class HillBar {
     }
     const root = this.ensureRoot();
     if (!root) return;
-    if (
-      view.phase === 'active' &&
-      view.inside &&
-      !(this.lastView?.phase === 'active' && this.lastView.inside)
-    ) {
+    if (shouldAnnounceHillPvp(this.lastView, view)) {
       this.deps.onPvpEntry?.();
     }
     if (view.sig !== this.lastSig) {

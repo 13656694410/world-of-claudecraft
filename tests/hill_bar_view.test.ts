@@ -28,7 +28,13 @@ import {
   hillRiseLine,
   hillWarningLine,
 } from '../src/sim/pvp/hill';
-import { buildHillBarView, HillBar, hillEdgeDistance, hillRivalCount } from '../src/ui/hud/hill';
+import {
+  buildHillBarView,
+  HillBar,
+  hillEdgeDistance,
+  hillRivalCount,
+  shouldAnnounceHillPvp,
+} from '../src/ui/hud/hill';
 import { setLanguage } from '../src/ui/i18n';
 import type { PainterHostWriters } from '../src/ui/painter_host';
 import { localizeSimText } from '../src/ui/sim_i18n';
@@ -56,6 +62,21 @@ const info = (over: Partial<HillInfo> = {}): HillInfo => ({
 afterEach(() => setLanguage('en'));
 
 describe('buildHillBarView', () => {
+  it('does not announce PvP for under-level viewers, but does when they become eligible', () => {
+    const underLevel = buildHillBarView(info({ inside: true, standing: 'level' }), null);
+    const counted = buildHillBarView(info({ inside: true }), null);
+    expect(shouldAnnounceHillPvp(null, underLevel)).toBe(false);
+    expect(shouldAnnounceHillPvp(counted, underLevel)).toBe(false);
+    expect(shouldAnnounceHillPvp(underLevel, counted)).toBe(true);
+    expect(shouldAnnounceHillPvp(counted, counted)).toBe(false);
+    expect(shouldAnnounceHillPvp(null, buildHillBarView(null, null))).toBe(false);
+    expect(
+      shouldAnnounceHillPvp(null, buildHillBarView(info({ inside: true, phase: 'warning' }), null)),
+    ).toBe(false);
+    expect(
+      shouldAnnounceHillPvp(null, buildHillBarView(info({ inside: true, standing: 'raid' }), null)),
+    ).toBe(true);
+  });
   it("hides without a hill or outside the hill's zone", () => {
     expect(buildHillBarView(null, { x: 0, z: 0 }).visible).toBe(false);
     expect(buildHillBarView(info({ inZone: false }), { x: 360, z: 1540 }).visible).toBe(false);
@@ -178,6 +199,8 @@ describe('HillBar (the painter)', () => {
     const update = (over: Partial<HillInfo>) =>
       bar.update(buildHillBarView(info(over), { x: 360, z: 1540 }));
     update({ inside: false });
+    update({ inside: true, standing: 'level' });
+    expect(entries).toBe(0);
     update({ inside: true, phase: 'warning' });
     expect(entries).toBe(0);
     update({ inside: true });

@@ -2842,6 +2842,7 @@ export const sv_SE: EnTranslations = {
       "rises": "Stiger om {minutes}",
       "falls": "Faller om {minutes}",
       "pvpEntry": "Entering the active circle enables World PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "Rajdmedlemmar räknas inte: bara partier kan inneha kullen"
     },
     "warfareShop": {

@@ -2842,6 +2842,7 @@ export const da_DK: EnTranslations = {
       "rises": "Stiger om {minutes}",
       "falls": "Falder om {minutes}",
       "pvpEntry": "Entering the active circle enables World PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "Raidmedlemmer tæller ikke: kun partier kan holde bakken"
     },
     "warfareShop": {

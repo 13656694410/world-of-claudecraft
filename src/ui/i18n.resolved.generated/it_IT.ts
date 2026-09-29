@@ -2842,6 +2842,7 @@ export const it_IT: EnTranslations = {
       "rises": "Sorge tra {minutes}",
       "falls": "Cade tra {minutes}",
       "pvpEntry": "Entering the active circle enables World PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "I membri di un'incursione non contano: solo i gruppi possono detenere la collina"
     },
     "warfareShop": {

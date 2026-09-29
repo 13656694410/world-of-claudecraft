@@ -2842,6 +2842,7 @@ export const ko_KR: EnTranslations = {
       "rises": "{minutes} 후 솟아오름",
       "falls": "{minutes} 후 무너짐",
       "pvpEntry": "활성화된 원 안에 들어가면 월드 PvP가 활성화됩니다.",
+      "pvpBanner": "PvP",
       "standingRaid": "공격대원은 인원수에 포함되지 않습니다: 파티만 언덕을 점령할 수 있습니다"
     },
     "warfareShop": {

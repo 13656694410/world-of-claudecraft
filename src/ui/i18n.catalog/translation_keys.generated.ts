@@ -11320,6 +11320,7 @@ export type TranslationKeyFlat =
   | 'hudChrome.hill.heldOther'
   | 'hudChrome.hill.heldYou'
   | 'hudChrome.hill.inside'
+  | 'hudChrome.hill.pvpBanner'
   | 'hudChrome.hill.pvpEntry'
   | 'hudChrome.hill.rises'
   | 'hudChrome.hill.rising'

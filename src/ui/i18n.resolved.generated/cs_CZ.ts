@@ -2842,6 +2842,7 @@ export const cs_CZ: EnTranslations = {
       "rises": "Vystoupí za {minutes}",
       "falls": "Padne za {minutes}",
       "pvpEntry": "Entering the active circle enables World PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "Členové raidu se nepočítají: kopec mohou ovládat jen skupiny"
     },
     "warfareShop": {

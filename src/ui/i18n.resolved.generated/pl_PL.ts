@@ -2842,6 +2842,7 @@ export const pl_PL: EnTranslations = {
       "rises": "Pojawia się za {minutes}",
       "falls": "Spada za {minutes}",
       "pvpEntry": "Entering the active circle enables World PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "Członkowie rajdu się nie liczą: tylko drużyny mogą trzymać wzgórze"
     },
     "warfareShop": {

@@ -2842,6 +2842,7 @@ export const nl_NL: EnTranslations = {
       "rises": "Rijst in {minutes}",
       "falls": "Valt in {minutes}",
       "pvpEntry": "Entering the active circle enables World PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "Raidleden tellen niet mee: alleen groepen kunnen de heuvel bezetten"
     },
     "warfareShop": {

@@ -18655,4 +18655,5 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardPaused': '当前PvP连续游戏时间：{time}（在试炼之滨暂停）',
   'hudChrome.worldPvp.rewardProgress': '当前PvP连续游戏时间：{time}',
   'hudChrome.hill.pvpEntry': '进入激活的圆圈会开启世界PvP。',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

@@ -2842,6 +2842,7 @@ export const de_DE: EnTranslations = {
       "rises": "Erhebt sich in {minutes}",
       "falls": "Sinkt in {minutes}",
       "pvpEntry": "Entering the active circle enables World PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "Schlachtzugsmitglieder zählen nicht: Nur Gruppen können den Hügel halten"
     },
     "warfareShop": {

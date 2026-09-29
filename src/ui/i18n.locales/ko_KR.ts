@@ -19610,4 +19610,5 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardPaused': '현재 PvP 유지 시간: {time} (수련의 해안에서 일시 정지)',
   'hudChrome.worldPvp.rewardProgress': '현재 PvP 유지 시간: {time}',
   'hudChrome.hill.pvpEntry': '활성화된 원 안에 들어가면 월드 PvP가 활성화됩니다.',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

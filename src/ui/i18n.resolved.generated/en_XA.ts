@@ -2842,6 +2842,7 @@ export const en_XA: EnTranslations = {
       "rises": "[Ŕíšéš íñ {minutes}]",
       "falls": "[Ƒáļļš íñ {minutes}]",
       "pvpEntry": "[Éñţéŕíñĝ ţĥé áçţíʋé çíŕçļé éñáƀļéš Ŵóŕļð ÞʋÞ.]",
+      "pvpBanner": "[ÞʋÞ]",
       "standingRaid": "[Ŕáíð ɱéɱƀéŕš ðó ñóţ çóúñţ: óñļý þáŕţíéš çáñ ĥóļð ţĥé ĥíļļ]"
     },
     "warfareShop": {

@@ -84,6 +84,7 @@ const CONTINENT_COLOR_TOKENS = {
   label: '--color-map-label',
   outline: '--color-map-outline',
   player: '--color-map-player',
+  worldQuestAvailable: '--color-map-world-quest-available',
   partyDead: '--color-map-party-dead',
   regionHoverFill: '--color-map-region-hover-fill',
   regionCurrentFill: '--color-map-region-current-fill',
@@ -320,7 +321,7 @@ export class ContinentMapPainter {
     }
 
     if (model.hill) {
-      drawHillMapMarker(ctx, model.hill, 8, colors.player, colors.outline);
+      drawHillMapMarker(ctx, model.hill, 8, colors.worldQuestAvailable, colors.outline);
     }
 
     // "You are here": a filled dot in a ring at the player's projected position.

@@ -2842,6 +2842,7 @@ export const id_ID: EnTranslations = {
       "rises": "Naik dalam {minutes}",
       "falls": "Jatuh dalam {minutes}",
       "pvpEntry": "Entering the active circle enables World PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "Anggota raid tidak dihitung: hanya pihak yang dapat memegang bukit"
     },
     "warfareShop": {

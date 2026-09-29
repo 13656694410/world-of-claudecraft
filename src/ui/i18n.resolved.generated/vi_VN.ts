@@ -2842,6 +2842,7 @@ export const vi_VN: EnTranslations = {
       "rises": "Mọc lên trong {minutes}",
       "falls": "Rơi xuống trong {minutes}",
       "pvpEntry": "Entering the active circle enables World PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "Thành viên cuộc tấn công không tính, chỉ các nhóm mới có thể giữ đồi"
     },
     "warfareShop": {

@@ -999,7 +999,7 @@ export class MapWindowPainter {
         ctx,
         model.hill,
         geometry.questBadgeRadius + WORLD_QUEST_BADGE_OUTER_ADD,
-        colors.questBadgeFill,
+        colors.worldQuestAvailable,
         colors.outline,
       );
     }

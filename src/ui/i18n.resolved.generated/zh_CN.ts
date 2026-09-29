@@ -2842,6 +2842,7 @@ export const zh_CN: EnTranslations = {
       "rises": "{minutes} 后升起",
       "falls": "{minutes} 后消失",
       "pvpEntry": "进入激活的圆圈会开启世界PvP。",
+      "pvpBanner": "PvP",
       "standingRaid": "团队成员不计入人数：只有队伍才能占据山丘"
     },
     "warfareShop": {

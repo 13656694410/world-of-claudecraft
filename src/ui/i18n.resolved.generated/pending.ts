@@ -10,22 +10,28 @@
 
 export const pending: Record<string, readonly string[]> = {
   "es": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "es_ES": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "fr_FR": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "fr_CA": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "en_CA": [],
   "it_IT": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "de_DE": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "zh_CN": [],
@@ -33,31 +39,40 @@ export const pending: Record<string, readonly string[]> = {
   "ko_KR": [],
   "ja_JP": [],
   "pt_BR": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "ru_RU": [],
   "cs_CZ": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "nl_NL": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "pl_PL": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "id_ID": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "tr_TR": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "sv_SE": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "vi_VN": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ],
   "da_DK": [
+    "hudChrome.hill.pvpBanner",
     "hudChrome.hill.pvpEntry"
   ]
 };
