@@ -438,7 +438,9 @@ export const id_ID: EnTranslations = {
         "worldOne": "{count} Misi Dunia Diselesaikan",
         "worldMany": "{count} Misi Dunia Diselesaikan",
         "pvpOne": "{count} Pertandingan Berperingkat Dimenangkan",
-        "pvpMany": "{count} Pertandingan Berperingkat Dimenangkan"
+        "pvpMany": "{count} Pertandingan Berperingkat Dimenangkan",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Bersihkan {count} Pertemuan Serangan",
@@ -448,7 +450,9 @@ export const id_ID: EnTranslations = {
         "worldOne": "Selesaikan {count} Misi Dunia",
         "worldMany": "Selesaikan {count} Misi Dunia",
         "pvpOne": "Menangkan {count} Pertandingan Berperingkat",
-        "pvpMany": "Menangkan {count} Pertandingan Berperingkat"
+        "pvpMany": "Menangkan {count} Pertandingan Berperingkat",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Minggu yang tidak diklaim: {count}. Klaim minggu yang paling tua terlebih dahulu.",
       "claimLastWeek": "Klaim hadiah minggu lalu",

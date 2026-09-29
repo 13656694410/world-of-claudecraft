@@ -438,7 +438,9 @@ export const ko_KR: EnTranslations = {
         "worldOne": "전역 퀘스트 {count}개 완료",
         "worldMany": "전역 퀘스트 {count}개 완료",
         "pvpOne": "평점전 {count}승",
-        "pvpMany": "평점전 {count}승"
+        "pvpMany": "평점전 {count}승",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "공격대 우두머리 {count}명을 처치하세요",
@@ -448,7 +450,9 @@ export const ko_KR: EnTranslations = {
         "worldOne": "전역 퀘스트를 {count}개 완료하세요",
         "worldMany": "전역 퀘스트를 {count}개 완료하세요",
         "pvpOne": "평점전에서 {count}승을 거두세요",
-        "pvpMany": "평점전에서 {count}승을 거두세요"
+        "pvpMany": "평점전에서 {count}승을 거두세요",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "받지 않은 주: {count}. 완료된 가장 오래된 주부터 받으세요.",
       "claimLastWeek": "지난주 보상 받기",

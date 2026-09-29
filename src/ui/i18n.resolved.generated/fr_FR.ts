@@ -438,7 +438,9 @@ export const fr_FR: EnTranslations = {
         "worldOne": "{count} quête mondiale terminée",
         "worldMany": "{count} quêtes mondiales terminées",
         "pvpOne": "{count} match classé remporté",
-        "pvpMany": "{count} matchs classés remportés"
+        "pvpMany": "{count} matchs classés remportés",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Vainquez {count} rencontre de raid",
@@ -448,7 +450,9 @@ export const fr_FR: EnTranslations = {
         "worldOne": "Terminez {count} quête mondiale",
         "worldMany": "Terminez {count} quêtes mondiales",
         "pvpOne": "Remportez {count} match classé",
-        "pvpMany": "Remportez {count} matchs classés"
+        "pvpMany": "Remportez {count} matchs classés",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Semaines non réclamées : {count}. Réclamez d'abord la semaine terminée la plus ancienne.",
       "claimLastWeek": "Réclamer la récompense de la semaine dernière",

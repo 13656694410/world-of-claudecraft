@@ -438,7 +438,9 @@ export const es: EnTranslations = {
         "worldOne": "{count} misión de mundo completada",
         "worldMany": "{count} misiones de mundo completadas",
         "pvpOne": "{count} combate clasificatorio ganado",
-        "pvpMany": "{count} combates clasificatorios ganados"
+        "pvpMany": "{count} combates clasificatorios ganados",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Supera {count} encuentro de banda",
@@ -448,7 +450,9 @@ export const es: EnTranslations = {
         "worldOne": "Completa {count} misión de mundo",
         "worldMany": "Completa {count} misiones de mundo",
         "pvpOne": "Gana {count} combate clasificatorio",
-        "pvpMany": "Gana {count} combates clasificatorios"
+        "pvpMany": "Gana {count} combates clasificatorios",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Semanas sin reclamar: {count}. Reclama primero la semana completada más antigua.",
       "claimLastWeek": "Reclamar la recompensa de la semana pasada",

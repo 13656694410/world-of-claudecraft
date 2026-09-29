@@ -438,7 +438,9 @@ export const da_DK: EnTranslations = {
         "worldOne": "{count} Verdenquest Gennemført",
         "worldMany": "{count} Verdenquester Gennemført",
         "pvpOne": "{count} Rangeret Kamp Vundet",
-        "pvpMany": "{count} Rangerede Kampe Vundet"
+        "pvpMany": "{count} Rangerede Kampe Vundet",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Gennemfør {count} Raid-møde",
@@ -448,7 +450,9 @@ export const da_DK: EnTranslations = {
         "worldOne": "Gennemfør {count} Verdenquest",
         "worldMany": "Gennemfør {count} Verdenquester",
         "pvpOne": "Vind {count} Rangeret Kamp",
-        "pvpMany": "Vind {count} Rangerede Kampe"
+        "pvpMany": "Vind {count} Rangerede Kampe",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Uafkrævede uger: {count}. Gør krav på den ældste gennemførte uge først.",
       "claimLastWeek": "Gør krav på sidste uges belønning",

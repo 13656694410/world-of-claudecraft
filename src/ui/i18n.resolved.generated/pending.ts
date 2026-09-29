@@ -10,64 +10,144 @@
 
 export const pending: Record<string, readonly string[]> = {
   "es": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "es_ES": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "fr_FR": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "fr_CA": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "en_CA": [],
   "it_IT": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "de_DE": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "zh_CN": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "zh_TW": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "ko_KR": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "ja_JP": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "pt_BR": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "ru_RU": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "cs_CZ": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "nl_NL": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "pl_PL": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "id_ID": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "tr_TR": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "sv_SE": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "vi_VN": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ],
   "da_DK": [
-    "guide.worldPvpPage.hillBodyRanked"
+    "guide.worldPvpPage.hillBodyRanked",
+    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
+    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
+    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
   ]
 };

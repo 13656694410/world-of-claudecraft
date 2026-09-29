@@ -438,7 +438,9 @@ export const ru_RU: EnTranslations = {
         "worldOne": "Выполнено {count} локальное задание",
         "worldMany": "Выполнено локальных заданий: {count}",
         "pvpOne": "Выигран {count} рейтинговый матч",
-        "pvpMany": "Выиграно рейтинговых матчей: {count}"
+        "pvpMany": "Выиграно рейтинговых матчей: {count}",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Победите {count} рейдового босса",
@@ -448,7 +450,9 @@ export const ru_RU: EnTranslations = {
         "worldOne": "Выполните {count} локальное задание",
         "worldMany": "Выполните локальных заданий: {count}",
         "pvpOne": "Выиграйте {count} рейтинговый матч",
-        "pvpMany": "Выиграйте рейтинговых матчей: {count}"
+        "pvpMany": "Выиграйте рейтинговых матчей: {count}",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Неполученных недель: {count}. Сначала получите награду за самую раннюю завершенную неделю.",
       "claimLastWeek": "Получить награду за прошлую неделю",

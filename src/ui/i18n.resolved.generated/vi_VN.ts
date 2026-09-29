@@ -438,7 +438,9 @@ export const vi_VN: EnTranslations = {
         "worldOne": "{count} Nhiệm Vụ Thế Giới Đã Hoàn Thành",
         "worldMany": "{count} Nhiệm Vụ Thế Giới Đã Hoàn Thành",
         "pvpOne": "{count} Trận Đấu Xếp Hạng Đã Thắng",
-        "pvpMany": "{count} Trận Đấu Xếp Hạng Đã Thắng"
+        "pvpMany": "{count} Trận Đấu Xếp Hạng Đã Thắng",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Xóa {count} Cuộc Gặp Raid",
@@ -448,7 +450,9 @@ export const vi_VN: EnTranslations = {
         "worldOne": "Hoàn Thành {count} Nhiệm Vụ Thế Giới",
         "worldMany": "Hoàn Thành {count} Nhiệm Vụ Thế Giới",
         "pvpOne": "Thắng {count} Trận Đấu Xếp Hạng",
-        "pvpMany": "Thắng {count} Trận Đấu Xếp Hạng"
+        "pvpMany": "Thắng {count} Trận Đấu Xếp Hạng",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Những tuần chưa nhận: {count}. Nhận tuần hoàn thành cũ nhất trước.",
       "claimLastWeek": "Nhận phần thưởng tuần trước",

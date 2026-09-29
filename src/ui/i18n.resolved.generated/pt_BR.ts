@@ -438,7 +438,9 @@ export const pt_BR: EnTranslations = {
         "worldOne": "{count} Missão Mundial Concluída",
         "worldMany": "{count} Missões Mundiais Concluídas",
         "pvpOne": "{count} Partida Ranqueada Vencida",
-        "pvpMany": "{count} Partidas Ranqueadas Vencidas"
+        "pvpMany": "{count} Partidas Ranqueadas Vencidas",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Conclua {count} Combate de Raide",
@@ -448,7 +450,9 @@ export const pt_BR: EnTranslations = {
         "worldOne": "Complete {count} Missão Mundial",
         "worldMany": "Complete {count} Missões Mundiais",
         "pvpOne": "Vença {count} Partida Ranqueada",
-        "pvpMany": "Vença {count} Partidas Ranqueadas"
+        "pvpMany": "Vença {count} Partidas Ranqueadas",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Semanas não resgatadas: {count}. Resgate primeiro a semana concluída mais antiga.",
       "claimLastWeek": "Resgatar a recompensa da semana passada",

@@ -438,7 +438,9 @@ export const nl_NL: EnTranslations = {
         "worldOne": "{count} Wereldquest voltooid",
         "worldMany": "{count} Wereldquests voltooid",
         "pvpOne": "{count} Gewilde wedstrijd gewonnen",
-        "pvpMany": "{count} Gewilde wedstrijden gewonnen"
+        "pvpMany": "{count} Gewilde wedstrijden gewonnen",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Ruim {count} Raid-gevecht op",
@@ -448,7 +450,9 @@ export const nl_NL: EnTranslations = {
         "worldOne": "Voltooi {count} Wereldquest",
         "worldMany": "Voltooi {count} Wereldquests",
         "pvpOne": "Win {count} Gewilde wedstrijd",
-        "pvpMany": "Win {count} Gewilde wedstrijden"
+        "pvpMany": "Win {count} Gewilde wedstrijden",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Niet-opgeëiste weken: {count}. Claim eerst de oudste voltooide week.",
       "claimLastWeek": "Claim beloning van vorige week",

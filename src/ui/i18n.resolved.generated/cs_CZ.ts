@@ -438,7 +438,9 @@ export const cs_CZ: EnTranslations = {
         "worldOne": "{count} dokončený světový úkol",
         "worldMany": "{count} dokončených světových úkolů",
         "pvpOne": "{count} vyhraný hodnocený zápas",
-        "pvpMany": "{count} vyhraných hodnocených zápasů"
+        "pvpMany": "{count} vyhraných hodnocených zápasů",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Vyčisti {count} raidový souboj",
@@ -448,7 +450,9 @@ export const cs_CZ: EnTranslations = {
         "worldOne": "Dokonči {count} světový úkol",
         "worldMany": "Dokonči {count} světových úkolů",
         "pvpOne": "Vyhraj {count} hodnocený zápas",
-        "pvpMany": "Vyhraj {count} hodnocených zápasů"
+        "pvpMany": "Vyhraj {count} hodnocených zápasů",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Nevyzvednuté týdny: {count}. Nejdřív vyzvedni nejstarší dokončený týden.",
       "claimLastWeek": "Vyzvednout odměnu z minulého týdne",

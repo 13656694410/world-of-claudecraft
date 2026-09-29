@@ -438,7 +438,9 @@ export const en_CA: EnTranslations = {
         "worldOne": "{count} World Quest Completed",
         "worldMany": "{count} World Quests Completed",
         "pvpOne": "{count} Rated Match Won",
-        "pvpMany": "{count} Rated Matches Won"
+        "pvpMany": "{count} Rated Matches Won",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Clear {count} Raid Encounter",
@@ -448,7 +450,9 @@ export const en_CA: EnTranslations = {
         "worldOne": "Complete {count} World Quest",
         "worldMany": "Complete {count} World Quests",
         "pvpOne": "Win {count} Rated Match",
-        "pvpMany": "Win {count} Rated Matches"
+        "pvpMany": "Win {count} Rated Matches",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Unclaimed weeks: {count}. Claim the oldest completed week first.",
       "claimLastWeek": "Claim last week's reward",

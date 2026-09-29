@@ -2,8 +2,9 @@
 // The zone-map and continent-map painters resolve their colour tables once per
 // redraw and hand the hill's slice here; this module only draws (the circle,
 // the badge and its pennant glyph) and words the caption. No getComputedStyle,
-// no canvas text API: the host painter blits the caption through its own
-// TextSpriteCache.
+// no canvas text API: each host painter draws the caption through its own text
+// path (the zone map's TextSpriteCache, the continent map's outlined fillText
+// like its zone labels).
 
 import { durationText } from '../../duration_text';
 import { t } from '../../i18n';

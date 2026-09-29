@@ -511,15 +511,15 @@ describe('the Honor trickle', () => {
     expect(honorEvents(seen, a)).toEqual([]);
     seen = tickSeconds(sim, 3);
     expect(honorEvents(seen, a)).toEqual([
-      { type: 'honor', pid: a, amount: 3, reason: 'hill_hold' },
+      { type: 'honor', pid: a, amount: 4, reason: 'hill_hold' },
     ]);
-    expect(sim.meta(a)!.honor).toBe(3);
+    expect(sim.meta(a)!.honor).toBe(4);
     seen = tickSeconds(sim, 4 * HILL_ACCRUAL_SECONDS);
     expect(honorEvents(seen, a)).toHaveLength(4);
-    // Minutes one to three pay 3 each; the fourth and fifth land past the first
-    // ramp step (200 seconds held) and pay 6 (hillHonorPerPayout).
-    expect(sim.meta(a)!.honor).toBe(21);
-    expect(sim.hillState.active!.honorPaid).toBe(21);
+    // Minutes one to three pay 4 each; the fourth and fifth land past the first
+    // ramp step (210 seconds held) and pay 8 (hillHonorPerPayout).
+    expect(sim.meta(a)!.honor).toBe(28);
+    expect(sim.hillState.active!.honorPaid).toBe(28);
     // Stepping out banks nothing but keeps what was banked, so a holder who
     // steps off the rim to fight does not forfeit the minute they stood.
     tickSeconds(sim, 30);

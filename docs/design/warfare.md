@@ -616,14 +616,13 @@ needs no flag of its own.
 Honor RAMPS with the hold (owner tuning 2026-09-25, replacing a flat 1 a minute
 that paid 45 for a whole stand): each counted holder standing inside banks a
 second per pass, and every `HILL_ACCRUAL_SECONDS` (60) pays `hillHonorPerPayout`
-of the seconds the current holder has held the hill, `HILL_RAMP_STEP_HONOR` (3) a
-minute for the first `HILL_RAMP_STEP_SECONDS` (200 seconds), 3 more each further
-200 seconds, capped at `HILL_RAMP_MAX_HONOR` (18). When the stand shortened from
+of the seconds the current holder has held the hill, `HILL_RAMP_STEP_HONOR` (4) a
+minute for the first `HILL_RAMP_STEP_SECONDS` (210 seconds), 4 more each further
+210 seconds, capped at `HILL_RAMP_MAX_HONOR` (16). When the stand shortened from
 45 to 30 minutes (owner spec 2026-09-29: "reward the same total honour") the old
-ramp (2 a minute, +2 every five minutes, capped at 12) was compressed rather than
-cut: each step is two thirds as long and pays half as much again, so a full
-uncontested hold pays 381 against the old 388 (pinned in
-`tests/hill_rules.test.ts`). The streak belongs to the
+ramp (2 a minute, +2 every five minutes, capped at 12) was redistributed into
+this steeper one, so a full uncontested hold pays exactly the old 388 (both
+totals pinned in `tests/hill_rules.test.ts`). The streak belongs to the
 holding party and restarts when the hill changes hands, so a long hold is the
 thing worth taking. A party's size (five) is the payee cap. A holder who steps
 out banks nothing but keeps what they banked; leaving the party or the realm
@@ -637,18 +636,23 @@ pays what it did. No diminishing returns: the cap and the pace are the limit.
 
 The hold ranking (`src/sim/pvp/hill_ranking.ts`, owner spec 2026-09-29): every
 group that takes the hill opens a record (`ActiveHill.holds`) that banks each
-pass it holds the hill, whether or not a member stands inside, summed across
-every separate hold of the same stand, and collects every member who stood
-inside while it held. A party is named by its leader, a lone player by their own
+pass it holds the hill WITH A MEMBER STANDING INSIDE (a group that walks away
+keeps the hill until beaten but banks no rank, so an empty hill on a quiet realm
+cannot be won from afar), summed across every separate hold of the same stand,
+and banks each member's own seconds inside while it held. A party is named by its leader, a lone player by their own
 name. The standings (`hillRanking`, longest first, a tie in first-held order,
 `HILL_RANKING_SHOWN` deep, each hold in whole minutes rounded up, `hillRankLine`)
 are announced with each five-minute reminder and once more after the fall line.
 When the hill falls on its own or through `/dev hill end`, every player who
-stood inside for the group that held it longest (every group tied at the top,
-`hillVaultPayees`, each player once) and is still in the realm earns one win on
-the Weekly Vault's PvP row (`recordWeeklyPvpWin`, capped at the row's five, the
-same credit a rated battleground or ranked arena win gives) and is told
-(`HILL_VAULT_LINE`). The credit is injected by the host (`HillVaultCredit`: the
+stood inside for `HILL_VAULT_MIN_INSIDE_SECONDS` (a minute) for the group that
+held it longest (every group tied at the top, `hillVaultPayees`, each player
+once) and is still in the realm and in that group earns one win on the Weekly
+Vault's PvP row (`recordWeeklyPvpWin`, capped at the row's five, the same credit
+a rated battleground or ranked arena win gives) and is told (`HILL_VAULT_LINE`,
+only when the row actually moved). Requiring membership at the fall caps the
+payees at a party's size: a player cycled through the party cannot carry a
+point away. Unlike a developer-ended battleground, `/dev hill end` does pay:
+it is the test lever for this award, on dev realms only. The credit is injected by the host (`HillVaultCredit`: the
 Sim passes it into `updateHill`, the dev arm into `endHillNow`) because the vault
 module reaches `entity.ts`, which imports the pvp barrel. A realm switched off
 mid-stand drops the hill silently: no standings, no credit.

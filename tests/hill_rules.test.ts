@@ -44,9 +44,9 @@ describe('the tuning literals the copy and the docs quote', () => {
     expect(HILL_LATEST_WARN_OFFSET_SECONDS).toBe(4_500);
     expect(HILL_CAPTURE_SECONDS).toBe(60);
     expect(HILL_ACCRUAL_SECONDS).toBe(60);
-    expect(HILL_RAMP_STEP_SECONDS).toBe(200);
-    expect(HILL_RAMP_STEP_HONOR).toBe(3);
-    expect(HILL_RAMP_MAX_HONOR).toBe(18);
+    expect(HILL_RAMP_STEP_SECONDS).toBe(210);
+    expect(HILL_RAMP_STEP_HONOR).toBe(4);
+    expect(HILL_RAMP_MAX_HONOR).toBe(16);
   });
 });
 
@@ -229,17 +229,15 @@ describe('hillContains', () => {
 });
 
 describe('hillHonorPerPayout: the hold ramp', () => {
-  it('pays 3 a minute for the first 200 seconds, +3 each 200 after, capped at 18', () => {
-    expect(hillHonorPerPayout(0)).toBe(3);
-    expect(hillHonorPerPayout(199)).toBe(3);
-    expect(hillHonorPerPayout(200)).toBe(6);
-    expect(hillHonorPerPayout(400)).toBe(9);
-    expect(hillHonorPerPayout(600)).toBe(12);
-    expect(hillHonorPerPayout(800)).toBe(15);
-    expect(hillHonorPerPayout(999)).toBe(15);
-    expect(hillHonorPerPayout(1_000)).toBe(18);
-    expect(hillHonorPerPayout(30 * 60)).toBe(18);
-    expect(hillHonorPerPayout(-5)).toBe(3);
+  it('pays 4 a minute for the first 210 seconds, +4 each 210 after, capped at 16', () => {
+    expect(hillHonorPerPayout(0)).toBe(4);
+    expect(hillHonorPerPayout(209)).toBe(4);
+    expect(hillHonorPerPayout(210)).toBe(8);
+    expect(hillHonorPerPayout(420)).toBe(12);
+    expect(hillHonorPerPayout(629)).toBe(12);
+    expect(hillHonorPerPayout(630)).toBe(16);
+    expect(hillHonorPerPayout(30 * 60)).toBe(16);
+    expect(hillHonorPerPayout(-5)).toBe(4);
   });
 
   it('pays the 30-minute stand the same total the 45-minute stand paid (owner spec 2026-09-29)', () => {
@@ -252,9 +250,8 @@ describe('hillHonorPerPayout: the hold ramp', () => {
     let after = 0;
     const paidMinutes = HILL_DURATION_SECONDS / 60 - HILL_CAPTURE_SECONDS / 60;
     for (let minute = 1; minute <= paidMinutes; minute++) after += hillHonorPerPayout(minute * 60);
+    // Exactly the same Honor, redistributed over the shorter stand.
     expect(before).toBe(388);
-    expect(after).toBe(381);
-    // Within 2% of the old stand: the same Honor, redistributed.
-    expect(Math.abs(after - before) / before).toBeLessThanOrEqual(0.02);
+    expect(after).toBe(388);
   });
 });

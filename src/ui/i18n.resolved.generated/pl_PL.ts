@@ -438,7 +438,9 @@ export const pl_PL: EnTranslations = {
         "worldOne": "{count} Zadania Światowego Ukończonego",
         "worldMany": "{count} Zadań Światowych Ukończonych",
         "pvpOne": "{count} Wygrane Mecze Rankingowe",
-        "pvpMany": "{count} Wygranych Mecze Rankingowe"
+        "pvpMany": "{count} Wygranych Mecze Rankingowe",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Oczyszcz {count} Spotkania Rajdu",
@@ -448,7 +450,9 @@ export const pl_PL: EnTranslations = {
         "worldOne": "Ukończ {count} Zadania Światowego",
         "worldMany": "Ukończ {count} Zadań Światowych",
         "pvpOne": "Wygraj {count} Mecze Rankingowe",
-        "pvpMany": "Wygraj {count} Meczów Rankingowych"
+        "pvpMany": "Wygraj {count} Meczów Rankingowych",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Nieodebrane tygodnie: {count}. Najpierw odebrz najstarszy ukończony tydzień.",
       "claimLastWeek": "Odebrz nagrodę z ostatniego tygodnia",

@@ -438,7 +438,9 @@ export const en_XA: EnTranslations = {
         "worldOne": "[{count} Ŵóŕļð Ɋúéšţ Çóɱþļéţéð]",
         "worldMany": "[{count} Ŵóŕļð Ɋúéšţš Çóɱþļéţéð]",
         "pvpOne": "[{count} Ŕáţéð Ɱáţçĥ Ŵóñ]",
-        "pvpMany": "[{count} Ŕáţéð Ɱáţçĥéš Ŵóñ]"
+        "pvpMany": "[{count} Ŕáţéð Ɱáţçĥéš Ŵóñ]",
+        "pvpWinOne": "[{count} ÞʋÞ Ŵíñ]",
+        "pvpWinMany": "[{count} ÞʋÞ Ŵíñš]"
       },
       "requiredTask": {
         "raidOne": "[Çļéáŕ {count} Ŕáíð Éñçóúñţéŕ]",
@@ -448,7 +450,9 @@ export const en_XA: EnTranslations = {
         "worldOne": "[Çóɱþļéţé {count} Ŵóŕļð Ɋúéšţ]",
         "worldMany": "[Çóɱþļéţé {count} Ŵóŕļð Ɋúéšţš]",
         "pvpOne": "[Ŵíñ {count} Ŕáţéð Ɱáţçĥ]",
-        "pvpMany": "[Ŵíñ {count} Ŕáţéð Ɱáţçĥéš]"
+        "pvpMany": "[Ŵíñ {count} Ŕáţéð Ɱáţçĥéš]",
+        "pvpWinOne": "[Éáŕñ {count} ÞʋÞ Ŵíñ]",
+        "pvpWinMany": "[Éáŕñ {count} ÞʋÞ Ŵíñš]"
       },
       "readyWeeks": "[Úñçļáíɱéð ŵééķš: {count}. Çļáíɱ ţĥé óļðéšţ çóɱþļéţéð ŵééķ ƒíŕšţ.]",
       "claimLastWeek": "[Çļáíɱ ļášţ ŵééķ'š ŕéŵáŕð]",

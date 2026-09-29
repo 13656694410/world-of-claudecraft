@@ -438,7 +438,9 @@ export const zh_CN: EnTranslations = {
         "worldOne": "已完成{count}个世界任务",
         "worldMany": "已完成{count}个世界任务",
         "pvpOne": "已赢得{count}场评级比赛",
-        "pvpMany": "已赢得{count}场评级比赛"
+        "pvpMany": "已赢得{count}场评级比赛",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "击败{count}个团队副本首领",
@@ -448,7 +450,9 @@ export const zh_CN: EnTranslations = {
         "worldOne": "完成{count}个世界任务",
         "worldMany": "完成{count}个世界任务",
         "pvpOne": "赢得{count}场评级比赛",
-        "pvpMany": "赢得{count}场评级比赛"
+        "pvpMany": "赢得{count}场评级比赛",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "未领取的周次：{count}。请先领取最早完成的那一周。",
       "claimLastWeek": "领取上周的奖励",

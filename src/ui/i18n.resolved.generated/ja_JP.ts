@@ -438,7 +438,9 @@ export const ja_JP: EnTranslations = {
         "worldOne": "ワールドクエスト{count}件完了",
         "worldMany": "ワールドクエスト{count}件完了",
         "pvpOne": "レート戦{count}勝",
-        "pvpMany": "レート戦{count}勝"
+        "pvpMany": "レート戦{count}勝",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "レイドボスを{count}体撃破する",
@@ -448,7 +450,9 @@ export const ja_JP: EnTranslations = {
         "worldOne": "ワールドクエストを{count}件完了する",
         "worldMany": "ワールドクエストを{count}件完了する",
         "pvpOne": "レート戦で{count}勝する",
-        "pvpMany": "レート戦で{count}勝する"
+        "pvpMany": "レート戦で{count}勝する",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "未受領の週：{count}。完了した最も古い週から受け取ってください。",
       "claimLastWeek": "先週の報酬を受け取る",

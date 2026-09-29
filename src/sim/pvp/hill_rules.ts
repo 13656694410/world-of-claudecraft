@@ -45,17 +45,22 @@ export const HILL_CAPTURE_SECONDS = 60;
  *  HILL_RAMP_MAX_HONOR a minute. A full uncontested stand pays about 380 each
  *  (owner tuning 2026-09-25: King of the Hill is a real road to Warfare gear,
  *  doubled alongside the Thornhollow Fields awards). The 30-minute stand
- *  (2026-09-29) keeps that total by compressing the old 45-minute ramp: each
- *  step is two thirds as long and pays half as much again, so the ramp reaches
- *  the same point of the stand and the whole hold pays the same. The streak belongs to the party and resets when the
+ *  (owner spec 2026-09-29: "reward the same total honour") redistributes the
+ *  old 45-minute ramp (2 a minute, +2 every five minutes, capped at 12) into a
+ *  steeper one that pays a full hold exactly the same 388. The streak belongs to the party and resets when the
  *  hill changes hands, so a long hold is the thing worth taking. Only a party
  *  can hold, so a party's size is the payee cap. */
 export const HILL_ACCRUAL_SECONDS = 60;
 /** Held seconds per step of the ramp, the Honor each step adds to a minute's
  *  payout, and the per-minute cap it climbs to. */
-export const HILL_RAMP_STEP_SECONDS = 200;
-export const HILL_RAMP_STEP_HONOR = 3;
-export const HILL_RAMP_MAX_HONOR = 18;
+export const HILL_RAMP_STEP_SECONDS = 210;
+export const HILL_RAMP_STEP_HONOR = 4;
+export const HILL_RAMP_MAX_HONOR = 16;
+/** The Weekly Vault point for the longest hold (hill_ranking.ts) pays only a
+ *  player who stood inside for at least this long while their group held the
+ *  hill, and who is still in that group when it falls: a one-second visit, or
+ *  a player cycled through the party, earns nothing. */
+export const HILL_VAULT_MIN_INSIDE_SECONDS = 60;
 
 /** The Honor one payout is worth after the holding party has held the hill
  *  for `heldSeconds`: HILL_RAMP_STEP_HONOR, then that much more every

@@ -438,7 +438,9 @@ export const sv_SE: EnTranslations = {
         "worldOne": "{count} världsuppdrag slutfört",
         "worldMany": "{count} världsuppdrag slutförda",
         "pvpOne": "{count} bedömd match vunnen",
-        "pvpMany": "{count} bedömda matcher vunna"
+        "pvpMany": "{count} bedömda matcher vunna",
+        "pvpWinOne": "{count} PvP Win",
+        "pvpWinMany": "{count} PvP Wins"
       },
       "requiredTask": {
         "raidOne": "Rensa {count} raid-möte",
@@ -448,7 +450,9 @@ export const sv_SE: EnTranslations = {
         "worldOne": "Slutför {count} världsuppdrag",
         "worldMany": "Slutför {count} världsuppdrag",
         "pvpOne": "Vinna {count} bedömd match",
-        "pvpMany": "Vinna {count} bedömda matcher"
+        "pvpMany": "Vinna {count} bedömda matcher",
+        "pvpWinOne": "Earn {count} PvP Win",
+        "pvpWinMany": "Earn {count} PvP Wins"
       },
       "readyWeeks": "Oinsamlade veckor: {count}. Hävda den äldsta slutförda veckan först.",
       "claimLastWeek": "Hävda förra veckans belöning",

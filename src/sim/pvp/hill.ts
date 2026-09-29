@@ -63,6 +63,7 @@ import {
   HILL_NOTICE_SECONDS,
   HILL_RADIUS,
   HILL_SPAWN_ATTEMPTS,
+  HILL_VAULT_MIN_INSIDE_SECONDS,
   HILL_WARNING_SECONDS,
   type HillSpotProbe,
   type HillTimes,
@@ -119,8 +120,9 @@ export interface ActiveHill extends HillTimes {
 
 /** The Weekly Vault's PvP credit for one player, injected by the host (the Sim
  *  passes weekly_rewards.ts recordWeeklyPvpWin) because this barrel must not
- *  import the vault module (the cycle through entity.ts). */
-export type HillVaultCredit = (ctx: SimContext, pid: number) => void;
+ *  import the vault module (the cycle through entity.ts). True when the row
+ *  actually moved (false at its weekly cap), so the notice never lies. */
+export type HillVaultCredit = (ctx: SimContext, pid: number) => boolean;
 
 /** The Sim-owned session state, exposed on SimContext as a live view. */
 export interface HillState {
@@ -352,17 +354,23 @@ function announceRanking(ctx: SimContext, hill: ActiveHill): void {
 }
 
 /** The hill falls: the fall line, the final standings, and one Weekly Vault
- *  PvP point to every player who stood inside for the group that held it
- *  longest (every group tied at the top), if they are still in the realm. */
+ *  PvP point to every player who stood inside for HILL_VAULT_MIN_INSIDE_SECONDS
+ *  for the group that held it longest (every group tied at the top) and is
+ *  still in the realm and in that group now. */
 function fallHill(ctx: SimContext, hill: ActiveHill, credit: HillVaultCredit): void {
   ctx.hillState.active = null;
   announcePhase(ctx, hill, 'fallen');
   announceRanking(ctx, hill);
-  for (const pid of hillVaultPayees(hill.holds.values())) {
+  const stillInGroup = (pid: number, key: string): boolean => {
     const meta = ctx.players.get(pid);
-    if (!meta || meta.leaving) continue;
-    credit(ctx, pid);
-    notice(ctx, pid, HILL_VAULT_LINE);
+    return !!meta && !meta.leaving && hillGroupKey(pid, ctx.partyOf(pid)) === key;
+  };
+  for (const pid of hillVaultPayees(
+    hill.holds.values(),
+    HILL_VAULT_MIN_INSIDE_SECONDS,
+    stillInGroup,
+  )) {
+    if (credit(ctx, pid)) notice(ctx, pid, HILL_VAULT_LINE);
   }
 }
 
@@ -493,7 +501,7 @@ function updateContest(ctx: SimContext, hill: ActiveHill, dt: number): void {
       seconds: 0,
       name: '',
       party: challenger.startsWith('party:'),
-      holders: new Set(),
+      holders: new Map(),
     });
   }
   for (const [pid, key] of hill.insideKeys) {
@@ -532,21 +540,24 @@ function payHolders(ctx: SimContext, hill: ActiveHill, dt: number): void {
   }
 }
 
-/** The ranking's books: the holding group banks this pass whether or not a
- *  member stands inside (it holds the hill until beaten), and every member
- *  inside joins its payees; its name follows the party's leader, read while
- *  a member is inside to ask the party. */
+/** The ranking's books: the holding group banks this pass only while a
+ *  member stands inside (a group that walks away still holds the hill, but
+ *  an empty hold earns no rank), and every member inside banks their own
+ *  second toward the Weekly Vault point; the name follows the party's leader,
+ *  read while a member is inside to ask the party. */
 function recordHold(ctx: SimContext, hill: ActiveHill, holder: string, dt: number): void {
   const record = hill.holds.get(holder);
   if (!record) return;
-  record.seconds += dt;
+  let occupied = false;
   for (const [pid, key] of hill.insideKeys) {
     if (key !== holder) continue;
-    record.holders.add(pid);
+    occupied = true;
+    record.holders.set(pid, (record.holders.get(pid) ?? 0) + dt);
     const leader = record.party ? (ctx.partyOf(pid)?.leader ?? pid) : pid;
     const name = ctx.entities.get(leader)?.name ?? ctx.entities.get(pid)?.name;
     if (name) record.name = name;
   }
+  if (occupied) record.seconds += dt;
 }
 
 /**
