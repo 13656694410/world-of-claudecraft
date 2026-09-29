@@ -1934,9 +1934,9 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_druid_balance_shoulder.name': 'Sternwächter-Schulterstücke',
   'entities.itemSets.vanguard_druid_feral.name': 'Blutmähnen-Fell',
   'entities.itemSets.vanguard_druid_feral.bonus2':
-    'Die Abklingzeit von Bruin-Ansturm wird um 3 Sek. verkürzt.',
+    'Verringert die Abklingzeiten von Ansprung und Bruin-Ansturm um 3 Sek.',
   'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Bruin-Ansturm gewährt dir 6 Sek. lang einen Schild in Höhe von 6 Prozent deiner maximalen Gesundheit.',
+    'Verringert die Abklingzeit von Sprint um 15 Sek.',
   'entities.items.vanguard_druid_feral_chest.name': 'Blutmähnen-Tunika',
   'entities.items.vanguard_druid_feral_gloves.name': 'Blutmähnen-Griffe',
   'entities.items.vanguard_druid_feral_helmet.name': 'Blutmähnen-Helm',
@@ -20208,4 +20208,21 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Zum Verschieben Umschalt gedrückt halten und ziehen',
+  'entities.items.vanguard_feral_staff.name': 'Wildheitsstab der Vorhut',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Belohnungen warten auf dich. Besuche den Tresorhüter in Eastbrook, um sie zu öffnen und abzuholen.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Die Bewährungsküste ist das einzige Schutzgebiet: Dort kannst du weder Welt-PvP aktivieren noch andere Spieler bekämpfen.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Lasse Welt-PvP aktiv, um {percent} mehr Erfahrung und Fraktionsruf zu erhalten. Die Boni enden, sobald du die Deaktivierung anforderst.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Aktuelle PvP-Serie: {time} Spielzeit (an der Bewährungsküste pausiert)',
+  'hudChrome.worldPvp.rewardProgress': 'Aktuelle PvP-Serie: {time} Spielzeit',
+  'hudChrome.worldPvp.rewardTitles':
+    'Erhalte nach {thresholds} Spielzeit mit aktivem Welt-PvP dauerhafte Titel. Ausloggen und Besuche an der Bewährungsküste pausieren den Zähler. Deaktivieren setzt ihn zurück.',
+  'guide.worldPvpPage.introZones':
+    'Welt-PvP ist freiwillig und hängt vom Gebiet ab. Auf umkämpftem Boden macht deine aktive PvP-Flagge alle ebenfalls markierten Spieler außerhalb deiner Gruppe oder deines Schlachtzugs zu Gegnern. Senkst du sie, bist du nach kurzer Verzögerung wieder Zuschauer. Die Bewährungsküste ist das einzige Schutzgebiet ohne Welt-PvP. In den drei nördlichsten Gebieten gilt jeder gegen jeden, mit oder ohne Flagge. Gruppen- und Schlachtzugsmitglieder sind niemals Gegner; Gildenmitglieder außerhalb deiner Gruppe sind wie andere Spieler angreifbar.',
+  'guide.worldPvpPage.zonesBody':
+    'Es gibt drei Gebietstypen. Die Bewährungsküste ist das einzige Schutzgebiet: kein Welt-PvP und kein Aktivieren der Flagge. Eine bereits aktive Flagge bleibt aktiv, aber die Spielzeit für Titel pausiert bis zum Verlassen. Eastbrook-Tal und der Großteil der Welt sind umkämpft und folgen der Flaggenregel. Die Drakenlande, Der Frostschleier und Der Bernsteinfall, die drei nördlichsten Gebiete, erlauben jeden gegen jeden: Alle können einander mit oder ohne Flagge angreifen. Beim Betreten und Verlassen erscheint ein Hinweis. Greifst du dort einen unmarkierten Spieler an, aktiviert sich deine Flagge, sodass der Angreifer das Risiko trägt. Einen bereits markierten Spieler zu treffen aktiviert sie nicht: Dich selbst oder einen unmarkierten Spieler zu verteidigen kostet dich nichts.',
 };

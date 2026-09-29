@@ -535,4 +535,25 @@ export const es_ES: Partial<Record<TranslationKey, string>> = {
   'hudChrome.bags.capacityPools':
     'Artículos {generalUsed}/{generalTotal}, materiales {materialsUsed}/{materialsTotal}',
   'hudChrome.bags.emptyMaterialsOnly': 'Solo para materiales',
+  'abilityUi.actionBar.moveHint': 'Mantén Mayús y arrastra para mover',
+  'entities.items.vanguard_feral_staff.name': 'Bastón feral de la Vanguardia',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Tienes recompensas pendientes. Visita al Guardián de la Bóveda en Eastbrook para abrirlas y recogerlas.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'La Costa de la Prueba es el único santuario: allí no puedes activar el JcJ mundial ni luchar contra otros jugadores.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Mantén el JcJ mundial activado para ganar un {percent} más de experiencia y reputación de facción. Las bonificaciones terminan cuando solicitas desactivarlo.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Racha JcJ actual: {time} de juego (en pausa en la Costa de la Prueba)',
+  'hudChrome.worldPvp.rewardProgress': 'Racha JcJ actual: {time} de juego',
+  'hudChrome.worldPvp.rewardTitles':
+    'Consigue títulos permanentes tras {thresholds} de tiempo jugado con el JcJ mundial activado. Desconectarte y visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.',
+  'entities.itemSets.vanguard_druid_feral.bonus2':
+    'Reduce los tiempos de reutilización de Embestida felina y Embestida de Bruin en 3 s.',
+  'entities.itemSets.vanguard_druid_feral.bonus4':
+    'Reduce el tiempo de reutilización de Carrera en 15 s.',
+  'guide.worldPvpPage.introZones':
+    'El JcJ en el mundo abierto es voluntario y depende del terreno. En zonas disputadas, al activar tu bandera JcJ, los jugadores marcados que no estén en tu grupo o banda se vuelven enemigos; al desactivarla, tras una breve demora, vuelves a ser espectador. La Costa de la Prueba es el único santuario, sin combates JcJ. Las tres zonas más al norte son de todos contra todos, con o sin bandera. Tus compañeros de grupo y banda nunca son enemigos; los miembros de tu hermandad que estén fuera de tu grupo pueden ser atacados como cualquier otro jugador.',
+  'guide.worldPvpPage.zonesBody':
+    'Hay tres tipos de terreno. La Costa de la Prueba es el único santuario: no hay JcJ mundial ni puedes activar la bandera. Si ya está activa, se mantiene, pero el progreso de tiempo jugado para títulos se pausa hasta que salgas. Valle de Eastbrook y la mayor parte del mundo son zonas disputadas, regidas por la bandera. Las Tierras del Dragón, El Velo de Escarcha y La Cascada de Ámbar, las tres zonas más al norte, son de todos contra todos: cualquiera puede atacar a los demás, con o sin bandera. Recibes un aviso al entrar y al salir. Atacar allí a un jugador sin bandera activa la tuya, de modo que el agresor asume el riesgo. Golpear a alguien que ya tiene la bandera activa no activa la tuya: defenderte o defender a alguien sin bandera no te cuesta nada.',
 };

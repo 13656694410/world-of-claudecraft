@@ -1882,9 +1882,9 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
     'Rzucanie Chwytających Korzeni pozwala Ci rzucać zaklęcia podczas ruchu i zwiększa Twoją prędkość ruchu o 20 procent na 4 sek. Nie może się zdarzyć częściej niż raz na 20 sek.',
   'entities.itemSets.vanguard_druid_balance.name': 'Szata Strażnika Gwiazd',
   'entities.itemSets.vanguard_druid_feral.bonus2':
-    'Regeneracja umiejętności Szarży Bruina jest zmniejszona o 3 sek.',
+    'Skraca czas odnowienia umiejętności Wypad i Szarża Bruina o 3 s.',
   'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Szarża Bruina chroni Ciebie tarczą na 6 procent maksymalnego zdrowia na 6 sek.',
+    'Skraca czas odnowienia umiejętności Sus o 15 s.',
   'entities.itemSets.vanguard_druid_feral.name': 'Skóra Krwawej Grzywy',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     'Regeneracja umiejętności Fleetmend jest zmniejszona o 1 sek.',
@@ -19931,4 +19931,20 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Przytrzymaj Shift i przeciągnij, aby przenieść',
+  'entities.items.vanguard_feral_staff.name': 'Dziki kostur Awangardy',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Czekają na ciebie nagrody. Odwiedź Strażnika Skarbca w Eastbrook, aby je otworzyć i odebrać.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Wybrzeże Prób jest jedynym sanktuarium: nie można tam włączyć światowego PvP ani walczyć z innymi graczami.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Pozostaw światowe PvP włączone, aby zdobywać o {percent} więcej doświadczenia i reputacji frakcji. Premie kończą się, gdy poprosisz o wyłączenie.',
+  'hudChrome.worldPvp.rewardPaused': 'Obecna seria PvP: {time} gry (wstrzymana na Wybrzeżu Prób)',
+  'hudChrome.worldPvp.rewardProgress': 'Obecna seria PvP: {time} gry',
+  'hudChrome.worldPvp.rewardTitles':
+    'Zdobywaj stałe tytuły po {thresholds} czasu gry z włączonym światowym PvP. Wylogowanie i odwiedziny na Wybrzeżu Prób wstrzymują licznik. Wyłączenie go zeruje.',
+  'guide.worldPvpPage.introZones':
+    'PvP w otwartym świecie jest dobrowolne i zależy od terenu. Na spornych terenach włączenie flagi czyni wrogami wszystkich oznaczonych graczy spoza twojej grupy lub rajdu; po wyłączeniu i krótkiej zwłoce znów jesteś obserwatorem. Wybrzeże Prób to jedyne sanktuarium bez światowych walk PvP. W trzech najbardziej północnych strefach każdy może walczyć z każdym, z flagą lub bez niej. Członkowie grupy i rajdu nigdy nie są wrogami; członkowie gildii poza twoją grupą są celami jak inni gracze.',
+  'guide.worldPvpPage.zonesBody':
+    'Są trzy rodzaje terenu. Wybrzeże Prób to jedyne sanktuarium: nie ma tam światowego PvP i nie można włączyć flagi. Aktywna flaga pozostaje, ale czas gry liczony do tytułów jest wstrzymany do wyjścia. Dolina Wschodniego Strumienia i większość świata to tereny sporne, na których obowiązuje reguła flagi. Smocze Ziemie, Szronowa Kraina i Bursztynowa Dolina, trzy najbardziej północne strefy, pozwalają każdemu atakować każdego z flagą lub bez niej. Przy wejściu i wyjściu pojawia się komunikat. Zaatakowanie tam nieoznaczonego gracza włącza twoją flagę, więc napastnik ponosi ryzyko. Trafienie już oznaczonego gracza jej nie włącza: obrona siebie lub kogoś bez flagi nic cię nie kosztuje.',
 };

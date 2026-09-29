@@ -504,7 +504,7 @@ export const id_ID: EnTranslations = {
         "world": "Jarahan misi dunia",
         "pvp": "Perlengkapan PEPERANGAN"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Hadiah menanti. Kunjungi Penjaga Lemari Besi di Eastbrook untuk membuka dan mengambilnya."
     },
     "ferry": {
       "regionLabel": "Jadwal feri",
@@ -2785,10 +2785,10 @@ export const id_ID: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "Biarkan PvP Dunia aktif untuk mendapatkan {percent} lebih banyak pengalaman dan reputasi faksi. Bonus berhenti saat kamu meminta untuk menonaktifkannya.",
+      "rewardTitles": "Dapatkan gelar permanen setelah {thresholds} waktu bermain dengan PvP Dunia aktif. Keluar dari permainan dan mengunjungi Pesisir Pembuktian menjeda penghitung. Menonaktifkannya mengatur ulang penghitung.",
+      "rewardPaused": "Rangkaian PvP saat ini: {time} bermain (dijeda di Pesisir Pembuktian)",
+      "rewardProgress": "Rangkaian PvP saat ini: {time} bermain",
       "tab": "Pertempuran Dunia PvP",
       "title": "Pertempuran Dunia PvP",
       "blurb": "Naikkan bendera mu untuk melawan pemain lain yang sudah naikkan bendera di mana saja di dunia terbuka. Kalahkan satu dan ambil bagian dari uang mereka, ditambah Kehormatan untuk perlengkapan Perang. Arena Pertempuran dan Arena masih membayar lebih banyak.",
@@ -2800,7 +2800,7 @@ export const id_ID: EnTranslations = {
       "zoneContested": "Tanah yang diperebutkan: hanya pemain yang sudah naikkan bendera yang melawan di sini.",
       "zoneFfa": "Tanah bebas untuk semua: semua orang di sini adil dijadi incaran.",
       "realmDisabled": "Pertempuran Dunia PvP dinonaktifkan di realm ini.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "Pesisir Pembuktian adalah satu-satunya tempat perlindungan: kamu tidak bisa mengaktifkan PvP Dunia atau melawan pemain lain di sana.",
       "groundContested": "Di mana pun yang lain adalah tanah yang diperebutkan: hanya dua pemain yang sudah naikkan bendera yang bisa melawan.",
       "groundFfa": "Tanah Naga, Jangkauan Embun Beku, dan Amberfall adalah bebas untuk semua: semua orang di sini adalah target yang sah.",
       "groupLine": "Anggota pesta dan serbuan tidak pernah bermusuhan satu sama lain. Rekan guild di luar grup mu masih bisa dilawan.",
@@ -8319,9 +8319,9 @@ export const id_ID: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Aturan Permainan Adil",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "PvP dunia terbuka bersifat sukarela dan bergantung pada wilayah. Di wilayah sengketa, mengaktifkan bendera PvP menjadikan pemain berbendera di luar grup atau raid kamu sebagai musuh; setelah dimatikan dan jeda singkat, kamu kembali menjadi penonton. Pesisir Pembuktian adalah satu-satunya tempat perlindungan tanpa pertempuran dunia. Tiga wilayah paling utara bebas untuk semua: setiap orang dapat diserang, dengan atau tanpa bendera. Anggota grup dan raid tidak pernah menjadi musuh; anggota guild di luar grup kamu dapat diserang seperti pemain lain.",
       "zonesHeading": "Tempat Terjadinya PvP Dunia",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Ada tiga jenis wilayah. Pesisir Pembuktian adalah satu-satunya tempat perlindungan: tidak ada PvP Dunia dan bendera tidak bisa diaktifkan. Bendera yang sudah aktif tetap menyala, tetapi waktu bermain untuk gelar dijeda sampai kamu pergi. Lembah Eastbrook dan sebagian besar dunia adalah wilayah sengketa dengan aturan bendera. Tanah Naga, Tabir Beku, dan Air Terjun Amber, tiga wilayah paling utara, bebas untuk semua: siapa pun dapat saling menyerang dengan atau tanpa bendera. Pemberitahuan muncul saat masuk dan keluar. Menyerang pemain tanpa bendera di sana mengaktifkan benderamu, sehingga penyerang menanggung risiko. Menyerang pemain yang sudah berbendera tidak mengaktifkannya: membela diri atau pemain tanpa bendera tidak merugikanmu.",
       "flagBodyAid": "Ketik /pvp dalam obrolan, atau buka jendela Peperangan Dunia di G dan gunakan tab Peperangan Dunia, yang juga menunjukkan catatan dan taruhan kamu. Menaikkan bendera langsung setelah kamu melampaui tingkat awal. Menurunkannya memulai hitungan mundur beberapa menit, dan bendera tidak akan jatuh saat kamu masih bertarung, jadi mematikan tidak pernah melarikan diri dari pertarungan yang kamu mulai. Menyembuhkan, melindungi atau membuff pemain dengan bendera yang sedang bertarung menaikkan bendera kamu sendiri juga, jadi tidak ada yang mempertahankan pejuang dari belakang bendera yang tidak mereka kenakan; membantu pemain yang tidak dibenderai tidak menaikkan apa pun.",
       "stakesUnflaggedTake": "Pejuang yang tidak bertanda pun tidak menerima apa pun: emas hanya berganti tangan di antara dua pemain bertanda, namun siapa pun yang membantu tetap mendapat Kehormatan.",
       "stakesBodyFlagged": "Ketika pemain dengan bendera dikalahkan oleh pemain lain, yang kalah membayar bagian kecil dari emas dalam dompet mereka, dibatasi jumlah sedang, dan pemenang memperoleh Kehormatan menuju perlengkapan Peperangan. Pemain yang tidak dibenderai tidak membayar emas sama sekali, bahkan ketika jatuh di zona pertarungan bebas. Semua orang yang membantu berbagi keduanya: pukulan pembunuhan, siapa pun yang melukai target sesaat sebelumnya, dan penyembuh yang menjaga pejuang itu tetap berdiri. Satu-satu yang bersih membayar pot seluruhnya; grup membelahnya.",
@@ -12129,7 +12129,7 @@ export const id_ID: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Alihkan serangan otomatis pada targetmu. Klik kanan pada musuh juga menyerang.",
       "attackRemoveHint": "Klik kanan untuk menghapusnya dari bilah dan mengosongkan slot.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Tahan Shift lalu seret untuk memindahkan",
       "emptySlot": "Slot kosong",
       "slotAria": "Slot aksi {slot}: {ability}",
       "emptySlotAria": "Slot aksi {slot}: kosong",
@@ -18458,7 +18458,7 @@ export const id_ID: EnTranslations = {
         "name": "Tongkat Perang Vanguard"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Tongkat Liar Garda Depan"
       },
       "conjured_water4": {
         "name": "Air Mata Air Sihir"
@@ -24188,8 +24188,8 @@ export const id_ID: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Kulit Bersurai Darah",
-        "bonus2": "Jeda Terjangan Bruin dikurangi 3 detik.",
-        "bonus4": "Terjangan Bruin melindungimu sebesar 6 persen dari kesehatan maksimal-mu selama 6 detik."
+        "bonus2": "Mengurangi waktu pemulihan Terkaman dan Terjangan Bruin sebesar 3 dtk.",
+        "bonus4": "Mengurangi waktu pemulihan Lesatan sebesar 15 dtk."
       },
       "vanguard_druid_restoration": {
         "name": "Jubah Mekar Thistle",

@@ -504,7 +504,7 @@ export const it_IT: EnTranslations = {
         "world": "Bottino da missione mondiale",
         "pvp": "Equipaggiamento da Guerra"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Ti aspettano delle ricompense. Visita il Custode del Caveau a Eastbrook per aprirle e ritirarle."
     },
     "ferry": {
       "regionLabel": "Orario dei traghetti",
@@ -2785,10 +2785,10 @@ export const it_IT: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "Mantieni attivo il PvP mondiale per ottenere {percent} di esperienza e reputazione di fazione in più. I bonus terminano quando ne richiedi la disattivazione.",
+      "rewardTitles": "Ottieni titoli permanenti dopo {thresholds} di tempo giocato con il PvP mondiale attivo. La disconnessione e le visite alla Riva della Prova mettono in pausa il timer. Disattivarlo lo azzera.",
+      "rewardPaused": "Serie PvP attuale: {time} di gioco (in pausa sulla Riva della Prova)",
+      "rewardProgress": "Serie PvP attuale: {time} di gioco",
       "tab": "PvP Mondiale",
       "title": "PvP Mondiale",
       "blurb": "Alza la tua bandiera per combattere altri giocatori contrassegnati ovunque nel mondo aperto. Sconfiggine uno e prendi una quota della sua borsa, più Onore per l'equipaggiamento da Guerra. I campi di battaglia e le arene pagano comunque di più.",
@@ -2800,7 +2800,7 @@ export const it_IT: EnTranslations = {
       "zoneContested": "Terreno conteso: qui combattono solo i giocatori contrassegnati.",
       "zoneFfa": "Terreno a tutti contro tutti: qui chiunque è bersaglio legittimo.",
       "realmDisabled": "Il PvP Mondiale è disattivato su questo reame.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "La Riva della Prova è l’unico santuario: lì non puoi attivare il PvP mondiale né combattere altri giocatori.",
       "groundContested": "Ovunque altrove è terreno conteso: possono combattere solo due giocatori contrassegnati.",
       "groundFfa": "Drakelands, La Distesa di Frostveil e Amberfall sono a tutti contro tutti: chiunque lì può combattere, con o senza bandiera.",
       "groupLine": "I membri del gruppo e dell'incursione non sono mai ostili tra loro. I compagni di gilda fuori dal tuo gruppo possono combattere.",
@@ -8319,9 +8319,9 @@ export const it_IT: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Regole di gioco leale",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "Il PvP nel mondo aperto è facoltativo e dipende dal terreno. Nelle zone contese, attivando la bandiera PvP diventano nemici i giocatori con bandiera che non sono nel tuo gruppo o incursione; disattivandola, dopo un breve ritardo torni spettatore. La Riva della Prova è l’unico santuario, senza combattimenti PvP. Le tre zone più a nord sono tutti contro tutti, con o senza bandiera. I compagni di gruppo e incursione non sono mai nemici; i membri della gilda fuori dal tuo gruppo sono bersagli come chiunque altro.",
       "zonesHeading": "Dove avviene il PvP mondiale",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Esistono tre tipi di terreno. La Riva della Prova è l’unico santuario: niente PvP mondiale e non puoi attivare la bandiera. Una bandiera già attiva rimane tale, ma il tempo giocato per i titoli è sospeso finché non esci. Valle di Eastbrook e gran parte del mondo sono contesi e seguono la regola della bandiera. Drakelands, La Distesa di Frostveil e Amberfall, le tre zone più a nord, sono tutti contro tutti: chiunque può attaccare gli altri, con o senza bandiera. Ricevi un avviso all’ingresso e all’uscita. Attaccare lì un giocatore senza bandiera attiva la tua, così l’aggressore si espone sempre al rischio. Colpire un giocatore già con bandiera non attiva la tua: difendere te stesso o qualcuno senza bandiera non ti costa nulla.",
       "flagBodyAid": "Digita /pvp in chat, oppure apri la finestra PvP con G e usa la scheda PvP Mondiale, che mostra anche il tuo bilancio e la posta in gioco. Alzare la bandiera è istantaneo una volta superati i livelli iniziali. Abbassarla avvia un conto alla rovescia di alcuni minuti, e la bandiera non cadrà finché sei ancora in combattimento, quindi disattivarla non è mai una via di fuga da uno scontro che hai iniziato tu. Curare, proteggere con uno scudo o potenziare un giocatore contrassegnato che è in combattimento alza anche la tua bandiera, così nessuno sostiene un combattente restando al riparo di una bandiera che non porta; aiutare un giocatore non contrassegnato non alza nulla.",
       "stakesUnflaggedTake": "Né un combattente non contrassegnato ne prende: le monete cambiano mano solo tra due giocatori contrassegnati, anche se chiunque abbia contribuito guadagna comunque l'Onore.",
       "stakesBodyFlagged": "Quando un giocatore contrassegnato viene sconfitto da un altro giocatore, il perdente paga una piccola parte delle monete nella sua borsa, limitata a un importo modesto, e i vincitori guadagnano Onore verso l'equipaggiamento da Guerra. Un giocatore non contrassegnato non paga alcuna moneta, anche se cade in una zona a tutti contro tutti. Chiunque abbia contribuito condivide entrambe le cose: il colpo di grazia, chiunque abbia danneggiato il bersaglio poco prima, e i guaritori che hanno tenuto in piedi quei combattenti. Un pulito uno contro uno paga l'intero bottino; un gruppo lo divide.",
@@ -12129,7 +12129,7 @@ export const it_IT: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Attiva o disattiva l'autoattacco sul bersaglio. Anche il clic destro su un nemico attacca.",
       "attackRemoveHint": "Clic destro per rimuoverlo dalla barra e liberare lo slot.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Tieni premuto Maiusc e trascina per spostare",
       "emptySlot": "Slot vuoto",
       "slotAria": "Slot azione {slot}: {ability}",
       "emptySlotAria": "Slot azione {slot}: vuoto",
@@ -18458,7 +18458,7 @@ export const it_IT: EnTranslations = {
         "name": "Bastone da Guerra dell'Avanguardia"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Bastone ferino dell’Avanguardia"
       },
       "conjured_water4": {
         "name": "Acqua sorgiva evocata"
@@ -24188,8 +24188,8 @@ export const it_IT: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Pelle Sanguicriniera",
-        "bonus2": "Il tempo di recupero di Carica di Bruin è ridotto di 3 sec.",
-        "bonus4": "Carica di Bruin ti protegge con uno scudo pari al 6 percento della tua salute massima per 6 sec."
+        "bonus2": "Riduce i tempi di recupero di Balzo e Carica di Bruin di 3 s.",
+        "bonus4": "Riduce il tempo di recupero di Scatto di 15 s."
       },
       "vanguard_druid_restoration": {
         "name": "Veste Cardofiore",

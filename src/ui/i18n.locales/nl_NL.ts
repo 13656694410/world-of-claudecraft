@@ -1885,9 +1885,8 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
     'Grijpende Wortels casten laat je bewegen en verhoogt je bewegingssnelheid 20% voor 4 sec. Kan niet meer dan eens per 20 sec gebeuren.',
   'entities.itemSets.vanguard_druid_balance.name': 'Sterrenwacht Gewaad',
   'entities.itemSets.vanguard_druid_feral.bonus2':
-    'Afkoelingseffect van Bruin-stormloop is 3 sec korter.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Bruin-stormloop beschermt je voor 6% van je maximale gezondheid voor 6 sec.',
+    'Verkort de afkoeltijden van Uitval en Bruin-stormloop met 3 sec.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Verkort de afkoeltijd van Spurt met 15 sec.',
   'entities.itemSets.vanguard_druid_feral.name': 'Bloedmaan Huid',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     'Afkoelingseffect van Vleegheling is 1 sec korter.',
@@ -20026,4 +20025,21 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Houd Shift ingedrukt en sleep om te verplaatsen',
+  'entities.items.vanguard_feral_staff.name': 'Wilde staf van de Voorhoede',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Er liggen beloningen klaar. Bezoek de Kluisbewaarder in Eastbrook om ze te openen en op te halen.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'De Beproevingskust is het enige heiligdom: je kunt er geen wereld-PvP inschakelen of tegen andere spelers vechten.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Houd wereld-PvP ingeschakeld om {percent} meer ervaring en factiereputatie te verdienen. De bonussen stoppen zodra je vraagt om het uit te schakelen.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Huidige PvP-reeks: {time} gespeeld (gepauzeerd aan de Beproevingskust)',
+  'hudChrome.worldPvp.rewardProgress': 'Huidige PvP-reeks: {time} gespeeld',
+  'hudChrome.worldPvp.rewardTitles':
+    'Verdien permanente titels na {thresholds} speeltijd met wereld-PvP ingeschakeld. Uitloggen en de Beproevingskust bezoeken pauzeren de teller. Uitschakelen zet hem terug op nul.',
+  'guide.worldPvpPage.introZones':
+    'PvP in de open wereld is vrijwillig en hangt af van het gebied. Op betwist terrein maakt je ingeschakelde PvP-vlag alle gemarkeerde spelers buiten je groep of raid tot vijanden; na uitschakelen ben je na een korte vertraging weer toeschouwer. De Beproevingskust is het enige heiligdom zonder wereldgevechten. De drie noordelijkste gebieden zijn vrij-voor-allen: iedereen is een doelwit, met of zonder vlag. Groeps- en raidleden zijn nooit vijanden; gildeleden buiten je groep zijn net als andere spelers aan te vallen.',
+  'guide.worldPvpPage.zonesBody':
+    'Er zijn drie soorten terrein. De Beproevingskust is het enige heiligdom: geen wereld-PvP en je kunt je vlag niet inschakelen. Een actieve vlag blijft aan, maar de speeltijd voor titels pauzeert tot je vertrekt. Oostbeekdal en het grootste deel van de wereld zijn betwist en volgen de vlagregel. De Drakenlanden, De Vorstsluier en De Amberval, de drie noordelijkste gebieden, zijn vrij-voor-allen: iedereen kan elkaar aanvallen, met of zonder vlag. Je krijgt bericht bij binnenkomst en vertrek. Een ongemarkeerde speler daar aanvallen schakelt je eigen vlag in, zodat de aanvaller het risico draagt. Een al gemarkeerde speler raken doet dat niet: jezelf of iemand zonder vlag verdedigen kost je niets.',
 };

@@ -504,7 +504,7 @@ export const es_ES: EnTranslations = {
         "world": "Botín de misión de mundo",
         "pvp": "Equipo de guerra"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Tienes recompensas pendientes. Visita al Guardián de la Bóveda en Eastbrook para abrirlas y recogerlas."
     },
     "ferry": {
       "regionLabel": "Horario del transbordador",
@@ -2785,10 +2785,10 @@ export const es_ES: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "Mantén el JcJ mundial activado para ganar un {percent} más de experiencia y reputación de facción. Las bonificaciones terminan cuando solicitas desactivarlo.",
+      "rewardTitles": "Consigue títulos permanentes tras {thresholds} de tiempo jugado con el JcJ mundial activado. Desconectarte y visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.",
+      "rewardPaused": "Racha JcJ actual: {time} de juego (en pausa en la Costa de la Prueba)",
+      "rewardProgress": "Racha JcJ actual: {time} de juego",
       "tab": "JcJ mundial",
       "title": "JcJ mundial",
       "blurb": "Alza tu bandera para luchar contra otros jugadores marcados en cualquier lugar del mundo abierto. Derrota a uno y llévate parte de su bolsa, más Honor hacia el equipo de guerra. Los campos de batalla y las arenas siguen pagando más.",
@@ -2800,7 +2800,7 @@ export const es_ES: EnTranslations = {
       "zoneContested": "Terreno disputado: aquí solo luchan los jugadores marcados.",
       "zoneFfa": "Terreno de todos contra todos: aquí cualquiera es blanco legítimo.",
       "realmDisabled": "El JcJ mundial está desactivado en este reino.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "La Costa de la Prueba es el único santuario: allí no puedes activar el JcJ mundial ni luchar contra otros jugadores.",
       "groundContested": "En cualquier otro lugar, el terreno está disputado: solo pueden luchar dos jugadores marcados.",
       "groundFfa": "Las Tierras del Dragón, el Velo de Escarcha y la Cascada de Ámbar son de todos contra todos: allí puede luchar cualquiera, tenga la bandera alzada o no.",
       "groupLine": "Los miembros de grupo y de banda nunca son hostiles entre sí. Los compañeros de hermandad que no estén en tu grupo sí pueden luchar.",
@@ -8319,9 +8319,9 @@ export const es_ES: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Reglas de juego limpio",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "El JcJ en el mundo abierto es voluntario y depende del terreno. En zonas disputadas, al activar tu bandera JcJ, los jugadores marcados que no estén en tu grupo o banda se vuelven enemigos; al desactivarla, tras una breve demora, vuelves a ser espectador. La Costa de la Prueba es el único santuario, sin combates JcJ. Las tres zonas más al norte son de todos contra todos, con o sin bandera. Tus compañeros de grupo y banda nunca son enemigos; los miembros de tu hermandad que estén fuera de tu grupo pueden ser atacados como cualquier otro jugador.",
       "zonesHeading": "Dónde ocurre el JcJ mundial",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Hay tres tipos de terreno. La Costa de la Prueba es el único santuario: no hay JcJ mundial ni puedes activar la bandera. Si ya está activa, se mantiene, pero el progreso de tiempo jugado para títulos se pausa hasta que salgas. Valle de Eastbrook y la mayor parte del mundo son zonas disputadas, regidas por la bandera. Las Tierras del Dragón, El Velo de Escarcha y La Cascada de Ámbar, las tres zonas más al norte, son de todos contra todos: cualquiera puede atacar a los demás, con o sin bandera. Recibes un aviso al entrar y al salir. Atacar allí a un jugador sin bandera activa la tuya, de modo que el agresor asume el riesgo. Golpear a alguien que ya tiene la bandera activa no activa la tuya: defenderte o defender a alguien sin bandera no te cuesta nada.",
       "flagBodyAid": "Escribe /pvp en el chat, o abre la ventana de JcJ con G y usa la pestaña JcJ Mundial, que además muestra tu historial y lo que está en juego. Levantar la bandera es instantáneo una vez que superas los niveles iniciales. Bajarla inicia una cuenta atrás de unos minutos, y la bandera no caerá mientras sigas luchando, así que desactivarla nunca es una forma de escapar de una pelea que tú mismo empezaste. Sanar, proteger con un escudo o mejorar a un jugador marcado que está en combate también levanta tu propia bandera, así que nadie sostiene a un luchador desde detrás de una bandera que no lleva puesta; ayudar a un jugador que no está marcado no levanta nada.",
       "stakesUnflaggedTake": "Tampoco un luchador sin marcar recibe nada: el oro solo cambia de manos entre dos jugadores marcados, aunque todos los que ayudaron sí ganan el Honor.",
       "stakesBodyFlagged": "Cuando un jugador marcado es derrotado por otro jugador, el perdedor paga una pequeña parte del oro de su bolsa, con un tope modesto, y los ganadores obtienen Honor hacia el equipo de guerra. Un jugador que no estaba marcado no paga oro alguno, incluso si cae en una zona de todos contra todos. Todos los que ayudaron comparten ambas cosas: el golpe de gracia, cualquiera que dañara al objetivo poco antes, y los sanadores que mantuvieron en pie a esos luchadores. Un mano a mano limpio paga el bote entero; un grupo lo reparte.",
@@ -12129,7 +12129,7 @@ export const es_ES: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Activa o desactiva el autoataque sobre tu objetivo. Hacer clic derecho en un enemigo también ataca.",
       "attackRemoveHint": "Clic derecho para quitarlo de la barra y liberar el espacio.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Mantén Mayús y arrastra para mover",
       "emptySlot": "Ranura vacía",
       "slotAria": "Ranura de acción {slot}: {ability}",
       "emptySlotAria": "Ranura de acción {slot}: vacía",
@@ -18458,7 +18458,7 @@ export const es_ES: EnTranslations = {
         "name": "Bastón de Guerra de la Vanguardia"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Bastón feral de la Vanguardia"
       },
       "conjured_water4": {
         "name": "Agua de Manantial Invocada"
@@ -24188,8 +24188,8 @@ export const es_ES: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Piel Crinsangre",
-        "bonus2": "El tiempo de reutilización de Embestida de Bruin se reduce 3 s.",
-        "bonus4": "Embestida de Bruin te otorga un escudo por el 6% de tu salud máxima durante 6 s."
+        "bonus2": "Reduce los tiempos de reutilización de Embestida felina y Embestida de Bruin en 3 s.",
+        "bonus4": "Reduce el tiempo de reutilización de Carrera en 15 s."
       },
       "vanguard_druid_restoration": {
         "name": "Vestimenta Florcardo",

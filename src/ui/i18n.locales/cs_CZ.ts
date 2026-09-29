@@ -1857,9 +1857,9 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus4':
     'Seslání Svazujících kořenů ti dovolí sesílat za pohybu a zvýší tvou rychlost pohybu o 20 % na 4 s.',
   'entities.itemSets.vanguard_druid_balance.name': 'Roucho Hvězdostrážce',
-  'entities.itemSets.vanguard_druid_feral.bonus2': 'Čas obnovy Medvědího výpadu je kratší o 3 s.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Medvědí výpad tě zaštítí a pohltí 6 % tvého maximálního zdraví na 6 s.',
+  'entities.itemSets.vanguard_druid_feral.bonus2':
+    'Zkracuje doby obnovení schopností Výpad a Medvědí výpad o 3 s.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Zkracuje dobu obnovení schopnosti Úprk o 15 s.',
   'entities.itemSets.vanguard_druid_feral.name': 'Krvohřívová kůže',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     'Čas obnovy Rychlého zhojení je kratší o 1 s.',
@@ -19672,4 +19672,21 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Přesunete přetažením se stisknutým Shiftem',
+  'entities.items.vanguard_feral_staff.name': 'Divoká hůl Předvoje',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Čekají na vás odměny. Navštivte strážce trezoru v Eastbrooku, otevřete je a vyzvedněte si je.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Zkušební pobřeží je jediným útočištěm: nelze tam zapnout světové PvP ani bojovat s jinými hráči.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Nechte světové PvP zapnuté a získávejte o {percent} více zkušeností a reputace frakcí. Bonusy skončí, jakmile požádáte o vypnutí.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Aktuální série PvP: odehráno {time} (pozastaveno na Zkušebním pobřeží)',
+  'hudChrome.worldPvp.rewardProgress': 'Aktuální série PvP: odehráno {time}',
+  'hudChrome.worldPvp.rewardTitles':
+    'Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP. Odhlášení a návštěva Zkušebního pobřeží časovač pozastaví. Vypnutí jej vynuluje.',
+  'guide.worldPvpPage.introZones':
+    'PvP v otevřeném světě je dobrovolné a záleží na oblasti. Ve sporných oblastech z vás zapnutý příznak PvP dělá nepřítele všech označených hráčů mimo vaši skupinu či nájezd; po vypnutí a krátké prodlevě jste opět pozorovatelem. Zkušební pobřeží je jediné útočiště bez světového PvP. Ve třech nejsevernějších oblastech bojuje každý proti každému, s příznakem i bez něj. Členové skupiny a nájezdu nikdy nejsou nepřátelé; členové cechu mimo vaši skupinu jsou běžné cíle.',
+  'guide.worldPvpPage.zonesBody':
+    'Svět má tři typy oblastí. Zkušební pobřeží je jediné útočiště: není tam světové PvP a příznak nelze zapnout. Již zapnutý příznak zůstává, ale čas hraní pro tituly se do odchodu pozastaví. Eastbrookské údolí i většina světa jsou sporné oblasti s pravidlem příznaku. Dračí země, Kraj Mrazivého závoje a Jantarový pád, tři nejsevernější oblasti, umožňují boj každého proti každému bez ohledu na příznak. Při vstupu i odchodu dostanete upozornění. Útok na neoznačeného hráče tam zapne váš příznak, takže útočník vždy nese riziko. Zásah již označeného hráče jej nezapne: obrana sebe nebo neoznačeného hráče vás nic nestojí.',
 };

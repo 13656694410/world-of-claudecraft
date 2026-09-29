@@ -1252,4 +1252,29 @@ export const table: DeedLocaleTable = {
     name: 'Bắt Quả Tang',
     desc: 'Bắt được một Chuột Chạy Túi Tiền trong một Kho Báu Bị Chôn trước khi nó trốn thoát với vàng.',
   },
+  pvp_flag_1h: {
+    name: 'Gan Dạ',
+    desc: 'Giữ PvP Thế Giới bật trong 1 giờ thời gian chơi. Đăng xuất tạm dừng tiến độ; tắt PvP đặt lại tiến độ. Danh hiệu đã nhận là vĩnh viễn.',
+    title: 'Gan Dạ',
+  },
+  pvp_flag_3h: {
+    name: 'Thách Thức',
+    desc: 'Giữ PvP Thế Giới bật trong 3 giờ thời gian chơi. Đăng xuất tạm dừng tiến độ; tắt PvP đặt lại tiến độ. Danh hiệu đã nhận là vĩnh viễn.',
+    title: 'Thách Thức',
+  },
+  pvp_flag_6h: {
+    name: 'Không Sợ Hãi',
+    desc: 'Giữ PvP Thế Giới bật trong 6 giờ thời gian chơi. Đăng xuất tạm dừng tiến độ; tắt PvP đặt lại tiến độ. Danh hiệu đã nhận là vĩnh viễn.',
+    title: 'Không Sợ Hãi',
+  },
+  pvp_flag_24h: {
+    name: 'Bất Khuất',
+    desc: 'Giữ PvP Thế Giới bật trong 24 giờ thời gian chơi. Đăng xuất tạm dừng tiến độ; tắt PvP đặt lại tiến độ. Danh hiệu đã nhận là vĩnh viễn.',
+    title: 'Bất Khuất',
+  },
+  pvp_flag_168h: {
+    name: 'Bất Khả Khuất Phục',
+    desc: 'Giữ PvP Thế Giới bật trong 7 ngày thời gian chơi. Đăng xuất tạm dừng tiến độ; tắt PvP đặt lại tiến độ. Danh hiệu đã nhận là vĩnh viễn.',
+    title: 'Bất Khả Khuất Phục',
+  },
 };

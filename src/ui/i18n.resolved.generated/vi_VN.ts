@@ -504,7 +504,7 @@ export const vi_VN: EnTranslations = {
         "world": "Chiếm đoạt nhiệm vụ thế giới",
         "pvp": "Trang bị TRANH HÙNG"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Phần thưởng đang chờ. Hãy đến gặp Người Giữ Kho Báu tại Eastbrook để mở và nhận."
     },
     "ferry": {
       "regionLabel": "Lịch Trình Phà",
@@ -2785,10 +2785,10 @@ export const vi_VN: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "Giữ PvP Thế Giới bật để nhận thêm {percent} kinh nghiệm và danh vọng phe phái. Phần thưởng cộng thêm dừng khi bạn yêu cầu tắt.",
+      "rewardTitles": "Nhận danh hiệu vĩnh viễn sau {thresholds} thời gian chơi khi bật PvP Thế Giới. Đăng xuất và đến Bờ Biển Thử Thách sẽ tạm dừng bộ đếm. Tắt PvP sẽ đặt lại bộ đếm.",
+      "rewardPaused": "Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng tại Bờ Biển Thử Thách)",
+      "rewardProgress": "Chuỗi PvP hiện tại: đã chơi {time}",
       "tab": "World PvP",
       "title": "World PvP",
       "blurb": "Nâng cờ của bạn lên để chiến đấu với những người chơi khác có cờ ở bất kỳ nơi nào trên thế giới mở. Đánh bại một người và lấy một phần số tiền của họ, cộng với Danh Dự dành cho trang bị Chiến Tranh. Chiến Trường và Đấu Trường vẫn trả lương cao hơn.",
@@ -2800,7 +2800,7 @@ export const vi_VN: EnTranslations = {
       "zoneContested": "Đất tranh chấp: chỉ những người chơi có cờ chiến đấu ở đây.",
       "zoneFfa": "Đất chiến đấu tự do: mọi người ở đây đều là mục tiêu.",
       "realmDisabled": "World PvP bị vô hiệu hóa trên vương quốc này.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "Bờ Biển Thử Thách là khu an toàn duy nhất: bạn không thể bật PvP Thế Giới hoặc chiến đấu với người chơi khác tại đây.",
       "groundContested": "Ở những nơi khác là tranh chấp: chỉ hai người chơi có cờ có thể chiến đấu.",
       "groundFfa": "Drakelands, Frostveil Reach và Amberfall là vùng chiến đấu tự do: mọi người ở đó đều có thể chiến đấu, có cờ hay không.",
       "groupLine": "Các thành viên trong nhóm và cuộc tập kích không bao giờ thù địch với nhau. Các guildmate ngoài nhóm của bạn có thể chiến đấu.",
@@ -8319,9 +8319,9 @@ export const vi_VN: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Quy Tắc Chơi Công Bằng",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "PvP thế giới mở là tự nguyện và phụ thuộc vào khu vực. Tại vùng tranh chấp, bật cờ PvP khiến những người chơi có cờ ngoài tổ đội hoặc nhóm đột kích của bạn thành kẻ địch; tắt cờ sẽ đưa bạn về trạng thái đứng ngoài sau một khoảng chờ ngắn. Bờ Biển Thử Thách là khu an toàn duy nhất không có giao tranh thế giới. Ba vùng cực bắc cho phép tất cả đấu với nhau, có cờ hay không. Đồng đội trong tổ đội và nhóm đột kích không bao giờ là kẻ địch; thành viên bang hội ngoài nhóm vẫn có thể bị tấn công như người khác.",
       "zonesHeading": "Nơi Tranh Chấp PvP Xảy Ra",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Có ba loại khu vực. Bờ Biển Thử Thách là khu an toàn duy nhất: không có PvP Thế Giới và không thể bật cờ. Cờ đang bật vẫn giữ nguyên, nhưng thời gian chơi tính danh hiệu tạm dừng đến khi rời đi. Thung Lũng Đông Khê và phần lớn thế giới là vùng tranh chấp theo quy tắc cờ. Vùng Đất Rồng, Đỉnh Sương Giá và Xứ Thu Hổ Phách, ba vùng cực bắc, cho phép mọi người tấn công nhau dù có cờ hay không. Bạn được thông báo khi vào và ra. Tấn công người không có cờ tại đây sẽ bật cờ của bạn, nên kẻ tấn công luôn chịu rủi ro. Đánh người đã có cờ không bật cờ của bạn: tự vệ hoặc bảo vệ người không có cờ không khiến bạn chịu thiệt.",
       "flagBodyAid": "Gõ /pvp trong trò chuyện, hoặc mở cửa sổ PvP trên G và sử dụng tab Chiến Tranh Thế Giới, cũng hiển thị hồ sơ và cổ phiếu của bạn. Nâng cờ là tức thì khi bạn vượt quá các cấp bắt đầu. Hạ nó bắt đầu một bộ đếm ngược của một vài phút, và cờ sẽ không rơi trong khi bạn vẫn còn chiến đấu, vì vậy chuyển đổi là không bao giờ thoát khỏi một trận đấu mà bạn bắt đầu. Chữa bệnh, tấn công hoặc buff một người chơi có cờ đang chiến đấu nâng cờ của bạn lên cũng vậy, vì vậy không ai duy trì một chiến binh từ phía sau một cờ họ không mặc; giúp đỡ một người chơi không được gắc sẽ không nâng lên gì cả.",
       "stakesUnflaggedTake": "Một chiến binh không cắm cờ cũng không nhận được gì: vàng chỉ chuyển tay giữa hai người chơi đã cắm cờ, mặc dù tất cả những người giúp đỡ vẫn kiếm được Danh Dự.",
       "stakesBodyFlagged": "Khi một người chơi cờ bị đánh bại bởi một người chơi khác, người thua trả một chia sẻ nhỏ của vàng trong ví của họ, được giới hạn ở một số tiền khiêm tốn, và những người chiến thắng kiếm được Danh dự hướng đến áo Chiến Tranh. Một người chơi không được gắc trả không vàng nào cả, ngay cả khi họ ngã trong một khu vực tự do cho tất cả. Tất cả những người giúp đỡ chia cả hai: cú đánh giết, bất kỳ ai tổn thương mục tiêu ngắn gọn trước đó, và những người chữa bệnh đã giữ những chiến binh đó đứng. Một người chơi sạch sẽ trả toàn bộ tổng tiền; một nhóm chia nó.",
@@ -12129,7 +12129,7 @@ export const vi_VN: EnTranslations = {
       "cooldownMinutes": "{minutes}p",
       "attackTooltip": "Bật/tắt tự động tấn công mục tiêu. Nhấp chuột phải vào kẻ địch cũng sẽ tấn công.",
       "attackRemoveHint": "Nhấp chuột phải để gỡ khỏi thanh và giải phóng ô trống.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Giữ Shift và kéo để di chuyển",
       "emptySlot": "Ô trống",
       "slotAria": "Ô hành động {slot}: {ability}",
       "emptySlotAria": "Ô hành động {slot}: trống",
@@ -18458,7 +18458,7 @@ export const vi_VN: EnTranslations = {
         "name": "Trượng Chiến Vanguard"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Trượng Hoang Dã của Tiên Phong"
       },
       "conjured_water4": {
         "name": "Nước Suối Được Tạo Phép"
@@ -24188,8 +24188,8 @@ export const vi_VN: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Bloodmane Hide",
-        "bonus2": "Cooldown Cú Lao Bruin giảm 3 giây.",
-        "bonus4": "Cú Lao Bruin bảo vệ bạn với 6 phần trăm sức khỏe tối đa của bạn trong 6 giây."
+        "bonus2": "Giảm thời gian hồi của Lao Vồ và Cú Lao Bruin đi 3 giây.",
+        "bonus4": "Giảm thời gian hồi của Lao Nhanh đi 15 giây."
       },
       "vanguard_druid_restoration": {
         "name": "Thistlebloom Vestment",

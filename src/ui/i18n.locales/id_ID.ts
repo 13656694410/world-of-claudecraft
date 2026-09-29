@@ -1886,9 +1886,10 @@ export const id_ID: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus4':
     'Melempar Akar Cengkeram membiarkanmu menyampaikan sambil bergerak dan meningkatkan kecepatan gerakmu sebesar 20 persen selama 4 detik. Tidak dapat terjadi lebih dari sekali setiap 20 detik.',
   'entities.itemSets.vanguard_druid_balance.name': 'Gaun Penjaga Bintang',
-  'entities.itemSets.vanguard_druid_feral.bonus2': 'Jeda Terjangan Bruin dikurangi 3 detik.',
+  'entities.itemSets.vanguard_druid_feral.bonus2':
+    'Mengurangi waktu pemulihan Terkaman dan Terjangan Bruin sebesar 3 dtk.',
   'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Terjangan Bruin melindungimu sebesar 6 persen dari kesehatan maksimal-mu selama 6 detik.',
+    'Mengurangi waktu pemulihan Lesatan sebesar 15 dtk.',
   'entities.itemSets.vanguard_druid_feral.name': 'Kulit Bersurai Darah',
   'entities.itemSets.vanguard_druid_restoration.bonus2': 'Jeda Pemulihan Cepat dikurangi 1 detik.',
   'entities.itemSets.vanguard_druid_restoration.bonus4':
@@ -20001,4 +20002,21 @@ export const id_ID: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Tahan Shift lalu seret untuk memindahkan',
+  'entities.items.vanguard_feral_staff.name': 'Tongkat Liar Garda Depan',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Hadiah menanti. Kunjungi Penjaga Lemari Besi di Eastbrook untuk membuka dan mengambilnya.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Pesisir Pembuktian adalah satu-satunya tempat perlindungan: kamu tidak bisa mengaktifkan PvP Dunia atau melawan pemain lain di sana.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Biarkan PvP Dunia aktif untuk mendapatkan {percent} lebih banyak pengalaman dan reputasi faksi. Bonus berhenti saat kamu meminta untuk menonaktifkannya.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Rangkaian PvP saat ini: {time} bermain (dijeda di Pesisir Pembuktian)',
+  'hudChrome.worldPvp.rewardProgress': 'Rangkaian PvP saat ini: {time} bermain',
+  'hudChrome.worldPvp.rewardTitles':
+    'Dapatkan gelar permanen setelah {thresholds} waktu bermain dengan PvP Dunia aktif. Keluar dari permainan dan mengunjungi Pesisir Pembuktian menjeda penghitung. Menonaktifkannya mengatur ulang penghitung.',
+  'guide.worldPvpPage.introZones':
+    'PvP dunia terbuka bersifat sukarela dan bergantung pada wilayah. Di wilayah sengketa, mengaktifkan bendera PvP menjadikan pemain berbendera di luar grup atau raid kamu sebagai musuh; setelah dimatikan dan jeda singkat, kamu kembali menjadi penonton. Pesisir Pembuktian adalah satu-satunya tempat perlindungan tanpa pertempuran dunia. Tiga wilayah paling utara bebas untuk semua: setiap orang dapat diserang, dengan atau tanpa bendera. Anggota grup dan raid tidak pernah menjadi musuh; anggota guild di luar grup kamu dapat diserang seperti pemain lain.',
+  'guide.worldPvpPage.zonesBody':
+    'Ada tiga jenis wilayah. Pesisir Pembuktian adalah satu-satunya tempat perlindungan: tidak ada PvP Dunia dan bendera tidak bisa diaktifkan. Bendera yang sudah aktif tetap menyala, tetapi waktu bermain untuk gelar dijeda sampai kamu pergi. Lembah Eastbrook dan sebagian besar dunia adalah wilayah sengketa dengan aturan bendera. Tanah Naga, Tabir Beku, dan Air Terjun Amber, tiga wilayah paling utara, bebas untuk semua: siapa pun dapat saling menyerang dengan atau tanpa bendera. Pemberitahuan muncul saat masuk dan keluar. Menyerang pemain tanpa bendera di sana mengaktifkan benderamu, sehingga penyerang menanggung risiko. Menyerang pemain yang sudah berbendera tidak mengaktifkannya: membela diri atau pemain tanpa bendera tidak merugikanmu.',
 };

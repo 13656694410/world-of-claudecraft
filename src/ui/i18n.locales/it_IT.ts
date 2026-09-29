@@ -1826,9 +1826,8 @@ export const it_IT: Partial<Record<TranslationKey, string>> = {
     'Lanciare Radici Avvinghianti ti permette di lanciare incantesimi in movimento e aumenta la tua velocità di movimento del 20 percento per 4 sec. Non può verificarsi più di una volta ogni 20 sec.',
   'entities.itemSets.vanguard_druid_balance.name': 'Paramenti Guardiastelle',
   'entities.itemSets.vanguard_druid_feral.bonus2':
-    'Il tempo di recupero di Carica di Bruin è ridotto di 3 sec.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Carica di Bruin ti protegge con uno scudo pari al 6 percento della tua salute massima per 6 sec.',
+    'Riduce i tempi di recupero di Balzo e Carica di Bruin di 3 s.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Riduce il tempo di recupero di Scatto di 15 s.',
   'entities.itemSets.vanguard_druid_feral.name': 'Pelle Sanguicriniera',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     'Il tempo di recupero di Rapidità di Guarigione è ridotto di 1 sec.',
@@ -20179,4 +20178,21 @@ export const it_IT: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Tieni premuto Maiusc e trascina per spostare',
+  'entities.items.vanguard_feral_staff.name': 'Bastone ferino dell’Avanguardia',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Ti aspettano delle ricompense. Visita il Custode del Caveau a Eastbrook per aprirle e ritirarle.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'La Riva della Prova è l’unico santuario: lì non puoi attivare il PvP mondiale né combattere altri giocatori.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Mantieni attivo il PvP mondiale per ottenere {percent} di esperienza e reputazione di fazione in più. I bonus terminano quando ne richiedi la disattivazione.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Serie PvP attuale: {time} di gioco (in pausa sulla Riva della Prova)',
+  'hudChrome.worldPvp.rewardProgress': 'Serie PvP attuale: {time} di gioco',
+  'hudChrome.worldPvp.rewardTitles':
+    'Ottieni titoli permanenti dopo {thresholds} di tempo giocato con il PvP mondiale attivo. La disconnessione e le visite alla Riva della Prova mettono in pausa il timer. Disattivarlo lo azzera.',
+  'guide.worldPvpPage.introZones':
+    'Il PvP nel mondo aperto è facoltativo e dipende dal terreno. Nelle zone contese, attivando la bandiera PvP diventano nemici i giocatori con bandiera che non sono nel tuo gruppo o incursione; disattivandola, dopo un breve ritardo torni spettatore. La Riva della Prova è l’unico santuario, senza combattimenti PvP. Le tre zone più a nord sono tutti contro tutti, con o senza bandiera. I compagni di gruppo e incursione non sono mai nemici; i membri della gilda fuori dal tuo gruppo sono bersagli come chiunque altro.',
+  'guide.worldPvpPage.zonesBody':
+    'Esistono tre tipi di terreno. La Riva della Prova è l’unico santuario: niente PvP mondiale e non puoi attivare la bandiera. Una bandiera già attiva rimane tale, ma il tempo giocato per i titoli è sospeso finché non esci. Valle di Eastbrook e gran parte del mondo sono contesi e seguono la regola della bandiera. Drakelands, La Distesa di Frostveil e Amberfall, le tre zone più a nord, sono tutti contro tutti: chiunque può attaccare gli altri, con o senza bandiera. Ricevi un avviso all’ingresso e all’uscita. Attaccare lì un giocatore senza bandiera attiva la tua, così l’aggressore si espone sempre al rischio. Colpire un giocatore già con bandiera non attiva la tua: difendere te stesso o qualcuno senza bandiera non ti costa nulla.',
 };

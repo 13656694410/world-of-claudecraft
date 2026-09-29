@@ -504,7 +504,7 @@ export const fr_FR: EnTranslations = {
         "world": "Butin de quête mondiale",
         "pvp": "ÉQUIPEMENT DE GUERRE"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Des récompenses vous attendent. Rendez visite au Gardien du Coffre à Eastbrook pour les ouvrir et les récupérer."
     },
     "ferry": {
       "regionLabel": "Horaires des bacs",
@@ -2785,10 +2785,10 @@ export const fr_FR: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "Gardez le JcJ mondial activé pour gagner {percent} d’expérience et de réputation de faction supplémentaires. Les bonus cessent dès que vous demandez sa désactivation.",
+      "rewardTitles": "Obtenez des titres permanents après {thresholds} de temps de jeu avec le JcJ mondial activé. La déconnexion et les visites au Rivage de l’Épreuve suspendent le compteur. Désactiver le JcJ le remet à zéro.",
+      "rewardPaused": "Série JcJ actuelle : {time} de jeu (en pause sur le Rivage de l’Épreuve)",
+      "rewardProgress": "Série JcJ actuelle : {time} de jeu",
       "tab": "JcJ mondial",
       "title": "JcJ mondial",
       "blurb": "Levez votre drapeau pour combattre d'autres joueurs marqués partout dans le monde ouvert. Vainquez-en un et prenez une part de sa bourse, plus de l'Honneur pour l'équipement de Guerre. Les champs de bataille et les arènes rapportent toujours davantage.",
@@ -2800,7 +2800,7 @@ export const fr_FR: EnTranslations = {
       "zoneContested": "Terrain contesté : seuls les joueurs marqués s'y battent.",
       "zoneFfa": "Terrain de mêlée générale : tout le monde y est une cible légitime.",
       "realmDisabled": "Le JcJ mondial est désactivé sur ce royaume.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "Le Rivage de l’Épreuve est le seul sanctuaire : vous ne pouvez ni y activer le JcJ mondial ni y combattre d’autres joueurs.",
       "groundContested": "Partout ailleurs, le terrain est contesté : seuls deux joueurs marqués peuvent s'affronter.",
       "groundFfa": "Les Terres du Dragon, le Voile de Givre et la Chute d'Ambre sont en mêlée générale : tout le monde peut s'y battre, marqué ou non.",
       "groupLine": "Les membres d'un groupe ou d'un raid ne sont jamais hostiles entre eux. Les membres de guilde hors de votre groupe peuvent s'affronter.",
@@ -8319,9 +8319,9 @@ export const fr_FR: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Règles de fair-play",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "Le JcJ en monde ouvert est volontaire et dépend du terrain. En zone contestée, lever votre drapeau rend ennemis les joueurs marqués hors de votre groupe ou raid ; le baisser vous rend à nouveau spectateur après un court délai. Le Rivage de l’Épreuve est le seul sanctuaire, sans combat JcJ. Les trois zones les plus au nord sont des zones de mêlée générale où chacun peut être attaqué, avec ou sans drapeau. Vos compagnons de groupe et de raid ne sont jamais vos ennemis ; les membres de votre guilde hors de votre groupe peuvent être attaqués comme les autres.",
       "zonesHeading": "Où se déroule le JcJ en monde ouvert",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Il existe trois types de terrain. Le Rivage de l’Épreuve est le seul sanctuaire : aucun JcJ mondial et impossible d’y lever son drapeau. Un drapeau déjà levé le reste, mais le temps de jeu comptant pour les titres est suspendu jusqu’au départ. Val d'Eastbrook et la majeure partie du monde sont contestés et suivent la règle du drapeau. Les Terres du Dragon, Le Voile de Givre et La Chute d'Ambre, les trois zones les plus au nord, sont en mêlée générale : chacun peut y attaquer les autres, avec ou sans drapeau. Un avertissement apparaît à l’entrée et à la sortie. Attaquer un joueur sans drapeau y lève le vôtre, exposant toujours l’agresseur au risque. Frapper un joueur déjà marqué ne lève pas votre drapeau : vous défendre ou défendre quelqu’un sans drapeau ne vous coûte rien.",
       "flagBodyAid": "Tapez /pvp dans la discussion, ou ouvrez la fenêtre JcJ avec G et utilisez l'onglet JcJ en monde ouvert, qui affiche aussi votre bilan et les enjeux. Lever le drapeau est instantané une fois les niveaux de départ dépassés. Le baisser lance un compte à rebours de quelques minutes, et le drapeau ne tombe pas tant que vous combattez encore, si bien que le désactiver n'est jamais un moyen d'échapper à un combat que vous avez engagé. Soigner, protéger d'un bouclier ou améliorer un joueur porteur du drapeau qui est en plein combat lève aussi votre propre drapeau, si bien que personne ne soutient un combattant depuis l'abri d'un drapeau qu'il ne porte pas ; aider un joueur non porteur du drapeau ne lève rien.",
       "stakesUnflaggedTake": "Un combattant non porteur du drapeau n'en reçoit pas non plus : l'or ne change de mains qu'entre deux joueurs porteurs du drapeau, mais l'Honneur revient tout de même à tous ceux qui ont aidé.",
       "stakesBodyFlagged": "Quand un joueur porteur du drapeau est vaincu par un autre joueur, le perdant verse une petite part de l'or de sa bourse, plafonnée à un montant modeste, et les vainqueurs gagnent de l'Honneur pour l'équipement de Guerre. Un joueur non porteur du drapeau ne verse aucun or, même s'il tombe dans une zone de combat libre. Tous ceux qui ont aidé se partagent les deux récompenses : le coup fatal, quiconque a endommagé la cible peu avant, et les soigneurs qui ont maintenu ces combattants debout. Un duel propre à un contre un rapporte toute la mise ; un groupe la partage.",
@@ -12129,7 +12129,7 @@ export const fr_FR: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Active ou désactive l'attaque automatique sur votre cible. Un clic droit sur un ennemi attaque aussi.",
       "attackRemoveHint": "Clic droit pour le retirer de la barre et libérer l'emplacement.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Maintenez Maj et faites glisser pour déplacer",
       "emptySlot": "Emplacement vide",
       "slotAria": "Emplacement d'action {slot}: {ability}",
       "emptySlotAria": "Emplacement d'action {slot}: vide",
@@ -18458,7 +18458,7 @@ export const fr_FR: EnTranslations = {
         "name": "Bâton de guerre de l'Avant-garde"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Bâton farouche de l’Avant-garde"
       },
       "conjured_water4": {
         "name": "Eau de source invoquée"
@@ -24188,8 +24188,8 @@ export const fr_FR: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Peau de Crin-sang",
-        "bonus2": "Le temps de recharge de Ruée de Bruin est réduit de 3 s.",
-        "bonus4": "Ruée de Bruin vous octroie un bouclier égal à 6 % de vos points de vie maximum pendant 6 s."
+        "bonus2": "Réduit les temps de recharge de Bond et de Ruée de Bruin de 3 s.",
+        "bonus4": "Réduit le temps de recharge de Sprint de 15 s."
       },
       "vanguard_druid_restoration": {
         "name": "Tenue de Fleur-de-chardon",

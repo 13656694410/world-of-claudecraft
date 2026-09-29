@@ -504,7 +504,7 @@ export const da_DK: EnTranslations = {
         "world": "Verdenquest-bytte",
         "pvp": "KRIGSUDSPRING udstyr"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Belønninger venter. Besøg Skattekammerkeperen i Eastbrook for at åbne og hente dem."
     },
     "ferry": {
       "regionLabel": "Færgekøreplaner",
@@ -2785,10 +2785,10 @@ export const da_DK: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "Hold verdens-PvP aktiveret for at få {percent} mere erfaring og fraktionsomdømme. Bonusserne ophører, når du anmoder om at slå det fra.",
+      "rewardTitles": "Optjen permanente titler efter {thresholds} spilletid med verdens-PvP aktiveret. Udlogning og besøg på Prøvestranden sætter tælleren på pause. Deaktivering nulstiller den.",
+      "rewardPaused": "Nuværende PvP-serie: {time} spillet (sat på pause på Prøvestranden)",
+      "rewardProgress": "Nuværende PvP-serie: {time} spillet",
       "tab": "Verden PvP",
       "title": "Verden PvP",
       "blurb": "Sæt din markering op for at kæmpe mod andre markerede spillere hvor som helst i den åbne verden. Besejr en og tag en andel af deres pengepung, plus Ære til Krigsførelsesudstyr. Slagmarker og Arenaer betaler stadig mere.",
@@ -2800,7 +2800,7 @@ export const da_DK: EnTranslations = {
       "zoneContested": "Omstridt område: kun markerede spillere kæmper her.",
       "zoneFfa": "Free-for-all-område: alle her er fair game.",
       "realmDisabled": "Verden PvP er deaktiveret på denne rige.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "Prøvestranden er det eneste fristed: du kan ikke aktivere verdens-PvP eller kæmpe mod andre spillere der.",
       "groundContested": "Overalt andet er omstridt: kun to markerede spillere kan kæmpe.",
       "groundFfa": "Drakelands, Frostveil Reach og Amberfall er free-for-all: alle der kan kæmpe, markeret eller ej.",
       "groupLine": "Gruppe- og raidmedlemmer er aldrig fjendtlige over for hinanden. Gildekammerater uden for din gruppe kan kæmpe.",
@@ -8319,9 +8319,9 @@ export const da_DK: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Fair play regler",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "PvP i den åbne verden er frivilligt og afhænger af området. På omstridt jord gør dit aktive PvP-flag alle flagede spillere uden for din gruppe eller dit raid til fjender; slår du det fra, bliver du tilskuer igen efter en kort forsinkelse. Prøvestranden er det eneste fristed uden verdenskampe. De tre nordligste områder er alle mod alle, med eller uden flag. Gruppe- og raidfæller er aldrig fjender; guildmedlemmer uden for din gruppe er mål som alle andre.",
       "zonesHeading": "Hvor verdenskamp foregår",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Der er tre områdetyper. Prøvestranden er det eneste fristed: intet verdens-PvP, og du kan ikke aktivere flaget. Et allerede aktivt flag forbliver aktivt, men spilletiden til titler sættes på pause, indtil du forlader området. Østbæk Dal og det meste af verden er omstridt og følger flagreglen. Dragelandet, Frostsløret og Ravfaldet, de tre nordligste områder, er alle mod alle: alle kan angribe hinanden med eller uden flag. Du får besked ved indgang og udgang. Angriber du en spiller uden flag der, aktiveres dit eget flag, så angriberen bærer risikoen. At ramme en allerede flaget spiller aktiverer det ikke: at forsvare dig selv eller en uden flag koster dig intet.",
       "flagBodyAid": "Skriv /pvp i chat, eller åbn PvP-vinduet på G og brug Verden PvP-fanen, der også viser din rekord og indsatser. At hæve flaget er øjeblikkeligt når du er forbi start-niveauerne. At sænke det starter en nedtælling på et par minutter, og flaget vil ikke falde mens du stadig kæmper, så at slå fra er aldrig flugt fra en kamp du startede. At hele, skjolde eller buffe en flagget spiller der er i en kamp hæver dine egne flag som godt, så ingen opretholder en kriger fra bag et flag de ikke bærer; at aide en spiller der ikke er flagget hæver ingenting.",
       "stakesUnflaggedTake": "En uflaget kæmper får heller intet: guld skifter kun hænder mellem to flagede spillere, selvom alle der hjalp stadig optjener Ære.",
       "stakesBodyFlagged": "Når en flagget spiller besejres af en anden spiller, taberen betaler en lille del af guldet i deres pung, grænsesat til et beskedent beløb, og vindererne tjener Ære mod Krigsførelse-udstyr. En spiller der ikke var flagget betaler ingen guld overhovedet, selv når de falder i en fri-for-alt zone. Alle der hjalp dele både: det dødbringende slag, hvem som helst der skadede målet kort før, og lægefolkene der holdt disse krigers stående. En ren en-mod-en betaler hele potten; en gruppe deler det.",
@@ -12129,7 +12129,7 @@ export const da_DK: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Slå automatisk angreb til/fra på dit mål. Højreklik på en fjende angriber også.",
       "attackRemoveHint": "Højreklik for at fjerne den fra bjælken og frigøre pladsen.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Hold Skift nede, og træk for at flytte",
       "emptySlot": "Tom plads",
       "slotAria": "Handlingsplads {slot}: {ability}",
       "emptySlotAria": "Handlingsplads {slot}: tom",
@@ -18458,7 +18458,7 @@ export const da_DK: EnTranslations = {
         "name": "Fortropsens Krigsdragt"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Fortroppens vilde stav"
       },
       "conjured_water4": {
         "name": "Fremmanet kildevand"
@@ -24188,8 +24188,8 @@ export const da_DK: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Blodhane Hud",
-        "bonus2": "Bruin-storm nedtælling reduceres med 3 sek.",
-        "bonus4": "Bruin-storm skjolder dig for 6 procent af din maksimale sundhed i 6 sek."
+        "bonus2": "Reducerer nedkølingstiderne for Spring og Bruin-storm med 3 sek.",
+        "bonus4": "Reducerer nedkølingstiden for Ræs med 15 sek."
       },
       "vanguard_druid_restoration": {
         "name": "Tidstel Blomst Gevandter",

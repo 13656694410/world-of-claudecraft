@@ -1845,9 +1845,9 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus4':
     "Gripping Roots'u döktüğünde hareket ederken büyü yapabilir ve hareket hızın %20 artar.",
   'entities.itemSets.vanguard_druid_balance.name': 'Yıldız Bekçisi Giysileri',
-  'entities.itemSets.vanguard_druid_feral.bonus2': "Bruin Rush'ın bekleme süresi 3 san azalır.",
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    "Bruin Rush seni maksimum sağlığının %6'sı için 6 saniye kalkan ile korur.",
+  'entities.itemSets.vanguard_druid_feral.bonus2':
+    'Atılış ve Bruin Hücumu bekleme sürelerini 3 sn azaltır.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Atılma bekleme süresini 15 sn azaltır.',
   'entities.itemSets.vanguard_druid_feral.name': 'Kan Yeleleri Gizliliği',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     "Fleetmend'in bekleme süresi 1 san azalır.",
@@ -19766,4 +19766,21 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Taşımak için Shift tuşunu basılı tutup sürükle',
+  'entities.items.vanguard_feral_staff.name': 'Öncünün Yaban Asası',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Ödüller seni bekliyor. Açıp almak için Eastbrook’taki Hazine Sakçısını ziyaret et.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Sınav Kıyısı tek sığınaktır: orada Dünya PvP’sini açamaz veya diğer oyuncularla savaşamazsın.',
+  'hudChrome.worldPvp.rewardBonus':
+    '{percent} daha fazla deneyim ve fraksiyon itibarı kazanmak için Dünya PvP’sini açık tut. Kapatmayı talep ettiğinde bonuslar sona erer.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Mevcut PvP serisi: {time} oynandı (Sınav Kıyısı’nda duraklatıldı)',
+  'hudChrome.worldPvp.rewardProgress': 'Mevcut PvP serisi: {time} oynandı',
+  'hudChrome.worldPvp.rewardTitles':
+    'Dünya PvP’si açıkken {thresholds} oynama süresine ulaşarak kalıcı unvanlar kazan. Çıkış yapmak ve Sınav Kıyısı’nı ziyaret etmek sayacı duraklatır. Kapatmak sayacı sıfırlar.',
+  'guide.worldPvpPage.introZones':
+    'Açık dünyada PvP isteğe bağlıdır ve bulunduğun bölgeye göre değişir. Çekişmeli bölgelerde PvP bayrağını açınca grup veya baskının dışındaki bayraklı oyuncular düşman olur; kapatınca kısa bir gecikmenin ardından yeniden seyirci olursun. Sınav Kıyısı, dünya savaşlarının olmadığı tek sığınaktır. En kuzeydeki üç bölge herkesin herkese karşı olduğu alanlardır; bayrak olsun olmasın herkes hedeftir. Grup ve baskın arkadaşların hiçbir yerde düşmanın olmaz; grubun dışındaki lonca üyeleri diğer oyuncular gibi hedeftir.',
+  'guide.worldPvpPage.zonesBody':
+    'Üç tür bölge vardır. Sınav Kıyısı tek sığınaktır: Dünya PvP’si yoktur ve bayrağını açamazsın. Açık bayrak açık kalır, ancak unvanlar için oynama süresi ayrılana kadar duraklar. Doğudere Vadisi ve dünyanın çoğu çekişmelidir, bayrak kuralı geçerlidir. En kuzeydeki Ejder Toprakları, Kırağı Diyarı ve Kehribar Vadisi’da herkes, bayraklı ya da bayraksız, birbirine saldırabilir. Girişte ve çıkışta uyarı alırsın. Orada bayraksız oyuncuya saldırmak kendi bayrağını açar; saldırgan daima risk alır. Zaten bayraklı oyuncuya vurmak bayrağını açmaz; kendini veya bayraksız birini savunmanın sana bedeli yoktur.',
 };

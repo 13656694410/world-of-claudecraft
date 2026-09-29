@@ -2110,9 +2110,8 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
     'Conjurar Raízes Agarradoras permite conjurar em movimento e aumenta sua velocidade de movimento em 20% por 4 s. Não pode ocorrer mais de uma vez a cada 20 s.',
   'entities.itemSets.vanguard_druid_feral.name': 'Pelagem da Juba de Sangue',
   'entities.itemSets.vanguard_druid_feral.bonus2':
-    'O tempo de recarga de Investida de Bruin é reduzido em 3 s.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Investida de Bruin te escuda em 6% da sua vida máxima por 6 s.',
+    'Reduz as recargas de Bote e Investida de Bruin em 3 s.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Reduz a recarga de Corrida em 15 s.',
   'entities.itemSets.vanguard_druid_restoration.name': 'Veste da Flor de Cardo',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     'O tempo de recarga de Recuperação Rápida é reduzido em 1 s.',
@@ -20031,4 +20030,21 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Segure Shift e arraste para mover',
+  'entities.items.vanguard_feral_staff.name': 'Cajado Feral da Vanguarda',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Há recompensas esperando. Visite o Guardião do Cofre em Eastbrook para abri-las e resgatá-las.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'A Costa da Provação é o único santuário: você não pode ativar o PvP mundial nem lutar contra outros jogadores lá.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Mantenha o PvP mundial ativo para ganhar {percent} a mais de experiência e reputação de facção. Os bônus param quando você solicita a desativação.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Sequência PvP atual: {time} de jogo (pausada na Costa da Provação)',
+  'hudChrome.worldPvp.rewardProgress': 'Sequência PvP atual: {time} de jogo',
+  'hudChrome.worldPvp.rewardTitles':
+    'Ganhe títulos permanentes após {thresholds} de tempo jogado com o PvP mundial ativo. Sair do jogo e visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.',
+  'guide.worldPvpPage.introZones':
+    'O PvP em mundo aberto é opcional e depende do terreno. Em áreas disputadas, ativar sua bandeira torna inimigos os jogadores sinalizados fora do seu grupo ou raide; desativá-la torna você espectador novamente após um breve atraso. A Costa da Provação é o único santuário, sem combate PvP. As três áreas mais ao norte são de todos contra todos, com ou sem bandeira. Companheiros de grupo e raide nunca são inimigos; membros da guilda fora do seu grupo podem ser atacados como qualquer outro jogador.',
+  'guide.worldPvpPage.zonesBody':
+    'Há três tipos de terreno. A Costa da Provação é o único santuário: não há PvP mundial e você não pode ativar a bandeira. Uma bandeira já ativa permanece, mas o tempo jogado para títulos fica pausado até você sair. Vale de Eastbrook e a maior parte do mundo são disputados e seguem a regra da bandeira. Drakelands, Os Confins de Frostveil e Amberfall, as três áreas mais ao norte, são de todos contra todos: qualquer um pode atacar os demais, com ou sem bandeira. Você recebe avisos ao entrar e sair. Atacar ali um jogador sem bandeira ativa a sua, fazendo o agressor assumir o risco. Acertar alguém já sinalizado não ativa sua bandeira: defender a si mesmo ou alguém sem bandeira não custa nada.',
 };

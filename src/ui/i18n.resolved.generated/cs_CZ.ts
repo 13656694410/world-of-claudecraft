@@ -504,7 +504,7 @@ export const cs_CZ: EnTranslations = {
         "world": "Kořist ze světových úkolů",
         "pvp": "Výbava VÁLEČNICTVÍ"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Čekají na vás odměny. Navštivte strážce trezoru v Eastbrooku, otevřete je a vyzvedněte si je."
     },
     "ferry": {
       "regionLabel": "Jízdní řád přívozu",
@@ -2785,10 +2785,10 @@ export const cs_CZ: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "Nechte světové PvP zapnuté a získávejte o {percent} více zkušeností a reputace frakcí. Bonusy skončí, jakmile požádáte o vypnutí.",
+      "rewardTitles": "Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP. Odhlášení a návštěva Zkušebního pobřeží časovač pozastaví. Vypnutí jej vynuluje.",
+      "rewardPaused": "Aktuální série PvP: odehráno {time} (pozastaveno na Zkušebním pobřeží)",
+      "rewardProgress": "Aktuální série PvP: odehráno {time}",
       "tab": "Světové PvP",
       "title": "Světové PvP",
       "blurb": "Zvedni vlajku a bojuj s ostatními hráči se zvednutou vlajkou kdekoli v otevřeném světě. Poraz jednoho a vezmi si podíl z jeho měšce, plus Čest na výbavu Válečnictví. Bojiště a arény pořád vyplácejí víc.",
@@ -2800,7 +2800,7 @@ export const cs_CZ: EnTranslations = {
       "zoneContested": "Sporné území: bojují tu jen hráči se zvednutou vlajkou.",
       "zoneFfa": "Volné území: tady je každý platným cílem.",
       "realmDisabled": "Světové PvP je na této říši vypnuté.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "Zkušební pobřeží je jediným útočištěm: nelze tam zapnout světové PvP ani bojovat s jinými hráči.",
       "groundContested": "Všude jinde je území sporné: bojovat mohou jen dva hráči se zvednutou vlajkou.",
       "groundFfa": "Dračí země, Kraj Mrazivého závoje a Jantarový pád jsou volné území: tam může bojovat kdokoli, s vlajkou i bez ní.",
       "groupLine": "Členové skupiny a raidu vůči sobě nikdy nejsou nepřátelští. Cechovní spolubojovníci mimo tvou skupinu mohou bojovat.",
@@ -8319,9 +8319,9 @@ export const cs_CZ: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Pravidla fair play",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "PvP v otevřeném světě je dobrovolné a záleží na oblasti. Ve sporných oblastech z vás zapnutý příznak PvP dělá nepřítele všech označených hráčů mimo vaši skupinu či nájezd; po vypnutí a krátké prodlevě jste opět pozorovatelem. Zkušební pobřeží je jediné útočiště bez světového PvP. Ve třech nejsevernějších oblastech bojuje každý proti každému, s příznakem i bez něj. Členové skupiny a nájezdu nikdy nejsou nepřátelé; členové cechu mimo vaši skupinu jsou běžné cíle.",
       "zonesHeading": "Kde se odehrává světové PvP",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Svět má tři typy oblastí. Zkušební pobřeží je jediné útočiště: není tam světové PvP a příznak nelze zapnout. Již zapnutý příznak zůstává, ale čas hraní pro tituly se do odchodu pozastaví. Eastbrookské údolí i většina světa jsou sporné oblasti s pravidlem příznaku. Dračí země, Kraj Mrazivého závoje a Jantarový pád, tři nejsevernější oblasti, umožňují boj každého proti každému bez ohledu na příznak. Při vstupu i odchodu dostanete upozornění. Útok na neoznačeného hráče tam zapne váš příznak, takže útočník vždy nese riziko. Zásah již označeného hráče jej nezapne: obrana sebe nebo neoznačeného hráče vás nic nestojí.",
       "flagBodyAid": "Napiš do chatu /pvp, nebo otevři okno PvP na G a použij záložku Světové PvP, která ukazuje i tvou bilanci a co je v sázce. Zvednutí vlajky je okamžité, jakmile jsi za počátečními úrovněmi. Stažení spustí odpočet několika minut a vlajka nespadne, dokud ještě bojuješ, takže vypnutí nikdy není únik z boje, který jsi sám(a) začal(a). Léčení, štítování nebo posilování označeného hráče, který je v boji, zvedne i tvou vlastní vlajku, takže nikdo neudržuje bojovníka naživu zpoza vlajky, kterou sám nenosí; pomoc hráči, který není označen, nezvedne nic.",
       "stakesUnflaggedTake": "Ani neoznačený bojovník nedostane nic: zlato mění majitele jen mezi dvěma označenými hráči, i když Čest si stále vydělá každý, kdo pomohl.",
       "stakesBodyFlagged": "Když je označený hráč poražen jiným hráčem, poražený zaplatí malý podíl zlata ze svého měšce, zastropovaný na skromnou částku, a vítězové získají Čest k výbavě Válečnictví. Hráč, který nebyl označen, neplatí žádné zlato, ani když padne v zóně volno pro všechny. O obojí se dělí každý, kdo pomohl: zásah, který zabil, každý, kdo cíl krátce předtím poškodil, a léčitelé, kteří ty bojovníky drželi na nohou. Čistý souboj jednoho na jednoho vyplatí celý balík; skupina si ho rozdělí.",
@@ -12129,7 +12129,7 @@ export const cs_CZ: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Přepne automatický útok na cíl. Kliknutí pravým tlačítkem na nepřítele také zaútočí.",
       "attackRemoveHint": "Klikni pravým tlačítkem pro odebrání z lišty a uvolnění slotu.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Přesunete přetažením se stisknutým Shiftem",
       "emptySlot": "Prázdný slot",
       "slotAria": "Akční slot {slot}: {ability}",
       "emptySlotAria": "Akční slot {slot}: prázdný",
@@ -18458,7 +18458,7 @@ export const cs_CZ: EnTranslations = {
         "name": "Bojová hůl Předvoje"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Divoká hůl Předvoje"
       },
       "conjured_water4": {
         "name": "Vyčarovaná pramenitá voda"
@@ -24188,8 +24188,8 @@ export const cs_CZ: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Krvohřívová kůže",
-        "bonus2": "Čas obnovy Medvědího výpadu je kratší o 3 s.",
-        "bonus4": "Medvědí výpad tě zaštítí a pohltí 6 % tvého maximálního zdraví na 6 s."
+        "bonus2": "Zkracuje doby obnovení schopností Výpad a Medvědí výpad o 3 s.",
+        "bonus4": "Zkracuje dobu obnovení schopnosti Úprk o 15 s."
       },
       "vanguard_druid_restoration": {
         "name": "Roucho Bodlákokvětu",

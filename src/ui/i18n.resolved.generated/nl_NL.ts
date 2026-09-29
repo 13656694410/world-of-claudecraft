@@ -504,7 +504,7 @@ export const nl_NL: EnTranslations = {
         "world": "Wereldquestsbuit",
         "pvp": "OORLOGVOERING-uitrusting"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Er liggen beloningen klaar. Bezoek de Kluisbewaarder in Eastbrook om ze te openen en op te halen."
     },
     "ferry": {
       "regionLabel": "Veerbootdienstregeling",
@@ -2785,10 +2785,10 @@ export const nl_NL: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "Houd wereld-PvP ingeschakeld om {percent} meer ervaring en factiereputatie te verdienen. De bonussen stoppen zodra je vraagt om het uit te schakelen.",
+      "rewardTitles": "Verdien permanente titels na {thresholds} speeltijd met wereld-PvP ingeschakeld. Uitloggen en de Beproevingskust bezoeken pauzeren de teller. Uitschakelen zet hem terug op nul.",
+      "rewardPaused": "Huidige PvP-reeks: {time} gespeeld (gepauzeerd aan de Beproevingskust)",
+      "rewardProgress": "Huidige PvP-reeks: {time} gespeeld",
       "tab": "Wereldgevecht",
       "title": "Wereldgevecht",
       "blurb": "Hef je vlag op om ergens in de openbare wereld tegen andere gevlagde spelers te vechten. Versla er een en krijg een deel van hun beurs, plus Eer voor Oorlogsuitrusting. Gevechtsgebieden en Arena's brengen nog meer op.",
@@ -2800,7 +2800,7 @@ export const nl_NL: EnTranslations = {
       "zoneContested": "Betwist grondgebied: alleen gevlagde spelers vechten hier.",
       "zoneFfa": "Vrij-voor-iedereen grondgebied: iedereen hier is eerlijk spel.",
       "realmDisabled": "Wereldgevecht is uitgeschakeld op dit rijk.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "De Beproevingskust is het enige heiligdom: je kunt er geen wereld-PvP inschakelen of tegen andere spelers vechten.",
       "groundContested": "Overal elders is omstreden: alleen twee gevlagde spelers kunnen vechten.",
       "groundFfa": "De Drakenlandse, de Vorstrijke en de Amberrode zijn vrij voor iedereen: iedereen daar kan vechten, gevlagd of niet.",
       "groupLine": "Partijleden en raidleden zijn nooit vijandig tegen elkaar. Gildeverbroedering buiten je groep kan vechten.",
@@ -8319,9 +8319,9 @@ export const nl_NL: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Fair-play regels",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "PvP in de open wereld is vrijwillig en hangt af van het gebied. Op betwist terrein maakt je ingeschakelde PvP-vlag alle gemarkeerde spelers buiten je groep of raid tot vijanden; na uitschakelen ben je na een korte vertraging weer toeschouwer. De Beproevingskust is het enige heiligdom zonder wereldgevechten. De drie noordelijkste gebieden zijn vrij-voor-allen: iedereen is een doelwit, met of zonder vlag. Groeps- en raidleden zijn nooit vijanden; gildeleden buiten je groep zijn net als andere spelers aan te vallen.",
       "zonesHeading": "Waar PvP plaatsvindt",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Er zijn drie soorten terrein. De Beproevingskust is het enige heiligdom: geen wereld-PvP en je kunt je vlag niet inschakelen. Een actieve vlag blijft aan, maar de speeltijd voor titels pauzeert tot je vertrekt. Oostbeekdal en het grootste deel van de wereld zijn betwist en volgen de vlagregel. De Drakenlanden, De Vorstsluier en De Amberval, de drie noordelijkste gebieden, zijn vrij-voor-allen: iedereen kan elkaar aanvallen, met of zonder vlag. Je krijgt bericht bij binnenkomst en vertrek. Een ongemarkeerde speler daar aanvallen schakelt je eigen vlag in, zodat de aanvaller het risico draagt. Een al gemarkeerde speler raken doet dat niet: jezelf of iemand zonder vlag verdedigen kost je niets.",
       "flagBodyAid": "Typ /pvp in chat, of open het PvP-venster op G en gebruik het Wereld-PvP-tabblad, dat ook je record en de inzetten toont. De vlag verheffen is instant zodra je voorbij de startingniveaus bent. Het verlagen ervan start een aftelling van een paar minuten, en de vlag valt niet terwijl je nog vecht, dus uitschakelen is nooit een ontsnapping uit een gevecht dat je startte. Het genezen, schermen of bufferen van een gevlagde speler die in een gevecht zit, verheft je eigen vlag ook, dus niemand ondersteunt een vechter van achter een vlag die ze niet dragen; het helpen van een speler die niet gevlagd is verheft niets.",
       "stakesUnflaggedTake": "Ook een strijder zonder vlag krijgt niets: goud wisselt alleen van hand tussen twee spelers met een vlag, hoewel iedereen die hielp toch Eer verdient.",
       "stakesBodyFlagged": "Wanneer een gevlagde speler door een ander speler wordt verslagen, betaalt de verliezer een klein aandeel van de munten in hun beurs, begrensd tot een bescheiden bedrag, en verdienen de winnaars Eer naar Oorlogsuitrusting. Een speler die niet gevlagd was betaalt helemaal geen goud, zelfs niet wanneer ze in een vrije-voor-allen zone vallen. Iedereen die hielp deelt beide: de doodzeggen, iedereen die de doelwit kort daarvoor schadde, en de genezers die die vechters overend hielden. Een schoon één-tegen-één betaalt de hele pot; een groep splitst het.",
@@ -12129,7 +12129,7 @@ export const nl_NL: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Schakel auto-aanval op je doelwit in of uit. Rechtsklikken op een vijand valt ook aan.",
       "attackRemoveHint": "Klik met rechts om het van de balk te verwijderen en de plek vrij te maken.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Houd Shift ingedrukt en sleep om te verplaatsen",
       "emptySlot": "Lege sleuf",
       "slotAria": "Actiesleuf {slot}: {ability}",
       "emptySlotAria": "Actiesleuf {slot}: leeg",
@@ -18458,7 +18458,7 @@ export const nl_NL: EnTranslations = {
         "name": "Voortocht Krijgsstaf"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Wilde staf van de Voorhoede"
       },
       "conjured_water4": {
         "name": "Getoverd bronwater"
@@ -24188,8 +24188,8 @@ export const nl_NL: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Bloedmaan Huid",
-        "bonus2": "Afkoelingseffect van Bruin-stormloop is 3 sec korter.",
-        "bonus4": "Bruin-stormloop beschermt je voor 6% van je maximale gezondheid voor 6 sec."
+        "bonus2": "Verkort de afkoeltijden van Uitval en Bruin-stormloop met 3 sec.",
+        "bonus4": "Verkort de afkoeltijd van Spurt met 15 sec."
       },
       "vanguard_druid_restoration": {
         "name": "Distelbloeiem Gewaad",

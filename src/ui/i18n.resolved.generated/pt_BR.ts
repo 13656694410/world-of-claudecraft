@@ -504,7 +504,7 @@ export const pt_BR: EnTranslations = {
         "world": "Saque de missão mundial",
         "pvp": "Equipamento de GUERRA"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Há recompensas esperando. Visite o Guardião do Cofre em Eastbrook para abri-las e resgatá-las."
     },
     "ferry": {
       "regionLabel": "Horário das balsas",
@@ -2785,10 +2785,10 @@ export const pt_BR: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "Mantenha o PvP mundial ativo para ganhar {percent} a mais de experiência e reputação de facção. Os bônus param quando você solicita a desativação.",
+      "rewardTitles": "Ganhe títulos permanentes após {thresholds} de tempo jogado com o PvP mundial ativo. Sair do jogo e visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.",
+      "rewardPaused": "Sequência PvP atual: {time} de jogo (pausada na Costa da Provação)",
+      "rewardProgress": "Sequência PvP atual: {time} de jogo",
       "tab": "PvP Mundial",
       "title": "PvP Mundial",
       "blurb": "Levante sua bandeira para lutar contra outros jogadores marcados em qualquer lugar do mundo aberto. Derrote um deles e fique com uma parte do dinheiro dele, além de Honra para o equipamento de Guerra. Campos de batalha e Arenas ainda pagam mais.",
@@ -2800,7 +2800,7 @@ export const pt_BR: EnTranslations = {
       "zoneContested": "Terreno contestado: aqui só lutam jogadores marcados.",
       "zoneFfa": "Terreno livre para todos: aqui todo mundo é alvo válido.",
       "realmDisabled": "O PvP Mundial está desativado neste reino.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "A Costa da Provação é o único santuário: você não pode ativar o PvP mundial nem lutar contra outros jogadores lá.",
       "groundContested": "Todo o restante é contestado: só dois jogadores marcados podem lutar.",
       "groundFfa": "Drakelands, os Confins de Frostveil e Amberfall são livres para todos: qualquer um lá pode lutar, marcado ou não.",
       "groupLine": "Membros de grupo e raide nunca são hostis entre si. Colegas de guilda fora do seu grupo podem lutar.",
@@ -8319,9 +8319,9 @@ export const pt_BR: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Regras de jogo justo",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "O PvP em mundo aberto é opcional e depende do terreno. Em áreas disputadas, ativar sua bandeira torna inimigos os jogadores sinalizados fora do seu grupo ou raide; desativá-la torna você espectador novamente após um breve atraso. A Costa da Provação é o único santuário, sem combate PvP. As três áreas mais ao norte são de todos contra todos, com ou sem bandeira. Companheiros de grupo e raide nunca são inimigos; membros da guilda fora do seu grupo podem ser atacados como qualquer outro jogador.",
       "zonesHeading": "Onde o JcJ mundial acontece",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Há três tipos de terreno. A Costa da Provação é o único santuário: não há PvP mundial e você não pode ativar a bandeira. Uma bandeira já ativa permanece, mas o tempo jogado para títulos fica pausado até você sair. Vale de Eastbrook e a maior parte do mundo são disputados e seguem a regra da bandeira. Drakelands, Os Confins de Frostveil e Amberfall, as três áreas mais ao norte, são de todos contra todos: qualquer um pode atacar os demais, com ou sem bandeira. Você recebe avisos ao entrar e sair. Atacar ali um jogador sem bandeira ativa a sua, fazendo o agressor assumir o risco. Acertar alguém já sinalizado não ativa sua bandeira: defender a si mesmo ou alguém sem bandeira não custa nada.",
       "flagBodyAid": "Digite /pvp no chat, ou abra a janela de JcJ em G e use a aba JcJ Mundial, que também mostra seu histórico e as apostas. Erguer a bandeira é instantâneo assim que você passa dos níveis iniciais. Baixá-la inicia uma contagem regressiva de alguns minutos, e a bandeira não cai enquanto você ainda está lutando, então desativá-la nunca é uma forma de escapar de uma luta que você começou. Curar, escudar ou fortalecer um jogador com bandeira que está em uma luta também ergue a sua própria bandeira, então ninguém sustenta um lutador escondido atrás de uma bandeira que não usa; ajudar um jogador sem bandeira não ergue nada.",
       "stakesUnflaggedTake": "Um lutador sem bandeira também não recebe nada: o ouro só muda de mãos entre dois jogadores com bandeira, embora todos que ajudaram ainda ganhem a Honra.",
       "stakesBodyFlagged": "Quando um jogador com bandeira é derrotado por outro jogador, o perdedor paga uma pequena parte do ouro da sua bolsa, limitada a uma quantia modesta, e os vencedores ganham Honra para o equipamento de Guerra. Um jogador sem bandeira não paga ouro nenhum, mesmo se cair em uma zona de todos contra todos. Todos que ajudaram compartilham os dois prêmios: o golpe fatal, qualquer um que tenha causado dano ao alvo pouco antes, e os curandeiros que mantiveram esses lutadores de pé. Um confronto limpo de um contra um paga o prêmio inteiro; um grupo o divide.",
@@ -12129,7 +12129,7 @@ export const pt_BR: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Ativa ou desativa o autoataque no alvo. Clicar com o botão direito em um inimigo também ataca.",
       "attackRemoveHint": "Clique com o botão direito para removê-lo da barra e liberar o espaço.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Segure Shift e arraste para mover",
       "emptySlot": "Espaço vazio",
       "slotAria": "Espaço de ação {slot}: {ability}",
       "emptySlotAria": "Espaço de ação {slot}: vazio",
@@ -18458,7 +18458,7 @@ export const pt_BR: EnTranslations = {
         "name": "Cajado de Guerra da Vanguarda"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Cajado Feral da Vanguarda"
       },
       "conjured_water4": {
         "name": "Água de Nascente Conjurada"
@@ -24188,8 +24188,8 @@ export const pt_BR: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Pelagem da Juba de Sangue",
-        "bonus2": "O tempo de recarga de Investida de Bruin é reduzido em 3 s.",
-        "bonus4": "Investida de Bruin te escuda em 6% da sua vida máxima por 6 s."
+        "bonus2": "Reduz as recargas de Bote e Investida de Bruin em 3 s.",
+        "bonus4": "Reduz a recarga de Corrida em 15 s."
       },
       "vanguard_druid_restoration": {
         "name": "Veste da Flor de Cardo",

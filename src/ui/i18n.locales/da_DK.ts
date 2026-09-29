@@ -1859,9 +1859,9 @@ export const da_DK: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus4':
     'Kasting af Gribende Rødder lader dig kaste mens du bevæger dig og øger din bevægelseshastighed med 20 procent i 4 sek. Kan ikke forekomme mere end én gang hver 20 sek.',
   'entities.itemSets.vanguard_druid_balance.name': 'Stjernevogter Gevandter',
-  'entities.itemSets.vanguard_druid_feral.bonus2': 'Bruin-storm nedtælling reduceres med 3 sek.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Bruin-storm skjolder dig for 6 procent af din maksimale sundhed i 6 sek.',
+  'entities.itemSets.vanguard_druid_feral.bonus2':
+    'Reducerer nedkølingstiderne for Spring og Bruin-storm med 3 sek.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Reducerer nedkølingstiden for Ræs med 15 sek.',
   'entities.itemSets.vanguard_druid_feral.name': 'Blodhane Hud',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     'Flugtlægning nedtælling reduceres med 1 sek.',
@@ -19757,4 +19757,21 @@ export const da_DK: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Hold Skift nede, og træk for at flytte',
+  'entities.items.vanguard_feral_staff.name': 'Fortroppens vilde stav',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Belønninger venter. Besøg Skattekammerkeperen i Eastbrook for at åbne og hente dem.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Prøvestranden er det eneste fristed: du kan ikke aktivere verdens-PvP eller kæmpe mod andre spillere der.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Hold verdens-PvP aktiveret for at få {percent} mere erfaring og fraktionsomdømme. Bonusserne ophører, når du anmoder om at slå det fra.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Nuværende PvP-serie: {time} spillet (sat på pause på Prøvestranden)',
+  'hudChrome.worldPvp.rewardProgress': 'Nuværende PvP-serie: {time} spillet',
+  'hudChrome.worldPvp.rewardTitles':
+    'Optjen permanente titler efter {thresholds} spilletid med verdens-PvP aktiveret. Udlogning og besøg på Prøvestranden sætter tælleren på pause. Deaktivering nulstiller den.',
+  'guide.worldPvpPage.introZones':
+    'PvP i den åbne verden er frivilligt og afhænger af området. På omstridt jord gør dit aktive PvP-flag alle flagede spillere uden for din gruppe eller dit raid til fjender; slår du det fra, bliver du tilskuer igen efter en kort forsinkelse. Prøvestranden er det eneste fristed uden verdenskampe. De tre nordligste områder er alle mod alle, med eller uden flag. Gruppe- og raidfæller er aldrig fjender; guildmedlemmer uden for din gruppe er mål som alle andre.',
+  'guide.worldPvpPage.zonesBody':
+    'Der er tre områdetyper. Prøvestranden er det eneste fristed: intet verdens-PvP, og du kan ikke aktivere flaget. Et allerede aktivt flag forbliver aktivt, men spilletiden til titler sættes på pause, indtil du forlader området. Østbæk Dal og det meste af verden er omstridt og følger flagreglen. Dragelandet, Frostsløret og Ravfaldet, de tre nordligste områder, er alle mod alle: alle kan angribe hinanden med eller uden flag. Du får besked ved indgang og udgang. Angriber du en spiller uden flag der, aktiveres dit eget flag, så angriberen bærer risikoen. At ramme en allerede flaget spiller aktiverer det ikke: at forsvare dig selv eller en uden flag koster dig intet.',
 };

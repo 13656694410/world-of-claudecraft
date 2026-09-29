@@ -1197,4 +1197,29 @@ export const table: DeedLocaleTable = {
     name: 'Suçüstü Yakalandı',
     desc: 'Bir Para Kesesi Fasulyesini Gömülü Hazineden kaçmadan önce yakala.',
   },
+  pvp_flag_1h: {
+    name: 'Cesur',
+    desc: 'Dünya PvP’sini 1 saat oynama süresi boyunca açık tut. Çıkış yapmak ilerlemeyi duraklatır; kapatmak sıfırlar. Kazanılan unvanlar kalıcıdır.',
+    title: 'Cesur',
+  },
+  pvp_flag_3h: {
+    name: 'Meydan Okuyan',
+    desc: 'Dünya PvP’sini 3 saat oynama süresi boyunca açık tut. Çıkış yapmak ilerlemeyi duraklatır; kapatmak sıfırlar. Kazanılan unvanlar kalıcıdır.',
+    title: 'Meydan Okuyan',
+  },
+  pvp_flag_6h: {
+    name: 'Korkusuz',
+    desc: 'Dünya PvP’sini 6 saat oynama süresi boyunca açık tut. Çıkış yapmak ilerlemeyi duraklatır; kapatmak sıfırlar. Kazanılan unvanlar kalıcıdır.',
+    title: 'Korkusuz',
+  },
+  pvp_flag_24h: {
+    name: 'Boyun Eğmez',
+    desc: 'Dünya PvP’sini 24 saat oynama süresi boyunca açık tut. Çıkış yapmak ilerlemeyi duraklatır; kapatmak sıfırlar. Kazanılan unvanlar kalıcıdır.',
+    title: 'Boyun Eğmez',
+  },
+  pvp_flag_168h: {
+    name: 'Yılmaz',
+    desc: 'Dünya PvP’sini 7 gün oynama süresi boyunca açık tut. Çıkış yapmak ilerlemeyi duraklatır; kapatmak sıfırlar. Kazanılan unvanlar kalıcıdır.',
+    title: 'Yılmaz',
+  },
 };

@@ -1937,9 +1937,8 @@ export const fr_FR: Partial<Record<TranslationKey, string>> = {
     "Lancer Racines agrippantes vous permet d'incanter en mouvement et augmente votre vitesse de déplacement de 20 % pendant 4 s. Ne peut se produire plus d'une fois toutes les 20 s.",
   'entities.itemSets.vanguard_druid_balance.name': 'Tenue du Garde-étoiles',
   'entities.itemSets.vanguard_druid_feral.bonus2':
-    'Le temps de recharge de Ruée de Bruin est réduit de 3 s.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Ruée de Bruin vous octroie un bouclier égal à 6 % de vos points de vie maximum pendant 6 s.',
+    'Réduit les temps de recharge de Bond et de Ruée de Bruin de 3 s.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Réduit le temps de recharge de Sprint de 15 s.',
   'entities.itemSets.vanguard_druid_feral.name': 'Peau de Crin-sang',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     'Le temps de recharge de Prompte guérison est réduit de 1 s.',
@@ -20273,4 +20272,21 @@ export const fr_FR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Maintenez Maj et faites glisser pour déplacer',
+  'entities.items.vanguard_feral_staff.name': 'Bâton farouche de l’Avant-garde',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Des récompenses vous attendent. Rendez visite au Gardien du Coffre à Eastbrook pour les ouvrir et les récupérer.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Le Rivage de l’Épreuve est le seul sanctuaire : vous ne pouvez ni y activer le JcJ mondial ni y combattre d’autres joueurs.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Gardez le JcJ mondial activé pour gagner {percent} d’expérience et de réputation de faction supplémentaires. Les bonus cessent dès que vous demandez sa désactivation.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Série JcJ actuelle : {time} de jeu (en pause sur le Rivage de l’Épreuve)',
+  'hudChrome.worldPvp.rewardProgress': 'Série JcJ actuelle : {time} de jeu',
+  'hudChrome.worldPvp.rewardTitles':
+    'Obtenez des titres permanents après {thresholds} de temps de jeu avec le JcJ mondial activé. La déconnexion et les visites au Rivage de l’Épreuve suspendent le compteur. Désactiver le JcJ le remet à zéro.',
+  'guide.worldPvpPage.introZones':
+    'Le JcJ en monde ouvert est volontaire et dépend du terrain. En zone contestée, lever votre drapeau rend ennemis les joueurs marqués hors de votre groupe ou raid ; le baisser vous rend à nouveau spectateur après un court délai. Le Rivage de l’Épreuve est le seul sanctuaire, sans combat JcJ. Les trois zones les plus au nord sont des zones de mêlée générale où chacun peut être attaqué, avec ou sans drapeau. Vos compagnons de groupe et de raid ne sont jamais vos ennemis ; les membres de votre guilde hors de votre groupe peuvent être attaqués comme les autres.',
+  'guide.worldPvpPage.zonesBody':
+    "Il existe trois types de terrain. Le Rivage de l’Épreuve est le seul sanctuaire : aucun JcJ mondial et impossible d’y lever son drapeau. Un drapeau déjà levé le reste, mais le temps de jeu comptant pour les titres est suspendu jusqu’au départ. Val d'Eastbrook et la majeure partie du monde sont contestés et suivent la règle du drapeau. Les Terres du Dragon, Le Voile de Givre et La Chute d'Ambre, les trois zones les plus au nord, sont en mêlée générale : chacun peut y attaquer les autres, avec ou sans drapeau. Un avertissement apparaît à l’entrée et à la sortie. Attaquer un joueur sans drapeau y lève le vôtre, exposant toujours l’agresseur au risque. Frapper un joueur déjà marqué ne lève pas votre drapeau : vous défendre ou défendre quelqu’un sans drapeau ne vous coûte rien.",
 };

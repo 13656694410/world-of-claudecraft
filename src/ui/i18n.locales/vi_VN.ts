@@ -1856,9 +1856,9 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus4':
     'Truyền tải Rễ Siết Chặt cho phép bạn truyền tải khi đang di chuyển và tăng tốc độ di chuyển của bạn 20 phần trăm trong 4 giây. Không thể xảy ra nhiều hơn một lần mỗi 20 giây.',
   'entities.itemSets.vanguard_druid_balance.name': 'Starwarden Raiment',
-  'entities.itemSets.vanguard_druid_feral.bonus2': 'Cooldown Cú Lao Bruin giảm 3 giây.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Cú Lao Bruin bảo vệ bạn với 6 phần trăm sức khỏe tối đa của bạn trong 6 giây.',
+  'entities.itemSets.vanguard_druid_feral.bonus2':
+    'Giảm thời gian hồi của Lao Vồ và Cú Lao Bruin đi 3 giây.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Giảm thời gian hồi của Lao Nhanh đi 15 giây.',
   'entities.itemSets.vanguard_druid_feral.name': 'Bloodmane Hide',
   'entities.itemSets.vanguard_druid_restoration.bonus2': 'Cooldown Fleetmend giảm 1 giây.',
   'entities.itemSets.vanguard_druid_restoration.bonus4':
@@ -19839,4 +19839,21 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Giữ Shift và kéo để di chuyển',
+  'entities.items.vanguard_feral_staff.name': 'Trượng Hoang Dã của Tiên Phong',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Phần thưởng đang chờ. Hãy đến gặp Người Giữ Kho Báu tại Eastbrook để mở và nhận.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Bờ Biển Thử Thách là khu an toàn duy nhất: bạn không thể bật PvP Thế Giới hoặc chiến đấu với người chơi khác tại đây.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Giữ PvP Thế Giới bật để nhận thêm {percent} kinh nghiệm và danh vọng phe phái. Phần thưởng cộng thêm dừng khi bạn yêu cầu tắt.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng tại Bờ Biển Thử Thách)',
+  'hudChrome.worldPvp.rewardProgress': 'Chuỗi PvP hiện tại: đã chơi {time}',
+  'hudChrome.worldPvp.rewardTitles':
+    'Nhận danh hiệu vĩnh viễn sau {thresholds} thời gian chơi khi bật PvP Thế Giới. Đăng xuất và đến Bờ Biển Thử Thách sẽ tạm dừng bộ đếm. Tắt PvP sẽ đặt lại bộ đếm.',
+  'guide.worldPvpPage.introZones':
+    'PvP thế giới mở là tự nguyện và phụ thuộc vào khu vực. Tại vùng tranh chấp, bật cờ PvP khiến những người chơi có cờ ngoài tổ đội hoặc nhóm đột kích của bạn thành kẻ địch; tắt cờ sẽ đưa bạn về trạng thái đứng ngoài sau một khoảng chờ ngắn. Bờ Biển Thử Thách là khu an toàn duy nhất không có giao tranh thế giới. Ba vùng cực bắc cho phép tất cả đấu với nhau, có cờ hay không. Đồng đội trong tổ đội và nhóm đột kích không bao giờ là kẻ địch; thành viên bang hội ngoài nhóm vẫn có thể bị tấn công như người khác.',
+  'guide.worldPvpPage.zonesBody':
+    'Có ba loại khu vực. Bờ Biển Thử Thách là khu an toàn duy nhất: không có PvP Thế Giới và không thể bật cờ. Cờ đang bật vẫn giữ nguyên, nhưng thời gian chơi tính danh hiệu tạm dừng đến khi rời đi. Thung Lũng Đông Khê và phần lớn thế giới là vùng tranh chấp theo quy tắc cờ. Vùng Đất Rồng, Đỉnh Sương Giá và Xứ Thu Hổ Phách, ba vùng cực bắc, cho phép mọi người tấn công nhau dù có cờ hay không. Bạn được thông báo khi vào và ra. Tấn công người không có cờ tại đây sẽ bật cờ của bạn, nên kẻ tấn công luôn chịu rủi ro. Đánh người đã có cờ không bật cờ của bạn: tự vệ hoặc bảo vệ người không có cờ không khiến bạn chịu thiệt.',
 };

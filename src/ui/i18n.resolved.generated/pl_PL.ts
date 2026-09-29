@@ -504,7 +504,7 @@ export const pl_PL: EnTranslations = {
         "world": "Łup z zadań światowych",
         "pvp": "Sprzęt WOJEN"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Czekają na ciebie nagrody. Odwiedź Strażnika Skarbca w Eastbrook, aby je otworzyć i odebrać."
     },
     "ferry": {
       "regionLabel": "Rozkład promów",
@@ -2785,10 +2785,10 @@ export const pl_PL: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "Pozostaw światowe PvP włączone, aby zdobywać o {percent} więcej doświadczenia i reputacji frakcji. Premie kończą się, gdy poprosisz o wyłączenie.",
+      "rewardTitles": "Zdobywaj stałe tytuły po {thresholds} czasu gry z włączonym światowym PvP. Wylogowanie i odwiedziny na Wybrzeżu Prób wstrzymują licznik. Wyłączenie go zeruje.",
+      "rewardPaused": "Obecna seria PvP: {time} gry (wstrzymana na Wybrzeżu Prób)",
+      "rewardProgress": "Obecna seria PvP: {time} gry",
       "tab": "PvP Świata",
       "title": "PvP Świata",
       "blurb": "Podnieś swoją flagę, aby walczyć z innymi oznaczonymi graczami w całym otwartym świecie. Pokonaj jednego i zabierz część jego pieniędzy, plus Honor na ekwipunek Wojny. Pola Bitwy i Areny przynoszą więcej.",
@@ -2800,7 +2800,7 @@ export const pl_PL: EnTranslations = {
       "zoneContested": "Sporne tereny: mogą walczyć tylko oznaczeni gracze.",
       "zoneFfa": "Wolna gra dla wszystkich: każdy tutaj jest fair game.",
       "realmDisabled": "PvP Świata jest wyłączony na tym królestwie.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "Wybrzeże Prób jest jedynym sanktuarium: nie można tam włączyć światowego PvP ani walczyć z innymi graczami.",
       "groundContested": "Wszędzie indziej to tereny sporne: mogą walczyć tylko dwaj oznaczeni gracze.",
       "groundFfa": "Drakelands, Frostveil Reach i Amberfall to wolna gra dla wszystkich: każdy tam może walczyć, niezależnie od flagi.",
       "groupLine": "Członkowie drużyny i rajdu nigdy nie są sobie wrogami. Gildiomanie spoza twojej grupy mogą walczyć.",
@@ -8319,9 +8319,9 @@ export const pl_PL: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Zasady fair play",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "PvP w otwartym świecie jest dobrowolne i zależy od terenu. Na spornych terenach włączenie flagi czyni wrogami wszystkich oznaczonych graczy spoza twojej grupy lub rajdu; po wyłączeniu i krótkiej zwłoce znów jesteś obserwatorem. Wybrzeże Prób to jedyne sanktuarium bez światowych walk PvP. W trzech najbardziej północnych strefach każdy może walczyć z każdym, z flagą lub bez niej. Członkowie grupy i rajdu nigdy nie są wrogami; członkowie gildii poza twoją grupą są celami jak inni gracze.",
       "zonesHeading": "Gdzie walka PvP się odbywała",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Są trzy rodzaje terenu. Wybrzeże Prób to jedyne sanktuarium: nie ma tam światowego PvP i nie można włączyć flagi. Aktywna flaga pozostaje, ale czas gry liczony do tytułów jest wstrzymany do wyjścia. Dolina Wschodniego Strumienia i większość świata to tereny sporne, na których obowiązuje reguła flagi. Smocze Ziemie, Szronowa Kraina i Bursztynowa Dolina, trzy najbardziej północne strefy, pozwalają każdemu atakować każdego z flagą lub bez niej. Przy wejściu i wyjściu pojawia się komunikat. Zaatakowanie tam nieoznaczonego gracza włącza twoją flagę, więc napastnik ponosi ryzyko. Trafienie już oznaczonego gracza jej nie włącza: obrona siebie lub kogoś bez flagi nic cię nie kosztuje.",
       "flagBodyAid": "Wpisz /pvp w czacie lub otwórz okno PvP na G i użyj karty Światowego PvP, która również pokazuje twój wynik i stawki. Podniesienie flagi jest natychmiastowe, gdy już przejdziesz poziomy początkowe. Opuszczenie jej rozpoczyna odliczanie kilka minut, a flaga nie spadnie, gdy wciąż walczysz, więc wyłączenie nigdy nie jest ucieczką od walki, którą rozpocząłeś. Uzdrawianie, osłanianie lub wspieranie buforem oflagowanego gracza, który jest w walce, podnosi twoją własną flagę, więc nikt nie utrzymuje walczącego z tyłu flagi, którą nie nosisz; wspieranie gracza, który nie jest oflagowany, nic nie podnosi.",
       "stakesUnflaggedTake": "Ani niezaflagowany walczący nic nie dostaje: złoto zmienia właściciela wyłącznie między dwoma zaflagowanymi graczami, choć wszyscy, którzy pomogli, nadal zarabiają Honor.",
       "stakesBodyFlagged": "Kiedy oflagowany gracz zostaje pokonany przez innego gracza, przegrany płaci mały udział złota w swojej kieszonki, ograniczony do skromnej kwoty, a zwycięzcy zarabiają Honor na zbrój Wojenną. Gracz, który nie był oflagowany, wcale nie płaci złota, nawet gdy pada w strefie wolny-dla-wszystkich. Wszyscy, którzy pomogli, dzielą się obydwoma: zabójczym ciosem, każdy, kto skrzywdził cel niedługo wcześniej, i uzdrowiciele, którzy utrzymywali tych walczących. Czysta jeden na jeden płaci całą porcję; drużyna ją dzieli.",
@@ -12129,7 +12129,7 @@ export const pl_PL: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Przełącza automatyczny atak na cel. Kliknięcie wroga prawym przyciskiem również go atakuje.",
       "attackRemoveHint": "Kliknij prawym przyciskiem, aby usunąć z paska i zwolnić miejsce.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Przytrzymaj Shift i przeciągnij, aby przenieść",
       "emptySlot": "Puste pole",
       "slotAria": "Pole akcji {slot}: {ability}",
       "emptySlotAria": "Pole akcji {slot}: puste",
@@ -18458,7 +18458,7 @@ export const pl_PL: EnTranslations = {
         "name": "Personel Wojenny Awangardy"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Dziki kostur Awangardy"
       },
       "conjured_water4": {
         "name": "Wyczarowana woda źródlana"
@@ -24188,8 +24188,8 @@ export const pl_PL: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Skóra Krwawej Grzywy",
-        "bonus2": "Regeneracja umiejętności Szarży Bruina jest zmniejszona o 3 sek.",
-        "bonus4": "Szarża Bruina chroni Ciebie tarczą na 6 procent maksymalnego zdrowia na 6 sek."
+        "bonus2": "Skraca czas odnowienia umiejętności Wypad i Szarża Bruina o 3 s.",
+        "bonus4": "Skraca czas odnowienia umiejętności Sus o 15 s."
       },
       "vanguard_druid_restoration": {
         "name": "Szata Ostów w Rozkwicie",

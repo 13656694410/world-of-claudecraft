@@ -504,7 +504,7 @@ export const de_DE: EnTranslations = {
         "world": "Weltquest-Beute",
         "pvp": "Kriegsführungsausrüstung"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Belohnungen warten auf dich. Besuche den Tresorhüter in Eastbrook, um sie zu öffnen und abzuholen."
     },
     "ferry": {
       "regionLabel": "Fährfahrplan",
@@ -2785,10 +2785,10 @@ export const de_DE: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "Lasse Welt-PvP aktiv, um {percent} mehr Erfahrung und Fraktionsruf zu erhalten. Die Boni enden, sobald du die Deaktivierung anforderst.",
+      "rewardTitles": "Erhalte nach {thresholds} Spielzeit mit aktivem Welt-PvP dauerhafte Titel. Ausloggen und Besuche an der Bewährungsküste pausieren den Zähler. Deaktivieren setzt ihn zurück.",
+      "rewardPaused": "Aktuelle PvP-Serie: {time} Spielzeit (an der Bewährungsküste pausiert)",
+      "rewardProgress": "Aktuelle PvP-Serie: {time} Spielzeit",
       "tab": "Welt-PvP",
       "title": "Welt-PvP",
       "blurb": "Hebt Eure Flagge, um gegen andere markierte Spieler überall in der offenen Welt zu kämpfen. Besiegt einen und nehmt einen Teil seines Beutels, dazu Ehre für Kriegsführungsausrüstung. Schlachtfelder und Arenen zahlen weiterhin mehr.",
@@ -2800,7 +2800,7 @@ export const de_DE: EnTranslations = {
       "zoneContested": "Umkämpftes Gebiet: Hier kämpfen nur markierte Spieler.",
       "zoneFfa": "Jeder-gegen-Jeden-Gebiet: Hier ist jeder vogelfrei.",
       "realmDisabled": "Welt-PvP ist auf diesem Realm deaktiviert.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "Die Bewährungsküste ist das einzige Schutzgebiet: Dort kannst du weder Welt-PvP aktivieren noch andere Spieler bekämpfen.",
       "groundContested": "Überall sonst ist umkämpftes Gebiet: Nur zwei markierte Spieler können kämpfen.",
       "groundFfa": "Die Drakenlande, der Frostschleier und der Bernsteinfall sind Jeder-gegen-Jeden-Gebiete: Dort kann jeder kämpfen, markiert oder nicht.",
       "groupLine": "Gruppen- und Schlachtzugsmitglieder sind einander niemals feindlich gesinnt. Gildenmitglieder außerhalb Eurer Gruppe können kämpfen.",
@@ -8319,9 +8319,9 @@ export const de_DE: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Fair-Play-Regeln",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "Welt-PvP ist freiwillig und hängt vom Gebiet ab. Auf umkämpftem Boden macht deine aktive PvP-Flagge alle ebenfalls markierten Spieler außerhalb deiner Gruppe oder deines Schlachtzugs zu Gegnern. Senkst du sie, bist du nach kurzer Verzögerung wieder Zuschauer. Die Bewährungsküste ist das einzige Schutzgebiet ohne Welt-PvP. In den drei nördlichsten Gebieten gilt jeder gegen jeden, mit oder ohne Flagge. Gruppen- und Schlachtzugsmitglieder sind niemals Gegner; Gildenmitglieder außerhalb deiner Gruppe sind wie andere Spieler angreifbar.",
       "zonesHeading": "Wo Welt-PvP stattfindet",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Es gibt drei Gebietstypen. Die Bewährungsküste ist das einzige Schutzgebiet: kein Welt-PvP und kein Aktivieren der Flagge. Eine bereits aktive Flagge bleibt aktiv, aber die Spielzeit für Titel pausiert bis zum Verlassen. Eastbrook-Tal und der Großteil der Welt sind umkämpft und folgen der Flaggenregel. Die Drakenlande, Der Frostschleier und Der Bernsteinfall, die drei nördlichsten Gebiete, erlauben jeden gegen jeden: Alle können einander mit oder ohne Flagge angreifen. Beim Betreten und Verlassen erscheint ein Hinweis. Greifst du dort einen unmarkierten Spieler an, aktiviert sich deine Flagge, sodass der Angreifer das Risiko trägt. Einen bereits markierten Spieler zu treffen aktiviert sie nicht: Dich selbst oder einen unmarkierten Spieler zu verteidigen kostet dich nichts.",
       "flagBodyAid": "Tippe /pvp im Chat, oder öffne das PvP-Fenster mit G und nutze den Reiter Welt-PvP, der auch deine Bilanz und den Einsatz zeigt. Das Setzen der Flagge geschieht sofort, sobald du die Startstufen hinter dir hast. Das Senken startet einen Countdown von wenigen Minuten, und die Flagge fällt nicht, solange du noch kämpfst, sodass das Abschalten nie eine Flucht aus einem Kampf ist, den du begonnen hast. Einen geflaggten Spieler, der kämpft, zu heilen, zu schilden oder zu verzaubern, setzt auch deine eigene Flagge, sodass niemand einen Kämpfer aus dem Schutz einer Flagge unterstützt, die er selbst nicht trägt; einem nicht geflaggten Spieler zu helfen setzt keine.",
       "stakesUnflaggedTake": "Ein nicht geflaggter Kämpfer nimmt ebenfalls keins: Gold wechselt nur zwischen zwei geflaggten Spielern den Besitzer, wenngleich alle, die geholfen haben, weiterhin die Ehre verdienen.",
       "stakesBodyFlagged": "Wird ein geflaggter Spieler von einem anderen Spieler besiegt, zahlt der Verlierer einen kleinen Anteil des Goldes in seinem Beutel, gedeckelt auf einen bescheidenen Betrag, und die Sieger verdienen Ehre für Kriegsführungsausrüstung. Ein nicht geflaggter Spieler zahlt überhaupt kein Gold, selbst wenn er in einer Jeder-gegen-jeden-Zone fällt. Alle, die geholfen haben, teilen sich beides: der tödliche Treffer, jeder, der das Ziel kurz zuvor beschädigt hat, und die Heiler, die diese Kämpfer auf den Beinen hielten. Ein sauberes Eins-gegen-eins zahlt den ganzen Einsatz; eine Gruppe teilt ihn sich.",
@@ -12129,7 +12129,7 @@ export const de_DE: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Schaltet den automatischen Angriff auf Euer Ziel um. Ein Rechtsklick auf einen Gegner greift ebenfalls an.",
       "attackRemoveHint": "Rechtsklick, um es von der Leiste zu entfernen und den Slot freizugeben.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Zum Verschieben Umschalt gedrückt halten und ziehen",
       "emptySlot": "Leerer Platz",
       "slotAria": "Aktionsplatz {slot}: {ability}",
       "emptySlotAria": "Aktionsplatz {slot}: leer",
@@ -18458,7 +18458,7 @@ export const de_DE: EnTranslations = {
         "name": "Kriegsstab der Vorhut"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Wildheitsstab der Vorhut"
       },
       "conjured_water4": {
         "name": "Herbeigezaubertes Quellwasser"
@@ -24188,8 +24188,8 @@ export const de_DE: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Blutmähnen-Fell",
-        "bonus2": "Die Abklingzeit von Bruin-Ansturm wird um 3 Sek. verkürzt.",
-        "bonus4": "Bruin-Ansturm gewährt dir 6 Sek. lang einen Schild in Höhe von 6 Prozent deiner maximalen Gesundheit."
+        "bonus2": "Verringert die Abklingzeiten von Ansprung und Bruin-Ansturm um 3 Sek.",
+        "bonus4": "Verringert die Abklingzeit von Sprint um 15 Sek."
       },
       "vanguard_druid_restoration": {
         "name": "Distelblüten-Gewand",

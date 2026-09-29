@@ -1861,9 +1861,9 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus4':
     'Att kasta Gripande rötter låter dig kasta medan du rör dig och ökar din rörelse med 20 procent i 4 sec. Kan inte inträffa mer än en gång var 20 sec.',
   'entities.itemSets.vanguard_druid_balance.name': 'Starwarden Raiment',
-  'entities.itemSets.vanguard_druid_feral.bonus2': 'Bruinrusningens nedräkning minskas med 3 sec.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Bruinrusning skyddar dig för 6 procent av din maximala hälsa i 6 sec.',
+  'entities.itemSets.vanguard_druid_feral.bonus2':
+    'Minskar nedkylningstiderna för Utfall och Bruinrusning med 3 sek.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Minskar nedkylningstiden för Rusa med 15 sek.',
   'entities.itemSets.vanguard_druid_feral.name': 'Bloodmane Hide',
   'entities.itemSets.vanguard_druid_restoration.bonus2': 'Fleetmends nedräkning minskas med 1 sec.',
   'entities.itemSets.vanguard_druid_restoration.bonus4':
@@ -19775,4 +19775,20 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Håll Skift och dra för att flytta',
+  'entities.items.vanguard_feral_staff.name': 'Förtruppens vilda stav',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Belöningar väntar. Besök Valvförvaltaren i Eastbrook för att öppna och hämta dem.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Prövostranden är den enda fristaden: där kan du inte aktivera världs-PvP eller slåss mot andra spelare.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Ha världs-PvP aktiverat för att få {percent} mer erfarenhet och fraktionsrykte. Bonusarna upphör när du begär att stänga av det.',
+  'hudChrome.worldPvp.rewardPaused': 'Nuvarande PvP-svit: {time} spelat (pausad på Prövostranden)',
+  'hudChrome.worldPvp.rewardProgress': 'Nuvarande PvP-svit: {time} spelat',
+  'hudChrome.worldPvp.rewardTitles':
+    'Få permanenta titlar efter {thresholds} speltid med världs-PvP aktiverat. Utloggning och besök på Prövostranden pausar räknaren. Avstängning nollställer den.',
+  'guide.worldPvpPage.introZones':
+    'PvP i den öppna världen är frivilligt och beror på området. På omstridd mark gör din aktiva PvP-flagga alla flaggade spelare utanför din grupp eller raid till fiender; stänger du av den blir du åskådare igen efter en kort fördröjning. Prövostranden är den enda fristaden utan världsstrider. De tre nordligaste områdena har alla mot alla, med eller utan flagga. Grupp- och raidkamrater är aldrig fiender; guildmedlemmar utanför din grupp är mål som alla andra.',
+  'guide.worldPvpPage.zonesBody':
+    'Det finns tre områdestyper. Prövostranden är den enda fristaden: inget världs-PvP och du kan inte aktivera flaggan. En redan aktiv flagga förblir aktiv, men speltiden för titlar pausas tills du lämnar området. Östbäcksdalen och större delen av världen är omstridda och följer flaggregeln. Drakländerna, Frostslöjans vidder och Bärnstensfallet, de tre nordligaste områdena, har alla mot alla: alla kan anfalla varandra med eller utan flagga. Du meddelas när du går in och ut. Att anfalla en oflaggad spelare där aktiverar din flagga, så angriparen tar risken. Att träffa en redan flaggad spelare aktiverar den inte: att försvara dig själv eller någon utan flagga kostar dig inget.',
 };

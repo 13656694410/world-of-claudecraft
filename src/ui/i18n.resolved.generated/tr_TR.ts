@@ -504,7 +504,7 @@ export const tr_TR: EnTranslations = {
         "world": "Dünya görevi hazinesi",
         "pvp": "SAVAŞ donanımı"
       },
-      "previewClaimNotice": "Rewards are waiting. Visit the Vault Keeper in Eastbrook to open and claim."
+      "previewClaimNotice": "Ödüller seni bekliyor. Açıp almak için Eastbrook’taki Hazine Sakçısını ziyaret et."
     },
     "ferry": {
       "regionLabel": "Feribot tarifesi",
@@ -2785,10 +2785,10 @@ export const tr_TR: EnTranslations = {
       }
     },
     "worldPvp": {
-      "rewardBonus": "Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.",
-      "rewardTitles": "Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.",
-      "rewardPaused": "Current PvP streak: {time} played (paused on the Proving Shore)",
-      "rewardProgress": "Current PvP streak: {time} played",
+      "rewardBonus": "{percent} daha fazla deneyim ve fraksiyon itibarı kazanmak için Dünya PvP’sini açık tut. Kapatmayı talep ettiğinde bonuslar sona erer.",
+      "rewardTitles": "Dünya PvP’si açıkken {thresholds} oynama süresine ulaşarak kalıcı unvanlar kazan. Çıkış yapmak ve Sınav Kıyısı’nı ziyaret etmek sayacı duraklatır. Kapatmak sayacı sıfırlar.",
+      "rewardPaused": "Mevcut PvP serisi: {time} oynandı (Sınav Kıyısı’nda duraklatıldı)",
+      "rewardProgress": "Mevcut PvP serisi: {time} oynandı",
       "tab": "Dünya PvP",
       "title": "Dünya PvP",
       "blurb": "Bayrağını kaldır ve bayraklı diğer oyuncularla açık dünyada savaş. Birini yene ve hazinesinin bir kısmını al, ayrıca Savaş donanımına karşı Onur kazan. Muharebe Alanları ve Arenalar daha çok ödeme yapar.",
@@ -2800,7 +2800,7 @@ export const tr_TR: EnTranslations = {
       "zoneContested": "Tartışılı zemin: sadece bayraklı oyuncular burada savaşır.",
       "zoneFfa": "Serbest oyun zemin: orada herkes oyun kurallarına tabi.",
       "realmDisabled": "Bu alemdeki Dünya PvP devre dışıdır.",
-      "groundSanctuary": "The Proving Shore is the only sanctuary: you cannot enable World PvP or fight other players there.",
+      "groundSanctuary": "Sınav Kıyısı tek sığınaktır: orada Dünya PvP’sini açamaz veya diğer oyuncularla savaşamazsın.",
       "groundContested": "Başka yerlerde tartışılı: sadece iki bayraklı oyuncu savaşabilir.",
       "groundFfa": "Drakelands, Frostveil Reach ve Amberfall serbest oyun alanıdır: orada herkes savaşabilir, bayraklı olsun ya da olmasın.",
       "groupLine": "Grup ve rezzalı arkadaşlar asla birbirlerine düşman değildir. Loncandaki diğer oyuncular savaşabilir.",
@@ -8319,9 +8319,9 @@ export const tr_TR: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Adil Oyun Kuralları",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Open-world player-versus-player is opt-in, and the ground you are standing on decides what that means. Raise your PvP flag and every other flagged player who is not in your party or raid becomes an enemy on contested ground; lower it and, after a short delay, you are a bystander again. The Proving Shore is the only sanctuary, where no world fighting happens at all, and the three northernmost zones are free-for-all ground where everyone present is fair game, flag or no flag. Party and raid mates are never enemies of yours anywhere; guildmates outside your group are fair game like anyone else.",
+      "introZones": "Açık dünyada PvP isteğe bağlıdır ve bulunduğun bölgeye göre değişir. Çekişmeli bölgelerde PvP bayrağını açınca grup veya baskının dışındaki bayraklı oyuncular düşman olur; kapatınca kısa bir gecikmenin ardından yeniden seyirci olursun. Sınav Kıyısı, dünya savaşlarının olmadığı tek sığınaktır. En kuzeydeki üç bölge herkesin herkese karşı olduğu alanlardır; bayrak olsun olmasın herkes hedeftir. Grup ve baskın arkadaşların hiçbir yerde düşmanın olmaz; grubun dışındaki lonca üyeleri diğer oyuncular gibi hedeftir.",
       "zonesHeading": "Dünya PvP'si Nerede Olur",
-      "zonesBody": "The world has three kinds of ground. The Proving Shore is the only sanctuary: no world PvP happens there, and you cannot raise your flag. An existing flag stays on, but its played-time title progress pauses until you leave. Eastbrook Vale is contested. Most of the world is contested, where the flag rule above is the whole story. The Drakelands, the Frostveil Reach and the Amberfall, the three northernmost zones, are free-for-all ground: everyone standing in them can attack everyone else standing in them, with or without a flag, and you are told as you cross in and again as you leave. Attacking a player who is not flagged there raises your own flag, so an aggressor always ends up carrying the risk. Hitting a player who is already flagged never raises it, which means defending yourself, or defending somebody who is not flagged, costs you nothing.",
+      "zonesBody": "Üç tür bölge vardır. Sınav Kıyısı tek sığınaktır: Dünya PvP’si yoktur ve bayrağını açamazsın. Açık bayrak açık kalır, ancak unvanlar için oynama süresi ayrılana kadar duraklar. Doğudere Vadisi ve dünyanın çoğu çekişmelidir, bayrak kuralı geçerlidir. En kuzeydeki Ejder Toprakları, Kırağı Diyarı ve Kehribar Vadisi’da herkes, bayraklı ya da bayraksız, birbirine saldırabilir. Girişte ve çıkışta uyarı alırsın. Orada bayraksız oyuncuya saldırmak kendi bayrağını açar; saldırgan daima risk alır. Zaten bayraklı oyuncuya vurmak bayrağını açmaz; kendini veya bayraksız birini savunmanın sana bedeli yoktur.",
       "flagBodyAid": "Sohbete /pvp yazın ya da G'ye PvP penceresini açın ve Dünya PvP sekmesi kullanın, aynı zamanda kaydınızı ve riskleri gösterir. Bayrağı kaldırmak başlangıç seviyelerinden sonra anında. Kapatmak birkaç dakika sayacı başlatır, ve bayrağı hala dövüştüğünüz sürece düşmez, böylece kapatmak hiçbir zaman başlattığınız dövüşten kaçış değildir. Bir bayraklı oyuncu dövüştüğünde iyileştirme, kalkan ya da buff verme sizin bayrağınızı da yükseltirir, böylece kimse giymedikleri bayrağın arkasından bir dövüşçüyü sürdürmez; bayraklı olmayan oyuncu aidaysa hiçbir şey yükselmez.",
       "stakesUnflaggedTake": "Bayraklanmamış bir savaşçı da hiçbir şey almaz: altın yalnızca iki bayraklı oyuncu arasında değişir, ancak yardım eden herkes yine de Onur kazanır.",
       "stakesBodyFlagged": "Bayraklı oyuncu başka bir oyuncu yenildiğinde, kaybeden cüzdanında altının küçük hissesini öder, ölçülü tutarla sınırlı, ve kazananlar Savaş Ekipmesi yönü Onur kazanırlar. Bayraklı olmayan oyuncu serbest oyun alanında bile düşüp hiçbir altın ödemez. Herkes yardımseverce hisse: öldürme darbesi, geçenlerde hedef hasar herkes ve bu dövüşçüleri ayakta tutulan iyileştiriciler. Temiz bire bir bütün potayı öder; bir grup bölünür.",
@@ -12129,7 +12129,7 @@ export const tr_TR: EnTranslations = {
       "cooldownMinutes": "{minutes}d",
       "attackTooltip": "Hedefine otomatik saldırıyı aç/kapat. Bir düşmana sağ tıklamak da saldırır.",
       "attackRemoveHint": "Çubuktan kaldırıp yuvayı serbest bırakmak için sağ tıkla.",
-      "moveHint": "Shift-drag to move",
+      "moveHint": "Taşımak için Shift tuşunu basılı tutup sürükle",
       "emptySlot": "Boş yuva",
       "slotAria": "Eylem yuvası {slot}: {ability}",
       "emptySlotAria": "Eylem yuvası {slot}: boş",
@@ -18458,7 +18458,7 @@ export const tr_TR: EnTranslations = {
         "name": "Öncü'nün Savaş Asası"
       },
       "vanguard_feral_staff": {
-        "name": "Vanguard's Feral Staff"
+        "name": "Öncünün Yaban Asası"
       },
       "conjured_water4": {
         "name": "Sihirle Yaratılmış Kaynak Suyu"
@@ -24188,8 +24188,8 @@ export const tr_TR: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Kan Yeleleri Gizliliği",
-        "bonus2": "Bruin Rush'ın bekleme süresi 3 san azalır.",
-        "bonus4": "Bruin Rush seni maksimum sağlığının %6'sı için 6 saniye kalkan ile korur."
+        "bonus2": "Atılış ve Bruin Hücumu bekleme sürelerini 3 sn azaltır.",
+        "bonus4": "Atılma bekleme süresini 15 sn azaltır."
       },
       "vanguard_druid_restoration": {
         "name": "Thistle Çiçek Koruma",
