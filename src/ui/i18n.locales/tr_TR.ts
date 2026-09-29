@@ -1253,22 +1253,22 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
     'Diğer bayraklı oyuncular seni her yerde saldırabiliyor ve kazandıklarında hazinenden en fazla {cap} alabilirler. Yeniden kapatabilirsin ama {minutes} dakika alır.',
   'hudChrome.worldPvp.confirmCancel': 'İptal',
   'hudChrome.worldPvp.disable': "Dünya PvP'yi Devre Dışı Bırak",
-  'hudChrome.worldPvp.disarmLine': 'Kapanması {minutes} dakika alır ve savaşın bitmesini bekler.',
+  'hudChrome.worldPvp.disarmLine':
+    'Kapanması {minutes} dakika sürer ve aktif tepeden ayrılmanı ve savaşın bitmesini bekler.',
   'hudChrome.worldPvp.enable': "Dünya PvP'yi Etkinleştir",
   'hudChrome.worldPvp.greyLine': 'Senden {levels} seviye daha düşük oyuncular hiçbir şey ödemez.',
   'hudChrome.worldPvp.groundContested':
     'Başka yerlerde tartışılı: sadece iki bayraklı oyuncu savaşabilir.',
   'hudChrome.worldPvp.groundFfa':
-    'Drakelands, Frostveil Reach ve Amberfall serbest oyun alanıdır: orada herkes savaşabilir, bayraklı olsun ya da olmasın.',
+    'Ejder Toprakları, Kırağı Diyarı ve Kehribar Vadisi normal PvP bayraklarını kullanır. Tepe Derdine etkinliğinin aktif çemberine girmek bayrağını açar.',
   'hudChrome.worldPvp.groupLine':
     'Grup ve rezzalı arkadaşlar asla birbirlerine düşman değildir. Loncandaki diğer oyuncular savaşabilir.',
   'hudChrome.worldPvp.honorLine': 'Öldürme başına {honor} Onur, yardımcılar arasında bölünür.',
   'hudChrome.worldPvp.keepUp': 'Bayrağı Açık Tutma',
   'hudChrome.worldPvp.levelReq': '{level} seviye gerektirir.',
   'hudChrome.worldPvp.markLine':
-    'Orada bayraklı olmayan bir oyuncuya saldırmak senin bayrağını kaldırır; bayraklı birine saldırmak hiçbir zaman yapmaz.',
-  'hudChrome.worldPvp.noStakeLine':
-    'Serbest oyun alanında öldürülen bayraklı olmayan oyuncu altın kaybetmez.',
+    "Aktif tepe çemberine girmek Dünya PvP'yi açar. Çemberden ayrılınca bayrağın açık kalır.",
+  'hudChrome.worldPvp.noStakeLine': 'Bayraksız oyunculara açık dünyada saldırılamaz.',
   'hudChrome.worldPvp.noTakeLine':
     'Bayraklı olmayan savaşçı da altın kaybetmez: sadece iki bayraklı oyuncu arasında hareket eder.',
   'hudChrome.worldPvp.pending': 'Alemden PvP durumunu bekliyoruz.',
@@ -2278,7 +2278,7 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
   'guide.combat.unstuckBodyWindow':
     "Dünya seni bir yandan çıkamayacağın bir yere tuzaklayarsa, /unstuck yazın. Savaşın dışında ve sabit durmalısın, bir bayıltı ya da kök tarafından tutulmuş değilsin, ve bir düello ya da arena maçında değilsin: kısa bir sayaç çalışır, ve hareket etmek ya da hasar almak iptal eder. Bittiğinde, en yakın mezarlığa kurulursun. Hiç seni öldürmez ve ceset bırakmaz, ve zaten yatmıştaysan seni orada yerine getirir. Bir saat içinde ilk kullanım parasız. Birden fazla kullanımdan bir saat içinde yeniden kullanırsanız, ücret Sıkışmış Rahatsızlığı olur, geçici zayıflama, komutunu tekrar kullanabileceğin zamana kadar aşındı, ve Sakçı'nın Vergisi gibi, tamamen yeni karakterleri tamamen affeder.",
   'guide.commandsPage.pvpZones':
-    'Dünya PvP Bayrağı: /pvp geçer, /pvp on ve /pvp off ayarlar. Bayraklı oyuncular tartışmalı araziyi birbirlerine dövüşebilir, kutsal alanlar hiç dünya dövüşüne izin vermez, ve serbest oyun alanları bayrak olsun veya olmasın buna izin verir; kapatmak 5 dakika gerektirir.',
+    'Dünya PvP bayrağı: /pvp durumunu değiştirir, /pvp on açar ve /pvp off kapatır. Bayraklı oyuncular çekişmeli bölgelerde birbirleriyle savaşabilir, sığınaklarda dünya savaşlarına hiç izin verilmez ve Tepe Derdine etkinliğinin aktif çemberine girmek bayrağını açar; kapanması 5 dakika sürer.',
   'guide.commandsPage.unstuckWindow':
     "Dünya seni tuzaklayıverdiğinde yolu. Kısa bir sayaç boyunca sabit durun ve en yakın mezarlığa taşınırsınız ve orada zaten düşmüş iseniz yükseltilirsiniz. Bir saat içinde ilk kullanım ücretsizdir. Birden fazla kullanımdan bir saat içinde yeniden kullanırsanız, bir süre sonra Sıkışmış Rahatsızlığı'ndan zayıflanmışsınız kalırsınız, bu nedenle kurtarma yerine bir kısayol değildir.",
   'guide.factionsPage.automatonsBody':
@@ -2349,13 +2349,13 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.flagHeading': 'Bayrağı Kaldırma ve Alçaltma',
   'guide.worldPvpPage.heading': 'Dünya PvP',
   'guide.worldPvpPage.hillBodyRamp':
-    'Üç saatte bir, hiç kimsenin tahmin edemediği bir anda, tüm krallığa bir tepe serbest oyun alanlarından birinde on beş dakika içinde yükselecek söylenir ve üzerinde durduğu daire açık arazide işaretlenir. Yükseldiğinde kırk beş dakika durur, sonra düşer. Çoğu oyuncu içinde duran taraf tepeyi yarışır, ve kırılmaz çoğunluk dakikası sonra tepe onlarındır; yalnız oyuncu kendisinin partisidir, ama raid üyeleri hiç saymaz. Bir taraf tepeyi tutarken, içinde duran üyeleri dakikada Her Zaman Onur kazanır, ve aynı taraf onu ne kadar uzun tutarsa, her dakika ne kadar çoğu ödediğini: tam taraf tutmuş çekişmeli olmayan bir tepesinin tümü kadar bir saat üç zafer ve oyun kazancı. Tepe el değiştirdiğinde, yeni sahipçiler baştan başlar. Sahası üzerinde bir çubuk onu tutar, sayılarınız onlarına karşı, ve yarış saati; sohbete /hill nerede durduğunu söyler.',
+    "Her iki saatte bir Ejder Toprakları, Kırağı Diyarı veya Kehribar Vadisi'nde bir tepe belirir. Diyara on beş dakika önceden uyarı verilir ve çember açık arazide işaretlenir. Tepe otuz dakika aktif kalır. Aktif çembere girmek, baskın üyeleri dahil herkesin Dünya PvP bayrağını normal seviye kurallarına göre açar. İçeride en çok uygun oyuncusu bulunan grup, çoğunluğunu kesintisiz bir dakika koruduktan sonra tepeyi ele geçirir; tek başına oynayan biri tek kişilik grup sayılır, ancak baskın üyeleri ve PvP seviye şartının altındaki oyuncular tepeyi ele geçiremez veya tepeden Onur kazanamaz. İçeride duran her hâkim grup üyesi giderek artan hızda Onur kazanır. Ödemeler daha sık yapılır ve daha hızlı artar; böylece eski kırk beş dakikalık etkinliğin toplam Onur miktarı korunur. Tepe el değiştirdiğinde ödül artışı baştan başlar. Çemberden ayrılınca bayrağın açık kalır; /pvp off normal beş dakikalık gecikmeyi kullanır ve aktif tepenin içindeyken veya savaş sırasında tamamlanamaz. Tepe çubuğu kontrolü, oyuncu sayılarını ve ele geçirme ilerlemesini gösterir; /hill konumunu bildirir.",
   'guide.worldPvpPage.hillHeading': 'Tepe Derdine',
   'guide.worldPvpPage.limitsBodyRaids':
     'Aynı oyuncu tekrar tekrar mağlup etmek daha az az çoğu zaman hiçbir şey öder, ve o oyuncu yönü sayarınız ilk öldürülerinden bir saat sonra baştan başlar, böylece bir kurban değerli bekleme beklemez. Seviyeniz çok aşağı bir hedef hiçbir şey öder. Dövüşlü Alanları ve Arenalar onlara içinde iken kendi kuralları yürütür, ve açık dünyaya daha fazla Onur ödedikleri, böylece dünya PvP aynı satıcıya yavaş yoldur. Raid dünya öldürüleridaten hiç almaz: bir raid üyesi Onur ya da altın almaz ve başkasının hissesini kabusmaz, böylece parti olarak dövüş almak için ödenir.',
   'guide.worldPvpPage.limitsHeading': 'Adil Oyun Kuralları',
   'guide.worldPvpPage.stakesBodyFlagged':
-    'Bayraklı oyuncu başka bir oyuncu yenildiğinde, kaybeden cüzdanında altının küçük hissesini öder, ölçülü tutarla sınırlı, ve kazananlar Savaş Ekipmesi yönü Onur kazanırlar. Bayraklı olmayan oyuncu serbest oyun alanında bile düşüp hiçbir altın ödemez. Herkes yardımseverce hisse: öldürme darbesi, geçenlerde hedef hasar herkes ve bu dövüşçüleri ayakta tutulan iyileştiriciler. Temiz bire bir bütün potayı öder; bir grup bölünür.',
+    'Bayraklı bir oyuncu başka bir oyuncuya yenildiğinde, kaybeden kesesindeki altının küçük bir bölümünü, makul bir üst sınırı aşmayacak şekilde öder ve kazananlar Savaş ekipmanı için Onur kazanır. Bayraksız bir oyuncuya açık dünyada saldırılamaz. Yardım eden herkes hem altından hem Onurdan pay alır: son darbeyi vuran oyuncu, kısa süre önce hedefe hasar verenler ve bu savaşçıları ayakta tutan şifacılar. Tamamen bire bir geçen bir dövüşte ödülün tamamı kazanana gider; bir grup ise ödülü paylaşır.',
   'guide.worldPvpPage.stakesHeading': 'Bir Ölümün Değeri',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Bayraklanmamış bir savaşçı da hiçbir şey almaz: altın yalnızca iki bayraklı oyuncu arasında değişir, ancak yardım eden herkes yine de Onur kazanır.',
@@ -19780,7 +19780,11 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardTitles':
     'Dünya PvP’si açıkken {thresholds} oynama süresine ulaşarak kalıcı unvanlar kazan. Çıkış yapmak ve Sınav Kıyısı’nı ziyaret etmek sayacı duraklatır. Kapatmak sayacı sıfırlar.',
   'guide.worldPvpPage.introZones':
-    'Açık dünyada PvP isteğe bağlıdır ve bulunduğun bölgeye göre değişir. Çekişmeli bölgelerde PvP bayrağını açınca grup veya baskının dışındaki bayraklı oyuncular düşman olur; kapatınca kısa bir gecikmenin ardından yeniden seyirci olursun. Sınav Kıyısı, dünya savaşlarının olmadığı tek sığınaktır. En kuzeydeki üç bölge herkesin herkese karşı olduğu alanlardır; bayrak olsun olmasın herkes hedeftir. Grup ve baskın arkadaşların hiçbir yerde düşmanın olmaz; grubun dışındaki lonca üyeleri diğer oyuncular gibi hedeftir.',
+    'Açık dünyada PvP isteğe bağlıdır ve bulunduğun bölgeye göre değişir. Çekişmeli bölgelerde PvP bayrağını açınca grup veya baskının dışındaki tüm bayraklı oyuncular düşman olur; kapatınca kısa bir gecikmenin ardından yeniden seyirci olursun. Sınav Kıyısı, dünya savaşlarının olmadığı tek sığınaktır ve en kuzeydeki üç bölge de dünyanın geri kalanıyla aynı isteğe bağlı bayrak kurallarını kullanır. Tepe Derdine etkinliğinin aktif çemberine girmek bayrağını otomatik olarak açar. Grup ve baskın arkadaşların hiçbir yerde düşmanın olmaz; grubun dışındaki lonca üyeleri diğer oyuncular gibi hedeftir.',
   'guide.worldPvpPage.zonesBody':
-    'Üç tür bölge vardır. Sınav Kıyısı tek sığınaktır: Dünya PvP’si yoktur ve bayrağını açamazsın. Açık bayrak açık kalır, ancak unvanlar için oynama süresi ayrılana kadar duraklar. Doğudere Vadisi ve dünyanın çoğu çekişmelidir, bayrak kuralı geçerlidir. En kuzeydeki Ejder Toprakları, Kırağı Diyarı ve Kehribar Vadisi’da herkes, bayraklı ya da bayraksız, birbirine saldırabilir. Girişte ve çıkışta uyarı alırsın. Orada bayraksız oyuncuya saldırmak kendi bayrağını açar; saldırgan daima risk alır. Zaten bayraklı oyuncuya vurmak bayrağını açmaz; kendini veya bayraksız birini savunmanın sana bedeli yoktur.',
+    'Sınav Kıyısı tek sığınaktır: burada Dünya PvP savaşı olmaz ve bayrağını açamazsın. Açık olan bayrağın açık kalır, ancak oynama süresine bağlı unvan ilerlemen buradan ayrılana kadar duraklar. Ejder Toprakları, Kırağı Diyarı ve Kehribar Vadisi dahil diğer tüm yerlerde yalnızca bayraklı oyuncular savaşabilir. Normal seviye şartını karşılıyorsan Tepe Derdine etkinliğinin aktif çemberine girmek bayrağını otomatik olarak açar. Uyarı çemberi bayrağını açmaz. Aktif çemberden ayrılınca bayrağın açık kalır; normal beş dakikalık geri sayımı başlatmak için /pvp off kullan. Aktif tepenin içindeyken veya hâlâ savaştayken bu geri sayım tamamlanamaz.',
+  'guide.worldPvpPage.hillBody':
+    "Her iki saatte bir Ejder Toprakları, Kırağı Diyarı veya Kehribar Vadisi'nde bir tepe belirir. Diyara on beş dakika önceden uyarı verilir ve çember açık arazide işaretlenir. Tepe otuz dakika aktif kalır. Aktif çembere girmek, baskın üyeleri dahil herkesin Dünya PvP bayrağını normal seviye kurallarına göre açar. İçeride en çok uygun oyuncusu bulunan grup, çoğunluğunu kesintisiz bir dakika koruduktan sonra tepeyi ele geçirir; tek başına oynayan biri tek kişilik grup sayılır, ancak baskın üyeleri ve PvP seviye şartının altındaki oyuncular tepeyi ele geçiremez veya tepeden Onur kazanamaz. İçeride duran her hâkim grup üyesi giderek artan hızda Onur kazanır. Ödemeler daha sık yapılır ve daha hızlı artar; böylece eski kırk beş dakikalık etkinliğin toplam Onur miktarı korunur. Tepe el değiştirdiğinde ödül artışı baştan başlar. Çemberden ayrılınca bayrağın açık kalır; /pvp off normal beş dakikalık gecikmeyi kullanır ve aktif tepenin içindeyken veya savaş sırasında tamamlanamaz. Tepe çubuğu kontrolü, oyuncu sayılarını ve ele geçirme ilerlemesini gösterir; /hill konumunu bildirir.",
+  'hudChrome.hill.pvpEntry': "Aktif çembere girmek Dünya PvP'yi açar.",
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

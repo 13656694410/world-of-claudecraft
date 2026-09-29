@@ -10,14 +10,14 @@ import { MEDIA_ASSETS } from '../src/render/assets/manifest.generated';
 
 const ROOT = path.join(__dirname, '..');
 const URL = 'models/props/hoard_entrance.glb';
-const SHA = 'f5cc087289c88cf39aba09c7633685206a7f60fb562c26cd55790a64410830fb';
+const SHA = '2690b9f1c3c99d12b93d4370b225dc363a5baaa16cf7eae6b80a2d77adf6eb4c';
 const BYTES = 93520;
 // Re-exported at each release/v0.44.0 merge into feature/buried-hoards: the
 // release moved pnpm-lock.yaml (a fingerprinted build input; at the 2026-09-28
 // merge, the patched three's patch hash), so the GLB was rebuilt with
 // export_hoard_entrance.mjs; only the embedded source fingerprint moved (same
 // geometry, same byte length).
-const FINGERPRINT = '91ee0723e2fc21bb49593e3914ca55a76f5a2bbdd5d4534d4b009af79c924d49';
+const FINGERPRINT = '1780c691b380c7a0b08bdc8f3f757ed803da287061c684445078f3f2588808ac';
 
 describe('Buried Hoard entrance shipping asset', () => {
   it('pins exact bytes, live authoring fingerprint and manifest version', async () => {

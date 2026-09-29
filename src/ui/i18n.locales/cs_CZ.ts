@@ -1255,21 +1255,22 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
     'Ostatní hráči se zvednutou vlajkou tě budou moct napadnout kdekoli a při výhře ti vzít až {cap} z měšce. Můžeš to zase vypnout, ale trvá to {minutes} minut.',
   'hudChrome.worldPvp.confirmCancel': 'Zrušit',
   'hudChrome.worldPvp.disable': 'Vypnout světové PvP',
-  'hudChrome.worldPvp.disarmLine': 'Vypnutí trvá {minutes} minut a čeká na konec boje.',
+  'hudChrome.worldPvp.disarmLine':
+    'Vypnutí trvá {minutes} minut a čeká, až opustíte aktivní kopec a skončí boj.',
   'hudChrome.worldPvp.enable': 'Zapnout světové PvP',
   'hudChrome.worldPvp.greyLine': 'Hráči o víc než {levels} úrovní níž než ty neplatí nic.',
   'hudChrome.worldPvp.groundContested':
     'Všude jinde je území sporné: bojovat mohou jen dva hráči se zvednutou vlajkou.',
   'hudChrome.worldPvp.groundFfa':
-    'Dračí země, Kraj Mrazivého závoje a Jantarový pád jsou volné území: tam může bojovat kdokoli, s vlajkou i bez ní.',
+    'Dračí země, Kraj Mrazivého závoje a Jantarový pád používají běžné příznaky PvP. Vstup do aktivního kruhu Krále kopce zapne váš příznak.',
   'hudChrome.worldPvp.groupLine':
     'Členové skupiny a raidu vůči sobě nikdy nejsou nepřátelští. Cechovní spolubojovníci mimo tvou skupinu mohou bojovat.',
   'hudChrome.worldPvp.honorLine': '{honor} cti za zabití, rozděleno mezi všechny, kdo pomohli.',
   'hudChrome.worldPvp.keepUp': 'Nechat vlajku nahoře',
   'hudChrome.worldPvp.levelReq': 'Vyžaduje úroveň {level}.',
   'hudChrome.worldPvp.markLine':
-    'Napadení hráče bez vlajky tam zvedne tvou vlastní vlajku; napadení hráče se zvednutou vlajkou ji nezvedne nikdy.',
-  'hudChrome.worldPvp.noStakeLine': 'Hráč bez vlajky zabitý na volném území neztrácí žádné zlato.',
+    'Vstup do aktivního kruhu kopce zapne světové PvP. Po opuštění kruhu zůstává příznak zapnutý.',
+  'hudChrome.worldPvp.noStakeLine': 'Neoznačené hráče nelze v otevřeném světě napadnout.',
   'hudChrome.worldPvp.noTakeLine':
     'Bojovník bez vlajky také nezískává žádné zlato: to se přesouvá jen mezi dvěma hráči se zvednutou vlajkou.',
   'hudChrome.worldPvp.pending': 'Čeká se na tvůj PvP stav od říše.',
@@ -2287,7 +2288,7 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'guide.combat.unstuckBodyWindow':
     'Pokud tě svět někam uvězní a nemůžeš se odtamtud dostat, napiš /unstuck. Musíš být mimo boj a stát na místě, nesmíš být držen omráčením ani zakořeněním a nesmíš být v duelu ani v zápase arény: proběhne krátké odpočítávání a pohyb nebo utrpěné zranění ho zruší. Po jeho konci tě to postaví na nejbližší hřbitov. Nikdy tě to nezabije a nezanechá to žádné tělo, a pokud jsi už předtím padl(a), místo toho tě to tam oživí. První použití za hodinu tě nic nestojí. Použiješ-li ho znovu do hodiny od posledního použití, cena je Nemoc z vyproštění, dočasné oslabení všeho, čím jsi, které odezní dřív, než bys mohl(a) příkaz použít znovu, a stejně jako Strážcovo mýtné se úplně vyhýbá zbrusu novým postavám.',
   'guide.commandsPage.pvpZones':
-    'PvP vlajka ve světě: /pvp ji přepne, /pvp on a /pvp off ji nastaví. Označení hráči proti sobě mohou bojovat na sporném území, svatyně nedovolují žádný světový boj vůbec a zóny volno pro všechny ho dovolují s vlajkou i bez ní; vypnutí trvá 5 minut.',
+    'Příznak světového PvP: /pvp jej přepíná, /pvp on jej zapne a /pvp off vypne. Označení hráči spolu mohou bojovat ve sporných oblastech, útočiště nepovolují žádné boje ve světě a vstup do aktivního kruhu Krále kopce zapne váš příznak; vypnutí trvá 5 minut.',
   'guide.commandsPage.unstuckWindow':
     'Cesta ven, když tě svět uvězní. Vydrž stát nehybně po krátké odpočítávání a přemístí tě to na nejbližší hřbitov, a oživí tě tam, pokud jsi už padl(a). První použití za hodinu je zdarma. Použiješ-li ho znovu do hodiny od posledního použití, na chvíli tě to oslabí Nemocí z vyproštění, takže je to poslední záchrana, ne zkratka.',
   'guide.factionsPage.automatonsBody':
@@ -2358,13 +2359,13 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.flagHeading': 'Zvednutí a stažení vlajky',
   'guide.worldPvpPage.heading': 'Světové PvP',
   'guide.worldPvpPage.hillBodyRamp':
-    'Jednou za tři hodiny, v okamžiku, který nikdo nedokáže předvídat, se celé říši oznámí, že za patnáct minut vyroste kopec v jedné ze zón volno pro všechny, a kruh, kde bude stát, je vyznačen na volné zemi. Když vyroste, stojí čtyřicet pět minut, pak padne. O kopec soupeří skupina s nejvíce hráči uvnitř, a po minutě nepřerušené většiny kopec připadne jí; osamělý hráč se počítá jako skupina o jednom, ale členové výpravy se nepočítají vůbec. Dokud skupina drží kopec, každý její člen uvnitř získává každou minutu Čest, a čím déle stejná skupina kopec drží, tím víc každá minuta vyplácí: plná skupina, která drží nesporný kopec po celou dobu jeho stání, vydělá zhruba tolik jako tři výhry na bojišti. Když kopec změní držitele, noví držitelé začnou počítat od začátku. Lišta nad bojištěm ukazuje, kdo kopec drží, tvá čísla proti jejich a čas souboje; /hill v chatu řekne, kde kopec stojí.',
+    'Každé dvě hodiny se v Dračích zemích, Kraji Mrazivého závoje nebo Jantarovém pádu objeví kopec. Říše dostane varování patnáct minut předem a kruh je vyznačen na otevřeném prostranství. Kopec zůstává aktivní třicet minut. Vstup do aktivního kruhu zapne příznak světového PvP podle běžných pravidel úrovně, a to i členům nájezdu. Skupina s největším počtem způsobilých hráčů uvnitř získá kopec po minutě nepřerušené převahy; samotný hráč se počítá jako jednočlenná skupina, ale členové nájezdu a hráči pod požadovanou úrovní pro PvP nemohou kopec obsadit ani získávat Čest z kopce. Každý držitel uvnitř získává Čest stále rychleji. Odměny přicházejí častěji a jejich výše roste rychleji, takže celková Čest zůstává stejná jako při dřívější pětačtyřicetiminutové události. Změna držitele spustí růst odměn od začátku. Po opuštění kruhu zůstává příznak zapnutý; /pvp off používá běžnou pětiminutovou prodlevu a nemůže doběhnout uvnitř aktivního kopce ani během boje. Lišta kopce ukazuje držitele, počty hráčů a postup obsazování; /hill oznámí jeho polohu.',
   'guide.worldPvpPage.hillHeading': 'Král kopce',
   'guide.worldPvpPage.limitsBodyRaids':
     'Porážení stejného hráče znovu a znovu vyplácí pokaždé méně a brzy nic, a tvůj počet proti tomu hráči se resetuje až zhruba hodinu po prvním z těch zabití, takže čekání na jedné oběti se nikdy nevyplatí. Cíl hluboko pod tvou úrovní nevyplatí vůbec nic. Bojiště a Arény se řídí vlastními pravidly, dokud jsi uvnitř, a vyplácí víc Cti než otevřený svět, takže světové PvP je pomalejší cesta ke stejnému obchodníkovi. Výpravy nezískávají ze světových zabití nic: člen výpravy nedostane žádnou Čest ani zlato a nezmenší podíl nikoho jiného, takže boj jako skupina se vyplatí.',
   'guide.worldPvpPage.limitsHeading': 'Pravidla fair play',
   'guide.worldPvpPage.stakesBodyFlagged':
-    'Když je označený hráč poražen jiným hráčem, poražený zaplatí malý podíl zlata ze svého měšce, zastropovaný na skromnou částku, a vítězové získají Čest k výbavě Válečnictví. Hráč, který nebyl označen, neplatí žádné zlato, ani když padne v zóně volno pro všechny. O obojí se dělí každý, kdo pomohl: zásah, který zabil, každý, kdo cíl krátce předtím poškodil, a léčitelé, kteří ty bojovníky drželi na nohou. Čistý souboj jednoho na jednoho vyplatí celý balík; skupina si ho rozdělí.',
+    'Když označeného hráče porazí jiný hráč, poražený zaplatí malý podíl zlata ze svého měšce, omezený na skromnou částku, a vítězové získají Čest na výbavu Válečnictví. Neoznačeného hráče nelze v otevřeném světě napadnout. O zlato i Čest se dělí všichni, kdo pomohli: hráč, který zasadil smrtící úder, každý, kdo cíl krátce předtím zranil, a léčitelé, kteří tyto bojovníky udrželi na nohou. V čistém souboji jeden na jednoho připadne vítězi celá částka; skupina si ji rozdělí.',
   'guide.worldPvpPage.stakesHeading': 'Co vyplácí zabití',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Ani neoznačený bojovník nedostane nic: zlato mění majitele jen mezi dvěma označenými hráči, i když Čest si stále vydělá každý, kdo pomohl.',
@@ -19686,7 +19687,11 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardTitles':
     'Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP. Odhlášení a návštěva Zkušebního pobřeží časovač pozastaví. Vypnutí jej vynuluje.',
   'guide.worldPvpPage.introZones':
-    'PvP v otevřeném světě je dobrovolné a záleží na oblasti. Ve sporných oblastech z vás zapnutý příznak PvP dělá nepřítele všech označených hráčů mimo vaši skupinu či nájezd; po vypnutí a krátké prodlevě jste opět pozorovatelem. Zkušební pobřeží je jediné útočiště bez světového PvP. Ve třech nejsevernějších oblastech bojuje každý proti každému, s příznakem i bez něj. Členové skupiny a nájezdu nikdy nejsou nepřátelé; členové cechu mimo vaši skupinu jsou běžné cíle.',
+    'PvP v otevřeném světě je dobrovolné a záleží na oblasti. Ve sporných oblastech z vás zapnutý příznak PvP dělá nepřítele všech označených hráčů mimo vaši skupinu či nájezd; po vypnutí a krátké prodlevě jste opět pozorovatelem. Zkušební pobřeží je jediné útočiště bez bojů ve světě a tři nejsevernější oblasti používají stejná pravidla dobrovolného příznaku jako zbytek světa. Vstup do aktivního kruhu Krále kopce automaticky zapne váš příznak. Členové skupiny a nájezdu nikdy nejsou vašimi nepřáteli; členové cechu mimo vaši skupinu jsou běžné cíle.',
   'guide.worldPvpPage.zonesBody':
-    'Svět má tři typy oblastí. Zkušební pobřeží je jediné útočiště: není tam světové PvP a příznak nelze zapnout. Již zapnutý příznak zůstává, ale čas hraní pro tituly se do odchodu pozastaví. Eastbrookské údolí i většina světa jsou sporné oblasti s pravidlem příznaku. Dračí země, Kraj Mrazivého závoje a Jantarový pád, tři nejsevernější oblasti, umožňují boj každého proti každému bez ohledu na příznak. Při vstupu i odchodu dostanete upozornění. Útok na neoznačeného hráče tam zapne váš příznak, takže útočník vždy nese riziko. Zásah již označeného hráče jej nezapne: obrana sebe nebo neoznačeného hráče vás nic nestojí.',
+    'Zkušební pobřeží je jediné útočiště: není tam světové PvP a příznak nelze zapnout. Již zapnutý příznak zůstává, ale postup k titulu za odehraný čas se do odchodu pozastaví. Všude jinde, včetně Dračích zemí, Kraje Mrazivého závoje a Jantarového pádu, mohou bojovat pouze označení hráči. Vstup do aktivního kruhu Krále kopce automaticky zapne váš příznak, pokud splňujete běžný požadavek na úroveň. Varovný kruh příznak nezapíná. Po opuštění aktivního kruhu zůstává příznak zapnutý; pomocí /pvp off zahájíte běžný pětiminutový odpočet, který nemůže skončit, dokud jste uvnitř aktivního kopce nebo stále bojujete.',
+  'guide.worldPvpPage.hillBody':
+    'Každé dvě hodiny se v Dračích zemích, Kraji Mrazivého závoje nebo Jantarovém pádu objeví kopec. Říše dostane varování patnáct minut předem a kruh je vyznačen na otevřeném prostranství. Kopec zůstává aktivní třicet minut. Vstup do aktivního kruhu zapne příznak světového PvP podle běžných pravidel úrovně, a to i členům nájezdu. Skupina s největším počtem způsobilých hráčů uvnitř získá kopec po minutě nepřerušené převahy; samotný hráč se počítá jako jednočlenná skupina, ale členové nájezdu a hráči pod požadovanou úrovní pro PvP nemohou kopec obsadit ani získávat Čest z kopce. Každý držitel uvnitř získává Čest stále rychleji. Odměny přicházejí častěji a jejich výše roste rychleji, takže celková Čest zůstává stejná jako při dřívější pětačtyřicetiminutové události. Změna držitele spustí růst odměn od začátku. Po opuštění kruhu zůstává příznak zapnutý; /pvp off používá běžnou pětiminutovou prodlevu a nemůže doběhnout uvnitř aktivního kopce ani během boje. Lišta kopce ukazuje držitele, počty hráčů a postup obsazování; /hill oznámí jeho polohu.',
+  'hudChrome.hill.pvpEntry': 'Vstup do aktivního kruhu zapne světové PvP.',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

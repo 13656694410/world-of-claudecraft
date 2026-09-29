@@ -43,7 +43,7 @@ const REPO_ROOT = path.join(__dirname, '..');
 // hash change) for this four-tome family: both extras stamps on every GLB were
 // restamped in place with byte counts, triangles, and bounds held exactly. No
 // source file changed.
-const SOURCE_FINGERPRINT = 'efd523b68c69eed29f9a354884b400b83db6c1d676932cc0b0aad25d0edebd31';
+const SOURCE_FINGERPRINT = '3bdd409095ec4e547fa6dfcfb877ee7b4199a43e56abc8c12950eecfb75d9a63';
 
 interface TomePin {
   itemId: string;
@@ -59,7 +59,7 @@ const TOME_PINS: Record<string, TomePin> = {
     itemId: 'silverleaf_primer',
     rootName: 'InscriptionTomeSilverleaf',
     bytes: 11_136,
-    sha256: '330b1a38179150a194b73083e920a853ecfc24b70cef263cbad1137f44d8376b',
+    sha256: '81ed62005e1ced906c8f986ce8c63907bb093b8730451658a6bdaa315e05d3c7',
     triangles: 404,
     bounds: { min: [-0.1763, -0.1, -0.0555], max: [0.163, 0.3, 0.0622] },
   },
@@ -67,7 +67,7 @@ const TOME_PINS: Record<string, TomePin> = {
     itemId: 'goldleaf_folio',
     rootName: 'InscriptionTomeGoldleaf',
     bytes: 12_948,
-    sha256: '6f5ef840b2115f14c47e266fd70dda6699bcf7a68c4c5206d684fb06dbb7d4c8',
+    sha256: 'f9884708385d31901fff896faa33d67099d6c225c238370ad402dea1009e32bf',
     triangles: 512,
     bounds: { min: [-0.1866, -0.1668, -0.0605], max: [0.1705, 0.33, 0.0672] },
   },
@@ -75,7 +75,7 @@ const TOME_PINS: Record<string, TomePin> = {
     itemId: 'sunpetal_grimoire',
     rootName: 'InscriptionTomeSunpetal',
     bytes: 13_956,
-    sha256: '1567d84846feb0f1d464158b6260981632e2a463e1bc054a8eae9bbb24e1726c',
+    sha256: '75579fa10b7424a730c688c04b2ed9da9d3096a8210d55154ea448f98bff4fcf',
     triangles: 584,
     bounds: { min: [-0.2007, -0.1668, -0.068], max: [0.1805, 0.36, 0.0863] },
   },
@@ -86,7 +86,7 @@ const TOME_PINS: Record<string, TomePin> = {
     itemId: 'voidbound_grimoire',
     rootName: 'InscriptionTomeVoidbound',
     bytes: 16_556,
-    sha256: '489fcb935acbf5bee7ae8fee8c8236fe8416df1975223efb800b4f22e2ebca26',
+    sha256: 'd0901edc2aef9875b407a58652977f9119dc615c0639d39be51ab124c432baf4',
     triangles: 724,
     bounds: { min: [-0.211, -0.1, -0.073], max: [0.188, 0.38, 0.086] },
   },

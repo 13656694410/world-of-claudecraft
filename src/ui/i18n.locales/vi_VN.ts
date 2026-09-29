@@ -1253,14 +1253,15 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
     'Những người chơi khác có cờ sẽ có thể tấn công bạn ở bất kỳ nơi nào và lấy tối đa {cap} từ số tiền của bạn khi họ thắng. Bạn có thể tắt lại, nhưng phải mất {minutes} phút.',
   'hudChrome.worldPvp.confirmCancel': 'Hủy',
   'hudChrome.worldPvp.disable': 'Tắt World PvP',
-  'hudChrome.worldPvp.disarmLine': 'Tắt mất {minutes} phút và chờ đợi trận chiến kết thúc.',
+  'hudChrome.worldPvp.disarmLine':
+    'Tắt cờ mất {minutes} phút và phải chờ đến khi bạn rời ngọn đồi đang hoạt động và giao tranh kết thúc.',
   'hudChrome.worldPvp.enable': 'Bật World PvP',
   'hudChrome.worldPvp.greyLine':
     'Những người chơi thấp hơn bạn quá {levels} cấp độ không trả gì cả.',
   'hudChrome.worldPvp.groundContested':
     'Ở những nơi khác là tranh chấp: chỉ hai người chơi có cờ có thể chiến đấu.',
   'hudChrome.worldPvp.groundFfa':
-    'Drakelands, Frostveil Reach và Amberfall là vùng chiến đấu tự do: mọi người ở đó đều có thể chiến đấu, có cờ hay không.',
+    'Vùng Đất Rồng, Đỉnh Sương Giá và Xứ Thu Hổ Phách dùng cờ PvP thông thường. Bước vào vòng tròn đang hoạt động của Vua Của Ngọn Đồi sẽ bật cờ của bạn.',
   'hudChrome.worldPvp.groupLine':
     'Các thành viên trong nhóm và cuộc tập kích không bao giờ thù địch với nhau. Các guildmate ngoài nhóm của bạn có thể chiến đấu.',
   'hudChrome.worldPvp.honorLine':
@@ -1268,9 +1269,9 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.keepUp': 'Giữ Cờ Lên',
   'hudChrome.worldPvp.levelReq': 'Yêu cầu cấp độ {level}.',
   'hudChrome.worldPvp.markLine':
-    'Tấn công một người chơi không có cờ ở đó sẽ nâng cao cờ của bạn; tấn công một người có cờ thì không.',
+    'Bước vào vòng tròn ngọn đồi đang hoạt động sẽ bật PvP Thế Giới. Rời vòng tròn vẫn giữ cờ của bạn bật.',
   'hudChrome.worldPvp.noStakeLine':
-    'Một chiến binh không có cờ bị giết trên đất chiến đấu tự do sẽ mất không vàng.',
+    'Người chơi không có cờ không thể bị tấn công trong thế giới mở.',
   'hudChrome.worldPvp.noTakeLine':
     'Một chiến binh không có cờ cũng không lấy vàng: nó chỉ chuyển động giữa hai người chơi có cờ.',
   'hudChrome.worldPvp.pending': 'Chờ đợi trạng thái PvP của bạn từ vương quốc.',
@@ -2281,7 +2282,7 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'guide.combat.unstuckBodyWindow':
     "Nếu thế giới mắc kẹt bạn ở một nơi bạn không thể thoát ra được, gõ /unstuck. Bạn cần phải hết chiến đấu và đứng yên, không bị giữ bởi choáng hoặc gốc, và không trong một cuộc đấu hay một trận đấu sân vận động: một bộ đếm ngược ngắn chạy, và chuyển động hoặc nhận đòn hủy nó. Khi nó kết thúc bạn được đặt xuống ở nghĩa trang gần nhất. Nó không bao giờ giết bạn và nó không để lại xác chết, và nếu bạn đã ngã rồi nó sẽ nâng bạn lên ở đó thay thế. Lần sử dụng đầu tiên trong một giờ không tốn bạn gì. Sử dụng nó lại trong một giờ kể từ lần cuối cùng và giá cả là Unstuck Sickness, một sự suy yếu tạm thời của tất cả bạn đã mặc được vào lúc bạn có thể sử dụng lệnh lại, và giống như Keeper's Toll nó tha thứ cho các nhân vật hoàn toàn mới.",
   'guide.commandsPage.pvpZones':
-    'Cờ Chiến Tranh Thế Giới: /pvp chuyển đổi nó, /pvp on và /pvp off đặt nó. Các người chơi có cờ có thể chiến đấu với nhau trên mặt đất tranh chấp, các thánh địa không cho phép chiến đấu thế giới nào cả, và các khu vực tự do cho tất cả cho phép nó có hoặc không có cờ; tắt chuyển đổi mất 5 phút.',
+    'Cờ PvP Thế Giới: /pvp chuyển trạng thái, /pvp on bật và /pvp off tắt. Người chơi có cờ có thể giao chiến với nhau tại vùng tranh chấp, khu an toàn không cho phép bất kỳ giao tranh thế giới nào, và bước vào vòng tròn đang hoạt động của Vua Của Ngọn Đồi sẽ bật cờ của bạn; tắt cờ mất 5 phút.',
   'guide.commandsPage.unstuckWindow':
     'Cách thoát khi thế giới đã mắc kẹt bạn. Đứng yên qua một bộ đếm ngược ngắn và bạn được di chuyển đến nghĩa trang gần nhất, và nâng lên ở đó nếu bạn đã ngã rồi. Lần sử dụng đầu tiên trong một giờ là miễn phí. Sử dụng nó lại trong một giờ kể từ lần cuối cùng và nó để lại bạn bị suy yếu bởi Unstuck Sickness một thời gian sau đó, vì vậy nó là một cuộc cứu hộ thay vì một phím tắt.',
   'guide.factionsPage.automatonsBody':
@@ -2352,13 +2353,13 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.flagHeading': 'Nâng Lên và Hạ Cờ',
   'guide.worldPvpPage.heading': 'Chiến Tranh Thế Giới',
   'guide.worldPvpPage.hillBodyRamp':
-    'Một lần mỗi ba giờ, vào một thời điểm không ai có thể dự đoán, toàn bộ vương quốc được thông báo rằng một ngọn đồi sẽ mọc lên ở một trong các khu vực tự do trong năm phút, và vòng tròn nơi nó sẽ đứng được đánh dấu trên mặt đất mở. Khi nó mọc lên nó đứng trong bốn mươi lăm phút, rồi rơi. Bên có nhiều người chơi nhất đứng bên trong tranh giành ngọn đồi, và sau một phút đa số không bị phá vỡ ngọn đồi là của họ; một người chơi cô lập được tính như một bên của một, nhưng các thành viên đột kích không tính ở tất cả. Trong khi một bên giữ ngọn đồi, mỗi thành viên của nó đứng bên trong kiếm Danh dự mỗi phút, và càng lâu bên cùng giữ nó, càng nhiều tiền mỗi phút trả: một bên đầy đủ giữ một ngọn đồi tranh chấp cho toàn bộ đứng kiếm được khoảng như ba chiến thắng sân vận động. Khi ngọn đồi thay đổi tay, những chủ mới bắt đầu số lượng từ đầu. Một thanh trên trường cho thấy ai nắm giữ nó, số của bạn chống lại số của họ, và đồng hồ cuộc thi; /hill trong trò chuyện nói nơi nó đứng.',
+    'Cứ mỗi hai giờ, một ngọn đồi xuất hiện tại Vùng Đất Rồng, Đỉnh Sương Giá hoặc Xứ Thu Hổ Phách. Toàn vương quốc nhận cảnh báo trước mười lăm phút và vòng tròn được đánh dấu trên đất trống. Ngọn đồi hoạt động trong ba mươi phút. Bước vào vòng tròn đang hoạt động sẽ bật cờ PvP Thế Giới theo quy tắc cấp độ thông thường, kể cả với thành viên nhóm đột kích. Tổ đội có nhiều người chơi đủ điều kiện nhất bên trong sẽ chiếm ngọn đồi sau một phút duy trì ưu thế số lượng liên tục; người chơi một mình được tính là tổ đội một người, nhưng thành viên nhóm đột kích và người chơi chưa đạt cấp độ yêu cầu của PvP không thể chiếm đồi hoặc nhận Danh dự từ đồi. Mỗi người thuộc tổ đội kiểm soát đang đứng bên trong nhận Danh dự với tốc độ tăng dần. Phần thưởng được trao thường xuyên hơn và tăng nhanh hơn, giữ nguyên tổng Danh dự của sự kiện bốn mươi lăm phút trước đây. Khi quyền kiểm soát đổi chủ, mức thưởng bắt đầu tăng lại từ đầu. Rời vòng tròn vẫn giữ cờ bật; /pvp off áp dụng thời gian chờ năm phút thông thường và không thể hoàn tất bên trong ngọn đồi đang hoạt động hoặc trong lúc chiến đấu. Thanh ngọn đồi hiển thị quyền kiểm soát, số người và tiến độ chiếm giữ; /hill cho biết vị trí của đồi.',
   'guide.worldPvpPage.hillHeading': 'Vua Của Ngọn Đồi',
   'guide.worldPvpPage.limitsBodyRaids':
     'Đánh bại cùng một người chơi lại và lại trả ít hơn mỗi lần và sớm không gì cả, và số lượng của bạn chống lại người chơi đó chỉ bắt đầu lại khoảng một giờ sau những vết sưng đầu tiên của những vết sưng đó, vì vậy cắm trại một nạn nhân không bao giờ đáng chờ đợi. Một mục tiêu xa dưới cấp độ của bạn trả không gì cả. Các sân vận động chiến đấu và Arena chạy các quy tắc riêng của họ trong khi bạn ở bên trong chúng, và họ trả nhiều Danh dự hơn thế giới mở, vì vậy chiến tranh thế giới là con đường chậm hơn đến cùng một người bán hàng. Đột kích không kiếm được gì từ vết sưng thế giới: một thành viên đột kích không lấy Danh dự hoặc vàng và không làm nhỏ lại chia sẻ của bất kỳ ai khác, vì vậy hãy chiến đấu như một bên để được trả tiền.',
   'guide.worldPvpPage.limitsHeading': 'Quy Tắc Chơi Công Bằng',
   'guide.worldPvpPage.stakesBodyFlagged':
-    'Khi một người chơi cờ bị đánh bại bởi một người chơi khác, người thua trả một chia sẻ nhỏ của vàng trong ví của họ, được giới hạn ở một số tiền khiêm tốn, và những người chiến thắng kiếm được Danh dự hướng đến áo Chiến Tranh. Một người chơi không được gắc trả không vàng nào cả, ngay cả khi họ ngã trong một khu vực tự do cho tất cả. Tất cả những người giúp đỡ chia cả hai: cú đánh giết, bất kỳ ai tổn thương mục tiêu ngắn gọn trước đó, và những người chữa bệnh đã giữ những chiến binh đó đứng. Một người chơi sạch sẽ trả toàn bộ tổng tiền; một nhóm chia nó.',
+    'Khi một người chơi có cờ bị người chơi khác đánh bại, người thua trả một phần nhỏ số vàng trong túi, với mức trần vừa phải, còn người thắng nhận Danh dự để mua trang bị Chiến Tranh. Người chơi không có cờ không thể bị tấn công trong thế giới mở. Tất cả những người góp sức đều được chia cả vàng lẫn Danh dự: người tung đòn kết liễu, bất kỳ ai gây sát thương lên mục tiêu ngay trước đó, và người hồi máu đã giữ các chiến binh ấy sống sót. Một trận đấu tay đôi thuần túy trao toàn bộ phần thưởng cho người thắng; tổ đội sẽ chia nhau.',
   'guide.worldPvpPage.stakesHeading': 'Một Chiến Thắng Được Thưởng Gì',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Một chiến binh không cắm cờ cũng không nhận được gì: vàng chỉ chuyển tay giữa hai người chơi đã cắm cờ, mặc dù tất cả những người giúp đỡ vẫn kiếm được Danh Dự.',
@@ -19853,7 +19854,11 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardTitles':
     'Nhận danh hiệu vĩnh viễn sau {thresholds} thời gian chơi khi bật PvP Thế Giới. Đăng xuất và đến Bờ Biển Thử Thách sẽ tạm dừng bộ đếm. Tắt PvP sẽ đặt lại bộ đếm.',
   'guide.worldPvpPage.introZones':
-    'PvP thế giới mở là tự nguyện và phụ thuộc vào khu vực. Tại vùng tranh chấp, bật cờ PvP khiến những người chơi có cờ ngoài tổ đội hoặc nhóm đột kích của bạn thành kẻ địch; tắt cờ sẽ đưa bạn về trạng thái đứng ngoài sau một khoảng chờ ngắn. Bờ Biển Thử Thách là khu an toàn duy nhất không có giao tranh thế giới. Ba vùng cực bắc cho phép tất cả đấu với nhau, có cờ hay không. Đồng đội trong tổ đội và nhóm đột kích không bao giờ là kẻ địch; thành viên bang hội ngoài nhóm vẫn có thể bị tấn công như người khác.',
+    'PvP thế giới mở là tự nguyện và phụ thuộc vào khu vực. Tại vùng tranh chấp, bật cờ PvP khiến mọi người chơi có cờ ngoài tổ đội hoặc nhóm đột kích của bạn thành kẻ địch; tắt cờ sẽ đưa bạn về trạng thái đứng ngoài sau một khoảng chờ ngắn. Bờ Biển Thử Thách là khu an toàn duy nhất không có giao tranh thế giới, và ba vùng cực bắc áp dụng cùng quy tắc bật cờ tự nguyện như phần còn lại của thế giới. Bước vào vòng tròn đang hoạt động của Vua Của Ngọn Đồi sẽ tự động bật cờ của bạn. Đồng đội trong tổ đội và nhóm đột kích không bao giờ là kẻ địch của bạn ở bất cứ đâu; thành viên bang hội ngoài nhóm vẫn có thể bị tấn công như người khác.',
   'guide.worldPvpPage.zonesBody':
-    'Có ba loại khu vực. Bờ Biển Thử Thách là khu an toàn duy nhất: không có PvP Thế Giới và không thể bật cờ. Cờ đang bật vẫn giữ nguyên, nhưng thời gian chơi tính danh hiệu tạm dừng đến khi rời đi. Thung Lũng Đông Khê và phần lớn thế giới là vùng tranh chấp theo quy tắc cờ. Vùng Đất Rồng, Đỉnh Sương Giá và Xứ Thu Hổ Phách, ba vùng cực bắc, cho phép mọi người tấn công nhau dù có cờ hay không. Bạn được thông báo khi vào và ra. Tấn công người không có cờ tại đây sẽ bật cờ của bạn, nên kẻ tấn công luôn chịu rủi ro. Đánh người đã có cờ không bật cờ của bạn: tự vệ hoặc bảo vệ người không có cờ không khiến bạn chịu thiệt.',
+    'Bờ Biển Thử Thách là khu an toàn duy nhất: không có PvP Thế Giới tại đây và bạn không thể bật cờ. Cờ đã bật vẫn được giữ nguyên, nhưng tiến độ danh hiệu theo thời gian chơi sẽ tạm dừng cho đến khi bạn rời đi. Ở mọi nơi khác, bao gồm Vùng Đất Rồng, Đỉnh Sương Giá và Xứ Thu Hổ Phách, chỉ người chơi có cờ mới có thể giao chiến. Bước vào vòng tròn đang hoạt động của Vua Của Ngọn Đồi sẽ tự động bật cờ nếu bạn đáp ứng yêu cầu cấp độ thông thường. Vòng tròn cảnh báo không bật cờ của bạn. Rời vòng tròn đang hoạt động vẫn giữ cờ bật; dùng /pvp off để bắt đầu đếm ngược năm phút như bình thường. Đếm ngược không thể hoàn tất khi bạn còn ở trong ngọn đồi đang hoạt động hoặc vẫn đang chiến đấu.',
+  'guide.worldPvpPage.hillBody':
+    'Cứ mỗi hai giờ, một ngọn đồi xuất hiện tại Vùng Đất Rồng, Đỉnh Sương Giá hoặc Xứ Thu Hổ Phách. Toàn vương quốc nhận cảnh báo trước mười lăm phút và vòng tròn được đánh dấu trên đất trống. Ngọn đồi hoạt động trong ba mươi phút. Bước vào vòng tròn đang hoạt động sẽ bật cờ PvP Thế Giới theo quy tắc cấp độ thông thường, kể cả với thành viên nhóm đột kích. Tổ đội có nhiều người chơi đủ điều kiện nhất bên trong sẽ chiếm ngọn đồi sau một phút duy trì ưu thế số lượng liên tục; người chơi một mình được tính là tổ đội một người, nhưng thành viên nhóm đột kích và người chơi chưa đạt cấp độ yêu cầu của PvP không thể chiếm đồi hoặc nhận Danh dự từ đồi. Mỗi người thuộc tổ đội kiểm soát đang đứng bên trong nhận Danh dự với tốc độ tăng dần. Phần thưởng được trao thường xuyên hơn và tăng nhanh hơn, giữ nguyên tổng Danh dự của sự kiện bốn mươi lăm phút trước đây. Khi quyền kiểm soát đổi chủ, mức thưởng bắt đầu tăng lại từ đầu. Rời vòng tròn vẫn giữ cờ bật; /pvp off áp dụng thời gian chờ năm phút thông thường và không thể hoàn tất bên trong ngọn đồi đang hoạt động hoặc trong lúc chiến đấu. Thanh ngọn đồi hiển thị quyền kiểm soát, số người và tiến độ chiếm giữ; /hill cho biết vị trí của đồi.',
+  'hudChrome.hill.pvpEntry': 'Bước vào vòng tròn đang hoạt động sẽ bật PvP Thế Giới.',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

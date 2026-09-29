@@ -1270,14 +1270,15 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
     'Inni oznaczeni gracze będą mogli cię atakować wszędzie i wziąć do {cap} z twojej sakiewki, gdy wygrają. Możesz wyłączyć ponownie, ale zajmie to {minutes} minut.',
   'hudChrome.worldPvp.confirmCancel': 'Anuluj',
   'hudChrome.worldPvp.disable': 'Wyłącz PvP Świata',
-  'hudChrome.worldPvp.disarmLine': 'Wyłączenie trwa {minutes} minut i czeka na koniec walki.',
+  'hudChrome.worldPvp.disarmLine':
+    'Wyłączenie trwa {minutes} minut i czeka, aż opuścisz aktywne wzgórze i zakończy się walka.',
   'hudChrome.worldPvp.enable': 'Włącz PvP Świata',
   'hudChrome.worldPvp.greyLine':
     'Gracze o więcej niż {levels} poziomów poniżej ciebie nic nie płacą.',
   'hudChrome.worldPvp.groundContested':
     'Wszędzie indziej to tereny sporne: mogą walczyć tylko dwaj oznaczeni gracze.',
   'hudChrome.worldPvp.groundFfa':
-    'Drakelands, Frostveil Reach i Amberfall to wolna gra dla wszystkich: każdy tam może walczyć, niezależnie od flagi.',
+    'Smocze Ziemie, Szronowa Kraina i Bursztynowa Dolina stosują zwykłe flagi PvP. Wejście do aktywnego kręgu Króla Wzgórza włącza twoją flagę.',
   'hudChrome.worldPvp.groupLine':
     'Członkowie drużyny i rajdu nigdy nie są sobie wrogami. Gildiomanie spoza twojej grupy mogą walczyć.',
   'hudChrome.worldPvp.honorLine':
@@ -1285,9 +1286,9 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.keepUp': 'Utrzymuj Flagę',
   'hudChrome.worldPvp.levelReq': 'Wymaga poziomu {level}.',
   'hudChrome.worldPvp.markLine':
-    'Atakowanie nienaczynaczonego gracza tam podnosi twoją flagę; atakowanie oznaczonego tego nigdy nie robi.',
+    'Wejście do aktywnego kręgu wzgórza włącza PvP w świecie. Po opuszczeniu kręgu flaga pozostaje włączona.',
   'hudChrome.worldPvp.noStakeLine':
-    'Nienaczynaczony gracz pokonany na wolnej grze dla wszystkich nie traci złota.',
+    'Nieoznaczonych graczy nie można zaatakować w otwartym świecie.',
   'hudChrome.worldPvp.noTakeLine':
     'Nienaczynaczony walczący też nie traci złota: złoto przesuwa się tylko między dwoma oznaczonymi graczami.',
   'hudChrome.worldPvp.pending': 'Oczekiwanie na status PvP z królestwa.',
@@ -2325,7 +2326,7 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'guide.combat.unstuckBodyWindow':
     'Jeśli świat uwięzi cię gdzieś, gdzie nie możesz się wydostać, wpisz /unstuck. Musisz być poza walką i stać nieruchomo, nie być trzymany przez ogłuszenie lub korzeń, i nie być w duelu ani w meczu areny: krótki odliczanie się toczy, a poruszanie się lub otrzymanie obrażeń je anuluje. Kiedy się skończy, jesteś umieszczony na najbliższym cmentarzu. Nigdy cię nie zabija i nie pozostawia zwłok, a jeśli już byłeś dół, to cię tam podnosi. Pierwsze użycie w godzinę nic cię nie kosztuje. Użyj ponownie w ciągu godziny od ostatniego, a cena to Choroba Uwolnienia, czasowe osłabienie wszystkiego, czym jesteś, które będzie wychodzić na czas, kiedy znowu będziesz mógł użyć rozkazu, i jak Opłata Strażnika, oszczędza całkiem nowe postacie.',
   'guide.commandsPage.pvpZones':
-    'Flaga PvP na świecie: /pvp przełącza ją, /pvp on i /pvp off ustawiają ją. Oflagowani gracze mogą walczyć ze sobą na terenie spornym, świętuary nie pozwalają na żadne światowe walki, a strefy wolny-dla-wszystkich pozwalają na to z flagą lub bez flagi; wyłączenie zajmuje 5 minut.',
+    'Flaga PvP w świecie: /pvp ją przełącza, /pvp on włącza, a /pvp off wyłącza. Oznaczeni gracze mogą walczyć ze sobą na spornych terenach, sanktuaria nie pozwalają na żadne walki w świecie, a wejście do aktywnego kręgu Króla Wzgórza włącza twoją flagę; wyłączenie trwa 5 minut.',
   'guide.commandsPage.unstuckWindow':
     'Droga wyjścia, gdy świat cię uwięzi. Stań nieruchomo przez krótkie odliczanie i jesteś przenoszony do najbliższego cmentarza, i podnoszony tam, jeśli już upadłeś. Pierwsze użycie w godzinę jest bezpłatne. Użyj ponownie w ciągu godziny od ostatniego, a zostaje osłabiony Chorobą Uwolnienia na jakiś czas, więc jest to ratunek zamiast skrótu.',
   'guide.factionsPage.automatonsBody':
@@ -2396,13 +2397,13 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.flagHeading': 'Podnoszenie i opuszczanie flagi',
   'guide.worldPvpPage.heading': 'PvP na Świecie',
   'guide.worldPvpPage.hillBodyRamp':
-    'Raz na trzy godziny, w momencie, którego nikt nie może przewidzieć, cała kraina jest poinformowana, że wzgórze wzniesie się w jednej ze stref wolny-dla-wszystkich w piętnaście minut, a okrąg, gdzie będzie stał, jest oznaczony na otwartym terenie. Kiedy się wznosi, stoi czterdzieści pięć minut, potem spada. Drużyna z większością graczy stojących w środku walczy o wzgórze, a po minucie nieprzerwanej większości wzgórze jest ich; samotny gracz liczy się jako drużyna jednego, ale członkowie rajdu nie liczą się wcale. Gdy drużyna trzyma wzgórze, każdy jej członek stojący w środku zdobywa Honor co minutę, a dłużej ta sama drużyna go trzyma, tym więcej każda minuta płaci: pełna drużyna trzymająca niezaprzestającane wzgórze na całą jego stojąć zarabia około tyle co trzy wygrane w polach bitwy. Gdy wzgórze zmienia ręce, nowi właściciele zaczynają rachunek od początku. Pasek nad polem pokazuje, kto to trzyma, twoje liczby przeciwko ich, i zegar konkurencji; /hill w czacie mówi, gdzie on stoi.',
+    'Co dwie godziny wzgórze pojawia się na Smoczych Ziemiach, w Szronowej Krainie lub Bursztynowej Dolinie. Kraina otrzymuje ostrzeżenie piętnaście minut wcześniej, a krąg zostaje oznaczony na otwartym terenie. Wzgórze pozostaje aktywne przez trzydzieści minut. Wejście do aktywnego kręgu włącza flagę PvP w świecie zgodnie ze zwykłymi zasadami poziomu, także członkom rajdu. Grupa z największą liczbą uprawnionych graczy w kręgu przejmuje wzgórze po minucie nieprzerwanej przewagi; samotny gracz liczy się jako jednoosobowa grupa, ale członkowie rajdu i gracze poniżej wymaganego poziomu PvP nie mogą przejmować wzgórza ani zdobywać z niego Honoru. Każdy obrońca stojący wewnątrz zdobywa Honor w rosnącym tempie. Wypłaty są częstsze, a ich wartość rośnie szybciej, dzięki czemu łączna ilość Honoru pozostaje taka sama jak w dawnym wydarzeniu trwającym czterdzieści pięć minut. Zmiana właściciela rozpoczyna wzrost nagród od nowa. Po opuszczeniu kręgu flaga pozostaje włączona; /pvp off korzysta ze zwykłego pięciominutowego opóźnienia i nie może się zakończyć na aktywnym wzgórzu ani podczas walki. Pasek wzgórza pokazuje kontrolę, liczby graczy i postęp przejmowania; /hill podaje jego położenie.',
   'guide.worldPvpPage.hillHeading': 'Król Wzgórza',
   'guide.worldPvpPage.limitsBodyRaids':
     'Pokonanie tego samego gracza znowu i znowu płaci mniej za każdym razem i wkrótce nic, a twój rachunek przeciwko temu graczowi zaczyna się tylko od nowa około godzinę po pierwszym z tych zabójstw, więc campowanie jednej ofiary nigdy nie jest warte czekania. Cel znacznie poniżej twojego poziomu płaci wcale. Pola bitwy i Areny prowadzą swoje własne zasady, gdy jesteś w środku, i płacą więcej Honor niż otwarty świat, więc świat PvP jest powolniejszą drogą do tego samego dostawcy. Rajdy nie zarabiają nic ze światowych zabójstw: członek rajdu nie otrzymuje Honor lub złota i nie zmniejsza udziału nikogo innego, więc walcz jako drużyna, aby być opłaconą.',
   'guide.worldPvpPage.limitsHeading': 'Zasady fair play',
   'guide.worldPvpPage.stakesBodyFlagged':
-    'Kiedy oflagowany gracz zostaje pokonany przez innego gracza, przegrany płaci mały udział złota w swojej kieszonki, ograniczony do skromnej kwoty, a zwycięzcy zarabiają Honor na zbrój Wojenną. Gracz, który nie był oflagowany, wcale nie płaci złota, nawet gdy pada w strefie wolny-dla-wszystkich. Wszyscy, którzy pomogli, dzielą się obydwoma: zabójczym ciosem, każdy, kto skrzywdził cel niedługo wcześniej, i uzdrowiciele, którzy utrzymywali tych walczących. Czysta jeden na jeden płaci całą porcję; drużyna ją dzieli.',
+    'Gdy oznaczony gracz zostaje pokonany przez innego gracza, przegrany płaci niewielką część złota ze swojej sakiewki, z ograniczeniem do skromnej kwoty, a zwycięzcy zdobywają Honor na wyposażenie Wojenne. Nieoznaczonego gracza nie można zaatakować w otwartym świecie. Złoto i Honor dzielą między siebie wszyscy, którzy pomogli: gracz zadający śmiertelny cios, każdy, kto zranił cel krótko wcześniej, oraz uzdrowiciele, którzy utrzymali tych walczących przy życiu. W czystym pojedynku jeden na jednego zwycięzca otrzymuje całą pulę; grupa ją dzieli.',
   'guide.worldPvpPage.stakesHeading': 'Co warta jest rozprawa',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Ani niezaflagowany walczący nic nie dostaje: złoto zmienia właściciela wyłącznie między dwoma zaflagowanymi graczami, choć wszyscy, którzy pomogli, nadal zarabiają Honor.',
@@ -19944,7 +19945,11 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardTitles':
     'Zdobywaj stałe tytuły po {thresholds} czasu gry z włączonym światowym PvP. Wylogowanie i odwiedziny na Wybrzeżu Prób wstrzymują licznik. Wyłączenie go zeruje.',
   'guide.worldPvpPage.introZones':
-    'PvP w otwartym świecie jest dobrowolne i zależy od terenu. Na spornych terenach włączenie flagi czyni wrogami wszystkich oznaczonych graczy spoza twojej grupy lub rajdu; po wyłączeniu i krótkiej zwłoce znów jesteś obserwatorem. Wybrzeże Prób to jedyne sanktuarium bez światowych walk PvP. W trzech najbardziej północnych strefach każdy może walczyć z każdym, z flagą lub bez niej. Członkowie grupy i rajdu nigdy nie są wrogami; członkowie gildii poza twoją grupą są celami jak inni gracze.',
+    'PvP w otwartym świecie jest dobrowolne i zależy od terenu. Na spornych terenach włączenie flagi PvP czyni wrogami wszystkich oznaczonych graczy spoza twojej grupy lub rajdu; po wyłączeniu i krótkiej zwłoce znów jesteś obserwatorem. Wybrzeże Prób to jedyne sanktuarium bez walk w świecie, a trzy najbardziej północne strefy stosują te same zasady dobrowolnej flagi co reszta świata. Wejście do aktywnego kręgu Króla Wzgórza automatycznie włącza twoją flagę. Członkowie grupy i rajdu nigdzie nie są twoimi wrogami; członkowie gildii poza twoją grupą są celami jak inni gracze.',
   'guide.worldPvpPage.zonesBody':
-    'Są trzy rodzaje terenu. Wybrzeże Prób to jedyne sanktuarium: nie ma tam światowego PvP i nie można włączyć flagi. Aktywna flaga pozostaje, ale czas gry liczony do tytułów jest wstrzymany do wyjścia. Dolina Wschodniego Strumienia i większość świata to tereny sporne, na których obowiązuje reguła flagi. Smocze Ziemie, Szronowa Kraina i Bursztynowa Dolina, trzy najbardziej północne strefy, pozwalają każdemu atakować każdego z flagą lub bez niej. Przy wejściu i wyjściu pojawia się komunikat. Zaatakowanie tam nieoznaczonego gracza włącza twoją flagę, więc napastnik ponosi ryzyko. Trafienie już oznaczonego gracza jej nie włącza: obrona siebie lub kogoś bez flagi nic cię nie kosztuje.',
+    'Wybrzeże Prób to jedyne sanktuarium: nie ma tam PvP w świecie i nie możesz włączyć flagi. Włączona flaga pozostaje aktywna, ale postęp w zdobywaniu tytułów za czas gry zostaje wstrzymany do opuszczenia tego miejsca. Wszędzie indziej, w tym na Smoczych Ziemiach, w Szronowej Krainie i Bursztynowej Dolinie, mogą walczyć tylko oznaczeni gracze. Wejście do aktywnego kręgu Króla Wzgórza automatycznie włącza twoją flagę, jeśli spełniasz zwykły wymóg poziomu. Krąg ostrzegawczy nie włącza flagi. Po opuszczeniu aktywnego kręgu flaga pozostaje włączona; użyj /pvp off, aby rozpocząć zwykłe pięciominutowe odliczanie, które nie może się zakończyć, gdy jesteś na aktywnym wzgórzu lub nadal walczysz.',
+  'guide.worldPvpPage.hillBody':
+    'Co dwie godziny wzgórze pojawia się na Smoczych Ziemiach, w Szronowej Krainie lub Bursztynowej Dolinie. Kraina otrzymuje ostrzeżenie piętnaście minut wcześniej, a krąg zostaje oznaczony na otwartym terenie. Wzgórze pozostaje aktywne przez trzydzieści minut. Wejście do aktywnego kręgu włącza flagę PvP w świecie zgodnie ze zwykłymi zasadami poziomu, także członkom rajdu. Grupa z największą liczbą uprawnionych graczy w kręgu przejmuje wzgórze po minucie nieprzerwanej przewagi; samotny gracz liczy się jako jednoosobowa grupa, ale członkowie rajdu i gracze poniżej wymaganego poziomu PvP nie mogą przejmować wzgórza ani zdobywać z niego Honoru. Każdy obrońca stojący wewnątrz zdobywa Honor w rosnącym tempie. Wypłaty są częstsze, a ich wartość rośnie szybciej, dzięki czemu łączna ilość Honoru pozostaje taka sama jak w dawnym wydarzeniu trwającym czterdzieści pięć minut. Zmiana właściciela rozpoczyna wzrost nagród od nowa. Po opuszczeniu kręgu flaga pozostaje włączona; /pvp off korzysta ze zwykłego pięciominutowego opóźnienia i nie może się zakończyć na aktywnym wzgórzu ani podczas walki. Pasek wzgórza pokazuje kontrolę, liczby graczy i postęp przejmowania; /hill podaje jego położenie.',
+  'hudChrome.hill.pvpEntry': 'Wejście do aktywnego kręgu włącza PvP w świecie.',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

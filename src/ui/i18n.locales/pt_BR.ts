@@ -1292,22 +1292,23 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
     'Outros jogadores marcados poderão atacar você em qualquer lugar e levar até {cap} da sua bolsa quando vencerem. Você pode desativar de novo, mas isso leva {minutes} minutos.',
   'hudChrome.worldPvp.confirmCancel': 'Cancelar',
   'hudChrome.worldPvp.disable': 'Desativar PvP Mundial',
-  'hudChrome.worldPvp.disarmLine': 'Desativar leva {minutes} minutos e espera o combate terminar.',
+  'hudChrome.worldPvp.disarmLine':
+    'Desativar leva {minutes} minutos e espera até você sair da colina ativa e o combate terminar.',
   'hudChrome.worldPvp.enable': 'Ativar PvP Mundial',
   'hudChrome.worldPvp.greyLine': 'Jogadores mais de {levels} níveis abaixo de você não pagam nada.',
   'hudChrome.worldPvp.groundContested':
     'Todo o restante é contestado: só dois jogadores marcados podem lutar.',
   'hudChrome.worldPvp.groundFfa':
-    'Drakelands, os Confins de Frostveil e Amberfall são livres para todos: qualquer um lá pode lutar, marcado ou não.',
+    'Drakelands, os Confins de Frostveil e Amberfall usam bandeiras normais de PvP. Entrar em um círculo ativo do Rei da Colina ativa sua bandeira.',
   'hudChrome.worldPvp.groupLine':
     'Membros de grupo e raide nunca são hostis entre si. Colegas de guilda fora do seu grupo podem lutar.',
   'hudChrome.worldPvp.honorLine': '{honor} de Honra por abate, dividida entre todos que ajudaram.',
   'hudChrome.worldPvp.keepUp': 'Manter Bandeira Levantada',
   'hudChrome.worldPvp.levelReq': 'Requer nível {level}.',
   'hudChrome.worldPvp.markLine':
-    'Atacar um jogador não marcado ali levanta sua própria bandeira; atacar um marcado nunca faz isso.',
+    'Entrar em um círculo ativo da colina ativa o PvP Mundial. Sair do círculo mantém sua bandeira ligada.',
   'hudChrome.worldPvp.noStakeLine':
-    'Um jogador não marcado morto em terreno livre para todos não perde ouro.',
+    'Jogadores sem bandeira não podem ser atacados no mundo aberto.',
   'hudChrome.worldPvp.noTakeLine':
     'Um lutador não marcado também não leva ouro: ele só passa de mão entre dois jogadores marcados.',
   'hudChrome.worldPvp.pending': 'Aguardando seu status de PvP do reino.',
@@ -2277,7 +2278,7 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
   'guide.combat.unstuckBodyWindow':
     'Se o mundo o prender em algum lugar de onde você não consegue sair, digite /unstuck. Você precisa estar fora de combate e parado, sem ser atingido por um atordoamento ou uma imobilização, e não estar em um duelo ou numa partida de arena: uma contagem regressiva curta é executada, e se mover ou sofrer dano a cancela. Quando ela termina, você é colocado no cemitério mais próximo. Isso nunca o mata e não deixa corpo algum, e se você já estava caído, ele o reergue ali mesmo. O primeiro uso em uma hora não custa nada. Use-o de novo dentro de uma hora do último uso e o preço é o Mal do Desbloqueio, um enfraquecimento temporário de tudo o que você é que já terá passado quando você puder usar o comando de novo, e assim como o Tributo do Guardião, ele poupa por completo os personagens recém-criados.',
   'guide.commandsPage.pvpZones':
-    'Bandeira de JcJ Mundial: /pvp alterna; /pvp on e /pvp off a definem diretamente. Jogadores com bandeira podem lutar entre si em terreno contestado; santuários não permitem nenhuma luta mundial; e as zonas de todos contra todos permitem lutar com ou sem bandeira. Desativá-la leva 5 minutos.',
+    'Bandeira de PvP Mundial: /pvp alterna o estado, /pvp on ativa e /pvp off desativa. Jogadores com bandeira podem lutar entre si em áreas disputadas, santuários não permitem nenhum combate no mundo, e entrar em um círculo ativo do Rei da Colina ativa sua bandeira; a desativação leva 5 minutos.',
   'guide.commandsPage.unstuckWindow':
     'A saída para quando o mundo o prendeu. Fique parado durante uma contagem regressiva curta e você é levado ao cemitério mais próximo, sendo reerguido ali se já tiver caído. O primeiro uso em uma hora é gratuito. Use-o de novo dentro de uma hora do último uso e ele o deixa enfraquecido pelo Mal do Desbloqueio por um tempo depois, então é um resgate, não um atalho.',
   'guide.factionsPage.automatonsBody':
@@ -2348,13 +2349,13 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.flagHeading': 'Erguendo e baixando a bandeira',
   'guide.worldPvpPage.heading': 'JcJ Mundial',
   'guide.worldPvpPage.hillBodyRamp':
-    'Uma vez a cada três horas, em um momento que ninguém pode prever, todo o reino é avisado de que uma colina vai surgir em uma das zonas de todos contra todos dentro de quinze minutos, e o círculo onde ela vai ficar é marcado em terreno aberto. Quando surge, ela permanece por quarenta e cinco minutos, depois desaparece. O grupo com mais jogadores dentro dela disputa a colina, e depois de um minuto de maioria ininterrupta a colina é dele; um jogador sozinho conta como um grupo de um, mas membros de raide não contam de forma alguma. Enquanto um grupo controla a colina, cada um dos seus membros dentro dela ganha Honra a cada minuto, e quanto mais tempo o mesmo grupo a controla, mais cada minuto paga: um grupo completo controlando uma colina sem disputa durante toda a sua duração ganha cerca do mesmo que três vitórias em campo de batalha. Quando a colina muda de mãos, os novos donos recomeçam a contagem do zero. Uma barra sobre o campo mostra quem a controla, seus números contra os deles, e o relógio da disputa; /hill no chat informa onde ela está.',
+    'A cada duas horas, uma colina surge em Drakelands, nos Confins de Frostveil ou em Amberfall. O reino recebe um aviso com quinze minutos de antecedência, e o círculo é marcado em terreno aberto. A colina permanece ativa por trinta minutos. Entrar no círculo ativo ativa sua bandeira de PvP Mundial pelas regras normais de nível, inclusive para membros de raide. O grupo com mais jogadores elegíveis dentro do círculo conquista a colina após um minuto de maioria ininterrupta; um jogador sozinho conta como um grupo de um, mas membros de raide e jogadores abaixo do nível exigido para PvP não podem capturar a colina nem ganhar Honra por ela. Cada integrante do grupo que a controla e está dentro do círculo ganha Honra em ritmo crescente. Os pagamentos são mais frequentes e aumentam mais rápido, preservando a Honra total do antigo evento de quarenta e cinco minutos. Uma mudança de controle reinicia o aumento das recompensas. Sair do círculo mantém sua bandeira ligada; /pvp off usa o atraso normal de cinco minutos e não pode terminar dentro de uma colina ativa ou durante o combate. A barra da colina mostra o controle, os números de jogadores e o progresso de captura; /hill informa sua localização.',
   'guide.worldPvpPage.hillHeading': 'Rei da Colina',
   'guide.worldPvpPage.limitsBodyRaids':
     'Derrotar o mesmo jogador repetidamente paga cada vez menos e logo nada, e sua contagem contra aquele jogador só recomeça cerca de uma hora depois da primeira dessas mortes, então esperar de tocaia por uma única vítima nunca compensa a espera. Um alvo muito abaixo do seu nível não paga nada. Campos de Batalha e Arenas seguem suas próprias regras enquanto você está dentro deles, e pagam mais Honra que o mundo aberto, então o JcJ mundial é o caminho mais lento até o mesmo vendedor. Raides não ganham nada com mortes no mundo: um membro de raide não recebe Honra nem ouro e não reduz a parte de mais ninguém, então lute em grupo para ser pago.',
   'guide.worldPvpPage.limitsHeading': 'Regras de jogo justo',
   'guide.worldPvpPage.stakesBodyFlagged':
-    'Quando um jogador com bandeira é derrotado por outro jogador, o perdedor paga uma pequena parte do ouro da sua bolsa, limitada a uma quantia modesta, e os vencedores ganham Honra para o equipamento de Guerra. Um jogador sem bandeira não paga ouro nenhum, mesmo se cair em uma zona de todos contra todos. Todos que ajudaram compartilham os dois prêmios: o golpe fatal, qualquer um que tenha causado dano ao alvo pouco antes, e os curandeiros que mantiveram esses lutadores de pé. Um confronto limpo de um contra um paga o prêmio inteiro; um grupo o divide.',
+    'Quando um jogador com bandeira é derrotado por outro jogador, o perdedor paga uma pequena parte do ouro da sua bolsa, limitada a uma quantia modesta, e os vencedores ganham Honra para o equipamento de Guerra. Um jogador sem bandeira não pode ser atacado no mundo aberto. Todos que ajudaram compartilham tanto o ouro quanto a Honra: quem deu o golpe fatal, qualquer um que tenha causado dano ao alvo pouco antes e os curandeiros que mantiveram esses lutadores de pé. Um confronto limpo de um contra um paga o prêmio inteiro; um grupo o divide.',
   'guide.worldPvpPage.stakesHeading': 'O que uma morte vale',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Um lutador sem bandeira também não recebe nada: o ouro só muda de mãos entre dois jogadores com bandeira, embora todos que ajudaram ainda ganhem a Honra.',
@@ -20044,7 +20045,11 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardTitles':
     'Ganhe títulos permanentes após {thresholds} de tempo jogado com o PvP mundial ativo. Sair do jogo e visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.',
   'guide.worldPvpPage.introZones':
-    'O PvP em mundo aberto é opcional e depende do terreno. Em áreas disputadas, ativar sua bandeira torna inimigos os jogadores sinalizados fora do seu grupo ou raide; desativá-la torna você espectador novamente após um breve atraso. A Costa da Provação é o único santuário, sem combate PvP. As três áreas mais ao norte são de todos contra todos, com ou sem bandeira. Companheiros de grupo e raide nunca são inimigos; membros da guilda fora do seu grupo podem ser atacados como qualquer outro jogador.',
+    'O PvP em mundo aberto é opcional e depende do terreno. Em áreas disputadas, ativar sua bandeira de PvP torna inimigos todos os jogadores com bandeira fora do seu grupo ou raide; desativá-la torna você espectador novamente após um breve atraso. A Costa da Provação é o único santuário, sem combates no mundo, e as três áreas mais ao norte seguem as mesmas regras de bandeira opcional do restante do mundo. Entrar em um círculo ativo do Rei da Colina ativa sua bandeira automaticamente. Companheiros de grupo e raide nunca são seus inimigos em lugar algum; membros da guilda fora do seu grupo podem ser atacados como qualquer outro jogador.',
   'guide.worldPvpPage.zonesBody':
-    'Há três tipos de terreno. A Costa da Provação é o único santuário: não há PvP mundial e você não pode ativar a bandeira. Uma bandeira já ativa permanece, mas o tempo jogado para títulos fica pausado até você sair. Vale de Eastbrook e a maior parte do mundo são disputados e seguem a regra da bandeira. Drakelands, Os Confins de Frostveil e Amberfall, as três áreas mais ao norte, são de todos contra todos: qualquer um pode atacar os demais, com ou sem bandeira. Você recebe avisos ao entrar e sair. Atacar ali um jogador sem bandeira ativa a sua, fazendo o agressor assumir o risco. Acertar alguém já sinalizado não ativa sua bandeira: defender a si mesmo ou alguém sem bandeira não custa nada.',
+    'A Costa da Provação é o único santuário: não há PvP Mundial ali e você não pode ativar sua bandeira. Uma bandeira já ativa permanece, mas o progresso de títulos por tempo jogado fica pausado até você sair. Em todos os outros lugares, incluindo Drakelands, os Confins de Frostveil e Amberfall, somente jogadores com bandeira podem lutar. Entrar em um círculo ativo do Rei da Colina ativa sua bandeira automaticamente se você cumprir o requisito normal de nível. O círculo de aviso não ativa sua bandeira. Sair do círculo ativo mantém sua bandeira ligada; use /pvp off para iniciar a contagem normal de cinco minutos, que não pode terminar enquanto você estiver dentro de uma colina ativa ou ainda em combate.',
+  'guide.worldPvpPage.hillBody':
+    'A cada duas horas, uma colina surge em Drakelands, nos Confins de Frostveil ou em Amberfall. O reino recebe um aviso com quinze minutos de antecedência, e o círculo é marcado em terreno aberto. A colina permanece ativa por trinta minutos. Entrar no círculo ativo ativa sua bandeira de PvP Mundial pelas regras normais de nível, inclusive para membros de raide. O grupo com mais jogadores elegíveis dentro do círculo conquista a colina após um minuto de maioria ininterrupta; um jogador sozinho conta como um grupo de um, mas membros de raide e jogadores abaixo do nível exigido para PvP não podem capturar a colina nem ganhar Honra por ela. Cada integrante do grupo que a controla e está dentro do círculo ganha Honra em ritmo crescente. Os pagamentos são mais frequentes e aumentam mais rápido, preservando a Honra total do antigo evento de quarenta e cinco minutos. Uma mudança de controle reinicia o aumento das recompensas. Sair do círculo mantém sua bandeira ligada; /pvp off usa o atraso normal de cinco minutos e não pode terminar dentro de uma colina ativa ou durante o combate. A barra da colina mostra o controle, os números de jogadores e o progresso de captura; /hill informa sua localização.',
+  'hudChrome.hill.pvpEntry': 'Entrar no círculo ativo ativa o PvP Mundial.',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

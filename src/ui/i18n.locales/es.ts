@@ -1149,14 +1149,14 @@ export const es: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.confirmCancel': 'Cancelar',
   'hudChrome.worldPvp.disable': 'Desactivar el JcJ mundial',
   'hudChrome.worldPvp.disarmLine':
-    'Desactivarla tarda {minutes} minutos y espera a que termine el combate.',
+    'Desactivar la bandera tarda {minutes} minutos y espera hasta que salgas de la colina activa y termine el combate.',
   'hudChrome.worldPvp.enable': 'Activar el JcJ mundial',
   'hudChrome.worldPvp.greyLine':
     'Los jugadores con más de {levels} niveles por debajo del tuyo no pagan nada.',
   'hudChrome.worldPvp.groundContested':
     'En cualquier otro lugar, el terreno está disputado: solo pueden luchar dos jugadores marcados.',
   'hudChrome.worldPvp.groundFfa':
-    'Las Tierras del Dragón, el Velo de Escarcha y la Cascada de Ámbar son de todos contra todos: allí puede luchar cualquiera, tenga la bandera alzada o no.',
+    'Las Tierras del Dragón, El Velo de Escarcha y La Cascada de Ámbar usan las banderas JcJ habituales. Entrar en el círculo activo del Rey de la Colina activa tu bandera.',
   'hudChrome.worldPvp.groupLine':
     'Los miembros de grupo y de banda nunca son hostiles entre sí. Los compañeros de hermandad que no estén en tu grupo sí pueden luchar.',
   'hudChrome.worldPvp.honorLine':
@@ -1164,9 +1164,9 @@ export const es: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.keepUp': 'Mantener la bandera alzada',
   'hudChrome.worldPvp.levelReq': 'Requiere nivel {level}.',
   'hudChrome.worldPvp.markLine':
-    'Atacar allí a un jugador sin marcar alza tu propia bandera; atacar a uno marcado nunca lo hace.',
+    'Entrar en el círculo activo de una colina activa el JcJ mundial. Salir mantiene tu bandera activa.',
   'hudChrome.worldPvp.noStakeLine':
-    'Un jugador sin marcar que muere en terreno de todos contra todos no pierde oro.',
+    'Los jugadores sin bandera no pueden ser atacados en el mundo abierto.',
   'hudChrome.worldPvp.noTakeLine':
     'Un combatiente sin marcar tampoco se lleva oro: este solo se mueve entre dos jugadores marcados.',
   'hudChrome.worldPvp.pending': 'Esperando tu estado de JcJ del reino.',
@@ -2152,13 +2152,13 @@ export const es: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.flagHeading': 'Levantar y bajar la bandera',
   'guide.worldPvpPage.heading': 'JcJ Mundial',
   'guide.worldPvpPage.hillBodyRamp':
-    'Una vez cada tres horas, en un momento que nadie puede predecir, se avisa a todo el reino de que una colina se alzará en una de las zonas de todos contra todos dentro de quince minutos, y el círculo donde se alzará queda marcado sobre terreno abierto. Al alzarse, permanece cuarenta y cinco minutos, y luego cae. El grupo con más jugadores dentro disputa la colina, y tras un minuto de mayoría ininterrumpida la colina es suya; un jugador solo cuenta como un grupo de uno, pero los miembros de banda no cuentan en absoluto. Mientras un grupo controla la colina, cada uno de sus miembros que esté dentro gana Honor cada minuto, y cuanto más tiempo la controle el mismo grupo, más paga cada minuto: un grupo completo que controle una colina sin disputa durante toda su duración gana aproximadamente lo mismo que tres victorias en Campos Espinosos. Cuando la colina cambia de manos, los nuevos controladores empiezan la cuenta desde el principio. Una barra sobre el campo muestra quién la controla, tus números frente a los suyos, y el reloj de la disputa; /hill en el chat indica dónde se encuentra.',
+    'Cada dos horas aparece una colina en Las Tierras del Dragón, El Velo de Escarcha o La Cascada de Ámbar. El reino recibe un aviso con quince minutos de antelación y el círculo queda marcado en terreno abierto. La colina permanece activa treinta minutos. Entrar en el círculo activo activa la bandera JcJ mundial según los requisitos de nivel habituales, también para los miembros de bandas. El grupo con más jugadores aptos dentro captura la colina tras un minuto de mayoría ininterrumpida; un jugador solo cuenta como grupo de uno, pero los miembros de bandas y los jugadores por debajo del nivel requerido para JcJ no pueden capturar ni ganar Honor de la colina. Cada defensor dentro gana Honor a un ritmo creciente. Los pagos y su aumento son más rápidos y conservan el Honor total del antiguo evento de cuarenta y cinco minutos. Al cambiar de dueño, el aumento empieza de nuevo. Salir mantiene tu bandera activa; /pvp off tarda los cinco minutos habituales y no puede completarse dentro de una colina activa ni durante el combate. La barra muestra el control, los efectivos y el progreso de captura; /hill indica la ubicación.',
   'guide.worldPvpPage.hillHeading': 'El Rey de la Colina',
   'guide.worldPvpPage.limitsBodyRaids':
     'Derrotar al mismo jugador una y otra vez paga cada vez menos y pronto no paga nada, y tu cuenta contra ese jugador solo se reinicia alrededor de una hora después de la primera de esas muertes, así que acechar a una sola víctima nunca vale la espera. Un objetivo muy por debajo de tu nivel no paga absolutamente nada. Los Campos Espinosos y las Arenas siguen sus propias reglas mientras estás dentro, y pagan más Honor que el mundo abierto, así que el JcJ mundial es el camino más lento hacia el mismo vendedor. Las bandas no ganan nada con las muertes en el mundo: un miembro de banda no recibe Honor ni oro y no reduce la parte de nadie más, así que lucha en grupo para que te paguen.',
   'guide.worldPvpPage.limitsHeading': 'Reglas de juego limpio',
   'guide.worldPvpPage.stakesBodyFlagged':
-    'Cuando un jugador marcado es derrotado por otro jugador, el perdedor paga una pequeña parte del oro de su bolsa, con un tope modesto, y los ganadores obtienen Honor hacia el equipo de guerra. Un jugador que no estaba marcado no paga oro alguno, incluso si cae en una zona de todos contra todos. Todos los que ayudaron comparten ambas cosas: el golpe de gracia, cualquiera que dañara al objetivo poco antes, y los sanadores que mantuvieron en pie a esos luchadores. Un mano a mano limpio paga el bote entero; un grupo lo reparte.',
+    'Cuando un jugador marcado es derrotado por otro jugador, el perdedor paga una pequeña parte del oro de su bolsa, con un tope modesto, y los ganadores obtienen Honor hacia el equipo de guerra. Los jugadores sin bandera no pueden ser atacados en el mundo abierto. Todos los que ayudaron comparten ambas cosas: el golpe de gracia, cualquiera que dañara al objetivo poco antes, y los sanadores que mantuvieron en pie a esos luchadores. Un mano a mano limpio paga el bote entero; un grupo lo reparte.',
   'guide.worldPvpPage.stakesHeading': 'Cuánto vale una muerte',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Tampoco un luchador sin marcar recibe nada: el oro solo cambia de manos entre dos jugadores marcados, aunque todos los que ayudaron sí ganan el Honor.',
@@ -2190,7 +2190,7 @@ export const es: Partial<Record<TranslationKey, string>> = {
     'El equipo de Vanguardia es la segunda temporada del equipo de Guerra, vendido por los mismos dos intendentes, por encima del nivel original, que sigue a la venta. Cada especialización tiene su propio conjunto de Vanguardia de cinco piezas, para la cabeza, los hombros, el pecho, las piernas y las manos, y la tienda solo lista los tres conjuntos que tu clase puede vestir, seguidos de las armas de Vanguardia que puedes empuñar. Una pieza de Vanguardia lleva las mismas características de Guerra que el nivel original a un nivel de objeto más alto, y cada conjunto tiene dos bonificaciones, a dos y cuatro piezas, que cambian una de las habilidades de tu especialización. A diferencia de los conjuntos originales, esas bonificaciones funcionan en todas partes, monstruos incluidos, pero están pensadas para luchar contra jugadores, así que un conjunto de banda sigue siendo la mejor opción dentro de una banda.',
   'guide.arenaPage.vanguardHeading': 'Equipo de Vanguardia: Guerra, temporada 2',
   'guide.commandsPage.pvpZones':
-    'Bandera de JcJ mundial: /pvp la alterna, /pvp on y /pvp off la fijan. Los jugadores marcados pueden luchar entre sí en terreno disputado, los santuarios no permiten ningún combate mundial en absoluto, y las zonas de todos contra todos lo permiten con o sin bandera; desactivarla tarda 5 minutos.',
+    'Bandera JcJ mundial: /pvp la alterna; /pvp on y /pvp off la activan y desactivan. Los jugadores marcados pueden luchar entre sí en zonas disputadas; los santuarios no permiten combates JcJ mundiales. Entrar en el círculo activo del Rey de la Colina activa tu bandera. Desactivarla tarda 5 minutos.',
   'guide.commandsPage.unstuckWindow':
     'La salida cuando el mundo te ha atrapado. Quédate quieto durante una breve cuenta atrás y te trasladan al cementerio más cercano, y te revive allí si ya habías caído. El primer uso en una hora es gratis. Si lo usas de nuevo dentro de la hora siguiente al último, te deja debilitado con el Mal de desatasco durante un tiempo después, así que es un rescate, no un atajo.',
   'guide.nav.factions': 'Facciones y Reputación',
@@ -20216,7 +20216,11 @@ No hay un límite de profesiones que debas temer. Cada personaje puede subir nue
   'hudChrome.worldPvp.rewardTitles':
     'Consigue títulos permanentes tras {thresholds} de tiempo jugado con el JcJ mundial activado. Desconectarte y visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.',
   'guide.worldPvpPage.introZones':
-    'El JcJ en el mundo abierto es voluntario y depende del terreno. En zonas disputadas, al activar tu bandera JcJ, los jugadores marcados que no estén en tu grupo o banda se vuelven enemigos; al desactivarla, tras una breve demora, vuelves a ser espectador. La Costa de la Prueba es el único santuario, sin combates JcJ. Las tres zonas más al norte son de todos contra todos, con o sin bandera. Tus compañeros de grupo y banda nunca son enemigos; los miembros de tu hermandad que estén fuera de tu grupo pueden ser atacados como cualquier otro jugador.',
+    'El JcJ en el mundo abierto es voluntario y depende del terreno. Al activar tu bandera, los demás jugadores marcados que no estén en tu grupo o banda se vuelven enemigos en zonas disputadas. Al desactivarla, vuelves a ser espectador tras una breve demora. La Costa de la Prueba es el único santuario, sin combates JcJ mundiales. Las tres zonas más al norte siguen las mismas reglas de participación voluntaria que el resto del mundo. Entrar en el círculo activo del Rey de la Colina activa automáticamente tu bandera. Tus compañeros de grupo y banda nunca son enemigos; los miembros de tu hermandad fuera de tu grupo pueden ser atacados como cualquier otro jugador.',
   'guide.worldPvpPage.zonesBody':
-    'Hay tres tipos de terreno. La Costa de la Prueba es el único santuario: no hay JcJ mundial ni puedes activar la bandera. Si ya está activa, se mantiene, pero el progreso de tiempo jugado para títulos se pausa hasta que salgas. Valle de Eastbrook y la mayor parte del mundo son zonas disputadas, regidas por la bandera. Las Tierras del Dragón, El Velo de Escarcha y La Cascada de Ámbar, las tres zonas más al norte, son de todos contra todos: cualquiera puede atacar a los demás, con o sin bandera. Recibes un aviso al entrar y al salir. Atacar allí a un jugador sin bandera activa la tuya, de modo que el agresor asume el riesgo. Golpear a alguien que ya tiene la bandera activa no activa la tuya: defenderte o defender a alguien sin bandera no te cuesta nada.',
+    'La Costa de la Prueba es el único santuario: allí no hay JcJ mundial ni puedes activar la bandera. Una bandera ya activa se mantiene, pero el progreso de tiempo jugado para títulos se pausa hasta que salgas. En todos los demás lugares, incluidos Las Tierras del Dragón, El Velo de Escarcha y La Cascada de Ámbar, solo pueden luchar los jugadores marcados. Entrar en el círculo activo del Rey de la Colina activa automáticamente tu bandera si cumples el requisito de nivel habitual. El círculo de aviso no te marca. Salir del círculo activo no desactiva la bandera; usa /pvp off para iniciar la cuenta atrás habitual de cinco minutos, que no puede terminar mientras estés en una colina activa o en combate.',
+  'hudChrome.hill.pvpEntry': 'Entrar en el círculo activo activa el JcJ mundial.',
+  'hudChrome.hill.pvpBanner': 'JcJ',
+  'guide.worldPvpPage.hillBody':
+    'Cada dos horas aparece una colina en Las Tierras del Dragón, El Velo de Escarcha o La Cascada de Ámbar. El reino recibe un aviso con quince minutos de antelación y el círculo queda marcado en terreno abierto. La colina permanece activa treinta minutos. Entrar en el círculo activo activa la bandera JcJ mundial según los requisitos de nivel habituales, también para los miembros de bandas. El grupo con más jugadores aptos dentro captura la colina tras un minuto de mayoría ininterrumpida; un jugador solo cuenta como grupo de uno, pero los miembros de bandas y los jugadores por debajo del nivel requerido para JcJ no pueden capturar ni ganar Honor de la colina. Cada defensor dentro gana Honor a un ritmo creciente. Los pagos y su aumento son más rápidos y conservan el Honor total del antiguo evento de cuarenta y cinco minutos. Al cambiar de dueño, el aumento empieza de nuevo. Salir mantiene tu bandera activa; /pvp off tarda los cinco minutos habituales y no puede completarse dentro de una colina activa ni durante el combate. La barra muestra el control, los efectivos y el progreso de captura; /hill indica la ubicación.',
 };

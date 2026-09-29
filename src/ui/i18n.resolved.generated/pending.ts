@@ -9,70 +9,25 @@
 // Reproducibility is checked by tests/i18n_resolved_equivalence.test.ts.
 
 export const pending: Record<string, readonly string[]> = {
-  "es": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
-  "es_ES": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
-  "fr_FR": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
-  "fr_CA": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
+  "es": [],
+  "es_ES": [],
+  "fr_FR": [],
+  "fr_CA": [],
   "en_CA": [],
-  "it_IT": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
-  "de_DE": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
+  "it_IT": [],
+  "de_DE": [],
   "zh_CN": [],
   "zh_TW": [],
   "ko_KR": [],
   "ja_JP": [],
-  "pt_BR": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
+  "pt_BR": [],
   "ru_RU": [],
-  "cs_CZ": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
-  "nl_NL": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
-  "pl_PL": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
-  "id_ID": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
-  "tr_TR": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
-  "sv_SE": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
-  "vi_VN": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ],
-  "da_DK": [
-    "hudChrome.hill.pvpBanner",
-    "hudChrome.hill.pvpEntry"
-  ]
+  "cs_CZ": [],
+  "nl_NL": [],
+  "pl_PL": [],
+  "id_ID": [],
+  "tr_TR": [],
+  "sv_SE": [],
+  "vi_VN": [],
+  "da_DK": []
 };
