@@ -61,10 +61,10 @@ const armorPieces = (): ItemDef[] =>
   SEASON2_STOCK.map((id) => ITEMS[id]).filter((it) => it.kind === 'armor');
 
 describe('the Season 2 stock', () => {
-  it('is one five-piece set per spec plus four weapons, sold by both quartermasters', () => {
+  it('is one five-piece set per spec plus five weapons, sold by both quartermasters', () => {
     expect(SEASON2_SETS).toHaveLength(27);
-    expect(SEASON2_WEAPON_IDS).toHaveLength(4);
-    expect(SEASON2_STOCK).toHaveLength(27 * 5 + 4);
+    expect(SEASON2_WEAPON_IDS).toHaveLength(5);
+    expect(SEASON2_STOCK).toHaveLength(27 * 5 + 5);
     const specs = Object.entries(DEV_KIT_ROLES).flatMap(([cls, roles]) =>
       roles.map((r) => `vanguard_${cls}_${r.spec}`),
     );
@@ -127,6 +127,31 @@ describe('the Season 2 stock', () => {
 });
 
 describe('the stat rules (the honor discount at item level 35)', () => {
+  it('offers druids a class-locked Strength and Agility staff at the Season 2 weapon price', () => {
+    const staff = ITEMS.vanguard_feral_staff;
+    expect(staff.kind).toBe('weapon');
+    expect(handOf(staff)).toBe('twohand');
+    expect(staff.stats).toEqual({ str: 10, agi: 9, sta: 11 });
+    expect(staff.priceHonor).toBe(1800);
+    expect(staff.classLocked).toBe(true);
+    expect(staff.requiredClass).toEqual(['druid']);
+    expect(canEquipItem('druid', staff)).toBe(true);
+    expect(canEquipItem('mage', staff)).toBe(false);
+    expect(SEASON2_WEAPON_IDS).toContain(staff.id);
+  });
+
+  it.each([
+    ['helmet', 12],
+    ['shoulder', 10],
+    ['chest', 15],
+    ['legs', 13],
+    ['gloves', 9],
+  ] as const)('gives the feral %s Strength instead of Agility', (slot, strength) => {
+    const item = ITEMS[`vanguard_druid_feral_${slot}`];
+    expect(item.stats?.str).toBe(strength);
+    expect(item.stats?.agi ?? 0).toBe(0);
+  });
+
   it('prices the line at 90 percent of the budget, stamina lifted to the full-budget floor', () => {
     expect(SEASON2_STAT_FRACTION).toBe(0.9);
     for (const id of SEASON2_STOCK) {

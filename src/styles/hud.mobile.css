@@ -4368,6 +4368,10 @@
     white-space: normal;
     overflow-wrap: anywhere;
   }
+  /* Keep the danger announcement below the hill status strip on short screens. */
+  body.mobile-touch #banner.banner-pvp {
+    top: max(38%, 132px);
+  }
   body.mobile-touch #banner.banner-loot {
     top: 21%;
     font-size: calc(18px * var(--mobile-chrome-scale, 1));

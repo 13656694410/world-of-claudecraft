@@ -7,6 +7,7 @@
 import type { FactionId } from '../../../sim/factions';
 import { worldQuestFaction } from '../../../sim/factions';
 import type { WorldQuestProgress } from '../../../sim/types';
+import { worldQuestCompletedForBoard } from '../../../sim/world_quest_practice';
 import { playerActiveWorldQuests } from '../../../sim/world_quest_reroll';
 
 export type WorldQuestRailState = 'available' | 'active' | 'completed';
@@ -91,12 +92,11 @@ export function buildWorldQuestRailView(input: WorldQuestRailInput): WorldQuestR
   let completed = 0;
   for (const quest of board) {
     const progress = input.worldQuestLog.get(quest.id);
-    const state: WorldQuestRailState =
-      progress?.state === 'completed'
-        ? 'completed'
-        : progress?.state === 'active'
-          ? 'active'
-          : 'available';
+    const state: WorldQuestRailState = worldQuestCompletedForBoard(progress)
+      ? 'completed'
+      : progress?.state === 'active'
+        ? 'active'
+        : 'available';
     if (state === 'completed') completed++;
     rows.push({
       questId: quest.id,

@@ -1,6 +1,6 @@
-// King of the Hill: the pure rules. Once every three hours, at a random
+// King of the Hill: the pure rules. Once every two hours, at a random
 // moment inside the window, a hill is announced somewhere in one of the
-// free-for-all zones; it rises HILL_WARNING_SECONDS later as a HILL_RADIUS
+// northern zones; it rises HILL_WARNING_SECONDS later as a HILL_RADIUS
 // circle on dry, open ground and stands for HILL_DURATION_SECONDS. The PARTY
 // with the most members standing inside it contests it, holds it after
 // HILL_CAPTURE_SECONDS of unbroken majority, and every holder standing inside
@@ -10,15 +10,17 @@
 // ctx-bound system that owns the schedule, the presence pass, the contest
 // clock and the payouts is hill.ts.
 
+import { WORLD_PVP_MIN_LEVEL } from './world_pvp_rules';
+
 /** The circle's radius in yards (owner spec). */
 export const HILL_RADIUS = 50;
-/** One hill per window of this length (owner spec: "once every 3 hours"). */
-export const HILL_WINDOW_SECONDS = 3 * 60 * 60;
+/** One hill per window of this length (owner spec: "once every 2 hours"). */
+export const HILL_WINDOW_SECONDS = 2 * 60 * 60;
 /** The realm is told where the hill will rise this long before it does
  *  (owner spec: a 15 minute warning), so parties can form and travel. */
 export const HILL_WARNING_SECONDS = 15 * 60;
-/** A risen hill stands this long, then falls (owner spec: 45 minutes). */
-export const HILL_DURATION_SECONDS = 45 * 60;
+/** A risen hill stands this long, then falls (owner spec: 30 minutes). */
+export const HILL_DURATION_SECONDS = 30 * 60;
 /** The first window opens this long after boot (the natural rift portal
  *  precedent: never at tick zero). Sim time, so offline the first window
  *  opens two minutes into a session. */
@@ -30,19 +32,15 @@ export const HILL_LATEST_WARN_OFFSET_SECONDS =
   HILL_WINDOW_SECONDS - HILL_WARNING_SECONDS - HILL_DURATION_SECONDS;
 /** Unbroken majority for this long takes the hill (owner spec). */
 export const HILL_CAPTURE_SECONDS = 60;
-/** Each holder standing inside accrues this many seconds of presence before a
- *  payout, and each payout RAMPS with how long the holding party has held the
- *  hill (hillHonorPerPayout): HILL_RAMP_STEP_HONOR a minute for the first five
- *  minutes, that much more each further five minutes, capped at
- *  HILL_RAMP_MAX_HONOR a minute. A full uncontested stand pays about 380 each
- *  (owner tuning 2026-09-25: King of the Hill is a real road to Warfare gear,
- *  doubled alongside the Thornhollow Fields awards). The streak belongs to the party and resets when the
- *  hill changes hands, so a long hold is the thing worth taking. Only a party
- *  can hold, so a party's size is the payee cap. */
-export const HILL_ACCRUAL_SECONDS = 60;
+/** Presence seconds per payout. Payout amounts still ramp from 2 to 12;
+ * both clocks are compressed to preserve 388 Honor per full uncontested stand. */
+// Compress the old 44 paid minutes into 29, keeping the one-minute capture.
+const HILL_REWARD_TIME_SCALE =
+  (HILL_DURATION_SECONDS - HILL_CAPTURE_SECONDS) / (45 * 60 - HILL_CAPTURE_SECONDS);
+export const HILL_ACCRUAL_SECONDS = 60 * HILL_REWARD_TIME_SCALE;
 /** Held seconds per step of the ramp, the Honor each step adds to a minute's
- *  payout, and the per-minute cap it climbs to. */
-export const HILL_RAMP_STEP_SECONDS = 300;
+ *  payout, and the per-payout cap it climbs to. */
+export const HILL_RAMP_STEP_SECONDS = 300 * HILL_REWARD_TIME_SCALE;
 export const HILL_RAMP_STEP_HONOR = 2;
 export const HILL_RAMP_MAX_HONOR = 12;
 
@@ -66,16 +64,20 @@ export const HILL_RIM_SAMPLES = 16;
 export const HILL_INNER_SAMPLES = 8;
 /** Clearance the centre must have from any collider: a hill never rises on
  *  a building, a wall or a fence. The rings are not collider-checked: the
- *  free-for-all zones are forests, a trunk on a sample point is not a
+ *  northern zones are forests, a trunk on a sample point is not a
  *  structure, and the hub exclusion keeps the circle off every settlement. */
 export const HILL_CENTER_CLEARANCE = 6;
 
 /** Whether a player counts on the hill (owner spec: parties only): a raid
- *  member does not, so a raid cannot flood the circle. Level does not matter:
- *  anyone on free-for-all ground is fair game, so anyone there can hold. */
-export type HillStanding = 'counted' | 'raid';
+ *  member does not, so a raid cannot flood the circle. Players below the normal
+ *  World PvP level cannot count or earn honor while immune to opponents. */
+export type HillStanding = 'counted' | 'raid' | 'level';
 
-export function hillStanding(party: { raid: boolean } | null): HillStanding {
+export function hillStanding(
+  party: { raid: boolean } | null,
+  level = WORLD_PVP_MIN_LEVEL,
+): HillStanding {
+  if (level < WORLD_PVP_MIN_LEVEL) return 'level';
   return party?.raid ? 'raid' : 'counted';
 }
 

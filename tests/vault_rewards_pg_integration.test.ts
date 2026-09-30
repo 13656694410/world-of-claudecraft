@@ -51,8 +51,12 @@ describeDb('vault reward ledger (REAL Postgres)', () => {
     pool = new Pool({ connectionString: verifyUrl(ADMIN_URL as string), max: 4 });
     await pool.query(VAULT_REWARDS_SCHEMA);
     await pool.query(MAIL_CUSTODY_PARCELS_SCHEMA);
+    // The production shape (server/db.ts): characters.id is a SERIAL, a 32-bit
+    // INTEGER, while the vault ledger stores character ids as BIGINT. A BIGINT
+    // fixture here hid a guest-cap query that Postgres refuses against the real
+    // table, which left every hoard cleared with a guest without a chest.
     await pool.query(
-      `CREATE TABLE characters (id BIGINT PRIMARY KEY, realm TEXT NOT NULL, state JSONB)`,
+      `CREATE TABLE characters (id SERIAL PRIMARY KEY, realm TEXT NOT NULL, state JSONB)`,
     );
     await pool.query(`CREATE TABLE world_state (key TEXT PRIMARY KEY, data JSONB)`);
     await pool.query(

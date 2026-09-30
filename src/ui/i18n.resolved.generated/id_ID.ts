@@ -503,7 +503,8 @@ export const id_ID: EnTranslations = {
         "dungeon_heroic": "Jarahan dungeon Heroik",
         "world": "Jarahan misi dunia",
         "pvp": "Perlengkapan PEPERANGAN"
-      }
+      },
+      "previewClaimNotice": "Hadiah menanti. Kunjungi Penjaga Lemari Besi di Eastbrook untuk membuka dan mengambilnya."
     },
     "ferry": {
       "regionLabel": "Jadwal feri",
@@ -2784,6 +2785,10 @@ export const id_ID: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Biarkan PvP Dunia aktif untuk mendapatkan {percent} lebih banyak pengalaman dan reputasi faksi. Bonus berhenti saat kamu meminta untuk menonaktifkannya.",
+      "rewardTitles": "Dapatkan gelar permanen setelah {thresholds} waktu bermain dengan PvP Dunia aktif. Keluar dari permainan dan mengunjungi Pesisir Pembuktian menjeda penghitung. Menonaktifkannya mengatur ulang penghitung.",
+      "rewardPaused": "Rangkaian PvP saat ini: {time} bermain (dijeda di Pesisir Pembuktian)",
+      "rewardProgress": "Rangkaian PvP saat ini: {time} bermain",
       "tab": "Pertempuran Dunia PvP",
       "title": "Pertempuran Dunia PvP",
       "blurb": "Naikkan bendera mu untuk melawan pemain lain yang sudah naikkan bendera di mana saja di dunia terbuka. Kalahkan satu dan ambil bagian dari uang mereka, ditambah Kehormatan untuk perlengkapan Perang. Arena Pertempuran dan Arena masih membayar lebih banyak.",
@@ -2795,20 +2800,20 @@ export const id_ID: EnTranslations = {
       "zoneContested": "Tanah yang diperebutkan: hanya pemain yang sudah naikkan bendera yang melawan di sini.",
       "zoneFfa": "Tanah bebas untuk semua: semua orang di sini adil dijadi incaran.",
       "realmDisabled": "Pertempuran Dunia PvP dinonaktifkan di realm ini.",
-      "groundSanctuary": "Tepi Pembuktian dan Lembah Eastbrook adalah tempat perlindungan: tidak ada pertempuran dunia sama sekali.",
+      "groundSanctuary": "Pesisir Pembuktian adalah satu-satunya tempat perlindungan: kamu tidak bisa mengaktifkan PvP Dunia atau melawan pemain lain di sana.",
       "groundContested": "Di mana pun yang lain adalah tanah yang diperebutkan: hanya dua pemain yang sudah naikkan bendera yang bisa melawan.",
-      "groundFfa": "Tanah Naga, Jangkauan Embun Beku, dan Amberfall adalah bebas untuk semua: semua orang di sini adalah target yang sah.",
+      "groundFfa": "Tanah Naga, Tabir Beku, dan Air Terjun Amber menggunakan bendera PvP biasa. Memasuki lingkaran Raja Bukit yang aktif mengaktifkan benderamu.",
       "groupLine": "Anggota pesta dan serbuan tidak pernah bermusuhan satu sama lain. Rekan guild di luar grup mu masih bisa dilawan.",
-      "markLine": "Menyerang pemain yang tidak naikkan bendera di sana akan menaikkan bendera mu sendiri; menyerang pemain yang sudah naikkan bendera hanya menahan mereka.",
+      "markLine": "Memasuki lingkaran bukit yang aktif mengaktifkan PvP Dunia. Keluar dari lingkaran tidak menonaktifkan benderamu.",
       "aidLine": "Menyembuhkan, melindungi, atau memberi buff pada pemain yang sudah naikkan bendera di pertempuran dunia akan menaikkan bendera mu.",
       "stakeLine": "Yang kalah membayar {cap} atau {percent} dari kantong mereka, mana pun yang lebih kecil.",
-      "noStakeLine": "Pemain yang tidak naikkan bendera yang terbunuh di tanah bebas untuk semua tidak kehilangan emas.",
+      "noStakeLine": "Pemain tanpa bendera tidak dapat diserang di dunia terbuka.",
       "noTakeLine": "Pejuang yang tidak naikkan bendera juga tidak kehilangan emas: hanya bergerak antara dua pemain yang sudah naikkan bendera.",
       "honorLine": "{honor} Kehormatan per pembunuhan, dibagi antara semua orang yang membantu.",
       "splitLine": "1v1 yang bersih membayar seluruh pot; pembantu dan penyembuh mereka berbagi.",
       "repeatLine": "Membunuh pemain yang sama berulang kali membayar {second}, lalu {third}, lalu tidak ada; hitungan direset {reset} setelah pembunuhan pertama.",
       "greyLine": "Pemain yang lebih dari {levels} level di bawah mu tidak membayar apa pun.",
-      "disarmLine": "Mematikan bendera membutuhkan {minutes} menit dan menunggu pertempuran berakhir.",
+      "disarmLine": "Penonaktifan membutuhkan {minutes} menit dan menunggu sampai kamu meninggalkan bukit aktif serta pertempuran berakhir.",
       "record": "Rekor: {kills} pembunuhan, {deaths} kematian",
       "enable": "Aktifkan Pertempuran Dunia PvP",
       "disable": "Nonaktifkan Pertempuran Dunia PvP",
@@ -2836,6 +2841,8 @@ export const id_ID: EnTranslations = {
       "distance": "{yards} yd ke lingkaran",
       "rises": "Naik dalam {minutes}",
       "falls": "Jatuh dalam {minutes}",
+      "pvpEntry": "Memasuki lingkaran aktif mengaktifkan PvP Dunia.",
+      "pvpBanner": "PvP",
       "standingRaid": "Anggota raid tidak dihitung: hanya pihak yang dapat memegang bukit"
     },
     "warfareShop": {
@@ -7540,7 +7547,7 @@ export const id_ID: EnTranslations = {
       "session": "Apa yang telah kamu lakukan sejak kamu masuk: pembunuhan, kematian, kerusakan, dan pengalaman.",
       "arena": "Kedudukanmu di Coliseum Abu pada kedua bracket: peringkat, menang, kalah, dan rasio kemenangan untuk 1v1 dan 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
-      "pvpZones": "Bendera Peperangan Dunia: /pvp mengubahnya, /pvp on dan /pvp off menetapkannya. Pemain dengan bendera dapat saling bertarung di tanah yang diperebutkan, tempat suci tidak memungkinkan pertarungan dunia sama sekali, dan zona pertarungan bebas memungkinkannya dengan atau tanpa bendera; mematikan membutuhkan 5 menit.",
+      "pvpZones": "Bendera PvP Dunia: /pvp mengganti statusnya, /pvp on mengaktifkannya, dan /pvp off menonaktifkannya. Pemain berbendera dapat saling bertarung di wilayah sengketa, tempat perlindungan tidak mengizinkan pertempuran dunia sama sekali, dan memasuki lingkaran Raja Bukit yang aktif mengaktifkan benderamu; penonaktifan membutuhkan 5 menit.",
       "listings": "Daftar milikmu sendiri di Pasar Dunia, lengkap dengan harga yang diminta, waktu tersisa masing-masing, dan berapa banyak ruang yang masih kamu miliki untuk menambah lagi.",
       "buyback": "Apa yang baru-baru ini kamu jual ke pedagang dan masih bisa kamu beli kembali.",
       "groupState": "Keadaanmu saat ini",
@@ -8314,16 +8321,16 @@ export const id_ID: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Aturan Permainan Adil",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Pemain-versus-pemain dunia terbuka adalah opt-in, dan tanah tempat kamu berdiri memutuskan apa artinya itu. Angkat bendera Peperangan Dunia kamu dan setiap pemain lain dengan bendera yang bukan dalam pihak atau raid kamu menjadi musuh di tanah yang diperebutkan; turunkannya dan, setelah penundaan pendek, kamu adalah pengamat lagi. Dua zona adalah tempat suci di mana pertarungan dunia tidak terjadi sama sekali, dan tiga zona paling utara adalah tanah pertarungan bebas di mana semua orang hadir adalah permainan yang adil, bendera atau tidak ada bendera. Pihak dan anggota raid kamu tidak pernah menjadi musuh kamu di mana saja; anggota guild di luar grup kamu adalah permainan yang adil seperti siapa pun yang lain.",
+      "introZones": "PvP dunia terbuka bersifat sukarela dan bergantung pada wilayah. Di wilayah sengketa, mengaktifkan bendera PvP menjadikan setiap pemain berbendera di luar grup atau raid kamu sebagai musuh; setelah dinonaktifkan dan jeda singkat, kamu kembali menjadi penonton. Pesisir Pembuktian adalah satu-satunya tempat perlindungan tanpa pertempuran dunia, dan tiga wilayah paling utara menggunakan aturan bendera sukarela yang sama seperti wilayah lainnya. Memasuki lingkaran Raja Bukit yang aktif otomatis mengaktifkan benderamu. Anggota grup dan raid tidak pernah menjadi musuhmu di mana pun; anggota guild di luar grup kamu dapat diserang seperti pemain lain.",
       "zonesHeading": "Tempat Terjadinya PvP Dunia",
-      "zonesBody": "Dunia memiliki tiga jenis medan. Pantai Pembuktian dan Lembah Eastbrook adalah tempat suci: tidak ada PvP dunia yang terjadi di sana sama sekali, bertanda atau tidak, jadi karakter baru tidak pernah bisa bertarung sebelum mereka tahu apa itu bendera. Sebagian besar dunia adalah medan yang diperebutkan, di mana aturan bendera di atas adalah seluruh ceritanya. Drakelands, Jangkauan Frostveil, dan Amberfall, tiga zona paling utara, adalah medan bebas-untuk-semua: semua orang yang berdiri di dalamnya bisa menyerang semua orang lain yang berdiri di dalamnya, dengan atau tanpa bendera, dan kamu diberitahu saat memasuki dan lagi saat keluar. Menyerang pemain yang tidak bertanda di sana menaikkan bendera milikmu sendiri, jadi penyerang selalu berakhir menanggung risikonya. Memukul pemain yang sudah bertanda tidak pernah menaikkannya, yang berarti membela diri atau membela seseorang yang tidak bertanda tidak membebanani Anda sama sekali.",
+      "zonesBody": "Pesisir Pembuktian adalah satu-satunya tempat perlindungan: tidak ada PvP Dunia di sana dan kamu tidak dapat mengaktifkan bendera. Bendera yang sudah aktif tetap aktif, tetapi kemajuan gelar berdasarkan waktu bermain dijeda sampai kamu pergi. Di semua tempat lain, termasuk Tanah Naga, Tabir Beku, dan Air Terjun Amber, hanya pemain berbendera yang dapat bertarung. Memasuki lingkaran Raja Bukit yang aktif otomatis mengaktifkan benderamu jika kamu memenuhi persyaratan level biasa. Lingkaran peringatan tidak mengaktifkan bendera. Keluar dari lingkaran aktif tidak menonaktifkan benderamu; gunakan /pvp off untuk memulai hitung mundur lima menit seperti biasa, yang tidak dapat selesai selama kamu berada di dalam bukit aktif atau masih bertempur.",
       "flagBodyAid": "Ketik /pvp dalam obrolan, atau buka jendela Peperangan Dunia di G dan gunakan tab Peperangan Dunia, yang juga menunjukkan catatan dan taruhan kamu. Menaikkan bendera langsung setelah kamu melampaui tingkat awal. Menurunkannya memulai hitungan mundur beberapa menit, dan bendera tidak akan jatuh saat kamu masih bertarung, jadi mematikan tidak pernah melarikan diri dari pertarungan yang kamu mulai. Menyembuhkan, melindungi atau membuff pemain dengan bendera yang sedang bertarung menaikkan bendera kamu sendiri juga, jadi tidak ada yang mempertahankan pejuang dari belakang bendera yang tidak mereka kenakan; membantu pemain yang tidak dibenderai tidak menaikkan apa pun.",
       "stakesUnflaggedTake": "Pejuang yang tidak bertanda pun tidak menerima apa pun: emas hanya berganti tangan di antara dua pemain bertanda, namun siapa pun yang membantu tetap mendapat Kehormatan.",
-      "stakesBodyFlagged": "Ketika pemain dengan bendera dikalahkan oleh pemain lain, yang kalah membayar bagian kecil dari emas dalam dompet mereka, dibatasi jumlah sedang, dan pemenang memperoleh Kehormatan menuju perlengkapan Peperangan. Pemain yang tidak dibenderai tidak membayar emas sama sekali, bahkan ketika jatuh di zona pertarungan bebas. Semua orang yang membantu berbagi keduanya: pukulan pembunuhan, siapa pun yang melukai target sesaat sebelumnya, dan penyembuh yang menjaga pejuang itu tetap berdiri. Satu-satu yang bersih membayar pot seluruhnya; grup membelahnya.",
+      "stakesBodyFlagged": "Ketika pemain berbendera dikalahkan oleh pemain lain, yang kalah membayar sebagian kecil emas dalam kantongnya, dengan batas jumlah yang tidak besar, dan pemenang memperoleh Kehormatan untuk perlengkapan Peperangan. Pemain tanpa bendera tidak dapat diserang di dunia terbuka. Semua yang membantu berbagi emas dan Kehormatan: pemain yang memberikan pukulan terakhir, siapa pun yang melukai target sesaat sebelumnya, dan penyembuh yang menjaga para petarung itu tetap hidup. Duel satu lawan satu murni memberikan seluruh hadiah kepada pemenang; grup membaginya.",
       "hillHeading": "Raja Bukit",
-      "hillBody": "Once every three hours, at a moment nobody can predict, the whole realm is told that a hill will rise in one of the free-for-all zones in fifteen minutes, and the circle where it will stand is marked on open ground. When it rises it stands for forty-five minutes, then falls. The party with the most players standing inside contests the hill, and after a minute of unbroken majority the hill is theirs; a lone player counts as a party of one, but raid members do not count at all. While a party holds the hill, each of its members standing inside earns a little Honor every minute, so a full party holding an uncontested hill for its whole stand earns a little less than one battleground win pays. A bar over the field shows who holds it, your numbers against theirs, and the contest clock; /hill in chat says where it stands.",
+      "hillBody": "Setiap dua jam, sebuah bukit muncul di Tanah Naga, Tabir Beku, atau Air Terjun Amber. Realm menerima peringatan lima belas menit sebelumnya, dan lingkarannya ditandai di tanah terbuka. Bukit tetap aktif selama tiga puluh menit. Memasuki lingkaran aktif mengaktifkan bendera PvP Dunia sesuai aturan level biasa, termasuk bagi anggota raid. Grup dengan pemain yang memenuhi syarat paling banyak di dalamnya merebut bukit setelah mempertahankan mayoritas selama satu menit tanpa terputus; pemain tunggal dihitung sebagai grup beranggota satu, tetapi anggota raid dan pemain di bawah persyaratan level PvP tidak dapat merebut bukit atau memperoleh Kehormatan bukit. Setiap anggota grup penguasa yang berada di dalam lingkaran memperoleh Kehormatan dengan laju yang terus meningkat. Pembagian hadiah menjadi lebih sering dan kenaikannya lebih cepat, sehingga total Kehormatan tetap sama seperti acara lama yang berlangsung empat puluh lima menit. Pergantian penguasa mengulang kenaikan hadiah dari awal. Keluar dari lingkaran tidak menonaktifkan benderamu; /pvp off menggunakan jeda lima menit seperti biasa dan tidak dapat selesai di dalam bukit aktif atau selama pertempuran. Bilah bukit menampilkan penguasaan, jumlah pemain, dan kemajuan perebutan; /hill melaporkan lokasinya.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "hillBodyRamp": "Setiap tiga jam sekali, pada saat tidak ada yang bisa diprediksi, seluruh realm diberitahu bahwa bukit akan naik di salah satu zona pertarungan bebas dalam lima belas menit, dan lingkaran di mana itu akan berdiri ditandai di tanah terbuka. Ketika naik itu berdiri selama empat puluh lima menit, kemudian jatuh. Pihak dengan pemain paling banyak di dalam memperebutkan bukit, dan setelah satu menit mayoritas tanpa gangguan bukit itu milik mereka; pemain tunggal dihitung sebagai pihak dari satu, tetapi anggota raid tidak dihitung sama sekali. Saat pihak memegang bukit, masing-masing anggotanya berdiri di dalam memperoleh Kehormatan setiap menit, dan semakin lama pihak yang sama memegangnya, semakin banyak setiap menit membayar: pihak penuh memegang bukit yang tidak diperebutkan selama seluruh berdiri menghasilkan sekitar jumlah tiga kemenangan medan pertempuran. Ketika bukit berganti tangan, pemegang baru memulai hitungan dari awal. Bilah di atas bidang menunjukkan siapa memegang itu, nomor kamu melawan mereka, dan jam kontes; /hill dalam obrolan mengatakan di mana itu berdiri.",
+      "hillBodyRamp": "Setiap dua jam, sebuah bukit muncul di Tanah Naga, Tabir Beku, atau Air Terjun Amber. Realm menerima peringatan lima belas menit sebelumnya, dan lingkarannya ditandai di tanah terbuka. Bukit tetap aktif selama tiga puluh menit. Memasuki lingkaran aktif mengaktifkan bendera PvP Dunia sesuai aturan level biasa, termasuk bagi anggota raid. Grup dengan pemain yang memenuhi syarat paling banyak di dalamnya merebut bukit setelah mempertahankan mayoritas selama satu menit tanpa terputus; pemain tunggal dihitung sebagai grup beranggota satu, tetapi anggota raid dan pemain di bawah persyaratan level PvP tidak dapat merebut bukit atau memperoleh Kehormatan bukit. Setiap anggota grup penguasa yang berada di dalam lingkaran memperoleh Kehormatan dengan laju yang terus meningkat. Pembagian hadiah menjadi lebih sering dan kenaikannya lebih cepat, sehingga total Kehormatan tetap sama seperti acara lama yang berlangsung empat puluh lima menit. Pergantian penguasa mengulang kenaikan hadiah dari awal. Keluar dari lingkaran tidak menonaktifkan benderamu; /pvp off menggunakan jeda lima menit seperti biasa dan tidak dapat selesai di dalam bukit aktif atau selama pertempuran. Bilah bukit menampilkan penguasaan, jumlah pemain, dan kemajuan perebutan; /hill melaporkan lokasinya.",
       "limitsBodyRaids": "Mengalahkan pemain yang sama lagi dan lagi membayar lebih sedikit setiap kali dan segera tidak ada, dan hitungan kamu melawan pemain itu hanya dimulai lagi sekitar satu jam setelah yang pertama dari pembunuhan itu, jadi mengepung satu korban tidak pernah sepadan dengan menunggu. Target jauh di bawah level kamu tidak membayar apa pun sama sekali. Medan pertempuran dan Arena menjalankan aturan mereka sendiri saat kamu berada di dalam, dan mereka membayar lebih banyak Kehormatan daripada dunia terbuka, jadi Peperangan Dunia adalah jalan yang lebih lambat ke vendor yang sama. Raid tidak memperoleh apa pun dari pembunuhan dunia: anggota raid tidak mengambil Kehormatan atau emas dan tidak mengecilkan bagian siapa pun, jadi bertarung sebagai pihak untuk dibayar."
     },
     "thornhollowPage": {
@@ -12124,6 +12131,7 @@ export const id_ID: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Alihkan serangan otomatis pada targetmu. Klik kanan pada musuh juga menyerang.",
       "attackRemoveHint": "Klik kanan untuk menghapusnya dari bilah dan mengosongkan slot.",
+      "moveHint": "Tahan Shift lalu seret untuk memindahkan",
       "emptySlot": "Slot kosong",
       "slotAria": "Slot aksi {slot}: {ability}",
       "emptySlotAria": "Slot aksi {slot}: kosong",
@@ -18451,6 +18459,9 @@ export const id_ID: EnTranslations = {
       "vanguard_warstaff": {
         "name": "Tongkat Perang Vanguard"
       },
+      "vanguard_feral_staff": {
+        "name": "Tongkat Liar Garda Depan"
+      },
       "conjured_water4": {
         "name": "Air Mata Air Sihir"
       },
@@ -24179,8 +24190,8 @@ export const id_ID: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Kulit Bersurai Darah",
-        "bonus2": "Jeda Terjangan Bruin dikurangi 3 detik.",
-        "bonus4": "Terjangan Bruin melindungimu sebesar 6 persen dari kesehatan maksimal-mu selama 6 detik."
+        "bonus2": "Mengurangi waktu pemulihan Terkaman dan Terjangan Bruin sebesar 3 dtk.",
+        "bonus4": "Mengurangi waktu pemulihan Lesatan sebesar 15 dtk."
       },
       "vanguard_druid_restoration": {
         "name": "Jubah Mekar Thistle",

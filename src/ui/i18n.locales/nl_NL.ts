@@ -1274,24 +1274,22 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.confirmCancel': 'Annuleren',
   'hudChrome.worldPvp.disable': 'Wereldgevecht uitschakelen',
   'hudChrome.worldPvp.disarmLine':
-    'Uitschakelen duurt {minutes} minuten en wacht op het einde van het gevecht.',
+    'Uitschakelen duurt {minutes} minuten en wacht totdat je de actieve heuvel hebt verlaten en het gevecht is afgelopen.',
   'hudChrome.worldPvp.enable': 'Wereldgevecht inschakelen',
   'hudChrome.worldPvp.greyLine': 'Spelers meer dan {levels} niveaus onder jou betalen niets.',
   'hudChrome.worldPvp.groundContested':
     'Overal elders is omstreden: alleen twee gevlagde spelers kunnen vechten.',
   'hudChrome.worldPvp.groundFfa':
-    'De Drakenlandse, de Vorstrijke en de Amberrode zijn vrij voor iedereen: iedereen daar kan vechten, gevlagd of niet.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'De Beproevingskust en de Oostbeekse dalen zijn heiligdommen: geen wereldgevecht op deze plaatsen.',
+    'De Drakenlanden, de Vorstsluier en de Amberval gebruiken normale PvP-vlaggen. Bij het betreden van een actieve cirkel van Koning van de Heuvel wordt je vlag ingeschakeld.',
   'hudChrome.worldPvp.groupLine':
     'Partijleden en raidleden zijn nooit vijandig tegen elkaar. Gildeverbroedering buiten je groep kan vechten.',
   'hudChrome.worldPvp.honorLine': '{honor} Eer per kill, verdeeld onder iedereen die hielp.',
   'hudChrome.worldPvp.keepUp': 'Vlag omhoog houden',
   'hudChrome.worldPvp.levelReq': 'Vereist niveau {level}.',
   'hudChrome.worldPvp.markLine':
-    'Een ongvlagde speler aanvallen daar verhoogt je eigen vlag; een gevlagde aanvallen doet dat nooit.',
+    'Bij het betreden van een actieve heuvelcirkel wordt wereld-PvP ingeschakeld. Je vlag blijft aan wanneer je de cirkel verlaat.',
   'hudChrome.worldPvp.noStakeLine':
-    'Een ongvlagde speler gedood op vrij-voor-iedereen grond verliest geen goud.',
+    'Spelers zonder vlag kunnen in de open wereld niet worden aangevallen.',
   'hudChrome.worldPvp.noTakeLine':
     'Een ongvlagde vechter neemt ook geen goud: het beweegt alleen tussen twee gevlagde spelers.',
   'hudChrome.worldPvp.pending': 'Wacht op je PvP-status van het rijk.',
@@ -1887,9 +1885,8 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
     'Grijpende Wortels casten laat je bewegen en verhoogt je bewegingssnelheid 20% voor 4 sec. Kan niet meer dan eens per 20 sec gebeuren.',
   'entities.itemSets.vanguard_druid_balance.name': 'Sterrenwacht Gewaad',
   'entities.itemSets.vanguard_druid_feral.bonus2':
-    'Afkoelingseffect van Bruin-stormloop is 3 sec korter.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Bruin-stormloop beschermt je voor 6% van je maximale gezondheid voor 6 sec.',
+    'Verkort de afkoeltijden van Uitval en Bruin-stormloop met 3 sec.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Verkort de afkoeltijd van Spurt met 15 sec.',
   'entities.itemSets.vanguard_druid_feral.name': 'Bloedmaan Huid',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     'Afkoelingseffect van Vleegheling is 1 sec korter.',
@@ -2327,7 +2324,7 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
   'guide.combat.unstuckBodyWindow':
     'Als de wereld je ergens opsluit waar je niet uit kunt, typ /bevrijd. Je moet uit gevecht zijn en stilstaan, niet vastgehouden door een verdoof of wortel, en niet in een tweegevecht of een arenamatch: een korte aftelling loopt, en beweging of schadeverursaking annuleert het. Wanneer het klaar is ben je bij de dichtstbijzijnde begraafplaats. Het doodt je nooit en laat geen lijk achter, en als je al neerslag maak je daar weer op. Het eerste gebruik in een uur kost je niets. Gebruik het opnieuw binnen een uur van het vorige en de prijs is Bevrijd-Ziekte, een tijdelijke verzwakking van alles wat je bent die is voorbijgegaan tegen de tijd dat je de opdracht weer zou kunnen gebruiken, en zoals de Tol van de Bewaarder spaart het gloednieuwe personages helemaal.',
   'guide.commandsPage.pvpZones':
-    'Wereldgevecht-vlag: /pvp schakelt het, /pvp aan en /pvp uit stellen het in. Gevlagde spelers kunnen elkaar bevechten op betwist terrein, heiligdommen staan geen wereldgevecht toe, en de vrije-voor-allen zones staan het toe met of zonder vlag; uitschakelen duurt 5 minuten.',
+    'Wereld-PvP-vlag: /pvp wisselt de stand, /pvp on schakelt hem in en /pvp off schakelt hem uit. Spelers met een vlag kunnen elkaar op betwist terrein bevechten, heiligdommen staan geen wereldgevechten toe en bij het betreden van een actieve cirkel van Koning van de Heuvel wordt je vlag ingeschakeld; uitschakelen duurt 5 minuten.',
   'guide.commandsPage.unstuckWindow':
     'De uitweg wanneer de wereld je hebt opgesloten. Sta stil door een korte aftelling en je bent verplaatst naar de dichtstbijzijnde begraafplaats, en opgericht daar als je al was gevallen. Het eerste gebruik in een uur is gratis. Gebruik het opnieuw binnen een uur van het vorige en het laat je verzwakt achter door Bevrijd-Ziekte voor een poosje daarna, dus het is een redding in plaats van een snelpad.',
   'guide.factionsPage.automatonsBody':
@@ -2398,20 +2395,16 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.flagHeading': 'De vlag verheffen en verlagen',
   'guide.worldPvpPage.heading': 'Wereld-PvP',
   'guide.worldPvpPage.hillBodyRamp':
-    'Eenmaal per drie uur, op een moment dat niemand kan voorspellen, wordt het hele rijk verteld dat een heuvel in één van de vrije-voor-allen zones in vijftien minuten omhoog zal rijzen, en de cirkel waar hij zal staan is op open terrein gemarkeerd. Wanneer hij omhoog rijst staat hij voor vijfenveertig minuten, dan valt. De partij met de meeste spelers die erin staan betwist de heuvel, en na een minuut ononderbroken meerderheid is de heuvel van hen; een enkele speler telt als een partij van één, maar raidleden tellen helemaal niet. Terwijl een partij de heuvel houdt, verdient elk van zijn leden die erin staan Eer elke minuut, en hoe langer dezelfde partij het houdt, hoe meer elke minuut uitbetaalt: een volle partij die een ongetegenspoken heuvel voor de hele duur houdt verdient ongeveer zoveel als drie battleground-winsten. Wanneer de heuvel van handen verandert, beginnen de nieuwe houders de telling opnieuw. Een balk over het veld toont wie het houdt, jouw getallen tegen die van hen, en de concurrentie-klok; /hill in chat zegt waar het staat.',
+    'Elke twee uur verschijnt er een heuvel in de Drakenlanden, de Vorstsluier of de Amberval. Het rijk krijgt een kwartier van tevoren een waarschuwing en de cirkel wordt op open terrein gemarkeerd. De heuvel blijft dertig minuten actief. Bij het betreden van de actieve cirkel wordt je wereld-PvP-vlag ingeschakeld volgens de normale niveauregels, ook voor raidleden. De groep met de meeste spelers binnen de cirkel die aan de voorwaarden voldoen, verovert de heuvel na een minuut met een ononderbroken meerderheid; een solospeler telt als een groep van één, maar raidleden en spelers onder het vereiste PvP-niveau kunnen de heuvel niet veroveren en er geen Eer verdienen. Elke bezetter binnen de cirkel verdient in een steeds hoger tempo Eer. Uitbetalingen volgen elkaar sneller op en lopen sneller op, zodat de totale Eer van het vroegere evenement van vijfenveertig minuten behouden blijft. Bij een wisseling van bezetters begint de opbouw opnieuw. Je vlag blijft aan wanneer je de cirkel verlaat; /pvp off gebruikt de normale vertraging van vijf minuten en kan niet aflopen binnen een actieve heuvel of tijdens een gevecht. De heuvelbalk toont de bezetting, aantallen en veroveringsvoortgang; /hill meldt de locatie.',
   'guide.worldPvpPage.hillHeading': 'Koning van de Heuvel',
-  'guide.worldPvpPage.introZones':
-    'Open-wereld speler-tegen-speler is opt-in, en de grond waarop je staat bepaalt wat dat betekent. Verhef je PvP-vlag en elke andere gevlagde speler die niet in je partij of raid zit wordt een vijand op betwist terrein; verlaag het en, na een korte vertraging, ben je weer een toeschouwer. Twee zones zijn heiligdommen waar geen wereldgevecht plaatsvindt, en de drie noordelijkste zones zijn vrije-voor-allen terrein waar iedereen aanwezig rechtvaardig spel is, vlag of geen vlag. Partij- en raidmaten zijn nooit vijanden van je overal; gildenieuwelingen buiten je groep zijn rechtvaardig spel zoals iedereen anders.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Het herhaaldelijk verslaan van dezelfde speler betaalt steeds minder en binnenkort niets, en je telling tegen die speler begint slechts ongeveer een uur na het eerste van die kills opnieuw, dus het kamperen op één slachtoffer is nooit de wacht waard. Een doelwit veel onder je niveau betaalt niets. Battlegrounds en Arenas voeren hun eigen regels uit terwijl je erin bent, en ze betalen meer Eer dan de open wereld, dus wereld-PvP is de langzamere weg naar dezelfde verkoper. Raids verdienen niets uit wereldkills: een raidlid neemt geen Eer of goud aan en verkleint niemand anders aandeel, dus vecht als partij om betaald te krijgen.',
   'guide.worldPvpPage.limitsHeading': 'Fair-play regels',
   'guide.worldPvpPage.stakesBodyFlagged':
-    'Wanneer een gevlagde speler door een ander speler wordt verslagen, betaalt de verliezer een klein aandeel van de munten in hun beurs, begrensd tot een bescheiden bedrag, en verdienen de winnaars Eer naar Oorlogsuitrusting. Een speler die niet gevlagd was betaalt helemaal geen goud, zelfs niet wanneer ze in een vrije-voor-allen zone vallen. Iedereen die hielp deelt beide: de doodzeggen, iedereen die de doelwit kort daarvoor schadde, en de genezers die die vechters overend hielden. Een schoon één-tegen-één betaalt de hele pot; een groep splitst het.',
+    'Wanneer een speler met een vlag door een andere speler wordt verslagen, betaalt de verliezer een klein deel van het goud in zijn beurs, met een bescheiden maximum, en verdienen de winnaars Eer voor Oorlogsuitrusting. Een speler zonder vlag kan in de open wereld niet worden aangevallen. Iedereen die hielp, deelt in zowel het goud als de Eer: de speler die de genadeslag gaf, iedereen die het doelwit kort daarvoor schade toebracht en de genezers die deze vechters op de been hielden. Een zuiver een-tegen-eengevecht levert de hele pot op; een groep verdeelt die.',
   'guide.worldPvpPage.stakesHeading': 'Waarde van een dood',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Ook een strijder zonder vlag krijgt niets: goud wisselt alleen van hand tussen twee spelers met een vlag, hoewel iedereen die hielp toch Eer verdient.',
-  'guide.worldPvpPage.zonesBody':
-    'De wereld heeft drie soorten grondgebied. De Beproevingskust en Oostbeekdal zijn heiligdommen: daar vindt helemaal geen PvP plaats, of je nu een vlag hebt of niet, dus een nieuw karakter kan nooit worden aangevallen voordat het weet wat de vlag betekent. Het meeste van de wereld is omstreden terrein, waar de regel van hierboven het hele verhaal is. De Drakenlanden, De Vorstsluier en De Amberval, de drie noordelijkste zones, zijn vrij-voor-alles terrein: iedereen kan iedereen aanvallen, met of zonder vlag, en je krijgt waarschuwing wanneer je binnenkomt en opnieuw wanneer je vertrekt. Een speler zonder vlag aanvallen verhoogt je eigen vlag, dus een aanvaller loopt altijd risico. Een speler slaan die al een vlag heeft verhoogt je vlag nooit, dus jezelf verdedigen, of iemand zonder vlag verdedigen, kost je niets.',
   'guide.worldPvpPage.zonesHeading': 'Waar PvP plaatsvindt',
   'landing.headline': 'Op avontuur met vrienden.',
   'landing.contribute': 'Draag bij aan het spel',
@@ -20032,4 +20025,26 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Houd Shift ingedrukt en sleep om te verplaatsen',
+  'entities.items.vanguard_feral_staff.name': 'Wilde staf van de Voorhoede',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Er liggen beloningen klaar. Bezoek de Kluisbewaarder in Eastbrook om ze te openen en op te halen.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'De Beproevingskust is het enige heiligdom: je kunt er geen wereld-PvP inschakelen of tegen andere spelers vechten.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Houd wereld-PvP ingeschakeld om {percent} meer ervaring en factiereputatie te verdienen. De bonussen stoppen zodra je vraagt om het uit te schakelen.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Huidige PvP-reeks: {time} gespeeld (gepauzeerd aan de Beproevingskust)',
+  'hudChrome.worldPvp.rewardProgress': 'Huidige PvP-reeks: {time} gespeeld',
+  'hudChrome.worldPvp.rewardTitles':
+    'Verdien permanente titels na {thresholds} speeltijd met wereld-PvP ingeschakeld. Uitloggen en de Beproevingskust bezoeken pauzeren de teller. Uitschakelen zet hem terug op nul.',
+  'guide.worldPvpPage.introZones':
+    'PvP in de open wereld is vrijwillig en hangt af van het gebied. Op betwist terrein maakt je ingeschakelde PvP-vlag alle spelers met een vlag buiten je groep of raid tot vijanden; na uitschakelen ben je na een korte vertraging weer toeschouwer. De Beproevingskust is het enige heiligdom zonder wereldgevechten en de drie noordelijkste gebieden gebruiken dezelfde vrijwillige vlagregels als de rest van de wereld. Bij het betreden van een actieve cirkel van Koning van de Heuvel wordt je vlag automatisch ingeschakeld. Groeps- en raidleden zijn nergens je vijanden; gildeleden buiten je groep zijn net als andere spelers aan te vallen.',
+  'guide.worldPvpPage.zonesBody':
+    'De Beproevingskust is het enige heiligdom: daar vindt geen wereld-PvP plaats en kun je je vlag niet inschakelen. Een ingeschakelde vlag blijft aan, maar je voortgang naar titels op basis van speeltijd wordt gepauzeerd totdat je vertrekt. Overal elders, ook in de Drakenlanden, de Vorstsluier en de Amberval, kunnen alleen spelers met een vlag vechten. Bij het betreden van een actieve cirkel van Koning van de Heuvel wordt je vlag automatisch ingeschakeld als je aan de normale niveauvereiste voldoet. De waarschuwingscirkel schakelt je vlag niet in. Je vlag blijft aan wanneer je de actieve cirkel verlaat; gebruik /pvp off om de normale aftelling van vijf minuten te starten. Die kan niet aflopen zolang je binnen een actieve heuvel bent of nog in gevecht bent.',
+  'guide.worldPvpPage.hillBody':
+    'Elke twee uur verschijnt er een heuvel in de Drakenlanden, de Vorstsluier of de Amberval. Het rijk krijgt een kwartier van tevoren een waarschuwing en de cirkel wordt op open terrein gemarkeerd. De heuvel blijft dertig minuten actief. Bij het betreden van de actieve cirkel wordt je wereld-PvP-vlag ingeschakeld volgens de normale niveauregels, ook voor raidleden. De groep met de meeste spelers binnen de cirkel die aan de voorwaarden voldoen, verovert de heuvel na een minuut met een ononderbroken meerderheid; een solospeler telt als een groep van één, maar raidleden en spelers onder het vereiste PvP-niveau kunnen de heuvel niet veroveren en er geen Eer verdienen. Elke bezetter binnen de cirkel verdient in een steeds hoger tempo Eer. Uitbetalingen volgen elkaar sneller op en lopen sneller op, zodat de totale Eer van het vroegere evenement van vijfenveertig minuten behouden blijft. Bij een wisseling van bezetters begint de opbouw opnieuw. Je vlag blijft aan wanneer je de cirkel verlaat; /pvp off gebruikt de normale vertraging van vijf minuten en kan niet aflopen binnen een actieve heuvel of tijdens een gevecht. De heuvelbalk toont de bezetting, aantallen en veroveringsvoortgang; /hill meldt de locatie.',
+  'hudChrome.hill.pvpEntry':
+    'Bij het betreden van de actieve cirkel wordt wereld-PvP ingeschakeld.',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };
