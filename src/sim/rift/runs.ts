@@ -33,6 +33,7 @@ import { cancelProfessionSessionOnDisplacement } from '../professions/session_te
 import type { SimContext } from '../sim_context';
 import { mayEnterVaultPortal, vaultForPortal, vaultScaledTuning } from '../treasure_vault';
 import { DT, dist2d, type Entity, type SimEvent, type Vec3 } from '../types';
+import { wispMazeActionsLocked } from '../wisp_maze_action_lock';
 import { isInWaterBody } from '../world';
 import { riftFx } from './fx';
 import { tickHoardAddCasts } from './hoard_add_casts';
@@ -630,6 +631,9 @@ export function enterRift(
       r.e.riftDeniedAt = ctx.time;
       ctx.error(r.meta.entityId, 'All rifts are unstable right now. Try again soon.');
     }
+    return;
+  }
+  if (portal && wispMazeActionsLocked(r.meta.worldQuestLog)) {
     return;
   }
   // A treasure vault is private: only the map's owner and their party may
@@ -1364,6 +1368,8 @@ export function updateRiftTriggers(ctx: SimContext, p: Entity): void {
   // Overworld: walk into a rift portal to enter (unless inside the short
   // post-exit grace, so leaving a rift never bounces the player back in).
   if (ctx.time < (p.riftReentryGraceUntil ?? -Infinity)) return;
+  const meta = ctx.players.get(p.id);
+  if (meta && wispMazeActionsLocked(meta.worldQuestLog)) return;
   if (ctx.riftPortalIds === null) {
     ctx.riftPortalIds = [];
     for (const e of ctx.entities.values()) {
