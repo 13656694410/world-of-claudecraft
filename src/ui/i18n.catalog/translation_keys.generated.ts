@@ -6457,6 +6457,7 @@ export type TranslationKeyFlat =
   | 'guide.commandsPage.emotesHeading'
   | 'guide.commandsPage.emotesMore'
   | 'guide.commandsPage.falling'
+  | 'guide.commandsPage.flair'
   | 'guide.commandsPage.follow'
   | 'guide.commandsPage.form'
   | 'guide.commandsPage.gAlias'

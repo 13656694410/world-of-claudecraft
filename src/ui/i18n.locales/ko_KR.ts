@@ -2781,6 +2781,8 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
     '업적의 서도 평판을 기록합니다. 한 진영에서 신뢰에 도달하는 것과 한 진영에서 챔피언에 도달하는 것이 각각 업적으로 기록되고, 세 진영 모두에서 챔피언에 도달하면 별도의 업적이 됩니다. 다른 업적과 마찬가지로 이는 장식일 뿐 힘이 되지 않으며, 챔피언 업적은 착용할 수 있는 칭호를 줍니다.',
   'guide.commandsPage.pvp':
     '월드 PvP 깃발: /pvp 로 전환하고 /pvp on 과 /pvp off 로 직접 설정합니다. 깃발을 올린 플레이어끼리는 어디서든 싸울 수 있으며, 끄는 데 5분이 걸립니다.',
+  'guide.commandsPage.flair':
+    '다른 플레이어에게 보이는 Discord 역할(색상 이름, 역할 태그, 채팅 인증 태그)을 표시하거나 숨깁니다. /flair on은 표시, /flair off는 숨기기이며, /flair만 입력하면 현재 설정을 알려 줍니다. Discord 계정 연동이 필요합니다.',
   'guide.commandsPage.pvpZones':
     '월드 PvP 깃발: /pvp로 전환하고 /pvp on과 /pvp off로 켜거나 끕니다. 분쟁 지역에서는 깃발을 올린 플레이어끼리 싸울 수 있고 성역에서는 월드 PvP가 금지됩니다. 진행 중인 언덕의 왕 원 안에 들어가면 깃발이 올라갑니다. 해제에는 5분이 걸립니다.',
   'guide.nav.worldPvp': '월드 PvP',

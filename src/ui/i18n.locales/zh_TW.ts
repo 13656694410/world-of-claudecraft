@@ -2696,6 +2696,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
     '功績之書也會記錄你的聲望：與某個陣營達到信任、與某個陣營達到冠軍各記為一項功績，與三個陣營都達到冠軍則是另一項功績。和所有功績一樣，它們只是裝飾，從不帶來戰力，而冠軍功績會授予一個可佩戴的頭銜。',
   'guide.commandsPage.pvp':
     '世界 PvP 旗幟：/pvp 切換，/pvp on 與 /pvp off 直接設定。已開啟旗幟的玩家可以在任何地方互相作戰；關閉需要 5 分鐘。',
+  'guide.commandsPage.flair':
+    '對其他玩家顯示或隱藏你的 Discord 身分組，也就是彩色名稱、身分組標籤和聊天認證標籤：/flair on 顯示，/flair off 隱藏，只輸入 /flair 會告訴你目前的設定。需要已連結的 Discord 帳號。',
   'guide.commandsPage.pvpZones':
     '世界 PvP 旗幟：/pvp 切換狀態，/pvp on 和 /pvp off 分別開啟和關閉。在爭奪區域，已開啟旗幟的玩家可以互相戰鬥；庇護區域禁止一切世界 PvP。進入正在進行的山丘之王活動圈會開啟旗幟；關閉需要 5 分鐘。',
   'guide.nav.worldPvp': '世界 PvP',
