@@ -442,6 +442,103 @@ describe('crowd interest management', () => {
     expect(inKeep(snap, rogue.pid)).toBe(false);
   });
 
+  it('a corpse or a ghost detects no stealthed stranger, though alive it would', () => {
+    const rogueFc = fakeWs();
+    const rogue = joinServer(server, rogueFc, 3, 'GraveSneak', 'rogue');
+    server.sim.setPlayerLevel(10, viewer.pid);
+    server.sim.setPlayerLevel(10, rogue.pid);
+    const v = server.sim.entities.get(viewer.pid)!;
+    const r = server.sim.entities.get(rogue.pid)!;
+    placeAt(server, rogue.pid, v.pos.x + 6, v.pos.z);
+    server.sim.targetEntity(null, rogue.pid);
+    server.sim.castAbility('stealth', rogue.pid);
+
+    // Alive, the friendly detection radius admits a stealthed stranger at 6yd.
+    viewerFc.sent.length = 0;
+    step(server);
+    expect(entRecord(lastSnap(viewerFc.sent), rogue.pid)).not.toBeNull();
+
+    // Dead where it stood: isHostileTo is false for a dead viewer, which used
+    // to drop it into that same friendly radius.
+    v.hp = 0;
+    v.dead = true;
+    viewerFc.sent.length = 0;
+    step(server);
+    let snap = lastSnap(viewerFc.sent);
+    expect(entRecord(snap, rogue.pid)).toBeNull();
+    expect(inKeep(snap, rogue.pid)).toBe(false);
+
+    // Released, then run back to the same spot.
+    server.sim.releaseSpirit(viewer.pid);
+    expect(v.ghost).toBe(true);
+    placeAt(server, viewer.pid, r.pos.x - 6, r.pos.z);
+    viewerFc.sent.length = 0;
+    step(server);
+    snap = lastSnap(viewerFc.sent);
+    expect(entRecord(snap, rogue.pid)).toBeNull();
+    expect(inKeep(snap, rogue.pid)).toBe(false);
+
+    // Its own party is still seen.
+    server.sim.partyInvite(rogue.pid, viewer.pid);
+    server.sim.partyAccept(rogue.pid);
+    expect(server.sim.partyOf(viewer.pid)?.members).toContain(rogue.pid);
+    viewerFc.sent.length = 0;
+    step(server);
+    expect(entRecord(lastSnap(viewerFc.sent), rogue.pid)).not.toBeNull();
+  });
+
+  it('ships a released ghost only to its own party or raid', () => {
+    const mateFc = fakeWs();
+    const mate = joinServer(server, mateFc, 3, 'Mate');
+    server.sim.partyInvite(mate.pid, subject.pid);
+    server.sim.partyAccept(mate.pid);
+    const v = server.sim.entities.get(viewer.pid)!;
+    const near = besideViewer(v, 4);
+    placeAt(server, mate.pid, near.x, near.z);
+    placeSubjectAt(10);
+    const s = server.sim.entities.get(subject.pid)!;
+    const shipped = (fc: FakeClient): boolean => {
+      const snap = lastSnap(fc.sent);
+      return entRecord(snap, subject.pid) !== null || inKeep(snap, subject.pid);
+    };
+
+    // The body before release stays visible to everyone.
+    s.hp = 0;
+    s.dead = true;
+    viewerFc.sent.length = 0;
+    mateFc.sent.length = 0;
+    step(server);
+    expect(shipped(viewerFc)).toBe(true);
+    expect(shipped(mateFc)).toBe(true);
+
+    // Released and standing in the same place: the stranger loses it, the
+    // party member keeps it.
+    server.sim.releaseSpirit(subject.pid);
+    expect(s.ghost).toBe(true);
+    placeSubjectAt(10);
+    viewerFc.sent.length = 0;
+    mateFc.sent.length = 0;
+    step(server);
+    expect(shipped(viewerFc)).toBe(false);
+    expect(shipped(mateFc)).toBe(true);
+
+    // A raid counts the same: once the stranger joins the raid it sees the ghost.
+    for (let i = 0; i < 3; i++) {
+      const filler = joinServer(server, fakeWs(), 10 + i, `Filler${i}`);
+      server.sim.partyInvite(filler.pid, subject.pid);
+      server.sim.partyAccept(filler.pid);
+    }
+    server.sim.convertPartyToRaid(subject.pid);
+    server.sim.partyInvite(viewer.pid, subject.pid);
+    server.sim.partyAccept(viewer.pid);
+    const raid = server.sim.partyOf(viewer.pid);
+    expect(raid?.raid).toBe(true);
+    expect(raid?.members).toContain(subject.pid);
+    viewerFc.sent.length = 0;
+    step(server);
+    expect(shipped(viewerFc)).toBe(true);
+  });
+
   it('keeps stationary npcs visible out to the legacy 120yd radius', () => {
     const npc = [...server.sim.entities.values()].find((e) => e.kind === 'npc')!;
     // viewer 110yd from the npc, subject player at the same distance
