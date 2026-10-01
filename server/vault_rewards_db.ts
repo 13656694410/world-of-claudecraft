@@ -75,6 +75,7 @@ export interface VaultRewardClaimInput {
 export interface VaultOutcomeInput {
   attemptId: string;
   ownerCharacterId: number;
+  bossKilledAtMs?: number;
   claims: VaultRewardClaimInput[];
 }
 
@@ -90,6 +91,7 @@ export interface VaultRewardClaim {
 export interface VaultOutcome {
   attemptId: string;
   ownerCharacterId: number;
+  bossKilledAtMs?: number;
   claims: VaultRewardClaim[];
   completedAt: Date;
 }
@@ -178,6 +180,11 @@ function positiveId(value: number, label: string): void {
 function normalizeOutcome(input: VaultOutcomeInput): Omit<VaultOutcome, 'completedAt'> {
   if (!/^[A-Za-z0-9:_-]{1,128}$/.test(input.attemptId)) throw new Error('invalid attempt id');
   positiveId(input.ownerCharacterId, 'owner character id');
+  if (
+    input.bossKilledAtMs !== undefined &&
+    (!Number.isSafeInteger(input.bossKilledAtMs) || input.bossKilledAtMs < 0)
+  )
+    throw new Error('invalid vault kill time');
   if (input.claims.length < 1 || input.claims.length > 5) {
     throw new Error('vault outcome requires 1 to 5 claims');
   }
@@ -220,7 +227,12 @@ function normalizeOutcome(input: VaultOutcomeInput): Omit<VaultOutcome, 'complet
   });
   if (!seen.has(input.ownerCharacterId)) throw new Error('owner must have a reward claim');
   claims.sort((a, b) => a.characterId - b.characterId);
-  return { attemptId: input.attemptId, ownerCharacterId: input.ownerCharacterId, claims };
+  return {
+    attemptId: input.attemptId,
+    ownerCharacterId: input.ownerCharacterId,
+    claims,
+    ...(input.bossKilledAtMs === undefined ? {} : { bossKilledAtMs: input.bossKilledAtMs }),
+  };
 }
 
 function numericId(value: unknown): number {

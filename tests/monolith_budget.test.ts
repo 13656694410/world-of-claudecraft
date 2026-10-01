@@ -1696,7 +1696,8 @@ const MONOLITHS: MonolithRow[] = [
     // (Reuben's call): both parent pins for the record, the release 9827 and the
     // branch 9965; the two sides' additions compose to 9840 by wc -l on the merged
     // tree (after biome). Exact count, zero slack.
-    ceiling: 9840,
+    // Viewer admission moved to entity_observation.ts; bank the extraction.
+    ceiling: 9832,
     seam: 'a sibling server module; see the hot-path seams in server/CLAUDE.md',
   },
   {
