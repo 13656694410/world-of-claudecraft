@@ -662,7 +662,7 @@ export interface DiscordFlair {
   name: string | null;
   /** Epoch ms the member joined the Discord server, or null (for "member since"). */
   joinedAtMs: number | null;
-  /** Top special-role key (levyst/admin/coredevs/devs/mods/artists), or null. */
+  /** Top special-role key (src/sim/discord_roles.ts), or null. */
   role: string | null;
 }
 

@@ -10649,7 +10649,6 @@ export type TranslationKeyFlat =
   | 'hudChrome.discord.relay.wts.hint'
   | 'hudChrome.discord.relay.wts.label'
   | 'hudChrome.discord.rewards'
-  | 'hudChrome.discord.roleTag.admin'
   | 'hudChrome.discord.roleTag.artists'
   | 'hudChrome.discord.roleTag.contentcreator'
   | 'hudChrome.discord.roleTag.coredevs'
