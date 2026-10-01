@@ -51,6 +51,12 @@ export const SERVER_NEW = {
     'ignores.empty': 'Tvůj seznam ignorovaných je prázdný.',
     'ignores.list': 'Ignorovaní ({count}): {names}',
     'ignores.usage': 'Použití: /ignore <jméno>, /unignore <jméno>, /ignorelist.',
+    'flair.shown':
+      'Tvoje role na Discordu je viditelná pro ostatní hráče. Napiš /flair off a skryješ ji.',
+    'flair.hidden':
+      'Tvoje role na Discordu je před ostatními hráči skrytá. Napiš /flair on a zobrazíš ji.',
+    'flair.notLinked': 'Pro použití /flair propoj svůj účet Discord.',
+    'flair.usage': 'Použití: /flair, /flair on nebo /flair off.',
     'friends.notIgnored': '{name} není na tvém seznamu ignorovaných.',
     'friends.notOnFriends': "V seznamu přátel nemáš postavu jménem '{name}'.",
     'friends.notOnIgnore': "V seznamu ignorovaných nemáš postavu jménem '{name}'.",
@@ -197,6 +203,12 @@ export const SERVER_NEW = {
     'ignores.empty': 'Din ignoreringsliste er tom.',
     'ignores.list': 'Ignoreret ({count}): {names}',
     'ignores.usage': 'Brug: /ignore <navn>, /unignore <navn>, /ignorelist.',
+    'flair.shown':
+      'Din Discord-rolle vises for andre spillere. Skriv /flair off for at skjule den.',
+    'flair.hidden':
+      'Din Discord-rolle er skjult for andre spillere. Skriv /flair on for at vise den.',
+    'flair.notLinked': 'Tilknyt din Discord-konto for at bruge /flair.',
+    'flair.usage': 'Brug: /flair, /flair on eller /flair off.',
     'friends.notIgnored': '{name} er ikke på din ignoreringsliste.',
     'friends.notOnFriends': "Ingen figur ved navn '{name}' på din venneliste.",
     'friends.notOnIgnore': "Ingen figur ved navn '{name}' på din ignoreringsliste.",
@@ -345,6 +357,12 @@ export const SERVER_NEW = {
     'ignores.empty': 'Daftar abaikan kamu kosong.',
     'ignores.list': 'Diabaikan ({count}): {names}',
     'ignores.usage': 'Penggunaan: /ignore <nama>, /unignore <nama>, /ignorelist.',
+    'flair.shown':
+      'Peran Discord kamu terlihat oleh pemain lain. Ketik /flair off untuk menyembunyikannya.',
+    'flair.hidden':
+      'Peran Discord kamu disembunyikan dari pemain lain. Ketik /flair on untuk menampilkannya.',
+    'flair.notLinked': 'Tautkan akun Discord kamu untuk menggunakan /flair.',
+    'flair.usage': 'Penggunaan: /flair, /flair on, atau /flair off.',
     'friends.notIgnored': '{name} tidak ada dalam daftar abaikanmu.',
     'friends.notOnFriends': "Tidak ada karakter bernama '{name}' dalam daftar temanmu.",
     'friends.notOnIgnore': "Tidak ada karakter bernama '{name}' dalam daftar abaikanmu.",
@@ -493,6 +511,12 @@ export const SERVER_NEW = {
     'ignores.empty': 'Je negeerlijst is leeg.',
     'ignores.list': 'Genegeerd ({count}): {names}',
     'ignores.usage': 'Gebruik: /ignore <naam>, /unignore <naam>, /ignorelist.',
+    'flair.shown':
+      'Je Discord-rol is zichtbaar voor andere spelers. Typ /flair off om hem te verbergen.',
+    'flair.hidden':
+      'Je Discord-rol is verborgen voor andere spelers. Typ /flair on om hem te tonen.',
+    'flair.notLinked': 'Koppel je Discord-account om /flair te gebruiken.',
+    'flair.usage': 'Gebruik: /flair, /flair on of /flair off.',
     'friends.notIgnored': '{name} staat niet op je negeerlijst.',
     'friends.notOnFriends': "Geen personage met de naam '{name}' op je vriendenlijst.",
     'friends.notOnIgnore': "Geen personage met de naam '{name}' op je negeerlijst.",
@@ -645,6 +669,12 @@ export const SERVER_NEW = {
     'ignores.empty': 'Twoja lista ignorowanych jest pusta.',
     'ignores.list': 'Ignorowani ({count}): {names}',
     'ignores.usage': 'Użycie: /ignore <imię>, /unignore <imię>, /ignorelist.',
+    'flair.shown':
+      'Twoja rola na Discordzie jest widoczna dla innych graczy. Wpisz /flair off, aby ją ukryć.',
+    'flair.hidden':
+      'Twoja rola na Discordzie jest ukryta przed innymi graczami. Wpisz /flair on, aby ją pokazać.',
+    'flair.notLinked': 'Połącz konto Discord, aby używać /flair.',
+    'flair.usage': 'Użycie: /flair, /flair on lub /flair off.',
     'friends.notIgnored': '{name} nie znajduje się na twojej liście ignorowanych.',
     'friends.notOnFriends': "Brak postaci o imieniu '{name}' na twojej liście znajomych.",
     'friends.notOnIgnore': "Brak postaci o imieniu '{name}' na twojej liście ignorowanych.",
@@ -795,6 +825,10 @@ export const SERVER_NEW = {
     'ignores.empty': 'Din ignoreringslista är tom.',
     'ignores.list': 'Ignorerade ({count}): {names}',
     'ignores.usage': 'Användning: /ignore <namn>, /unignore <namn>, /ignorelist.',
+    'flair.shown': 'Din Discord-roll visas för andra spelare. Skriv /flair off för att dölja den.',
+    'flair.hidden': 'Din Discord-roll är dold för andra spelare. Skriv /flair on för att visa den.',
+    'flair.notLinked': 'Koppla ditt Discord-konto för att använda /flair.',
+    'flair.usage': 'Användning: /flair, /flair on eller /flair off.',
     'friends.notIgnored': '{name} finns inte på din ignoreringslista.',
     'friends.notOnFriends': "Ingen karaktär vid namn '{name}' på din vänlista.",
     'friends.notOnIgnore': "Ingen karaktär vid namn '{name}' på din ignoreringslista.",
@@ -942,6 +976,10 @@ export const SERVER_NEW = {
     'ignores.empty': 'Yok sayma listen boş.',
     'ignores.list': 'Yok sayılanlar ({count}): {names}',
     'ignores.usage': 'Kullanım: /ignore <ad>, /unignore <ad>, /ignorelist.',
+    'flair.shown': 'Discord rolün diğer oyunculara gösteriliyor. Gizlemek için /flair off yaz.',
+    'flair.hidden': 'Discord rolün diğer oyunculardan gizleniyor. Göstermek için /flair on yaz.',
+    'flair.notLinked': '/flair kullanmak için Discord hesabını bağla.',
+    'flair.usage': 'Kullanım: /flair, /flair on veya /flair off.',
     'friends.notIgnored': '{name} engel listende değil.',
     'friends.notOnFriends': "Arkadaş listende '{name}' adlı bir karakter yok.",
     'friends.notOnIgnore': "Engel listende '{name}' adlı bir karakter yok.",
@@ -1091,6 +1129,12 @@ export const SERVER_NEW = {
     'ignores.empty': 'Danh sách bỏ qua của bạn trống.',
     'ignores.list': 'Đã bỏ qua ({count}): {names}',
     'ignores.usage': 'Cách dùng: /ignore <tên>, /unignore <tên>, /ignorelist.',
+    'flair.shown':
+      'Vai trò Discord của bạn đang hiển thị với người chơi khác. Gõ /flair off để ẩn.',
+    'flair.hidden':
+      'Vai trò Discord của bạn đang bị ẩn với người chơi khác. Gõ /flair on để hiển thị.',
+    'flair.notLinked': 'Hãy liên kết tài khoản Discord của bạn để dùng /flair.',
+    'flair.usage': 'Cách dùng: /flair, /flair on hoặc /flair off.',
     'friends.notIgnored': '{name} không có trong danh sách phớt lờ của bạn.',
     'friends.notOnFriends': "Không có nhân vật nào tên '{name}' trong danh sách bạn bè của bạn.",
     'friends.notOnIgnore': "Không có nhân vật nào tên '{name}' trong danh sách phớt lờ của bạn.",

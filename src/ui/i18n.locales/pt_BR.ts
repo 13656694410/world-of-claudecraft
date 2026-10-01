@@ -2277,6 +2277,8 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Equipamento de Guerra da Vanguarda: Temporada 2',
   'guide.combat.unstuckBodyWindow':
     'Se o mundo o prender em algum lugar de onde você não consegue sair, digite /unstuck. Você precisa estar fora de combate e parado, sem ser atingido por um atordoamento ou uma imobilização, e não estar em um duelo ou numa partida de arena: uma contagem regressiva curta é executada, e se mover ou sofrer dano a cancela. Quando ela termina, você é colocado no cemitério mais próximo. Isso nunca o mata e não deixa corpo algum, e se você já estava caído, ele o reergue ali mesmo. O primeiro uso em uma hora não custa nada. Use-o de novo dentro de uma hora do último uso e o preço é o Mal do Desbloqueio, um enfraquecimento temporário de tudo o que você é que já terá passado quando você puder usar o comando de novo, e assim como o Tributo do Guardião, ele poupa por completo os personagens recém-criados.',
+  'guide.commandsPage.flair':
+    'Mostra ou oculta seu cargo do Discord para outros jogadores, ou seja, seu nome colorido, sua etiqueta de cargo e sua etiqueta verificada no chat: /flair on mostra, /flair off oculta e /flair sozinho informa qual está ativo. Requer uma conta do Discord vinculada.',
   'guide.commandsPage.pvpZones':
     'Bandeira de PvP Mundial: /pvp alterna o estado, /pvp on ativa e /pvp off desativa. Jogadores com bandeira podem lutar entre si em áreas disputadas, santuários não permitem nenhum combate no mundo, e entrar em um círculo ativo do Rei da Colina ativa sua bandeira; a desativação leva 5 minutos.',
   'guide.commandsPage.unstuckWindow':
@@ -6119,9 +6121,9 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Escolha Sua Câmera',
   'hudChrome.discord.link.joinServer': 'Entre no servidor do Discord',
   'hudChrome.discord.roleTag.contentcreator': 'Criador de Conteúdo',
-  'hudChrome.discord.roleTag.juniormods': 'Moderador Júnior',
+  'hudChrome.discord.roleTag.juniormods': 'Observador',
   'hudChrome.discord.roleTag.legend': 'LENDA',
-  'hudChrome.discord.roleTag.seniormods': 'Moderador Sênior',
+  'hudChrome.discord.roleTag.seniormods': 'Sentinela',
   'hudChrome.discord.roleTag.shill': 'PROPAGANDISTA',
   'hudChrome.finder.accept': 'Aceitar',
   'hudChrome.finder.acceptApplicantAria': 'Aceitar {name}',
@@ -7204,7 +7206,6 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'O Guardião Pálido (Tributo do Guardião)',
   'hudChrome.death.spiritHealerAlive':
     'O Guardião Pálido vela pelos mortos. Você ainda está entre os vivos.',
-  'hudChrome.discord.roleTag.admin': 'Admin',
   'hudChrome.frameReset.label': 'Redefinir Posições dos Quadros',
   'hudChrome.mailbox.arrivedBanner': 'O corvo pousou: correspondência de {name}.',
   'hudChrome.mailbox.arrivedLog': 'Você tem nova correspondência de {name}.',

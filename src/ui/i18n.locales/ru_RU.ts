@@ -2822,6 +2822,8 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
     'Книга деяний тоже ведёт счёт вашей репутации: Доверенный у фракции и Чемпион у фракции записываются как отдельные деяния, а Чемпион у всех трёх сразу есть своё деяние. Как и все деяния, они лишь украшение и никогда не сила, а деяния Чемпиона дают титул, который можно носить.',
   'guide.commandsPage.pvp':
     'Флаг мирового PvP: /pvp переключает его, /pvp on и /pvp off задают. Игроки с флагом могут сражаться друг с другом где угодно; отключение занимает 5 минут.',
+  'guide.commandsPage.flair':
+    'Показывает или скрывает вашу роль в Discord для других игроков: цветное имя, метку роли и подтверждённую метку в чате. /flair on показывает её, /flair off скрывает, а просто /flair сообщает текущую настройку. Нужен привязанный аккаунт Discord.',
   'guide.commandsPage.pvpZones':
     'Флаг мирового PvP: /pvp переключает его, /pvp on и /pvp off включают и выключают. На спорной территории игроки с флагом могут сражаться друг с другом; в святилищах мировой PvP запрещён. Вход в активный круг «Короля горы» поднимает ваш флаг. Отключение занимает 5 минут.',
   'guide.nav.worldPvp': 'Мировое PvP',
@@ -10724,12 +10726,11 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.discord.open': 'Discord',
   'hudChrome.discord.viewCharacter': 'Показать {name}',
   'hudChrome.discord.rank': 'Ранг',
-  'hudChrome.discord.roleTag.admin': 'Администратор',
   'hudChrome.discord.roleTag.levyst': 'Levy St',
   'hudChrome.discord.roleTag.devs': 'Разработчик',
   'hudChrome.discord.roleTag.mods': 'Модератор',
-  'hudChrome.discord.roleTag.seniormods': 'Старший модератор',
-  'hudChrome.discord.roleTag.juniormods': 'Младший модератор',
+  'hudChrome.discord.roleTag.seniormods': 'Страж',
+  'hudChrome.discord.roleTag.juniormods': 'Наблюдатель',
   'hudChrome.discord.roleTag.contentcreator': 'Контент-мейкер',
   'hudChrome.discord.voice.channel': 'В {channel}',
   'hudChrome.discord.swag.title': 'Мерч',

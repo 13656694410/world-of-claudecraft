@@ -2189,6 +2189,8 @@ export const es: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardBody':
     'El equipo de Vanguardia es la segunda temporada del equipo de Guerra, vendido por los mismos dos intendentes, por encima del nivel original, que sigue a la venta. Cada especialización tiene su propio conjunto de Vanguardia de cinco piezas, para la cabeza, los hombros, el pecho, las piernas y las manos, y la tienda solo lista los tres conjuntos que tu clase puede vestir, seguidos de las armas de Vanguardia que puedes empuñar. Una pieza de Vanguardia lleva las mismas características de Guerra que el nivel original a un nivel de objeto más alto, y cada conjunto tiene dos bonificaciones, a dos y cuatro piezas, que cambian una de las habilidades de tu especialización. A diferencia de los conjuntos originales, esas bonificaciones funcionan en todas partes, monstruos incluidos, pero están pensadas para luchar contra jugadores, así que un conjunto de banda sigue siendo la mejor opción dentro de una banda.',
   'guide.arenaPage.vanguardHeading': 'Equipo de Vanguardia: Guerra, temporada 2',
+  'guide.commandsPage.flair':
+    'Muestra u oculta tu rol de Discord a otros jugadores, es decir, tu nombre en color, tu etiqueta de rol y tu etiqueta de chat verificada: /flair on lo muestra, /flair off lo oculta y /flair a secas te dice cuál está activo. Requiere una cuenta de Discord vinculada.',
   'guide.commandsPage.pvpZones':
     'Bandera JcJ mundial: /pvp la alterna; /pvp on y /pvp off la activan y desactivan. Los jugadores marcados pueden luchar entre sí en zonas disputadas; los santuarios no permiten combates JcJ mundiales. Entrar en el círculo activo del Rey de la Colina activa tu bandera. Desactivarla tarda 5 minutos.',
   'guide.commandsPage.unstuckWindow':
@@ -5988,9 +5990,9 @@ export const es: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Elige tu camara',
   'hudChrome.discord.link.joinServer': 'Unete al servidor de Discord',
   'hudChrome.discord.roleTag.contentcreator': 'Creador de contenido',
-  'hudChrome.discord.roleTag.juniormods': 'Moderador junior',
+  'hudChrome.discord.roleTag.juniormods': 'Observador',
   'hudChrome.discord.roleTag.legend': 'LEYENDA',
-  'hudChrome.discord.roleTag.seniormods': 'Moderador senior',
+  'hudChrome.discord.roleTag.seniormods': 'Centinela',
   'hudChrome.discord.roleTag.shill': 'PROMOTOR',
   'hudChrome.finder.accept': 'Aceptar',
   'hudChrome.finder.acceptApplicantAria': 'Aceptar a {name}',
@@ -7084,7 +7086,6 @@ export const es: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'El Guardián Pálido (Tañido del Guardián)',
   'hudChrome.death.spiritHealerAlive':
     'El Guardián Pálido vela por los muertos. Tú aún estás entre los vivos.',
-  'hudChrome.discord.roleTag.admin': 'Admin',
   'hudChrome.mailbox.arrivedBanner': 'El cuervo ha aterrizado: correo de {name}.',
   'hudChrome.mailbox.arrivedLog': 'Tienes correo nuevo de {name}.',
   'hudChrome.mailbox.attachmentsBadge': 'Paquete adjunto',

@@ -5927,7 +5927,7 @@ export interface Entity extends ClientMirroredEntityFields {
   riftTier?: RiftTier;
   // Treasure vault portals (src/sim/treasure_vault.ts): the character whose map
   // opened it (only they and their party may enter), the map's rarity, and the
-  // sim time the unentered portal closes.
+  // Host lockout-clock deadline (epoch ms online), shared with the vault attempt.
   vaultOwnerPid?: number;
   /** Stable owner identity across disconnect/reconnect; runtime pid may change. */
   vaultOwnerCharacterId?: number;
@@ -6981,6 +6981,7 @@ export type SimEvent = { pid?: number } & (
   /** Server-only durable settlement input, never forwarded to clients. */
   | {
       type: 'treasureVaultOutcomePending';
+      bossKilledAtMs?: number;
       attemptId: string;
       ownerCharacterId: number;
       claims: {

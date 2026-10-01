@@ -2378,6 +2378,8 @@ export const fr_FR: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': "Équipement d'Avant-garde : Guerre saison 2",
   'guide.combat.unstuckBodyWindow':
     "Si le monde vous piège quelque part dont vous ne pouvez pas sortir, tapez /unstuck. Vous devez être hors combat et immobile, non entravé par un étourdissement ou une immobilisation, et non engagé dans un duel ou un match d'arène : un court compte à rebours démarre, et bouger ou subir des dégâts l'annule. Une fois terminé, vous êtes déposé au cimetière le plus proche. Cela ne vous tue jamais et ne laisse aucun cadavre, et si vous étiez déjà tombé, cela vous relève sur place à la place. Le premier usage en une heure ne vous coûte rien. Réutilisez-la dans l'heure qui suit la dernière fois et le prix en est le Mal de déblocage, un affaiblissement temporaire de tout ce que vous êtes qui s'est dissipé le temps que vous puissiez réutiliser la commande, et comme le Glas du Veilleur, il épargne entièrement les personnages tout neufs.",
+  'guide.commandsPage.flair':
+    'Affiche ou masque votre rôle Discord pour les autres joueurs, c’est-à-dire votre nom en couleur, votre badge de rôle et votre badge de discussion vérifié : /flair on l’affiche, /flair off le masque, et /flair seul vous indique le réglage actuel. Nécessite un compte Discord lié.',
   'guide.commandsPage.pvpZones':
     "Drapeau JcJ mondial : /pvp le bascule ; /pvp on et /pvp off l'activent et le désactivent. Les joueurs marqués peuvent s'affronter en zone contestée ; les sanctuaires interdisent tout JcJ mondial. Entrer dans le cercle actif du Roi de la colline lève votre drapeau. Le désactiver prend 5 minutes.",
   'guide.commandsPage.unstuckWindow':
@@ -6280,9 +6282,9 @@ export const fr_FR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Choisissez votre caméra',
   'hudChrome.discord.link.joinServer': 'Rejoignez simplement le serveur Discord',
   'hudChrome.discord.roleTag.contentcreator': 'Créateur de contenu',
-  'hudChrome.discord.roleTag.juniormods': 'Modérateur junior',
+  'hudChrome.discord.roleTag.juniormods': 'Observateur',
   'hudChrome.discord.roleTag.legend': 'LÉGENDE',
-  'hudChrome.discord.roleTag.seniormods': 'Modérateur senior',
+  'hudChrome.discord.roleTag.seniormods': 'Sentinelle',
   'hudChrome.discord.roleTag.shill': 'COMPLICE',
   'hudChrome.discord.roleTagChatTitle': 'Rôle de serveur vérifié : {role}',
   'hudChrome.finder.accept': 'Accepter',
@@ -7802,7 +7804,6 @@ export const fr_FR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'Le Veilleur pâle (Glas du Veilleur)',
   'hudChrome.death.spiritHealerAlive':
     'Le Veilleur pâle veille sur les morts. Vous êtes encore parmi les vivants.',
-  'hudChrome.discord.roleTag.admin': 'Admin',
   'hudChrome.frameReset.label': 'Réinitialiser la position des cadres',
   'hudChrome.mailbox.arrivedBanner': "Le corbeau s'est posé : du courrier de {name}.",
   'hudChrome.mailbox.arrivedLog': 'Vous avez du nouveau courrier de {name}.',

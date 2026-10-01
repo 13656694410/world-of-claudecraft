@@ -2372,6 +2372,8 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Vorhut-Ausrüstung: Kriegsführung Saison 2',
   'guide.combat.unstuckBodyWindow':
     'Wenn die Welt dich irgendwo einsperrt, aus dem du nicht herauskommst, tippe /unstuck. Du musst dich außerhalb des Kampfes befinden und stillstehen, nicht durch eine Betäubung oder Verwurzelung festgehalten werden, und dich nicht in einem Duell oder einem Arenakampf befinden: Ein kurzer Countdown läuft, und Bewegung oder erlittener Schaden brechen ihn ab. Ist er abgeschlossen, wirst du am nächsten Friedhof abgesetzt. Er tötet dich nie und hinterlässt keine Leiche, und warst du bereits gefallen, wirst du stattdessen dort wiederbelebt. Die erste Nutzung innerhalb einer Stunde kostet dich nichts. Nutzt du ihn erneut innerhalb einer Stunde nach der letzten, ist der Preis die Befreiungskrankheit, eine vorübergehende Schwächung all dessen, was du bist, die abgeklungen ist, bis du den Befehl erneut benutzen könntest, und wie der Zoll des Hüters verschont sie brandneue Charaktere vollständig.',
+  'guide.commandsPage.flair':
+    'Zeigt oder verbirgt deine Discord-Rolle für andere Spieler, also deinen farbigen Namen, dein Rollenabzeichen und dein verifiziertes Chat-Abzeichen: /flair on zeigt sie an, /flair off blendet sie aus, und /flair allein sagt dir, was eingestellt ist. Erfordert ein verknüpftes Discord-Konto.',
   'guide.commandsPage.pvpZones':
     'Welt-PvP-Flagge: /pvp schaltet sie um, /pvp on und /pvp off setzen den Zustand. Geflaggte Spieler können auf umkämpftem Boden gegeneinander kämpfen; in Schutzgebieten gibt es kein Welt-PvP. Das Betreten des aktiven Kreises von König des Hügels setzt deine Flagge. Das Ausschalten dauert 5 Minuten.',
   'guide.commandsPage.unstuckWindow':
@@ -6164,9 +6166,9 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Kamera wahlen',
   'hudChrome.discord.link.joinServer': 'Einfach dem Discord-Server beitreten',
   'hudChrome.discord.roleTag.contentcreator': 'Ersteller von Inhalten',
-  'hudChrome.discord.roleTag.juniormods': 'Junior-Moderator',
+  'hudChrome.discord.roleTag.juniormods': 'Beobachter',
   'hudChrome.discord.roleTag.legend': 'LEGENDE',
-  'hudChrome.discord.roleTag.seniormods': 'Senior-Moderator',
+  'hudChrome.discord.roleTag.seniormods': 'Wächter',
   'hudChrome.discord.roleTag.shill': 'WERBETROMMEL',
   'hudChrome.finder.accept': 'Annehmen',
   'hudChrome.finder.acceptApplicantAria': '{name} annehmen',
@@ -7307,7 +7309,6 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'Der Bleiche Hüter (Zoll des Hüters)',
   'hudChrome.death.spiritHealerAlive':
     'Der Bleiche Hüter wacht über die Toten. Du weilst noch unter den Lebenden.',
-  'hudChrome.discord.roleTag.admin': 'Admin',
   'hudChrome.frameReset.label': 'Fensterpositionen zurücksetzen',
   'hudChrome.mailbox.arrivedBanner': 'Der Rabe ist gelandet: Post von {name}.',
   'hudChrome.mailbox.arrivedLog': 'Du hast neue Post von {name}.',

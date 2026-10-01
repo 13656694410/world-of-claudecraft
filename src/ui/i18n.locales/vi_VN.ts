@@ -2281,6 +2281,8 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Áo Vanguard: Mùa Chiến Tranh 2',
   'guide.combat.unstuckBodyWindow':
     "Nếu thế giới mắc kẹt bạn ở một nơi bạn không thể thoát ra được, gõ /unstuck. Bạn cần phải hết chiến đấu và đứng yên, không bị giữ bởi choáng hoặc gốc, và không trong một cuộc đấu hay một trận đấu sân vận động: một bộ đếm ngược ngắn chạy, và chuyển động hoặc nhận đòn hủy nó. Khi nó kết thúc bạn được đặt xuống ở nghĩa trang gần nhất. Nó không bao giờ giết bạn và nó không để lại xác chết, và nếu bạn đã ngã rồi nó sẽ nâng bạn lên ở đó thay thế. Lần sử dụng đầu tiên trong một giờ không tốn bạn gì. Sử dụng nó lại trong một giờ kể từ lần cuối cùng và giá cả là Unstuck Sickness, một sự suy yếu tạm thời của tất cả bạn đã mặc được vào lúc bạn có thể sử dụng lệnh lại, và giống như Keeper's Toll nó tha thứ cho các nhân vật hoàn toàn mới.",
+  'guide.commandsPage.flair':
+    'Hiện hoặc ẩn vai trò Discord của bạn với người chơi khác, gồm tên có màu, nhãn vai trò và nhãn trò chuyện đã xác minh: /flair on để hiện, /flair off để ẩn, còn chỉ gõ /flair sẽ cho biết thiết lập hiện tại. Cần liên kết tài khoản Discord.',
   'guide.commandsPage.pvpZones':
     'Cờ PvP Thế Giới: /pvp chuyển trạng thái, /pvp on bật và /pvp off tắt. Người chơi có cờ có thể giao chiến với nhau tại vùng tranh chấp, khu an toàn không cho phép bất kỳ giao tranh thế giới nào, và bước vào vòng tròn đang hoạt động của Vua Của Ngọn Đồi sẽ bật cờ của bạn; tắt cờ mất 5 phút.',
   'guide.commandsPage.unstuckWindow':
@@ -5939,9 +5941,9 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Chọn Máy Ảnh Của Bạn',
   'hudChrome.discord.link.joinServer': 'Chỉ cần tham gia máy chủ Discord',
   'hudChrome.discord.roleTag.contentcreator': 'Nhà Sáng Tạo Nội Dung',
-  'hudChrome.discord.roleTag.juniormods': 'Điều Hành Viên Mới',
+  'hudChrome.discord.roleTag.juniormods': 'Quan Sát Viên',
   'hudChrome.discord.roleTag.legend': 'HUYỀN THOẠI',
-  'hudChrome.discord.roleTag.seniormods': 'Điều Hành Viên Cấp Cao',
+  'hudChrome.discord.roleTag.seniormods': 'Lính Canh',
   'hudChrome.discord.roleTag.shill': 'QUẢNG BÁ VIÊN',
   'hudChrome.discord.roleTagChatTitle': 'Vai trò máy chủ đã xác minh: {role}',
   'hudChrome.finder.accept': 'Chấp Nhận',
@@ -7201,7 +7203,6 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'Người Canh Giữ Nhợt Nhạt (Cái Giá của Người Canh Giữ)',
   'hudChrome.death.spiritHealerAlive':
     'Người Canh Giữ Nhợt Nhạt trông nom kẻ chết. Bạn vẫn còn ở giữa cõi sống.',
-  'hudChrome.discord.roleTag.admin': 'Quản Trị Viên',
   'hudChrome.enchanting.disenchantConfirmBody':
     'Thao tác này phá hủy {item} và thu được nguyên liệu huyền bí. Không thể hoàn tác.',
   'hudChrome.enchanting.disenchantConfirmBodySpecial':

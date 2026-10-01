@@ -2695,6 +2695,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '功绩之书也会记录你的声望：与某个阵营达到信任、与某个阵营达到冠军各记为一项功绩，与三个阵营都达到冠军则是另一项功绩。和所有功绩一样，它们只是装饰，从不带来战力，而冠军功绩会授予一个可佩戴的头衔。',
   'guide.commandsPage.pvp':
     '世界 PvP 旗帜：/pvp 切换，/pvp on 与 /pvp off 直接设置。已开启旗帜的玩家可以在任何地方互相作战；关闭需要 5 分钟。',
+  'guide.commandsPage.flair':
+    '对其他玩家显示或隐藏你的 Discord 身份组，即彩色名字、身份组标签和聊天认证标签：/flair on 显示，/flair off 隐藏，只输入 /flair 会告诉你当前设置。需要已关联的 Discord 账号。',
   'guide.commandsPage.pvpZones':
     '世界 PvP 旗帜：/pvp 切换状态，/pvp on 和 /pvp off 分别开启和关闭。在争夺区域，已开启旗帜的玩家可以相互战斗；庇护区域禁止一切世界 PvP。进入正在进行的山丘之王活动圈会开启旗帜；关闭需要 5 分钟。',
   'guide.nav.worldPvp': '世界 PvP',
@@ -10090,12 +10092,11 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.discord.open': 'Discord',
   'hudChrome.discord.viewCharacter': '查看{name}',
   'hudChrome.discord.rank': '段位',
-  'hudChrome.discord.roleTag.admin': '管理员',
   'hudChrome.discord.roleTag.levyst': 'Levy St',
   'hudChrome.discord.roleTag.devs': '开发者',
   'hudChrome.discord.roleTag.mods': '管理员',
-  'hudChrome.discord.roleTag.seniormods': '高级管理员',
-  'hudChrome.discord.roleTag.juniormods': '初级管理员',
+  'hudChrome.discord.roleTag.seniormods': '哨兵',
+  'hudChrome.discord.roleTag.juniormods': '观察员',
   'hudChrome.discord.roleTag.contentcreator': '内容创作者',
   'hudChrome.discord.voice.channel': '在{channel}',
   'hudChrome.discord.swag.title': '周边',

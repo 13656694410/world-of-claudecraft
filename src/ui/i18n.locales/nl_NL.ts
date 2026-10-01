@@ -2323,6 +2323,8 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Voortocht-uitrusting: Oorlogsseizoen 2',
   'guide.combat.unstuckBodyWindow':
     'Als de wereld je ergens opsluit waar je niet uit kunt, typ /bevrijd. Je moet uit gevecht zijn en stilstaan, niet vastgehouden door een verdoof of wortel, en niet in een tweegevecht of een arenamatch: een korte aftelling loopt, en beweging of schadeverursaking annuleert het. Wanneer het klaar is ben je bij de dichtstbijzijnde begraafplaats. Het doodt je nooit en laat geen lijk achter, en als je al neerslag maak je daar weer op. Het eerste gebruik in een uur kost je niets. Gebruik het opnieuw binnen een uur van het vorige en de prijs is Bevrijd-Ziekte, een tijdelijke verzwakking van alles wat je bent die is voorbijgegaan tegen de tijd dat je de opdracht weer zou kunnen gebruiken, en zoals de Tol van de Bewaarder spaart het gloednieuwe personages helemaal.',
+  'guide.commandsPage.flair':
+    'Toont of verbergt je Discord-rol voor andere spelers, dus je gekleurde naam, je rollabel en je geverifieerde chatlabel: /flair on toont hem, /flair off verbergt hem, en alleen /flair vertelt je wat er is ingesteld. Vereist een gekoppeld Discord-account.',
   'guide.commandsPage.pvpZones':
     'Wereld-PvP-vlag: /pvp wisselt de stand, /pvp on schakelt hem in en /pvp off schakelt hem uit. Spelers met een vlag kunnen elkaar op betwist terrein bevechten, heiligdommen staan geen wereldgevechten toe en bij het betreden van een actieve cirkel van Koning van de Heuvel wordt je vlag ingeschakeld; uitschakelen duurt 5 minuten.',
   'guide.commandsPage.unstuckWindow':
@@ -6121,9 +6123,9 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
     'Verzamelt de aangevinkte onderdelen. Elk lijk kan eenmaal worden geoogst, wie het eerst komt. Neemt de buit niet mee.',
   'hudChrome.discord.link.joinServer': 'Doe gewoon mee met de Discord-server',
   'hudChrome.discord.roleTag.contentcreator': 'Contentmaker',
-  'hudChrome.discord.roleTag.juniormods': 'Junior Mod',
+  'hudChrome.discord.roleTag.juniormods': 'Waarnemer',
   'hudChrome.discord.roleTag.legend': 'LEGENDE',
-  'hudChrome.discord.roleTag.seniormods': 'Senior Mod',
+  'hudChrome.discord.roleTag.seniormods': 'Schildwacht',
   'hudChrome.discord.roleTag.shill': 'PROMOTOR',
   'hudChrome.discord.roleTagChatTitle': 'Geverifieerde serverrol: {role}',
   'hudChrome.finder.accept': 'Accepteren',
@@ -7316,7 +7318,6 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'De Bleke Hoeder (Tol van de Hoeder)',
   'hudChrome.death.spiritHealerAlive':
     'De Bleke Hoeder waakt over de doden. Jij bent nog onder de levenden.',
-  'hudChrome.discord.roleTag.admin': 'Admin',
   'hudChrome.frameReset.label': 'Frameposities herstellen',
   'hudChrome.mailbox.arrivedBanner': 'De raaf is geland: post van {name}.',
   'hudChrome.mailbox.arrivedLog': 'Je hebt nieuwe post van {name}.',

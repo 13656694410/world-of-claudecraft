@@ -2288,6 +2288,8 @@ export const da_DK: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Vanguard-udstyr: Krigsførelse Sæson 2',
   'guide.combat.unstuckBodyWindow':
     'Hvis verden fanger dig et sted, du ikke kan komme ud af, skriv /unstuck. Du skal være uden for kamp og stå stille, ikke holdt af et stun eller rod, og ikke i en duel eller en arena-kamp: en kort nedtælling går, og bevægelse eller skade annullerer det. Når det er færdigt, bliver du sat af ved nærmeste kirkegård. Det drebes dig aldrig og efterlader ingen lig, og hvis du allerede var nede rejser det dig der i stedet. Den første brug på en time koster dig ingenting. Brug det igen inden for en time efter den seneste og prisen er Fastfrosset Sygdom, en midlertidig svækkelse af alt det du er, der er brugt op mod det tidspunkt, du kunne bruge kommandoen igen, og som Vejers Told sparer det helt nye karakterer helt.',
+  'guide.commandsPage.flair':
+    'Viser eller skjuler din Discord-rolle for andre spillere, altså dit farvede navn, dit rollemærke og dit bekræftede chatmærke: /flair on viser den, /flair off skjuler den, og /flair alene fortæller dig, hvad der er valgt. Kræver en tilknyttet Discord-konto.',
   'guide.commandsPage.pvpZones':
     'Flag til verdens-PvP: /pvp skifter tilstand, /pvp on slår det til, og /pvp off slår det fra. Spillere med flag kan kæmpe mod hinanden på omstridt jord, fristeder tillader ingen verdenskampe, og dit flag aktiveres, når du går ind i en aktiv cirkel i Konge af Bakken; det tager 5 minutter at slå det fra.',
   'guide.commandsPage.unstuckWindow':
@@ -5961,9 +5963,9 @@ export const da_DK: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Vælg dit kamera',
   'hudChrome.discord.link.joinServer': 'Tilslut dig Discord-serveren',
   'hudChrome.discord.roleTag.contentcreator': 'Indholdsskaber',
-  'hudChrome.discord.roleTag.juniormods': 'Junior-mod',
+  'hudChrome.discord.roleTag.juniormods': 'Observatør',
   'hudChrome.discord.roleTag.legend': 'LEGENDE',
-  'hudChrome.discord.roleTag.seniormods': 'Senior-mod',
+  'hudChrome.discord.roleTag.seniormods': 'Vogter',
   'hudChrome.discord.roleTag.shill': 'FORKÆMPER',
   'hudChrome.discord.roleTagChatTitle': 'Verificeret serverrolle: {role}',
   'hudChrome.finder.accept': 'Accepter',
@@ -7040,7 +7042,6 @@ export const da_DK: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'Den Blege Vogter (Vogterens Klokke)',
   'hudChrome.death.spiritHealerAlive':
     'Den Blege Vogter våger over de døde. Du er stadig blandt de levende.',
-  'hudChrome.discord.roleTag.admin': 'Admin',
   'hudChrome.frameReset.label': 'Nulstil rammepositioner',
   'hudChrome.mailbox.arrivedBanner': 'Ravnen er landet: post fra {name}.',
   'hudChrome.mailbox.arrivedLog': 'Du har ny post fra {name}.',

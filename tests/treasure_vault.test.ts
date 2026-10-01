@@ -154,7 +154,7 @@ describe('digging on the X', () => {
     const sim = makeSim();
     readAndDig(sim, 'common');
     const portal = [...sim.entities.values()].find((e) => e.vaultOwnerPid !== undefined)!;
-    portal.vaultExpiresAt = sim.time + 1;
+    portal.vaultExpiresAt = sim.ctx.lockoutNowMs() + 1000;
     // Step clear of the walk-in trigger so nobody enters.
     placeAt(sim, sim.player.pos.x + 60, sim.player.pos.z);
     for (let i = 0; i < 80; i++) sim.tick();
@@ -165,7 +165,7 @@ describe('digging on the X', () => {
     const sim = makeSim();
     const { map, site } = readAndDig(sim, 'common');
     const portal = [...sim.entities.values()].find((e) => e.vaultAttemptId === '0:1')!;
-    portal.vaultExpiresAt = sim.time + 1;
+    portal.vaultExpiresAt = sim.ctx.lockoutNowMs() + 1000;
     placeAt(sim, site.x + 60, site.z);
     for (let i = 0; i < 80; i++) sim.tick();
     expect(sim.entities.has(portal.id)).toBe(false);
@@ -177,7 +177,7 @@ describe('digging on the X', () => {
     expect(sim.countItem(TREASURE_MAP_ITEM_IDS.common)).toBe(0);
   });
 
-  it('reopens an abandoned active vault after its empty timeout without another map', () => {
+  it('reopens an unloaded room without consuming another map or extending the deadline', () => {
     const sim = makeSim();
     metaOf(sim).characterId = 8102;
     const { map, site } = readAndDig(sim, 'common');
@@ -188,16 +188,15 @@ describe('digging on the X', () => {
     if (!first) throw new Error('active vault missing');
     leaveRift(sim.ctx, sim.playerId);
     first.emptyFor = 179;
-    portal.vaultExpiresAt = sim.time + 1;
     placeAt(sim, site.x + 60, site.z);
     for (let i = 0; i < 80; i++) sim.tick();
     expect(first.partyKey).toBeNull();
-    expect(sim.entities.has(portal.id)).toBe(false);
+    expect(sim.entities.has(portal.id)).toBe(true);
     expect(metaOf(sim).vaultAttempt?.id).toBe('8102:1');
     placeAt(sim, site.x + 2, site.z - 2);
     for (let i = 0; i < 25; i++) sim.tick();
     const retry = [...sim.entities.values()].find((e) => e.vaultAttemptId === '8102:1');
-    expect(retry?.id).not.toBe(portal.id);
+    expect(retry?.id).toBe(portal.id);
     expect(retry?.riftSeed).toBe(map.seed);
     expect(sim.countItem(TREASURE_MAP_ITEM_IDS.common)).toBe(0);
     sim.enterRift(map.seed, retry!.riftBaseLevel!, sim.playerId, undefined, retry);
@@ -304,7 +303,7 @@ describe('the vault run', () => {
     expect(inst.vault?.chest?.eligible).not.toContain(afterClear);
   });
 
-  it('keeps the original party authorized and pays the owner if they disconnect before anyone enters', () => {
+  it('pays the owner if they disconnect after a current party member enters', () => {
     const sim = makeSim();
     sim.cfg.vaultRewardNeedsSave = true;
     const owner = sim.playerId;
@@ -320,8 +319,8 @@ describe('the vault run', () => {
     readAndDig(sim, 'common');
     const portal = [...sim.entities.values()].find((e) => e.vaultOwnerCharacterId === 711)!;
     expect(portal.vaultInitialPartyCharacterIds).toEqual([711, 712, 713]);
-    sim.removePlayer(owner);
     sim.enterRift(portal.riftSeed!, portal.riftBaseLevel!, guest, undefined, portal);
+    sim.removePlayer(owner);
     const inst = sim.riftInstances.find((run) => run.vault?.attemptId === '711:1')!;
     expect(inst.memberIds.has(guest)).toBe(true);
     for (const id of inst.mobIds) {
@@ -349,7 +348,7 @@ describe('the vault run', () => {
     expect(sim.riftInstances.filter((run) => run.partyKey !== null)).toHaveLength(before);
   });
 
-  it('does not admit a sixth distinct claimant after a five-person party rotates', () => {
+  it('replaces a departed claimant when a five-person party rotates', () => {
     const sim = makeSim();
     sim.meta(sim.playerId)!.characterId = 801;
     const guests = [802, 803, 804, 805].map((characterId) => {
@@ -372,11 +371,12 @@ describe('the vault run', () => {
     sim.partyAccept(replacement);
     sim.drainEvents();
     sim.enterRift(portal.riftSeed!, portal.riftBaseLevel!, replacement, undefined, portal);
-    expect(inst.memberIds.has(replacement)).toBe(false);
+    expect(inst.memberIds.has(replacement)).toBe(true);
+    expect(inst.memberIds.has(guests[0])).toBe(false);
     expect(inst.vault?.entrantSnapshots?.size).toBe(5);
     expect(
       ofType(sim.drainEvents(), 'error').some((event) => event.text.includes('five adventurers')),
-    ).toBe(true);
+    ).toBe(false);
   });
 
   it('flags the run, scales the mobs for a solo reader and pays the table on the boss kill', () => {
@@ -386,6 +386,7 @@ describe('the vault run', () => {
     expect(inst.vault).toEqual({
       rarity: 'common',
       attemptId: '0:1',
+      expiresAtMs: 21_600_000,
       ownerPid: sim.playerId,
       headCount: 1,
       level: sim.player.level,
@@ -408,12 +409,14 @@ describe('the vault run', () => {
     );
     const base = riftRankTuningFor(inst.baseLevel);
     const scaled = vaultScaledTuning(base, inst.vault);
-    expect(scaled.healthMultiplier).toBeCloseTo(base.healthMultiplier * vaultHealthFactor(1));
-    expect(scaled.bossDamageMultiplier).toBeCloseTo(
-      base.bossDamageMultiplier * vaultDamageFactor(1),
+    expect(scaled.healthMultiplier).toBeCloseTo(
+      base.healthMultiplier * vaultHealthFactor('common'),
     );
-    expect(vaultHealthFactor(5)).toBeCloseTo(1);
-    expect(vaultDamageFactor(5)).toBeCloseTo(1);
+    expect(scaled.bossDamageMultiplier).toBeCloseTo(
+      base.bossDamageMultiplier * vaultDamageFactor('common', 'boss'),
+    );
+    expect(vaultHealthFactor('rare')).toBeCloseTo(1);
+    expect(vaultDamageFactor('rare', 'boss')).toBeCloseTo(0.7);
     expect(vaultScaledTuning(base, null)).toBe(base);
 
     // Walk the floors down to the boss, then drop it.

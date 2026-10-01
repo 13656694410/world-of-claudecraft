@@ -2797,6 +2797,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
     '偉業の書も評判を記録します。ある勢力で信頼に達すること、ある勢力でチャンピオンに達することがそれぞれ偉業として記録され、三勢力すべてでチャンピオンに達することは独自の偉業です。他の偉業と同じく、これらは見た目だけで力にはならず、チャンピオンの偉業は身に着けられる称号を授けます。',
   'guide.commandsPage.pvp':
     'ワールドPvPフラグ: /pvp で切り替え、/pvp on と /pvp off で直接設定します。フラグを立てたプレイヤー同士はどこでも戦えます。解除には5分かかります。',
+  'guide.commandsPage.flair':
+    '他のプレイヤーに見える Discord ロール（色付きの名前、ロールタグ、チャットの認証タグ）の表示を切り替えます。/flair on で表示、/flair off で非表示になり、/flair だけで現在の設定を確認できます。Discord アカウントの連携が必要です。',
   'guide.commandsPage.pvpZones':
     'ワールドPvPフラグ：/pvpで切り替え、/pvp onと/pvp offで有効・無効にします。係争地域ではフラグを立てたプレイヤー同士が戦えますが、聖域ではワールドPvPはできません。開催中の「丘の王」の円に入るとフラグが立ちます。解除には5分かかります。',
   'guide.nav.worldPvp': 'ワールドPvP',
@@ -10504,12 +10506,11 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.discord.open': 'Discord',
   'hudChrome.discord.viewCharacter': '{name}を表示',
   'hudChrome.discord.rank': 'ランク',
-  'hudChrome.discord.roleTag.admin': '管理者',
   'hudChrome.discord.roleTag.levyst': 'Levy St',
   'hudChrome.discord.roleTag.devs': '開発者',
   'hudChrome.discord.roleTag.mods': 'モデレーター',
-  'hudChrome.discord.roleTag.seniormods': 'シニアモデレーター',
-  'hudChrome.discord.roleTag.juniormods': 'ジュニアモデレーター',
+  'hudChrome.discord.roleTag.seniormods': 'センチネル',
+  'hudChrome.discord.roleTag.juniormods': 'オブザーバー',
   'hudChrome.discord.roleTag.contentcreator': 'コンテンツクリエイター',
   'hudChrome.discord.voice.channel': '{channel}に参加中',
   'hudChrome.discord.swag.title': 'グッズ',

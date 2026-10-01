@@ -2293,6 +2293,8 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Vanguard-utrustning: Warfare säsong 2',
   'guide.combat.unstuckBodyWindow':
     'Om världen fångar dig någonstans du inte kan ta dig ut, skriv /unstuck. Du måste vara utanför strid och stå stille, inte hålld av en bedövning eller en rot, och inte i en tvekamp eller en arenomatch: en kort nedräkning körs, och att röra dig eller ta skada avbryter det. När det slutförs är du placerad vid närmaste kyrkogård. Det dödar aldrig dig och det lämnar ingen lik, och om du redan var nere höjer det upp dig där istället. Den första användningen på en timme kostar dig ingenting. Använd det igen inom en timme från senast och priset är Unstuck sjukdom, en tillfällig försvagning av allt du är som har slitit av innan du kunde använda kommandot igen, och som Vaktarens tull sparar helt nya karaktärer.',
+  'guide.commandsPage.flair':
+    'Visar eller döljer din Discord-roll för andra spelare, alltså ditt färgade namn, din rolltagg och din verifierade chattagg: /flair on visar den, /flair off döljer den och bara /flair berättar vad som är inställt. Kräver ett kopplat Discord-konto.',
   'guide.commandsPage.pvpZones':
     'Flagga för världs-PvP: /pvp växlar den, /pvp on slår på den och /pvp off stänger av den. Flaggade spelare kan slåss mot varandra på omstridd mark, fristäder tillåter inga världsstrider alls och din flagga aktiveras när du går in i en aktiv cirkel i Kullens kung; det tar 5 minuter att stänga av den.',
   'guide.commandsPage.unstuckWindow':
@@ -5970,9 +5972,9 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Välj din kamera',
   'hudChrome.discord.link.joinServer': 'Gå med i Discord-servern',
   'hudChrome.discord.roleTag.contentcreator': 'Innehållsskapare',
-  'hudChrome.discord.roleTag.juniormods': 'Junior-mod',
+  'hudChrome.discord.roleTag.juniormods': 'Observatör',
   'hudChrome.discord.roleTag.legend': 'LEGEND',
-  'hudChrome.discord.roleTag.seniormods': 'Senior-mod',
+  'hudChrome.discord.roleTag.seniormods': 'Väktare',
   'hudChrome.discord.roleTag.shill': 'MARKNADSFÖRARE',
   'hudChrome.finder.accept': 'Acceptera',
   'hudChrome.finder.acceptApplicantAria': 'Acceptera {name}',
@@ -7046,7 +7048,6 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'Den bleka väktaren (Väktartullen)',
   'hudChrome.death.spiritHealerAlive':
     'Den bleka väktaren vakar över de döda. Du är fortfarande bland de levande.',
-  'hudChrome.discord.roleTag.admin': 'Admin',
   'hudChrome.frameReset.label': 'Återställ ramarnas positioner',
   'hudChrome.mailbox.arrivedBanner': 'Korpen har landat: post från {name}.',
   'hudChrome.mailbox.arrivedLog': 'Du har ny post från {name}.',

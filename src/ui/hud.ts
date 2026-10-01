@@ -189,6 +189,7 @@ import {
   bannerSubtextLines,
   isBannerStale,
 } from './banner_queue';
+import { treasureMapTooltipLine } from './treasure_map_tooltip_view';
 
 export type { BannerVariant } from './banner_queue';
 
@@ -6627,13 +6628,11 @@ export class Hud {
     if (requiredClasses) {
       html += `<div class="tt-sub">${esc(t('itemUi.tooltip.classes', { classes: requiredClasses.map(classDisplayName).join(', ') }))}</div>`;
     }
-    html += itemRequiredLevelLine(item, this.sim.player.level);
+    html += itemRequiredLevelLine(item, this.sim.player.level) + treasureMapTooltipLine(item);
     html += this.itemProcBlock(item) + trinketTooltipLines(item, this.sim.player);
     html += this.itemSetBlock(item);
     html += materialMakersMarkLines(item, instance, materialSources);
-    // Stackables state their per-slot cap (sim/bags.ts stackSizeOf), so a
-    // player holding a single potion learns more copies will share the slot;
-    // 1-per-slot kinds, mounts, and charge-bearing payloads render nothing.
+    // Stackables show their per-slot cap; maps also show the fixed party size above.
     html += stackSizeTooltipLine(item, instance);
     html += vendorSellTooltipLine(item);
     if (compare) html += this.itemCompareBlock(item, instance);

@@ -2287,6 +2287,8 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Výbava Předvoje: Válečnictví, sezóna 2',
   'guide.combat.unstuckBodyWindow':
     'Pokud tě svět někam uvězní a nemůžeš se odtamtud dostat, napiš /unstuck. Musíš být mimo boj a stát na místě, nesmíš být držen omráčením ani zakořeněním a nesmíš být v duelu ani v zápase arény: proběhne krátké odpočítávání a pohyb nebo utrpěné zranění ho zruší. Po jeho konci tě to postaví na nejbližší hřbitov. Nikdy tě to nezabije a nezanechá to žádné tělo, a pokud jsi už předtím padl(a), místo toho tě to tam oživí. První použití za hodinu tě nic nestojí. Použiješ-li ho znovu do hodiny od posledního použití, cena je Nemoc z vyproštění, dočasné oslabení všeho, čím jsi, které odezní dřív, než bys mohl(a) příkaz použít znovu, a stejně jako Strážcovo mýtné se úplně vyhýbá zbrusu novým postavám.',
+  'guide.commandsPage.flair':
+    'Zobrazí nebo skryje tvou roli z Discordu pro ostatní hráče, tedy barevné jméno, štítek role a ověřený štítek v chatu: /flair on ji zobrazí, /flair off ji skryje a samotné /flair ti řekne, co je nastaveno. Vyžaduje propojený účet Discord.',
   'guide.commandsPage.pvpZones':
     'Příznak světového PvP: /pvp jej přepíná, /pvp on jej zapne a /pvp off vypne. Označení hráči spolu mohou bojovat ve sporných oblastech, útočiště nepovolují žádné boje ve světě a vstup do aktivního kruhu Krále kopce zapne váš příznak; vypnutí trvá 5 minut.',
   'guide.commandsPage.unstuckWindow':
@@ -5930,9 +5932,9 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'hudChrome.discord.link.joinServer': 'Připojit se na Discord server',
   'hudChrome.discord.roleTag.contentcreator': 'Tvůrce obsahu',
   'hudChrome.discord.roleTagChatTitle': 'Ověřená serverová role: {role}',
-  'hudChrome.discord.roleTag.juniormods': 'Junior moderátor',
+  'hudChrome.discord.roleTag.juniormods': 'Pozorovatel',
   'hudChrome.discord.roleTag.legend': 'LEGENDA',
-  'hudChrome.discord.roleTag.seniormods': 'Senior moderátor',
+  'hudChrome.discord.roleTag.seniormods': 'Strážce',
   'hudChrome.discord.roleTag.shill': 'HLASATEL',
   'hudChrome.finder.accept': 'Přijmout',
   'hudChrome.finder.acceptApplicantAria': 'Přijmout {name}',
@@ -8982,7 +8984,6 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'hudChrome.discord.relay.wts.hint': 'Nabídni předmět nebo službu k prodeji',
   'hudChrome.discord.relay.wts.label': 'Chci prodat',
   'hudChrome.discord.rewards': 'Odměny',
-  'hudChrome.discord.roleTag.admin': 'Admin',
   'hudChrome.discord.roleTag.artists': 'Umělec',
   'hudChrome.discord.roleTag.devs': 'Dev',
   'hudChrome.discord.roleTag.levyst': 'Levy St',

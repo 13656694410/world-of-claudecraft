@@ -2277,6 +2277,8 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Vanguard Ekipmesi: Savaş Mevsimi 2',
   'guide.combat.unstuckBodyWindow':
     "Dünya seni bir yandan çıkamayacağın bir yere tuzaklayarsa, /unstuck yazın. Savaşın dışında ve sabit durmalısın, bir bayıltı ya da kök tarafından tutulmuş değilsin, ve bir düello ya da arena maçında değilsin: kısa bir sayaç çalışır, ve hareket etmek ya da hasar almak iptal eder. Bittiğinde, en yakın mezarlığa kurulursun. Hiç seni öldürmez ve ceset bırakmaz, ve zaten yatmıştaysan seni orada yerine getirir. Bir saat içinde ilk kullanım parasız. Birden fazla kullanımdan bir saat içinde yeniden kullanırsanız, ücret Sıkışmış Rahatsızlığı olur, geçici zayıflama, komutunu tekrar kullanabileceğin zamana kadar aşındı, ve Sakçı'nın Vergisi gibi, tamamen yeni karakterleri tamamen affeder.",
+  'guide.commandsPage.flair':
+    'Discord rolünü diğer oyunculara gösterir veya gizler; yani renkli adını, rol etiketini ve doğrulanmış sohbet etiketini: /flair on gösterir, /flair off gizler, yalnızca /flair ise hangisinin ayarlı olduğunu söyler. Bağlı bir Discord hesabı gerekir.',
   'guide.commandsPage.pvpZones':
     'Dünya PvP bayrağı: /pvp durumunu değiştirir, /pvp on açar ve /pvp off kapatır. Bayraklı oyuncular çekişmeli bölgelerde birbirleriyle savaşabilir, sığınaklarda dünya savaşlarına hiç izin verilmez ve Tepe Derdine etkinliğinin aktif çemberine girmek bayrağını açar; kapanması 5 dakika sürer.',
   'guide.commandsPage.unstuckWindow':
@@ -5903,9 +5905,9 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Kamera Modunu Seç',
   'hudChrome.discord.link.joinServer': 'Discord sunucusuna katıl',
   'hudChrome.discord.roleTag.contentcreator': 'İçerik Üreticisi',
-  'hudChrome.discord.roleTag.juniormods': 'Yardımcı Moderatör',
+  'hudChrome.discord.roleTag.juniormods': 'Gözlemci',
   'hudChrome.discord.roleTag.legend': 'EFSANE',
-  'hudChrome.discord.roleTag.seniormods': 'Kıdemli Moderatör',
+  'hudChrome.discord.roleTag.seniormods': 'Nöbetçi',
   'hudChrome.discord.roleTag.shill': 'SAVUNUCU',
   'hudChrome.discord.roleTagChatTitle': 'Doğrulanmış sunucu rolü: {role}',
   'hudChrome.finder.accept': 'Kabul Et',
@@ -7140,7 +7142,6 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'Solgun Bekçi (Bekçinin Bedeli)',
   'hudChrome.death.spiritHealerAlive':
     'Solgun Bekçi ölüleri gözetir. Sen hâlâ yaşayanlar arasındasın.',
-  'hudChrome.discord.roleTag.admin': 'Yönetici',
   'hudChrome.frameReset.label': 'Çerçeve Konumlarını Sıfırla',
   'hudChrome.mailbox.arrivedBanner': 'Kuzgun kondu: {name} sana posta gönderdi.',
   'hudChrome.mailbox.arrivedLog': '{name} tarafından gönderilen yeni bir postan var.',

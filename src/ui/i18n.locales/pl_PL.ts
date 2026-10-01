@@ -2325,6 +2325,8 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Zbroja Awangardy: Sezon Wojenki 2',
   'guide.combat.unstuckBodyWindow':
     'Jeśli świat uwięzi cię gdzieś, gdzie nie możesz się wydostać, wpisz /unstuck. Musisz być poza walką i stać nieruchomo, nie być trzymany przez ogłuszenie lub korzeń, i nie być w duelu ani w meczu areny: krótki odliczanie się toczy, a poruszanie się lub otrzymanie obrażeń je anuluje. Kiedy się skończy, jesteś umieszczony na najbliższym cmentarzu. Nigdy cię nie zabija i nie pozostawia zwłok, a jeśli już byłeś dół, to cię tam podnosi. Pierwsze użycie w godzinę nic cię nie kosztuje. Użyj ponownie w ciągu godziny od ostatniego, a cena to Choroba Uwolnienia, czasowe osłabienie wszystkiego, czym jesteś, które będzie wychodzić na czas, kiedy znowu będziesz mógł użyć rozkazu, i jak Opłata Strażnika, oszczędza całkiem nowe postacie.',
+  'guide.commandsPage.flair':
+    'Pokazuje lub ukrywa twoją rolę z Discorda przed innymi graczami, czyli kolorową nazwę, plakietkę roli i zweryfikowaną plakietkę na czacie: /flair on ją pokazuje, /flair off ją ukrywa, a samo /flair mówi, co jest ustawione. Wymaga połączonego konta Discord.',
   'guide.commandsPage.pvpZones':
     'Flaga PvP w świecie: /pvp ją przełącza, /pvp on włącza, a /pvp off wyłącza. Oznaczeni gracze mogą walczyć ze sobą na spornych terenach, sanktuaria nie pozwalają na żadne walki w świecie, a wejście do aktywnego kręgu Króla Wzgórza włącza twoją flagę; wyłączenie trwa 5 minut.',
   'guide.commandsPage.unstuckWindow':
@@ -6100,9 +6102,9 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Wybierz Kamerę',
   'hudChrome.discord.link.joinServer': 'Dołącz do serwera Discord',
   'hudChrome.discord.roleTag.contentcreator': 'Twórca Treści',
-  'hudChrome.discord.roleTag.juniormods': 'Młodszy Moderator',
+  'hudChrome.discord.roleTag.juniormods': 'Obserwator',
   'hudChrome.discord.roleTag.legend': 'LEGENDA',
-  'hudChrome.discord.roleTag.seniormods': 'Starszy Moderator',
+  'hudChrome.discord.roleTag.seniormods': 'Strażnik',
   'hudChrome.discord.roleTag.shill': 'GORLIWY ORĘDOWNIK',
   'hudChrome.discord.roleTagChatTitle': 'Zweryfikowana rola serwera: {role}',
   'hudChrome.finder.accept': 'Akceptuj',
@@ -7257,7 +7259,6 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'Blady Strażnik (Myto Strażnika)',
   'hudChrome.death.spiritHealerAlive':
     'Blady Strażnik czuwa nad umarłymi. Ty wciąż jesteś wśród żywych.',
-  'hudChrome.discord.roleTag.admin': 'Admin',
   'hudChrome.frameReset.label': 'Resetuj pozycje ramek',
   'hudChrome.mailbox.arrivedBanner': 'Kruk wylądował: poczta od {name}.',
   'hudChrome.mailbox.arrivedLog': 'Masz nową pocztę od {name}.',
