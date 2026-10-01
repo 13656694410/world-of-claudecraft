@@ -12768,6 +12768,7 @@ export const ko_KR: EnTranslations = {
       "dps": "(초당 피해 {dps})",
       "armorStat": "방어도 {value}",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "워페어는 주장비에서만 적용됩니다.",
       "useFood": "사용 효과: {seconds}초에 걸쳐 생명력 {amount} 회복. 먹는 동안 앉아 있어야 합니다.",
       "useDrink": "사용 효과: {seconds}초에 걸쳐 마나 {amount} 회복. 마시는 동안 앉아 있어야 합니다.",
       "useElixir": "사용: {stat}이(가) {value} 증가하며 {minutes}분 동안 지속됩니다. 같은 능력치의 다른 비약이나 두루마리를 대체합니다. 전투 중 사용 가능.",

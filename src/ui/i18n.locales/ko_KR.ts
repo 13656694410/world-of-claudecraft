@@ -4585,6 +4585,7 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'itemUi.tooltip.dps': '(초당 피해 {dps})',
   'itemUi.tooltip.armorStat': '방어도 {value}',
   'itemUi.tooltip.stat': '+{value} {stat}',
+  'itemUi.tooltip.warfareMainHandOnly': '워페어는 주장비에서만 적용됩니다.',
   'itemUi.tooltip.useFood':
     '사용 효과: {seconds}초에 걸쳐 생명력 {amount} 회복. 먹는 동안 앉아 있어야 합니다.',
   'itemUi.tooltip.useDrink':

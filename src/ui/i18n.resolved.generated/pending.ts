@@ -9,25 +9,55 @@
 // Reproducibility is checked by tests/i18n_resolved_equivalence.test.ts.
 
 export const pending: Record<string, readonly string[]> = {
-  "es": [],
-  "es_ES": [],
-  "fr_FR": [],
-  "fr_CA": [],
+  "es": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
+  "es_ES": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
+  "fr_FR": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
+  "fr_CA": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
   "en_CA": [],
-  "it_IT": [],
-  "de_DE": [],
+  "it_IT": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
+  "de_DE": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
   "zh_CN": [],
   "zh_TW": [],
   "ko_KR": [],
   "ja_JP": [],
-  "pt_BR": [],
+  "pt_BR": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
   "ru_RU": [],
-  "cs_CZ": [],
-  "nl_NL": [],
-  "pl_PL": [],
-  "id_ID": [],
-  "tr_TR": [],
-  "sv_SE": [],
-  "vi_VN": [],
-  "da_DK": []
+  "cs_CZ": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
+  "nl_NL": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
+  "pl_PL": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
+  "id_ID": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
+  "tr_TR": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
+  "sv_SE": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
+  "vi_VN": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ],
+  "da_DK": [
+    "itemUi.tooltip.warfareMainHandOnly"
+  ]
 };

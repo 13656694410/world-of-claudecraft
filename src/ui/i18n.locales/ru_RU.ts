@@ -4669,6 +4669,7 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'itemUi.tooltip.dps': '({dps} урона в секунду)',
   'itemUi.tooltip.armorStat': '{value} брони',
   'itemUi.tooltip.stat': '+{value} {stat}',
+  'itemUi.tooltip.warfareMainHandOnly': 'Боевая мощь учитывается только в правой руке.',
   'itemUi.tooltip.useFood':
     'Использование: восстанавливает {amount} здоровья за {seconds} сек. Нужно оставаться сидя во время еды.',
   'itemUi.tooltip.useDrink':

@@ -45,7 +45,12 @@ export function itemRatingTooltipLines(item: ItemDef): string {
       }),
     )}</div>`;
   const warfareRating = Math.min(item.pvpOffenseRating ?? 0, item.pvpDefenseRating ?? 0);
-  if (warfareRating > 0) html += line(warfareRating, 'warfare');
+  if (warfareRating > 0) {
+    html += line(warfareRating, 'warfare');
+    // countsWarfareRating (src/sim/pvp/power.ts): an offhand weapon adds none.
+    if (item.kind === 'weapon')
+      html += `<div class="tt-sub">${esc(t('itemUi.tooltip.warfareMainHandOnly'))}</div>`;
+  }
   for (const ratingStat of ['hitRating', 'critRating', 'hasteRating'] as const) {
     const value = item[ratingStat] ?? 0;
     if (value > 0) html += line(value, ratingStat);

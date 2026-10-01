@@ -4430,6 +4430,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'itemUi.tooltip.dps': '（每秒 {dps} 伤害）',
   'itemUi.tooltip.armorStat': '{value} 护甲',
   'itemUi.tooltip.stat': '+{value} {stat}',
+  'itemUi.tooltip.warfareMainHandOnly': '战争属性仅在主手时生效。',
   'itemUi.tooltip.useFood': '使用：在 {seconds} 秒内恢复 {amount} 点生命值。进食时必须保持坐下。',
   'itemUi.tooltip.useDrink': '使用：在 {seconds} 秒内恢复 {amount} 点法力值。饮水时必须保持坐下。',
   'itemUi.tooltip.questItem': '任务物品',
