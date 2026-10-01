@@ -759,20 +759,21 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
     '其他已開啟旗幟的玩家將能在任何地方攻擊你，獲勝時最多可從你的錢袋中拿走 {cap}。你可以再次關閉，但需要 {minutes} 分鐘。',
   'hudChrome.worldPvp.confirmCancel': '取消',
   'hudChrome.worldPvp.disable': '停用世界 PvP',
-  'hudChrome.worldPvp.disarmLine': '關閉需要 {minutes} 分鐘，且會等待戰鬥結束。',
+  'hudChrome.worldPvp.disarmLine':
+    '關閉需要 {minutes} 分鐘，並且必須等到你離開活動山丘且戰鬥結束。',
   'hudChrome.worldPvp.enable': '啟用世界 PvP',
   'hudChrome.worldPvp.greyLine': '等級比你低 {levels} 級以上的玩家不需支付任何代價。',
   'hudChrome.worldPvp.groundContested': '其餘地區皆為爭奪地帶：只有兩名已開啟旗幟的玩家才能交戰。',
   'hudChrome.worldPvp.groundFfa':
-    '龍裔荒原、霜幕之境與琥珀秋境是自由混戰地帶：無論是否開啟旗幟，所有人都能在此交戰。',
-  'hudChrome.worldPvp.groundSanctuary': '試煉之濱與東溪谷是聖域：完全不會發生世界 PvP。',
+    '龍裔荒原、霜幕之境和琥珀秋境採用一般 PvP 旗幟規則。進入正在進行的山丘之王活動圈會開啟你的旗幟。',
+  'hudChrome.worldPvp.groundSanctuary':
+    '試煉之濱是唯一的聖域：在這裡不能開啟世界PvP，也不能與其他玩家戰鬥。',
   'hudChrome.worldPvp.groupLine': '隊伍與團隊成員永遠不會敵對。隊伍之外的公會成員則可以交戰。',
   'hudChrome.worldPvp.honorLine': '每次擊殺獲得 {honor} 點榮譽，由所有出過力的人平分。',
   'hudChrome.worldPvp.keepUp': '保持旗幟升起',
   'hudChrome.worldPvp.levelReq': '需要等級 {level}。',
-  'hudChrome.worldPvp.markLine':
-    '在該地攻擊未開啟旗幟的玩家會升起你自己的旗幟；攻擊已開啟旗幟的玩家則永遠不會。',
-  'hudChrome.worldPvp.noStakeLine': '未開啟旗幟的玩家在自由混戰地帶陣亡不會損失任何金幣。',
+  'hudChrome.worldPvp.markLine': '進入正在進行的山丘活動圈會開啟世界 PvP。離開圈後旗幟仍會保留。',
+  'hudChrome.worldPvp.noStakeLine': '未開啟旗幟的玩家在開放世界中無法被攻擊。',
   'hudChrome.worldPvp.noTakeLine':
     '未開啟旗幟的戰鬥者同樣拿不到金幣：金幣只在兩名已開啟旗幟的玩家之間轉移。',
   'hudChrome.worldPvp.pending': '正在等待世界回傳你的 PvP 狀態。',
@@ -1007,6 +1008,7 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_warrior_prot_helmet.name': '鐵軍頭盔',
   'entities.items.vanguard_warrior_prot_legs.name': '鐵軍腿甲',
   'entities.items.vanguard_warrior_prot_shoulder.name': '鐵軍肩甲',
+  'entities.items.vanguard_feral_staff.name': '先鋒野性法杖',
   'entities.items.vanguard_warstaff.name': '先鋒之戰杖',
   'entities.npcs.glider_apprentice.name': '絲凱',
   'guide.arenaPage.vanguardBody':
@@ -2695,7 +2697,7 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'guide.commandsPage.pvp':
     '世界 PvP 旗幟：/pvp 切換，/pvp on 與 /pvp off 直接設定。已開啟旗幟的玩家可以在任何地方互相作戰；關閉需要 5 分鐘。',
   'guide.commandsPage.pvpZones':
-    '世界 PvP 旗幟：/pvp 切換，/pvp on 與 /pvp off 直接設定。已開啟旗幟的玩家可以在爭奪地帶互相作戰，聖域完全不允許世界戰鬥，而自由混戰地帶無論是否開啟旗幟都允許作戰；關閉需要 5 分鐘。',
+    '世界 PvP 旗幟：/pvp 切換狀態，/pvp on 和 /pvp off 分別開啟和關閉。在爭奪區域，已開啟旗幟的玩家可以互相戰鬥；庇護區域禁止一切世界 PvP。進入正在進行的山丘之王活動圈會開啟旗幟；關閉需要 5 分鐘。',
   'guide.nav.worldPvp': '世界 PvP',
   'guide.worldPvpPage.heading': '世界 PvP',
   'guide.worldPvpPage.intro':
@@ -2710,25 +2712,25 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.limitsBody':
     '反覆擊敗同一名玩家，每次的收益都會減少並很快歸零，計數會隨每日重置而重置。遠低於你等級的目標不會帶來任何收益。在戰場和競技場內部適用它們自己的規則，而且它們提供的榮譽比開放世界更多，因此世界 PvP 是通往同一位商人的較慢道路。',
   'guide.worldPvpPage.introZones':
-    '開放世界的玩家對戰需要主動開啟，而你腳下的土地決定了這意味著什麼。升起你的 PvP 旗幟後，所有不在你的隊伍或團隊中且同樣開啟了旗幟的玩家都會在爭奪地帶成為敵人；降下旗幟後，稍作等待你就會重新成為旁觀者。有兩座區域是完全不會發生世界戰鬥的聖域，而最北端的三座區域是自由混戰地帶，無論是否開啟旗幟，身處其中的每個人都可以被攻擊。隊伍和團隊的夥伴在任何地方都不會成為你的敵人；隊伍之外的公會成員與其他人一樣可以被攻擊。',
+    '開放世界 PvP 由玩家自願參與，所在區域決定具體規則。在爭奪區域開啟 PvP 旗幟後，不屬於你的小隊或團隊的其他已開啟旗幟玩家會成為敵人；關閉旗幟並等待片刻後，你將再次成為旁觀者。試煉之濱是唯一的庇護區域，禁止一切世界 PvP。最北面的三個區域採用與世界其他地方相同的自願開啟旗幟規則。進入正在進行的山丘之王活動圈會自動開啟旗幟。小隊和團隊成員在任何地方都不會成為敵人；不在你隊伍中的公會成員與其他玩家一樣可以交戰。',
   'guide.worldPvpPage.zonesHeading': '世界 PvP 發生在哪裡',
   'guide.worldPvpPage.zonesBody':
-    '世界上的土地分為三種。試煉之濱與東溪谷是聖域：無論是否開啟旗幟，那裡都完全不會發生世界 PvP，所以新角色絕不會在弄清旗幟是什麼之前就被人挑戰。世界的大部分是爭奪地帶，上面那條旗幟規則就是全部。龍裔荒原、霜幕之境與琥珀秋境是自由混戰地帶：站在其中的每個人都可以攻擊站在其中的其他任何人，無論是否開啟旗幟，而且你跨入時會收到提示，離開時同樣會。在那裡攻擊未開啟旗幟的玩家會升起你自己的旗幟，所以挑起戰鬥的一方始終承擔風險。攻擊已經開啟旗幟的玩家則永遠不會升起你的旗幟，這意味著自衛，或是保護未開啟旗幟的人，都不會讓你付出任何代價。',
+    '試煉之濱是唯一的庇護區域：這裡沒有世界 PvP，也無法開啟旗幟。已有旗幟會保留，但用於頭銜的遊戲時長進度會暫停，直到你離開。其他所有地方，包括龍裔荒原、霜幕之境和琥珀秋境，只有已開啟旗幟的玩家才能交戰。滿足一般等級要求時，進入正在進行的山丘之王活動圈會自動開啟旗幟。預告圈不會開啟旗幟。離開活動圈後旗幟仍會保留；使用 /pvp off 開始一般的五分鐘倒數，在活動山丘內或戰鬥中時，倒數無法完成。',
   'guide.worldPvpPage.flagBodyAid':
     '在聊天中輸入 /pvp，或按 G 開啟 PvP 視窗並使用世界 PvP 分頁，那裡還會顯示你的戰績和賭注。度過起始等級後，升起旗幟是即時的。降下旗幟會開始幾分鐘的倒數，而且在你仍在戰鬥時旗幟不會降下，所以關閉永遠不是逃離你挑起的戰鬥的手段。為正在戰鬥的已開啟旗幟的玩家治療、護盾或增益，同樣會升起你自己的旗幟，所以沒有人能不掛旗幟就在背後支撐一名戰鬥者；而援助未開啟旗幟的玩家不會升起任何旗幟。',
   'guide.worldPvpPage.stakesBodyFlagged':
-    '當一名已開啟旗幟的玩家被另一名玩家擊敗時，敗者會支付錢袋中一小部分金幣（有一個不高的上限），而勝者獲得用於兌換 PvP 裝備的榮譽。未開啟旗幟的玩家則完全不必支付金幣，即便是在自由混戰區域中倒下也一樣。所有出過力的人共同分享這兩者：最後一擊者、不久前對目標造成過傷害的人，以及讓這些戰士站穩腳跟的治療者。乾淨的一對一可獨得全部獎勵；團隊則平分。',
+    '當一名已開啟旗幟的玩家被另一名玩家擊敗時，敗者會支付錢袋中一小部分金幣（有一個不高的上限），而勝者獲得用於兌換 PvP 裝備的榮譽。 未開啟旗幟的玩家在開放世界中無法被攻擊。 所有出過力的人共同分享這兩者：最後一擊者、不久前對目標造成過傷害的人，以及讓這些戰士站穩腳跟的治療者。乾淨的一對一可獨得全部獎勵；團隊則平分。',
   'guide.worldPvpPage.stakesUnflaggedTake':
     '未開啟旗幟的戰鬥者同樣拿不到金幣：金幣只在兩名開啟旗幟的玩家之間轉移，但所有出過力的人仍能獲得榮譽。',
   'guide.worldPvpPage.limitsBodyHour':
     '反覆擊敗同一名玩家，每次的收益都會減少並很快歸零，而你對那名玩家的計數要在首次擊殺約一小時之後才會重新開始，所以蹲守同一個目標永遠不值得等待。遠低於你等級的目標不會帶來任何收益。在戰場和競技場內部適用它們自己的規則，而且它們提供的榮譽比開放世界更多，因此世界 PvP 是通往同一位商人的較慢道路。',
   'guide.worldPvpPage.hillBodyRamp':
-    '每三小時，會在無法預料的時刻向全伺服器發出通告：十五分鐘後，某個自由混戰地帶將升起一座山丘，它所在的圓圈會預先在開闊地上標出。山丘升起後會屹立四十五分鐘，然後消失。圈內站著玩家最多的隊伍爭奪這座山丘，連續保持人數優勢一分鐘後，山丘便歸他們所有；單獨一人算作一支一人隊伍，但團隊成員完全不計入人數。一支隊伍佔據山丘期間，站在圈內的每名成員每分鐘都會獲得榮譽，同一支隊伍佔據得越久，每分鐘獲得的榮譽就越多。一支滿員隊伍在山丘屹立的全程不受爭奪地佔據它，所獲榮譽約相當於三場戰場勝利。山丘易手時，新的佔據者從頭開始累積。場地上方的橫條會顯示誰在佔據、你方與對方的人數以及爭奪計時；在聊天中輸入 /hill 可以得知它的位置。',
+    '每兩小時，龍裔荒原、霜幕之境或琥珀秋境會出現一座活動山丘。全伺服器會提前十五分鐘收到預告，空地上會標出圓圈。山丘活動持續三十分鐘。進入活動圈會依一般等級規則開啟世界 PvP 旗幟，團隊成員也不例外。圈內符合條件的玩家人數最多的小隊，在連續保持人數優勢一分鐘後佔領山丘；單人視為一人小隊，但團隊成員和未達到 PvP 等級要求的玩家不能佔領或獲得山丘榮譽。佔領方每名站在圈內的成員都會以逐漸提高的速率獲得榮譽。發獎頻率和獎勵遞增速度均已加快，保留原四十五分鐘活動的榮譽總量。佔領方變更會重設獎勵遞增。離開圈後旗幟仍保留；/pvp off 使用一般的五分鐘延遲，在活動山丘內或戰鬥中無法完成。山丘狀態列顯示控制方、人數和佔領進度；/hill 顯示位置。',
   'guide.worldPvpPage.limitsBodyRaids':
     '反覆擊敗同一名玩家，每次的收益都會減少並很快歸零，而你對那名玩家的計數要在首次擊殺約一小時之後才會重新開始，所以蹲守同一個目標永遠不值得等待。遠低於你等級的目標不會帶來任何收益。在戰場和競技場內部適用它們自己的規則，而且它們提供的榮譽比開放世界更多，因此世界 PvP 是通往同一位商人的較慢道路。團隊無法從世界擊殺中獲得任何收益：團隊成員既得不到榮譽也得不到金幣，也不會減少其他人的份額，所以想獲得報酬就以隊伍身分作戰。',
   'guide.worldPvpPage.hillHeading': '山丘之王',
   'guide.worldPvpPage.hillBody':
-    '每三小時，會在無法預料的時刻向全伺服器發出通告：十五分鐘後，某個自由混戰地帶將升起一座山丘，它所在的圓圈會預先在開闊地上標出。山丘升起後會屹立四十五分鐘，然後消失。圈內站著玩家最多的隊伍爭奪這座山丘，連續保持人數優勢一分鐘後，山丘便歸他們所有；單獨一人算作一支一人隊伍，但團隊成員完全不計入人數。一支隊伍佔據山丘期間，站在圈內的每名成員每分鐘都會獲得少量榮譽，因此一支滿員隊伍在山丘屹立的全程不受爭奪地佔據它，所獲榮譽略少於一場戰場勝利。場地上方的橫條會顯示誰在佔據、你方與對方的人數以及爭奪計時；在聊天中輸入 /hill 可以得知它的位置。',
+    '每兩小時，龍裔荒原、霜幕之境或琥珀秋境會出現一座活動山丘。全伺服器會提前十五分鐘收到預告，空地上會標出圓圈。山丘活動持續三十分鐘。進入活動圈會依一般等級規則開啟世界 PvP 旗幟，團隊成員也不例外。圈內符合條件的玩家人數最多的小隊，在連續保持人數優勢一分鐘後佔領山丘；單人視為一人小隊，但團隊成員和未達到 PvP 等級要求的玩家不能佔領或獲得山丘榮譽。佔領方每名站在圈內的成員都會以逐漸提高的速率獲得榮譽。發獎頻率和獎勵遞增速度均已加快，保留原四十五分鐘活動的榮譽總量。佔領方變更會重設獎勵遞增。離開圈後旗幟仍保留；/pvp off 使用一般的五分鐘延遲，在活動山丘內或戰鬥中無法完成。山丘狀態列顯示控制方、人數和佔領進度；/hill 顯示位置。',
   'guide.thornhollowPage.heading': '荊谷原野',
   'guide.thornhollowPage.intro':
     '一場排位 5v5 奪旗戰場，戰場位於棘峰之下老林中的圍牆山谷：兩座廢棄要塞沿著峽谷兩端遙遙相對，中間是一座更古老的庭院，誰都不曾真正佔據。每方五人，兩座要塞，一個目標：奪走敵方戰旗並趕在對方之前帶回家。',
@@ -4166,6 +4168,7 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'abilityUi.actionBar.attackName': '攻擊',
   'abilityUi.actionBar.attackTooltip': '對目標開啟或關閉自動攻擊。右鍵點擊敵人也會發起攻擊。',
   'abilityUi.actionBar.attackRemoveHint': '右鍵點擊可將其從動作列移除並空出欄位。',
+  'abilityUi.actionBar.moveHint': 'Shift-拖曳以移動',
   'abilityUi.actionBar.emptySlot': '空欄位',
   'abilityUi.actionBar.slotAria': '動作欄位 {slot}：{ability}',
   'abilityUi.actionBar.emptySlotAria': '動作欄位 {slot}：空',
@@ -18483,6 +18486,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.readyTitle': '你的每週獎勵已就緒',
   'hudChrome.weeklyRewards.readyDescription':
     '有一週已完成的獎勵正在等待。打開你獲得的寶庫，然後選擇一件物品領取。',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    '獎勵已就緒。請前往東溪的寶庫管理員處開啟寶庫並領取獎勵。',
   'hudChrome.weeklyRewards.notNow': '稍後再說',
   'hudChrome.weeklyRewards.completedWeek': '週次結束於{date}',
   'hudChrome.weeklyRewards.currentWeek': '返回本週進度',
@@ -18651,9 +18656,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_warlock_destruction.bonus4':
     '4件：每第二次Conflagrate使8秒內下一次Ruinbolt瞬發。',
   'entities.itemSets.vanguard_druid_feral.name': '血鬃獸皮',
-  'entities.itemSets.vanguard_druid_feral.bonus2': '2件：Bruin Rush冷卻縮短3秒。',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    '4件：Bruin Rush提供相當於最大生命值6%的護盾，持續6秒。',
+  'entities.itemSets.vanguard_druid_feral.bonus2': '撲擊和巨熊衝鋒的冷卻時間縮短3秒。',
+  'entities.itemSets.vanguard_druid_feral.bonus4': '急奔的冷卻時間縮短15秒。',
   'entities.itemSets.vanguard_druid_restoration.name': '薊花法衣',
   'entities.itemSets.vanguard_druid_restoration.bonus2': '2件：Fleetmend冷卻縮短1秒。',
   'entities.itemSets.vanguard_druid_restoration.bonus4':
@@ -18662,4 +18666,12 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus2': '纏縛根鬚的施法時間縮短0.5秒。',
   'entities.itemSets.vanguard_druid_balance.bonus4':
     '施放纏縛根鬚後，你可以在移動中施法，並使移動速度提高20%，持續4秒。每20秒最多觸發一次。',
+  'hudChrome.worldPvp.rewardBonus':
+    '保持世界PvP開啟可多獲得{percent}的經驗值和陣營聲望。請求關閉時，加成立即停止。',
+  'hudChrome.worldPvp.rewardTitles':
+    '開啟世界PvP的遊戲時間達到{thresholds}時，可獲得永久頭銜。離線或身處試煉之濱時計時暫停。關閉PvP會重置計時。',
+  'hudChrome.worldPvp.rewardPaused': '目前PvP連續遊戲時間：{time}（在試煉之濱暫停）',
+  'hudChrome.worldPvp.rewardProgress': '目前PvP連續遊戲時間：{time}',
+  'hudChrome.hill.pvpEntry': '進入活動圈會開啟世界 PvP。',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

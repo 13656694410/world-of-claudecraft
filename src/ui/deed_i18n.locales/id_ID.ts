@@ -1236,4 +1236,29 @@ export const table: DeedLocaleTable = {
     name: 'Tertangkap Saat Berbuat Buruk',
     desc: 'Tangkap Penari Mata Uang dalam Harta Karun Terkubur sebelum dia kabur dengan emas.',
   },
+  pvp_flag_1h: {
+    name: 'Pemberani',
+    desc: 'Biarkan PvP Dunia aktif selama 1 jam waktu bermain. Keluar dari permainan menjeda progres; menonaktifkannya mengatur ulang progres. Gelar yang diperoleh bersifat permanen.',
+    title: 'Pemberani',
+  },
+  pvp_flag_3h: {
+    name: 'Pembangkang',
+    desc: 'Biarkan PvP Dunia aktif selama 3 jam waktu bermain. Keluar dari permainan menjeda progres; menonaktifkannya mengatur ulang progres. Gelar yang diperoleh bersifat permanen.',
+    title: 'Pembangkang',
+  },
+  pvp_flag_6h: {
+    name: 'Tak Gentar',
+    desc: 'Biarkan PvP Dunia aktif selama 6 jam waktu bermain. Keluar dari permainan menjeda progres; menonaktifkannya mengatur ulang progres. Gelar yang diperoleh bersifat permanen.',
+    title: 'Tak Gentar',
+  },
+  pvp_flag_24h: {
+    name: 'Pantang Menyerah',
+    desc: 'Biarkan PvP Dunia aktif selama 24 jam waktu bermain. Keluar dari permainan menjeda progres; menonaktifkannya mengatur ulang progres. Gelar yang diperoleh bersifat permanen.',
+    title: 'Pantang Menyerah',
+  },
+  pvp_flag_168h: {
+    name: 'Tak Terkalahkan',
+    desc: 'Biarkan PvP Dunia aktif selama 7 hari waktu bermain. Keluar dari permainan menjeda progres; menonaktifkannya mengatur ulang progres. Gelar yang diperoleh bersifat permanen.',
+    title: 'Tak Terkalahkan',
+  },
 };

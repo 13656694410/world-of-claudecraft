@@ -537,7 +537,14 @@ const MONOLITHS: MonolithRow[] = [
     // (Reuben's call): both parent pins for the record, the release 18081 and the
     // branch 18235; the two sides' additions compose to 18093 by wc -l on the merged
     // tree (after biome). Exact count, zero slack.
-    ceiling: 18093,
+    // LOWERED 18093 -> 18074 by moving the saved-build bar apply rule (and its
+    // comment) into ActionBarController.applyLoadout. Exact count, zero slack.
+    // LOWERED 18074 -> 18071 at the release/v0.44.1 sync of the Shift-drag
+    // slot move: the slot tooltip's edit-gesture hints live in
+    // slot_edit_hints_core.ts and the attack slot's dragstart payload sits on
+    // one line. wc -l on the merged tree after biome. Exact count, zero slack.
+    // Banner payload and expiry policy moved to banner_queue.ts for hill warnings.
+    ceiling: 18034,
     seam: 'pure view core + thin painter on PainterHost (src/ui/CLAUDE.md)',
   },
   {

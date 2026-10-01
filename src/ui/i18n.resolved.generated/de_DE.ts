@@ -503,7 +503,8 @@ export const de_DE: EnTranslations = {
         "dungeon_heroic": "Beute aus heroischen Dungeons",
         "world": "Weltquest-Beute",
         "pvp": "Kriegsführungsausrüstung"
-      }
+      },
+      "previewClaimNotice": "Belohnungen warten auf dich. Besuche den Tresorhüter in Eastbrook, um sie zu öffnen und abzuholen."
     },
     "ferry": {
       "regionLabel": "Fährfahrplan",
@@ -2784,6 +2785,10 @@ export const de_DE: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Lasse Welt-PvP aktiv, um {percent} mehr Erfahrung und Fraktionsruf zu erhalten. Die Boni enden, sobald du die Deaktivierung anforderst.",
+      "rewardTitles": "Erhalte nach {thresholds} Spielzeit mit aktivem Welt-PvP dauerhafte Titel. Ausloggen und Besuche an der Bewährungsküste pausieren den Zähler. Deaktivieren setzt ihn zurück.",
+      "rewardPaused": "Aktuelle PvP-Serie: {time} Spielzeit (an der Bewährungsküste pausiert)",
+      "rewardProgress": "Aktuelle PvP-Serie: {time} Spielzeit",
       "tab": "Welt-PvP",
       "title": "Welt-PvP",
       "blurb": "Hebt Eure Flagge, um gegen andere markierte Spieler überall in der offenen Welt zu kämpfen. Besiegt einen und nehmt einen Teil seines Beutels, dazu Ehre für Kriegsführungsausrüstung. Schlachtfelder und Arenen zahlen weiterhin mehr.",
@@ -2795,20 +2800,20 @@ export const de_DE: EnTranslations = {
       "zoneContested": "Umkämpftes Gebiet: Hier kämpfen nur markierte Spieler.",
       "zoneFfa": "Jeder-gegen-Jeden-Gebiet: Hier ist jeder vogelfrei.",
       "realmDisabled": "Welt-PvP ist auf diesem Realm deaktiviert.",
-      "groundSanctuary": "Die Bewährungsküste und das Eastbrook-Tal sind Schutzgebiete: Dort gibt es überhaupt kein Welt-PvP.",
+      "groundSanctuary": "Die Bewährungsküste ist das einzige Schutzgebiet: Dort kannst du weder Welt-PvP aktivieren noch andere Spieler bekämpfen.",
       "groundContested": "Überall sonst ist umkämpftes Gebiet: Nur zwei markierte Spieler können kämpfen.",
-      "groundFfa": "Die Drakenlande, der Frostschleier und der Bernsteinfall sind Jeder-gegen-Jeden-Gebiete: Dort kann jeder kämpfen, markiert oder nicht.",
+      "groundFfa": "In den Gebieten Die Drakenlande, Der Frostschleier und Der Bernsteinfall gelten normale PvP-Flaggen. Das Betreten des aktiven Kreises von König des Hügels setzt deine Flagge.",
       "groupLine": "Gruppen- und Schlachtzugsmitglieder sind einander niemals feindlich gesinnt. Gildenmitglieder außerhalb Eurer Gruppe können kämpfen.",
-      "markLine": "Einen unmarkierten Spieler dort anzugreifen hebt Eure eigene Flagge; einen markierten anzugreifen tut das nie.",
+      "markLine": "Das Betreten eines aktiven Hügelkreises aktiviert Welt-PvP. Beim Verlassen bleibt deine Flagge bestehen.",
       "aidLine": "Einen markierten Spieler in einem Weltkampf zu heilen, zu schützen oder zu stärken hebt Eure eigene Flagge.",
       "stakeLine": "Der Verlierer zahlt {cap} oder {percent} seines Beutels, je nachdem, was weniger ist.",
-      "noStakeLine": "Ein unmarkierter Spieler, der auf Jeder-gegen-Jeden-Gebiet getötet wird, verliert kein Gold.",
+      "noStakeLine": "Nicht geflaggte Spieler können in der offenen Welt nicht angegriffen werden.",
       "noTakeLine": "Ein unmarkierter Kämpfer nimmt ebenfalls kein Gold: Es wechselt nur zwischen zwei markierten Spielern.",
       "honorLine": "{honor} Ehre pro Tötung, aufgeteilt unter allen, die geholfen haben.",
       "splitLine": "Ein sauberes 1-gegen-1 zahlt den gesamten Einsatz; Helfer und ihre Heiler teilen ihn sich.",
       "repeatLine": "Wiederholte Tötungen desselben Spielers zahlen {second}, dann {third}, dann nichts; die Zählung setzt sich {reset} nach der ersten Tötung zurück.",
       "greyLine": "Spieler, die mehr als {levels} Stufen unter Euch liegen, zahlen nichts.",
-      "disarmLine": "Das Ausschalten dauert {minutes} Minuten und wartet, bis der Kampf endet.",
+      "disarmLine": "Das Ausschalten dauert {minutes} Minuten und wartet, bis du den aktiven Hügel verlassen hast und der Kampf beendet ist.",
       "record": "Bilanz: {kills} Tötungen, {deaths} Tode",
       "enable": "Welt-PvP aktivieren",
       "disable": "Welt-PvP deaktivieren",
@@ -2836,6 +2841,8 @@ export const de_DE: EnTranslations = {
       "distance": "{yards} yd bis zum Kreis",
       "rises": "Erhebt sich in {minutes}",
       "falls": "Sinkt in {minutes}",
+      "pvpEntry": "Das Betreten des aktiven Kreises aktiviert Welt-PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "Schlachtzugsmitglieder zählen nicht: Nur Gruppen können den Hügel halten"
     },
     "warfareShop": {
@@ -7540,7 +7547,7 @@ export const de_DE: EnTranslations = {
       "session": "Was du seit deinem Einloggen getan hast: Tötungen, Tode, Schaden und Erfahrung.",
       "arena": "Dein Stand im Aschenen Kolosseum in beiden Wertungsklassen: Wertung, Siege, Niederlagen und Gewinnrate für 1v1 und für 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
-      "pvpZones": "Weltweite PvP-Flagge: /pvp schaltet sie um, /pvp on und /pvp off setzen sie gezielt. Geflaggte Spieler können einander auf umkämpftem Gebiet bekämpfen, Zufluchtsorte erlauben überhaupt keinen Weltkampf, und die Jeder-gegen-jeden-Zonen erlauben ihn mit oder ohne Flagge; das Abschalten dauert 5 Minuten.",
+      "pvpZones": "Welt-PvP-Flagge: /pvp schaltet sie um, /pvp on und /pvp off setzen den Zustand. Geflaggte Spieler können auf umkämpftem Boden gegeneinander kämpfen; in Schutzgebieten gibt es kein Welt-PvP. Das Betreten des aktiven Kreises von König des Hügels setzt deine Flagge. Das Ausschalten dauert 5 Minuten.",
       "listings": "Deine eigenen Angebote auf dem Weltmarkt, mit dem geforderten Preis, der verbleibenden Zeit für jedes und wie viel Platz du für weitere hast.",
       "buyback": "Was du kürzlich an einen Händler verkauft hast und noch zurückkaufen könntest.",
       "groupState": "Wie es dir gerade geht",
@@ -8314,16 +8321,16 @@ export const de_DE: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Fair-Play-Regeln",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Spieler-gegen-Spieler in der offenen Welt ist freiwillig, und der Boden, auf dem du stehst, entscheidet, was das bedeutet. Setze deine PvP-Flagge, und jeder andere geflaggte Spieler, der nicht in deiner Gruppe oder deinem Schlachtzug ist, wird auf umkämpftem Gebiet zu deinem Feind; senke sie, und nach einer kurzen Verzögerung bist du wieder Zuschauer. Zwei Zonen sind Zufluchtsorte, in denen überhaupt kein Weltkampf stattfindet, und die drei nördlichsten Zonen sind Jeder-gegen-jeden-Gebiet, auf dem jeder Anwesende Freiwild ist, mit oder ohne Flagge. Gruppen- und Schlachtzugsmitglieder sind nirgends deine Feinde; Gildenmitglieder außerhalb deiner Gruppe sind Freiwild wie jeder andere.",
+      "introZones": "PvP in der offenen Welt ist freiwillig und hängt vom Gebiet ab. Auf umkämpftem Boden werden mit deiner Flagge alle anderen geflaggten Spieler außerhalb deiner Gruppe oder deines Schlachtzugs zu Feinden. Schaltest du sie aus, bist du nach kurzer Wartezeit wieder Zuschauer. Die Bewährungsküste ist das einzige Schutzgebiet ohne Welt-PvP. Für die drei nördlichsten Gebiete gelten dieselben freiwilligen Flaggenregeln wie für den Rest der Welt. Das Betreten des aktiven Kreises von König des Hügels setzt deine Flagge automatisch. Gruppen- und Schlachtzugsmitglieder sind niemals Feinde; Gildenmitglieder außerhalb deiner Gruppe können wie andere Spieler bekämpft werden.",
       "zonesHeading": "Wo Welt-PvP stattfindet",
-      "zonesBody": "Die Welt kennt drei Arten von Boden. Die Bewährungsküste und das Eastbrook-Tal sind Zufluchtsorte: Dort findet überhaupt kein Welt-PvP statt, geflaggt oder nicht, sodass ein neuer Charakter nie bekämpft werden kann, bevor er weiß, was die Flagge bedeutet. Der größte Teil der Welt ist umkämpft, wo die obige Flaggenregel die ganze Geschichte ist. Die Drakenlande, der Frostschleier und der Bernsteinfall, die drei nördlichsten Zonen, sind Jeder-gegen-jeden-Gebiet: Jeder, der darin steht, kann jeden anderen angreifen, der darin steht, mit oder ohne Flagge, und du wirst benachrichtigt, sobald du hineinquerst, und erneut, wenn du sie verlässt. Einen dort nicht geflaggten Spieler anzugreifen setzt deine eigene Flagge, sodass ein Angreifer stets das Risiko trägt. Einen bereits geflaggten Spieler zu treffen setzt sie nie, was bedeutet, dass dich selbst zu verteidigen oder jemanden zu verteidigen, der nicht geflaggt ist, nichts kostet.",
+      "zonesBody": "Die Bewährungsküste ist das einzige Schutzgebiet: Dort gibt es kein Welt-PvP und du kannst deine Flagge nicht setzen. Eine bestehende Flagge bleibt bestehen, aber der Spielzeitfortschritt für Titel pausiert bis zum Verlassen. Überall sonst, auch in den Gebieten Die Drakenlande, Der Frostschleier und Der Bernsteinfall, können nur geflaggte Spieler kämpfen. Das Betreten des aktiven Kreises von König des Hügels setzt deine Flagge automatisch, wenn du die übliche Stufenanforderung erfüllst. Der Vorwarnkreis setzt keine Flagge. Beim Verlassen des aktiven Kreises bleibt deine Flagge bestehen. /pvp off startet die übliche Wartezeit von fünf Minuten, die innerhalb eines aktiven Hügels oder während eines Kampfes nicht enden kann.",
       "flagBodyAid": "Tippe /pvp im Chat, oder öffne das PvP-Fenster mit G und nutze den Reiter Welt-PvP, der auch deine Bilanz und den Einsatz zeigt. Das Setzen der Flagge geschieht sofort, sobald du die Startstufen hinter dir hast. Das Senken startet einen Countdown von wenigen Minuten, und die Flagge fällt nicht, solange du noch kämpfst, sodass das Abschalten nie eine Flucht aus einem Kampf ist, den du begonnen hast. Einen geflaggten Spieler, der kämpft, zu heilen, zu schilden oder zu verzaubern, setzt auch deine eigene Flagge, sodass niemand einen Kämpfer aus dem Schutz einer Flagge unterstützt, die er selbst nicht trägt; einem nicht geflaggten Spieler zu helfen setzt keine.",
       "stakesUnflaggedTake": "Ein nicht geflaggter Kämpfer nimmt ebenfalls keins: Gold wechselt nur zwischen zwei geflaggten Spielern den Besitzer, wenngleich alle, die geholfen haben, weiterhin die Ehre verdienen.",
-      "stakesBodyFlagged": "Wird ein geflaggter Spieler von einem anderen Spieler besiegt, zahlt der Verlierer einen kleinen Anteil des Goldes in seinem Beutel, gedeckelt auf einen bescheidenen Betrag, und die Sieger verdienen Ehre für Kriegsführungsausrüstung. Ein nicht geflaggter Spieler zahlt überhaupt kein Gold, selbst wenn er in einer Jeder-gegen-jeden-Zone fällt. Alle, die geholfen haben, teilen sich beides: der tödliche Treffer, jeder, der das Ziel kurz zuvor beschädigt hat, und die Heiler, die diese Kämpfer auf den Beinen hielten. Ein sauberes Eins-gegen-eins zahlt den ganzen Einsatz; eine Gruppe teilt ihn sich.",
+      "stakesBodyFlagged": "Wird ein geflaggter Spieler von einem anderen Spieler besiegt, zahlt der Verlierer einen kleinen Anteil des Goldes in seinem Beutel, gedeckelt auf einen bescheidenen Betrag, und die Sieger verdienen Ehre für Kriegsführungsausrüstung. Nicht geflaggte Spieler können in der offenen Welt nicht angegriffen werden. Alle, die geholfen haben, teilen sich beides: der tödliche Treffer, jeder, der das Ziel kurz zuvor beschädigt hat, und die Heiler, die diese Kämpfer auf den Beinen hielten. Ein sauberes Eins-gegen-eins zahlt den ganzen Einsatz; eine Gruppe teilt ihn sich.",
       "hillHeading": "König des Hügels",
-      "hillBody": "Once every three hours, at a moment nobody can predict, the whole realm is told that a hill will rise in one of the free-for-all zones in fifteen minutes, and the circle where it will stand is marked on open ground. When it rises it stands for forty-five minutes, then falls. The party with the most players standing inside contests the hill, and after a minute of unbroken majority the hill is theirs; a lone player counts as a party of one, but raid members do not count at all. While a party holds the hill, each of its members standing inside earns a little Honor every minute, so a full party holding an uncontested hill for its whole stand earns a little less than one battleground win pays. A bar over the field shows who holds it, your numbers against theirs, and the contest clock; /hill in chat says where it stands.",
+      "hillBody": "Alle zwei Stunden erscheint ein Hügel in einem der Gebiete Die Drakenlande, Der Frostschleier oder Der Bernsteinfall. Der Realm erhält fünfzehn Minuten vorher eine Warnung, und der Kreis wird auf offenem Boden markiert. Der Hügel bleibt dreißig Minuten aktiv. Das Betreten des aktiven Kreises setzt nach den üblichen Stufenregeln die Welt-PvP-Flagge, auch bei Schlachtzugsmitgliedern. Die Gruppe mit den meisten berechtigten Spielern im Kreis erobert den Hügel nach einer Minute ununterbrochener Mehrheit. Ein Einzelspieler zählt als Einpersonengruppe; Schlachtzugsmitglieder und Spieler unter der PvP-Mindeststufe können weder erobern noch Hügelehre verdienen. Jedes Mitglied der haltenden Gruppe im Kreis erhält Ehre mit steigender Rate. Auszahlungen und ihre Steigerung erfolgen schneller, sodass die Gesamtehre des früheren fünfundvierzigminütigen Ereignisses erhalten bleibt. Ein Besitzerwechsel setzt die Steigerung zurück. Beim Verlassen bleibt die Flagge bestehen. /pvp off nutzt die üblichen fünf Minuten und kann innerhalb eines aktiven Hügels oder im Kampf nicht abgeschlossen werden. Die Hügelleiste zeigt Kontrolle, Spielerzahlen und Eroberungsfortschritt; /hill meldet den Standort.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "hillBodyRamp": "Einmal alle drei Stunden, zu einem Zeitpunkt, den niemand vorhersehen kann, wird dem ganzen Reich mitgeteilt, dass in fünfzehn Minuten in einer der Jeder-gegen-jeden-Zonen ein Hügel entstehen wird, und der Kreis, an dem er stehen wird, ist auf offenem Gelände markiert. Sobald er entsteht, besteht er fünfundvierzig Minuten lang, dann fällt er. Die Gruppe mit den meisten Spielern darin bestreitet den Hügel, und nach einer Minute ungebrochener Mehrheit gehört der Hügel ihr; ein einzelner Spieler zählt als Gruppe von einem, doch Schlachtzugsmitglieder zählen überhaupt nicht. Solange eine Gruppe den Hügel hält, verdient jedes ihrer Mitglieder darin jede Minute Ehre, und je länger dieselbe Gruppe ihn hält, desto mehr zahlt jede Minute: Eine volle Gruppe, die einen unbestrittenen Hügel seine gesamte Standzeit über hält, verdient etwa so viel wie drei Schlachtfeldsiege. Wechselt der Hügel den Besitzer, beginnen die neuen Halter die Zählung von vorn. Ein Balken über dem Feld zeigt, wer ihn hält, deine Zahlen gegen ihre und die Bestreitungsuhr; /hill im Chat verrät, wo er steht.",
+      "hillBodyRamp": "Alle zwei Stunden erscheint ein Hügel in einem der Gebiete Die Drakenlande, Der Frostschleier oder Der Bernsteinfall. Der Realm erhält fünfzehn Minuten vorher eine Warnung, und der Kreis wird auf offenem Boden markiert. Der Hügel bleibt dreißig Minuten aktiv. Das Betreten des aktiven Kreises setzt nach den üblichen Stufenregeln die Welt-PvP-Flagge, auch bei Schlachtzugsmitgliedern. Die Gruppe mit den meisten berechtigten Spielern im Kreis erobert den Hügel nach einer Minute ununterbrochener Mehrheit. Ein Einzelspieler zählt als Einpersonengruppe; Schlachtzugsmitglieder und Spieler unter der PvP-Mindeststufe können weder erobern noch Hügelehre verdienen. Jedes Mitglied der haltenden Gruppe im Kreis erhält Ehre mit steigender Rate. Auszahlungen und ihre Steigerung erfolgen schneller, sodass die Gesamtehre des früheren fünfundvierzigminütigen Ereignisses erhalten bleibt. Ein Besitzerwechsel setzt die Steigerung zurück. Beim Verlassen bleibt die Flagge bestehen. /pvp off nutzt die üblichen fünf Minuten und kann innerhalb eines aktiven Hügels oder im Kampf nicht abgeschlossen werden. Die Hügelleiste zeigt Kontrolle, Spielerzahlen und Eroberungsfortschritt; /hill meldet den Standort.",
       "limitsBodyRaids": "Denselben Spieler immer wieder zu besiegen zahlt jedes Mal weniger und bald nichts mehr, und deine Zählung gegen diesen Spieler beginnt erst etwa eine Stunde nach der ersten dieser Tötungen von Neuem, sodass das Campen eines einzelnen Opfers nie das Warten wert ist. Ein Ziel weit unter deiner Stufe zahlt überhaupt nichts. Schlachtfelder und Arenen folgen ihren eigenen Regeln, solange du dich darin befindest, und sie zahlen mehr Ehre als die offene Welt, sodass Welt-PvP der langsamere Weg zu demselben Händler ist. Schlachtzüge verdienen nichts an Welttötungen: Ein Schlachtzugsmitglied erhält keine Ehre oder kein Gold und verkleinert auch niemandes Anteil, kämpfe also als Gruppe, um bezahlt zu werden."
     },
     "thornhollowPage": {
@@ -12124,6 +12131,7 @@ export const de_DE: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Schaltet den automatischen Angriff auf Euer Ziel um. Ein Rechtsklick auf einen Gegner greift ebenfalls an.",
       "attackRemoveHint": "Rechtsklick, um es von der Leiste zu entfernen und den Slot freizugeben.",
+      "moveHint": "Zum Verschieben Umschalt gedrückt halten und ziehen",
       "emptySlot": "Leerer Platz",
       "slotAria": "Aktionsplatz {slot}: {ability}",
       "emptySlotAria": "Aktionsplatz {slot}: leer",
@@ -18451,6 +18459,9 @@ export const de_DE: EnTranslations = {
       "vanguard_warstaff": {
         "name": "Kriegsstab der Vorhut"
       },
+      "vanguard_feral_staff": {
+        "name": "Wildheitsstab der Vorhut"
+      },
       "conjured_water4": {
         "name": "Herbeigezaubertes Quellwasser"
       },
@@ -24179,8 +24190,8 @@ export const de_DE: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Blutmähnen-Fell",
-        "bonus2": "Die Abklingzeit von Bruin-Ansturm wird um 3 Sek. verkürzt.",
-        "bonus4": "Bruin-Ansturm gewährt dir 6 Sek. lang einen Schild in Höhe von 6 Prozent deiner maximalen Gesundheit."
+        "bonus2": "Verringert die Abklingzeiten von Ansprung und Bruin-Ansturm um 3 Sek.",
+        "bonus4": "Verringert die Abklingzeit von Sprint um 15 Sek."
       },
       "vanguard_druid_restoration": {
         "name": "Distelblüten-Gewand",

@@ -320,11 +320,11 @@ export const VANGUARD_ITEM_SETS: Record<string, ItemSet> = {
     id: 'vanguard_druid_feral',
     name: 'Bloodmane Hide',
     bonuses: [
-      { pieces: 2, effect: {}, text: "Bruin Rush's cooldown is reduced by 3 sec." },
+      { pieces: 2, effect: {}, text: 'Reduces the cooldowns of Lunge and Bruin Rush by 3 sec.' },
       {
         pieces: 4,
         effect: {},
-        text: 'Bruin Rush shields you for 6 percent of your maximum health for 6 sec.',
+        text: "Dash's cooldown is reduced by 15 sec.",
       },
     ],
   },

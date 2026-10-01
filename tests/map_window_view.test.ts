@@ -1232,6 +1232,21 @@ describe('world-quest zone markers', () => {
     );
     expect(completed.worldQuests).toEqual([]);
 
+    const practicing = buildOverworldMapModel(
+      input(
+        makeOverworldWorld(
+          'client',
+          new Map(),
+          quest.minLevel,
+          new Map([
+            [quest.id, { questId: quest.id, count: 0, state: 'active', practiceOnly: true }],
+          ]),
+        ),
+        1,
+      ),
+    );
+    expect(practicing.worldQuests).toEqual([]);
+
     const atQuest = (zoom: number) => {
       const world = makeOverworldWorld('sim', new Map(), quest.minLevel);
       world.player.pos.x = quest.area.x;
@@ -2453,4 +2468,27 @@ describe('building footprint corners', () => {
       expect(buildingContainsPoint(inn, outward.x, outward.z)).toBe(false);
     });
   });
+});
+
+describe('King of the Hill zone map marker', () => {
+  it.each(['sim', 'client'] as const)(
+    'projects warning and active hills for %s and removes ended hills',
+    (shape) => {
+      const world = makeOverworldWorld(shape);
+      for (const phase of ['warning', 'active']) {
+        Object.assign(world, { hillInfo: { x: ZONE_CX, z: ZONE_CZ, zoneId: ZONE.id, phase } });
+        expect(buildOverworldMapModel(input(world, 1)).hill).toEqual({
+          mx: CANVAS / 2,
+          my: CANVAS / 2,
+          phase,
+        });
+      }
+      Object.assign(world, {
+        hillInfo: { x: ZONE_CX, z: ZONE_CZ, zoneId: 'another-zone', phase: 'active' },
+      });
+      expect(buildOverworldMapModel(input(world, 1)).hill).toBeNull();
+      Object.assign(world, { hillInfo: null });
+      expect(buildOverworldMapModel(input(world, 1)).hill).toBeNull();
+    },
+  );
 });

@@ -784,24 +784,24 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
     '他のフラグを立てたプレイヤーがどこでもあなたを攻撃できるようになり、勝てば所持金から最大{cap}を奪われます。再びフラグを下ろすこともできますが、{minutes}分かかります。',
   'hudChrome.worldPvp.confirmCancel': 'キャンセル',
   'hudChrome.worldPvp.disable': 'ワールドPvPを無効化',
-  'hudChrome.worldPvp.disarmLine': 'フラグを下ろすには{minutes}分かかり、戦闘の終了を待ちます。',
+  'hudChrome.worldPvp.disarmLine':
+    '解除には{minutes}分かかり、開催中の丘から出て戦闘が終わるまで完了しません。',
   'hudChrome.worldPvp.enable': 'ワールドPvPを有効化',
   'hudChrome.worldPvp.greyLine': '自分より{levels}レベル以上低いプレイヤーからは何も得られません。',
   'hudChrome.worldPvp.groundContested':
     'それ以外の場所はすべて係争地です。フラグを立てたプレイヤー同士のみが戦えます。',
   'hudChrome.worldPvp.groundFfa':
-    'ドレイクランド、フロストヴェイルの果て、アンバーフォールは無差別戦闘地帯です。そこではフラグの有無に関わらず、誰もが戦えます。',
+    'ドレイクランド、フロストヴェイルの果て、アンバーフォールは通常のPvPフラグルールに従います。開催中の「丘の王」の円に入るとフラグが立ちます。',
   'hudChrome.worldPvp.groundSanctuary':
-    '修練の浜とイーストブルック渓谷は聖域です。ワールドPvPは一切起こりません。',
+    '修練の浜は唯一の聖域です。ここではワールドPvPを有効にしたり、他のプレイヤーと戦ったりできません。',
   'hudChrome.worldPvp.groupLine':
     'パーティとレイドの仲間同士は決して敵対しません。グループ外のギルドメンバーとは戦うことができます。',
   'hudChrome.worldPvp.honorLine': '撃破ごとに名誉{honor}、貢献した全員で分配。',
   'hudChrome.worldPvp.keepUp': 'フラグを維持',
   'hudChrome.worldPvp.levelReq': 'レベル{level}が必要です。',
   'hudChrome.worldPvp.markLine':
-    'そこでフラグを立てていないプレイヤーを攻撃すると自分のフラグが立ちますが、フラグを立てた相手を攻撃しても立ちません。',
-  'hudChrome.worldPvp.noStakeLine':
-    '無差別戦闘地帯でフラグを立てていないプレイヤーが倒されても、金貨を一切支払いません。',
+    '開催中の丘の円に入るとワールドPvPが有効になります。円から出てもフラグは残ります。',
+  'hudChrome.worldPvp.noStakeLine': 'フラグのないプレイヤーはオープンワールドで攻撃されません。',
   'hudChrome.worldPvp.noTakeLine':
     'フラグを立てていない戦闘者もゴールドは得られません。ゴールドが動くのはフラグを立てた2人のプレイヤーの間だけです。',
   'hudChrome.worldPvp.pending': 'レルムからのPvP状態を待っています。',
@@ -1044,6 +1044,7 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_warrior_prot_helmet.name': '鉄壁進撃の兜',
   'entities.items.vanguard_warrior_prot_legs.name': '鉄壁進撃の脚甲',
   'entities.items.vanguard_warrior_prot_shoulder.name': '鉄壁進撃の肩鎧',
+  'entities.items.vanguard_feral_staff.name': '先陣の野性の杖',
   'entities.items.vanguard_warstaff.name': 'ヴァンガードの戦杖',
   'entities.npcs.glider_apprentice.name': 'スカイ',
   'guide.arenaPage.vanguardBody':
@@ -2797,7 +2798,7 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'guide.commandsPage.pvp':
     'ワールドPvPフラグ: /pvp で切り替え、/pvp on と /pvp off で直接設定します。フラグを立てたプレイヤー同士はどこでも戦えます。解除には5分かかります。',
   'guide.commandsPage.pvpZones':
-    'ワールドPvPフラグ: /pvp で切り替え、/pvp on と /pvp off で直接設定します。フラグを立てたプレイヤー同士は係争地で戦え、聖域ではワールドの戦闘は一切行われず、無差別戦闘地帯ではフラグの有無に関わらず戦えます。解除には5分かかります。',
+    'ワールドPvPフラグ：/pvpで切り替え、/pvp onと/pvp offで有効・無効にします。係争地域ではフラグを立てたプレイヤー同士が戦えますが、聖域ではワールドPvPはできません。開催中の「丘の王」の円に入るとフラグが立ちます。解除には5分かかります。',
   'guide.nav.worldPvp': 'ワールドPvP',
   'guide.worldPvpPage.heading': 'ワールドPvP',
   'guide.worldPvpPage.intro':
@@ -2812,25 +2813,25 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.limitsBody':
     '同じプレイヤーを繰り返し倒すと報酬は毎回減り、すぐにゼロになります。カウントは日次リセットで元に戻ります。自分よりはるかに低いレベルの相手からは何も得られません。バトルグラウンドとアリーナの中では独自のルールが適用され、オープンワールドより多くの名誉を支払うため、ワールドPvPは同じ商人へ向かう遠回りの道です。',
   'guide.worldPvpPage.introZones':
-    'オープンワールドの対人戦は任意参加で、その意味は足元の土地が決めます。PvPフラグを立てると、パーティやレイドに属さないフラグを立てた全プレイヤーが係争地で敵になります。フラグを下ろすと、少し経てば再び傍観者に戻ります。2つのゾーンはワールドの戦闘が一切起こらない聖域で、最北の3つのゾーンは、フラグの有無に関わらずその場の全員が攻撃対象となる無差別戦闘地帯です。パーティとレイドの仲間はどこでも敵になりませんが、グループ外のギルドメンバーは他の誰とも同じく攻撃対象です。',
+    'オープンワールドPvPへの参加は任意で、現在地によってルールが適用されます。係争地域でフラグを立てると、自分のパーティーやレイドに属さない他のフラグ所持者が敵になります。解除すると、短い待ち時間の後に再び傍観者になります。修練の浜は唯一の聖域で、ワールドPvPは一切ありません。最北の3地域も世界の他の地域と同じ任意参加のフラグルールに従います。開催中の「丘の王」の円に入ると自動的にフラグが立ちます。パーティーやレイドの仲間が敵になることはありませんが、グループ外のギルドメンバーは他のプレイヤーと同様に戦闘対象になります。',
   'guide.worldPvpPage.zonesHeading': 'ワールドPvPが起こる場所',
   'guide.worldPvpPage.zonesBody':
-    '世界の土地は3種類に分かれます。修練の浜とイーストブルック渓谷は聖域で、フラグの有無に関わらずワールドPvPは一切起こらないため、新しいキャラクターがフラグとは何かを知る前に戦いを挑まれることはありません。世界の大半は係争地で、そこでは上記のフラグの規則がすべてです。ドレイクランド、フロストヴェイルの果て、アンバーフォールは無差別戦闘地帯で、そこにいる全員がフラグの有無に関わらず、そこにいる他の全員を攻撃できます。境界を越えて入るときにも、出るときにも通知されます。そこでフラグを立てていないプレイヤーを攻撃すると自分のフラグが立つので、仕掛けた側が必ずリスクを背負います。すでにフラグを立てている相手を攻撃しても自分のフラグは立たないため、自衛や、フラグを立てていない誰かを守ることには何の代償もありません。',
+    '修練の浜は唯一の聖域です。ワールドPvPはなく、フラグも立てられません。既に立っているフラグは残りますが、称号のプレイ時間進捗は出るまで停止します。ドレイクランド、フロストヴェイルの果て、アンバーフォールを含む他のすべての場所では、フラグを立てたプレイヤーだけが戦えます。通常のレベル条件を満たしていれば、開催中の「丘の王」の円に入ると自動的にフラグが立ちます。予告中の円ではフラグは立ちません。開催中の円から出てもフラグは残ります。/pvp offで通常の5分間の解除待ちを開始できますが、開催中の丘の中や戦闘中は解除が完了しません。',
   'guide.worldPvpPage.flagBodyAid':
     'チャットで /pvp と入力するか、G キーで PvP ウィンドウを開いてワールドPvPタブを使います。タブには戦績と賭け金も表示されます。序盤のレベルを過ぎればフラグは即座に立ちます。下ろすと数分のカウントダウンが始まり、戦闘中はフラグが下りないので、自分から始めた戦いから逃げる手段にはなりません。戦闘中のフラグを立てたプレイヤーを回復、シールド、強化した場合も自分のフラグが立つため、自分はフラグを立てないまま戦う者を背後から支え続けることはできません。フラグを立てていないプレイヤーを支援しても、フラグは立ちません。',
   'guide.worldPvpPage.stakesBodyFlagged':
-    'フラグを立てたプレイヤーが他のプレイヤーに倒されると、敗者は所持金のわずかな割合（上限あり）を支払い、勝者は PvP 装備につながる名誉を得ます。フラグを立てていなかったプレイヤーは、無差別戦闘地帯で倒れても金貨を一切支払いません。貢献した全員が両方を分け合います。とどめを刺した人、直前にダメージを与えた人、そしてその戦士たちを支えたヒーラーです。純粋な1対1なら独占、集団なら分配です。',
+    'フラグを立てたプレイヤーが他のプレイヤーに倒されると、敗者は所持金のわずかな割合（上限あり）を支払い、勝者は PvP 装備につながる名誉を得ます。 フラグのないプレイヤーはオープンワールドで攻撃されません。 貢献した全員が両方を分け合います。とどめを刺した人、直前にダメージを与えた人、そしてその戦士たちを支えたヒーラーです。純粋な1対1なら独占、集団なら分配です。',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'フラグを立てていない戦闘者もゴールドは得られません。ゴールドはフラグを立てた二人のプレイヤーの間でのみ動きますが、貢献した全員が名誉は得られます。',
   'guide.worldPvpPage.limitsBodyHour':
     '同じプレイヤーを繰り返し倒すと報酬は毎回減り、すぐにゼロになります。そのプレイヤーに対するカウントは最初の撃破からおよそ1時間後にようやく元に戻るため、一人を狙い続けて待つ価値はありません。自分よりはるかに低いレベルの相手からは何も得られません。バトルグラウンドとアリーナの中では独自のルールが適用され、オープンワールドより多くの名誉を支払うため、ワールドPvPは同じ商人へ向かう遠回りの道です。',
   'guide.worldPvpPage.hillBodyRamp':
-    '3時間に1度、予測できない時刻に、無差別戦闘地帯のいずれかに15分後に丘が現れることがレルム全体に告知され、丘が立つ円が開けた土地に示されます。丘は現れてから45分間立ち続け、その後消えます。円の中に立つプレイヤーが最も多いパーティが丘を争い、1分間途切れずに多数を保てば丘はそのパーティのものになります。単独のプレイヤーは一人のパーティとして数えますが、レイドのメンバーは一切数えられません。パーティが丘を占拠している間、円の中に立つそのメンバーは毎分名誉を得て、同じパーティが占拠し続けるほど1分ごとの名誉は増えていきます。満員のパーティが誰にも争われずに丘が立っている間ずっと占拠し続けると、バトルグラウンドの勝利およそ3回分の名誉になります。丘の持ち主が変わると、新しい持ち主の積み上げは最初から始まります。フィールド上部のバーが、誰が占拠しているか、あなた側と相手の人数、そして争奪の時計を表示します。チャットで /hill と入力すると丘の場所が分かります。',
+    '2時間ごとにドレイクランド、フロストヴェイルの果て、アンバーフォールのいずれかに丘が出現します。レルム全体に15分前の予告が届き、開けた地面に円が表示されます。丘は30分間有効です。開催中の円に入ると、レイドメンバーも含め、通常のレベル条件に従ってワールドPvPフラグが立ちます。円内の参加資格を持つ人数が最も多いパーティーが、1分間連続で優勢を保つと丘を占領します。単独プレイヤーは1人パーティーとして扱われますが、レイドメンバーとPvP必要レベル未満のプレイヤーは占領も丘の名誉獲得もできません。占領側の円内の各メンバーは、次第に高まる割合で名誉を得ます。報酬の支給頻度と増加速度が上がり、以前の45分間のイベントと同じ名誉総量が保たれます。占領側が変わると増加は最初から始まります。円から出てもフラグは残ります。/pvp offは通常の5分待ちを使い、開催中の丘の中や戦闘中には完了しません。丘のバーには占領側、人数、占領進捗が表示され、/hillで場所を確認できます。',
   'guide.worldPvpPage.limitsBodyRaids':
     '同じプレイヤーを繰り返し倒すと報酬は毎回減り、すぐにゼロになります。そのプレイヤーに対するカウントは最初の撃破からおよそ1時間後にようやく元に戻るため、一人を狙い続けて待つ価値はありません。自分よりはるかに低いレベルの相手からは何も得られません。バトルグラウンドとアリーナの中では独自のルールが適用され、オープンワールドより多くの名誉を支払うため、ワールドPvPは同じ商人へ向かう遠回りの道です。レイドはワールドでの撃破から何も得られません。レイドのメンバーは名誉もゴールドも受け取らず、他の人の取り分も減らさないため、報酬を得るにはパーティで戦いましょう。',
   'guide.worldPvpPage.hillHeading': '丘の王',
   'guide.worldPvpPage.hillBody':
-    '3時間に1度、予測できない時刻に、無差別戦闘地帯のいずれかに15分後に丘が現れることがレルム全体に告知され、丘が立つ円が開けた土地に示されます。丘は現れてから45分間立ち続け、その後消えます。円の中に立つプレイヤーが最も多いパーティが丘を争い、1分間途切れずに多数を保てば丘はそのパーティのものになります。単独のプレイヤーは一人のパーティとして数えますが、レイドのメンバーは一切数えられません。パーティが丘を占拠している間、円の中に立つそのメンバーは毎分わずかな名誉を得ます。そのため満員のパーティが誰にも争われずに丘が立っている間ずっと占拠し続けると、バトルグラウンドの勝利1回分より少し少ない名誉になります。フィールド上部のバーが、誰が占拠しているか、あなた側と相手の人数、そして争奪の時計を表示します。チャットで /hill と入力すると丘の場所が分かります。',
+    '2時間ごとにドレイクランド、フロストヴェイルの果て、アンバーフォールのいずれかに丘が出現します。レルム全体に15分前の予告が届き、開けた地面に円が表示されます。丘は30分間有効です。開催中の円に入ると、レイドメンバーも含め、通常のレベル条件に従ってワールドPvPフラグが立ちます。円内の参加資格を持つ人数が最も多いパーティーが、1分間連続で優勢を保つと丘を占領します。単独プレイヤーは1人パーティーとして扱われますが、レイドメンバーとPvP必要レベル未満のプレイヤーは占領も丘の名誉獲得もできません。占領側の円内の各メンバーは、次第に高まる割合で名誉を得ます。報酬の支給頻度と増加速度が上がり、以前の45分間のイベントと同じ名誉総量が保たれます。占領側が変わると増加は最初から始まります。円から出てもフラグは残ります。/pvp offは通常の5分待ちを使い、開催中の丘の中や戦闘中には完了しません。丘のバーには占領側、人数、占領進捗が表示され、/hillで場所を確認できます。',
   'guide.thornhollowPage.heading': 'ソーンホロウ平原',
   'guide.thornhollowPage.intro':
     'ソーンピークの下、古い森に抱かれた壁に囲まれた窪地で戦うランク制5対5の旗奪取戦場。峡谷の両端で二つの廃城が向かい合い、その間にはどちらの手にも落ちたことのない、より古い中庭が横たわる。五人ずつ、城は二つ、目的は一つ。相手の旗を奪い、こちらの旗を奪われる前に持ち帰れ。',
@@ -4347,6 +4348,7 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'abilityUi.actionBar.attackTooltip':
     '対象への自動攻撃を切り替えます。敵を右クリックしても攻撃します。',
   'abilityUi.actionBar.attackRemoveHint': '右クリックでバーから外し、スロットを空けます。',
+  'abilityUi.actionBar.moveHint': 'Shift-ドラッグで移動',
   'abilityUi.actionBar.emptySlot': '空きスロット',
   'abilityUi.actionBar.slotAria': 'アクションスロット {slot}: {ability}',
   'abilityUi.actionBar.emptySlotAria': 'アクションスロット {slot}: 空き',
@@ -19420,6 +19422,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.readyTitle': '週間報酬の準備ができました',
   'hudChrome.weeklyRewards.readyDescription':
     '完了した週の報酬が待っています。獲得した宝物庫を開け、受け取る一品を選んでください。',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    '報酬が待っています。イーストブルックの宝物庫の番人を訪ね、宝物庫を開けて報酬を受け取ってください。',
   'hudChrome.weeklyRewards.notNow': '後で',
   'hudChrome.weeklyRewards.completedWeek': '{date}に終了した週',
   'hudChrome.weeklyRewards.currentWeek': '今週の進捗に戻る',
@@ -19607,9 +19611,9 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_warlock_destruction.bonus4':
     '4点：2回ごとのConflagrateで8秒以内の次のRuinboltが即時発動。',
   'entities.itemSets.vanguard_druid_feral.name': '血たてがみの皮装',
-  'entities.itemSets.vanguard_druid_feral.bonus2': '2点：Bruin Rushのクールダウンが3秒短縮。',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    '4点：Bruin Rushが最大体力6%のシールドを6秒付与。',
+  'entities.itemSets.vanguard_druid_feral.bonus2':
+    'ランジとブルーインラッシュのクールダウンを3秒短縮する。',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'ダッシュのクールダウンを15秒短縮する。',
   'entities.itemSets.vanguard_druid_restoration.name': 'アザミ花の祭服',
   'entities.itemSets.vanguard_druid_restoration.bonus2': '2点：Fleetmendのクールダウンが1秒短縮。',
   'entities.itemSets.vanguard_druid_restoration.bonus4': '4点：Fleetmendで移動速度が3秒間30%上昇。',
@@ -19617,4 +19621,12 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus2': '絡み根の詠唱時間が0.5秒短縮される。',
   'entities.itemSets.vanguard_druid_balance.bonus4':
     '絡み根を詠唱すると、移動しながら詠唱でき、移動速度が4秒間20%上昇する。20秒に1回しか発生しない。',
+  'hudChrome.worldPvp.rewardBonus':
+    'ワールドPvPを有効にしている間、経験値と勢力の評判の獲得量が{percent}増加します。無効化を要求した時点でボーナスは終了します。',
+  'hudChrome.worldPvp.rewardTitles':
+    'ワールドPvPを有効にしたプレイ時間が{thresholds}に達すると、永続的な称号を獲得します。ログアウト中と修練の浜ではタイマーが停止します。PvPを無効にするとリセットされます。',
+  'hudChrome.worldPvp.rewardPaused': '現在のPvP継続時間：{time}（修練の浜で一時停止中）',
+  'hudChrome.worldPvp.rewardProgress': '現在のPvP継続時間：{time}',
+  'hudChrome.hill.pvpEntry': '開催中の円に入るとワールドPvPが有効になります。',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

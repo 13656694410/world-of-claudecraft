@@ -48,6 +48,7 @@ import {
   type StationType,
 } from '../sim/types';
 import { WORLD_BOSSES, worldBossLockoutId } from '../sim/world_boss';
+import { worldQuestCompletedForBoard } from '../sim/world_quest_practice';
 import { activeWorldQuestsForCycle } from '../sim/world_quest_rotation';
 import type { IWorld } from '../world_api';
 import { dungeonMapActive } from './dungeon_map_view';
@@ -195,6 +196,14 @@ export type MinimapObjectSemantic = Exclude<MapMarkerSemantic, { kind: 'dungeon'
 /** One overworld minimap marker, in canvas-pixel space. A DISCRIMINATED union (not a
  *  flat struct): each variant carries exactly the fields its draw branch needs. */
 export type MinimapMarker =
+  | {
+      kind: 'hill';
+      mx: number;
+      my: number;
+      radius: number;
+      phase: 'warning' | 'active';
+      skull?: { mx: number; my: number };
+    }
   // An online friend/guild ally who is NOT in the party (party members are the
   // party-disc/arrow variants). Strangers get no marker, and neither does a
   // friend/guildmate sitting on the ENEMY roster of a live battleground match.
@@ -729,7 +738,7 @@ export function createMinimapMarkers(): MinimapMarkers {
       for (const quest of activeWorldQuestsForCycle(world.worldQuestCycle)) {
         if (p.level < quest.minLevel) continue;
         const progress = world.worldQuestLog.get(quest.id);
-        if (progress?.state === 'completed') continue;
+        if (worldQuestCompletedForBoard(progress)) continue;
         const isGlider = quest.objective.type === 'glider';
         const position = isGlider ? GLIDER_NPC_DEF.pos : quest.area;
         const dx = -(position.x - p.pos.x) * pxPerYard;
@@ -770,6 +779,35 @@ export function createMinimapMarkers(): MinimapMarkers {
           bossId: boss.templateId,
           zoneId: zoneAt(boss.pos.x, boss.pos.z).id,
         });
+      }
+
+      // Preserve the true circle; clamp only its skull so an approaching
+      // player can identify the boundary before crossing it.
+      const hill = world.hillInfo;
+      if (hill && minimapMode(world) === 'overworld') {
+        const dx = -(hill.x - p.pos.x) * pxPerYard;
+        const dz = -(hill.z - p.pos.z) * pxPerYard;
+        const radius = hill.radius * pxPerYard;
+        const distance = Math.hypot(dx, dz);
+        if (distance <= clipRadius + radius) {
+          // Include the warning ring and stroke in the clearance.
+          const rim = minimapSafeCenterRadius(S, compact ? 10 : 12);
+          const skull =
+            distance > rim
+              ? {
+                  mx: half + (dx * rim) / distance,
+                  my: half + (dz * rim) / distance,
+                }
+              : undefined;
+          markers.push({
+            kind: 'hill',
+            mx: half + dx,
+            my: half + dz,
+            radius,
+            phase: hill.phase,
+            ...(skull ? { skull } : {}),
+          });
+        }
       }
 
       // Navigation-critical dynamic markers paint over the larger static

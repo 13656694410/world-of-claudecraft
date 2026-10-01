@@ -498,6 +498,13 @@ something this file marks as restricted, ask first: tony@levystreet.com.
   third-party mesh, texture or reference image is used.
   Source and provenance: `docs/design/reward-chest/README.md`.
 
+### Season 2 feral staff icon
+
+`public/ui/items/vanguard_feral_staff.webp` is original project art generated with
+OpenAI built-in image generation, using existing project item art as style references.
+Project asset, with the project only. Prompt, reference hashes, processing and review:
+`docs/achievements/warfare-season2-feral-staff-2026-09-29/accepted-art.json`.
+
 ### Buried Hoard entrance
 
 - `public/models/props/hoard_entrance.glb`: original procedural model authored for

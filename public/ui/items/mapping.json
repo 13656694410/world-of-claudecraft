@@ -7120,6 +7120,22 @@
         "tempest_strike_grips",
         "venom_etched_waistcord"
       ]
+    },
+    {
+      "batchId": "warfare-season2-feral-staff-2026-09-29",
+      "source": "OpenAI built-in image generation; one dedicated generation, reviewed and normalized locally",
+      "owner": "World of ClaudeCraft",
+      "license": "World of ClaudeCraft project-generated art, project asset, rights reserved",
+      "styleContract": {
+        "id": "woc-item-icon-v1",
+        "document": "docs/design/item-icon-art-style.md"
+      },
+      "styleReference": "kingsbane_last_oath.webp for long-weapon composition; eastbrook_buckler.webp and linen_pouch.webp for material, lighting and paint treatment. All references control style only.",
+      "commonPrompt": "Use case: stylized-concept. Asset type: one opaque square fantasy MMORPG inventory item icon for World of ClaudeCraft, contract woc-item-icon-v1. Paint Vanguard's Feral Staff (vanguard_feral_staff), a two-handed physical combat staff for a feral druid. Thick dark hardwood haft, worn crimson leather grip, blackened steel reinforced ends with burnished gold trim, upper end sculpted as a compact bestial claw clutching a solid crimson enamel oval, no caster crystal or magic beam. Complete long staff diagonal bottom-left to top-right, centered with safe padding, 70 percent square fill. Premium hand-painted classic dark fantasy MMO inventory art, tactile wood grain, leather and metal, warm top-left key light, cool deep shadow, crisp focal edge, softer peripheral brushwork, charcoal-umber opaque painted vignette. Three provided images are STYLE REFERENCES ONLY: long weapon diagonal and safe padding, buckler material/light, pouch tactile treatment. Do not copy their subjects. No text, letters, numbers, pseudo-writing, border, rarity frame, watermark, transparency, cropped tip/base, hands or mannequin. Generate one square image, 1024x1024.\n",
+      "provenanceRecord": "docs/achievements/warfare-season2-feral-staff-2026-09-29/accepted-art.json",
+      "itemIds": [
+        "vanguard_feral_staff"
+      ]
     }
   ]
 }

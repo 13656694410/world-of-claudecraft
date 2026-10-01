@@ -780,25 +780,26 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
     '깃발을 올린 다른 플레이어가 어디서든 당신을 공격할 수 있게 되며, 승리하면 소지금에서 최대 {cap}까지 가져갑니다. 다시 끌 수 있지만 {minutes}분이 걸립니다.',
   'hudChrome.worldPvp.confirmCancel': '취소',
   'hudChrome.worldPvp.disable': '월드 PvP 비활성화',
-  'hudChrome.worldPvp.disarmLine': '끄는 데는 {minutes}분이 걸리며 전투가 끝날 때까지 기다립니다.',
+  'hudChrome.worldPvp.disarmLine':
+    '해제에는 {minutes}분이 걸리며 활성 언덕을 떠나고 전투가 끝날 때까지 기다립니다.',
   'hudChrome.worldPvp.enable': '월드 PvP 활성화',
   'hudChrome.worldPvp.greyLine':
     '당신보다 {levels}레벨 넘게 낮은 플레이어는 아무것도 내주지 않습니다.',
   'hudChrome.worldPvp.groundContested':
     '그 밖의 모든 곳은 분쟁 지역입니다: 깃발을 올린 두 플레이어만 싸울 수 있습니다.',
   'hudChrome.worldPvp.groundFfa':
-    '드레이크랜드, 서리장막 봉우리, 호박빛 가을터는 자유 전투 지역입니다: 그 안에서는 깃발과 상관없이 누구나 싸울 수 있습니다.',
+    '드레이크랜드, 서리장막 봉우리, 호박빛 가을터는 일반 PvP 깃발 규칙을 따릅니다. 진행 중인 언덕의 왕 원에 들어가면 깃발이 올라갑니다.',
   'hudChrome.worldPvp.groundSanctuary':
-    '수련의 해안과 이스트브룩 골짜기는 성역입니다: 월드 PvP가 전혀 일어나지 않습니다.',
+    '수련의 해안은 유일한 성역입니다. 여기서는 월드 PvP를 켜거나 다른 플레이어와 싸울 수 없습니다.',
   'hudChrome.worldPvp.groupLine':
     '파티와 공격대 구성원끼리는 서로 적대할 수 없습니다. 그룹 밖의 길드원과는 싸울 수 있습니다.',
   'hudChrome.worldPvp.honorLine': '처치당 명예 {honor}, 도운 모두가 나눠 받습니다.',
   'hudChrome.worldPvp.keepUp': '깃발 유지',
   'hudChrome.worldPvp.levelReq': '레벨 {level} 필요.',
   'hudChrome.worldPvp.markLine':
-    '그곳에서 깃발을 올리지 않은 플레이어를 공격하면 자신의 깃발이 올라가지만, 이미 깃발을 올린 상대를 공격할 때는 올라가지 않습니다.',
+    '활성 언덕 원에 들어가면 월드 PvP가 켜집니다. 원을 나가도 깃발은 유지됩니다.',
   'hudChrome.worldPvp.noStakeLine':
-    '자유 전투 지역에서 깃발을 올리지 않은 채 죽은 플레이어는 골드를 잃지 않습니다.',
+    '깃발을 올리지 않은 플레이어는 오픈 월드에서 공격받지 않습니다.',
   'hudChrome.worldPvp.noTakeLine':
     '깃발을 올리지 않은 채 싸운 쪽도 골드를 가져가지 않습니다: 골드는 깃발을 올린 두 플레이어 사이에서만 오갑니다.',
   'hudChrome.worldPvp.pending': '서버로부터 PvP 상태를 받는 중입니다.',
@@ -1041,6 +1042,7 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_fang_dagger.name': '선봉대의 송곳니',
   'entities.items.vanguard_oath_blade.name': '선봉대의 맹세',
   'entities.items.vanguard_verdict_greatsword.name': '선봉대의 심판',
+  'entities.items.vanguard_feral_staff.name': '선봉대의 야성 지팡이',
   'entities.items.vanguard_warstaff.name': '선봉대의 전투지팡이',
   'entities.npcs.glider_apprentice.name': '스카이',
   'guide.arenaPage.vanguardBody':
@@ -2780,7 +2782,7 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'guide.commandsPage.pvp':
     '월드 PvP 깃발: /pvp 로 전환하고 /pvp on 과 /pvp off 로 직접 설정합니다. 깃발을 올린 플레이어끼리는 어디서든 싸울 수 있으며, 끄는 데 5분이 걸립니다.',
   'guide.commandsPage.pvpZones':
-    '월드 PvP 깃발: /pvp 로 전환하고 /pvp on 과 /pvp off 로 직접 설정합니다. 깃발을 올린 플레이어끼리는 분쟁 지역에서 싸울 수 있고, 성역에서는 월드 전투가 전혀 허용되지 않으며, 자유 전투 지역에서는 깃발과 상관없이 싸울 수 있습니다. 끄는 데 5분이 걸립니다.',
+    '월드 PvP 깃발: /pvp로 전환하고 /pvp on과 /pvp off로 켜거나 끕니다. 분쟁 지역에서는 깃발을 올린 플레이어끼리 싸울 수 있고 성역에서는 월드 PvP가 금지됩니다. 진행 중인 언덕의 왕 원 안에 들어가면 깃발이 올라갑니다. 해제에는 5분이 걸립니다.',
   'guide.nav.worldPvp': '월드 PvP',
   'guide.worldPvpPage.heading': '월드 PvP',
   'guide.worldPvpPage.intro':
@@ -2795,25 +2797,25 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.limitsBody':
     '같은 플레이어를 거듭 쓰러뜨리면 보상은 매번 줄어 곧 사라지며, 계수는 일일 초기화와 함께 초기화됩니다. 당신보다 훨씬 낮은 레벨의 대상은 아무것도 주지 않습니다. 전장과 투기장 안에서는 각자의 규칙이 적용되고 열린 세계보다 더 많은 명예를 주므로, 월드 PvP는 같은 상인에게 가는 느린 길입니다.',
   'guide.worldPvpPage.introZones':
-    '열린 세계의 플레이어 간 전투는 선택 사항이며, 그 의미는 지금 서 있는 땅이 정합니다. PvP 깃발을 올리면 파티나 공격대에 속하지 않은 깃발을 올린 모든 플레이어가 분쟁 지역에서 적이 되고, 깃발을 내리면 잠시 후 다시 구경꾼이 됩니다. 두 지역은 월드 전투가 전혀 일어나지 않는 성역이고, 가장 북쪽의 세 지역은 깃발과 상관없이 그곳의 모두가 공격 대상인 자유 전투 지역입니다. 파티원과 공격대원은 어디서든 서로의 적이 되지 않지만, 그룹 밖의 길드원은 다른 누구와 마찬가지로 공격 대상입니다.',
+    '오픈 월드 PvP는 자발적으로 참여하며 서 있는 지역에 따라 규칙이 적용됩니다. 분쟁 지역에서 깃발을 올리면 파티나 공격대에 속하지 않은 다른 깃발 보유자가 적이 됩니다. 깃발을 내리면 잠시 뒤 다시 구경꾼이 됩니다. 수련의 해안은 유일한 성역으로 월드 PvP가 일어나지 않습니다. 최북단 세 지역도 다른 지역과 같은 자발적 깃발 규칙을 따릅니다. 진행 중인 언덕의 왕 원 안에 들어가면 자동으로 깃발이 올라갑니다. 파티원과 공격대원은 어디서든 적이 되지 않지만, 자신의 그룹 밖에 있는 길드원은 다른 플레이어처럼 싸울 수 있습니다.',
   'guide.worldPvpPage.zonesHeading': '월드 PvP가 벌어지는 곳',
   'guide.worldPvpPage.zonesBody':
-    '세계의 땅은 세 종류입니다. 수련의 해안과 이스트브룩 골짜기는 성역이라 깃발과 상관없이 월드 PvP가 전혀 일어나지 않으므로, 새 캐릭터가 깃발이 무엇인지 알기도 전에 싸움에 휘말리는 일은 없습니다. 세계의 대부분은 분쟁 지역이며, 그곳에서는 위의 깃발 규칙이 전부입니다. 드레이크랜드, 서리장막 봉우리, 호박빛 가을터은 자유 전투 지역이라 그 안에 선 모두가 깃발과 상관없이 그 안에 선 다른 모두를 공격할 수 있고, 경계를 넘어 들어갈 때와 나갈 때 모두 안내를 받습니다. 그곳에서 깃발을 올리지 않은 플레이어를 공격하면 자신의 깃발이 올라가므로, 먼저 덤빈 쪽이 언제나 위험을 짊어집니다. 이미 깃발을 올린 상대를 때릴 때는 올라가지 않으니, 자신을 지키거나 깃발을 올리지 않은 누군가를 지키는 일에는 아무 대가가 없습니다.',
+    '수련의 해안은 유일한 성역으로 월드 PvP가 없으며 깃발을 올릴 수 없습니다. 이미 올라간 깃발은 유지되지만 플레이 시간 칭호 진행도는 떠날 때까지 멈춥니다. 드레이크랜드, 서리장막 봉우리, 호박빛 가을터를 포함한 그 밖의 모든 곳에서는 깃발을 올린 플레이어만 싸울 수 있습니다. 일반 레벨 조건을 충족하면 진행 중인 언덕의 왕 원에 들어갈 때 깃발이 자동으로 올라갑니다. 예고 원은 깃발을 올리지 않습니다. 활성 원을 떠나도 깃발은 유지됩니다. /pvp off로 일반적인 5분 해제 대기를 시작하며, 진행 중인 언덕 안에 있거나 전투 중이면 해제가 완료되지 않습니다.',
   'guide.worldPvpPage.flagBodyAid':
     '채팅에 /pvp 를 입력하거나 G 키로 PvP 창을 열어 월드 PvP 탭을 사용하세요. 탭에는 전적과 판돈도 표시됩니다. 초반 레벨을 지나면 깃발은 즉시 올라갑니다. 내리면 몇 분의 카운트다운이 시작되고, 아직 싸우는 중이면 깃발이 내려가지 않으므로 자신이 시작한 싸움에서 도망치는 수단이 될 수 없습니다. 전투 중인 깃발 올린 플레이어를 치유하거나 보호막을 주거나 강화해도 자신의 깃발이 함께 올라가므로, 자신은 깃발을 올리지 않은 채 뒤에서 싸우는 이를 떠받칠 수 없습니다. 깃발을 올리지 않은 플레이어를 도울 때는 아무것도 올라가지 않습니다.',
   'guide.worldPvpPage.stakesBodyFlagged':
-    '깃발을 올린 플레이어가 다른 플레이어에게 쓰러지면 패자는 지갑에 든 금화의 작은 몫을 지불하고(상한이 있습니다), 승자들은 PvP 장비를 위한 명예를 얻습니다. 깃발을 올리지 않았던 플레이어는 자유 전투 지역에서 쓰러져도 금화를 전혀 내지 않습니다. 기여한 모두가 둘 다 나눕니다. 마지막 일격을 가한 사람, 직전에 대상에게 피해를 준 사람, 그 전사들을 버티게 한 치유사입니다. 순수한 1대1은 전부를 가져가고 무리는 나눕니다.',
+    '깃발을 올린 플레이어가 다른 플레이어에게 쓰러지면 패자는 지갑에 든 금화의 작은 몫을 지불하고(상한이 있습니다), 승자들은 PvP 장비를 위한 명예를 얻습니다. 깃발을 올리지 않은 플레이어는 오픈 월드에서 공격받지 않습니다. 기여한 모두가 둘 다 나눕니다. 마지막 일격을 가한 사람, 직전에 대상에게 피해를 준 사람, 그 전사들을 버티게 한 치유사입니다. 순수한 1대1은 전부를 가져가고 무리는 나눕니다.',
   'guide.worldPvpPage.stakesUnflaggedTake':
     '깃발을 올리지 않은 전투원 역시 골드를 얻지 못합니다. 골드는 깃발을 올린 두 플레이어 사이에서만 움직이지만, 기여한 모두가 명예는 얻습니다.',
   'guide.worldPvpPage.limitsBodyHour':
     '같은 플레이어를 거듭 쓰러뜨리면 보상은 매번 줄어 곧 사라지며, 그 플레이어에 대한 계수는 첫 처치로부터 약 한 시간이 지나야 비로소 다시 시작되므로 한 사람만 노리고 기다릴 값어치는 없습니다. 당신보다 훨씬 낮은 레벨의 대상은 아무것도 주지 않습니다. 전장과 투기장 안에서는 각자의 규칙이 적용되고 열린 세계보다 더 많은 명예를 주므로, 월드 PvP는 같은 상인에게 가는 느린 길입니다.',
   'guide.worldPvpPage.hillBodyRamp':
-    '세 시간에 한 번, 아무도 예측할 수 없는 때에 자유 전투 지역 가운데 한 곳에 15분 뒤 언덕이 솟아오른다는 소식이 서버 전체에 알려지고, 언덕이 설 원이 탁 트인 땅에 표시됩니다. 솟아오른 언덕은 45분 동안 서 있다가 사라집니다. 원 안에 선 플레이어가 가장 많은 파티가 언덕을 두고 다투며, 1분 동안 끊이지 않고 다수를 유지하면 언덕은 그 파티의 것이 됩니다. 혼자인 플레이어는 1인 파티로 세지만, 공격대원은 전혀 세지 않습니다. 한 파티가 언덕을 점령하는 동안 원 안에 선 그 구성원들은 매분 명예를 얻으며, 같은 파티가 오래 지킬수록 1분마다 얻는 명예가 늘어납니다. 가득 찬 파티가 아무런 다툼 없이 언덕이 서 있는 내내 지키면 전장 승리 약 세 번에 해당하는 명예를 얻습니다. 언덕의 주인이 바뀌면 새 주인의 누적은 처음부터 시작됩니다. 벌판 위의 막대가 누가 점령했는지, 아군과 상대의 인원, 그리고 점령 시계를 보여 줍니다. 채팅에 /hill 을 입력하면 언덕이 어디 있는지 알려 줍니다.',
+    '2시간마다 드레이크랜드, 서리장막 봉우리, 호박빛 가을터 중 한 곳에 언덕이 등장합니다. 서버 전체에 15분 전 예고가 전달되고 탁 트인 땅에 원이 표시됩니다. 언덕은 30분 동안 활성화됩니다. 활성 원에 들어가면 공격대원을 포함해 일반 레벨 규칙에 따라 월드 PvP 깃발이 올라갑니다. 원 안의 참여 자격을 갖춘 인원이 가장 많은 파티가 1분 동안 계속 우세를 유지하면 언덕을 점령합니다. 혼자 있는 플레이어는 1인 파티로 보지만, 공격대원과 PvP 필요 레벨 미만인 플레이어는 점령하거나 언덕 명예를 받을 수 없습니다. 점령 파티의 원 안에 있는 각 구성원은 점점 빠른 속도로 명예를 얻습니다. 지급 주기와 보상 증가 속도가 빨라져 기존 45분 이벤트의 총 명예량을 유지합니다. 점령 주체가 바뀌면 보상 증가가 처음부터 시작됩니다. 원을 나가도 깃발은 유지됩니다. /pvp off는 일반적인 5분 대기를 사용하며 활성 언덕 안이나 전투 중에는 완료되지 않습니다. 언덕 막대는 점령 주체, 인원수와 점령 진행도를 보여 주며 /hill은 위치를 알려 줍니다.',
   'guide.worldPvpPage.limitsBodyRaids':
     '같은 플레이어를 거듭 쓰러뜨리면 보상은 매번 줄어 곧 사라지며, 그 플레이어에 대한 계수는 첫 처치로부터 약 한 시간이 지나야 비로소 다시 시작되므로 한 사람만 노리고 기다릴 값어치는 없습니다. 당신보다 훨씬 낮은 레벨의 대상은 아무것도 주지 않습니다. 전장과 투기장 안에서는 각자의 규칙이 적용되고 열린 세계보다 더 많은 명예를 주므로, 월드 PvP는 같은 상인에게 가는 느린 길입니다. 공격대는 월드 처치에서 아무것도 얻지 못합니다. 공격대원은 명예도 골드도 받지 않으며 다른 사람의 몫도 줄이지 않으니, 보상을 받으려면 파티로 싸우세요.',
   'guide.worldPvpPage.hillHeading': '언덕의 왕',
   'guide.worldPvpPage.hillBody':
-    '세 시간에 한 번, 아무도 예측할 수 없는 때에 자유 전투 지역 가운데 한 곳에 15분 뒤 언덕이 솟아오른다는 소식이 서버 전체에 알려지고, 언덕이 설 원이 탁 트인 땅에 표시됩니다. 솟아오른 언덕은 45분 동안 서 있다가 사라집니다. 원 안에 선 플레이어가 가장 많은 파티가 언덕을 두고 다투며, 1분 동안 끊이지 않고 다수를 유지하면 언덕은 그 파티의 것이 됩니다. 혼자인 플레이어는 1인 파티로 세지만, 공격대원은 전혀 세지 않습니다. 한 파티가 언덕을 점령하는 동안 원 안에 선 그 구성원들은 매분 약간의 명예를 얻습니다. 그래서 가득 찬 파티가 아무런 다툼 없이 언덕이 서 있는 내내 지키면 전장 승리 한 번보다 조금 적은 명예를 얻습니다. 벌판 위의 막대가 누가 점령했는지, 아군과 상대의 인원, 그리고 점령 시계를 보여 줍니다. 채팅에 /hill 을 입력하면 언덕이 어디 있는지 알려 줍니다.',
+    '2시간마다 드레이크랜드, 서리장막 봉우리, 호박빛 가을터 중 한 곳에 언덕이 등장합니다. 서버 전체에 15분 전 예고가 전달되고 탁 트인 땅에 원이 표시됩니다. 언덕은 30분 동안 활성화됩니다. 활성 원에 들어가면 공격대원을 포함해 일반 레벨 규칙에 따라 월드 PvP 깃발이 올라갑니다. 원 안의 참여 자격을 갖춘 인원이 가장 많은 파티가 1분 동안 계속 우세를 유지하면 언덕을 점령합니다. 혼자 있는 플레이어는 1인 파티로 보지만, 공격대원과 PvP 필요 레벨 미만인 플레이어는 점령하거나 언덕 명예를 받을 수 없습니다. 점령 파티의 원 안에 있는 각 구성원은 점점 빠른 속도로 명예를 얻습니다. 지급 주기와 보상 증가 속도가 빨라져 기존 45분 이벤트의 총 명예량을 유지합니다. 점령 주체가 바뀌면 보상 증가가 처음부터 시작됩니다. 원을 나가도 깃발은 유지됩니다. /pvp off는 일반적인 5분 대기를 사용하며 활성 언덕 안이나 전투 중에는 완료되지 않습니다. 언덕 막대는 점령 주체, 인원수와 점령 진행도를 보여 주며 /hill은 위치를 알려 줍니다.',
   'guide.thornhollowPage.heading': '쏜할로우 평원',
   'guide.thornhollowPage.intro':
     '가시봉 아래 오래된 숲의 성벽으로 둘러싸인 분지에서 벌어지는 랭크 5대 5 깃발 뺏기 전장. 협곡 양 끝에서 두 폐허 요새가 마주 보고, 그 사이에는 누구도 차지한 적 없는 더 오래된 안뜰이 있다. 다섯 명씩, 요새 둘, 목표 하나. 적의 깃발을 빼앗아 우리 깃발을 빼앗기기 전에 가져와라.',
@@ -4314,6 +4316,7 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'abilityUi.actionBar.attackTooltip':
     '대상에게 자동 공격을 켜거나 끕니다. 적을 우클릭해도 공격합니다.',
   'abilityUi.actionBar.attackRemoveHint': '우클릭하면 바에서 제거하고 칸을 비웁니다.',
+  'abilityUi.actionBar.moveHint': 'Shift-드래그로 이동',
   'abilityUi.actionBar.emptySlot': '빈 칸',
   'abilityUi.actionBar.slotAria': '행동 칸 {slot}: {ability}',
   'abilityUi.actionBar.emptySlotAria': '행동 칸 {slot}: 비어 있음',
@@ -19386,6 +19389,8 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.readyTitle': '주간 보상이 준비되었습니다',
   'hudChrome.weeklyRewards.readyDescription':
     '완료된 한 주의 보상이 기다리고 있습니다. 얻은 금고를 연 다음 받을 아이템 하나를 고르세요.',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    '보상이 기다리고 있습니다. 이스트브룩의 금고 관리인을 찾아가 금고를 열고 보상을 받으세요.',
   'hudChrome.weeklyRewards.notNow': '나중에',
   'hudChrome.weeklyRewards.completedWeek': '{date}에 끝난 주',
   'hudChrome.weeklyRewards.currentWeek': '이번 주 진행으로 돌아가기',
@@ -19587,9 +19592,8 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
     '4세트: 두 번째 Conflagrate마다 8초 안의 다음 Ruinbolt를 즉시 시전하게 합니다.',
   'entities.itemSets.vanguard_druid_feral.name': '피갈기 가죽',
   'entities.itemSets.vanguard_druid_feral.bonus2':
-    '2세트: Bruin Rush의 재사용 대기시간이 3초 감소합니다.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    '4세트: Bruin Rush가 최대 생명력 6%의 보호막을 6초 동안 부여합니다.',
+    '도약 습격과 큰곰 돌진의 재사용 대기시간이 3초 감소합니다.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': '질주의 재사용 대기시간이 15초 감소합니다.',
   'entities.itemSets.vanguard_druid_restoration.name': '엉겅꽃 의복',
   'entities.itemSets.vanguard_druid_restoration.bonus2':
     '2세트: Fleetmend의 재사용 대기시간이 1초 감소합니다.',
@@ -19600,4 +19604,12 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
     '옭아매는 뿌리의 시전 시간이 0.5초 감소합니다.',
   'entities.itemSets.vanguard_druid_balance.bonus4':
     '옭아매는 뿌리를 시전하면 이동 중에도 시전할 수 있고 이동 속도가 4초 동안 20% 증가합니다. 20초에 한 번만 발동합니다.',
+  'hudChrome.worldPvp.rewardBonus':
+    '월드 PvP를 켜 두면 경험치와 진영 평판을 {percent} 더 얻습니다. 끄기를 요청하면 즉시 보너스가 중단됩니다.',
+  'hudChrome.worldPvp.rewardTitles':
+    '월드 PvP를 켠 플레이 시간이 {thresholds}에 도달하면 영구 칭호를 얻습니다. 로그아웃하거나 수련의 해안에 머무는 동안 타이머가 멈춥니다. PvP를 끄면 초기화됩니다.',
+  'hudChrome.worldPvp.rewardPaused': '현재 PvP 유지 시간: {time} (수련의 해안에서 일시 정지)',
+  'hudChrome.worldPvp.rewardProgress': '현재 PvP 유지 시간: {time}',
+  'hudChrome.hill.pvpEntry': '활성 원에 들어가면 월드 PvP가 켜집니다.',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };
