@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { canObserveEntity } from '../server/entity_observation';
 import { RIFT_RANK_BASE_LEVEL } from '../src/sim/rift/ranks';
 import { makeVaultSeed } from '../src/sim/rift/vault_seed';
 import { Sim } from '../src/sim/sim';
@@ -48,6 +49,36 @@ function encounter() {
 }
 
 describe('hoard current-party admission', () => {
+  it.each(['owner offline', 'left after clear'] as const)(
+    'shows the entrance and lets a ghost walk back to its corpse when %s',
+    (scenario) => {
+      const { sim, owner, portal, join, inst, clear } = encounter();
+      portal.kind = 'object';
+      portal.templateId = 'hoard_entrance';
+      sim.ctx.addEntity(portal);
+      const guest = join(202);
+      if (scenario === 'left after clear') clear();
+      const player = sim.entities.get(guest)!;
+      player.hp = 0;
+      player.dead = true;
+      sim.releaseSpirit(guest);
+      if (scenario === 'owner offline') sim.removePlayer(owner);
+      else sim.partyLeave(guest);
+      const corpse = { ...player.corpsePos! };
+      player.pos = { ...portal.pos };
+      player.riftReentryGraceUntil = 0;
+      expect(canObserveEntity(sim, player, portal, 0)).toBe(true);
+      sim.tick();
+      expect(player.pos.x).toBeCloseTo(corpse.x);
+      expect(player.pos.z).toBeCloseTo(corpse.z);
+      expect(player.dead).toBe(true);
+      expect(inst.memberIds.has(guest)).toBe(true);
+      // Prior admission grants no visibility once alive and outside the party.
+      player.dead = false;
+      expect(canObserveEntity(sim, player, portal, 0)).toBe(false);
+    },
+  );
+
   it('rebinds a reconnecting ghost to its own run while the owner is offline', () => {
     const { sim, owner, join, enter, inst } = encounter();
     const guest = join(202);
@@ -79,6 +110,11 @@ describe('hoard current-party admission', () => {
     expect(mayEnterVaultPortal(sim.ctx, portal, stranger)).toBe(false);
     expect(mayEnterVaultPortal(sim.ctx, { ...portal, vaultAttemptId: '101:2' }, guest)).toBe(false);
     expect(mayEnterVaultPortal(sim.ctx, { ...portal, id: -2 }, guest)).toBe(false);
+    expect(canObserveEntity(sim, sim.entities.get(stranger)!, portal, 0)).toBe(false);
+    expect(
+      canObserveEntity(sim, sim.entities.get(guest)!, { ...portal, vaultAttemptId: '101:2' }, 0),
+    ).toBe(false);
+    expect(canObserveEntity(sim, sim.entities.get(guest)!, { ...portal, id: -2 }, 0)).toBe(false);
   });
 
   it('still blocks a bound ghost while the room is in combat', () => {

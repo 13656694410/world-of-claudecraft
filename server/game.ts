@@ -78,7 +78,7 @@ import {
   parseTalentOptionId,
   parseTalentRowLevel,
 } from '../src/sim/talent_allocation_input';
-import { stealthDetectionRadius, threatEntries } from '../src/sim/threat';
+import { threatEntries } from '../src/sim/threat';
 import {
   DT,
   dist2d,
@@ -252,6 +252,7 @@ import {
   harvestBandForNode,
   harvestTierForNode,
 } from './economy_telemetry';
+import { canObserveEntity } from './entity_observation';
 import { isUpdateDue } from './entity_update_cadence';
 // Imported from the mirror modules DIRECTLY (not the ./steam or ./epic
 // barrels), the same way deeds_records imports onDeedRecorded: the barrels
@@ -329,7 +330,6 @@ import {
   INTEREST_QUERY_RADIUS,
   INTEREST_RADIUS,
   interestLimitSq,
-  isStealthed,
   NPC_DROP_RADIUS,
 } from './interest_policy';
 import { IpBlockList } from './ip_block';
@@ -8170,15 +8170,7 @@ export class GameServer {
   }
 
   private canObserveEntity(viewer: Entity, e: Entity, d2: number): boolean {
-    if (e.kind !== 'player' || !isStealthed(e)) return true;
-    if (this.sim.isHostileTo(viewer, e)) return false;
-    const party = this.sim.partyOf(viewer.id);
-    const sameParty = party?.members.includes(e.id) ?? false;
-    const duel = this.sim.duelFor(viewer.id);
-    const duelingEachOther = duel !== null && (duel.a === e.id || duel.b === e.id);
-    if (sameParty && !duelingEachOther) return true;
-    const radius = stealthDetectionRadius(viewer, e, INTEREST_RADIUS);
-    return d2 <= radius * radius;
+    return canObserveEntity(this.sim, viewer, e, d2);
   }
 
   private entityWireCacheFor(e: Entity): EntityWireCache {

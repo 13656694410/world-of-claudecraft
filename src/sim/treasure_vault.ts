@@ -30,7 +30,6 @@ import {
   type TreasureMapProgress,
   type TreasureMapRarity,
   VAULT_GUEST_PAYOUTS_PER_CYCLE,
-  VAULT_PORTAL_LIFETIME,
   vaultDamageFactor,
   vaultHealthFactor,
 } from './content/treasure_maps';
@@ -54,6 +53,12 @@ import type { PlayerMeta } from './sim';
 import type { SimContext } from './sim_context';
 import { findHoardEntrancePosition } from './treasure_vault_placement';
 import type { Entity } from './types';
+import {
+  completeVaultAttempt,
+  expireVaultAttempt,
+  VAULT_LIFETIME_MS,
+  vaultDeadline,
+} from './vault_lifecycle';
 import { waterLevelAt } from './world';
 
 export const VAULT_MOUNT_KEY = 'lanternback_troll';
@@ -63,6 +68,8 @@ export const VAULT_MOUNT_KEY = 'lanternback_troll';
  * save, so a later map cannot reuse a completed attempt's reward claim. */
 export interface VaultAttempt extends TreasureMapProgress {
   id: string;
+  expiresAtMs?: number;
+  bossKilledAtMs?: number;
 }
 // ---------------------------------------------------------------------------
 // Save boundary
@@ -88,7 +95,15 @@ export function sanitizeVaultAttempt(raw: unknown, characterId?: number): VaultA
     (characterId !== undefined && owner !== characterId)
   )
     return null;
-  return { ...map, id };
+  const { expiresAtMs, bossKilledAtMs } = raw as Record<string, unknown>;
+  const timestamp = (value: unknown): value is number =>
+    typeof value === 'number' && Number.isSafeInteger(value) && value >= 0;
+  return {
+    ...map,
+    id,
+    ...(timestamp(expiresAtMs) ? { expiresAtMs } : {}),
+    ...(timestamp(bossKilledAtMs) ? { bossKilledAtMs } : {}),
+  };
 }
 
 export function sanitizeVaultGuestPayouts(raw: unknown): number {
@@ -146,6 +161,7 @@ export function useTreasureMap(
   consumeOneUnit: () => void,
 ): void {
   const pid = meta.entityId;
+  expireVaultAttempt(meta, ctx.lockoutNowMs());
   const active = meta.treasureMap;
   if (meta.vaultAttempt) {
     ctx.error(pid, 'You are already following another treasure map.');
@@ -168,7 +184,11 @@ export function useTreasureMap(
   }
   const nextSeq = meta.vaultAttemptSeq + 1;
   if (!Number.isSafeInteger(nextSeq)) return;
-  const attempt: VaultAttempt = { ...active, id: `${meta.characterId ?? 0}:${nextSeq}` };
+  const attempt: VaultAttempt = {
+    ...active,
+    id: `${meta.characterId ?? 0}:${nextSeq}`,
+    expiresAtMs: ctx.lockoutNowMs() + VAULT_LIFETIME_MS,
+  };
   if (!spawnVaultPortal(ctx, player, pid, attempt, meta.characterId, ctx.cfg.vaultOpenNeedsSave)) {
     ctx.emit({ type: 'treasureMapRead', rarity, siteId: active.siteId, fresh: false, pid });
     return;
@@ -225,7 +245,8 @@ function spawnVaultPortal(
       .filter((id): id is number => id !== undefined);
   }
   portal.vaultRarity = map.rarity;
-  portal.vaultExpiresAt = ctx.time + VAULT_PORTAL_LIFETIME;
+  portal.vaultExpiresAt =
+    'id' in map ? vaultDeadline(map as VaultAttempt) : ctx.lockoutNowMs() + VAULT_LIFETIME_MS;
   portal.facing = Math.atan2(player.pos.x - position.x, player.pos.z - position.z);
   ctx.addEntity(portal);
   ctx.emit({
@@ -254,36 +275,44 @@ export function confirmVaultAttemptDurable(
   return true;
 }
 
-/** A committed outcome, not the boss's in-memory death, ends the retry right. */
+/** A committed outcome ends retries, but keeps the owner lock until its deadline. */
 export function finishVaultAttempt(
   ctx: SimContext,
   ownerCharacterId: number,
   attemptId: string,
+  killedAtMs: number,
 ): number | null {
   const owner = [...ctx.players.values()].find((meta) => meta.characterId === ownerCharacterId);
   if (owner?.vaultAttempt?.id !== attemptId) return null;
-  owner.vaultAttempt = null;
+  completeVaultAttempt(owner.vaultAttempt, killedAtMs);
+  expireVaultAttempt(owner, ctx.lockoutNowMs());
   owner.vaultAttemptDurable = true;
   owner.wireRev++;
   return owner.entityId;
 }
 
-/** Once a second: an unentered vault portal past its lifetime closes. A portal
- *  a run is bound to is left to the Rift's own cleanup. Reads the Rift portal
- *  registry (entity_roster keeps it), so vaults add no list of their own. */
+/** Once a second: expire owner locks and entrances at their absolute deadline.
+ * Instance cleanup uses the same deadline; occupancy never extends it. */
 export function updateVaultPortals(ctx: SimContext): void {
-  if (ctx.tickCount % 20 !== 5 || !ctx.riftPortalIds) return;
+  if (ctx.tickCount % 20 !== 5) return;
+  const now = ctx.lockoutNowMs();
+  for (const meta of ctx.players.values()) expireVaultAttempt(meta, now);
+  if (!ctx.riftPortalIds) return;
   for (const id of [...ctx.riftPortalIds]) {
     const portal = ctx.entities.get(id);
-    if (!portal || portal.vaultExpiresAt === undefined || ctx.time < portal.vaultExpiresAt)
-      continue;
-    if (ctx.riftInstances.some((inst) => inst.partyKey !== null && inst.portalId === id)) continue;
+    if (!portal || portal.vaultExpiresAt === undefined || now < portal.vaultExpiresAt) continue;
     ctx.dropEntity(id);
   }
   for (const meta of ctx.players.values()) {
     const attempt = meta.vaultAttempt;
     const player = ctx.entities.get(meta.entityId);
-    if (!attempt || !meta.vaultAttemptDurable || !player || !atTreasureSite(player, attempt))
+    if (
+      !attempt ||
+      attempt.bossKilledAtMs !== undefined ||
+      !meta.vaultAttemptDurable ||
+      !player ||
+      !atTreasureSite(player, attempt)
+    )
       continue;
     if (
       ctx.riftInstances.some(
@@ -306,6 +335,8 @@ export function updateVaultPortals(ctx: SimContext): void {
 /** Whether `pid` may walk through `portal`: always for an ordinary rift; for a
  *  vault, the owner's current party or a bound dead member recovering a corpse. */
 export function mayEnterVaultPortal(ctx: SimContext, portal: Entity, pid: number): boolean {
+  if (portal.vaultExpiresAt !== undefined && ctx.lockoutNowMs() >= portal.vaultExpiresAt)
+    return false;
   if (portal.vaultOwnerPid === undefined) return true;
   if (mayRecoverHoardCorpse(ctx, portal, pid)) return true;
   const owner = hoardOwnerPid(ctx, portal.vaultOwnerPid, portal.vaultOwnerCharacterId);
@@ -324,6 +355,7 @@ export function vaultForPortal(ctx: SimContext, portal: Entity | null): RiftInst
     portal.vaultOwnerCharacterId ?? ctx.players.get(portal.vaultOwnerPid)?.characterId;
   return {
     rarity: portal.vaultRarity,
+    expiresAtMs: portal.vaultExpiresAt ?? ctx.lockoutNowMs() + VAULT_LIFETIME_MS,
     ...(portal.vaultAttemptId ? { attemptId: portal.vaultAttemptId } : {}),
     ownerPid,
     ...(ownerCharacterId === undefined
