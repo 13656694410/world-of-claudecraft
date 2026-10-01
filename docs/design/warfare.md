@@ -525,14 +525,16 @@ alone is the owner's stated shape.
   `combat/effect_dispatch.ts` at the `absorb` and `buffTarget` sites. Aid to an
   UNFLAGGED player marks nobody, so keeping a bystander alive stays free. Under
   `WORLD_PVP_MIN_LEVEL` the raise is refused like every other and the aid earns
-  nothing. The rule's consequence is deliberate and said out loud: once the
-  helper is flagged, they and the stranger they were keeping up are two flagged
-  strangers, enemies under the pair rule, and the next heal, shield or buff on
-  that stranger is REFUSED with `WORLD_PVP_AID_REFUSED_LINE` (the friendly
-  target resolution in `combat/casting_lifecycle.ts`) rather than self-cast in
-  silence. The way to keep aiding a flagged fighter is the exemption: a party.
-  Only the open-world arm refuses; a duel, arena or battleground opponent on
-  the target still self-casts, the habit those modes' healers rely on.
+  nothing. The rule's consequence is deliberate: once the helper is flagged,
+  they and the stranger they were keeping up are two flagged strangers,
+  enemies under the pair rule. A heal, shield or buff that NAMES that stranger
+  (a party-frame or focus hover, or a timed cast whose locked target turned
+  enemy mid-cast) is REFUSED with `WORLD_PVP_AID_REFUSED_LINE` (the friendly
+  target resolution in `combat/casting_lifecycle.ts`). The way to keep aiding a
+  flagged fighter is the exemption: a party. A World PvP enemy merely on the
+  TARGET never refuses: the press self-casts, so a healer fighting a flagged
+  player heals themselves without clearing the selection, the same habit a
+  duel, arena or battleground healer relies on.
 - The flag cannot be flapped: accepted changes are `WORLD_PVP_TOGGLE_COOLDOWN`
   (2 s) apart, refused with a notice in between.
 - Operator kill switch: `WORLD_PVP_DISABLED=1` on the realm refuses every raise
