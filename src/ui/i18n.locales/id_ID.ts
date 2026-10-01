@@ -2312,6 +2312,8 @@ export const id_ID: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Perlengkapan Vanguard: Musim Peperangan 2',
   'guide.combat.unstuckBodyWindow':
     'Jika dunia menjebakmu di suatu tempat yang tidak bisa keluar, ketik /unstuck. Kamu perlu berada di luar pertarungan dan berdiri diam, tidak ditahan oleh stun atau akar, dan tidak dalam duel atau pertandingan arena: hitungan mundur pendek berjalan, dan bergerak atau menerima kerusakan membatalkannya. Ketika selesai kamu diletakkan di kuburan terdekat. Tidak pernah membunuhmu dan meninggalkan jasad, dan jika kamu sudah tumbang sebelumnya itu akan menaikkanmu di sana. Penggunaan pertama dalam satu jam tidak memerlukan biaya. Gunakan lagi dalam satu jam dari yang terakhir dan harganya adalah Penyakit Terjebak, pelemahan sementara dari semua yang kamu miliki yang telah hilang pada saat kamu bisa menggunakan perintah lagi, dan seperti Tol Penjaga itu menghemat karakter benar-benar baru.',
+  'guide.commandsPage.flair':
+    'Menampilkan atau menyembunyikan peran Discord kamu bagi pemain lain, yaitu nama berwarna, tanda peran, dan tanda obrolan terverifikasi: /flair on menampilkannya, /flair off menyembunyikannya, dan /flair saja memberi tahu pengaturan yang aktif. Memerlukan akun Discord yang tertaut.',
   'guide.commandsPage.pvpZones':
     'Bendera PvP Dunia: /pvp mengganti statusnya, /pvp on mengaktifkannya, dan /pvp off menonaktifkannya. Pemain berbendera dapat saling bertarung di wilayah sengketa, tempat perlindungan tidak mengizinkan pertempuran dunia sama sekali, dan memasuki lingkaran Raja Bukit yang aktif mengaktifkan benderamu; penonaktifan membutuhkan 5 menit.',
   'guide.commandsPage.unstuckWindow':

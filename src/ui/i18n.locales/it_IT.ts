@@ -2364,6 +2364,8 @@ export const it_IT: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': "Equipaggiamento dell'Avanguardia: Guerra Stagione 2",
   'guide.combat.unstuckBodyWindow':
     "Se il mondo ti intrappola in un punto da cui non riesci a uscire, digita /unstuck. Devi essere fuori dal combattimento e fermo, non immobilizzato da uno stordimento o da un radicamento, e non in un duello o in un incontro d'arena: parte un breve conto alla rovescia, e muoverti o subire danni lo annulla. Al termine vieni depositato al cimitero più vicino. Non ti uccide mai e non lascia alcun corpo, e se eri già caduto ti rianima lì. Il primo utilizzo in un'ora non ti costa nulla. Usalo di nuovo entro un'ora dall'ultima volta e il prezzo è il Mal di sblocco, un indebolimento temporaneo di tutto ciò che sei che si sarà esaurito per quando potrai usare di nuovo il comando, e come il Pedaggio del Custode risparmia del tutto i personaggi appena creati.",
+  'guide.commandsPage.flair':
+    'Mostra o nasconde il tuo ruolo Discord agli altri giocatori, cioè il nome colorato, il tag del ruolo e il tag verificato in chat: /flair on lo mostra, /flair off lo nasconde e /flair da solo ti dice quale impostazione è attiva. Richiede un account Discord collegato.',
   'guide.commandsPage.pvpZones':
     'Bandiera PvP mondiale: /pvp la alterna, /pvp on e /pvp off la attivano e disattivano. I giocatori contrassegnati possono combattersi nelle zone contese; i santuari vietano ogni combattimento PvP mondiale. Entrare nel cerchio attivo del Re della Collina alza la tua bandiera; disattivarla richiede 5 minuti.',
   'guide.commandsPage.unstuckWindow':

@@ -1697,7 +1697,10 @@ const MONOLITHS: MonolithRow[] = [
     // branch 9965; the two sides' additions compose to 9840 by wc -l on the merged
     // tree (after biome). Exact count, zero slack.
     // Viewer admission moved to entity_observation.ts; bank the extraction.
-    ceiling: 9832,
+    // LOWERED 9832 -> 9823: the Discord flair entity stamp moved to
+    // discord_flair_stamp.ts, paying for the /flair hook (flair_command.ts) with
+    // lines to spare. Exact count (wc -l after biome), zero slack.
+    ceiling: 9823,
     seam: 'a sibling server module; see the hot-path seams in server/CLAUDE.md',
   },
   {

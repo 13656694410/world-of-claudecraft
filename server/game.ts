@@ -241,6 +241,7 @@ import {
 } from './disconnected_player_input';
 import { enqueueActivity } from './discord_activity';
 import { discordFlairForAccount, grantRewardPoints } from './discord_db';
+import { stampDiscordFlair } from './discord_flair_stamp';
 import { enqueueLinkChange } from './discord_link_changes';
 import { observeQueuePops, queuedPidsOf, queuePopDepsFor } from './discord_queue_pops';
 import { enqueueRelay } from './discord_relay';
@@ -266,6 +267,7 @@ import { assembleEventsFrame, filterRoutableEvents, serializeEventFragments } fr
 import { buildEventPidIndex, forEachSelectedEventIndex } from './event_pid_index';
 import { appendFarmPlotsWire, dispatchFarmingCommand } from './farming_commands';
 import { fishingBandLabel, isKoi, isRodFeeRecipe } from './fishing_telemetry';
+import { type FlairCommandHost, handleFlairChatCommand } from './flair_command';
 import { dispatchGatheringGoalCommand } from './gathering_goal_commands';
 import { appendGatheringGoalSelfWire } from './gathering_goal_wire';
 import { appendGatheringSelfWire } from './gathering_self_wire';
@@ -1613,6 +1615,13 @@ export class GameServer {
   // One FIFO per character so a burst of debounced client saves cannot commit on
   // separate pool clients in reverse order and persist a stale layout.
   readonly hotbarLayouts = new HotbarLayoutStore();
+  // The narrow host the /flair command needs (server/flair_command.ts).
+  private readonly flairHost: FlairCommandHost<ClientSession> = {
+    pool,
+    consumeCommandLane: (session, nowSec) => this.consumeLane(session, 'command', nowSec),
+    refreshDiscordFlair: (session) => this.refreshDiscordFlair(session),
+    sendChatNotice: (session, text) => this.sendChatNotice(session, text),
+  };
   // Serializes every write of the single global Market blob (the 30s periodic
   // saveMarket/saveMail/saveRifts and the leave-path combined save). All
   // serialize whole-blob shared state; without a queue their transactions
@@ -2875,26 +2884,7 @@ export class GameServer {
     const flair = await discordFlairForAccount(pool, session.accountId);
     if (this.clients.get(session.pid) !== session) return;
     const e = this.sim.entities.get(session.pid);
-    if (!e) return;
-    const tier = flair?.tier ?? 0;
-    const avatar = flair?.avatarUrl ?? undefined;
-    const name = flair?.name ?? undefined;
-    const joined = flair?.joinedAtMs ?? undefined;
-    const role = flair?.role ?? undefined;
-    if (
-      e.discordTier !== tier ||
-      e.discordAvatar !== avatar ||
-      e.discordName !== name ||
-      e.discordJoined !== joined ||
-      e.discordRole !== role
-    ) {
-      // identity diff re-broadcasts the linked-Discord flair to nearby players
-      e.discordTier = tier;
-      e.discordAvatar = avatar;
-      e.discordName = name;
-      e.discordJoined = joined;
-      e.discordRole = role;
-    }
+    if (e) stampDiscordFlair(e, flair);
   }
 
   // Load one player's operator-set account flair (AI mark + streamer links) and
@@ -6909,6 +6899,8 @@ export class GameServer {
         // never be shadowed by a player command. The two list READOUTS carry
         // their own DB-read guard inside (the phase 06 maintainer ruling).
         if (this.handleChatFilterCommand(session, text, receivedAtMs / 1000)) break;
+        // The player's own /flair on|off, usable while muted for the same reason.
+        if (handleFlairChatCommand(this.flairHost, session, text, receivedAtMs / 1000)) break;
         if (this.isChatMuted(session)) break;
         // The chat lane is a pre-guard CO-LOCATED with the ladder, not at the
         // case entry (R5): the moderation router and the ignore/block/filter

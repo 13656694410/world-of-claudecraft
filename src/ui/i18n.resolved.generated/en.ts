@@ -7547,6 +7547,7 @@ export const en: EnTranslations = {
       "arena": "Your Ashen Coliseum standing in both brackets: rating, wins, losses and win rate for 1v1 and for 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other on contested ground, sanctuaries allow no world fighting at all, and entering an active King of the Hill circle raises your flag; switching off takes 5 minutes.",
+      "flair": "Shows or hides your Discord role for other players, meaning your colored name, role tag and verified chat tag: /flair on shows it, /flair off hides it, and a plain /flair tells you which is set. Needs a linked Discord account.",
       "listings": "Your own listings on the World Market, with the asking price, the time each has left, and how much room you have for more.",
       "buyback": "What you sold to a vendor recently and could still buy back.",
       "groupState": "How you are right now",

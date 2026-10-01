@@ -7547,6 +7547,7 @@ export const fr_FR: EnTranslations = {
       "arena": "Votre classement au Colisée cendré dans les deux catégories : cote, victoires, défaites et taux de victoires en 1c1 et en 2c2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Drapeau JcJ mondial : /pvp le bascule ; /pvp on et /pvp off l'activent et le désactivent. Les joueurs marqués peuvent s'affronter en zone contestée ; les sanctuaires interdisent tout JcJ mondial. Entrer dans le cercle actif du Roi de la colline lève votre drapeau. Le désactiver prend 5 minutes.",
+      "flair": "Affiche ou masque votre rôle Discord pour les autres joueurs, c’est-à-dire votre nom en couleur, votre badge de rôle et votre badge de discussion vérifié : /flair on l’affiche, /flair off le masque, et /flair seul vous indique le réglage actuel. Nécessite un compte Discord lié.",
       "listings": "Vos propres annonces sur le Marché mondial, avec le prix demandé, le temps restant de chacune, et la place qu'il vous reste pour en publier d'autres.",
       "buyback": "Ce que vous avez vendu récemment à un marchand et que vous pouvez encore racheter.",
       "groupState": "Votre état actuel",
