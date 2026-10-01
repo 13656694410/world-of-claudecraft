@@ -23,6 +23,7 @@ import {
 } from '../data';
 import { layoutColliders } from '../dungeon_layout';
 import { createGroundObject, createMob } from '../entity';
+import { gliderActionsLocked } from '../glider_action_lock';
 import type { LootTier } from '../lockpick';
 import { RIFT_MECHANIC_SPACING_SEC } from '../mob/mechanic_spacing';
 import {
@@ -30,6 +31,7 @@ import {
   grantRiftClearEmbers,
 } from '../professions/masterwrought_materials';
 import { cancelProfessionSessionOnDisplacement } from '../professions/session_teardown';
+import { shadowActionsLocked } from '../shadow_action_lock';
 import type { SimContext } from '../sim_context';
 import { mayEnterVaultPortal, vaultForPortal, vaultScaledTuning } from '../treasure_vault';
 import { DT, dist2d, type Entity, type SimEvent, type Vec3 } from '../types';
@@ -636,7 +638,16 @@ export function enterRift(
     }
     return;
   }
-  if (portal && wispMazeActionsLocked(r.meta.worldQuestLog)) {
+  // A live world quest trial (wisp maze, shadow, glider) owns the player's
+  // movement, so a portal on its route must never pull them out mid-run. Walk-in
+  // and click both pass the portal, so this one gate covers both; no error line,
+  // since the trial already fills the screen and walk-in would repeat it.
+  if (
+    portal &&
+    (wispMazeActionsLocked(r.meta.worldQuestLog) ||
+      shadowActionsLocked(r.meta.worldQuestLog) ||
+      gliderActionsLocked(r.meta.worldQuestLog))
+  ) {
     return;
   }
   // A treasure vault is private: only the map's owner and their party may
@@ -1384,8 +1395,6 @@ export function updateRiftTriggers(ctx: SimContext, p: Entity): void {
   // Overworld: walk into a rift portal to enter (unless inside the short
   // post-exit grace, so leaving a rift never bounces the player back in).
   if (ctx.time < (p.riftReentryGraceUntil ?? -Infinity)) return;
-  const meta = ctx.players.get(p.id);
-  if (meta && wispMazeActionsLocked(meta.worldQuestLog)) return;
   if (ctx.riftPortalIds === null) {
     ctx.riftPortalIds = [];
     for (const e of ctx.entities.values()) {
