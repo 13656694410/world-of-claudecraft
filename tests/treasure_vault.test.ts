@@ -154,7 +154,7 @@ describe('digging on the X', () => {
     const sim = makeSim();
     readAndDig(sim, 'common');
     const portal = [...sim.entities.values()].find((e) => e.vaultOwnerPid !== undefined)!;
-    portal.vaultExpiresAt = sim.time + 1;
+    portal.vaultExpiresAt = sim.ctx.lockoutNowMs() + 1000;
     // Step clear of the walk-in trigger so nobody enters.
     placeAt(sim, sim.player.pos.x + 60, sim.player.pos.z);
     for (let i = 0; i < 80; i++) sim.tick();
@@ -165,7 +165,7 @@ describe('digging on the X', () => {
     const sim = makeSim();
     const { map, site } = readAndDig(sim, 'common');
     const portal = [...sim.entities.values()].find((e) => e.vaultAttemptId === '0:1')!;
-    portal.vaultExpiresAt = sim.time + 1;
+    portal.vaultExpiresAt = sim.ctx.lockoutNowMs() + 1000;
     placeAt(sim, site.x + 60, site.z);
     for (let i = 0; i < 80; i++) sim.tick();
     expect(sim.entities.has(portal.id)).toBe(false);
@@ -177,7 +177,7 @@ describe('digging on the X', () => {
     expect(sim.countItem(TREASURE_MAP_ITEM_IDS.common)).toBe(0);
   });
 
-  it('reopens an abandoned active vault after its empty timeout without another map', () => {
+  it('reopens an unloaded room without consuming another map or extending the deadline', () => {
     const sim = makeSim();
     metaOf(sim).characterId = 8102;
     const { map, site } = readAndDig(sim, 'common');
@@ -188,16 +188,15 @@ describe('digging on the X', () => {
     if (!first) throw new Error('active vault missing');
     leaveRift(sim.ctx, sim.playerId);
     first.emptyFor = 179;
-    portal.vaultExpiresAt = sim.time + 1;
     placeAt(sim, site.x + 60, site.z);
     for (let i = 0; i < 80; i++) sim.tick();
     expect(first.partyKey).toBeNull();
-    expect(sim.entities.has(portal.id)).toBe(false);
+    expect(sim.entities.has(portal.id)).toBe(true);
     expect(metaOf(sim).vaultAttempt?.id).toBe('8102:1');
     placeAt(sim, site.x + 2, site.z - 2);
     for (let i = 0; i < 25; i++) sim.tick();
     const retry = [...sim.entities.values()].find((e) => e.vaultAttemptId === '8102:1');
-    expect(retry?.id).not.toBe(portal.id);
+    expect(retry?.id).toBe(portal.id);
     expect(retry?.riftSeed).toBe(map.seed);
     expect(sim.countItem(TREASURE_MAP_ITEM_IDS.common)).toBe(0);
     sim.enterRift(map.seed, retry!.riftBaseLevel!, sim.playerId, undefined, retry);
@@ -387,6 +386,7 @@ describe('the vault run', () => {
     expect(inst.vault).toEqual({
       rarity: 'common',
       attemptId: '0:1',
+      expiresAtMs: 21_600_000,
       ownerPid: sim.playerId,
       headCount: 1,
       level: sim.player.level,

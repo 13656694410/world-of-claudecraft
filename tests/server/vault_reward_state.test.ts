@@ -29,7 +29,7 @@ describe('direct vault reward character snapshot', () => {
     };
   }
 
-  it('adds the immutable parcel and clears only the matching owner marker', () => {
+  it('adds the immutable parcel without clearing the timed owner lock', () => {
     const state = saved();
     addVaultRewardToCharacterState(
       state,
@@ -47,7 +47,7 @@ describe('direct vault reward character snapshot', () => {
       expect.objectContaining({ itemId: 'thorium_ore', count: 5 }),
     );
     expect(state.copper).toBe(52);
-    expect(state.worldQuests?.vaultAttempt).toBeUndefined();
+    expect(state.worldQuests?.vaultAttempt?.id).toBe('7:1');
     expect(state.worldQuests?.clueCasketsOpened).toBe(1);
   });
 

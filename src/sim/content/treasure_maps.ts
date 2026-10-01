@@ -60,8 +60,8 @@ export const TREASURE_MAP_UPGRADE_INKS: Readonly<Record<TreasureMapRarity, numbe
 export const HOARD_MIN_LEVEL = 16;
 /** How close (yards) the reader must stand to the X to dig. */
 export const TREASURE_DIG_RADIUS = 12;
-/** A vault portal nobody entered closes after this long (seconds). */
-export const VAULT_PORTAL_LIFETIME = 600;
+/** Maximum vault lifetime from digging (seconds), regardless of occupancy. */
+export const VAULT_PORTAL_LIFETIME = 6 * 60 * 60;
 /** Vaults a character may be paid for as a GUEST (not the map's owner) per
  *  world-quest cycle. The owner's own maps are never capped. */
 export const VAULT_GUEST_PAYOUTS_PER_CYCLE = 3;

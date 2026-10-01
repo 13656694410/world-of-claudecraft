@@ -344,6 +344,8 @@ export interface RiftInstance {
     rarity: TreasureMapRarity;
     /** Stable consumed-map attempt identity, absent on dev portals. */
     attemptId?: string;
+    expiresAtMs?: number;
+    bossKilledAtMs?: number;
     ownerPid: number;
     /** Stable identity used to rebind the owner after a reconnect. */
     ownerCharacterId?: number;

@@ -98,6 +98,7 @@ export class VaultRewardService {
           this.pending.set(event.attemptId, {
             attemptId: event.attemptId,
             ownerCharacterId: event.ownerCharacterId,
+            bossKilledAtMs: event.bossKilledAtMs ?? now,
             claims: event.claims.map((claim) => ({
               ...claim,
               mailDueAt: new Date(now + MAIL_DELAY_MS),
@@ -221,13 +222,23 @@ export class VaultRewardService {
       if (fresh?.characterId !== characterId || fresh.vaultAttempt?.id !== pending.attemptId)
         return;
       if (outcome) {
-        finishVaultAttempt(this.host.sim.ctx, characterId, pending.attemptId);
+        finishVaultAttempt(
+          this.host.sim.ctx,
+          characterId,
+          pending.attemptId,
+          outcome.bossKilledAtMs ?? outcome.completedAt.getTime(),
+        );
         void this.host
           .saveOwner(pending.pid)
           .catch((error) => this.host.onClaimFailure(characterId, error));
       } else {
-        if (!this.pending.has(pending.attemptId))
+        if (!this.pending.has(pending.attemptId)) {
+          // A crash can save the kill marker before the immutable outcome commits.
+          // Restore the retry right, never extend the already-shortened deadline.
+          delete fresh.vaultAttempt.bossKilledAtMs;
+          fresh.wireRev++;
           confirmVaultAttemptDurable(this.host.sim.ctx, pending.pid, pending.attemptId);
+        }
       }
     } catch (error) {
       this.host.onClaimFailure(characterId, error);
@@ -266,7 +277,12 @@ export class VaultRewardService {
       this.pending.delete(attemptId);
       this.outcomeRetryAt.delete(attemptId);
       confirmHoardRewardChest(this.host.sim.ctx, attemptId);
-      const pid = finishVaultAttempt(this.host.sim.ctx, input.ownerCharacterId, attemptId);
+      const pid = finishVaultAttempt(
+        this.host.sim.ctx,
+        input.ownerCharacterId,
+        attemptId,
+        input.bossKilledAtMs!,
+      );
       if (pid !== null)
         void this.host
           .saveOwner(pid)

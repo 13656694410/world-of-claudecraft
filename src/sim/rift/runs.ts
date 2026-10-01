@@ -33,6 +33,8 @@ import { cancelProfessionSessionOnDisplacement } from '../professions/session_te
 import type { SimContext } from '../sim_context';
 import { mayEnterVaultPortal, vaultForPortal, vaultScaledTuning } from '../treasure_vault';
 import { DT, dist2d, type Entity, type SimEvent, type Vec3 } from '../types';
+import { recordVaultBossKill } from '../vault_lifecycle';
+import { vaultPortalVisible } from '../vault_visibility';
 import { isInWaterBody } from '../world';
 import { riftFx } from './fx';
 import { tickHoardAddCasts } from './hoard_add_casts';
@@ -583,6 +585,7 @@ function freeRiftInstance(ctx: SimContext, inst: RiftInstance): void {
   inst.rewarded = false;
   inst.progressed = false;
   inst.bossDeathZones = [];
+  inst.vault = null;
   if (eventId !== null) {
     const event = ctx.riftEvents.find((candidate) => candidate.eventId === eventId);
     const anotherRun = ctx.riftInstances.some(
@@ -1388,6 +1391,12 @@ export function updateRiftTriggers(ctx: SimContext, p: Entity): void {
     if (
       portal &&
       portal.riftSeed !== undefined &&
+      vaultPortalVisible(
+        portal,
+        p.id,
+        ctx.partyOf(p.id)?.members ?? null,
+        (pid) => ctx.players.get(pid)?.characterId,
+      ) &&
       dist2d(p.pos, portal.pos) < PORTAL_TRIGGER_RADIUS
     ) {
       enterRift(ctx, portal.riftSeed, portal.riftBaseLevel ?? p.level, p.id, undefined, portal);
@@ -1638,6 +1647,7 @@ function completeRiftClear(ctx: SimContext, inst: RiftInstance, boss: Entity | n
     });
     ctx.emit({
       type: 'treasureVaultOutcomePending',
+      bossKilledAtMs: inst.vault.bossKilledAtMs,
       attemptId: inst.vault.attemptId,
       ownerCharacterId: inst.vault.ownerCharacterId,
       claims,
@@ -1974,6 +1984,25 @@ export function updateRiftInstances(ctx: SimContext): void {
   // the earlier kill could lose the shared race.
   for (const inst of ctx.riftInstances) {
     if (inst.partyKey === null) continue;
+    if (inst.vault?.expiresAtMs !== undefined && ctx.lockoutNowMs() >= inst.vault.expiresAtMs) {
+      // A valid last-tick kill may precede the once-per-second reward sweep.
+      if (inst.bossDiedAtTick !== null && !inst.rewarded)
+        completeRiftClear(
+          ctx,
+          inst,
+          inst.bossId === null ? null : (ctx.entities.get(inst.bossId) ?? null),
+        );
+      const origin = riftInstanceOrigin(inst.slot, inst.floorIndex);
+      for (const pid of inst.memberIds) {
+        const member = ctx.entities.get(pid);
+        if (member?.corpsePos && inRiftFloorRegion(member.corpsePos, origin))
+          member.corpsePos = ctx.groundPos(inst.returnPos.x, inst.returnPos.z);
+      }
+      for (const pid of instancePlayerIds(ctx, inst)) forceExitRiftPlayer(ctx, inst, pid, true);
+      if (inst.portalId !== null) ctx.dropEntity(inst.portalId);
+      freeRiftInstance(ctx, inst);
+      continue;
+    }
     // First-kill watch: the moment ANY mob of an unspoiled run dies, the run is
     // PROGRESSED (binds members, stops recycling). Self-disabling: once set, the
     // scan never runs again for this instance.
@@ -1989,6 +2018,7 @@ export function updateRiftInstances(ctx: SimContext): void {
     if (inst.bossDiedAtTick !== null || inst.bossId === null) continue;
     if (ctx.entities.get(inst.bossId)?.dead) {
       inst.bossDiedAtTick = ctx.tickCount;
+      recordVaultBossKill(ctx, inst);
       // Clear any pending lethal death zones so a zone placed just before the
       // killing blow cannot execute the winning party. Symmetric with the evade
       // clear in locomotion.ts.
@@ -2077,7 +2107,10 @@ export function updateRiftInstances(ctx: SimContext): void {
       if (trashCleared(ctx, inst) && puzzleDone) openDescent(ctx, inst);
     }
 
-    // Empty-slot cleanup.
+    // Unload empty rooms to free the bounded instance pool. A vault's saved
+    // attempt and entrance retain their deadline and can reopen the same seed.
+    // Once the boss dies, retain the completed room until its absolute deadline.
+    if (inst.vault && inst.bossDiedAtTick !== null) continue;
     const occupied = instancePlayerIds(ctx, inst).length > 0;
     if (occupied) {
       inst.emptyFor = 0;
