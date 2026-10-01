@@ -1315,4 +1315,29 @@ export const table: DeedLocaleTable = {
     name: 'Fångad rödhänt',
     desc: 'Fånga en Myntpåseskinmare i ett begravt lagom innan det flyr med guldet.',
   },
+  pvp_flag_1h: {
+    name: 'Djärv',
+    desc: 'Ha världs-PvP aktiverat under 1 timme speltid. Utloggning pausar framstegen; avstängning nollställer dem. Intjänade titlar är permanenta.',
+    title: 'Djärv',
+  },
+  pvp_flag_3h: {
+    name: 'Trotsig',
+    desc: 'Ha världs-PvP aktiverat under 3 timmar speltid. Utloggning pausar framstegen; avstängning nollställer dem. Intjänade titlar är permanenta.',
+    title: 'Trotsig',
+  },
+  pvp_flag_6h: {
+    name: 'Orädd',
+    desc: 'Ha världs-PvP aktiverat under 6 timmar speltid. Utloggning pausar framstegen; avstängning nollställer dem. Intjänade titlar är permanenta.',
+    title: 'Orädd',
+  },
+  pvp_flag_24h: {
+    name: 'Orubblig',
+    desc: 'Ha världs-PvP aktiverat under 24 timmar speltid. Utloggning pausar framstegen; avstängning nollställer dem. Intjänade titlar är permanenta.',
+    title: 'Orubblig',
+  },
+  pvp_flag_168h: {
+    name: 'Okuvlig',
+    desc: 'Ha världs-PvP aktiverat under 7 dagar speltid. Utloggning pausar framstegen; avstängning nollställer dem. Intjänade titlar är permanenta.',
+    title: 'Okuvlig',
+  },
 };

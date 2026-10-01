@@ -1250,6 +1250,31 @@ export const table: DeedLocaleTable = {
     name: 'Pris en flagrant délit',
     desc: "Capturez un Escroc Sacpiéces dans un Trésor enterré avant qu'il ne s'échappe avec l'or.",
   },
+  pvp_flag_1h: {
+    name: 'Audacieux',
+    desc: 'Gardez le JcJ mondial activé pendant 1 heure de temps de jeu. La déconnexion suspend la progression ; la désactivation la remet à zéro. Les titres obtenus sont permanents.',
+    title: 'Audacieux',
+  },
+  pvp_flag_3h: {
+    name: 'Insoumis',
+    desc: 'Gardez le JcJ mondial activé pendant 3 heures de temps de jeu. La déconnexion suspend la progression ; la désactivation la remet à zéro. Les titres obtenus sont permanents.',
+    title: 'Insoumis',
+  },
+  pvp_flag_6h: {
+    name: 'Intrépide',
+    desc: 'Gardez le JcJ mondial activé pendant 6 heures de temps de jeu. La déconnexion suspend la progression ; la désactivation la remet à zéro. Les titres obtenus sont permanents.',
+    title: 'Intrépide',
+  },
+  pvp_flag_24h: {
+    name: 'Inébranlable',
+    desc: 'Gardez le JcJ mondial activé pendant 24 heures de temps de jeu. La déconnexion suspend la progression ; la désactivation la remet à zéro. Les titres obtenus sont permanents.',
+    title: 'Inébranlable',
+  },
+  pvp_flag_168h: {
+    name: 'Indomptable',
+    desc: 'Gardez le JcJ mondial activé pendant 7 jours de temps de jeu. La déconnexion suspend la progression ; la désactivation la remet à zéro. Les titres obtenus sont permanents.',
+    title: 'Indomptable',
+  },
 };
 
 // fr_CA rides this base table plus the delve-vocabulary override layer

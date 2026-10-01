@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "assetId": "scout_lodge",
-  "sourceFingerprint": "0742b6363e8e16dd5c8fca989db0737162c7e945c9944eb463863f9664ec8841",
+  "sourceFingerprint": "cb3ebae04125155665ac872547e87bbb34f0af643b5b84812cc3b75f752f957b",
   "reference": "docs/design/fenbridge-rebuild/references/scout-lodge-turnaround.png",
   "minimumOverallScore": 0.7,
   "requiredViews": [

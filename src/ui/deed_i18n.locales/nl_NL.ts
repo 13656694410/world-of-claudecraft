@@ -1229,4 +1229,29 @@ export const table: DeedLocaleTable = {
     name: 'Betrapt op Heterdaad',
     desc: 'Vang een Muntzak Haastige in een Begraven Hoard voordat het met het goud vandoor gaat.',
   },
+  pvp_flag_1h: {
+    name: 'Stoutmoedig',
+    desc: 'Houd wereld-PvP ingeschakeld gedurende 1 uur speeltijd. Uitloggen pauzeert de voortgang; uitschakelen zet deze terug op nul. Verdiende titels zijn permanent.',
+    title: 'Stoutmoedig',
+  },
+  pvp_flag_3h: {
+    name: 'Opstandig',
+    desc: 'Houd wereld-PvP ingeschakeld gedurende 3 uur speeltijd. Uitloggen pauzeert de voortgang; uitschakelen zet deze terug op nul. Verdiende titels zijn permanent.',
+    title: 'Opstandig',
+  },
+  pvp_flag_6h: {
+    name: 'Onbevreesd',
+    desc: 'Houd wereld-PvP ingeschakeld gedurende 6 uur speeltijd. Uitloggen pauzeert de voortgang; uitschakelen zet deze terug op nul. Verdiende titels zijn permanent.',
+    title: 'Onbevreesd',
+  },
+  pvp_flag_24h: {
+    name: 'Onwrikbaar',
+    desc: 'Houd wereld-PvP ingeschakeld gedurende 24 uur speeltijd. Uitloggen pauzeert de voortgang; uitschakelen zet deze terug op nul. Verdiende titels zijn permanent.',
+    title: 'Onwrikbaar',
+  },
+  pvp_flag_168h: {
+    name: 'Ontembaar',
+    desc: 'Houd wereld-PvP ingeschakeld gedurende 7 dagen speeltijd. Uitloggen pauzeert de voortgang; uitschakelen zet deze terug op nul. Verdiende titels zijn permanent.',
+    title: 'Ontembaar',
+  },
 };

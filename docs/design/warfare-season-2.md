@@ -14,8 +14,10 @@ cheaper entry tier:
   shoulder, chest, legs, gloves), the same five slots and the same 2-piece and 4-piece
   thresholds as every raid set (owner decision). 135 armor items. Waist and feet stay
   entry tier.
-- **Four season weapons:** a strength two-hander (the honor shop has none today), a
-  strength one-hander, an agility one-hander and a caster staff.
+- **Season weapons:** a strength two-handed sword, a strength one-hander, an agility
+  one-hander, a caster staff, and the druid-only Vanguard's Feral Staff.
+  The feral staff carries 10 Strength, 9 Agility, 11 Stamina, 73 Warfare Offense Rating,
+  and 112 Warfare Defense Rating, with the same two-handed damage budget as the caster staff.
 - **Jewelry** stays entry tier: at item level 35 it would out-stat the badge jewelry.
 - **Item level 35:** source level 29 plus the epic bump of 6. That is level with the Ignivar
   raid tier.
@@ -102,8 +104,9 @@ everywhere. These rules hold them together:
   Kole in Highwatch). The shop lists a Season 2 group first: the viewer's own three spec
   sets (the sets are class-locked, so the shop shows only what the viewer can wear), then the
   season weapons the viewer can wield. The entry tier follows as its own group, unfiltered.
-- **Art:** the four weapons ship painted icons (the `warfare-season2-weapons-2026-09-25`
-  batch in `public/ui/items/mapping.json`) and held models on shipped GLBs. The 135 armor
+- **Art:** the weapons ship painted icons (the `warfare-season2-weapons-2026-09-25`
+  and `warfare-season2-feral-staff-2026-09-29` batches in `public/ui/items/mapping.json`)
+  and held models on shipped GLBs. The 135 armor
   pieces sit on `ITEM_ART_PENDING` (pinned in `tests/item_icons.test.ts`) and draw their
   procedural icon until a follow-up art pass paints them.
 - **Ids:** sets use a new prefix, `vanguard_<spec>`, so the existing `warfare_*` pins keep
@@ -612,16 +615,17 @@ Implementation routes:
 **Set:** Bloodmane Hide
 **Items:** Bloodmane Helm, Bloodmane Shoulderpads, Bloodmane Tunic, Bloodmane Legguards, Bloodmane Grips
 
-- **2pc:** "Bruin Rush's cooldown is reduced by 3 sec." (`bear_charge`, charge plus 1 sec stun, 15 to 12 sec)
-  - Route: DATA. `{ ability: 'bear_charge', cooldownFlat: -3 }`.
-- **4pc:** "Bruin Rush shields you for 6 percent of your maximum health for 6 sec."
-  - Route: DATA ProcDef. `trigger: { on: 'castNth', n: 1, abilities: ['bear_charge'] }`, `responses: [{ kind: 'absorb', amountPctMaxHp: 0.06, duration: 6, name: 'Bloodmane Guard', target: 'self' }]` (`target: 'self'` REQUIRED, the Rush is hostile).
-  - PvP read: gap close into Cat Form (Rush makes Cat free for 3 sec) with a cushion.
+- **2pc:** "Reduces the cooldowns of Lunge and Bruin Rush by 3 sec." (`lunge`, the out-of-stealth Slinkstrike button, 12 to 9 sec; `bear_charge`, 15 to 12 sec)
+  - Route: DATA. `{ ability: 'lunge', cooldownFlat: -3 }` and `{ ability: 'bear_charge', cooldownFlat: -3 }`.
+- **4pc:** "Dash's cooldown is reduced by 15 sec." (60 to 45 sec, Cat Form only)
+  - Route: DATA. `{ ability: 'dash', cooldownFlat: -15 }`.
+  - PvP read: gap close in either form more often, with Dash available more often for chasing or escaping.
+- **Stats:** the five Bloodmane pieces carry Strength and Stamina, with the existing physical stat budget unchanged.
 - **PvE ceiling:** both Wildfang raid sets. Wildfang Emberhide (Cat: Redharvest 45
   energy; Redharvest replants Flense) and Cinderbark Ward (Bruin: Sweeping Claws 30
   percent extra Old Blood; Marrowbreak +30 percent and keeps its strike beside the 18
-  percent guard). Ours: zero damage; the absorb is at most 0.5 percent max health per
-  sec and only if Rush is spent on cooldown, which a raid tank rarely does.
+  percent guard). These honor bonuses improve mobility, with no direct damage
+  multiplier or absorb. Lunge still costs 40 energy for its strike and combo point.
 
 ### Restoration (`restoration`, Groveheart, healer)
 **Set:** Thistlebloom Vestment

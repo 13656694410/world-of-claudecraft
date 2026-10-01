@@ -457,6 +457,11 @@ export const RELIQUARY_HORIZON_TITLES = [
   // The Clue Scroll tenth-casket title (world quests, Stage 3): Treasure
   // Hunter pages here per the locked titles-page rule.
   'exp_clue_ten_caskets',
+  'pvp_flag_1h',
+  'pvp_flag_3h',
+  'pvp_flag_6h',
+  'pvp_flag_24h',
+  'pvp_flag_168h',
 ] as const;
 
 // Profession lifetime mark ids (Phase 7). Prefer existing visited namespaces
@@ -965,7 +970,7 @@ const WARFARE_ARMORY_ITEM_IDS = [
   ...WARFARE_TRINKET_STOCK,
 ];
 // Warfare Season 2 ("Vanguard", content/pvp_honor_season2.ts) is sold by the same
-// two quartermasters: its 27 spec sets and four weapons fill one page, in stock
+// two quartermasters: its spec sets and weapons fill one page, in stock
 // order (class, then spec, each helmet to gloves, then the weapons).
 const VANGUARD_GALLERY_ITEM_IDS = [...SEASON2_STOCK];
 

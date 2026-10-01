@@ -36,6 +36,7 @@ import {
 import { yumiMazeLayout } from '../sim/yumi_maze_layout';
 import type { IWorld } from '../world_api';
 import { paintBgFieldAtlas } from './bg_field_relief_core';
+import { drawHillMapMarker } from './hill_map_marker_painter';
 import { drawBgAtlasMarks } from './hud/battleground';
 import {
   EMPTY_MAP_MARKER_ART,
@@ -1437,6 +1438,24 @@ export class MinimapPainter {
             ctx.lineTo(m.mx + radius * 0.55, m.my);
           }
           ctx.stroke();
+          break;
+        }
+        case 'hill': {
+          ctx.save();
+          ctx.strokeStyle = colors.worldQuestAvailable;
+          ctx.lineWidth = 2;
+          if (m.phase === 'warning') ctx.setLineDash([4, 3]);
+          ctx.beginPath();
+          ctx.arc(m.mx, m.my, m.radius, 0, FULL_CIRCLE);
+          ctx.stroke();
+          ctx.restore();
+          drawHillMapMarker(
+            ctx,
+            m.skull ? { ...m.skull, phase: m.phase } : m,
+            profile === 'compact' ? 6 : 8,
+            colors.worldQuestAvailable,
+            colors.outline,
+          );
           break;
         }
         case 'world-boss': {

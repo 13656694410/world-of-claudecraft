@@ -1221,4 +1221,29 @@ export const table: DeedLocaleTable = {
     name: 'Przyłapany na Gorącym Uczynku',
     desc: 'Złap Scenusza Moneciaka w Zakopanych Skarbnicy zanim ucieka ze złotem.',
   },
+  pvp_flag_1h: {
+    name: 'Śmiały',
+    desc: 'Pozostaw światowe PvP włączone przez 1 godzinę czasu gry. Wylogowanie wstrzymuje postęp; wyłączenie go zeruje. Zdobyte tytuły są stałe.',
+    title: 'Śmiały',
+  },
+  pvp_flag_3h: {
+    name: 'Niepokorny',
+    desc: 'Pozostaw światowe PvP włączone przez 3 godziny czasu gry. Wylogowanie wstrzymuje postęp; wyłączenie go zeruje. Zdobyte tytuły są stałe.',
+    title: 'Niepokorny',
+  },
+  pvp_flag_6h: {
+    name: 'Nieustraszony',
+    desc: 'Pozostaw światowe PvP włączone przez 6 godzin czasu gry. Wylogowanie wstrzymuje postęp; wyłączenie go zeruje. Zdobyte tytuły są stałe.',
+    title: 'Nieustraszony',
+  },
+  pvp_flag_24h: {
+    name: 'Nieugięty',
+    desc: 'Pozostaw światowe PvP włączone przez 24 godziny czasu gry. Wylogowanie wstrzymuje postęp; wyłączenie go zeruje. Zdobyte tytuły są stałe.',
+    title: 'Nieugięty',
+  },
+  pvp_flag_168h: {
+    name: 'Niezłomny',
+    desc: 'Pozostaw światowe PvP włączone przez 7 dni czasu gry. Wylogowanie wstrzymuje postęp; wyłączenie go zeruje. Zdobyte tytuły są stałe.',
+    title: 'Niezłomny',
+  },
 };

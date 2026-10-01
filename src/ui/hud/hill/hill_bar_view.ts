@@ -45,6 +45,16 @@ export type HillBarView = HillBarLive | HillBarHidden;
 
 const HIDDEN: HillBarHidden = { visible: false, sig: 'hidden' };
 
+/** Announce entry or activation only for viewers eligible for the PvP flag.
+ * Raid members cannot capture, but entering still flags them. */
+export function shouldAnnounceHillPvp(previous: HillBarView | null, next: HillBarView): boolean {
+  return hillPvpExposed(next) && !hillPvpExposed(previous);
+}
+
+function hillPvpExposed(view: HillBarView | null): boolean {
+  return !!view?.visible && view.phase === 'active' && view.inside && view.standing !== 'level';
+}
+
 /** The count the viewer's group is measured against (the bar's right-hand
  *  number): the holder's present members, or the largest other group's while
  *  nobody holds the hill (a rival, or nobody). */

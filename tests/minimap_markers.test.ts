@@ -21,6 +21,7 @@ import {
   YUMI_MAZE_X,
   zoneAt,
 } from '../src/sim/data';
+import { createGroundObject } from '../src/sim/entity';
 import { isProfessionQuest } from '../src/sim/quests/ambient_quest_marker';
 import { isQuestTurnInNpc } from '../src/sim/types';
 import { WORLD_BOSSES, worldBossLockoutId } from '../src/sim/world_boss';
@@ -61,6 +62,23 @@ const S = 162;
 const PPY = 1.7; // base scale at zoom 1
 // An overworld player z (delve positions are x in the delve band; x = 0 is overworld).
 const PZ = 100;
+
+it('hides other owners vault markers unless they are in the current party', () => {
+  const world = makeWorld('sim');
+  const portal = createGroundObject(9000, '', 'Hoard', { x: 1, y: 0, z: PZ });
+  portal.templateId = 'hoard_entrance';
+  portal.vaultOwnerPid = 2;
+  world.entities.set(portal.id, portal);
+  const shown = () =>
+    buildMarkers(world).some(
+      (marker) => marker.kind === 'semantic-object' && marker.semantic.kind === 'hoard-entrance',
+    );
+  expect(shown()).toBe(false);
+  portal.vaultOwnerPid = 5;
+  expect(shown()).toBe(true);
+  portal.vaultOwnerPid = world.player.id;
+  expect(shown()).toBe(true);
+});
 
 // One scenario as plain construction. `shape` toggles between a "Sim-shaped" stub
 // carrying sim-only junk fields the core must ignore and a lean "ClientWorld-mirror"
@@ -293,7 +311,10 @@ describe('createMinimapMarkers: the discriminated union per draw kind', () => {
     const world = makeWorld('sim') as unknown as {
       player: { level: number; pos: { x: number; z: number } };
       worldQuestCycle: string;
-      worldQuestLog: ReadonlyMap<string, { questId: string; count: number; state: string }>;
+      worldQuestLog: ReadonlyMap<
+        string,
+        { questId: string; count: number; state: string; practiceOnly?: boolean }
+      >;
     };
     const worldQuestMarkers = () =>
       buildMarkers(world as unknown as IWorld).filter((marker) => marker.kind === 'world-quest');
@@ -308,6 +329,11 @@ describe('createMinimapMarkers: the discriminated union per draw kind', () => {
     world.player.level = quest.minLevel;
     world.worldQuestLog = new Map([
       [quest.id, { questId: quest.id, count: quest.count, state: 'completed' }],
+    ]);
+    expect(worldQuestMarkers()).toEqual([]);
+
+    world.worldQuestLog = new Map([
+      [quest.id, { questId: quest.id, count: 0, state: 'active', practiceOnly: true }],
     ]);
     expect(worldQuestMarkers()).toEqual([]);
 
@@ -1583,5 +1609,51 @@ describe('harvest marker full silhouette at the circular rim', () => {
     expect(harvest()).toEqual([]);
     corpse.pos.x = world.player.pos.x - (safeCenter - 0.01);
     expect(harvest()).toHaveLength(1);
+  });
+});
+
+describe('King of the Hill minimap marker', () => {
+  it.each(['sim', 'client'] as const)(
+    'projects the real circle and centre for %s, at every zoom',
+    (shape) => {
+      const world = makeWorld(shape);
+      Object.assign(world, { hillInfo: { x: 10, z: PZ + 5, radius: 50, phase: 'active' } });
+      const builder = createMinimapMarkers();
+      for (const scale of [0.5, 1, 2]) {
+        const hill = builder.build(world, S, scale).markers.find((m) => m.kind === 'hill');
+        expect(hill).toEqual({
+          kind: 'hill',
+          mx: S / 2 - 10 * scale,
+          my: S / 2 - 5 * scale,
+          radius: 50 * scale,
+          phase: 'active',
+        });
+      }
+      // The circle stays at its true centre; its skull stays visible at the rim.
+      Object.assign(world, { hillInfo: { x: 100, z: PZ, radius: 50, phase: 'warning' } });
+      expect(builder.build(world, S, 1).markers.find((m) => m.kind === 'hill')).toMatchObject({
+        skull: { mx: S / 2 - minimapSafeCenterRadius(S, 12), my: S / 2 },
+        mx: S / 2 - 100,
+        radius: 50,
+        phase: 'warning',
+      });
+      Object.assign(world, { hillInfo: { x: 200, z: PZ, radius: 50, phase: 'active' } });
+      expect(builder.build(world, S, 1).markers.some((m) => m.kind === 'hill')).toBe(false);
+      Object.assign(world, { hillInfo: null });
+      expect(builder.build(world, S, 1).markers.some((m) => m.kind === 'hill')).toBe(false);
+    },
+  );
+
+  it('never puts an overworld hill on an interior minimap', () => {
+    const world = makeWorld('client');
+    Object.assign(world, {
+      hillInfo: { x: 0, z: PZ, radius: 50, phase: 'active' },
+      riftFloor: { name: 'Rift', tier: 'C' },
+    });
+    expect(
+      createMinimapMarkers()
+        .build(world, S, 1)
+        .markers.some((m) => m.kind === 'hill'),
+    ).toBe(false);
   });
 });

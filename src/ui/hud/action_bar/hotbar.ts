@@ -380,6 +380,22 @@ export function loadoutKnownAbilityIds(
   );
 }
 
+// The ability ids an allocation itself GRANTS (its spec signature and every
+// choice-row spell), narrowed to the bar-eligible known set above. These are
+// the spells a spec defines, so a bar that lacks one of them (a per-spec bar
+// seeded from the pre-spec key, a build saved while that was the live bar) is
+// treated as a stale capture and gets them auto-placed: ActionBarController's
+// legacy-seed heal and applyLoadout both use exactly this set, nothing wider.
+export function loadoutGrantedAbilityIds(
+  cls: PlayerClass,
+  alloc: TalentAllocation,
+  level: number,
+): Set<string> {
+  const known = loadoutKnownAbilityIds(cls, alloc, level);
+  const mods = computeTalentModifiers(cls, alloc, level);
+  return new Set(mods.grants.map((grant) => grant.ability).filter((id) => known.has(id)));
+}
+
 function normalizeLoadoutBarSlots(
   bar: readonly (string | null)[],
   slots: number,

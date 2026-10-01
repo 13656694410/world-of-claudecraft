@@ -1267,4 +1267,29 @@ export const table: DeedLocaleTable = {
     name: 'Colto con le mani nel sacco',
     desc: "Cattura uno Scansafatiche Coinsack in un Tesoro Sepolto prima che scappi con l'oro.",
   },
+  pvp_flag_1h: {
+    name: 'Audace',
+    desc: 'Mantieni attivo il PvP mondiale per 1 ora di tempo giocato. La disconnessione sospende i progressi; disattivarlo li azzera. I titoli ottenuti sono permanenti.',
+    title: 'Audace',
+  },
+  pvp_flag_3h: {
+    name: 'Ribelle',
+    desc: 'Mantieni attivo il PvP mondiale per 3 ore di tempo giocato. La disconnessione sospende i progressi; disattivarlo li azzera. I titoli ottenuti sono permanenti.',
+    title: 'Ribelle',
+  },
+  pvp_flag_6h: {
+    name: 'Impavido',
+    desc: 'Mantieni attivo il PvP mondiale per 6 ore di tempo giocato. La disconnessione sospende i progressi; disattivarlo li azzera. I titoli ottenuti sono permanenti.',
+    title: 'Impavido',
+  },
+  pvp_flag_24h: {
+    name: 'Inflessibile',
+    desc: 'Mantieni attivo il PvP mondiale per 24 ore di tempo giocato. La disconnessione sospende i progressi; disattivarlo li azzera. I titoli ottenuti sono permanenti.',
+    title: 'Inflessibile',
+  },
+  pvp_flag_168h: {
+    name: 'Indomabile',
+    desc: 'Mantieni attivo il PvP mondiale per 7 giorni di tempo giocato. La disconnessione sospende i progressi; disattivarlo li azzera. I titoli ottenuti sono permanenti.',
+    title: 'Indomabile',
+  },
 };

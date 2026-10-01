@@ -78,7 +78,7 @@ import {
   parseTalentOptionId,
   parseTalentRowLevel,
 } from '../src/sim/talent_allocation_input';
-import { stealthDetectionRadius, threatEntries } from '../src/sim/threat';
+import { threatEntries } from '../src/sim/threat';
 import {
   DT,
   dist2d,
@@ -235,9 +235,13 @@ import {
 } from './deeds_records';
 import { appendBookOfDeedsWire } from './deeds_wire';
 import { stampDevBadge } from './dev_badge_stamp';
-import { stopDisconnectedPlayerInput } from './disconnected_player_input';
+import {
+  resumeConnectedPlayerInput,
+  stopDisconnectedPlayerInput,
+} from './disconnected_player_input';
 import { enqueueActivity } from './discord_activity';
 import { discordFlairForAccount, grantRewardPoints } from './discord_db';
+import { stampDiscordFlair } from './discord_flair_stamp';
 import { enqueueLinkChange } from './discord_link_changes';
 import { observeQueuePops, queuedPidsOf, queuePopDepsFor } from './discord_queue_pops';
 import { enqueueRelay } from './discord_relay';
@@ -249,6 +253,7 @@ import {
   harvestBandForNode,
   harvestTierForNode,
 } from './economy_telemetry';
+import { canObserveEntity } from './entity_observation';
 import { isUpdateDue } from './entity_update_cadence';
 // Imported from the mirror modules DIRECTLY (not the ./steam or ./epic
 // barrels), the same way deeds_records imports onDeedRecorded: the barrels
@@ -262,6 +267,7 @@ import { assembleEventsFrame, filterRoutableEvents, serializeEventFragments } fr
 import { buildEventPidIndex, forEachSelectedEventIndex } from './event_pid_index';
 import { appendFarmPlotsWire, dispatchFarmingCommand } from './farming_commands';
 import { fishingBandLabel, isKoi, isRodFeeRecipe } from './fishing_telemetry';
+import { type FlairCommandHost, handleFlairChatCommand } from './flair_command';
 import { dispatchGatheringGoalCommand } from './gathering_goal_commands';
 import { appendGatheringGoalSelfWire } from './gathering_goal_wire';
 import { appendGatheringSelfWire } from './gathering_self_wire';
@@ -326,7 +332,6 @@ import {
   INTEREST_QUERY_RADIUS,
   INTEREST_RADIUS,
   interestLimitSq,
-  isStealthed,
   NPC_DROP_RADIUS,
 } from './interest_policy';
 import { IpBlockList } from './ip_block';
@@ -1610,6 +1615,13 @@ export class GameServer {
   // One FIFO per character so a burst of debounced client saves cannot commit on
   // separate pool clients in reverse order and persist a stale layout.
   readonly hotbarLayouts = new HotbarLayoutStore();
+  // The narrow host the /flair command needs (server/flair_command.ts).
+  private readonly flairHost: FlairCommandHost<ClientSession> = {
+    pool,
+    consumeCommandLane: (session, nowSec) => this.consumeLane(session, 'command', nowSec),
+    refreshDiscordFlair: (session) => this.refreshDiscordFlair(session),
+    sendChatNotice: (session, text) => this.sendChatNotice(session, text),
+  };
   // Serializes every write of the single global Market blob (the 30s periodic
   // saveMarket/saveMail/saveRifts and the leave-path combined save). All
   // serialize whole-blob shared state; without a queue their transactions
@@ -2872,26 +2884,7 @@ export class GameServer {
     const flair = await discordFlairForAccount(pool, session.accountId);
     if (this.clients.get(session.pid) !== session) return;
     const e = this.sim.entities.get(session.pid);
-    if (!e) return;
-    const tier = flair?.tier ?? 0;
-    const avatar = flair?.avatarUrl ?? undefined;
-    const name = flair?.name ?? undefined;
-    const joined = flair?.joinedAtMs ?? undefined;
-    const role = flair?.role ?? undefined;
-    if (
-      e.discordTier !== tier ||
-      e.discordAvatar !== avatar ||
-      e.discordName !== name ||
-      e.discordJoined !== joined ||
-      e.discordRole !== role
-    ) {
-      // identity diff re-broadcasts the linked-Discord flair to nearby players
-      e.discordTier = tier;
-      e.discordAvatar = avatar;
-      e.discordName = name;
-      e.discordJoined = joined;
-      e.discordRole = role;
-    }
+    if (e) stampDiscordFlair(e, flair);
   }
 
   // Load one player's operator-set account flair (AI mark + streamer links) and
@@ -3705,11 +3698,7 @@ export class GameServer {
       player.petSpecialCommandsSupported =
         session.petSpecialWireVersion === PET_SPECIAL_WIRE_VERSION;
     }
-    if (session.petSpecialWireVersion === 0) {
-      for (const entity of this.sim.entities.values()) {
-        if (entity.ownerId === session.pid) entity.petAutoSkill = false;
-      }
-    }
+    resumeConnectedPlayerInput(this.sim, session.pid, session.petSpecialWireVersion !== 0);
     session.timerWireCache = new StableSelfTimerWireCache();
     session.sentEnts = new Map();
     session.selfHeavyDirty = true;
@@ -6910,6 +6899,8 @@ export class GameServer {
         // never be shadowed by a player command. The two list READOUTS carry
         // their own DB-read guard inside (the phase 06 maintainer ruling).
         if (this.handleChatFilterCommand(session, text, receivedAtMs / 1000)) break;
+        // The player's own /flair on|off, usable while muted for the same reason.
+        if (handleFlairChatCommand(this.flairHost, session, text, receivedAtMs / 1000)) break;
         if (this.isChatMuted(session)) break;
         // The chat lane is a pre-guard CO-LOCATED with the ladder, not at the
         // case entry (R5): the moderation router and the ignore/block/filter
@@ -8171,15 +8162,7 @@ export class GameServer {
   }
 
   private canObserveEntity(viewer: Entity, e: Entity, d2: number): boolean {
-    if (e.kind !== 'player' || !isStealthed(e)) return true;
-    if (this.sim.isHostileTo(viewer, e)) return false;
-    const party = this.sim.partyOf(viewer.id);
-    const sameParty = party?.members.includes(e.id) ?? false;
-    const duel = this.sim.duelFor(viewer.id);
-    const duelingEachOther = duel !== null && (duel.a === e.id || duel.b === e.id);
-    if (sameParty && !duelingEachOther) return true;
-    const radius = stealthDetectionRadius(viewer, e, INTEREST_RADIUS);
-    return d2 <= radius * radius;
+    return canObserveEntity(this.sim, viewer, e, d2);
   }
 
   private entityWireCacheFor(e: Entity): EntityWireCache {
