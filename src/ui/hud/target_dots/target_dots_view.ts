@@ -1,8 +1,9 @@
 // Pure view-core for the Target dots frame (#target-dots): the multi-target
 // tracker for every debuff the LOCAL player currently has out, one row per
-// (enemy, aura) pair. DOM/Three/i18n-free so it unit-tests directly; the painter
-// turns these rows into pooled DOM and localizes the names. Registered in
-// UI_PURE_CORES; tested in tests/target_dots_view.test.ts.
+// (enemy, aura) pair, where an enemy is a mob or a hostile player. DOM/Three/i18n-free
+// so it unit-tests directly; the painter turns these rows into pooled DOM and
+// localizes the names. Registered in UI_PURE_CORES; tested in
+// tests/target_dots_view.test.ts.
 //
 // CLASS-AGNOSTIC BY CONSTRUCTION. The selection rule is ownership plus harm, never
 // an ability list: an aura qualifies when the host's isOwn predicate says the local
@@ -13,6 +14,13 @@
 // in this file. It deliberately shows only the player's OWN debuffs: the group's are
 // already on the target frame strip, and mixing them back in is the clutter this
 // frame exists to escape.
+//
+// ENEMIES ARE MOBS AND HOSTILE PLAYERS. A player counts while the host's
+// isHostilePlayer verdict says the local player may attack them right now (a duel,
+// a battleground, a ranked arena, or open-world PvP under the /pvp flag), so the
+// dots a player puts on an opposing player track exactly like the ones on a mob.
+// Friendly players never qualify: a harmful-classified lockout the player causes on
+// an ally (Bloodlust's shared exhaustion on the whole party) is not a refresh target.
 //
 // ORDER IS STABLE ON PURPOSE. Rows group by enemy (the current target first, then by
 // entity id) and sort by aura id inside a group, never by remaining time. Sorting by
@@ -109,6 +117,11 @@ export interface TargetDotsDeps<TEntity extends TargetDotsEntityInput = TargetDo
   targetName(entity: TEntity): string;
   /** Artwork identity for this aura. */
   iconKey(aura: TargetDotsAuraInput): string;
+  /** May the local player attack this PLAYER right now (duel, battleground, arena,
+   *  or open-world PvP under the /pvp flag)? The host's one shared verdict
+   *  (src/ui/pvp_hostile_core.ts), never re-derived here. It must answer false for
+   *  the local player and for corpses. Absent, no player is ever trackable. */
+  isHostilePlayer?(entity: TEntity): boolean;
 }
 
 export interface TargetDotsInput<TEntity extends TargetDotsEntityInput = TargetDotsEntityInput> {
@@ -125,11 +138,17 @@ export interface TargetDotsViewCore<TEntity extends TargetDotsEntityInput = Targ
   tick(input: TargetDotsInput<TEntity>): TargetDotsState;
 }
 
-/** Is this entity something the player can have a debuff out on? Players are
- *  excluded: a duel or a battleground debuff belongs to the unit frames, and a
- *  world-PvP tracker is a separate decision nobody has asked for. */
-function isTrackableTarget(entity: TargetDotsEntityInput): boolean {
-  return entity.kind === 'mob' && !entity.dead && entity.auras.length > 0;
+/** Is this entity an enemy the player can have a debuff out on? A living mob, or
+ *  a living player the host's hostility verdict names (PvP: duel, battleground,
+ *  arena, open-world /pvp). The cheap aura-count test runs before the verdict, so
+ *  a player carrying nothing never pays for it. */
+function isTrackableTarget<TEntity extends TargetDotsEntityInput>(
+  entity: TEntity,
+  isHostilePlayer: ((entity: TEntity) => boolean) | undefined,
+): boolean {
+  if (entity.dead || entity.auras.length === 0) return false;
+  if (entity.kind === 'mob') return true;
+  return entity.kind === 'player' && isHostilePlayer !== undefined && isHostilePlayer(entity);
 }
 
 function newRow(): TargetDotRow {
@@ -213,7 +232,7 @@ export function createTargetDotsView<TEntity extends TargetDotsEntityInput>(
       primary.length = 0;
       others.length = 0;
       for (const entity of input.entities) {
-        if (!isTrackableTarget(entity)) continue;
+        if (!isTrackableTarget(entity, deps.isHostilePlayer)) continue;
         if (input.targetId !== null && entity.id === input.targetId) primary.push(entity);
         else others.push(entity);
       }

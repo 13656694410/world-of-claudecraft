@@ -5077,13 +5077,13 @@ export class Hud {
     this.aurasPainterDeps,
     document,
   );
-  // Target dots (#target-dots): the multi-target tracker for every debuff the
-  // LOCAL player has out. The selection core is class-agnostic (ownership plus
-  // isDebuffAura), so it needs no class knowledge here; the Hud supplies only the
-  // ownership predicate it already shares with the target strip, and the
-  // localization callbacks the core must not make itself.
+  // Target dots (#target-dots): every debuff the LOCAL player has out on a mob or a
+  // hostile player. Class-agnostic selection (ownership plus isDebuffAura); the Hud
+  // supplies only the ownership predicate and the PvP hostility verdict it shares
+  // with the target frame, plus the localization callbacks the core must not make.
   private readonly targetDotsView = createTargetDotsView<Entity>({
     isOwn: (a) => isOwnAura(a, this.sim.playerId),
+    isHostilePlayer: (e) => isPvpHostilePlayer(this.sim, e),
     auraName: (a) =>
       auraDisplayNameForHud(a.name, ABILITIES[a.id] ? abilityDisplayName(ABILITIES[a.id]) : null),
     targetName: (e) => entityDisplayName(e),
