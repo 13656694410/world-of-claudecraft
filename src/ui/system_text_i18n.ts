@@ -1,4 +1,3 @@
-import { localizeRiftPlaceName } from './rift_text_i18n';
 // The system-message matcher: server- and sim-emitted English turned back into
 // the player's language.
 //
@@ -29,6 +28,7 @@ import {
 } from './entity_display_core';
 import { formatMoney as formatLocalizedMoney, formatNumber, t } from './i18n';
 import type { TranslationKey } from './i18n.catalog';
+import { localizeRiftPlaceName } from './rift_text_i18n';
 import { localizeServerText } from './server_i18n';
 import { localizeSimText } from './sim_i18n';
 

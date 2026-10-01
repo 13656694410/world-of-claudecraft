@@ -12,7 +12,7 @@
 
 import { clearRiftRegion, resolveMovement, setRiftRegion } from '../colliders';
 import { delveChestItemsForTier } from '../content/delves/lockpick_tiers';
-import { HOARD_MIN_LEVEL } from '../content/treasure_maps';
+import { HOARD_MIN_LEVEL, HOARD_SUGGESTED_PLAYERS } from '../content/treasure_maps';
 import {
   DUNGEON_FLOOR_Y,
   isRiftPos,
@@ -644,6 +644,15 @@ export function enterRift(
   rebindVaultEntrant(ctx, portal ?? null, r.meta.entityId);
   const key = riftKeyFor(ctx, r.meta.entityId);
   const eventId = portal?.riftEventId ?? null;
+  const matchesEvent = (candidate: RiftInstance): boolean =>
+    portal?.vaultOwnerPid !== undefined
+      ? candidate.portalId === portal.id &&
+        candidate.seed === seed >>> 0 &&
+        candidate.vault?.ownerCharacterId === portal.vaultOwnerCharacterId &&
+        candidate.vault?.attemptId === portal.vaultAttemptId
+      : eventId !== null
+        ? candidate.eventId === eventId
+        : candidate.eventId === null && candidate.seed === seed >>> 0;
   // Death rules (2026-07-21 S-raid playtest): a dead player (ghost) may enter
   // ONLY a run they are already a member of, and only while that run has no
   // mob in combat. That kills the die-and-run-back zerg (a ghost can never
@@ -659,9 +668,7 @@ export function enterRift(
       (candidate) =>
         candidate.partyKey !== null &&
         candidate.memberIds.has(r.meta.entityId) &&
-        (eventId !== null
-          ? candidate.eventId === eventId
-          : candidate.eventId === null && candidate.seed === seed >>> 0),
+        matchesEvent(candidate),
     );
     if (!own || riftInstanceInCombat(ctx, own)) {
       if (ctx.time >= (r.e.riftDeniedAt ?? -Infinity) + 4) {
@@ -676,15 +683,6 @@ export function enterRift(
       return;
     }
   }
-  const matchesEvent = (candidate: RiftInstance): boolean =>
-    portal?.vaultOwnerPid !== undefined
-      ? candidate.portalId === portal.id &&
-        candidate.seed === seed >>> 0 &&
-        candidate.vault?.ownerCharacterId === portal.vaultOwnerCharacterId &&
-        candidate.vault?.attemptId === portal.vaultAttemptId
-      : eventId !== null
-        ? candidate.eventId === eventId
-        : candidate.eventId === null && candidate.seed === seed >>> 0;
   const liveMatch = (candidate: RiftInstance): boolean =>
     candidate.partyKey !== null && candidate.outcome === 'active' && matchesEvent(candidate);
 
@@ -881,7 +879,8 @@ export function enterRift(
     spawnRiftFloor(ctx, inst);
   }
 
-  reconcileHoardParty(ctx, inst, (pid) => forceExitRiftPlayer(ctx, inst, pid, true));
+  if (!deadEntry)
+    reconcileHoardParty(ctx, inst, (pid) => evictHoardEntrant(ctx, inst, pid), r.meta.entityId);
   if (hoardRosterFull(inst, r.meta.entityId, r.meta.characterId)) {
     ctx.error(r.meta.entityId, 'This hoard has already admitted five adventurers.');
     return;
@@ -925,7 +924,7 @@ export function enterRift(
   if (inst.vault && inst.vault.rarity !== 'common') {
     ctx.emit({
       type: 'log',
-      text: `${floor.name} is meant for a full party of 5. Tread carefully.`,
+      text: `${floor.name} is meant for a full party of ${HOARD_SUGGESTED_PLAYERS[inst.vault.rarity]}. Tread carefully.`,
       color: '#f96',
       pid: r.meta.entityId,
     });
@@ -1076,6 +1075,15 @@ function forceExitRiftPlayer(
   p.riftSlideDirX = 0;
   p.riftSlideDirZ = 0;
   emitRiftState(ctx, pid, inst, false);
+}
+
+/** Losing an active party slot must not strand a corpse behind its private gate. */
+function evictHoardEntrant(ctx: SimContext, inst: RiftInstance, pid: number): void {
+  const player = ctx.entities.get(pid);
+  if (player?.dead && player.corpsePos && riftInstanceAtPos(ctx, player.corpsePos) === inst) {
+    player.corpsePos = ctx.groundPos(inst.returnPos.x, inst.returnPos.z);
+  }
+  forceExitRiftPlayer(ctx, inst, pid, true);
 }
 
 // ---- Per-tick drivers -------------------------------------------------------
@@ -1582,7 +1590,7 @@ function hoardRewardChestPos(inst: RiftInstance): { x: number; z: number } {
 
 function completeRiftClear(ctx: SimContext, inst: RiftInstance, boss: Entity | null): boolean {
   if (inst.rewarded) return inst.outcome !== 'active';
-  reconcileHoardParty(ctx, inst, (pid) => forceExitRiftPlayer(ctx, inst, pid, true));
+  reconcileHoardParty(ctx, inst, (pid) => evictHoardEntrant(ctx, inst, pid));
   const present = instancePlayerIds(ctx, inst);
   // Active hoards reward the current admitted party, including members outside
   // the room. Departed guests were removed before freezing this outcome.

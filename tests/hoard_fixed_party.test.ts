@@ -48,6 +48,128 @@ function encounter() {
 }
 
 describe('hoard current-party admission', () => {
+  it('rebinds a reconnecting ghost to its own run while the owner is offline', () => {
+    const { sim, owner, join, enter, inst } = encounter();
+    const guest = join(202);
+    const corpse = { ...sim.entities.get(guest)!.pos };
+    sim.removePlayer(guest);
+    sim.removePlayer(owner);
+    const returned = sim.addPlayer('mage', 'Guest202', { characterId: 202 });
+    sim.setPlayerLevel(20, returned);
+    const player = sim.entities.get(returned)!;
+    player.pos = corpse;
+    player.hp = 0;
+    player.dead = true;
+    sim.releaseSpirit(returned);
+    const outside = { ...player.pos };
+    enter(returned);
+    expect(player.pos).not.toEqual(outside);
+    expect(inst.memberIds.has(returned)).toBe(true);
+    expect(inst.memberIds.has(guest)).toBe(false);
+    expect(inst.vault!.entrantSnapshots!.size).toBe(2);
+  });
+
+  it('does not grant a stranger or a different attempt corpse-return access', () => {
+    const { sim, owner, portal, join } = encounter();
+    const guest = join(202);
+    const stranger = sim.addPlayer('mage', 'Stranger', { characterId: 999 });
+    sim.entities.get(stranger)!.dead = true;
+    sim.entities.get(guest)!.dead = true;
+    sim.removePlayer(owner);
+    expect(mayEnterVaultPortal(sim.ctx, portal, stranger)).toBe(false);
+    expect(mayEnterVaultPortal(sim.ctx, { ...portal, vaultAttemptId: '101:2' }, guest)).toBe(false);
+    expect(mayEnterVaultPortal(sim.ctx, { ...portal, id: -2 }, guest)).toBe(false);
+  });
+
+  it('still blocks a bound ghost while the room is in combat', () => {
+    const { sim, owner, join, enter, boss } = encounter();
+    const guest = join(202);
+    const player = sim.entities.get(guest)!;
+    player.hp = 0;
+    player.dead = true;
+    sim.releaseSpirit(guest);
+    sim.removePlayer(owner);
+    boss.aiState = 'attack';
+    boss.inCombat = true;
+    boss.aggroTargetId = guest;
+    const outside = { ...player.pos };
+    sim.drainEvents();
+    enter(guest);
+    expect(player.pos).toEqual(outside);
+    expect(sim.drainEvents()).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          type: 'error',
+          text: 'Your party is still in combat. The dead may re-enter once the fighting stops.',
+        }),
+      ]),
+    );
+  });
+
+  it('preserves an offline guest claim at clear and on existing member reentry', () => {
+    const { sim, owner, join, enter, clear } = encounter();
+    const guest = join(202);
+    sim.removePlayer(guest);
+    enter(owner);
+    const outcomes = clear().filter((e) => e.type === 'treasureVaultOutcomePending');
+    expect(outcomes[0].claims.map((c) => c.characterId).sort()).toEqual([101, 202]);
+  });
+
+  it('returns a displaced ghost corpse outside so replacement does not strand recovery', () => {
+    const { sim, owner, join, enter, inst } = encounter();
+    const guest = join(202);
+    const player = sim.entities.get(guest)!;
+    player.hp = 0;
+    player.dead = true;
+    sim.releaseSpirit(guest);
+    sim.partyKick(guest, owner);
+    enter(owner);
+    expect(inst.memberIds.has(guest)).toBe(false);
+    expect(player.corpsePos!.x).toBeCloseTo(inst.returnPos.x);
+    expect(player.corpsePos!.z).toBeCloseTo(inst.returnPos.z);
+    player.pos = { ...player.corpsePos! };
+    sim.resurrectAtCorpse(guest);
+    expect(player.dead).toBe(false);
+  });
+
+  it('reclaims only the offline slot needed by a replacement', () => {
+    const { sim, join, clear } = encounter();
+    const guests = [201, 202, 203, 204].map(join);
+    sim.removePlayer(guests[0]);
+    sim.removePlayer(guests[1]);
+    join(301);
+    const outcomes = clear().filter((e) => e.type === 'treasureVaultOutcomePending');
+    expect(outcomes[0].claims.map((c) => c.characterId).sort()).toEqual([101, 202, 203, 204, 301]);
+  });
+
+  it.each(['offline', 'decided', 'regrouped'] as const)(
+    'allows an admitted ghost corpse recovery when %s',
+    (scenario) => {
+      const { sim, owner, join, enter, inst, clear } = encounter();
+      const guest = join(202);
+      if (scenario === 'decided') clear();
+      if (scenario === 'offline') sim.removePlayer(owner);
+      else sim.partyLeave(guest);
+      const player = sim.entities.get(guest)!;
+      sim.ctx.dealDamage(null, player, player.maxHp * 100, false, 'shadow', null, 'hit', true);
+      sim.releaseSpirit(guest);
+      for (const id of inst.mobIds) {
+        const mob = sim.entities.get(id);
+        if (mob) {
+          mob.aiState = 'idle';
+          mob.aggroTargetId = null;
+          mob.threat.clear();
+        }
+      }
+      const outside = { ...player.pos };
+      enter(guest);
+      expect(player.pos).not.toEqual(outside);
+      expect(player.dead).toBe(true);
+      expect(inst.memberIds.has(guest)).toBe(true);
+      expect(sim.riftInstances.filter((run) => run.partyKey !== null)).toHaveLength(1);
+    },
+  );
+
   it('replaces guests repeatedly in the same progressed room without rescaling or extra claims', () => {
     const { sim, owner, portal, inst, boss, enter, join, clear } = encounter();
     const hp = boss.maxHp;

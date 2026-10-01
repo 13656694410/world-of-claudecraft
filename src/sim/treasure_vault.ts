@@ -37,7 +37,7 @@ import {
 import { zoneAt } from './data';
 import { createGroundObject } from './entity';
 import { mountOwned } from './mounts';
-import { hoardOwnerPid } from './rift/hoard_party';
+import { hoardOwnerPid, mayRecoverHoardCorpse } from './rift/hoard_party';
 import { grantHoardReward } from './rift/hoard_reward_grant';
 import { rollHoardReward } from './rift/hoard_reward_roll';
 import { RIFT_RANK_BASE_LEVEL, type RiftRankTuning } from './rift/ranks';
@@ -219,6 +219,7 @@ function spawnVaultPortal(
       guestCapped: false,
       guestCycle: ownerMeta.worldQuestCycle,
     };
+    // Retained as descriptive portal metadata; never grants entry authority.
     portal.vaultInitialPartyCharacterIds = (ctx.partyOf(ownerPid)?.members ?? [ownerPid])
       .map((memberPid) => ctx.players.get(memberPid)?.characterId)
       .filter((id): id is number => id !== undefined);
@@ -303,9 +304,10 @@ export function updateVaultPortals(ctx: SimContext): void {
 // The Rift hooks (src/sim/rift/runs.ts)
 
 /** Whether `pid` may walk through `portal`: always for an ordinary rift; for a
- *  vault, the map's owner and whoever shares the owner's party. */
+ *  vault, the owner's current party or a bound dead member recovering a corpse. */
 export function mayEnterVaultPortal(ctx: SimContext, portal: Entity, pid: number): boolean {
   if (portal.vaultOwnerPid === undefined) return true;
+  if (mayRecoverHoardCorpse(ctx, portal, pid)) return true;
   const owner = hoardOwnerPid(ctx, portal.vaultOwnerPid, portal.vaultOwnerCharacterId);
   return (
     owner !== undefined && (owner === pid || ctx.partyOf(owner)?.members.includes(pid) === true)
@@ -333,6 +335,7 @@ export function vaultForPortal(ctx: SimContext, portal: Entity | null): RiftInst
             ? { entrantSnapshots: new Map([[ownerCharacterId, portal.vaultOwnerRewardSnapshot]]) }
             : {}),
         }),
+    // Keep the existing run-record shape; this is an authored size, not attendance.
     headCount: HOARD_SUGGESTED_PLAYERS[portal.vaultRarity],
     level: ctx.entities.get(ownerPid)?.level ?? RIFT_RANK_BASE_LEVEL.C,
     ...(portal.devForceHoardGoblin ? { forceGoblin: true } : {}),
