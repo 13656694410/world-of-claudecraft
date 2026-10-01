@@ -5939,9 +5939,9 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Chọn Máy Ảnh Của Bạn',
   'hudChrome.discord.link.joinServer': 'Chỉ cần tham gia máy chủ Discord',
   'hudChrome.discord.roleTag.contentcreator': 'Nhà Sáng Tạo Nội Dung',
-  'hudChrome.discord.roleTag.juniormods': 'Điều Hành Viên Mới',
+  'hudChrome.discord.roleTag.juniormods': 'Quan Sát Viên',
   'hudChrome.discord.roleTag.legend': 'HUYỀN THOẠI',
-  'hudChrome.discord.roleTag.seniormods': 'Điều Hành Viên Cấp Cao',
+  'hudChrome.discord.roleTag.seniormods': 'Lính Canh',
   'hudChrome.discord.roleTag.shill': 'QUẢNG BÁ VIÊN',
   'hudChrome.discord.roleTagChatTitle': 'Vai trò máy chủ đã xác minh: {role}',
   'hudChrome.finder.accept': 'Chấp Nhận',
@@ -7201,7 +7201,6 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'Người Canh Giữ Nhợt Nhạt (Cái Giá của Người Canh Giữ)',
   'hudChrome.death.spiritHealerAlive':
     'Người Canh Giữ Nhợt Nhạt trông nom kẻ chết. Bạn vẫn còn ở giữa cõi sống.',
-  'hudChrome.discord.roleTag.admin': 'Quản Trị Viên',
   'hudChrome.enchanting.disenchantConfirmBody':
     'Thao tác này phá hủy {item} và thu được nguyên liệu huyền bí. Không thể hoàn tác.',
   'hudChrome.enchanting.disenchantConfirmBodySpecial':
