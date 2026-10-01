@@ -46,7 +46,7 @@ import {
 } from './hoard_goblin';
 import { rebindVaultEntrant, rememberVaultEntrant } from './hoard_identity';
 import { tickHoardLightningStrikes } from './hoard_lightning_strike';
-import { rescaleVaultForEntrants } from './hoard_rescale';
+import { hoardRosterFull, reconcileHoardParty } from './hoard_party';
 import {
   clearHoardRewardChest,
   HOARD_REWARD_CHEST_DAIS_GAP,
@@ -359,8 +359,8 @@ function spawnRiftFloor(ctx: SimContext, inst: RiftInstance): void {
   // descriptor's baseLevel, so every host regenerates it. Boss and trash take
   // DIFFERENT multipliers (rift/ranks.ts), so each spawn resolves its role first.
   const rank = riftRankForBaseLevel(inst.baseLevel);
-  // A vault scales the rank tuning (balanced for a full party) to the head
-  // count its owner brought; an ordinary rift passes through unchanged.
+  // Vault rarity sets a fixed solo or five-player budget.
+  // Ordinary rift tuning passes through unchanged.
   const tuning = vaultScaledTuning(riftRankTuningFor(inst.baseLevel), inst.vault);
   for (const spawn of floor.spawns) {
     const template = MOBS[spawn.templateId];
@@ -677,9 +677,14 @@ export function enterRift(
     }
   }
   const matchesEvent = (candidate: RiftInstance): boolean =>
-    eventId !== null
-      ? candidate.eventId === eventId
-      : candidate.eventId === null && candidate.seed === seed >>> 0;
+    portal?.vaultOwnerPid !== undefined
+      ? candidate.portalId === portal.id &&
+        candidate.seed === seed >>> 0 &&
+        candidate.vault?.ownerCharacterId === portal.vaultOwnerCharacterId &&
+        candidate.vault?.attemptId === portal.vaultAttemptId
+      : eventId !== null
+        ? candidate.eventId === eventId
+        : candidate.eventId === null && candidate.seed === seed >>> 0;
   const liveMatch = (candidate: RiftInstance): boolean =>
     candidate.partyKey !== null && candidate.outcome === 'active' && matchesEvent(candidate);
 
@@ -748,7 +753,12 @@ export function enterRift(
         inst = won;
       }
     }
-    // 1. Binding wins over everything, including the entrant's current party.
+    // Hoards belong to the summoner's portal, not the first party's identity.
+    if (inst === null && portal?.vaultOwnerPid !== undefined) {
+      inst = ctx.riftInstances.find(liveMatch) ?? null;
+      if (inst) inst.partyKey = key;
+    }
+    // 1. Ordinary Rift binding wins over the entrant's current party.
     if (inst === null)
       inst =
         ctx.riftInstances.find(
@@ -871,18 +881,8 @@ export function enterRift(
     spawnRiftFloor(ctx, inst);
   }
 
-  // A five-person party can rotate members while a run remains open. Freeze
-  // eligibility to five distinct characters, not five simultaneous pids:
-  // otherwise a sixth reward claim would make the durable outcome invalid and
-  // leave the whole group's chest sealed forever.
-  const entrantId = r.meta.characterId;
-  const snapshots = inst.vault?.entrantSnapshots;
-  if (
-    inst.vault &&
-    entrantId !== undefined &&
-    !snapshots?.has(entrantId) &&
-    (snapshots?.size ?? 0) >= 5
-  ) {
+  reconcileHoardParty(ctx, inst, (pid) => forceExitRiftPlayer(ctx, inst, pid, true));
+  if (hoardRosterFull(inst, r.meta.entityId, r.meta.characterId)) {
     ctx.error(r.meta.entityId, 'This hoard has already admitted five adventurers.');
     return;
   }
@@ -897,9 +897,6 @@ export function enterRift(
     if (object && !chest.pendingSave && !chest.claimed.includes(r.meta.entityId))
       object.lootable = true;
   }
-  // A player who joined the owner's party after the door opened walks into a
-  // room scaled for fewer: scale it up to everyone who has entered.
-  rescaleVaultForEntrants(ctx, inst);
 
   const origin = riftInstanceOrigin(inst.slot, inst.floorIndex);
   const floor = floorForInstance(inst);
@@ -925,6 +922,14 @@ export function enterRift(
     pid: r.meta.entityId,
   });
   announceHoardGoblin(ctx, inst, r.meta.entityId);
+  if (inst.vault && inst.vault.rarity !== 'common') {
+    ctx.emit({
+      type: 'log',
+      text: `${floor.name} is meant for a full party of 5. Tread carefully.`,
+      color: '#f96',
+      pid: r.meta.entityId,
+    });
+  }
   if (inst.upgrade) {
     const detail = floor.isBoss
       ? inst.upgrade.boss.concept
@@ -1577,10 +1582,10 @@ function hoardRewardChestPos(inst: RiftInstance): { x: number; z: number } {
 
 function completeRiftClear(ctx: SimContext, inst: RiftInstance, boss: Entity | null): boolean {
   if (inst.rewarded) return inst.outcome !== 'active';
+  reconcileHoardParty(ctx, inst, (pid) => forceExitRiftPlayer(ctx, inst, pid, true));
   const present = instancePlayerIds(ctx, inst);
-  // A hoard belongs to everyone who entered it, including the map's owner
-  // after they have stepped outside. The remaining party may finish the run
-  // without silently dropping an earlier entrant from the reward chest.
+  // Active hoards reward the current admitted party, including members outside
+  // the room. Departed guests were removed before freezing this outcome.
   const participants = inst.vault
     ? [...inst.memberIds]
     : present.length > 0

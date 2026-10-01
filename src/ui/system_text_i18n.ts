@@ -1,3 +1,4 @@
+import { localizeRiftPlaceName } from './rift_text_i18n';
 // The system-message matcher: server- and sim-emitted English turned back into
 // the player's language.
 //
@@ -208,7 +209,7 @@ export function localizeSystemText(text: string): string {
   match = /^(.+) is meant for a full party of (\d+)\. Tread carefully\.$/.exec(text);
   if (match) {
     return t('worldContent.dungeonPartyWarning', {
-      name: dungeonDisplayNameFromSource(match[1]),
+      name: localizeRiftPlaceName(match[1]) ?? dungeonDisplayNameFromSource(match[1]),
       count: formatNumber(Number(match[2]), { maximumFractionDigits: 0 }),
     });
   }

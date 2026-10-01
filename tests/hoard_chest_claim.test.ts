@@ -259,7 +259,7 @@ describe('the online hoard chest opens for everyone the clear paid', () => {
     expectPaidOnce(sim, host, members);
   });
 
-  it('a member who joined mid-run (the room scales up) is paid like the rest', async () => {
+  it('a member who joined mid-run is paid without changing difficulty', async () => {
     const { sim, host, owner, portal } = openHoard('grask', 'epic');
     enter(sim, portal, owner);
     const inst = runOf(sim, portal);
@@ -269,7 +269,7 @@ describe('the online hoard chest opens for everyone the clear paid', () => {
     sim.partyAccept(late);
     enter(sim, portal, late);
     expect(inst.memberIds.has(late)).toBe(true);
-    expect(inst.vault!.headCount).toBeGreaterThan(headCount);
+    expect(inst.vault!.headCount).toBe(headCount);
     const chest = await clear(sim, host, inst, owner);
     for (const pid of [owner, late])
       expect(await pressF(sim, host, pid, chest)).toEqual({ visible: true, pressed: true });

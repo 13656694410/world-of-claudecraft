@@ -6,7 +6,7 @@
 //   - using it again on the X spends it and opens a private vault portal, an
 //     event-less Rift portal (src/sim/rift/) stamped with its owner, so only
 //     the owner and their party may enter and the run pays no Rift ladder;
-//   - the vault scales the Rift rank tuning to the head count its owner brought
+//   - the vault applies fixed solo or five-player tuning based on rarity
 //     and, when the boss falls, pays every entrant the rarity's table;
 //   - a read map can be redrawn one rarity finer with Cartographer's Ink, which
 //     the faction quartermasters sell for their currency.
@@ -16,6 +16,7 @@
 
 import {
   CARTOGRAPHERS_INK_ITEM_ID,
+  HOARD_SUGGESTED_PLAYERS,
   isTreasureMapRarity,
   nextTreasureMapRarity,
   TREASURE_DIG_RADIUS,
@@ -36,6 +37,7 @@ import {
 import { zoneAt } from './data';
 import { createGroundObject } from './entity';
 import { mountOwned } from './mounts';
+import { hoardOwnerPid } from './rift/hoard_party';
 import { grantHoardReward } from './rift/hoard_reward_grant';
 import { rollHoardReward } from './rift/hoard_reward_roll';
 import { RIFT_RANK_BASE_LEVEL, type RiftRankTuning } from './rift/ranks';
@@ -302,48 +304,20 @@ export function updateVaultPortals(ctx: SimContext): void {
 
 /** Whether `pid` may walk through `portal`: always for an ordinary rift; for a
  *  vault, the map's owner and whoever shares the owner's party. */
-function currentVaultOwnerPid(ctx: SimContext, portal: Entity): number | undefined {
-  const ownerCharacterId = portal.vaultOwnerCharacterId;
-  if (ownerCharacterId === undefined) return portal.vaultOwnerPid;
-  return (
-    [...ctx.players.values()].find((meta) => meta.characterId === ownerCharacterId)?.entityId ??
-    portal.vaultOwnerPid
-  );
-}
-
 export function mayEnterVaultPortal(ctx: SimContext, portal: Entity, pid: number): boolean {
-  const owner = portal.vaultOwnerPid;
-  if (owner === undefined || owner === pid) return true;
-  const entrantCharacterId = ctx.players.get(pid)?.characterId;
-  const ownerCharacterId = portal.vaultOwnerCharacterId;
-  if (ownerCharacterId !== undefined && entrantCharacterId === ownerCharacterId) return true;
-  if (
-    entrantCharacterId !== undefined &&
-    portal.vaultInitialPartyCharacterIds?.includes(entrantCharacterId)
-  )
-    return true;
-  const currentOwnerPid = currentVaultOwnerPid(ctx, portal) ?? owner;
-  if (ctx.partyOf(currentOwnerPid)?.members.includes(pid)) return true;
-  // An entrant already bound to this run keeps access even when the owner's
-  // disconnect removes them from the current party.
+  if (portal.vaultOwnerPid === undefined) return true;
+  const owner = hoardOwnerPid(ctx, portal.vaultOwnerPid, portal.vaultOwnerCharacterId);
   return (
-    entrantCharacterId !== undefined &&
-    ctx.riftInstances.some(
-      (inst) =>
-        inst.vault?.ownerCharacterId === ownerCharacterId &&
-        inst.portalId === portal.id &&
-        inst.seed === portal.riftSeed &&
-        [...(inst.vault?.memberCharacterIds?.values() ?? [])].includes(entrantCharacterId),
-    )
+    owner !== undefined && (owner === pid || ctx.partyOf(owner)?.members.includes(pid) === true)
   );
 }
 
 /** The vault record for a fresh run entered through `portal` (null for an
- *  ordinary rift). The head count is the owner's party size at that moment. */
+ *  ordinary rift). Difficulty uses the rarity's fixed suggested party size. */
 export function vaultForPortal(ctx: SimContext, portal: Entity | null): RiftInstance['vault'] {
   if (portal?.vaultOwnerPid === undefined || !portal.vaultRarity) return null;
-  const ownerPid = currentVaultOwnerPid(ctx, portal) ?? portal.vaultOwnerPid;
-  const party = ctx.partyOf(ownerPid);
+  const ownerPid =
+    hoardOwnerPid(ctx, portal.vaultOwnerPid, portal.vaultOwnerCharacterId) ?? portal.vaultOwnerPid;
   const ownerCharacterId =
     portal.vaultOwnerCharacterId ?? ctx.players.get(portal.vaultOwnerPid)?.characterId;
   return {
@@ -359,27 +333,28 @@ export function vaultForPortal(ctx: SimContext, portal: Entity | null): RiftInst
             ? { entrantSnapshots: new Map([[ownerCharacterId, portal.vaultOwnerRewardSnapshot]]) }
             : {}),
         }),
-    headCount: Math.max(1, Math.min(5, party?.members.length ?? 1)),
+    headCount: HOARD_SUGGESTED_PLAYERS[portal.vaultRarity],
     level: ctx.entities.get(ownerPid)?.level ?? RIFT_RANK_BASE_LEVEL.C,
     ...(portal.devForceHoardGoblin ? { forceGoblin: true } : {}),
   };
 }
 
-/** The rank tuning scaled to a vault's head count; unchanged for a rift. */
+/** The rank tuning adjusted for a vault's fixed rarity budget; unchanged for a rift. */
 export function vaultScaledTuning(
   tuning: RiftRankTuning,
   vault: RiftInstance['vault'],
 ): RiftRankTuning {
   if (!vault) return tuning;
-  const health = vaultHealthFactor(vault.headCount);
-  const damage = vaultDamageFactor(vault.headCount);
+  const health = vaultHealthFactor(vault.rarity);
+  const bossDamage = vaultDamageFactor(vault.rarity, 'boss');
+  const addDamage = vaultDamageFactor(vault.rarity, 'add');
   return {
     ...tuning,
     healthMultiplier: tuning.healthMultiplier * health,
     bossHealthMultiplier: tuning.bossHealthMultiplier * health,
-    damageMultiplier: tuning.damageMultiplier * damage,
-    bossDamageMultiplier: tuning.bossDamageMultiplier * damage,
-    addDamageMultiplier: tuning.addDamageMultiplier * damage,
+    damageMultiplier: tuning.damageMultiplier * addDamage,
+    bossDamageMultiplier: tuning.bossDamageMultiplier * bossDamage,
+    addDamageMultiplier: tuning.addDamageMultiplier * addDamage,
   };
 }
 
