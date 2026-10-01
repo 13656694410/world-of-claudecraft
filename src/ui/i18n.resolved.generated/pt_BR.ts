@@ -2786,8 +2786,8 @@ export const pt_BR: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Mantenha o PvP mundial ativo para ganhar {percent} a mais de experiência e reputação de facção. Os bônus param quando você solicita a desativação.",
-      "rewardTitles": "Ganhe títulos permanentes após {thresholds} de tempo jogado com o PvP mundial ativo. Sair do jogo e visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.",
-      "rewardPaused": "Sequência PvP atual: {time} de jogo (pausada na Costa da Provação)",
+      "rewardTitles": "Ganhe títulos permanentes após {thresholds} de tempo jogado no mundo aberto com o PvP mundial ativo. Sair do jogo, entrar em instâncias ou visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.",
+      "rewardPaused": "Sequência PvP atual: {time} de jogo (pausada aqui)",
       "rewardProgress": "Sequência PvP atual: {time} de jogo",
       "tab": "PvP Mundial",
       "title": "PvP Mundial",

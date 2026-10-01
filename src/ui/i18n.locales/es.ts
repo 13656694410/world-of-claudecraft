@@ -20211,11 +20211,10 @@ No hay un límite de profesiones que debas temer. Cada personaje puede subir nue
     'La Costa de la Prueba es el único santuario: allí no puedes activar el JcJ mundial ni luchar contra otros jugadores.',
   'hudChrome.worldPvp.rewardBonus':
     'Mantén el JcJ mundial activado para ganar un {percent} más de experiencia y reputación de facción. Las bonificaciones terminan cuando solicitas desactivarlo.',
-  'hudChrome.worldPvp.rewardPaused':
-    'Racha JcJ actual: {time} de juego (en pausa en la Costa de la Prueba)',
+  'hudChrome.worldPvp.rewardPaused': 'Racha JcJ actual: {time} de juego (en pausa aquí)',
   'hudChrome.worldPvp.rewardProgress': 'Racha JcJ actual: {time} de juego',
   'hudChrome.worldPvp.rewardTitles':
-    'Consigue títulos permanentes tras {thresholds} de tiempo jugado con el JcJ mundial activado. Desconectarte y visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.',
+    'Consigue títulos permanentes tras {thresholds} de tiempo jugado en el mundo abierto con el JcJ mundial activado. Desconectarte, entrar en instancias o visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.',
   'guide.worldPvpPage.introZones':
     'El JcJ en el mundo abierto es voluntario y depende del terreno. Al activar tu bandera, los demás jugadores marcados que no estén en tu grupo o banda se vuelven enemigos en zonas disputadas. Al desactivarla, vuelves a ser espectador tras una breve demora. La Costa de la Prueba es el único santuario, sin combates JcJ mundiales. Las tres zonas más al norte siguen las mismas reglas de participación voluntaria que el resto del mundo. Entrar en el círculo activo del Rey de la Colina activa automáticamente tu bandera. Tus compañeros de grupo y banda nunca son enemigos; los miembros de tu hermandad fuera de tu grupo pueden ser atacados como cualquier otro jugador.',
   'guide.worldPvpPage.zonesBody':

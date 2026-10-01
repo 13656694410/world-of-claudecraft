@@ -1,8 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import { grantXp } from '../src/sim/combat/damage';
-import { BUILTIN_WORLD } from '../src/sim/data';
+import {
+  ARENA_X,
+  BG_X,
+  BUILTIN_WORLD,
+  DELVE_X_MIN,
+  DUNGEON_X_THRESHOLD,
+  DUNGEONS,
+  instanceOrigin,
+  RIFT_X_MIN,
+  YUMI_MAZE_X,
+} from '../src/sim/data';
 import { awardFactionReputation, maxStandingForLevel } from '../src/sim/factions';
 import { worldPvpInfoFor } from '../src/sim/pvp/world_pvp';
+import { worldPvpRewardsTickAt } from '../src/sim/pvp/world_pvp_rewards';
 import {
   sanitizeWorldPvpRewardTicks,
   WORLD_PVP_MAX_REWARD_TICKS,
@@ -58,6 +69,52 @@ describe('World PvP rewards', () => {
     sim.tick();
     expect(restored.worldPvp!.rewardTicks).toBe(3600 * TICK_RATE);
     expect(restored.deedsEarned.has('pvp_flag_1h')).toBe(true);
+  });
+
+  it('pauses inside a dungeon, granting no title there, and resumes back in the open world', () => {
+    const { sim, pid, meta } = fixture();
+    sim.setWorldPvpFlag(true, pid);
+    meta.worldPvp!.rewardTicks = 3600 * TICK_RATE - 1;
+    expect(worldPvpInfoFor(sim.ctx, pid)!.rewardPaused).toBe(false);
+    expect(sim.enterDungeon('hollow_crypt', pid)).toBe(true);
+    expect(sim.entities.get(pid)!.pos.x).toBeGreaterThan(DUNGEON_X_THRESHOLD);
+    for (let tick = 0; tick < 5 * TICK_RATE; tick++) sim.tick();
+    expect(meta.worldPvp!.flagged).toBe(true);
+    expect(meta.worldPvp!.rewardTicks).toBe(3600 * TICK_RATE - 1);
+    expect(meta.deedsEarned.has('pvp_flag_1h')).toBe(false);
+    expect(worldPvpInfoFor(sim.ctx, pid)!.rewardPaused).toBe(true);
+    expect(sim.leaveDungeon(pid)).toBe(true);
+    expect(sim.entities.get(pid)!.pos.x).toBeLessThanOrEqual(DUNGEON_X_THRESHOLD);
+    sim.tick();
+    expect(meta.worldPvp!.rewardTicks).toBe(3600 * TICK_RATE);
+    expect(meta.deedsEarned.has('pvp_flag_1h')).toBe(true);
+    expect(worldPvpInfoFor(sim.ctx, pid)!.rewardPaused).toBe(false);
+  });
+
+  it('ticks only on open-world ground: every instance band and the sanctuary pause', () => {
+    const dawnhold = instanceOrigin(DUNGEONS.dawnhold_castle.index, 2);
+    const paused: Array<[string, number, number]> = [
+      ['first dungeon band', instanceOrigin(0, 0).x, instanceOrigin(0, 0).z],
+      ['overflow dungeon band (Dawnhold Castle)', dawnhold.x, dawnhold.z],
+      ['delve', DELVE_X_MIN, -1250],
+      ['arena', ARENA_X, -1250],
+      ['rift', RIFT_X_MIN, -1250],
+      ['maze', YUMI_MAZE_X, -1250],
+      ['battleground', BG_X, -1250],
+      ['Proving Shore sanctuary', -360, 0],
+    ];
+    for (const [where, x, z] of paused) {
+      expect(worldPvpRewardsTickAt(x, z), where).toBe(false);
+    }
+    expect(worldPvpRewardsTickAt(0, 0), 'Eastbrook Vale').toBe(true);
+    expect(worldPvpRewardsTickAt(DUNGEON_X_THRESHOLD, 0), 'the plane edge').toBe(true);
+    const { sim, pid, meta } = fixture();
+    sim.setWorldPvpFlag(true, pid);
+    const player = sim.entities.get(pid)!;
+    player.pos.x = dawnhold.x;
+    player.pos.z = dawnhold.z;
+    sim.tick();
+    expect(meta.worldPvp!.rewardTicks ?? 0).toBe(0);
   });
 
   it('refuses enabling or cancelling disarm on tutorial island', () => {

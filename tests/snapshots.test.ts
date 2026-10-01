@@ -6554,6 +6554,7 @@ describe('full self-state snapshot delta fixture', () => {
       kills: 2,
       deaths: 1,
       zone: 'contested', // the fixture leader stands on contested ground
+      rewardPaused: true, // inside the delve the armed streak is paused (instance plane)
       enabled: true,
     });
     expect(client.player.pvpFlag).toBe(true);

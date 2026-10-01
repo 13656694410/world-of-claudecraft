@@ -2786,8 +2786,8 @@ export const zh_TW: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "保持世界PvP開啟可多獲得{percent}的經驗值和陣營聲望。請求關閉時，加成立即停止。",
-      "rewardTitles": "開啟世界PvP的遊戲時間達到{thresholds}時，可獲得永久頭銜。離線或身處試煉之濱時計時暫停。關閉PvP會重置計時。",
-      "rewardPaused": "目前PvP連續遊戲時間：{time}（在試煉之濱暫停）",
+      "rewardTitles": "在開放世界中開啟世界PvP的遊戲時間達到{thresholds}時，可獲得永久頭銜。離線、身處副本或試煉之濱時計時暫停。關閉PvP會重置計時。",
+      "rewardPaused": "目前PvP連續遊戲時間：{time}（此處暫停）",
       "rewardProgress": "目前PvP連續遊戲時間：{time}",
       "tab": "世界 PvP",
       "title": "世界 PvP",

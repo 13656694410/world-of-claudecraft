@@ -2786,8 +2786,8 @@ export const vi_VN: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Giữ PvP Thế Giới bật để nhận thêm {percent} kinh nghiệm và danh vọng phe phái. Phần thưởng cộng thêm dừng khi bạn yêu cầu tắt.",
-      "rewardTitles": "Nhận danh hiệu vĩnh viễn sau {thresholds} thời gian chơi khi bật PvP Thế Giới. Đăng xuất và đến Bờ Biển Thử Thách sẽ tạm dừng bộ đếm. Tắt PvP sẽ đặt lại bộ đếm.",
-      "rewardPaused": "Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng tại Bờ Biển Thử Thách)",
+      "rewardTitles": "Nhận danh hiệu vĩnh viễn sau {thresholds} thời gian chơi ở thế giới mở khi bật PvP Thế Giới. Đăng xuất, ở trong phụ bản và đến Bờ Biển Thử Thách sẽ tạm dừng bộ đếm. Tắt PvP sẽ đặt lại bộ đếm.",
+      "rewardPaused": "Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng tại đây)",
       "rewardProgress": "Chuỗi PvP hiện tại: đã chơi {time}",
       "tab": "World PvP",
       "title": "World PvP",

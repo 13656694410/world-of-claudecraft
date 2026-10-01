@@ -2786,8 +2786,8 @@ export const tr_TR: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "{percent} daha fazla deneyim ve fraksiyon itibarı kazanmak için Dünya PvP’sini açık tut. Kapatmayı talep ettiğinde bonuslar sona erer.",
-      "rewardTitles": "Dünya PvP’si açıkken {thresholds} oynama süresine ulaşarak kalıcı unvanlar kazan. Çıkış yapmak ve Sınav Kıyısı’nı ziyaret etmek sayacı duraklatır. Kapatmak sayacı sıfırlar.",
-      "rewardPaused": "Mevcut PvP serisi: {time} oynandı (Sınav Kıyısı’nda duraklatıldı)",
+      "rewardTitles": "Açık dünyada Dünya PvP’si açıkken {thresholds} oynama süresine ulaşarak kalıcı unvanlar kazan. Çıkış yapmak, örneklerde bulunmak ve Sınav Kıyısı’nı ziyaret etmek sayacı duraklatır. Kapatmak sayacı sıfırlar.",
+      "rewardPaused": "Mevcut PvP serisi: {time} oynandı (burada duraklatıldı)",
       "rewardProgress": "Mevcut PvP serisi: {time} oynandı",
       "tab": "Dünya PvP",
       "title": "Dünya PvP",

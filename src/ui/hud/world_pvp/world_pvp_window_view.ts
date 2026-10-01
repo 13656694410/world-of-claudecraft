@@ -62,6 +62,9 @@ export type WorldPvpWindowView =
       deaths: number;
       honor: number;
       rewardSeconds: number;
+      /** The armed streak is paused where the player stands (an instance or a
+       *  sanctuary). */
+      rewardPaused: boolean;
       /** The ground under the player right now, for the status card's second
        *  line. Reported whatever the kill switch says, so `realmEnabled` is
        *  what decides whether it means anything. */
@@ -136,6 +139,10 @@ export function buildWorldPvpWindowView(input: WorldPvpWindowViewInput): WorldPv
     deaths: info.deaths,
     honor: input.honor,
     rewardSeconds: info.rewardSeconds ?? 0,
+    // An older server sends no flag; its only pause was the sanctuary.
+    rewardPaused:
+      info.rewardPaused ??
+      (info.flagged && info.disarmRemaining === null && info.zone === 'sanctuary'),
     zone: info.zone,
     realmEnabled: info.enabled !== false,
     stakes: WORLD_PVP_STAKES,

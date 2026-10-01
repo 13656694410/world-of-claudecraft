@@ -2786,8 +2786,8 @@ export const cs_CZ: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Nechte světové PvP zapnuté a získávejte o {percent} více zkušeností a reputace frakcí. Bonusy skončí, jakmile požádáte o vypnutí.",
-      "rewardTitles": "Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP. Odhlášení a návštěva Zkušebního pobřeží časovač pozastaví. Vypnutí jej vynuluje.",
-      "rewardPaused": "Aktuální série PvP: odehráno {time} (pozastaveno na Zkušebním pobřeží)",
+      "rewardTitles": "Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP v otevřeném světě. Odhlášení, instance a Zkušební pobřeží časovač pozastaví. Vypnutí jej vynuluje.",
+      "rewardPaused": "Aktuální série PvP: odehráno {time} (zde pozastaveno)",
       "rewardProgress": "Aktuální série PvP: odehráno {time}",
       "tab": "Světové PvP",
       "title": "Světové PvP",

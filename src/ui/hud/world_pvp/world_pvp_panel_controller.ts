@@ -143,9 +143,7 @@ type LiveView = Extract<WorldPvpWindowView, { kind: 'live' }>;
 
 function rewardProgressText(view: LiveView): string {
   return t(
-    view.flagged && view.disarmRemaining === null && view.zone === 'sanctuary'
-      ? 'hudChrome.worldPvp.rewardPaused'
-      : 'hudChrome.worldPvp.rewardProgress',
+    view.rewardPaused ? 'hudChrome.worldPvp.rewardPaused' : 'hudChrome.worldPvp.rewardProgress',
     { time: rewardClockText(view.rewardSeconds) },
   );
 }

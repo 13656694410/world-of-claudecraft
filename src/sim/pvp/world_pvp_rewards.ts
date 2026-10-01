@@ -1,4 +1,5 @@
 // One bounded counter per connected character, driven only by simulation ticks.
+import { DUNGEON_X_THRESHOLD } from '../data';
 import type { SimContext } from '../sim_context';
 import { TICK_RATE } from '../types';
 import {
@@ -7,6 +8,17 @@ import {
   worldPvpRewardsActive,
 } from './world_pvp_rewards_rules';
 import { worldPvpZonePolicyAt } from './world_pvp_zones';
+
+/** Does a flagged player standing here bank streak time? Only on open-world
+ *  ground another flagged player can reach. Every instance (dungeon, raid,
+ *  delve, rift, maze, arena, battleground) sits on the far-east plane past
+ *  DUNGEON_X_THRESHOLD, the same line Vitality reads (vitality.ts), and a
+ *  sanctuary has no world PvP at all. Without the plane check a flagged
+ *  player could park inside a private dungeon copy, out of every rival's
+ *  reach, and bank the titles risk-free. */
+export function worldPvpRewardsTickAt(x: number, z: number): boolean {
+  return x <= DUNGEON_X_THRESHOLD && worldPvpZonePolicyAt(x, z) !== 'sanctuary';
+}
 
 export function updateWorldPvpRewards(ctx: SimContext): void {
   if (ctx.worldPvpDisabled) return;
@@ -21,7 +33,7 @@ export function updateWorldPvpRewards(ctx: SimContext): void {
     )
       continue;
     const player = ctx.entities.get(meta.entityId)!;
-    if (worldPvpZonePolicyAt(player.pos.x, player.pos.z) === 'sanctuary') continue;
+    if (!worldPvpRewardsTickAt(player.pos.x, player.pos.z)) continue;
     const before = state.rewardTicks ?? 0;
     if (before >= WORLD_PVP_MAX_REWARD_TICKS) continue;
     const ticks = before + 1;

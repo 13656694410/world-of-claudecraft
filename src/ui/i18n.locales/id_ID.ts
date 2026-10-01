@@ -20010,11 +20010,10 @@ export const id_ID: Partial<Record<TranslationKey, string>> = {
     'Pesisir Pembuktian adalah satu-satunya tempat perlindungan: kamu tidak bisa mengaktifkan PvP Dunia atau melawan pemain lain di sana.',
   'hudChrome.worldPvp.rewardBonus':
     'Biarkan PvP Dunia aktif untuk mendapatkan {percent} lebih banyak pengalaman dan reputasi faksi. Bonus berhenti saat kamu meminta untuk menonaktifkannya.',
-  'hudChrome.worldPvp.rewardPaused':
-    'Rangkaian PvP saat ini: {time} bermain (dijeda di Pesisir Pembuktian)',
+  'hudChrome.worldPvp.rewardPaused': 'Rangkaian PvP saat ini: {time} bermain (dijeda di sini)',
   'hudChrome.worldPvp.rewardProgress': 'Rangkaian PvP saat ini: {time} bermain',
   'hudChrome.worldPvp.rewardTitles':
-    'Dapatkan gelar permanen setelah {thresholds} waktu bermain dengan PvP Dunia aktif. Keluar dari permainan dan mengunjungi Pesisir Pembuktian menjeda penghitung. Menonaktifkannya mengatur ulang penghitung.',
+    'Dapatkan gelar permanen setelah {thresholds} waktu bermain di dunia terbuka dengan PvP Dunia aktif. Keluar dari permainan, berada di instans, dan mengunjungi Pesisir Pembuktian menjeda penghitung. Menonaktifkannya mengatur ulang penghitung.',
   'guide.worldPvpPage.introZones':
     'PvP dunia terbuka bersifat sukarela dan bergantung pada wilayah. Di wilayah sengketa, mengaktifkan bendera PvP menjadikan setiap pemain berbendera di luar grup atau raid kamu sebagai musuh; setelah dinonaktifkan dan jeda singkat, kamu kembali menjadi penonton. Pesisir Pembuktian adalah satu-satunya tempat perlindungan tanpa pertempuran dunia, dan tiga wilayah paling utara menggunakan aturan bendera sukarela yang sama seperti wilayah lainnya. Memasuki lingkaran Raja Bukit yang aktif otomatis mengaktifkan benderamu. Anggota grup dan raid tidak pernah menjadi musuhmu di mana pun; anggota guild di luar grup kamu dapat diserang seperti pemain lain.',
   'guide.worldPvpPage.zonesBody':

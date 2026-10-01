@@ -2786,8 +2786,8 @@ export const id_ID: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Biarkan PvP Dunia aktif untuk mendapatkan {percent} lebih banyak pengalaman dan reputasi faksi. Bonus berhenti saat kamu meminta untuk menonaktifkannya.",
-      "rewardTitles": "Dapatkan gelar permanen setelah {thresholds} waktu bermain dengan PvP Dunia aktif. Keluar dari permainan dan mengunjungi Pesisir Pembuktian menjeda penghitung. Menonaktifkannya mengatur ulang penghitung.",
-      "rewardPaused": "Rangkaian PvP saat ini: {time} bermain (dijeda di Pesisir Pembuktian)",
+      "rewardTitles": "Dapatkan gelar permanen setelah {thresholds} waktu bermain di dunia terbuka dengan PvP Dunia aktif. Keluar dari permainan, berada di instans, dan mengunjungi Pesisir Pembuktian menjeda penghitung. Menonaktifkannya mengatur ulang penghitung.",
+      "rewardPaused": "Rangkaian PvP saat ini: {time} bermain (dijeda di sini)",
       "rewardProgress": "Rangkaian PvP saat ini: {time} bermain",
       "tab": "Pertempuran Dunia PvP",
       "title": "Pertempuran Dunia PvP",

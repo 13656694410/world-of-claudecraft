@@ -728,8 +728,23 @@ describe('World PvP reward display', () => {
     expect(view(false)).toMatchObject({ action: 'sanctuary' });
     expect(view(true, 20)).toMatchObject({ action: 'sanctuary' });
     expect(view(true)).toMatchObject({ action: 'disable' });
-    expect(worldPvpBodyHtml(view(true))).toContain('paused on the Proving Shore');
+    expect(worldPvpBodyHtml(view(true))).toContain('Current PvP streak: 0:02 played (paused here)');
     expect(worldPvpBodyHtml(view(false))).toContain('aria-disabled="true"');
+  });
+
+  it('shows the streak paused inside an instance, where the ground still reads contested', () => {
+    setLanguage('en');
+    const view = (rewardPaused: boolean | undefined) =>
+      buildWorldPvpWindowView({
+        info: info({ flagged: true, zone: 'contested', rewardSeconds: 120, rewardPaused }),
+        honor: 0,
+        confirming: false,
+      });
+    expect(view(true)).toMatchObject({ action: 'disable', rewardPaused: true });
+    expect(worldPvpBodyHtml(view(true))).toContain('Current PvP streak: 0:02 played (paused here)');
+    expect(worldPvpBodyHtml(view(false))).not.toContain('paused here');
+    // An older server sends no flag: contested ground there was never paused.
+    expect(view(undefined)).toMatchObject({ rewardPaused: false });
   });
 
   it('displays the bonus and streak rules, without progress in the repaint signature', () => {
@@ -747,7 +762,8 @@ describe('World PvP reward display', () => {
     expect(first.sig).toBe(next.sig);
     const html = worldPvpBodyHtml(first);
     expect(html).toContain('20% more experience and faction reputation');
-    expect(html).toContain('Logout and visiting the Proving Shore pause the timer');
+    expect(html).toContain('with World PvP on in the open world');
+    expect(html).toContain('Logout, instances and the Proving Shore pause the timer');
     expect(html).toContain('Switching off resets it');
     expect(html).toContain('Current PvP streak: 1:00 played');
     expect(html).toContain('7 days');

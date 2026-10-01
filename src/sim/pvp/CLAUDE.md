@@ -117,8 +117,10 @@ ratings.
   lifetime XP. XP, faction and UI consumers import this leaf directly to avoid
   the barrel runtime graph (a second deliberate direct-import exception).
 - `world_pvp_rewards.ts` accrues connected, armed played ticks and grants deeds
-  only at threshold crossings. Tutorial island pauses progress; logout preserves
-  it; requesting disarm resets it. Save full ticks, publish whole minutes.
+  only at threshold crossings. Only open-world ground ticks
+  (`worldPvpRewardsTickAt`): the instance plane and the tutorial island pause
+  progress; logout preserves it; requesting disarm resets it. Save full ticks,
+  publish whole minutes.
 - Import the directory's public API through `src/sim/pvp/index.ts`, with the rewards leaf exception above and another
   deliberate exception: `warfare_quartermaster.ts` is NOT re-exported there
   (see the comment in `index.ts`). It needs `createNpc` from `../entity` at

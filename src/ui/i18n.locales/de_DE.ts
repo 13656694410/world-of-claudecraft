@@ -20217,11 +20217,10 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
     'Die Bewährungsküste ist das einzige Schutzgebiet: Dort kannst du weder Welt-PvP aktivieren noch andere Spieler bekämpfen.',
   'hudChrome.worldPvp.rewardBonus':
     'Lasse Welt-PvP aktiv, um {percent} mehr Erfahrung und Fraktionsruf zu erhalten. Die Boni enden, sobald du die Deaktivierung anforderst.',
-  'hudChrome.worldPvp.rewardPaused':
-    'Aktuelle PvP-Serie: {time} Spielzeit (an der Bewährungsküste pausiert)',
+  'hudChrome.worldPvp.rewardPaused': 'Aktuelle PvP-Serie: {time} Spielzeit (hier pausiert)',
   'hudChrome.worldPvp.rewardProgress': 'Aktuelle PvP-Serie: {time} Spielzeit',
   'hudChrome.worldPvp.rewardTitles':
-    'Erhalte nach {thresholds} Spielzeit mit aktivem Welt-PvP dauerhafte Titel. Ausloggen und Besuche an der Bewährungsküste pausieren den Zähler. Deaktivieren setzt ihn zurück.',
+    'Erhalte nach {thresholds} Spielzeit mit aktivem Welt-PvP in der offenen Welt dauerhafte Titel. Ausloggen, Instanzen und die Bewährungsküste pausieren den Zähler. Deaktivieren setzt ihn zurück.',
   'guide.worldPvpPage.introZones':
     'PvP in der offenen Welt ist freiwillig und hängt vom Gebiet ab. Auf umkämpftem Boden werden mit deiner Flagge alle anderen geflaggten Spieler außerhalb deiner Gruppe oder deines Schlachtzugs zu Feinden. Schaltest du sie aus, bist du nach kurzer Wartezeit wieder Zuschauer. Die Bewährungsküste ist das einzige Schutzgebiet ohne Welt-PvP. Für die drei nördlichsten Gebiete gelten dieselben freiwilligen Flaggenregeln wie für den Rest der Welt. Das Betreten des aktiven Kreises von König des Hügels setzt deine Flagge automatisch. Gruppen- und Schlachtzugsmitglieder sind niemals Feinde; Gildenmitglieder außerhalb deiner Gruppe können wie andere Spieler bekämpft werden.',
   'guide.worldPvpPage.zonesBody':
