@@ -213,6 +213,7 @@ const UI_PURE_CORES = [
   'src/ui/frame_menu_core.ts',
   'src/ui/loot_quality_view.ts',
   'src/ui/item_combat_tooltip_view.ts',
+  'src/ui/treasure_map_tooltip_view.ts',
   'src/ui/trinket_tooltip_view.ts',
   // The trinket auras' tooltip descriptor and their item-icon art map.
   'src/ui/trinket_aura_effect.ts',

@@ -338,7 +338,7 @@ export interface RiftInstance {
    * lingers after the kill never double-pays. */
   rewarded: boolean;
   /** Set when the run is a treasure vault (src/sim/treasure_vault.ts): the map's
-   *  rarity, its owner, and the head count the mobs were scaled for. Null on
+   *  rarity, its owner, and its fixed suggested party size. Null on
    *  every ordinary rift. */
   vault: {
     rarity: TreasureMapRarity;
