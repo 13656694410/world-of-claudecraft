@@ -10,8 +10,6 @@ import type { VaultRewardClaim } from './vault_rewards_db';
 export function addVaultRewardToCharacterState(
   state: CharacterState,
   claim: VaultRewardClaim,
-  _attemptId: string,
-  _owner: boolean,
 ): CharacterState {
   const capped = claim.items.length === 0 && claim.copper === 0;
   if (!capped) {

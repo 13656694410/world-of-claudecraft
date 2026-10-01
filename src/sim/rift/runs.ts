@@ -34,7 +34,7 @@ import type { SimContext } from '../sim_context';
 import { mayEnterVaultPortal, vaultForPortal, vaultScaledTuning } from '../treasure_vault';
 import { DT, dist2d, type Entity, type SimEvent, type Vec3 } from '../types';
 import { recordVaultBossKill } from '../vault_lifecycle';
-import { vaultPortalVisible } from '../vault_visibility';
+import { vaultPortalVisibleToPlayer } from '../vault_visibility';
 import { isInWaterBody } from '../world';
 import { riftFx } from './fx';
 import { tickHoardAddCasts } from './hoard_add_casts';
@@ -1391,12 +1391,7 @@ export function updateRiftTriggers(ctx: SimContext, p: Entity): void {
     if (
       portal &&
       portal.riftSeed !== undefined &&
-      vaultPortalVisible(
-        portal,
-        p.id,
-        ctx.partyOf(p.id)?.members ?? null,
-        (pid) => ctx.players.get(pid)?.characterId,
-      ) &&
+      vaultPortalVisibleToPlayer(ctx, portal, p.id) &&
       dist2d(p.pos, portal.pos) < PORTAL_TRIGGER_RADIUS
     ) {
       enterRift(ctx, portal.riftSeed, portal.riftBaseLevel ?? p.level, p.id, undefined, portal);

@@ -60,7 +60,7 @@ export function saveVaultOwner<Session extends { left: boolean }>(
 }
 
 export class VaultRewardService {
-  private readonly pending = new Map<string, VaultOutcomeInput>();
+  private readonly pending = new Map<string, VaultOutcomeInput & { bossKilledAtMs: number }>();
   private readonly committing = new Set<string>();
   private readonly outcomeRetryAt = new Map<string, number>();
   private readonly claiming = new Set<string>();
@@ -281,7 +281,7 @@ export class VaultRewardService {
         this.host.sim.ctx,
         input.ownerCharacterId,
         attemptId,
-        input.bossKilledAtMs!,
+        input.bossKilledAtMs,
       );
       if (pid !== null)
         void this.host
