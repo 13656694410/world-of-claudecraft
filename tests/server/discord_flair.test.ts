@@ -138,6 +138,79 @@ describe('handleFlairChatCommand', () => {
     await vi.waitFor(() => expect(r.notices).toEqual([FLAIR_NOTICES.hidden]));
   });
 
+  it('bounds completed commands to one per second without queuing repeats', async () => {
+    const r = rig({ linked: true });
+    handleFlairChatCommand(r.host, r.session, '/flair off', 1);
+    await vi.waitFor(() => expect(r.notices).toHaveLength(1));
+    for (let n = 0; n < 60; n++) {
+      expect(handleFlairChatCommand(r.host, r.session, '/flair off', 1.99)).toBe(true);
+    }
+    expect(r.queries).toHaveLength(1);
+    handleFlairChatCommand(r.host, r.session, '/flair on', 2);
+    await vi.waitFor(() => expect(r.notices).toHaveLength(2));
+    expect(r.queries).toHaveLength(2);
+  });
+
+  it('allows only one pending operation per account while other accounts can proceed', async () => {
+    const r = rig({ linked: true });
+    let finish!: () => void;
+    const pending = new Promise<void>((resolve) => {
+      finish = resolve;
+    });
+    const query = vi.spyOn(r.host.pool, 'query');
+    query.mockImplementationOnce((async () => {
+      await pending;
+      return { rows: [], rowCount: 1, command: 'UPDATE', oid: 0, fields: [] };
+    }) as typeof r.host.pool.query);
+    handleFlairChatCommand(r.host, r.session, '/flair off', 1);
+    for (let n = 0; n < 60; n++) {
+      handleFlairChatCommand(r.host, { accountId: 42 }, '/flair on', 2 + n);
+    }
+    expect(query).toHaveBeenCalledTimes(1);
+    handleFlairChatCommand(r.host, { accountId: 43 }, '/flair off', 100);
+    await vi.waitFor(() => expect(r.notices).toHaveLength(1));
+    expect(query).toHaveBeenCalledTimes(2);
+    finish();
+    await vi.waitFor(() => expect(r.notices).toHaveLength(2));
+    handleFlairChatCommand(r.host, r.session, '/flair on', 101);
+    await vi.waitFor(() => expect(r.notices).toHaveLength(3));
+    expect(query).toHaveBeenCalledTimes(3);
+  });
+
+  it('keeps the account busy until its identity refresh completes', async () => {
+    const r = rig({ linked: true });
+    let finish!: () => void;
+    r.refresh.mockImplementationOnce(
+      () =>
+        new Promise<void>((resolve) => {
+          finish = resolve;
+        }),
+    );
+    handleFlairChatCommand(r.host, r.session, '/flair off', 1);
+    await vi.waitFor(() => expect(r.refresh).toHaveBeenCalledTimes(1));
+    handleFlairChatCommand(r.host, r.session, '/flair on', 10);
+    expect(r.queries).toHaveLength(1);
+    finish();
+    await vi.waitFor(() => expect(r.notices).toHaveLength(1));
+    handleFlairChatCommand(r.host, r.session, '/flair on', 11);
+    await vi.waitFor(() => expect(r.notices).toHaveLength(2));
+  });
+
+  it('releases a failed operation so a later retry can run', async () => {
+    const r = rig({ linked: true });
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      r.refresh.mockRejectedValueOnce(new Error('refresh failed'));
+      handleFlairChatCommand(r.host, r.session, '/flair off', 1);
+      await vi.waitFor(() => expect(log).toHaveBeenCalledTimes(1));
+      handleFlairChatCommand(r.host, r.session, '/flair on', 2);
+      await vi.waitFor(() => expect(r.notices).toEqual([FLAIR_NOTICES.shown]));
+      expect(r.queries).toHaveLength(2);
+    } finally {
+      log.mockRestore();
+    }
+  });
+
   it('a throttled sender is still claimed (never broadcast) but does no database work', () => {
     const r = rig({ linked: true, laneOpen: false });
     expect(handleFlairChatCommand(r.host, r.session, '/flair off', 1)).toBe(true);

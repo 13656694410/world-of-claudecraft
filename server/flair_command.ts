@@ -1,5 +1,6 @@
 import type { Pool } from 'pg';
 import { discordFlairHiddenForAccount, setDiscordFlairHidden } from './discord_db';
+import { acquireFlairCommand } from './flair_command_guard';
 
 // The player-facing /flair command: a linked player shows or hides their
 // Discord role flair (the colored name, the [Role] tag on their nameplate and
@@ -94,8 +95,10 @@ export function handleFlairChatCommand<S extends { accountId: number }>(
   const cmd = parseFlairCommand(text);
   if (!cmd) return false;
   if (!host.consumeCommandLane(session, nowSec)) return true;
-  void runFlairCommand(host, session, cmd).catch((err) =>
-    console.error('flair command failed:', err),
-  );
+  const release = acquireFlairCommand(host, session, nowSec);
+  if (!release) return true;
+  void runFlairCommand(host, session, cmd)
+    .catch((err) => console.error('flair command failed:', err))
+    .finally(release);
   return true;
 }
