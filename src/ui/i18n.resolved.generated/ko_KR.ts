@@ -594,6 +594,8 @@ export const ko_KR: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "시신에서 부활",
+      "pvpResurrect": "PvP 부활",
+      "pvpResurrectTitle": "가장 가까운 묘지에서 생명력과 마나가 가득 찬 상태로 부활하며, 부활 후유증이 없습니다.",
       "resurrectAtHealer": "영혼 치유사 (부활의 후유증)",
       "ghostHint": "죽은 장소로 달려가거나 영혼 치유사에게 말을 걸어 부활하세요",
       "spiritHealerAlive": "영혼 치유사는 죽은 자를 지킵니다. 당신은 아직 산 자입니다.",

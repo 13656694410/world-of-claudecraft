@@ -5570,6 +5570,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.warlock_voidwalker.name': '虚空恶魔',
   'entities.mobs.ysolei.name': '伊索蕾，溺月化身',
   'hudChrome.death.resurrectAtCorpse': '在尸体旁复活',
+  'hudChrome.death.pvpResurrect': 'PvP 复活',
+  'hudChrome.death.pvpResurrectTitle': '在最近的墓地复活，生命值和法力值全满，且没有复活后遗症。',
   'hudChrome.death.resurrectAtHealer': '灵魂医者（复活后遗症）',
   'hudChrome.death.healerConfirmTitle': '接受复活后遗症？',
   'hudChrome.death.healerConfirmBody':

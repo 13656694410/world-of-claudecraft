@@ -1,5 +1,6 @@
 // The self record's static combat-rating / progression scalar cohort plus the
-// authoritative in-combat bit, emitted through the caller's delta-eliding
+// authoritative in-combat bit and the death state (corpse position, the PvP
+// Resurrect offer), emitted through the caller's delta-eliding
 // closure (the `maybe(...)` in selfWireJson, server/game.ts). Every key here
 // rides the wire only when its serialized value differs from what the session
 // last received (a fresh session gets them all); the client treats an absent
@@ -34,6 +35,8 @@ export const SELF_SCALAR_KEYS = [
   'hirat',
   'ddiff',
   'cbt',
+  'corpse',
+  'pvr',
 ] as const;
 
 export type SelfScalarKey = (typeof SELF_SCALAR_KEYS)[number];
@@ -74,4 +77,13 @@ export function emitSelfScalarKeys(
   // traded a blow. A 0/1 bit rather than a boolean: it flips at most a few
   // times per fight, so the delta elision keeps it off the wire between flips.
   emit('cbt', p.inCombat ? 1 : 0);
+  // Where the player's corpse lies while their spirit is a ghost (null otherwise).
+  // Delta-guarded: ships on death-release and clears on resurrect. The client
+  // draws the corpse marker and gates the resurrect-at-corpse button on it.
+  emit('corpse', p.corpsePos);
+  // The PvP Resurrect offer (src/sim/pvp/pvp_resurrect.ts), 0/1: lit while the
+  // corpse carries it (a released ghost keeps the bit; the death screen hides the
+  // button for a ghost and the server re-checks ghost, instance and jail at the
+  // raise), so it flips once per PvP death and once at the revive.
+  emit('pvr', p.dead && p.pvpResurrect === true ? 1 : 0);
 }

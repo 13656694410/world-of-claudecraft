@@ -5792,6 +5792,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.warlock_voidwalker.name': '虚無の魔物',
   'entities.mobs.ysolei.name': 'イソレイ、溺月の化身',
   'hudChrome.death.resurrectAtCorpse': '亡骸で復活',
+  'hudChrome.death.pvpResurrect': 'PvP復活',
+  'hudChrome.death.pvpResurrectTitle': '最寄りの墓地でHPとマナが全快した状態で復活し、復活の後遺症もない。',
   'hudChrome.death.resurrectAtHealer': '霊魂の癒し手（復活の後遺症）',
   'hudChrome.death.healerConfirmTitle': '復活の後遺症を受けますか？',
   'hudChrome.death.healerConfirmBody':

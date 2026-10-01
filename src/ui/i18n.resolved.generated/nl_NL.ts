@@ -594,6 +594,8 @@ export const nl_NL: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Herrijs bij je lijk",
+      "pvpResurrect": "PvP Resurrect",
+      "pvpResurrectTitle": "Revive at the nearest graveyard with full health and mana, and no Keeper's Toll.",
       "resurrectAtHealer": "De Bleke Hoeder (Tol van de Hoeder)",
       "ghostHint": "Ren naar de plaats van je dood of spreek de Bleek Bewaarder aan om weer tot leven te komen",
       "spiritHealerAlive": "De Bleke Hoeder waakt over de doden. Jij bent nog onder de levenden.",

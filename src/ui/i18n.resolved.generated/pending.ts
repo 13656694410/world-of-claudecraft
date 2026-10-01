@@ -9,25 +9,70 @@
 // Reproducibility is checked by tests/i18n_resolved_equivalence.test.ts.
 
 export const pending: Record<string, readonly string[]> = {
-  "es": [],
-  "es_ES": [],
-  "fr_FR": [],
-  "fr_CA": [],
+  "es": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
+  "es_ES": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
+  "fr_FR": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
+  "fr_CA": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
   "en_CA": [],
-  "it_IT": [],
-  "de_DE": [],
+  "it_IT": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
+  "de_DE": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
   "zh_CN": [],
   "zh_TW": [],
   "ko_KR": [],
   "ja_JP": [],
-  "pt_BR": [],
+  "pt_BR": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
   "ru_RU": [],
-  "cs_CZ": [],
-  "nl_NL": [],
-  "pl_PL": [],
-  "id_ID": [],
-  "tr_TR": [],
-  "sv_SE": [],
-  "vi_VN": [],
-  "da_DK": []
+  "cs_CZ": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
+  "nl_NL": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
+  "pl_PL": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
+  "id_ID": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
+  "tr_TR": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
+  "sv_SE": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
+  "vi_VN": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ],
+  "da_DK": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle"
+  ]
 };

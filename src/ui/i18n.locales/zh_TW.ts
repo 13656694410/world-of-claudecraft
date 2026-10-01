@@ -5573,6 +5573,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.warlock_voidwalker.name': '虛空惡魔',
   'entities.mobs.ysolei.name': '伊索蕾，溺月化身',
   'hudChrome.death.resurrectAtCorpse': '在屍體旁復活',
+  'hudChrome.death.pvpResurrect': 'PvP 復活',
+  'hudChrome.death.pvpResurrectTitle': '在最近的墓地復活，生命值和法力值全滿，且沒有復活後遺症。',
   'hudChrome.death.resurrectAtHealer': '靈魂醫者（復活虛弱）',
   'hudChrome.death.healerConfirmTitle': '接受復活虛弱？',
   'hudChrome.death.healerConfirmBody':

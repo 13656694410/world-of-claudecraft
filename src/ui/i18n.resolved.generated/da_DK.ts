@@ -594,6 +594,8 @@ export const da_DK: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Genopstå ved liget",
+      "pvpResurrect": "PvP Resurrect",
+      "pvpResurrectTitle": "Revive at the nearest graveyard with full health and mana, and no Keeper's Toll.",
       "resurrectAtHealer": "Den Blege Vogter (Vogterens Klokke)",
       "ghostHint": "Løb til stedet for din død eller tale med Blegekyperen for at blive genoplivet",
       "spiritHealerAlive": "Den Blege Vogter våger over de døde. Du er stadig blandt de levende.",
