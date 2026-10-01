@@ -1207,7 +1207,10 @@ const MONOLITHS: MonolithRow[] = [
     // integration/world-quests-v0440 (the Eastbrook ferry, PR 4225, composes
     // with the branch's): exact count measured on the MERGED working tree
     // (wc -l after biome), never reconciled by arithmetic. Zero slack.
-    ceiling: 11642,
+    // Down 11642 -> 11615 for the party difficulty-switch fix: the
+    // setDungeonDifficulty body moved to src/sim/instances/difficulty_selection.ts
+    // (it gained an implicit reset on change). Exact count, zero slack.
+    ceiling: 11615,
     seam: 'a sim system module behind SimContext (src/sim/CLAUDE.md)',
   },
   {

@@ -450,9 +450,10 @@ export interface SimContextCallbacks {
   // (N1, the delve slice, quest spawns, the interaction dispatchers) reaches them
   // through the seam; implemented in instances/dungeons, Sim keeps thin delegates so
   // existing `this.enterDungeon` etc. call sites resolve unchanged.
-  // dungeonDifficulty/setDungeonDifficulty are the heroic-selection commands: the
-  // body-stays-on-Sim kind (party/meta state lives on Sim), exposed so the chat
-  // slash command and instances/dungeons reach them through the seam.
+  // dungeonDifficulty/setDungeonDifficulty are the heroic-selection commands
+  // (party/meta state lives on Sim; the setter's body is owned by
+  // instances/difficulty_selection), exposed so the chat slash command and
+  // instances/dungeons reach them through the seam.
   // awardHeroicMarks is owned by instances/dungeons: the C1 death hub calls it
   // once per death to settle a heroic final boss's direct participant rewards
   // and whole-claim realm-reset lockout together (no rng draws).
