@@ -173,11 +173,12 @@ export const WORLD_PVP_FFA_ENTER_LINE =
   'You have entered a free-for-all PvP zone: anyone here can attack you.';
 export const WORLD_PVP_FFA_LEAVE_LINE = 'You have left the free-for-all PvP zone.';
 export const WORLD_PVP_SANCTUARY_LINE = 'This is a sanctuary: World PvP is off here.';
-/** The refusal a heal, shield or buff meets when its target is a player the
- *  open world has made an enemy (combat/casting_lifecycle.ts): once the aid
- *  rule has flagged a helper, that helper and the stranger they were keeping
- *  up are two flagged strangers, and the only way to keep aiding them is the
- *  exemption, a party. Said out loud rather than self-cast in silence. */
+/** The refusal a heal, shield or buff meets when the unit it NAMES (a hover
+ *  override, or a timed cast's locked target) is a player the open world has
+ *  made an enemy (combat/casting_lifecycle.ts): once the aid rule has flagged a
+ *  helper, that helper and the stranger they were keeping up are two flagged
+ *  strangers, and the only way to keep aiding them is the exemption, a party.
+ *  An enemy merely selected is the classic self-cast, never this refusal. */
 export const WORLD_PVP_AID_REFUSED_LINE =
   'You cannot aid a World PvP enemy: invite them to your party first.';
 
