@@ -9,25 +9,55 @@
 // Reproducibility is checked by tests/i18n_resolved_equivalence.test.ts.
 
 export const pending: Record<string, readonly string[]> = {
-  "es": [],
-  "es_ES": [],
-  "fr_FR": [],
-  "fr_CA": [],
+  "es": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
+  "es_ES": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
+  "fr_FR": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
+  "fr_CA": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
   "en_CA": [],
-  "it_IT": [],
-  "de_DE": [],
+  "it_IT": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
+  "de_DE": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
   "zh_CN": [],
   "zh_TW": [],
   "ko_KR": [],
   "ja_JP": [],
-  "pt_BR": [],
+  "pt_BR": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
   "ru_RU": [],
-  "cs_CZ": [],
-  "nl_NL": [],
-  "pl_PL": [],
-  "id_ID": [],
-  "tr_TR": [],
-  "sv_SE": [],
-  "vi_VN": [],
-  "da_DK": []
+  "cs_CZ": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
+  "nl_NL": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
+  "pl_PL": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
+  "id_ID": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
+  "tr_TR": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
+  "sv_SE": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
+  "vi_VN": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ],
+  "da_DK": [
+    "hudChrome.warfareShop.buyConfirmBodyGold"
+  ]
 };

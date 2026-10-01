@@ -2855,7 +2855,8 @@ export const ja_JP: EnTranslations = {
       "owned": "所有済み",
       "buyAria": "{item}を{honor}で購入",
       "buyOwnedAria": "{item}を{honor}で購入、所有済み",
-      "buyConfirmBody": "{item}を{honor}で購入しますか？名誉での購入は返金できません。"
+      "buyConfirmBody": "{item}を{honor}で購入しますか？名誉での購入は返金できません。",
+      "buyConfirmBodyGold": "{item}を{price}で購入しますか？この購入は返金できません。"
     },
     "charSheet": {
       "offense": "攻撃",

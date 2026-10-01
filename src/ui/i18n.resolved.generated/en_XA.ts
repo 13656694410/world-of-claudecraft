@@ -2855,7 +2855,8 @@ export const en_XA: EnTranslations = {
       "owned": "[Óŵñéð]",
       "buyAria": "[Ɓúý {item} ƒóŕ {honor}]",
       "buyOwnedAria": "[Ɓúý {item} ƒóŕ {honor}, áļŕéáðý óŵñéð]",
-      "buyConfirmBody": "[Ɓúý {item} ƒóŕ {honor}? Ĥóñóŕ þúŕçĥášéš çáññóţ ƀé ŕéƒúñðéð.]"
+      "buyConfirmBody": "[Ɓúý {item} ƒóŕ {honor}? Ĥóñóŕ þúŕçĥášéš çáññóţ ƀé ŕéƒúñðéð.]",
+      "buyConfirmBodyGold": "[Ɓúý {item} ƒóŕ {price}? Ţĥíš þúŕçĥášé çáññóţ ƀé ŕéƒúñðéð.]"
     },
     "charSheet": {
       "offense": "[Óƒƒéñšé]",

@@ -2855,7 +2855,8 @@ export const en: EnTranslations = {
       "owned": "Owned",
       "buyAria": "Buy {item} for {honor}",
       "buyOwnedAria": "Buy {item} for {honor}, already owned",
-      "buyConfirmBody": "Buy {item} for {honor}? Honor purchases cannot be refunded."
+      "buyConfirmBody": "Buy {item} for {honor}? Honor purchases cannot be refunded.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Offense",

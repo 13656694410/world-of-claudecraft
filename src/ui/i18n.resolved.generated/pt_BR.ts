@@ -2855,7 +2855,8 @@ export const pt_BR: EnTranslations = {
       "owned": "Possuído",
       "buyAria": "Comprar {item} por {honor}",
       "buyOwnedAria": "Comprar {item} por {honor}, já possuído",
-      "buyConfirmBody": "Comprar {item} por {honor}? Compras com Honra não podem ser reembolsadas."
+      "buyConfirmBody": "Comprar {item} por {honor}? Compras com Honra não podem ser reembolsadas.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Ataque",

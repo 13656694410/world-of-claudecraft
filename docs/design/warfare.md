@@ -669,6 +669,33 @@ currently supports. Prices are per purchase:
 - The seven-piece armor set, the capstone: **5,400 honor**.
 - A complete 11-slot kit: **7,550 honor**.
 
+**Season 1 sells for gold (owner rule, 2026-10-02):** with Warfare Season 2 as
+the honor tier, the entry tier above moved to gold: "make the last season of PvP
+sets just worth gold, perhaps 100g for the set". Each family's seven armor
+pieces cost exactly 100 gold, split in proportion to the honor prices above and
+rounded to whole gold; jewelry and weapons follow the same rate
+(`WARFARE_SEASON1_PRICE_COPPER` in `src/sim/content/pvp_honor.ts`). The two
+Warfare trinkets stay on honor (800 each). Still soulbound with no sell value.
+
+| Slot | Gold |
+| --- | ---: |
+| Main hand | 22 |
+| Chest | 22 |
+| Legs | 19 |
+| Helmet | 17 |
+| Shoulder | 13 |
+| Gloves | 10 |
+| Feet | 10 |
+| Waist | 9 |
+| Neck | 7 |
+| Ring | 5 |
+
+- The seven-piece armor set: **100 gold**. A complete 10-slot kit (armor,
+  neck, two rings, main hand): **139 gold**.
+- A repeat gold purchase climbs only the relic's Reliquary obtain count, which is
+  information and never a score, so the Reliquary's copper-vendor guard names
+  Season 1 as its one deliberate exemption (`tests/reliquary_content.test.ts`).
+
 Roughly 1.75x the schedule the tier launched with. It is now genuinely
 best-in-slot for PvP armor and should be earned. The main hand comes down to the
 chest's price rather than up: it shares the chest's slot budget of 22, so equal

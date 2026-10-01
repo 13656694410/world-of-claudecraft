@@ -29,6 +29,7 @@ import type {
 import {
   renderWarfareVendorWindow,
   type WarfareVendorWindowDeps,
+  warfarePurchaseConfirmBody,
 } from '../src/ui/hud/vendor/warfare_vendor_window';
 import { tTalent } from '../src/ui/talent_i18n';
 
@@ -64,6 +65,7 @@ function offer(
     itemId,
     item: item(itemId, slot),
     honor: 100,
+    copper: 0,
     affordable: true,
     owned: false,
     ...over,
@@ -167,6 +169,40 @@ describe('renderWarfareVendorWindow: focus keys are namespaced per section', () 
     expect(
       [...el.querySelectorAll<HTMLElement>('.vendor-goods-grid')].map((grid) => grid.dataset.grid),
     ).toEqual([SET_A, SET_B]);
+  });
+});
+
+describe('renderWarfareVendorWindow: Season 1 rows sell for gold', () => {
+  it('paints the coin readout and names the gold price, never Honor', () => {
+    const el = mount();
+    renderWarfareVendorWindow(
+      el,
+      'Draven',
+      view([
+        section(SET_A, [
+          offer('gold_helm', 'helmet', { honor: 0, copper: 170_000 }),
+          offer('poor_chest', 'chest', { honor: 0, copper: 220_000, affordable: false }),
+        ]),
+      ]),
+      deps(),
+    );
+    const helm = tile(el, `buy:${SET_A}:gold_helm`);
+    expect(helm.querySelector('.vi-price')?.innerHTML).toBe('170000c');
+    expect(helm.querySelector('.warfare-price')).toBeNull();
+    expect(helm.getAttribute('aria-label')).toBe('Buy gold_helm for 17 gold 0 silver');
+    const chest = tile(el, `buy:${SET_A}:poor_chest`);
+    expect(chest.disabled).toBe(true);
+    expect(chest.querySelector('.vi-price')?.classList.contains('unaffordable')).toBe(true);
+  });
+
+  it('confirms a gold purchase in gold and an Honor purchase in Honor', () => {
+    const gold = { ...item('gold_helm', 'helmet'), priceHonor: undefined, buyValue: 170_000 };
+    expect(warfarePurchaseConfirmBody(gold as ItemDef)).toBe(
+      'Buy gold_helm for 17 gold 0 silver? This purchase cannot be refunded.',
+    );
+    expect(warfarePurchaseConfirmBody(item('honor_helm', 'helmet'))).toBe(
+      'Buy honor_helm for 100 Honor? Honor purchases cannot be refunded.',
+    );
   });
 });
 
