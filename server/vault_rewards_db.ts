@@ -75,6 +75,7 @@ export interface VaultRewardClaimInput {
 export interface VaultOutcomeInput {
   attemptId: string;
   ownerCharacterId: number;
+  bossKilledAtMs?: number;
   claims: VaultRewardClaimInput[];
 }
 
@@ -90,6 +91,7 @@ export interface VaultRewardClaim {
 export interface VaultOutcome {
   attemptId: string;
   ownerCharacterId: number;
+  bossKilledAtMs?: number;
   claims: VaultRewardClaim[];
   completedAt: Date;
 }
@@ -178,6 +180,11 @@ function positiveId(value: number, label: string): void {
 function normalizeOutcome(input: VaultOutcomeInput): Omit<VaultOutcome, 'completedAt'> {
   if (!/^[A-Za-z0-9:_-]{1,128}$/.test(input.attemptId)) throw new Error('invalid attempt id');
   positiveId(input.ownerCharacterId, 'owner character id');
+  if (
+    input.bossKilledAtMs !== undefined &&
+    (!Number.isSafeInteger(input.bossKilledAtMs) || input.bossKilledAtMs < 0)
+  )
+    throw new Error('invalid vault kill time');
   if (input.claims.length < 1 || input.claims.length > 5) {
     throw new Error('vault outcome requires 1 to 5 claims');
   }
@@ -220,7 +227,12 @@ function normalizeOutcome(input: VaultOutcomeInput): Omit<VaultOutcome, 'complet
   });
   if (!seen.has(input.ownerCharacterId)) throw new Error('owner must have a reward claim');
   claims.sort((a, b) => a.characterId - b.characterId);
-  return { attemptId: input.attemptId, ownerCharacterId: input.ownerCharacterId, claims };
+  return {
+    attemptId: input.attemptId,
+    ownerCharacterId: input.ownerCharacterId,
+    claims,
+    ...(input.bossKilledAtMs === undefined ? {} : { bossKilledAtMs: input.bossKilledAtMs }),
+  };
 }
 
 function numericId(value: unknown): number {
@@ -312,19 +324,23 @@ export function createVaultRewardsDb(pool: VaultRewardPool, realm = REALM) {
           await client.query('SELECT pg_advisory_xact_lock(hashtext($1)::bigint)', [
             `${realm}:vault-guest:${claim.characterId}:${claim.guestCycle ?? ''}`,
           ]);
+          // $2 is written to a BIGINT column and compared with characters.id, which
+          // is an INTEGER (SERIAL) in production. Uncast, Postgres deduces two types
+          // for the one parameter and refuses the statement (42P08), so every
+          // outcome with a guest failed forever and its chest never opened.
           await client.query(
             `INSERT INTO vault_guest_cycle_baselines
                (realm, character_id, guest_cycle, existing_payouts)
-             VALUES ($1, $2, $3,
+             VALUES ($1::text, $2::bigint, $3::text,
                COALESCE((SELECT CASE
-                 WHEN state #>> '{worldQuests,vaultGuestCycle}' = $3
+                 WHEN state #>> '{worldQuests,vaultGuestCycle}' = $3::text
                  THEN CASE
                    WHEN jsonb_typeof(state #> '{worldQuests,vaultGuestPayouts}') = 'number'
                    THEN LEAST(3, GREATEST(0,
                      FLOOR((state #>> '{worldQuests,vaultGuestPayouts}')::numeric)))::int
                    ELSE 0 END
                  ELSE 0 END
-               FROM characters WHERE id = $2 AND realm = $1), 0))
+               FROM characters WHERE id = $2::bigint AND realm = $1::text), 0))
              ON CONFLICT DO NOTHING`,
             [realm, claim.characterId, claim.guestCycle ?? ''],
           );

@@ -5831,6 +5831,8 @@ export interface Entity extends ClientMirroredEntityFields {
    *  unflagged, so an unflagged character samples and serializes exactly as
    *  before the flag existed. */
   pvpFlag?: boolean;
+  /** Host-only disconnect grace marker; absent for offline/headless players. Never persisted. */
+  pvpRewardsPaused?: boolean;
   /** WARFARE Vitality switch (src/sim/pvp/vitality.ts): false while the player
    *  stands in a PvE instance (a dungeon, raid, delve or rift floor), so honor
    *  gear's health bonus never reaches raid content. Absent means the open
@@ -5925,7 +5927,7 @@ export interface Entity extends ClientMirroredEntityFields {
   riftTier?: RiftTier;
   // Treasure vault portals (src/sim/treasure_vault.ts): the character whose map
   // opened it (only they and their party may enter), the map's rarity, and the
-  // sim time the unentered portal closes.
+  // Host lockout-clock deadline (epoch ms online), shared with the vault attempt.
   vaultOwnerPid?: number;
   /** Stable owner identity across disconnect/reconnect; runtime pid may change. */
   vaultOwnerCharacterId?: number;
@@ -6979,6 +6981,7 @@ export type SimEvent = { pid?: number } & (
   /** Server-only durable settlement input, never forwarded to clients. */
   | {
       type: 'treasureVaultOutcomePending';
+      bossKilledAtMs?: number;
       attemptId: string;
       ownerCharacterId: number;
       claims: {

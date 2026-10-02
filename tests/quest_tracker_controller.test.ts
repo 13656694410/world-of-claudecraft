@@ -491,6 +491,38 @@ describe('QuestTrackerController', () => {
     expect(test.html()).not.toContain('Arcane Calligraphy');
   });
 
+  it('does not present a rewarded confection quest as unfinished during practice', () => {
+    const quest = WORLD_QUESTS_BY_ID.wq_palmreach_confections;
+    const test = harness(
+      [],
+      [{ questId: quest.id, count: 0, state: 'active', practiceOnly: true }],
+    );
+    test.controller.update(0);
+    expect(test.html()).not.toContain(`${worldQuestObjectiveLabel(quest.id)}: 0/${quest.count}`);
+    test.controller.update(6_000);
+    expect(test.html()).not.toContain(worldQuestDisplayName(quest.id));
+  });
+
+  it('continues showing active shadow practice instructions after the completion grace', () => {
+    const quest = WORLD_QUESTS_BY_ID.wq_eastbrook_shadow;
+    const test = harness(
+      [],
+      [
+        {
+          questId: quest.id,
+          count: 0,
+          state: 'active',
+          practiceOnly: true,
+          shadow: { phase: 'cloaked', suspicion: 0, cooldown: 0 },
+        },
+      ],
+    );
+    test.controller.update(0);
+    test.controller.update(6_000);
+    expect(test.html()).toContain(worldQuestDisplayName(quest.id));
+    expect(test.html()).toContain('Orders recovered: 0/4');
+  });
+
   it('lists a world quest only in its area, keeps it 5 sec after leaving, and keeps its progress', () => {
     const quest = WORLD_QUESTS.find((entry) => entry.id === 'wq_eastbrook_bandits');
     if (!quest) throw new Error('missing Eastbrook bandit fixture');

@@ -4,4 +4,9 @@
 export type { HillBarDeps } from './hill_bar_painter';
 export { HillBar } from './hill_bar_painter';
 export type { HillBarLive, HillBarView } from './hill_bar_view';
-export { buildHillBarView, hillEdgeDistance, hillRivalCount } from './hill_bar_view';
+export {
+  buildHillBarView,
+  hillEdgeDistance,
+  hillRivalCount,
+  shouldAnnounceHillPvp,
+} from './hill_bar_view';

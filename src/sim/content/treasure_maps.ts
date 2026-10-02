@@ -60,25 +60,34 @@ export const TREASURE_MAP_UPGRADE_INKS: Readonly<Record<TreasureMapRarity, numbe
 export const HOARD_MIN_LEVEL = 16;
 /** How close (yards) the reader must stand to the X to dig. */
 export const TREASURE_DIG_RADIUS = 12;
-/** A vault portal nobody entered closes after this long (seconds). */
-export const VAULT_PORTAL_LIFETIME = 600;
+/** Maximum vault lifetime from digging (seconds), regardless of occupancy. */
+export const VAULT_PORTAL_LIFETIME = 6 * 60 * 60;
 /** Vaults a character may be paid for as a GUEST (not the map's owner) per
  *  world-quest cycle. The owner's own maps are never capped. */
 export const VAULT_GUEST_PAYOUTS_PER_CYCLE = 3;
 /** Copper bonus the map's owner earns on top of the shared payout. */
 export const VAULT_OWNER_COPPER_BONUS = 0.5;
 
-/** Mob scaling by head count (1 to 5), applied on top of the Rift rank tuning,
- *  which is balanced for a full party: a solo reader fights roughly open-world
- *  strength, a full party the rank as authored. */
-export function vaultHealthFactor(headCount: number): number {
-  return 0.4 + 0.15 * (clampHeadCount(headCount) - 1);
+/** Fixed encounter sizes, independent of the players who enter or remain alive. */
+export const HOARD_SUGGESTED_PLAYERS: Readonly<Record<TreasureMapRarity, 1 | 5>> = Object.freeze({
+  common: 1,
+  rare: 5,
+  epic: 5,
+  legendary: 5,
+});
+
+/** Common keeps the former solo baseline; group tiers keep full-party health. */
+export function vaultHealthFactor(rarity: TreasureMapRarity): number {
+  return rarity === 'common' ? 0.4 : 1;
 }
-export function vaultDamageFactor(headCount: number): number {
-  return 0.3 + 0.175 * (clampHeadCount(headCount) - 1);
+
+/** Group reductions apply to weapon attacks and scripted mechanics alike. */
+export function hoardDamageReduction(rarity: TreasureMapRarity, role: 'boss' | 'add'): number {
+  return rarity === 'common' ? 1 : role === 'boss' ? 0.7 : 0.5;
 }
-function clampHeadCount(headCount: number): number {
-  return Math.max(1, Math.min(5, Math.floor(headCount) || 1));
+
+export function vaultDamageFactor(rarity: TreasureMapRarity, role: 'boss' | 'add'): number {
+  return rarity === 'common' ? 0.3 : hoardDamageReduction(rarity, role);
 }
 
 export interface VaultPayoutDef {

@@ -12,12 +12,13 @@ const ROOT = path.join(__dirname, '..');
 // Rebuilt with build.mjs at the 2026-09-28 release/v0.44.0 merge into
 // feature/buried-hoards: pnpm-lock.yaml (a fingerprinted input) moved with the
 // patched three's patch hash, so only the embedded source fingerprint changed
-// (same components, same byte lengths).
+// (same components, same byte lengths). Rebuilt again for the v0.44.1 dependency
+// security patches; reversing only the fingerprint restores the previous bytes exactly.
 const ASSETS = [
   {
     kind: 'orb',
     bytes: 20488,
-    sha: 'ea6561f3b5dd1a208e4079939af92983fa8ab51cd4c4eb543f49556c7e5ff856',
+    sha: 'eb2c05b7f31090bccca0fddbc0cd146a49bc10e722eface944b1778cb348c296',
     names: ['Core', 'LocalArcs', 'OuterEnergy', 'Sparks'],
     triangles: [80, 732, 1068, 108],
     min: [-0.844265, -0.540179, -0.906207],
@@ -26,7 +27,7 @@ const ASSETS = [
   {
     kind: 'impact',
     bytes: 18452,
-    sha: '6d170adf9275bc42fbd96ce917e01231875ad9bb3401c678706c3bddca4bb039',
+    sha: 'fa7c99fe2c59ee2302c48e88167660c41f40545cb75aafd0f364ed6842a671e6',
     names: ['Crown', 'GroundArcs', 'ImpactCore', 'RadialBurst', 'Sparks'],
     triangles: [168, 612, 80, 516, 108],
     min: [-1.02133, -0.1232, -1.051493],

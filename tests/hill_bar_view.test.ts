@@ -28,7 +28,13 @@ import {
   hillRiseLine,
   hillWarningLine,
 } from '../src/sim/pvp/hill';
-import { buildHillBarView, HillBar, hillEdgeDistance, hillRivalCount } from '../src/ui/hud/hill';
+import {
+  buildHillBarView,
+  HillBar,
+  hillEdgeDistance,
+  hillRivalCount,
+  shouldAnnounceHillPvp,
+} from '../src/ui/hud/hill';
 import { setLanguage } from '../src/ui/i18n';
 import type { PainterHostWriters } from '../src/ui/painter_host';
 import { localizeSimText } from '../src/ui/sim_i18n';
@@ -56,6 +62,21 @@ const info = (over: Partial<HillInfo> = {}): HillInfo => ({
 afterEach(() => setLanguage('en'));
 
 describe('buildHillBarView', () => {
+  it('does not announce PvP for under-level viewers, but does when they become eligible', () => {
+    const underLevel = buildHillBarView(info({ inside: true, standing: 'level' }), null);
+    const counted = buildHillBarView(info({ inside: true }), null);
+    expect(shouldAnnounceHillPvp(null, underLevel)).toBe(false);
+    expect(shouldAnnounceHillPvp(counted, underLevel)).toBe(false);
+    expect(shouldAnnounceHillPvp(underLevel, counted)).toBe(true);
+    expect(shouldAnnounceHillPvp(counted, counted)).toBe(false);
+    expect(shouldAnnounceHillPvp(null, buildHillBarView(null, null))).toBe(false);
+    expect(
+      shouldAnnounceHillPvp(null, buildHillBarView(info({ inside: true, phase: 'warning' }), null)),
+    ).toBe(false);
+    expect(
+      shouldAnnounceHillPvp(null, buildHillBarView(info({ inside: true, standing: 'raid' }), null)),
+    ).toBe(true);
+  });
   it("hides without a hill or outside the hill's zone", () => {
     expect(buildHillBarView(null, { x: 0, z: 0 }).visible).toBe(false);
     expect(buildHillBarView(info({ inZone: false }), { x: 360, z: 1540 }).visible).toBe(false);
@@ -128,7 +149,7 @@ describe('buildHillBarView', () => {
 });
 
 describe('HillBar (the painter)', () => {
-  function harness() {
+  function harness(onPvpEntry?: () => void) {
     const layer = document.createElement('div');
     document.body.appendChild(layer);
     const calls: string[] = [];
@@ -168,9 +189,31 @@ describe('HillBar (the painter)', () => {
         else el.setAttribute(name, value);
       },
     };
-    const bar = new HillBar({ layer: () => layer, writers });
+    const bar = new HillBar({ layer: () => layer, writers, onPvpEntry });
     return { layer, bar, calls };
   }
+
+  it('announces active entry and activation inside once, and rearms after leaving', () => {
+    let entries = 0;
+    const { bar } = harness(() => entries++);
+    const update = (over: Partial<HillInfo>) =>
+      bar.update(buildHillBarView(info(over), { x: 360, z: 1540 }));
+    update({ inside: false });
+    update({ inside: true, standing: 'level' });
+    expect(entries).toBe(0);
+    update({ inside: true, phase: 'warning' });
+    expect(entries).toBe(0);
+    update({ inside: true });
+    update({ inside: true, holder: 'you' });
+    bar.relocalize();
+    expect(entries).toBe(1);
+    update({ inside: false });
+    update({ inside: true, standing: 'raid' });
+    expect(entries).toBe(2);
+    bar.update(buildHillBarView(null, null));
+    update({ inside: true });
+    expect(entries).toBe(3);
+  });
 
   it('mounts once with the status attributes and paints the unheld state', () => {
     const { layer, bar, calls } = harness();
@@ -192,7 +235,9 @@ describe('HillBar (the painter)', () => {
     expect(root.textContent).toContain('Losing the hill: 12 seconds of 1 minute');
     expect(root.textContent).toContain('50 yd to the circle');
     expect(root.textContent).toContain('Falls in 42 minutes');
-    expect(root.querySelector('.hill-note')).toBeNull();
+    expect(root.querySelector('.hill-note')?.textContent).toBe(
+      'Entering the active circle enables World PvP.',
+    );
     expect((root.querySelector('.hill-fill') as HTMLElement).style.width).toBe('20%');
     expect(root.classList.contains('is-contested')).toBe(true);
     expect(root.classList.contains('is-you-contesting')).toBe(false);
@@ -275,7 +320,15 @@ describe('HillBar (the painter)', () => {
       'Raid members do not count: only parties can hold the hill',
     );
     bar.update(buildHillBarView(info(), { x: 360, z: 1540 }));
-    expect(root.querySelector('.hill-note')).toBeNull();
+    expect(root.querySelector('.hill-note')?.textContent).toBe(
+      'Entering the active circle enables World PvP.',
+    );
+  });
+
+  it('shows the ordinary PvP level requirement to an ineligible player', () => {
+    const { layer, bar } = harness();
+    bar.update(buildHillBarView(info({ standing: 'level' }), { x: 360, z: 1540 }));
+    expect(layer.querySelector('.hill-note')?.textContent).toBe('Requires level 10.');
   });
 
   it('hides when the hill closes or the player leaves the zone, and relocalizes in place', () => {

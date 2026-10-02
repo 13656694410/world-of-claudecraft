@@ -758,21 +758,22 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '其他已开启旗帜的玩家将能在任何地方攻击你，获胜时最多可从你的钱袋中拿走 {cap}。你可以再次关闭，但需要 {minutes} 分钟。',
   'hudChrome.worldPvp.confirmCancel': '取消',
   'hudChrome.worldPvp.disable': '关闭世界 PvP',
-  'hudChrome.worldPvp.disarmLine': '关闭需要 {minutes} 分钟，并会等待战斗结束。',
+  'hudChrome.worldPvp.disarmLine':
+    '关闭需要 {minutes} 分钟，并且必须等到你离开活动山丘且战斗结束。',
   'hudChrome.worldPvp.enable': '开启世界 PvP',
   'hudChrome.worldPvp.greyLine': '等级比你低 {levels} 级以上的玩家不会付出任何代价。',
   'hudChrome.worldPvp.groundContested': '其余地方均为争夺地带：只有双方都开启旗帜的玩家才能交战。',
   'hudChrome.worldPvp.groundFfa':
-    '龙裔荒原、霜幕之境与琥珀秋境是自由混战地带：无论是否开启旗帜，身处其中的每个人都可以战斗。',
-  'hudChrome.worldPvp.groundSanctuary': '试炼之滨与东溪谷是圣域：完全不会发生世界 PvP。',
+    '龙裔荒原、霜幕之境和琥珀秋境采用常规 PvP 旗帜规则。进入正在进行的山丘之王活动圈会开启你的旗帜。',
+  'hudChrome.worldPvp.groundSanctuary':
+    '试炼之滨是唯一的圣域：在这里不能开启世界PvP，也不能与其他玩家战斗。',
   'hudChrome.worldPvp.groupLine':
     '小队和团队成员之间永远不会互相为敌。不在你队伍中的公会成员则可以战斗。',
   'hudChrome.worldPvp.honorLine': '每次击杀获得 {honor} 点荣誉，由所有出力者平分。',
   'hudChrome.worldPvp.keepUp': '保持旗帜开启',
   'hudChrome.worldPvp.levelReq': '需要等级 {level}。',
-  'hudChrome.worldPvp.markLine':
-    '在那里攻击未开启旗帜的玩家会升起你自己的旗帜；攻击已开启旗帜的玩家则永远不会。',
-  'hudChrome.worldPvp.noStakeLine': '在自由混战地带被击杀的未开启旗帜玩家不会损失金币。',
+  'hudChrome.worldPvp.markLine': '进入正在进行的山丘活动圈会开启世界 PvP。离开圈后旗帜仍会保留。',
+  'hudChrome.worldPvp.noStakeLine': '未开启旗帜的玩家在开放世界中无法被攻击。',
   'hudChrome.worldPvp.noTakeLine':
     '未开启旗帜的战斗者同样不会获得金币：金币只在两名已开启旗帜的玩家之间转移。',
   'hudChrome.worldPvp.pending': '正在等待服务器返回你的 PvP 状态。',
@@ -855,6 +856,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_fang_dagger.name': '先锋之牙',
   'entities.items.vanguard_oath_blade.name': '先锋之誓约',
   'entities.items.vanguard_verdict_greatsword.name': '先锋之裁决',
+  'entities.items.vanguard_feral_staff.name': '先锋野性法杖',
   'entities.items.vanguard_warstaff.name': '先锋之战杖',
   'entities.npcs.glider_apprentice.name': '斯凯',
   'devCommand.actions.hillend.description': '让当前山丘立即回落。',
@@ -2693,8 +2695,10 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '功绩之书也会记录你的声望：与某个阵营达到信任、与某个阵营达到冠军各记为一项功绩，与三个阵营都达到冠军则是另一项功绩。和所有功绩一样，它们只是装饰，从不带来战力，而冠军功绩会授予一个可佩戴的头衔。',
   'guide.commandsPage.pvp':
     '世界 PvP 旗帜：/pvp 切换，/pvp on 与 /pvp off 直接设置。已开启旗帜的玩家可以在任何地方互相作战；关闭需要 5 分钟。',
+  'guide.commandsPage.flair':
+    '对其他玩家显示或隐藏你的 Discord 身份组，即彩色名字、身份组标签和聊天认证标签：/flair on 显示，/flair off 隐藏，只输入 /flair 会告诉你当前设置。需要已关联的 Discord 账号。',
   'guide.commandsPage.pvpZones':
-    '世界 PvP 旗帜：/pvp 切换，/pvp on 与 /pvp off 直接设置。已开启旗帜的玩家可以在争夺地带互相作战，圣域完全不允许世界战斗，而自由混战地带无论是否开启旗帜都允许作战；关闭需要 5 分钟。',
+    '世界 PvP 旗帜：/pvp 切换状态，/pvp on 和 /pvp off 分别开启和关闭。在争夺区域，已开启旗帜的玩家可以相互战斗；庇护区域禁止一切世界 PvP。进入正在进行的山丘之王活动圈会开启旗帜；关闭需要 5 分钟。',
   'guide.nav.worldPvp': '世界 PvP',
   'guide.worldPvpPage.heading': '世界 PvP',
   'guide.worldPvpPage.intro':
@@ -2709,25 +2713,25 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.limitsBody':
     '反复击败同一名玩家，每次的收益都会减少并很快归零，计数会随每日重置而重置。远低于你等级的目标不会带来任何收益。在战场和竞技场内部适用它们自己的规则，而且它们提供的荣誉比开放世界更多，因此世界 PvP 是通往同一位商人的较慢道路。',
   'guide.worldPvpPage.introZones':
-    '开放世界的玩家对战需要主动开启，而你脚下的土地决定了这意味着什么。升起你的 PvP 旗帜后，所有不在你的小队或团队中且同样开启了旗帜的玩家都会在争夺地带成为敌人；降下旗帜后，稍作等待你就会重新成为旁观者。有两座区域是完全不会发生世界战斗的圣域，而最北端的三座区域是自由混战地带，无论是否开启旗帜，身处其中的每个人都可以被攻击。小队和团队的伙伴在任何地方都不会成为你的敌人；队伍之外的公会成员与其他人一样可以被攻击。',
+    '开放世界 PvP 由玩家自愿参与，所在区域决定具体规则。在争夺区域开启 PvP 旗帜后，不属于你的小队或团队的其他已开启旗帜玩家会成为敌人；关闭旗帜并等待片刻后，你将再次成为旁观者。试炼之滨是唯一的庇护区域，禁止一切世界 PvP。最北面的三个区域采用与世界其他地方相同的自愿开启旗帜规则。进入正在进行的山丘之王活动圈会自动开启旗帜。小队和团队成员在任何地方都不会成为敌人；不在你队伍中的公会成员与其他玩家一样可以交战。',
   'guide.worldPvpPage.zonesHeading': '世界 PvP 发生在哪里',
   'guide.worldPvpPage.zonesBody':
-    '世界上的土地分为三种。试炼之滨与东溪谷是圣域：无论是否开启旗帜，那里都完全不会发生世界 PvP，所以新角色绝不会在弄清旗帜是什么之前就被人挑战。世界的大部分是争夺地带，上面那条旗帜规则就是全部。龙裔荒原、霜幕之境与琥珀秋境是自由混战地带：站在其中的每个人都可以攻击站在其中的其他任何人，无论是否开启旗帜，而且你跨入时会收到提示，离开时同样会。在那里攻击未开启旗帜的玩家会升起你自己的旗帜，所以挑起战斗的一方始终承担风险。攻击已经开启旗帜的玩家则永远不会升起你的旗帜，这意味着自卫，或是保护未开启旗帜的人，都不会让你付出任何代价。',
+    '试炼之滨是唯一的庇护区域：这里没有世界 PvP，也无法开启旗帜。已有旗帜会保留，但用于头衔的游戏时长进度会暂停，直到你离开。其他所有地方，包括龙裔荒原、霜幕之境和琥珀秋境，只有已开启旗帜的玩家才能交战。满足常规等级要求时，进入正在进行的山丘之王活动圈会自动开启旗帜。预告圈不会开启旗帜。离开活动圈后旗帜仍会保留；使用 /pvp off 开始常规的五分钟倒计时，在活动山丘内或战斗中时，倒计时无法完成。',
   'guide.worldPvpPage.flagBodyAid':
     '在聊天中输入 /pvp，或按 G 打开 PvP 窗口并使用世界 PvP 标签页，那里还会显示你的战绩和赌注。度过起始等级后，升起旗帜是即时的。降下旗帜会开始几分钟的倒计时，而且在你仍在战斗时旗帜不会降下，所以关闭永远不是逃离你挑起的战斗的手段。为正在战斗的已开启旗帜的玩家治疗、护盾或增益，同样会升起你自己的旗帜，所以没有人能不挂旗帜就在背后支撑一名战斗者；而援助未开启旗帜的玩家不会升起任何旗帜。',
   'guide.worldPvpPage.stakesBodyFlagged':
-    '当一名已开启旗帜的玩家被另一名玩家击败时，败者会支付钱袋中一小部分金币（有一个不高的上限），而胜者获得用于兑换 PvP 装备的荣誉。未开启旗帜的玩家则完全不必支付金币，即便是在自由混战区域中倒下也一样。所有出过力的人共同分享这两者：最后一击者、不久前对目标造成过伤害的人，以及让这些战士站稳脚跟的治疗者。干净的一对一可独得全部奖励；团队则平分。',
+    '当一名已开启旗帜的玩家被另一名玩家击败时，败者会支付钱袋中一小部分金币（有一个不高的上限），而胜者获得用于兑换 PvP 装备的荣誉。 未开启旗帜的玩家在开放世界中无法被攻击。 所有出过力的人共同分享这两者：最后一击者、不久前对目标造成过伤害的人，以及让这些战士站稳脚跟的治疗者。干净的一对一可独得全部奖励；团队则平分。',
   'guide.worldPvpPage.stakesUnflaggedTake':
     '未开启旗帜的战斗者同样拿不到金币：金币只在两名开启旗帜的玩家之间转移，但所有出过力的人仍能获得荣誉。',
   'guide.worldPvpPage.limitsBodyHour':
     '反复击败同一名玩家，每次的收益都会减少并很快归零，而你对那名玩家的计数要在首次击杀约一小时之后才会重新开始，所以蹲守同一个目标永远不值得等待。远低于你等级的目标不会带来任何收益。在战场和竞技场内部适用它们自己的规则，而且它们提供的荣誉比开放世界更多，因此世界 PvP 是通往同一位商人的较慢道路。',
   'guide.worldPvpPage.hillBodyRamp':
-    '每三小时，会在无法预料的时刻向全领域发出通告：十五分钟后，某个自由混战地带将升起一座山丘，它所在的圆圈会预先在开阔地上标出。山丘升起后会屹立四十五分钟，然后消失。圈内站着玩家最多的小队争夺这座山丘，连续保持人数优势一分钟后，山丘便归他们所有；单独一人算作一支一人小队，但团队成员完全不计入人数。一支小队占据山丘期间，站在圈内的每名成员每分钟都会获得荣誉，同一支小队占据得越久，每分钟获得的荣誉就越多。一支满员小队在山丘屹立的全程不受争夺地占据它，所获荣誉约相当于三场战场胜利。山丘易手时，新的占据者从头开始累积。场地上方的横条会显示谁在占据、你方与对方的人数以及争夺计时；在聊天中输入 /hill 可以得知它的位置。',
+    '每两小时，龙裔荒原、霜幕之境或琥珀秋境会出现一座活动山丘。全服会提前十五分钟收到预告，空地上会标出圆圈。山丘活动持续三十分钟。进入活动圈会按常规等级规则开启世界 PvP 旗帜，团队成员也不例外。圈内符合条件的玩家人数最多的小队，在连续保持人数优势一分钟后占领山丘；单人视为一人小队，但团队成员和未达到 PvP 等级要求的玩家不能占领或获得山丘荣誉。占领方每名站在圈内的成员都会以逐渐提高的速率获得荣誉。发奖频率和奖励递增速度均已加快，保留原四十五分钟活动的荣誉总量。占领方变更会重置奖励递增。离开圈后旗帜仍保留；/pvp off 使用常规的五分钟延迟，在活动山丘内或战斗中无法完成。山丘状态条显示控制方、人数和占领进度；/hill 显示位置。',
   'guide.worldPvpPage.limitsBodyRaids':
     '反复击败同一名玩家，每次的收益都会减少并很快归零，而你对那名玩家的计数要在首次击杀约一小时之后才会重新开始，所以蹲守同一个目标永远不值得等待。远低于你等级的目标不会带来任何收益。在战场和竞技场内部适用它们自己的规则，而且它们提供的荣誉比开放世界更多，因此世界 PvP 是通往同一位商人的较慢道路。团队无法从世界击杀中获得任何收益：团队成员既得不到荣誉也得不到金币，也不会减少其他人的份额，所以想获得报酬就以小队身份作战。',
   'guide.worldPvpPage.hillHeading': '山丘之王',
   'guide.worldPvpPage.hillBody':
-    '每三小时，会在无法预料的时刻向全领域发出通告：十五分钟后，某个自由混战地带将升起一座山丘，它所在的圆圈会预先在开阔地上标出。山丘升起后会屹立四十五分钟，然后消失。圈内站着玩家最多的小队争夺这座山丘，连续保持人数优势一分钟后，山丘便归他们所有；单独一人算作一支一人小队，但团队成员完全不计入人数。一支小队占据山丘期间，站在圈内的每名成员每分钟都会获得少量荣誉，因此一支满员小队在山丘屹立的全程不受争夺地占据它，所获荣誉略少于一场战场胜利。场地上方的横条会显示谁在占据、你方与对方的人数以及争夺计时；在聊天中输入 /hill 可以得知它的位置。',
+    '每两小时，龙裔荒原、霜幕之境或琥珀秋境会出现一座活动山丘。全服会提前十五分钟收到预告，空地上会标出圆圈。山丘活动持续三十分钟。进入活动圈会按常规等级规则开启世界 PvP 旗帜，团队成员也不例外。圈内符合条件的玩家人数最多的小队，在连续保持人数优势一分钟后占领山丘；单人视为一人小队，但团队成员和未达到 PvP 等级要求的玩家不能占领或获得山丘荣誉。占领方每名站在圈内的成员都会以逐渐提高的速率获得荣誉。发奖频率和奖励递增速度均已加快，保留原四十五分钟活动的荣誉总量。占领方变更会重置奖励递增。离开圈后旗帜仍保留；/pvp off 使用常规的五分钟延迟，在活动山丘内或战斗中无法完成。山丘状态条显示控制方、人数和占领进度；/hill 显示位置。',
   'guide.thornhollowPage.heading': '荆谷原野',
   'guide.thornhollowPage.intro':
     '一场排位 5v5 夺旗战场，战场位于棘峰之下老林中的围墙山谷：两座废弃要塞沿着峡谷两端遥遥相对，中间是一座更古老的庭院，谁都不曾真正占据。每方五人，两座要塞，一个目标：夺走敌方战旗并抢在对方之前带回家。',
@@ -4164,6 +4168,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'abilityUi.actionBar.attackName': '攻击',
   'abilityUi.actionBar.attackTooltip': '对目标开启或关闭自动攻击。右键点击敌人也会发起攻击。',
   'abilityUi.actionBar.attackRemoveHint': '右键点击可将其从动作栏移除并空出栏位。',
+  'abilityUi.actionBar.moveHint': 'Shift-拖动以移动',
   'abilityUi.actionBar.emptySlot': '空栏位',
   'abilityUi.actionBar.slotAria': '动作栏位 {slot}：{ability}',
   'abilityUi.actionBar.emptySlotAria': '动作栏位 {slot}：空',
@@ -10087,12 +10092,11 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.discord.open': 'Discord',
   'hudChrome.discord.viewCharacter': '查看{name}',
   'hudChrome.discord.rank': '段位',
-  'hudChrome.discord.roleTag.admin': '管理员',
   'hudChrome.discord.roleTag.levyst': 'Levy St',
   'hudChrome.discord.roleTag.devs': '开发者',
   'hudChrome.discord.roleTag.mods': '管理员',
-  'hudChrome.discord.roleTag.seniormods': '高级管理员',
-  'hudChrome.discord.roleTag.juniormods': '初级管理员',
+  'hudChrome.discord.roleTag.seniormods': '哨兵',
+  'hudChrome.discord.roleTag.juniormods': '观察员',
   'hudChrome.discord.roleTag.contentcreator': '内容创作者',
   'hudChrome.discord.voice.channel': '在{channel}',
   'hudChrome.discord.swag.title': '周边',
@@ -18474,6 +18478,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.readyTitle': '你的每周奖励已就绪',
   'hudChrome.weeklyRewards.readyDescription':
     '有一周已完成的奖励正在等待。打开你获得的宝库，然后选择一件物品领取。',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    '奖励已就绪。请前往东溪的宝库管理员处开启宝库并领取奖励。',
   'hudChrome.weeklyRewards.notNow': '稍后再说',
   'hudChrome.weeklyRewards.completedWeek': '周次结束于{date}',
   'hudChrome.weeklyRewards.currentWeek': '返回本周进度',
@@ -18634,9 +18640,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_warlock_destruction.bonus4':
     '每第二次烧燃会使你8秒内的下一次毁灭箭变为瞬发。',
   'entities.itemSets.vanguard_druid_feral.name': '血鬃兽皮',
-  'entities.itemSets.vanguard_druid_feral.bonus2': '熊冲的冷却时间缩短3秒。',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    '熊冲为你提供相当于最大生命值6%的护盾，持续6秒。',
+  'entities.itemSets.vanguard_druid_feral.bonus2': '扑击和巨熊冲锋的冷却时间缩短3秒。',
+  'entities.itemSets.vanguard_druid_feral.bonus4': '急奔的冷却时间缩短15秒。',
   'entities.itemSets.vanguard_druid_restoration.name': '蓟花法衣',
   'entities.itemSets.vanguard_druid_restoration.bonus2': '迅愈的冷却时间缩短1秒。',
   'entities.itemSets.vanguard_druid_restoration.bonus4': '迅愈还会使你的移动速度提高30%，持续3秒。',
@@ -18644,4 +18649,14 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus2': '缠缚根须的施法时间缩短0.5秒。',
   'entities.itemSets.vanguard_druid_balance.bonus4':
     '施放缠缚根须后，你可以在移动中施法，并使移动速度提高20%，持续4秒。每20秒最多触发一次。',
+  'hudChrome.worldPvp.rewardBonus':
+    '保持世界PvP开启可多获得{percent}的经验值和阵营声望。请求关闭时，加成立即停止。',
+  'hudChrome.worldPvp.rewardTitles':
+    '在开放世界中开启世界PvP的游戏时间达到{thresholds}时，可获得永久头衔。离线、死亡、身处副本或试炼之滨时计时暂停。关闭PvP会重置计时。',
+  'hudChrome.worldPvp.rewardPaused': '当前PvP连续游戏时间：{time}（在试炼之滨暂停）',
+  'hudChrome.worldPvp.rewardPausedDead': '当前PvP连续游戏时间：{time}（死亡期间暂停）',
+  'hudChrome.worldPvp.rewardPausedInstance': '当前PvP连续游戏时间：{time}（在副本中暂停）',
+  'hudChrome.worldPvp.rewardProgress': '当前PvP连续游戏时间：{time}',
+  'hudChrome.hill.pvpEntry': '进入活动圈会开启世界 PvP。',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

@@ -503,7 +503,8 @@ export const fr_FR: EnTranslations = {
         "dungeon_heroic": "Butin de donjon Héroïque",
         "world": "Butin de quête mondiale",
         "pvp": "ÉQUIPEMENT DE GUERRE"
-      }
+      },
+      "previewClaimNotice": "Des récompenses vous attendent. Rendez visite au Gardien du Coffre à Eastbrook pour les ouvrir et les récupérer."
     },
     "ferry": {
       "regionLabel": "Horaires des bacs",
@@ -2784,6 +2785,12 @@ export const fr_FR: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Gardez le JcJ mondial activé pour gagner {percent} d’expérience et de réputation de faction supplémentaires. Les bonus cessent dès que vous demandez sa désactivation.",
+      "rewardTitles": "Obtenez des titres permanents après {thresholds} de temps de jeu dans le monde ouvert avec le JcJ mondial activé. La déconnexion, la mort, les instances et le Rivage de l’Épreuve suspendent le compteur. Désactiver le JcJ le remet à zéro.",
+      "rewardPaused": "Série JcJ actuelle : {time} de jeu (en pause sur le Rivage de l’Épreuve)",
+      "rewardPausedDead": "Série JcJ actuelle : {time} de jeu (en pause tant que vous êtes mort)",
+      "rewardPausedInstance": "Série JcJ actuelle : {time} de jeu (en pause dans les instances)",
+      "rewardProgress": "Série JcJ actuelle : {time} de jeu",
       "tab": "JcJ mondial",
       "title": "JcJ mondial",
       "blurb": "Levez votre drapeau pour combattre d'autres joueurs marqués partout dans le monde ouvert. Vainquez-en un et prenez une part de sa bourse, plus de l'Honneur pour l'équipement de Guerre. Les champs de bataille et les arènes rapportent toujours davantage.",
@@ -2795,20 +2802,20 @@ export const fr_FR: EnTranslations = {
       "zoneContested": "Terrain contesté : seuls les joueurs marqués s'y battent.",
       "zoneFfa": "Terrain de mêlée générale : tout le monde y est une cible légitime.",
       "realmDisabled": "Le JcJ mondial est désactivé sur ce royaume.",
-      "groundSanctuary": "Le Rivage de l'Épreuve et le Val d'Eastbrook sont des sanctuaires : aucun JcJ mondial n'y a cours.",
+      "groundSanctuary": "Le Rivage de l’Épreuve est le seul sanctuaire : vous ne pouvez ni y activer le JcJ mondial ni y combattre d’autres joueurs.",
       "groundContested": "Partout ailleurs, le terrain est contesté : seuls deux joueurs marqués peuvent s'affronter.",
-      "groundFfa": "Les Terres du Dragon, le Voile de Givre et la Chute d'Ambre sont en mêlée générale : tout le monde peut s'y battre, marqué ou non.",
+      "groundFfa": "Les zones Les Terres du Dragon, Le Voile de Givre et La Chute d'Ambre suivent les règles habituelles du drapeau JcJ. Entrer dans le cercle actif du Roi de la colline lève votre drapeau.",
       "groupLine": "Les membres d'un groupe ou d'un raid ne sont jamais hostiles entre eux. Les membres de guilde hors de votre groupe peuvent s'affronter.",
-      "markLine": "Attaquer un joueur non marqué là-bas lève votre propre drapeau ; attaquer un joueur marqué ne le fait jamais.",
+      "markLine": "Entrer dans le cercle d'une colline active active le JcJ mondial. Sortir laisse votre drapeau levé.",
       "aidLine": "Soigner, protéger ou améliorer un joueur marqué lors d'un combat en monde ouvert lève votre drapeau.",
       "stakeLine": "Le perdant paie {cap} ou {percent} de sa bourse, selon le montant le plus faible.",
-      "noStakeLine": "Un joueur non marqué tué en terrain de mêlée générale ne perd pas d'or.",
+      "noStakeLine": "Les joueurs sans drapeau ne peuvent pas être attaqués en monde ouvert.",
       "noTakeLine": "Un combattant non marqué ne prend pas d'or non plus : l'or ne circule qu'entre deux joueurs marqués.",
       "honorLine": "{honor} d'Honneur par élimination, partagé entre tous ceux qui ont aidé.",
       "splitLine": "Un 1 contre 1 propre rapporte la totalité de la mise ; les renforts et leurs soigneurs la partagent.",
       "repeatLine": "Les éliminations répétées d'un même joueur rapportent {second}, puis {third}, puis plus rien ; le compteur se réinitialise {reset} après la première élimination.",
       "greyLine": "Les joueurs de plus de {levels} niveaux en dessous de vous ne paient rien.",
-      "disarmLine": "La désactivation prend {minutes} minutes et attend la fin du combat.",
+      "disarmLine": "La désactivation prend {minutes} minutes et attend que vous quittiez la colline active et que le combat se termine.",
       "record": "Bilan : {kills} éliminations, {deaths} morts",
       "enable": "Activer le JcJ mondial",
       "disable": "Désactiver le JcJ mondial",
@@ -2836,6 +2843,8 @@ export const fr_FR: EnTranslations = {
       "distance": "{yards} yd jusqu'au cercle",
       "rises": "Émerge dans {minutes}",
       "falls": "Retombe dans {minutes}",
+      "pvpEntry": "Entrer dans le cercle actif active le JcJ mondial.",
+      "pvpBanner": "JcJ",
       "standingRaid": "Les membres du raid ne comptent pas : seuls les groupes peuvent détenir la colline"
     },
     "warfareShop": {
@@ -4572,12 +4581,11 @@ export const fr_FR: EnTranslations = {
       "memberSinceDays": "{days} j sur le Discord",
       "roleTag": {
         "levyst": "Levy St",
-        "admin": "Admin",
         "coredevs": "Développeur principal",
         "devs": "Dév",
-        "seniormods": "Modérateur senior",
+        "seniormods": "Sentinelle",
         "mods": "Modo",
-        "juniormods": "Modérateur junior",
+        "juniormods": "Observateur",
         "artists": "Artiste",
         "contentcreator": "Créateur de contenu",
         "legend": "LÉGENDE",
@@ -7540,7 +7548,8 @@ export const fr_FR: EnTranslations = {
       "session": "Ce que vous avez fait depuis votre connexion : éliminations, morts, dégâts et expérience.",
       "arena": "Votre classement au Colisée cendré dans les deux catégories : cote, victoires, défaites et taux de victoires en 1c1 et en 2c2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
-      "pvpZones": "Drapeau JcJ mondial : /pvp l'active ou le désactive, /pvp on et /pvp off le règlent directement. Les joueurs porteurs du drapeau peuvent s'affronter en territoire contesté, les sanctuaires n'autorisent aucun combat en monde ouvert, et les zones de combat libre l'autorisent avec ou sans drapeau ; la désactivation prend 5 minutes.",
+      "pvpZones": "Drapeau JcJ mondial : /pvp le bascule ; /pvp on et /pvp off l'activent et le désactivent. Les joueurs marqués peuvent s'affronter en zone contestée ; les sanctuaires interdisent tout JcJ mondial. Entrer dans le cercle actif du Roi de la colline lève votre drapeau. Le désactiver prend 5 minutes.",
+      "flair": "Affiche ou masque votre rôle Discord pour les autres joueurs, c’est-à-dire votre nom en couleur, votre badge de rôle et votre badge de discussion vérifié : /flair on l’affiche, /flair off le masque, et /flair seul vous indique le réglage actuel. Nécessite un compte Discord lié.",
       "listings": "Vos propres annonces sur le Marché mondial, avec le prix demandé, le temps restant de chacune, et la place qu'il vous reste pour en publier d'autres.",
       "buyback": "Ce que vous avez vendu récemment à un marchand et que vous pouvez encore racheter.",
       "groupState": "Votre état actuel",
@@ -8314,16 +8323,16 @@ export const fr_FR: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Règles de fair-play",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Le combat joueur contre joueur en monde ouvert est facultatif, et le terrain sur lequel vous vous trouvez détermine ce que cela signifie. Levez votre drapeau JcJ et tout autre joueur porteur du drapeau qui n'est pas dans votre groupe ou votre raid devient un ennemi en territoire contesté ; baissez-le et, après un court délai, vous redevenez un simple spectateur. Deux zones sont des sanctuaires où aucun combat en monde ouvert n'a jamais lieu, et les trois zones les plus au nord sont des zones de combat libre où toute personne présente est une cible légitime, drapeau ou pas. Les membres de votre groupe et de votre raid ne sont jamais vos ennemis, où que ce soit ; les membres de votre guilde hors de votre groupe sont des cibles légitimes comme n'importe qui d'autre.",
+      "introZones": "Le JcJ en monde ouvert est volontaire et dépend du terrain. Lever votre drapeau rend ennemis les autres joueurs marqués hors de votre groupe ou raid en zone contestée ; le baisser vous rend à nouveau spectateur après un court délai. Le Rivage de l'Épreuve est le seul sanctuaire, sans JcJ mondial. Les trois zones les plus au nord suivent les mêmes règles de participation volontaire que le reste du monde. Entrer dans le cercle actif du Roi de la colline lève automatiquement votre drapeau. Vos compagnons de groupe et de raid ne sont jamais vos ennemis ; les membres de votre guilde hors de votre groupe peuvent être combattus comme les autres joueurs.",
       "zonesHeading": "Où se déroule le JcJ en monde ouvert",
-      "zonesBody": "Le monde comporte trois types de terrain. Le Rivage de l'Épreuve et le Val d'Eastbrook sont des sanctuaires : aucun JcJ en monde ouvert n'y a jamais lieu, drapeau ou pas, si bien qu'un nouveau personnage ne peut jamais être combattu avant de savoir ce qu'est le drapeau. La majeure partie du monde est un territoire contesté, où la règle du drapeau ci-dessus résume tout. Les Terres du Dragon, le Voile de Givre et la Chute d'Ambre, les trois zones les plus au nord, sont des zones de combat libre : quiconque s'y trouve peut attaquer quiconque d'autre s'y trouve, avec ou sans drapeau, et vous en êtes averti en y entrant comme en en sortant. Attaquer là-bas un joueur non porteur du drapeau lève votre propre drapeau, si bien que l'agresseur porte toujours le risque au bout du compte. Frapper un joueur déjà porteur du drapeau ne le lève jamais, ce qui signifie que vous défendre, ou défendre quelqu'un qui n'est pas porteur du drapeau, ne vous coûte rien.",
+      "zonesBody": "Le Rivage de l'Épreuve est le seul sanctuaire : aucun JcJ mondial n'y est possible et vous ne pouvez pas y lever votre drapeau. Un drapeau déjà levé le reste, mais la progression des titres en temps de jeu est suspendue jusqu'à votre départ. Partout ailleurs, y compris dans les zones Les Terres du Dragon, Le Voile de Givre et La Chute d'Ambre, seuls les joueurs marqués peuvent combattre. Entrer dans le cercle actif du Roi de la colline lève automatiquement votre drapeau si vous remplissez la condition de niveau habituelle. Le cercle d'avertissement ne vous marque pas. Quitter le cercle actif laisse votre drapeau levé ; /pvp off lance le compte à rebours habituel de cinq minutes, qui ne peut se terminer tant que vous êtes dans une colline active ou en combat.",
       "flagBodyAid": "Tapez /pvp dans la discussion, ou ouvrez la fenêtre JcJ avec G et utilisez l'onglet JcJ en monde ouvert, qui affiche aussi votre bilan et les enjeux. Lever le drapeau est instantané une fois les niveaux de départ dépassés. Le baisser lance un compte à rebours de quelques minutes, et le drapeau ne tombe pas tant que vous combattez encore, si bien que le désactiver n'est jamais un moyen d'échapper à un combat que vous avez engagé. Soigner, protéger d'un bouclier ou améliorer un joueur porteur du drapeau qui est en plein combat lève aussi votre propre drapeau, si bien que personne ne soutient un combattant depuis l'abri d'un drapeau qu'il ne porte pas ; aider un joueur non porteur du drapeau ne lève rien.",
       "stakesUnflaggedTake": "Un combattant non porteur du drapeau n'en reçoit pas non plus : l'or ne change de mains qu'entre deux joueurs porteurs du drapeau, mais l'Honneur revient tout de même à tous ceux qui ont aidé.",
-      "stakesBodyFlagged": "Quand un joueur porteur du drapeau est vaincu par un autre joueur, le perdant verse une petite part de l'or de sa bourse, plafonnée à un montant modeste, et les vainqueurs gagnent de l'Honneur pour l'équipement de Guerre. Un joueur non porteur du drapeau ne verse aucun or, même s'il tombe dans une zone de combat libre. Tous ceux qui ont aidé se partagent les deux récompenses : le coup fatal, quiconque a endommagé la cible peu avant, et les soigneurs qui ont maintenu ces combattants debout. Un duel propre à un contre un rapporte toute la mise ; un groupe la partage.",
+      "stakesBodyFlagged": "Quand un joueur porteur du drapeau est vaincu par un autre joueur, le perdant verse une petite part de l'or de sa bourse, plafonnée à un montant modeste, et les vainqueurs gagnent de l'Honneur pour l'équipement de Guerre. Les joueurs sans drapeau ne peuvent pas être attaqués en monde ouvert. Tous ceux qui ont aidé se partagent les deux récompenses : le coup fatal, quiconque a endommagé la cible peu avant, et les soigneurs qui ont maintenu ces combattants debout. Un duel propre à un contre un rapporte toute la mise ; un groupe la partage.",
       "hillHeading": "Le roi de la colline",
-      "hillBody": "Once every three hours, at a moment nobody can predict, the whole realm is told that a hill will rise in one of the free-for-all zones in fifteen minutes, and the circle where it will stand is marked on open ground. When it rises it stands for forty-five minutes, then falls. The party with the most players standing inside contests the hill, and after a minute of unbroken majority the hill is theirs; a lone player counts as a party of one, but raid members do not count at all. While a party holds the hill, each of its members standing inside earns a little Honor every minute, so a full party holding an uncontested hill for its whole stand earns a little less than one battleground win pays. A bar over the field shows who holds it, your numbers against theirs, and the contest clock; /hill in chat says where it stands.",
+      "hillBody": "Toutes les deux heures, une colline apparaît dans une des zones Les Terres du Dragon, Le Voile de Givre ou La Chute d'Ambre. Le royaume reçoit un avertissement quinze minutes avant et le cercle est marqué en terrain dégagé. La colline reste active trente minutes. Entrer dans le cercle actif lève votre drapeau JcJ mondial selon les conditions de niveau habituelles, même pour les membres d'un raid. Le groupe comptant le plus de joueurs admissibles à l'intérieur capture la colline après une minute de majorité ininterrompue ; un joueur seul compte comme un groupe d'une personne, mais les membres d'un raid et les joueurs sous le niveau requis pour le JcJ ne peuvent ni capturer ni gagner l'Honneur de la colline. Chaque détenteur à l'intérieur gagne de l'Honneur à un rythme croissant. Les versements et leur progression sont accélérés pour conserver l'Honneur total de l'ancien événement de quarante-cinq minutes. Un changement de détenteur réinitialise la progression. Sortir laisse votre drapeau levé ; /pvp off prend les cinq minutes habituelles et ne peut aboutir dans une colline active ni en combat. La barre affiche le contrôle, les effectifs et la progression de capture ; /hill indique l'emplacement.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "hillBodyRamp": "Une fois toutes les trois heures, à un moment que personne ne peut prévoir, tout le royaume est averti qu'une colline va surgir dans l'une des zones de combat libre d'ici quinze minutes, et le cercle où elle se dressera est marqué en terrain découvert. Une fois surgie, elle tient quarante-cinq minutes, puis disparaît. Le groupe comptant le plus de joueurs à l'intérieur en dispute la possession, et après une minute de majorité ininterrompue, la colline lui revient ; un joueur seul compte comme un groupe d'une personne, mais les membres de raid ne comptent pas du tout. Tant qu'un groupe tient la colline, chacun de ses membres présents à l'intérieur gagne de l'Honneur chaque minute, et plus le même groupe la tient longtemps, plus chaque minute rapporte : un groupe complet qui tient une colline sans contestation pendant toute sa durée gagne à peu près autant que trois victoires de champ de bataille. Quand la colline change de mains, les nouveaux détenteurs reprennent le compte à zéro. Une barre au-dessus du terrain indique qui la tient, vos forces face aux leurs, et le chronomètre de la contestation ; /hill dans la discussion indique où elle se trouve.",
+      "hillBodyRamp": "Toutes les deux heures, une colline apparaît dans une des zones Les Terres du Dragon, Le Voile de Givre ou La Chute d'Ambre. Le royaume reçoit un avertissement quinze minutes avant et le cercle est marqué en terrain dégagé. La colline reste active trente minutes. Entrer dans le cercle actif lève votre drapeau JcJ mondial selon les conditions de niveau habituelles, même pour les membres d'un raid. Le groupe comptant le plus de joueurs admissibles à l'intérieur capture la colline après une minute de majorité ininterrompue ; un joueur seul compte comme un groupe d'une personne, mais les membres d'un raid et les joueurs sous le niveau requis pour le JcJ ne peuvent ni capturer ni gagner l'Honneur de la colline. Chaque détenteur à l'intérieur gagne de l'Honneur à un rythme croissant. Les versements et leur progression sont accélérés pour conserver l'Honneur total de l'ancien événement de quarante-cinq minutes. Un changement de détenteur réinitialise la progression. Sortir laisse votre drapeau levé ; /pvp off prend les cinq minutes habituelles et ne peut aboutir dans une colline active ni en combat. La barre affiche le contrôle, les effectifs et la progression de capture ; /hill indique l'emplacement.",
       "limitsBodyRaids": "Vaincre le même joueur encore et encore rapporte de moins en moins puis bientôt plus rien, et votre compteur contre ce joueur ne repart de zéro qu'environ une heure après la première de ces victoires, si bien que camper une seule victime ne vaut jamais l'attente. Une cible très en dessous de votre niveau ne rapporte rien du tout. Les champs de bataille et les arènes suivent leurs propres règles tant que vous vous y trouvez, et ils rapportent plus d'Honneur que le monde ouvert, si bien que le JcJ en monde ouvert est la voie la plus lente vers le même marchand. Les raids ne gagnent rien des victoires en monde ouvert : un membre de raid ne reçoit ni Honneur ni or et ne réduit la part de personne d'autre, alors combattez en groupe pour être payé."
     },
     "thornhollowPage": {
@@ -12124,6 +12133,7 @@ export const fr_FR: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Active ou désactive l'attaque automatique sur votre cible. Un clic droit sur un ennemi attaque aussi.",
       "attackRemoveHint": "Clic droit pour le retirer de la barre et libérer l'emplacement.",
+      "moveHint": "Maintenez Maj et faites glisser pour déplacer",
       "emptySlot": "Emplacement vide",
       "slotAria": "Emplacement d'action {slot}: {ability}",
       "emptySlotAria": "Emplacement d'action {slot}: vide",
@@ -18451,6 +18461,9 @@ export const fr_FR: EnTranslations = {
       "vanguard_warstaff": {
         "name": "Bâton de guerre de l'Avant-garde"
       },
+      "vanguard_feral_staff": {
+        "name": "Bâton farouche de l’Avant-garde"
+      },
       "conjured_water4": {
         "name": "Eau de source invoquée"
       },
@@ -24179,8 +24192,8 @@ export const fr_FR: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Peau de Crin-sang",
-        "bonus2": "Le temps de recharge de Ruée de Bruin est réduit de 3 s.",
-        "bonus4": "Ruée de Bruin vous octroie un bouclier égal à 6 % de vos points de vie maximum pendant 6 s."
+        "bonus2": "Réduit les temps de recharge de Bond et de Ruée de Bruin de 3 s.",
+        "bonus4": "Réduit le temps de recharge de Sprint de 15 s."
       },
       "vanguard_druid_restoration": {
         "name": "Tenue de Fleur-de-chardon",

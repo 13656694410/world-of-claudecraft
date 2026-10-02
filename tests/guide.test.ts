@@ -6641,6 +6641,7 @@ describe('Guide wiki completeness corrections (Phase 20, 2026-09-03)', () => {
       // page does not describe yet, on the same recorded-follow-up footing.
       worldQuests: null,
       worldBosses: null,
+      hill: null,
       player: 'with your own arrow on it',
       pois: 'the points of interest around you',
       npcs: 'the quest givers with their marks',

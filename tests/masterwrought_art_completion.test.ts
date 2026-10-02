@@ -824,7 +824,8 @@ describe('Masterwrought art completion evidence', () => {
     // 17 (faction-ladder-icons-2026-09-23): 1,322. the Viridian Valestrider's reins (release/v0.44.0 base merge): 1,323.
     // + the trinket slot's 18 (trinket-slot-icons-2026-09-23, PR 4173): 1,341. Warfare Season 2's four painted
     // weapons (warfare-season2-weapons-2026-09-25): 1,345, likewise outside it.
-    expect(currentOwnerIds).toHaveLength(1464);
+    // The separate feral Season 2 staff painting adds one current owner.
+    expect(currentOwnerIds).toHaveLength(1465);
     for (const id of datedIds) {
       expect(currentOwnerIds.includes(id), `${id} still has a current mapping owner`).toBe(true);
     }
@@ -938,9 +939,10 @@ describe('Masterwrought art completion evidence', () => {
       'vanguard_oath_blade',
       'vanguard_fang_dagger',
       'vanguard_warstaff',
+      'vanguard_feral_staff',
     ]);
     expect(datedIds.filter((id) => season2WeaponIds.has(id))).toEqual([]);
-    expect(currentOwnerIds.filter((id) => season2WeaponIds.has(id))).toHaveLength(4);
+    expect(currentOwnerIds.filter((id) => season2WeaponIds.has(id))).toHaveLength(5);
 
     // The Buried Hoards branch's three batches (faction reward paintings,
     // treasure-map family, hoard boss loot): 18 + 5 + 96 = 119 ids, additive
