@@ -18669,12 +18669,12 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Alle {every} Sek. trifft Nythraxis seinen aktuellen Tank für {hitNormal} der maximalen Gesundheit als Schattenschaden und fügt einen Stapel Schreckensfluch hinzu. Für {duration} Sek. erhöht jeder Stapel den Schaden, den dieser Tank von Nythraxis erleidet, um {perStackNormal}, bis zu {max} Stapeln.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Alle {everyHeroic} Sek. markieren Skeletthände {countHeroic} Kreise von {radius} yd unter Schlachtzüglern. Nach {warning} Sek. bricht jeder Kreis für {burstHeroic} der maximalen Gesundheit als Schattenschaden aus und brennt dann {flameHeroic} Sek. lang als Grabflamme, die jedem darin Stehenden jede Sekunde {tickHeroic} der maximalen Gesundheit zufügt.',
+    'Alle {everyHeroic} Sek. markieren Skeletthände {countHeroic} Kreise von {radius} yd unter Schlachtzüglern. Nach {warning} Sek. bricht jeder Kreis für {burstHeroic} der maximalen Gesundheit als Schattenschaden aus und brennt dann {flameHeroic} Sek. lang als Grabflamme, die jedem darin Stehenden jede Sekunde {tickHeroic} der maximalen Gesundheit zufügt. Das geschieht nie, solange Seelenriss-Markierungen aktiv sind, oder innerhalb von {gap} Sek. nach ihrem Ende.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Graberuption',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Tretet aus jedem Warnkreis, bevor er ausbricht, und bleibt vom brennenden Boden weg. Tanks ziehen Nythraxis aus den Flammen, damit Nahkämpfer Platz zum Arbeiten behalten.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Alle {everyNormal} Sek. markieren Skeletthände {countNormal} Kreise von {radius} yd unter Schlachtzüglern. Nach {warning} Sek. bricht jeder Kreis für {burstNormal} der maximalen Gesundheit als Schattenschaden aus und brennt dann {flameNormal} Sek. lang als Grabflamme, die jedem darin Stehenden jede Sekunde {tickNormal} der maximalen Gesundheit zufügt.',
+    'Alle {everyNormal} Sek. markieren Skeletthände {countNormal} Kreise von {radius} yd unter Schlachtzüglern. Nach {warning} Sek. bricht jeder Kreis für {burstNormal} der maximalen Gesundheit als Schattenschaden aus und brennt dann {flameNormal} Sek. lang als Grabflamme, die jedem darin Stehenden jede Sekunde {tickNormal} der maximalen Gesundheit zufügt. Das geschieht nie, solange Seelenriss-Markierungen aktiv sind, oder innerhalb von {gap} Sek. nach ihrem Ende.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Grabbrecher',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tanks halten Nythraxis vom Schlachtzug weggedreht. Alle anderen bleiben hinter oder neben ihm und kreuzen nie den Kegel.',

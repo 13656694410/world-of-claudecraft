@@ -18281,12 +18281,12 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Her {every} sn, Nythraxis mevcut tankına azami canın {hitNormal} kadarı kadar Gölge hasarı vurur ve bir Dehşet Laneti yükü ekler. {duration} sn boyunca her yük, o tankın Nythraxis’ten aldığı hasarı {perStackNormal} artırır, en fazla {max} yüke kadar.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Her {everyHeroic} sn, iskelet eller akıncıların altında {radius} yd yarıçaplı {countHeroic} çember işaretler. {warning} sn sonra her çember azami canın {burstHeroic} kadarı kadar Gölge hasarıyla patlar, ardından {flameHeroic} sn boyunca Mezar Alevi olarak yanar ve içinde duran herkese her saniye azami canın {tickHeroic} kadarını verir.',
+    'Her {everyHeroic} sn, iskelet eller akıncıların altında {radius} yd yarıçaplı {countHeroic} çember işaretler. {warning} sn sonra her çember azami canın {burstHeroic} kadarı kadar Gölge hasarıyla patlar, ardından {flameHeroic} sn boyunca Mezar Alevi olarak yanar ve içinde duran herkese her saniye azami canın {tickHeroic} kadarını verir. Ruh Yırtma işaretleri etkinken veya kaybolduktan sonraki {gap} sn içinde asla gerçekleşmez.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Mezar Patlaması',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Her uyarı çemberi patlamadan önce dışına çıkın ve yanan zeminden uzak durun. Tanklar Nythraxis’i alevlerden uzaklaştırır, böylece yakın dövüşün çalışacak alanı kalır.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Her {everyNormal} sn, iskelet eller akıncıların altında {radius} yd yarıçaplı {countNormal} çember işaretler. {warning} sn sonra her çember azami canın {burstNormal} kadarı kadar Gölge hasarıyla patlar, ardından {flameNormal} sn boyunca Mezar Alevi olarak yanar ve içinde duran herkese her saniye azami canın {tickNormal} kadarını verir.',
+    'Her {everyNormal} sn, iskelet eller akıncıların altında {radius} yd yarıçaplı {countNormal} çember işaretler. {warning} sn sonra her çember azami canın {burstNormal} kadarı kadar Gölge hasarıyla patlar, ardından {flameNormal} sn boyunca Mezar Alevi olarak yanar ve içinde duran herkese her saniye azami canın {tickNormal} kadarını verir. Ruh Yırtma işaretleri etkinken veya kaybolduktan sonraki {gap} sn içinde asla gerçekleşmez.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Mezarparçalayan',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tanklar Nythraxis’in yüzünü akından uzağa tutar. Diğer herkes arkasında veya yanında kalır ve koninin içinden asla geçmez.',

@@ -18353,12 +18353,12 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Mỗi {every} giây, Nythraxis đánh tank hiện tại của hắn gây {hitNormal} máu tối đa dưới dạng sát thương Bóng Tối và thêm một cộng dồn Lời Nguyền Kinh Hoàng. Trong {duration} giây, mỗi cộng dồn tăng sát thương tank đó nhận từ Nythraxis thêm {perStackNormal}, tối đa {max} cộng dồn.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Mỗi {everyHeroic} giây, bàn tay xương đánh dấu {countHeroic} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstHeroic} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameHeroic} giây, gây {tickHeroic} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó.',
+    'Mỗi {everyHeroic} giây, bàn tay xương đánh dấu {countHeroic} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstHeroic} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameHeroic} giây, gây {tickHeroic} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó. Điều này không bao giờ xảy ra khi dấu Xé Linh Hồn còn hiệu lực hoặc trong vòng {gap} giây sau khi dấu biến mất.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Mộ Phần Phun Trào',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Bước ra khỏi mọi vòng cảnh báo trước khi chúng phun trào và tránh mặt đất đang cháy. Tank kéo Nythraxis ra khỏi lửa để cận chiến có chỗ đánh.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Mỗi {everyNormal} giây, bàn tay xương đánh dấu {countNormal} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstNormal} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameNormal} giây, gây {tickNormal} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó.',
+    'Mỗi {everyNormal} giây, bàn tay xương đánh dấu {countNormal} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstNormal} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameNormal} giây, gây {tickNormal} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó. Điều này không bao giờ xảy ra khi dấu Xé Linh Hồn còn hiệu lực hoặc trong vòng {gap} giây sau khi dấu biến mất.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Phá Mộ',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tank giữ Nythraxis quay mặt khỏi raid. Mọi người khác đứng sau hoặc bên cạnh hắn và không bao giờ băng qua hình nón.',

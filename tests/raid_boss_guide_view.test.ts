@@ -55,6 +55,7 @@ import {
   nythraxisKingsWrathDamageBonus,
   nythraxisWrathGraveEruptionEvery,
 } from '../src/sim/nythraxis_kings_wrath';
+import { NYTHRAXIS_SOUL_REND_FIRE_GAP_SECONDS } from '../src/sim/nythraxis_soul_rend';
 import { NYTHRAXIS_BOSS_ID } from '../src/sim/types';
 import { VARKHUL_ANVILS_DECREE_STRIKES } from '../src/sim/varkhul_anvils_decree';
 import {
@@ -453,6 +454,12 @@ describe('raid boss guide view', () => {
     expect(summaryOf(heroic, 'bone-spike')).toContain(
       `cannot be chosen again for ${NYTHRAXIS_BONE_SPIKE_COOLDOWN_SECONDS} sec`,
     );
+    // The Soul Rend fire gap is a limit raids plan around, so both tiers state it.
+    for (const view of [normal, heroic]) {
+      expect(summaryOf(view, 'grave-eruption')).toContain(
+        `never begins while Soul Rend marks are live or within ${formatNumber(NYTHRAXIS_SOUL_REND_FIRE_GAP_SECONDS)} sec of them clearing`,
+      );
+    }
     expect(summaryOf(normal, 'kings-wrath')).toContain(
       `${pct(nythraxisKingsWrathDamageBonus('normal'))} more damage on Normal`,
     );

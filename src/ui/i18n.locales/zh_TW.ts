@@ -2392,7 +2392,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'hudChrome.social.presence.everyone': '所有人',
   'hudChrome.social.presence.friends': '僅好友',
   'hudChrome.social.presence.none': '無人',
-  'hudChrome.social.presence.title': '誰能在好友名單和公會名單中看到你在線，以及你的區域和地圖位置。隊伍成員始終能看到你。',
+  'hudChrome.social.presence.title':
+    '誰能在好友名單和公會名單中看到你在線，以及你的區域和地圖位置。隊伍成員始終能看到你。',
   'hudChrome.social.hideOfflineTitle': '隱藏離線公會成員',
   'hudChrome.social.billboard.label': '公會公告板',
   'hudChrome.social.billboard.empty': '公告板上還沒有內容。',
@@ -2703,7 +2704,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
     '功績之書也會記錄你的聲望：與某個陣營達到信任、與某個陣營達到冠軍各記為一項功績，與三個陣營都達到冠軍則是另一項功績。和所有功績一樣，它們只是裝飾，從不帶來戰力，而冠軍功績會授予一個可佩戴的頭銜。',
   'guide.commandsPage.pvp':
     '世界 PvP 旗幟：/pvp 切換，/pvp on 與 /pvp off 直接設定。已開啟旗幟的玩家可以在任何地方互相作戰；關閉需要 5 分鐘。',
-  'guide.commandsPage.presence': '控制誰能在好友名單、公會名單和 /who 中看到你在線：/presence everyone（預設）、/presence friends（僅你好友名單中的玩家）或 /presence none。隱藏後，他們看不到你的在線標記、區域和地圖位置，但密語和邀請仍能送達你；隊伍成員始終能看到你。只輸入 /presence 會告訴你目前的設定。',
+  'guide.commandsPage.presence':
+    '控制誰能在好友名單、公會名單和 /who 中看到你在線：/presence everyone（預設）、/presence friends（僅你好友名單中的玩家）或 /presence none。隱藏後，他們看不到你的在線標記、區域和地圖位置，但密語和邀請仍能送達你；隊伍成員始終能看到你。只輸入 /presence 會告訴你目前的設定。',
   'guide.commandsPage.flair':
     '對其他玩家顯示或隱藏你的 Discord 身分組，也就是彩色名稱、身分組標籤和聊天認證標籤：/flair on 顯示，/flair off 隱藏，只輸入 /flair 會告訴你目前的設定。需要已連結的 Discord 帳號。',
   'guide.commandsPage.pvpZones':
@@ -9635,9 +9637,9 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
     '離得最近的人攻擊骨刺：任何人命中幾次即可擊碎，無論傷害多寡。治療者在骨刺被擊碎前保住被穿刺團員的性命。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': '墓穴爆發',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    '每{everyNormal}秒，骸骨之手會在{countNormal}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstNormal}的暗影傷害，隨後化為墓焰燃燒{flameNormal}秒，對站在其中的人每秒造成相當於最大生命值{tickNormal}的傷害。',
+    '每{everyNormal}秒，骸骨之手會在{countNormal}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstNormal}的暗影傷害，隨後化為墓焰燃燒{flameNormal}秒，對站在其中的人每秒造成相當於最大生命值{tickNormal}的傷害。靈魂撕裂標記存在期間以及標記消失後{gap}秒內，此技能不會發動。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    '每{everyHeroic}秒，骸骨之手會在{countHeroic}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstHeroic}的暗影傷害，隨後化為墓焰燃燒{flameHeroic}秒，對站在其中的人每秒造成相當於最大生命值{tickHeroic}的傷害。',
+    '每{everyHeroic}秒，骸骨之手會在{countHeroic}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstHeroic}的暗影傷害，隨後化為墓焰燃燒{flameHeroic}秒，對站在其中的人每秒造成相當於最大生命值{tickHeroic}的傷害。靈魂撕裂標記存在期間以及標記消失後{gap}秒內，此技能不會發動。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     '在每個警示圈爆發前離開範圍，並遠離燃燒地面。坦克應將尼思拉克西斯拉離火場，讓近戰保有輸出空間。',
   'hudChrome.raidBossGuide.nythraxis.bindingSigilName': '束縛印記',

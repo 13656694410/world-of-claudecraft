@@ -2477,7 +2477,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.social.presence.everyone': '全員',
   'hudChrome.social.presence.friends': 'フレンドのみ',
   'hudChrome.social.presence.none': 'なし',
-  'hudChrome.social.presence.title': 'フレンドリストとギルド名簿で誰にオンライン状態、ゾーン、マップ上の位置を見せるか。パーティーメンバーには常に表示されます。',
+  'hudChrome.social.presence.title':
+    'フレンドリストとギルド名簿で誰にオンライン状態、ゾーン、マップ上の位置を見せるか。パーティーメンバーには常に表示されます。',
   'hudChrome.social.hideOfflineTitle': 'オフラインのギルドメンバーを非表示',
   'hudChrome.social.billboard.label': 'ギルド掲示板',
   'hudChrome.social.billboard.empty': '掲示板にはまだ何もありません。',
@@ -2678,7 +2679,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.buyOwnedAria': '{item}を{honor}で購入、所有済み',
   'hudChrome.warfareShop.buyConfirmBody':
     '{item}を{honor}で購入しますか？名誉での購入は返金できません。',
-  'hudChrome.warfareShop.buyConfirmBodyGold': '{item}を{price}で購入しますか？この購入は返金できません。',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    '{item}を{price}で購入しますか？この購入は返金できません。',
   'hudChrome.keybinds.bgFlag': '戦場フラッグアクション',
   'hudChrome.keybinds.friendlyNameplates': '友好ネームプレート切り替え',
   'hudChrome.pvp.mobileLabel': 'PvP',
@@ -2804,7 +2806,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
     '偉業の書も評判を記録します。ある勢力で信頼に達すること、ある勢力でチャンピオンに達することがそれぞれ偉業として記録され、三勢力すべてでチャンピオンに達することは独自の偉業です。他の偉業と同じく、これらは見た目だけで力にはならず、チャンピオンの偉業は身に着けられる称号を授けます。',
   'guide.commandsPage.pvp':
     'ワールドPvPフラグ: /pvp で切り替え、/pvp on と /pvp off で直接設定します。フラグを立てたプレイヤー同士はどこでも戦えます。解除には5分かかります。',
-  'guide.commandsPage.presence': 'フレンドリスト、ギルド名簿、/who で誰にオンライン状態を見せるかを設定します。/presence everyone（初期設定）、/presence friends（自分のフレンドリストにいるプレイヤーのみ）、/presence none。非表示にすると、相手にはオンライン表示、ゾーン、マップ上の位置が見えなくなりますが、ウィスパーや招待は届きます。パーティーメンバーには常に表示されます。/presence だけで現在の設定を確認できます。',
+  'guide.commandsPage.presence':
+    'フレンドリスト、ギルド名簿、/who で誰にオンライン状態を見せるかを設定します。/presence everyone（初期設定）、/presence friends（自分のフレンドリストにいるプレイヤーのみ）、/presence none。非表示にすると、相手にはオンライン表示、ゾーン、マップ上の位置が見えなくなりますが、ウィスパーや招待は届きます。パーティーメンバーには常に表示されます。/presence だけで現在の設定を確認できます。',
   'guide.commandsPage.flair':
     '他のプレイヤーに見える Discord ロール（色付きの名前、ロールタグ、チャットの認証タグ）の表示を切り替えます。/flair on で表示、/flair off で非表示になり、/flair だけで現在の設定を確認できます。Discord アカウントの連携が必要です。',
   'guide.commandsPage.pvpZones':
@@ -5802,7 +5805,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.ysolei.name': 'イソレイ、溺月の化身',
   'hudChrome.death.resurrectAtCorpse': '亡骸で復活',
   'hudChrome.death.pvpResurrect': 'PvP復活',
-  'hudChrome.death.pvpResurrectTitle': '最寄りの墓地でHP全快の状態で復活し、新たな復活の後遺症は付かない。',
+  'hudChrome.death.pvpResurrectTitle':
+    '最寄りの墓地でHP全快の状態で復活し、新たな復活の後遺症は付かない。',
   'hudChrome.death.resurrectAtHealer': '霊魂の癒し手（復活の後遺症）',
   'hudChrome.death.healerConfirmTitle': '復活の後遺症を受けますか？',
   'hudChrome.death.healerConfirmBody':
@@ -10024,9 +10028,9 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
     '最も近い者が骨の棘を攻撃する。誰の攻撃でも数回当てれば砕け、ダメージ量は問わない。ヒーラーは棘が砕けるまで串刺しにされた味方を生かし続ける。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': '墓所の噴出',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    '{everyNormal}秒ごとに、骸骨の手がレイドメンバーの足元に{radius}ヤードの円を{countNormal}個描く。{warning}秒後、各円は最大体力の{burstNormal}を闇ダメージとして噴出させ、その後{flameNormal}秒間墓炎として燃え続け、中に立つ者へ毎秒最大体力の{tickNormal}を与える。',
+    '{everyNormal}秒ごとに、骸骨の手がレイドメンバーの足元に{radius}ヤードの円を{countNormal}個描く。{warning}秒後、各円は最大体力の{burstNormal}を闇ダメージとして噴出させ、その後{flameNormal}秒間墓炎として燃え続け、中に立つ者へ毎秒最大体力の{tickNormal}を与える。魂の裂傷のマークが有効な間と、マークが消えてから{gap}秒以内には発生しない。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    '{everyHeroic}秒ごとに、骸骨の手がレイドメンバーの足元に{radius}ヤードの円を{countHeroic}個描く。{warning}秒後、各円は最大体力の{burstHeroic}を闇ダメージとして噴出させ、その後{flameHeroic}秒間墓炎として燃え続け、中に立つ者へ毎秒最大体力の{tickHeroic}を与える。',
+    '{everyHeroic}秒ごとに、骸骨の手がレイドメンバーの足元に{radius}ヤードの円を{countHeroic}個描く。{warning}秒後、各円は最大体力の{burstHeroic}を闇ダメージとして噴出させ、その後{flameHeroic}秒間墓炎として燃え続け、中に立つ者へ毎秒最大体力の{tickHeroic}を与える。魂の裂傷のマークが有効な間と、マークが消えてから{gap}秒以内には発生しない。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     '噴出する前にすべての警告円から外へ出て、燃える地面を避け続ける。タンクはナイスラクシスを炎から引き離し、近接が動ける余地を確保する。',
   'hudChrome.raidBossGuide.nythraxis.bindingSigilName': '拘束の印',
