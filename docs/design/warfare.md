@@ -640,10 +640,12 @@ sale unchanged. Full design, the 54 set bonuses and their PvE ceilings:
   a caster staff.
 - **Item level 35**, level with the Ignivar raid tier, on the honor discount: 0.9 of the line
   budget, the full-budget stamina floor, no hit, crit or haste rating, and 0.9 of raid armor.
-  The Warfare ratings are 2.2x (Offense) and 3.4x (Defense) the slot budget, so a Season 2
-  kit reaches the 30 percent caps and the +80 percent Vitality cap where a full entry-tier
-  kit stops at about +50: about 10 percent more health in PvP (14 for casters), and nothing
-  in dungeons or raids.
+  The Warfare ratings are 1.8x (Offense) and 2.9x (Defense) the slot budget (rebalanced
+  2026-10-02 from 2.2x and 3.4x), so only the full Season 2 kit, weapon included, reaches
+  the 30 percent caps and the +80 percent Vitality cap, where a full entry-tier kit stops at
+  about +50: 6 to 15 percent more health in PvP, and nothing in dungeons or raids. Only the
+  main hand's weapon carries Warfare rating; an offhand weapon adds none (see
+  `docs/design/warfare-season-2.md`).
 - **Prices:** 1.5 times the entry tier per slot, 6,600 Honor for a full set, 1,800 per weapon.
 - **Pins:** `tests/warfare_season2.test.ts` (stock shape, stat, armor and weapon rules, set
   rows, and the tank effective-health guard).
@@ -782,14 +784,19 @@ Keeping `/pvp` on grants 20% more XP (including lifetime XP) and faction reputat
 before rested kill XP; reputation multiplies before the existing level cap.
 Positive boosted awards round down to whole points. Turning PvP off stops
 both bonuses immediately, even while the five-minute disarm runs. Automatically
-raised flags receive the same rewards while armed. The Proving Shore pauses played-time progress without clearing the flag.
+raised flags receive the same rewards while armed. Played-time progress counts only while alive in
+the open world: death (a corpse or a released ghost), every instance (dungeons, raids, delves, rifts,
+mazes, the arena and battlegrounds) and the Proving Shore pause it without clearing the flag, so the
+titles cannot be banked out of every rival's reach.
 
 The played-time streak grants permanent titles: Bold at 1 hour, Defiant at
 3 hours, Dauntless at 6 hours, Unyielding at 24 hours, and Indomitable at
 168 hours (7 days). Logout pauses the streak; `/pvp off` resets it, including
 when that countdown is later cancelled. Earned titles survive resets.
 This requested played-time reward is an explicit exception to the general
-Book of Deeds rule against attendance rewards. AFK time counts; tutorial island time does not. Leaving the island resumes the streak.
+Book of Deeds rule against attendance rewards. AFK time alive in the open world counts; time spent
+dead, in an instance or on the tutorial island does not. Resurrecting or returning to open-world
+ground resumes the streak.
 
 The existing character JSONB stores optional `worldPvp.rewardTicks`, an integer
 capped at 168 hours at `TICK_RATE`. Only simulation ticks accrue, and leaving or disconnected

@@ -456,6 +456,7 @@ export type {
   HillSide,
   HillStandingInfo,
   WorldPvpInfo,
+  WorldPvpRewardPause,
   WorldPvpZone,
 } from './world_api/world_pvp';
 

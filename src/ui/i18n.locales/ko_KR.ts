@@ -4586,6 +4586,7 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'itemUi.tooltip.dps': '(초당 피해 {dps})',
   'itemUi.tooltip.armorStat': '방어도 {value}',
   'itemUi.tooltip.stat': '+{value} {stat}',
+  'itemUi.tooltip.warfareMainHandOnly': '워페어는 주장비에서만 적용됩니다.',
   'itemUi.tooltip.useFood':
     '사용 효과: {seconds}초에 걸쳐 생명력 {amount} 회복. 먹는 동안 앉아 있어야 합니다.',
   'itemUi.tooltip.useDrink':
@@ -19609,8 +19610,10 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     '월드 PvP를 켜 두면 경험치와 진영 평판을 {percent} 더 얻습니다. 끄기를 요청하면 즉시 보너스가 중단됩니다.',
   'hudChrome.worldPvp.rewardTitles':
-    '월드 PvP를 켠 플레이 시간이 {thresholds}에 도달하면 영구 칭호를 얻습니다. 로그아웃하거나 수련의 해안에 머무는 동안 타이머가 멈춥니다. PvP를 끄면 초기화됩니다.',
+    '열린 세계에서 월드 PvP를 켠 플레이 시간이 {thresholds}에 도달하면 영구 칭호를 얻습니다. 로그아웃하거나 사망 상태이거나 인스턴스 또는 수련의 해안에 머무는 동안 타이머가 멈춥니다. PvP를 끄면 초기화됩니다.',
   'hudChrome.worldPvp.rewardPaused': '현재 PvP 유지 시간: {time} (수련의 해안에서 일시 정지)',
+  'hudChrome.worldPvp.rewardPausedDead': '현재 PvP 유지 시간: {time} (사망 상태에서 일시 정지)',
+  'hudChrome.worldPvp.rewardPausedInstance': '현재 PvP 유지 시간: {time} (인스턴스에서 일시 정지)',
   'hudChrome.worldPvp.rewardProgress': '현재 PvP 유지 시간: {time}',
   'hudChrome.hill.pvpEntry': '활성 원에 들어가면 월드 PvP가 켜집니다.',
   'hudChrome.hill.pvpBanner': 'PvP',

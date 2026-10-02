@@ -19942,9 +19942,13 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     'Pozostaw światowe PvP włączone, aby zdobywać o {percent} więcej doświadczenia i reputacji frakcji. Premie kończą się, gdy poprosisz o wyłączenie.',
   'hudChrome.worldPvp.rewardPaused': 'Obecna seria PvP: {time} gry (wstrzymana na Wybrzeżu Prób)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Obecna seria PvP: {time} gry (wstrzymana, gdy nie żyjesz)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Obecna seria PvP: {time} gry (wstrzymana w instancjach)',
   'hudChrome.worldPvp.rewardProgress': 'Obecna seria PvP: {time} gry',
   'hudChrome.worldPvp.rewardTitles':
-    'Zdobywaj stałe tytuły po {thresholds} czasu gry z włączonym światowym PvP. Wylogowanie i odwiedziny na Wybrzeżu Prób wstrzymują licznik. Wyłączenie go zeruje.',
+    'Zdobywaj stałe tytuły po {thresholds} czasu gry w otwartym świecie z włączonym światowym PvP. Wylogowanie, śmierć, instancje i Wybrzeże Prób wstrzymują licznik. Wyłączenie go zeruje.',
   'guide.worldPvpPage.introZones':
     'PvP w otwartym świecie jest dobrowolne i zależy od terenu. Na spornych terenach włączenie flagi PvP czyni wrogami wszystkich oznaczonych graczy spoza twojej grupy lub rajdu; po wyłączeniu i krótkiej zwłoce znów jesteś obserwatorem. Wybrzeże Prób to jedyne sanktuarium bez walk w świecie, a trzy najbardziej północne strefy stosują te same zasady dobrowolnej flagi co reszta świata. Wejście do aktywnego kręgu Króla Wzgórza automatycznie włącza twoją flagę. Członkowie grupy i rajdu nigdzie nie są twoimi wrogami; członkowie gildii poza twoją grupą są celami jak inni gracze.',
   'guide.worldPvpPage.zonesBody':
