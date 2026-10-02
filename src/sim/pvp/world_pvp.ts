@@ -43,7 +43,12 @@ import type { PlayerMeta } from '../sim';
 import type { SimContext } from '../sim_context';
 import type { Entity } from '../types';
 import { TICK_RATE } from '../types';
-import { hillKillFor, hillKillHonorMultiplier, recordHillKill } from './hill_bounty';
+import {
+  endHillKillStreak,
+  hillKillFor,
+  hillKillHonorMultiplier,
+  recordHillKill,
+} from './hill_bounty';
 import { hillContains } from './hill_rules';
 import { grantHonor } from './honor';
 import { pvpIdentityOf } from './pvp_identity';
@@ -702,7 +707,12 @@ export function worldPvpOnPlayerDeath(
   const victimMeta = ctx.players.get(victim.id);
   if (!victimMeta) return;
   const killerPlayer = controllerOf(ctx, killer);
-  if (!killerPlayer || !isWorldPvpHostile(ctx, killerPlayer, victim)) return;
+  if (!killerPlayer || !isWorldPvpHostile(ctx, killerPlayer, victim)) {
+    // A fall, a mob, a friendly kill: still a death, so a running hill kill
+    // streak ends (hill_bounty.ts endHillKillStreak).
+    endHillKillStreak(ctx, victimMeta);
+    return;
+  }
   books.paidDeaths.add(victim.id);
   ensureState(victimMeta).deaths++;
 
@@ -710,6 +720,8 @@ export function worldPvpOnPlayerDeath(
   // Honor ignores the hourly repeat decay up to the hill's own repeat cap; the
   // gold stake keeps the decay either way.
   const hillKill = hillKillFor(ctx, killerPlayer, victim, victimMeta);
+  // A world kill away from the circle is no hill kill, but it is a death.
+  if (!hillKill) endHillKillStreak(ctx, victimMeta);
   const contributors: Contributor[] = [];
   const seen = new Set<number>();
   const fresh = (at: number) => ctx.time - at <= WORLD_PVP_ASSIST_WINDOW;
@@ -772,7 +784,8 @@ export function worldPvpOnPlayerDeath(
     ensureState(c.meta).kills++;
     c.meta.copper += goldShare;
     taken += goldShare;
-    notice(ctx, c.e.id, worldPvpKillLine(victim.name, goldShare, n));
+    // "split N ways" counts the contributors the gold split between.
+    notice(ctx, c.e.id, worldPvpKillLine(victim.name, goldShare, goldEarners));
     grantHonor(ctx, c.meta, honorShare, isKiller ? 'world_kill' : 'world_assist');
   }
   victimMeta.copper = Math.max(0, victimMeta.copper - taken);

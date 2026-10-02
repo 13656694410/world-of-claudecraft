@@ -221,6 +221,17 @@ describe('hill kills in the Sim', () => {
     );
     expect(gold[0]).toBeGreaterThan(0);
     expect(honor, 'both earn the 10 Honor bounty, five each').toEqual([5, 5]);
+    const lines = sim.events
+      .filter((ev) => ev.type === 'log' && ev.pid === a)
+      .map((ev) => (ev as { text: string }).text);
+    expect(
+      lines.some((l) => l.startsWith('You defeat Bet and take')),
+      'the killer took the purse',
+    ).toBe(true);
+    expect(
+      lines.some((l) => l.includes('split')),
+      'the purse was not split with the decayed helper',
+    ).toBe(false);
     expect(
       sim.worldPvpBooks.killsByPair.get('character:2001>character:2002')?.count,
       'the spent decay does not climb further',
@@ -260,6 +271,58 @@ describe('hill kills in the Sim', () => {
     place(sim, a, hill.x, hill.z);
     tickSeconds(sim, 1);
     expect(ent(sim, a).hillBounty).toBe(15);
+  });
+
+  it('ends a kill streak on any death while the hill stands, not only a hill kill', () => {
+    const {
+      sim,
+      pids: [a, b, c],
+    } = hillFight(['Aleph', 'Bet', 'Gimel']);
+    for (let i = 0; i < 3; i++) kill(sim, a, b);
+    expect(ent(sim, a).hillBounty).toBe(20);
+    // A fall, with no player in it: the streak and its bounty are gone.
+    const A = ent(sim, a);
+    sim.ctx.dealDamage(null, A, A.hp + 1_000, false, 'physical', 'Fall', 'hit');
+    expect(A.dead).toBe(true);
+    expect(A.hillBounty).toBeUndefined();
+    // So the next kill starts a fresh streak: no Legendary, no bounty yet.
+    A.dead = false;
+    A.hp = A.maxHp;
+    tickSeconds(sim, HILL_CALLOUT_SECONDS + 1);
+    kill(sim, a, b);
+    expect(ent(sim, a).hillBounty).toBeUndefined();
+    expect(sim.hillInfoFor(c)?.callout ?? null).toBeNull();
+
+    // A hostile kill away from the circle ends it the same way. (Gimel this
+    // time: a sixth kill of Bet would be past the pair cap and build nothing.)
+    for (let i = 0; i < 2; i++) kill(sim, a, c);
+    expect(ent(sim, a).hillBounty).toBe(20);
+    place(sim, a, PLAYER_START.x, PLAYER_START.z);
+    place(sim, c, PLAYER_START.x + 3, PLAYER_START.z);
+    tickSeconds(sim, 1);
+    kill(sim, c, a);
+    const hill = sim.hillState.active as { x: number; z: number };
+    place(sim, a, hill.x, hill.z);
+    tickSeconds(sim, 1);
+    expect(ent(sim, a).hillBounty, 'no streak survives the death').toBeUndefined();
+  });
+
+  it('never reuses a callout id when the same window raises a new hill', () => {
+    const {
+      sim,
+      pids: [a, b, watcher],
+    } = hillFight(['Aleph', 'Bet', 'Watcher']);
+    for (let i = 0; i < 3; i++) kill(sim, a, b);
+    const first = sim.hillInfoFor(watcher)?.callout?.id;
+    endHillNow(sim.ctx);
+    const again = spawnHillNow(sim.ctx, 'drakelands') as { x: number; z: number };
+    for (const [i, pid] of [a, b, watcher].entries()) place(sim, pid, again.x + i * 3, again.z);
+    tickSeconds(sim, 1);
+    for (let i = 0; i < 3; i++) kill(sim, a, b);
+    const second = sim.hillInfoFor(watcher)?.callout?.id;
+    expect(first).toBeTruthy();
+    expect(second).toBeTruthy();
+    expect(second).not.toBe(first);
   });
 
   it('takes every badge down when the hill ends', () => {

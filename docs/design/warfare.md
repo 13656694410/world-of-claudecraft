@@ -639,10 +639,11 @@ champion bounty, scaled from its 300 gold base to 10 Honor
 | Bounty (Honor) | 10 | 9 | 7 | 6 | 5 | 3 |
 
 League documents only the death-streak floor (a third of the base), so the
-steps between are this game's own. Streaks count hill kills only, for the life
-of the hill: a kill adds one and ends the killer's death streak, a death ends
-the victim's kill streak and adds one death. Only a paid killing blow builds a
-streak (a grey or raid kill does not). Hill Honor ignores the hourly
+steps between are this game's own. Streaks last the life of the hill: a hill
+kill adds one and ends the killer's death streak; ANY death while the hill
+stands (a hill kill, a kill away from the circle, a mob, a fall) ends the
+victim's kill streak, and a hill death also adds one death. Only a paid
+killing blow builds a streak (a grey or raid kill does not). Hill Honor ignores the hourly
 100/50/25/0 repeat decay: each contributor is paid in full for the first five
 kills of one victim on one hill (`HILL_BOUNTY_REPEAT_CAP`), then nothing. The
 gold stake keeps the normal decay.

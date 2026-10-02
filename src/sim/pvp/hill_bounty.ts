@@ -49,7 +49,6 @@ export interface HillBountyBook {
   /** `${contributorIdentity}>${victimIdentity}` -> kills paid on this hill. */
   pairKills: Map<string, number>;
   callout: (HillCalloutInfo & { at: number }) | null;
-  calloutSeq: number;
 }
 
 /** A world kill that counts as a hill kill, from hillKillFor. */
@@ -61,7 +60,7 @@ export interface HillKill {
 }
 
 function book(hill: ActiveHill): HillBountyBook {
-  hill.bounty ??= { streaks: new Map(), pairKills: new Map(), callout: null, calloutSeq: 0 };
+  hill.bounty ??= { streaks: new Map(), pairKills: new Map(), callout: null };
   return hill.bounty;
 }
 
@@ -132,8 +131,12 @@ function postCallout(
   victim: string,
   streak: number,
 ): void {
-  b.calloutSeq += 1;
-  b.callout = { id: `${hill.ordinal}.${b.calloutSeq}`, kind, killer, victim, streak, at: ctx.time };
+  // A realm-wide sequence (HillState.calloutSeq), not a per-hill one: a /dev
+  // re-raise or a re-planned window reuses the ordinal, and a per-hill count
+  // would repeat an id the HUD has already shown.
+  const seq = (ctx.hillState.calloutSeq ?? 0) + 1;
+  ctx.hillState.calloutSeq = seq;
+  b.callout = { id: `${hill.ordinal}.${seq}`, kind, killer, victim, streak, at: ctx.time };
 }
 
 /**
@@ -175,6 +178,20 @@ export function recordHillKill(
   }
   const call = hillStreakCallout(won.kills);
   if (call) postCallout(ctx, b, kill.hill, call, killer.name, '', won.kills);
+}
+
+/** Any death while the hill stands risen ends the victim's kill streak (the
+ *  bounty is "Kill streak (no deaths)"): a fall, a mob, or a fight away from
+ *  the circle, not only a hill kill (recordHillKill books those). The death
+ *  streak counts hill deaths only, so it is left alone. */
+export function endHillKillStreak(ctx: SimContext, victim: PlayerMeta | undefined): void {
+  const hill = ctx.hillState.active;
+  if (!victim || !hill || hill.phase !== 'active' || !hill.bounty) return;
+  const s = hill.bounty.streaks.get(pvpIdentityOf(victim));
+  if (!s || s.kills === 0) return;
+  s.kills = 0;
+  const e = ctx.entities.get(victim.entityId);
+  if (e) syncBadge(hill, e, s);
 }
 
 /** The once-a-second badge pass (hill.ts updateHill, while the hill stands

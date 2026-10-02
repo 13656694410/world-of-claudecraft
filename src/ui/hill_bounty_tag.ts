@@ -1,5 +1,5 @@
 // Single source for the King of the Hill bounty tag (src/sim/pvp/hill_bounty.ts,
-// the `hb` wire bit): the overhead nameplate and the HUD target frame both
+// the `hbn` wire bit): the overhead nameplate and the HUD target frame both
 // resolve it through here, the cheater_tag.ts reason: two surfaces that render
 // one tag must never drift apart. DOM-free and Three-free.
 import { formatNumber, type TranslationKey, t } from './i18n';

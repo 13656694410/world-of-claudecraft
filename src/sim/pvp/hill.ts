@@ -122,6 +122,9 @@ export interface HillState {
    *  modulo of the tick count, so a pass can never be skipped by a host that
    *  does not visit every tick. */
   passTick: number;
+  /** The realm's announcer call counter (hill_bounty.ts), so a callout id is
+   *  never reused within the realm's session. */
+  calloutSeq?: number;
 }
 
 export function newHillState(): HillState {

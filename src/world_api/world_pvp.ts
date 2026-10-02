@@ -50,16 +50,10 @@ export type HillPhaseInfo = 'warning' | 'active';
  *  the ordinary World PvP level requirement. */
 export type HillStandingInfo = 'counted' | 'raid' | 'level';
 
-/** The announced or standing hill (src/sim/pvp/hill.ts), from one viewer's
- *  seat. The geometry, the phase and the holder are realm facts; `inZone`,
- *  `inside`, `standing`, the counts and the contest clock are the viewer's.
- *  The live fields (counts, contest) are zero unless the viewer stands in the
- *  hill's zone while it is risen, so the self wire elides the readout for
- *  everyone else between crossings and holder changes. */
 /** The latest King of the Hill announcer call (src/sim/pvp/hill_bounty.ts),
  *  for everyone in the hill's zone while it is fresh. */
 export interface HillCalloutInfo {
-  /** Unique across hills, so the HUD shows each call exactly once. */
+  /** Unique within the realm's session, so the HUD shows each call exactly once. */
   id: string;
   kind: HillCalloutKind;
   /** The streaking killer, or the one who shut a streak down. */
@@ -70,6 +64,12 @@ export interface HillCalloutInfo {
   streak: number;
 }
 
+/** The announced or standing hill (src/sim/pvp/hill.ts), from one viewer's
+ *  seat. The geometry, the phase and the holder are realm facts; `inZone`,
+ *  `inside`, `standing`, the counts and the contest clock are the viewer's.
+ *  The live fields (counts, contest) are zero unless the viewer stands in the
+ *  hill's zone while it is risen, so the self wire elides the readout for
+ *  everyone else between crossings and holder changes. */
 export interface HillInfo {
   zoneId: string;
   x: number;
