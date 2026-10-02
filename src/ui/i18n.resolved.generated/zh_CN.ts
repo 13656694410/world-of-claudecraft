@@ -594,6 +594,8 @@ export const zh_CN: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "在尸体旁复活",
+      "pvpResurrect": "PvP 复活",
+      "pvpResurrectTitle": "在最近的墓地以满生命值复活，且不会新增复活后遗症。",
       "resurrectAtHealer": "灵魂医者（复活后遗症）",
       "ghostHint": "跑回你死亡的地点，或与灵魂医者交谈以复活",
       "spiritHealerAlive": "灵魂医者只看护逝者。你仍是生者。",
@@ -2786,8 +2788,10 @@ export const zh_CN: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "保持世界PvP开启可多获得{percent}的经验值和阵营声望。请求关闭时，加成立即停止。",
-      "rewardTitles": "开启世界PvP的游戏时间达到{thresholds}时，可获得永久头衔。离线或身处试炼之滨时计时暂停。关闭PvP会重置计时。",
+      "rewardTitles": "在开放世界中开启世界PvP的游戏时间达到{thresholds}时，可获得永久头衔。离线、死亡、身处副本或试炼之滨时计时暂停。关闭PvP会重置计时。",
       "rewardPaused": "当前PvP连续游戏时间：{time}（在试炼之滨暂停）",
+      "rewardPausedDead": "当前PvP连续游戏时间：{time}（死亡期间暂停）",
+      "rewardPausedInstance": "当前PvP连续游戏时间：{time}（在副本中暂停）",
       "rewardProgress": "当前PvP连续游戏时间：{time}",
       "tab": "世界 PvP",
       "title": "世界 PvP",
@@ -2864,7 +2868,8 @@ export const zh_CN: EnTranslations = {
       "owned": "已拥有",
       "buyAria": "以 {honor} 购买 {item}",
       "buyOwnedAria": "以 {honor} 购买 {item}，已拥有",
-      "buyConfirmBody": "用 {honor} 购买 {item}？荣誉购买后无法退款。"
+      "buyConfirmBody": "用 {honor} 购买 {item}？荣誉购买后无法退款。",
+      "buyConfirmBodyGold": "用 {price} 购买 {item}？此次购买无法退款。"
     },
     "charSheet": {
       "offense": "攻击",
@@ -12778,6 +12783,7 @@ export const zh_CN: EnTranslations = {
       "dps": "（每秒 {dps} 伤害）",
       "armorStat": "{value} 护甲",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "战争属性仅在主手时生效。",
       "useFood": "使用：在 {seconds} 秒内恢复 {amount} 点生命值。进食时必须保持坐下。",
       "useDrink": "使用：在 {seconds} 秒内恢复 {amount} 点法力值。饮水时必须保持坐下。",
       "useElixir": "使用：使你的{stat}提高 {value} 点，持续 {minutes} 分钟。会顶替其他任何同属性的药剂或卷轴。战斗中可用。",

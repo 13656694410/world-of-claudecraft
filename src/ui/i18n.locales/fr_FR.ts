@@ -20283,9 +20283,13 @@ export const fr_FR: Partial<Record<TranslationKey, string>> = {
     'Gardez le JcJ mondial activé pour gagner {percent} d’expérience et de réputation de faction supplémentaires. Les bonus cessent dès que vous demandez sa désactivation.',
   'hudChrome.worldPvp.rewardPaused':
     'Série JcJ actuelle : {time} de jeu (en pause sur le Rivage de l’Épreuve)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Série JcJ actuelle : {time} de jeu (en pause tant que vous êtes mort)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Série JcJ actuelle : {time} de jeu (en pause dans les instances)',
   'hudChrome.worldPvp.rewardProgress': 'Série JcJ actuelle : {time} de jeu',
   'hudChrome.worldPvp.rewardTitles':
-    'Obtenez des titres permanents après {thresholds} de temps de jeu avec le JcJ mondial activé. La déconnexion et les visites au Rivage de l’Épreuve suspendent le compteur. Désactiver le JcJ le remet à zéro.',
+    'Obtenez des titres permanents après {thresholds} de temps de jeu dans le monde ouvert avec le JcJ mondial activé. La déconnexion, la mort, les instances et le Rivage de l’Épreuve suspendent le compteur. Désactiver le JcJ le remet à zéro.',
   'guide.worldPvpPage.introZones':
     "Le JcJ en monde ouvert est volontaire et dépend du terrain. Lever votre drapeau rend ennemis les autres joueurs marqués hors de votre groupe ou raid en zone contestée ; le baisser vous rend à nouveau spectateur après un court délai. Le Rivage de l'Épreuve est le seul sanctuaire, sans JcJ mondial. Les trois zones les plus au nord suivent les mêmes règles de participation volontaire que le reste du monde. Entrer dans le cercle actif du Roi de la colline lève automatiquement votre drapeau. Vos compagnons de groupe et de raid ne sont jamais vos ennemis ; les membres de votre guilde hors de votre groupe peuvent être combattus comme les autres joueurs.",
   'guide.worldPvpPage.zonesBody':

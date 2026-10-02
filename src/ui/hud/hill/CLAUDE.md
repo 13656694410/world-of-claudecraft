@@ -22,14 +22,14 @@ through `IWorld.hillInfo`), behind the `index.ts` barrel:
   rows (the counts and the fill only exist once it has risen); a `.hill-note`
   row always explains ineligibility or warns that entry enables PvP. The pure
   `shouldAnnounceHillPvp(previous, next)` helper detects eligible entry or
-  activation while inside; the painter forwards it through `onPvpEntry` to
-  the HUD banner. Under-level viewers do not receive the banner; raid members
+  activation while inside; the painter forwards it through `banner` (with
+  `hudChrome.hill.pvpBanner`) to the HUD banner. Under-level viewers do not receive the banner; raid members
   do because they are flagged even though they cannot capture. The banner uses
   its own `hudChrome.hill.pvpBanner` key. The announcer's call
   (`HillInfo.callout`, src/sim/pvp/hill_bounty.ts) rides the same view as
   `callout`; the pure `hillCalloutToShow(shownId, view)` picks each call id
   exactly once and the painter forwards `hillCalloutText(call)` through
-  `onCallout` to the HUD banner (`hudChrome.hill.callout.*`). ONE innerHTML write per sig
+  the same `banner` dependency to the HUD banner (`hudChrome.hill.callout.*`). ONE innerHTML write per sig
   change; every per-second
   value (the counts, the contest text and fill width, the distance, the
   minutes) rides the `PainterHost` elided writers, so an idle second writes

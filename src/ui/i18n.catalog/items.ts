@@ -81,6 +81,10 @@ const itemStringsEn = {
       dps: '({dps} damage per second)',
       armorStat: '{value} Armor',
       stat: '+{value} {stat}',
+      // Under a weapon's Warfare line: only the main hand's weapon counts its
+      // rating (countsWarfareRating, src/sim/pvp/power.ts), so a dual wielder's
+      // offhand weapon adds no Warfare.
+      warfareMainHandOnly: 'Warfare counts only in the main hand.',
       useFood: 'Use: Restores {amount} health over {seconds} sec. Must remain seated while eating.',
       useDrink:
         'Use: Restores {amount} mana over {seconds} sec. Must remain seated while drinking.',

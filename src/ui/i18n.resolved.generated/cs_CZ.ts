@@ -594,6 +594,8 @@ export const cs_CZ: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Vzkřísit u mrtvoly",
+      "pvpResurrect": "PvP Resurrect",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "Bledý strážce (Strážcovo mýto)",
       "ghostHint": "Doběhni na místo své smrti, nebo promluv s Bledým strážcem a nech se vzkřísit",
       "spiritHealerAlive": "Bledý strážce dohlíží na mrtvé. Ty jsi stále mezi živými.",
@@ -2786,8 +2788,10 @@ export const cs_CZ: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Nechte světové PvP zapnuté a získávejte o {percent} více zkušeností a reputace frakcí. Bonusy skončí, jakmile požádáte o vypnutí.",
-      "rewardTitles": "Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP. Odhlášení a návštěva Zkušebního pobřeží časovač pozastaví. Vypnutí jej vynuluje.",
+      "rewardTitles": "Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP v otevřeném světě. Odhlášení, smrt, instance a Zkušební pobřeží časovač pozastaví. Vypnutí jej vynuluje.",
       "rewardPaused": "Aktuální série PvP: odehráno {time} (pozastaveno na Zkušebním pobřeží)",
+      "rewardPausedDead": "Aktuální série PvP: odehráno {time} (pozastaveno, dokud jste mrtví)",
+      "rewardPausedInstance": "Aktuální série PvP: odehráno {time} (pozastaveno v instancích)",
       "rewardProgress": "Aktuální série PvP: odehráno {time}",
       "tab": "Světové PvP",
       "title": "Světové PvP",
@@ -2864,7 +2868,8 @@ export const cs_CZ: EnTranslations = {
       "owned": "Vlastněno",
       "buyAria": "Koupit {item} za {honor}",
       "buyOwnedAria": "Koupit {item} za {honor}, již vlastníš",
-      "buyConfirmBody": "Koupit {item} za {honor}? Nákupy za čest nelze vrátit."
+      "buyConfirmBody": "Koupit {item} za {honor}? Nákupy za čest nelze vrátit.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Útok",
@@ -12778,6 +12783,7 @@ export const cs_CZ: EnTranslations = {
       "dps": "({dps} poškození za sekundu)",
       "armorStat": "{value} brnění",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Použití: Obnoví {amount} zdraví během {seconds} s. Při jídle musíš zůstat sedět.",
       "useDrink": "Použití: Obnoví {amount} many během {seconds} s. Při pití musíš zůstat sedět.",
       "useElixir": "Použití: Zvyšuje {stat} o {value} na {minutes} min. Nahradí jiný elixír nebo svitek stejné vlastnosti. Použitelné v boji.",

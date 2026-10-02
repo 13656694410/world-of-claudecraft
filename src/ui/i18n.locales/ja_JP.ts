@@ -2673,6 +2673,7 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.buyOwnedAria': '{item}を{honor}で購入、所有済み',
   'hudChrome.warfareShop.buyConfirmBody':
     '{item}を{honor}で購入しますか？名誉での購入は返金できません。',
+  'hudChrome.warfareShop.buyConfirmBodyGold': '{item}を{price}で購入しますか？この購入は返金できません。',
   'hudChrome.keybinds.bgFlag': '戦場フラッグアクション',
   'hudChrome.keybinds.friendlyNameplates': '友好ネームプレート切り替え',
   'hudChrome.pvp.mobileLabel': 'PvP',
@@ -4617,6 +4618,7 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'itemUi.tooltip.dps': '（秒間 {dps} ダメージ）',
   'itemUi.tooltip.armorStat': '防御力 {value}',
   'itemUi.tooltip.stat': '+{value} {stat}',
+  'itemUi.tooltip.warfareMainHandOnly': 'ウォーフェアはメインハンドでのみ有効です。',
   'itemUi.tooltip.useFood':
     '使用: {seconds}秒かけて体力を{amount}回復します。食事中は座ったままでいる必要があります。',
   'itemUi.tooltip.useDrink':
@@ -5793,6 +5795,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.warlock_voidwalker.name': '虚無の魔物',
   'entities.mobs.ysolei.name': 'イソレイ、溺月の化身',
   'hudChrome.death.resurrectAtCorpse': '亡骸で復活',
+  'hudChrome.death.pvpResurrect': 'PvP復活',
+  'hudChrome.death.pvpResurrectTitle': '最寄りの墓地でHP全快の状態で復活し、新たな復活の後遺症は付かない。',
   'hudChrome.death.resurrectAtHealer': '霊魂の癒し手（復活の後遺症）',
   'hudChrome.death.healerConfirmTitle': '復活の後遺症を受けますか？',
   'hudChrome.death.healerConfirmBody':
@@ -19626,8 +19630,11 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     'ワールドPvPを有効にしている間、経験値と勢力の評判の獲得量が{percent}増加します。無効化を要求した時点でボーナスは終了します。',
   'hudChrome.worldPvp.rewardTitles':
-    'ワールドPvPを有効にしたプレイ時間が{thresholds}に達すると、永続的な称号を獲得します。ログアウト中と修練の浜ではタイマーが停止します。PvPを無効にするとリセットされます。',
+    'オープンワールドでワールドPvPを有効にしたプレイ時間が{thresholds}に達すると、永続的な称号を獲得します。ログアウト中、死亡中、インスタンス内、修練の浜ではタイマーが停止します。PvPを無効にするとリセットされます。',
   'hudChrome.worldPvp.rewardPaused': '現在のPvP継続時間：{time}（修練の浜で一時停止中）',
+  'hudChrome.worldPvp.rewardPausedDead': '現在のPvP継続時間：{time}（死亡中のため一時停止中）',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    '現在のPvP継続時間：{time}（インスタンス内で一時停止中）',
   'hudChrome.worldPvp.rewardProgress': '現在のPvP継続時間：{time}',
   'hudChrome.hill.pvpEntry': '開催中の円に入るとワールドPvPが有効になります。',
   'hudChrome.hill.pvpBanner': 'PvP',

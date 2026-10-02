@@ -52,9 +52,10 @@ import {
 import { hillContains } from './hill_rules';
 import { grantHonor } from './honor';
 import { pvpIdentityOf } from './pvp_identity';
+import { notePvpResurrectAtDeath } from './pvp_resurrect';
 import { updatePvpVitality } from './vitality';
-import { updateWorldPvpRewards } from './world_pvp_rewards';
-import { sanitizeWorldPvpRewardTicks } from './world_pvp_rewards_rules';
+import { updateWorldPvpRewards, worldPvpRewardPause } from './world_pvp_rewards';
+import { sanitizeWorldPvpRewardTicks, worldPvpRewardsActive } from './world_pvp_rewards_rules';
 import {
   WORLD_PVP_ASSIST_WINDOW,
   WORLD_PVP_DISARM_SECONDS,
@@ -701,13 +702,17 @@ export function worldPvpOnPlayerDeath(
 ): void {
   const books = ctx.worldPvpBooks;
   const helpers = books.recentDamage.get(victim.id);
+  const killerPlayer = controllerOf(ctx, killer);
+  const killerHostile = !!killerPlayer && isWorldPvpHostile(ctx, killerPlayer, victim);
+  // Every player death decides its own PvP Resurrect offer (pvp_resurrect.ts),
+  // from the same hostile-hit books the kill credit reads, before they clear.
+  if (victim.kind === 'player') notePvpResurrectAtDeath(ctx, victim, killerHostile, helpers);
   books.recentDamage.delete(victim.id);
   books.recentSupport.delete(victim.id);
   if (books.paidDeaths.has(victim.id)) return;
   const victimMeta = ctx.players.get(victim.id);
   if (!victimMeta) return;
-  const killerPlayer = controllerOf(ctx, killer);
-  if (!killerPlayer || !isWorldPvpHostile(ctx, killerPlayer, victim)) {
+  if (!killerPlayer || !killerHostile) {
     // A fall, a mob, a friendly kill: still a death, so a running hill kill
     // streak ends (hill_bounty.ts endHillKillStreak).
     endHillKillStreak(ctx, victimMeta);
@@ -805,14 +810,16 @@ export function worldPvpInfoFor(
   if (!r) return null;
   const state = r.meta.worldPvp;
   const remaining = worldPvpDisarmRemaining(r.meta, ctx.time);
+  const zone = worldPvpZonePolicyAt(r.e.pos.x, r.e.pos.z);
   return {
     flagged: state?.flagged === true,
     disarmRemaining: remaining === null ? null : Math.round(remaining),
     rewardSeconds: Math.floor((state?.rewardTicks ?? 0) / (TICK_RATE * 60)) * 60,
+    rewardPause: worldPvpRewardsActive(state) ? worldPvpRewardPause(r.e, zone) : null,
     kills: state?.kills ?? 0,
     deaths: state?.deaths ?? 0,
     levelLocked: r.e.level < WORLD_PVP_MIN_LEVEL,
-    zone: worldPvpZonePolicyAt(r.e.pos.x, r.e.pos.z),
+    zone,
     enabled: !ctx.worldPvpDisabled,
   };
 }

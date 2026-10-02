@@ -140,11 +140,9 @@ export const table: ReliquaryLocaleTable = {
   },
   conquerors_warfare_gallery: {
     name: 'Kriegsführungsgalerie',
-    desc: 'Die fünf Kriegsführungs-Kampfausrüstungen, Stück für Stück mit Ehre verdient.',
   },
   conquerors_warfare_armory: {
     name: 'Kriegsführungsarsenal',
-    desc: 'Kriegsführungsschmuck und -waffen, gekauft mit hart erkämpfter Ehre.',
   },
   conquerors_vanguard_gallery: {
     name: 'Vorhutgalerie',

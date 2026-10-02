@@ -677,10 +677,12 @@ sale unchanged. Full design, the 54 set bonuses and their PvE ceilings:
   a caster staff.
 - **Item level 35**, level with the Ignivar raid tier, on the honor discount: 0.9 of the line
   budget, the full-budget stamina floor, no hit, crit or haste rating, and 0.9 of raid armor.
-  The Warfare ratings are 2.2x (Offense) and 3.4x (Defense) the slot budget, so a Season 2
-  kit reaches the 30 percent caps and the +80 percent Vitality cap where a full entry-tier
-  kit stops at about +50: about 10 percent more health in PvP (14 for casters), and nothing
-  in dungeons or raids.
+  The Warfare ratings are 1.8x (Offense) and 2.9x (Defense) the slot budget (rebalanced
+  2026-10-02 from 2.2x and 3.4x), so only the full Season 2 kit, weapon included, reaches
+  the 30 percent caps and the +80 percent Vitality cap, where a full entry-tier kit stops at
+  about +50: 6 to 15 percent more health in PvP, and nothing in dungeons or raids. Only the
+  main hand's weapon carries Warfare rating; an offhand weapon adds none (see
+  `docs/design/warfare-season-2.md`).
 - **Prices:** 1.5 times the entry tier per slot, 6,600 Honor for a full set, 1,800 per weapon.
 - **Pins:** `tests/warfare_season2.test.ts` (stock shape, stat, armor and weapon rules, set
   rows, and the tank effective-health guard).
@@ -705,6 +707,33 @@ currently supports. Prices are per purchase:
 
 - The seven-piece armor set, the capstone: **5,400 honor**.
 - A complete 11-slot kit: **7,550 honor**.
+
+**Season 1 sells for gold (owner rule, 2026-10-02):** with Warfare Season 2 as
+the honor tier, the entry tier above moved to gold: "make the last season of PvP
+sets just worth gold, perhaps 100g for the set". Each family's seven armor
+pieces cost exactly 100 gold, split in proportion to the honor prices above and
+rounded to whole gold; jewelry and weapons follow the same rate
+(`WARFARE_SEASON1_PRICE_COPPER` in `src/sim/content/pvp_honor.ts`). The two
+Warfare trinkets stay on honor (800 each). Still soulbound with no sell value.
+
+| Slot | Gold |
+| --- | ---: |
+| Main hand | 22 |
+| Chest | 22 |
+| Legs | 19 |
+| Helmet | 17 |
+| Shoulder | 13 |
+| Gloves | 10 |
+| Feet | 10 |
+| Waist | 9 |
+| Neck | 7 |
+| Ring | 5 |
+
+- The seven-piece armor set: **100 gold**. A complete 11-slot kit (armor,
+  neck, two rings, main hand): **139 gold**.
+- A repeat gold purchase climbs only the relic's Reliquary obtain count, which is
+  information and never a score, so the Reliquary's copper-vendor guard names
+  Season 1 as its one deliberate exemption (`tests/reliquary_content.test.ts`).
 
 Roughly 1.75x the schedule the tier launched with. It is now genuinely
 best-in-slot for PvP armor and should be earned. The main hand comes down to the
@@ -792,14 +821,19 @@ Keeping `/pvp` on grants 20% more XP (including lifetime XP) and faction reputat
 before rested kill XP; reputation multiplies before the existing level cap.
 Positive boosted awards round down to whole points. Turning PvP off stops
 both bonuses immediately, even while the five-minute disarm runs. Automatically
-raised flags receive the same rewards while armed. The Proving Shore pauses played-time progress without clearing the flag.
+raised flags receive the same rewards while armed. Played-time progress counts only while alive in
+the open world: death (a corpse or a released ghost), every instance (dungeons, raids, delves, rifts,
+mazes, the arena and battlegrounds) and the Proving Shore pause it without clearing the flag, so the
+titles cannot be banked out of every rival's reach.
 
 The played-time streak grants permanent titles: Bold at 1 hour, Defiant at
 3 hours, Dauntless at 6 hours, Unyielding at 24 hours, and Indomitable at
 168 hours (7 days). Logout pauses the streak; `/pvp off` resets it, including
 when that countdown is later cancelled. Earned titles survive resets.
 This requested played-time reward is an explicit exception to the general
-Book of Deeds rule against attendance rewards. AFK time counts; tutorial island time does not. Leaving the island resumes the streak.
+Book of Deeds rule against attendance rewards. AFK time alive in the open world counts; time spent
+dead, in an instance or on the tutorial island does not. Resurrecting or returning to open-world
+ground resumes the streak.
 
 The existing character JSONB stores optional `worldPvp.rewardTicks`, an integer
 capped at 168 hours at `TICK_RATE`. Only simulation ticks accrue, and leaving or disconnected

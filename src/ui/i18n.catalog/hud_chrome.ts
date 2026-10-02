@@ -173,6 +173,11 @@ export const hudChromeStrings = {
   // ghost-state additions shown once the spirit has been released.
   death: {
     resurrectAtCorpse: 'Resurrect at Corpse',
+    // The death screen's PvP Resurrect button (src/sim/pvp/pvp_resurrect.ts): shown
+    // only after a death a hostile player had a hand in, outside instances.
+    pvpResurrect: 'PvP Resurrect',
+    pvpResurrectTitle:
+      "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
     // RETIRED in place: the ghost prompt's Pale Keeper button is gone (the ghost
     // talks to the Keeper instead). The key stays, already filled in all 20
     // locales, per the hud.core.mobileTarget retired-but-translated precedent.
@@ -3368,8 +3373,10 @@ export const hudChromeStrings = {
     rewardBonus:
       'Keep World PvP on to earn {percent} more experience and faction reputation. Bonuses stop when you request to switch off.',
     rewardTitles:
-      'Earn permanent titles after {thresholds} of played time with World PvP on. Logout and visiting the Proving Shore pause the timer. Switching off resets it.',
+      'Earn permanent titles after {thresholds} of played time with World PvP on in the open world. Logout, death, instances and the Proving Shore pause the timer. Switching off resets it.',
     rewardPaused: 'Current PvP streak: {time} played (paused on the Proving Shore)',
+    rewardPausedDead: 'Current PvP streak: {time} played (paused while dead)',
+    rewardPausedInstance: 'Current PvP streak: {time} played (paused inside instances)',
     rewardProgress: 'Current PvP streak: {time} played',
     tab: 'World PvP',
     title: 'World PvP',
@@ -3488,6 +3495,9 @@ export const hudChromeStrings = {
     // confirm gate matches the Heroic Marks shop's, whose title, accept and
     // cancel labels are currency-neutral and reused verbatim.
     buyConfirmBody: 'Buy {item} for {honor}? Honor purchases cannot be refunded.',
+    // Season 1 rows sell for gold (WARFARE_SEASON1_PRICE_COPPER); still
+    // soulbound with no sell value, so the same no-refund rule.
+    buyConfirmBodyGold: 'Buy {item} for {price}? This purchase cannot be refunded.',
   },
   // Character sheet showcase layout: the four titled stat-panel headings under
   // the primary attribute tiles (a 2x2 block: Offense beside Spell, Defense

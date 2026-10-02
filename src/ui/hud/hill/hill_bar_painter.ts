@@ -30,9 +30,9 @@ export interface HillBarDeps {
   /** The HUD layer the strip mounts into (null before the HUD exists). */
   layer: () => HTMLElement | null;
   writers: PainterHostWriters;
-  onPvpEntry?: () => void;
-  /** Raise the announcer's banner (a kill streak call or a shut down). */
-  onCallout?: (text: string) => void;
+  /** Raise a PvP banner: the entry warning, or the announcer's call (a kill
+   *  streak or a shut down). */
+  banner?: (text: string) => void;
 }
 
 interface Slots {
@@ -66,12 +66,12 @@ export class HillBar {
     const root = this.ensureRoot();
     if (!root) return;
     if (shouldAnnounceHillPvp(this.lastView, view)) {
-      this.deps.onPvpEntry?.();
+      this.deps.banner?.(t('hudChrome.hill.pvpBanner'));
     }
     const call = hillCalloutToShow(this.shownCalloutId, view);
     if (call) {
       this.shownCalloutId = call.id;
-      this.deps.onCallout?.(hillCalloutText(call));
+      this.deps.banner?.(hillCalloutText(call));
     }
     if (view.sig !== this.lastSig) {
       this.lastSig = view.sig;

@@ -74,14 +74,31 @@ everywhere. These rules hold them together:
   bonuses (+200 rating), and Season 2's ability bonuses carry no rating, so at 1x the slot
   budget a Season 2 kit fell short of Season 1 in PvP (about 13 percent less health, 19 and
   23 percent Offense and Defense). The pieces now carry the rating instead:
-  - Offense is 2.2x and Defense 3.4x the slot budget (`SEASON2_OFFENSE_RATING_MULT`,
-    `SEASON2_DEFENSE_RATING_MULT`). A Season 2 kit (the five pieces plus entry-tier waist,
-    feet, jewelry and weapon) reaches the 30 percent Offense and Defense caps.
+  - Offense is 1.8x and Defense 2.9x the slot budget (`SEASON2_OFFENSE_RATING_MULT`,
+    `SEASON2_DEFENSE_RATING_MULT`). The full kit (the five pieces and a Season 2 weapon,
+    plus entry-tier waist, feet and jewelry) reaches the 30 percent Offense and Defense caps
+    and the +80 percent Vitality cap: exactly with a one-hander, one ring's worth over with
+    a two-hander.
+  - **Rebalanced 2026-10-02 (owner: "rebalance this"), from 2.2x and 3.4x.** At the old
+    multipliers a part kit already capped: three Season 2 pieces with a Season 2 greatsword
+    in each hand (Fury's two-hand pairing) and PvE gear everywhere else read 29.5 percent
+    Offense, 30 percent Defense and +76 percent Vitality, so the remaining slots went to PvE
+    gear for its crit, hit and haste. The multipliers are now the smallest at which every
+    spec's full kit still reaches the caps, so each Season 2 piece moves the totals until
+    the kit is complete (that build now reads 18.2 percent Offense). Full-kit health is
+    unchanged, since Vitality caps either way.
+  - **Only the main hand's weapon carries Warfare rating** (`countsWarfareRating`,
+    `src/sim/pvp/power.ts`). An offhand weapon adds none, for every dual wielder: two
+    Season 2 daggers or one-handers would otherwise carry 90 Offense against a two-hander's
+    59, and Fury's second greatsword doubled the weapon slot outright. Weapon tooltips say
+    so under the Warfare line.
   - The Vitality cap rose from +50 to +80 percent (`PVP_VITALITY_CAP`). A full Season 1 kit
     still lands at about +50 percent (302 rating); a Season 2 kit reaches +80.
-  - Measured at level 20 on the Sim: Season 2 carries 9 to 10 percent more maximum health in
-    PvP than a full Season 1 kit for physical specs and about 14 percent for casters (whose
-    Season 1 pieces carry only half the stamina premium). None of it applies in dungeons or
+  - Measured at level 20 on the Sim, each side with its own weapon (2026-10-02): Season 2
+    carries 8.0 percent more maximum health in PvP than a full Season 1 kit for arms, 5.9
+    percent for protection and 14.7 percent for fire (whose Season 1 pieces carry only half
+    the stamina premium). Protection sits lowest because the Season 2 one-hander carries 8
+    stamina against the Season 1 one-hander's 12. None of it applies in dungeons or
     raids, where Vitality is off and Warfare never touches PvE, so the tank guard is
     unchanged. `tests/warfare_season2.test.ts` ("the PvP promise") pins the caps and a
     health floor over Season 1.

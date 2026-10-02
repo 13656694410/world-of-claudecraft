@@ -594,6 +594,8 @@ export const es_ES: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Resucitar en el cadáver",
+      "pvpResurrect": "PvP Resurrect",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "El Guardián Pálido (Tañido del Guardián)",
       "ghostHint": "Corre hasta el lugar de tu muerte o habla con el Guardián Pálido para revivir",
       "spiritHealerAlive": "El Guardián Pálido vela por los muertos. Tú aún estás entre los vivos.",
@@ -2786,8 +2788,10 @@ export const es_ES: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Mantén el JcJ mundial activado para ganar un {percent} más de experiencia y reputación de facción. Las bonificaciones terminan cuando solicitas desactivarlo.",
-      "rewardTitles": "Consigue títulos permanentes tras {thresholds} de tiempo jugado con el JcJ mundial activado. Desconectarte y visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.",
+      "rewardTitles": "Consigue títulos permanentes tras {thresholds} de tiempo jugado en el mundo abierto con el JcJ mundial activado. Desconectarte, morir, entrar en instancias o visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.",
       "rewardPaused": "Racha JcJ actual: {time} de juego (en pausa en la Costa de la Prueba)",
+      "rewardPausedDead": "Racha JcJ actual: {time} de juego (en pausa mientras estás muerto)",
+      "rewardPausedInstance": "Racha JcJ actual: {time} de juego (en pausa dentro de instancias)",
       "rewardProgress": "Racha JcJ actual: {time} de juego",
       "tab": "JcJ mundial",
       "title": "JcJ mundial",
@@ -2864,7 +2868,8 @@ export const es_ES: EnTranslations = {
       "owned": "Adquirido",
       "buyAria": "Comprar {item} por {honor}",
       "buyOwnedAria": "Comprar {item} por {honor}, ya adquirido",
-      "buyConfirmBody": "¿Comprar {item} por {honor}? Las compras con Honor no se pueden reembolsar."
+      "buyConfirmBody": "¿Comprar {item} por {honor}? Las compras con Honor no se pueden reembolsar.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Ofensiva",
@@ -12778,6 +12783,7 @@ export const es_ES: EnTranslations = {
       "dps": "({dps} de daño por segundo)",
       "armorStat": "{value} de armadura",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Uso: restaura {amount} de salud durante {seconds} s. Debes permanecer sentado mientras comes.",
       "useDrink": "Uso: restaura {amount} de maná durante {seconds} s. Debes permanecer sentado mientras bebes.",
       "useElixir": "Uso: aumenta tu {stat} en {value} durante {minutes} min. Reemplaza cualquier otro elixir o pergamino del mismo atributo. Se puede usar en combate.",

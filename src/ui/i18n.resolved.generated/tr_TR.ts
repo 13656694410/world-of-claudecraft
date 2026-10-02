@@ -594,6 +594,8 @@ export const tr_TR: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Cesedinin Başında Diril",
+      "pvpResurrect": "PvP Resurrect",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "Solgun Bekçi (Bekçinin Bedeli)",
       "ghostHint": "Ölüm yerine koş veya diriltilmek için Soluk Bekçi ile konuş",
       "spiritHealerAlive": "Solgun Bekçi ölüleri gözetir. Sen hâlâ yaşayanlar arasındasın.",
@@ -2786,8 +2788,10 @@ export const tr_TR: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "{percent} daha fazla deneyim ve fraksiyon itibarı kazanmak için Dünya PvP’sini açık tut. Kapatmayı talep ettiğinde bonuslar sona erer.",
-      "rewardTitles": "Dünya PvP’si açıkken {thresholds} oynama süresine ulaşarak kalıcı unvanlar kazan. Çıkış yapmak ve Sınav Kıyısı’nı ziyaret etmek sayacı duraklatır. Kapatmak sayacı sıfırlar.",
+      "rewardTitles": "Açık dünyada Dünya PvP’si açıkken {thresholds} oynama süresine ulaşarak kalıcı unvanlar kazan. Çıkış yapmak, ölü olmak, örneklerde bulunmak ve Sınav Kıyısı’nı ziyaret etmek sayacı duraklatır. Kapatmak sayacı sıfırlar.",
       "rewardPaused": "Mevcut PvP serisi: {time} oynandı (Sınav Kıyısı’nda duraklatıldı)",
+      "rewardPausedDead": "Mevcut PvP serisi: {time} oynandı (ölüyken duraklatıldı)",
+      "rewardPausedInstance": "Mevcut PvP serisi: {time} oynandı (örneklerde duraklatıldı)",
       "rewardProgress": "Mevcut PvP serisi: {time} oynandı",
       "tab": "Dünya PvP",
       "title": "Dünya PvP",
@@ -2864,7 +2868,8 @@ export const tr_TR: EnTranslations = {
       "owned": "Sahip",
       "buyAria": "{honor} karşılığında {item} satın al",
       "buyOwnedAria": "{honor} karşılığında {item} satın al, zaten sahipsin",
-      "buyConfirmBody": "{honor} karşılığında {item} satın alınsın mı? Onur ile yapılan alımlar iade edilemez."
+      "buyConfirmBody": "{honor} karşılığında {item} satın alınsın mı? Onur ile yapılan alımlar iade edilemez.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Saldırı",
@@ -12778,6 +12783,7 @@ export const tr_TR: EnTranslations = {
       "dps": "(saniyede {dps} hasar)",
       "armorStat": "{value} Zırh",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Kullanım: {seconds} saniyede {amount} can yeniler. Yerken oturur kalmalısın.",
       "useDrink": "Kullanım: {seconds} saniyede {amount} mana yeniler. İçerken oturur kalmalısın.",
       "useElixir": "Kullan: {stat} niteliğini {minutes} dakika boyunca {value} artırır. Aynı nitelikteki başka bir iksir veya parşömenin yerini alır. Savaşta kullanılabilir.",

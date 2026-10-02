@@ -140,11 +140,9 @@ export const table: ReliquaryLocaleTable = {
   },
   conquerors_warfare_gallery: {
     name: 'Galeri Peperangan',
-    desc: 'Kelima set tempur Peperangan, diraih sepotong demi sepotong dengan kehormatan.',
   },
   conquerors_warfare_armory: {
     name: 'Gudang Senjata Peperangan',
-    desc: 'Perhiasan dan senjata Peperangan yang dibeli dengan kehormatan hasil jerih payah.',
   },
   conquerors_vanguard_gallery: {
     name: 'Galeri Garda Depan',
