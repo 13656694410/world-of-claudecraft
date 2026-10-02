@@ -3479,7 +3479,7 @@ export const hudChromeStrings = {
     gossipOptionAria: 'Browse the Warfare set shop offered by {name}',
     jewelry: 'Jewelry',
     weapons: 'Weapons',
-    // Group headings: Warfare Season 2 (the viewer's class sets and weapons)
+    // Group headings: Warfare Season 2 (the viewer's class sets, weapons and jewelry)
     // listed above the Season 1 entry tier (warfare_vendor_window.ts).
     groupSeason2: 'Warfare Season 2: Vanguard',
     groupEntry: 'Warfare Season 1',

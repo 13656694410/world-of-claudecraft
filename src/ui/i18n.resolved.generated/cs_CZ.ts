@@ -8333,7 +8333,8 @@ export const cs_CZ: EnTranslations = {
       "warfareTradeBody": "To je záměrný kompromis. Válečnická výbava je stavěná na boj proti hráčům, ne jako zkratka kolem dungeonových stupňů: válečnický kus nikdy nenese bojová hodnocení, jaká má epický dungeonový kus na stejném slotu, a všechno, co přináší, je určeno proti ostatním hráčům. Pokud chceš obstát v aréně, kup si ji. Pokud chceš rychleji čistit hrdinské dungeony, vydobuď si výbavu v dungeonech.",
       "warfareTradeBodyRatingSpent": "To je záměrný obchod. Válečnická výbava je stavěná na boj s hráči, ne jako zkratka přes dungeonové stupně: kus Válečnictví nikdy nenese bojová hodnocení, která má epický dungeonový kus ve stejném slotu, a hodnocení Válečnictví i bonusy sady, které nese místo nich, se utrácejí výhradně proti hráčům. Chceš-li obstát v aréně, kup si ji. Chceš-li rychleji čistit hrdinské dungeony, získávej výbavu v dungeonech.",
       "vanguardHeading": "Výbava Předvoje: Válečnictví, sezóna 2",
-      "vanguardBody": "Výbava Předvoje je druhá sezóna válečnické výbavy, prodávaná stejnými dvěma intendanty nad původním stupněm, který zůstává v prodeji. Každá specializace má vlastní sadu Předvoje o pěti kusech, na hlavu, ramena, hruď, nohy a ruce, a obchod nabízí jen tři sady, které tvoje třída může nosit, následované zbraněmi Předvoje, které umíš vládnout. Kus Předvoje nese stejná Válečnická hodnocení jako původní stupeň, jen na vyšší úrovni předmětu, a každá sada má dva bonusy, na dvou a čtyřech kusech, které mění jednu ze schopností tvé specializace. Na rozdíl od původních sad tyto bonusy fungují všude, nestvůry nevyjímaje, ale jsou stavěné na boj proti hráčům, takže raidová sada zůstává lepší volbou uvnitř raidu."
+      "vanguardBody": "Výbava Předvoje je druhá sezóna válečnické výbavy, prodávaná stejnými dvěma intendanty nad původním stupněm, který zůstává v prodeji. Každá specializace má vlastní sadu Předvoje o pěti kusech, na hlavu, ramena, hruď, nohy a ruce, a obchod nabízí jen tři sady, které tvoje třída může nosit, následované zbraněmi Předvoje, které umíš vládnout. Kus Předvoje nese stejná Válečnická hodnocení jako původní stupeň, jen na vyšší úrovni předmětu, a každá sada má dva bonusy, na dvou a čtyřech kusech, které mění jednu ze schopností tvé specializace. Na rozdíl od původních sad tyto bonusy fungují všude, nestvůry nevyjímaje, ale jsou stavěné na boj proti hráčům, takže raidová sada zůstává lepší volbou uvnitř raidu.",
+      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee or spellcasting rings give exactly the Hit Rating that stops your attacks missing, or your spells being resisted, against a player of your own level; the healer ring carries Haste Rating instead."
     },
     "worldPvpPage": {
       "heading": "Světové PvP",
@@ -18485,6 +18486,30 @@ export const cs_CZ: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Divoká hůl Předvoje"
+      },
+      "vanguard_band_of_might": {
+        "name": "Vanguard's Band of Might"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Vanguard's Band of Precision"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Vanguard's Band of Focus"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Vanguard's Band of Mending"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Vanguard's Pendant of Might"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Vanguard's Pendant of Precision"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Vanguard's Pendant of Focus"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Vanguard's Pendant of Mending"
       },
       "conjured_water4": {
         "name": "Vyčarovaná pramenitá voda"

@@ -1046,9 +1046,19 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_warrior_prot_shoulder.name': '鉄壁進撃の肩鎧',
   'entities.items.vanguard_feral_staff.name': '先陣の野性の杖',
   'entities.items.vanguard_warstaff.name': 'ヴァンガードの戦杖',
+  'entities.items.vanguard_band_of_might.name': 'ヴァンガードの力の指輪',
+  'entities.items.vanguard_band_of_precision.name': 'ヴァンガードの精密の指輪',
+  'entities.items.vanguard_band_of_focus.name': 'ヴァンガードの集中の指輪',
+  'entities.items.vanguard_band_of_mending.name': 'ヴァンガードの癒しの指輪',
+  'entities.items.vanguard_pendant_of_might.name': 'ヴァンガードの力のペンダント',
+  'entities.items.vanguard_pendant_of_precision.name': 'ヴァンガードの精密のペンダント',
+  'entities.items.vanguard_pendant_of_focus.name': 'ヴァンガードの集中のペンダント',
+  'entities.items.vanguard_pendant_of_mending.name': 'ヴァンガードの癒しのペンダント',
   'entities.npcs.glider_apprentice.name': 'スカイ',
   'guide.arenaPage.vanguardBody':
     'ヴァンガード装備はウォーフェア装備の第2シーズンで、同じ二人の補給官が元の階層に加えて販売し続けます。元の階層も販売終了にはなりません。どのスペックにも頭、肩、胸、脚、手の五部位からなる専用のヴァンガードセットがあり、ショップにはあなたのクラスが装備できる三つのセットだけが並び、続けて装備できるヴァンガードの武器が並びます。ヴァンガードの部位は元の階層と同じウォーフェアレーティングを、より高いアイテムレベルで備えており、各セットには2点と4点でスペックのアビリティの一つを変化させる二つのボーナスがあります。元のセットと違い、それらのボーナスはモンスター相手を含めどこでも機能しますが、対プレイヤー戦向けに作られているため、レイド内ではレイドセットの方が依然として優れた選択です。',
+  'guide.arenaPage.vanguardStatsBody':
+    '元のティアと違い、ヴァンガード装備には戦闘レーティングも付いています。ヴァンガードの防具、武器、ペンダントにはそれぞれクリティカルレーティングかヘイストレーティングがあり、呪文使いとヒーラー向けの装備には呪文威力か治癒力も付きます。ヴァンガードの指輪とペンダントは武器と並んで販売され、どのクラスでも装備できます。ヴァンガードの近接用または呪文用の指輪を2つ着けると、同じレベルのプレイヤーに対して攻撃が外れず、呪文も抵抗されなくなるちょうどの命中レーティングになります。ヒーラー用の指輪には代わりにヘイストレーティングが付きます。',
   'guide.arenaPage.vanguardHeading': 'ヴァンガード装備：ウォーフェアシーズン2',
   'guide.settingsPage.ifColorblindMode':
     'Nythraxisの床の危険地帯（墓所の噴出の警告円、墓炎と魂炎の溜まり、紫炎の直線、魂の裂傷の印）を、色覚異常でも見分けやすい配色に変更します。色相と明るさをはっきり分けているので、重なった円でも境界が見分けられます。大きさ、タイマー、位置は一切変わりません。',
@@ -2477,7 +2487,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.social.presence.everyone': '全員',
   'hudChrome.social.presence.friends': 'フレンドのみ',
   'hudChrome.social.presence.none': 'なし',
-  'hudChrome.social.presence.title': 'フレンドリストとギルド名簿で誰にオンライン状態、ゾーン、マップ上の位置を見せるか。パーティーメンバーには常に表示されます。',
+  'hudChrome.social.presence.title':
+    'フレンドリストとギルド名簿で誰にオンライン状態、ゾーン、マップ上の位置を見せるか。パーティーメンバーには常に表示されます。',
   'hudChrome.social.hideOfflineTitle': 'オフラインのギルドメンバーを非表示',
   'hudChrome.social.billboard.label': 'ギルド掲示板',
   'hudChrome.social.billboard.empty': '掲示板にはまだ何もありません。',
@@ -2678,7 +2689,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.buyOwnedAria': '{item}を{honor}で購入、所有済み',
   'hudChrome.warfareShop.buyConfirmBody':
     '{item}を{honor}で購入しますか？名誉での購入は返金できません。',
-  'hudChrome.warfareShop.buyConfirmBodyGold': '{item}を{price}で購入しますか？この購入は返金できません。',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    '{item}を{price}で購入しますか？この購入は返金できません。',
   'hudChrome.keybinds.bgFlag': '戦場フラッグアクション',
   'hudChrome.keybinds.friendlyNameplates': '友好ネームプレート切り替え',
   'hudChrome.pvp.mobileLabel': 'PvP',
@@ -2804,7 +2816,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
     '偉業の書も評判を記録します。ある勢力で信頼に達すること、ある勢力でチャンピオンに達することがそれぞれ偉業として記録され、三勢力すべてでチャンピオンに達することは独自の偉業です。他の偉業と同じく、これらは見た目だけで力にはならず、チャンピオンの偉業は身に着けられる称号を授けます。',
   'guide.commandsPage.pvp':
     'ワールドPvPフラグ: /pvp で切り替え、/pvp on と /pvp off で直接設定します。フラグを立てたプレイヤー同士はどこでも戦えます。解除には5分かかります。',
-  'guide.commandsPage.presence': 'フレンドリスト、ギルド名簿、/who で誰にオンライン状態を見せるかを設定します。/presence everyone（初期設定）、/presence friends（自分のフレンドリストにいるプレイヤーのみ）、/presence none。非表示にすると、相手にはオンライン表示、ゾーン、マップ上の位置が見えなくなりますが、ウィスパーや招待は届きます。パーティーメンバーには常に表示されます。/presence だけで現在の設定を確認できます。',
+  'guide.commandsPage.presence':
+    'フレンドリスト、ギルド名簿、/who で誰にオンライン状態を見せるかを設定します。/presence everyone（初期設定）、/presence friends（自分のフレンドリストにいるプレイヤーのみ）、/presence none。非表示にすると、相手にはオンライン表示、ゾーン、マップ上の位置が見えなくなりますが、ウィスパーや招待は届きます。パーティーメンバーには常に表示されます。/presence だけで現在の設定を確認できます。',
   'guide.commandsPage.flair':
     '他のプレイヤーに見える Discord ロール（色付きの名前、ロールタグ、チャットの認証タグ）の表示を切り替えます。/flair on で表示、/flair off で非表示になり、/flair だけで現在の設定を確認できます。Discord アカウントの連携が必要です。',
   'guide.commandsPage.pvpZones':
@@ -5802,7 +5815,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.ysolei.name': 'イソレイ、溺月の化身',
   'hudChrome.death.resurrectAtCorpse': '亡骸で復活',
   'hudChrome.death.pvpResurrect': 'PvP復活',
-  'hudChrome.death.pvpResurrectTitle': '最寄りの墓地でHP全快の状態で復活し、新たな復活の後遺症は付かない。',
+  'hudChrome.death.pvpResurrectTitle':
+    '最寄りの墓地でHP全快の状態で復活し、新たな復活の後遺症は付かない。',
   'hudChrome.death.resurrectAtHealer': '霊魂の癒し手（復活の後遺症）',
   'hudChrome.death.healerConfirmTitle': '復活の後遺症を受けますか？',
   'hudChrome.death.healerConfirmBody':

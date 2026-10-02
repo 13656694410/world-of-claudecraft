@@ -676,7 +676,11 @@ sale unchanged. Full design, the 54 set bonuses and their PvE ceilings:
 - **Four season weapons:** a strength two-hander, a strength one-hander, an agility dagger and
   a caster staff.
 - **Item level 35**, level with the Ignivar raid tier, on the honor discount: 0.9 of the line
-  budget, the full-budget stamina floor, no hit, crit or haste rating, and 0.9 of raid armor.
+  budget, the full-budget stamina floor, one combat rating at a third of the raid piece's
+  (since 2026-10-02, with Spell Power or Healing Power on caster and healer pieces), and 0.9
+  of raid armor.
+- **Season 2 jewelry** (2026-10-02): one ring and one neck per role; the rings carry the PvP
+  hit cap (two melee rings 50 Hit, two caster rings 40, haste on the healer ring).
   The Warfare ratings are 1.8x (Offense) and 2.9x (Defense) the slot budget (rebalanced
   2026-10-02 from 2.2x and 3.4x), so only the full Season 2 kit, weapon included, reaches
   the 30 percent caps and the +80 percent Vitality cap, where a full entry-tier kit stops at

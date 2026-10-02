@@ -858,6 +858,14 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_verdict_greatsword.name': '先锋之裁决',
   'entities.items.vanguard_feral_staff.name': '先锋野性法杖',
   'entities.items.vanguard_warstaff.name': '先锋之战杖',
+  'entities.items.vanguard_band_of_might.name': '先锋力量指环',
+  'entities.items.vanguard_band_of_precision.name': '先锋精准指环',
+  'entities.items.vanguard_band_of_focus.name': '先锋专注指环',
+  'entities.items.vanguard_band_of_mending.name': '先锋愈合指环',
+  'entities.items.vanguard_pendant_of_might.name': '先锋力量坠饰',
+  'entities.items.vanguard_pendant_of_precision.name': '先锋精准坠饰',
+  'entities.items.vanguard_pendant_of_focus.name': '先锋专注坠饰',
+  'entities.items.vanguard_pendant_of_mending.name': '先锋愈合坠饰',
   'entities.npcs.glider_apprentice.name': '斯凯',
   'devCommand.actions.hillend.description': '让当前山丘立即回落。',
   'devCommand.actions.hillend.label': '结束山丘',
@@ -878,6 +886,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.abilities.thunderstorm.name': '碎风暴',
   'guide.arenaPage.vanguardBody':
     '先锋套装是战争套装的第二个赛季，由同样的两位军需官在原有品级之上出售，原品级仍照常在售。每个专精都有自己专属的五件先锋套装，涵盖头部、肩部、胸部、腿部与双手，商店只会列出你的职业能穿的三套装备，随后是你能使用的先锋武器。先锋装备带有与原有品级相同的战争等级，只是物品等级更高，并且每套装备都有两条套装效果，分别在凑齐两件与四件时触发，会改变你某个专精技能的效果。与原有套装不同，这些效果在任何场合都会生效，包括对怪物，但它们是为对抗玩家而设计的，因此在团队副本里，团队副本套装仍是更好的选择。',
+  'guide.arenaPage.vanguardStatsBody':
+    '与原版装备不同，先锋装备还带有战斗等级：每件先锋护甲、武器和坠饰都带有暴击等级或急速等级，施法者和治疗者的装备还额外提供法术强度或治疗强度。先锋指环和坠饰与武器一同出售，所有职业都可以佩戴。佩戴两枚先锋近战指环或施法指环，恰好提供足够的命中等级，让你在对抗同等级玩家时攻击不再未命中、法术不再被抵抗；治疗指环则改为提供急速等级。',
   'guide.arenaPage.vanguardHeading': '先锋套装：战争第二赛季',
   'guide.settingsPage.ifColorblindMode':
     '将尼思拉克西斯的地面危险标识（坟场爆裂的预警圆环、坟场烈焰与灵魂之火的地面毒池、墓火直线，以及灵魂撕裂标记）重新上色为色盲安全配色，各标识色相与明暗分明，让重叠的圆圈也能分清边界。大小、计时与位置始终不变。',
@@ -2392,7 +2402,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.social.presence.everyone': '所有人',
   'hudChrome.social.presence.friends': '仅好友',
   'hudChrome.social.presence.none': '无人',
-  'hudChrome.social.presence.title': '谁能在好友列表和公会名单中看到你在线，以及你的区域和地图位置。队伍成员始终能看到你。',
+  'hudChrome.social.presence.title':
+    '谁能在好友列表和公会名单中看到你在线，以及你的区域和地图位置。队伍成员始终能看到你。',
   'hudChrome.social.hideOfflineTitle': '隐藏离线公会成员',
   'hudChrome.social.billboard.label': '公会公告板',
   'hudChrome.social.billboard.empty': '公告板上还没有内容。',
@@ -2702,7 +2713,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '功绩之书也会记录你的声望：与某个阵营达到信任、与某个阵营达到冠军各记为一项功绩，与三个阵营都达到冠军则是另一项功绩。和所有功绩一样，它们只是装饰，从不带来战力，而冠军功绩会授予一个可佩戴的头衔。',
   'guide.commandsPage.pvp':
     '世界 PvP 旗帜：/pvp 切换，/pvp on 与 /pvp off 直接设置。已开启旗帜的玩家可以在任何地方互相作战；关闭需要 5 分钟。',
-  'guide.commandsPage.presence': '控制谁能在好友列表、公会名单和 /who 中看到你在线：/presence everyone（默认）、/presence friends（仅你好友列表中的玩家）或 /presence none。隐藏后，他们看不到你的在线标记、区域和地图位置，但密语和邀请仍能送达你；队伍成员始终能看到你。只输入 /presence 会告诉你当前设置。',
+  'guide.commandsPage.presence':
+    '控制谁能在好友列表、公会名单和 /who 中看到你在线：/presence everyone（默认）、/presence friends（仅你好友列表中的玩家）或 /presence none。隐藏后，他们看不到你的在线标记、区域和地图位置，但密语和邀请仍能送达你；队伍成员始终能看到你。只输入 /presence 会告诉你当前设置。',
   'guide.commandsPage.flair':
     '对其他玩家显示或隐藏你的 Discord 身份组，即彩色名字、身份组标签和聊天认证标签：/flair on 显示，/flair off 隐藏，只输入 /flair 会告诉你当前设置。需要已关联的 Discord 账号。',
   'guide.commandsPage.pvpZones':

@@ -8333,7 +8333,8 @@ export const tr_TR: EnTranslations = {
       "warfareTradeBody": "Bu bilinçli bir değiş tokuştur. Harp teçhizatı oyuncularla dövüşmek için yapılmıştır, zindan kademelerini atlamanın bir kestirmesi değildir: bir Harp parçası aynı yuvadaki destansı bir zindan parçasının taşıdığı savaş puanlarını asla taşımaz, ve getirdiği her şey diğer oyunculara harcanır. Arenada kendini tutmak istiyorsan onu satın al. Kahramanca zindanları daha hızlı temizlemek istiyorsan teçhizatını zindanlarda kazan.",
       "warfareTradeBodyRatingSpent": "Bu, kasıtlı takastır. Harp teçhizatı zindan kademelerini atlamak için değil, oyuncularla savaşmak için yapılır: bir Harp parçası aynı yuvadaki zindan epik parçasının taşıdığı savaş derecelerini asla taşımaz; onun yerine taşıdığı Harp derecesi ve set bonusları tamamen diğer oyunculara harcanır. Arenada ayakta kalmak istiyorsan onu satın al. Kahramanca zindanları daha hızlı temizlemek istiyorsan teçhizatını zindanlardan kazan.",
       "vanguardHeading": "Vanguard Ekipmesi: Savaş Mevsimi 2",
-      "vanguardBody": "Vanguard ekipmesi, Savaş Ekipmanı'nın ikinci mevsimi olup, aynı iki çeyiz hakkanı tarafından orijinal seviyenin üstünde satılmakta ve orijinal kat satışa devam eder. Her özel dallanma kendi beş parçalık Vanguard setine sahip, baş, omuzlar, göğüs, bacaklar ve eller için ve mağaza sadece sınıfının giyebileceği üç seti listeler, bunu takip eden Vanguard silahlarını senin kullanabileceğin. Bir Vanguard parçası orijinal seviye olarak aynı Savaş Derecelendirmelerini daha yüksek bir ürün seviyesinde taşır, ve her set iki bonus, iki ve dört parçada, birini değiştirir. Orijinal setlerin aksine, bu bonuslar her yerde, canavarlar dahil çalışır, ancak oyuncu dövüşü için yerleştirilir, böylece raid seti raid içinde daha iyi seçim kalır."
+      "vanguardBody": "Vanguard ekipmesi, Savaş Ekipmanı'nın ikinci mevsimi olup, aynı iki çeyiz hakkanı tarafından orijinal seviyenin üstünde satılmakta ve orijinal kat satışa devam eder. Her özel dallanma kendi beş parçalık Vanguard setine sahip, baş, omuzlar, göğüs, bacaklar ve eller için ve mağaza sadece sınıfının giyebileceği üç seti listeler, bunu takip eden Vanguard silahlarını senin kullanabileceğin. Bir Vanguard parçası orijinal seviye olarak aynı Savaş Derecelendirmelerini daha yüksek bir ürün seviyesinde taşır, ve her set iki bonus, iki ve dört parçada, birini değiştirir. Orijinal setlerin aksine, bu bonuslar her yerde, canavarlar dahil çalışır, ancak oyuncu dövüşü için yerleştirilir, böylece raid seti raid içinde daha iyi seçim kalır.",
+      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee or spellcasting rings give exactly the Hit Rating that stops your attacks missing, or your spells being resisted, against a player of your own level; the healer ring carries Haste Rating instead."
     },
     "worldPvpPage": {
       "heading": "Dünya PvP",
@@ -18485,6 +18486,30 @@ export const tr_TR: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Öncünün Yaban Asası"
+      },
+      "vanguard_band_of_might": {
+        "name": "Vanguard's Band of Might"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Vanguard's Band of Precision"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Vanguard's Band of Focus"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Vanguard's Band of Mending"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Vanguard's Pendant of Might"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Vanguard's Pendant of Precision"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Vanguard's Pendant of Focus"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Vanguard's Pendant of Mending"
       },
       "conjured_water4": {
         "name": "Sihirle Yaratılmış Kaynak Suyu"

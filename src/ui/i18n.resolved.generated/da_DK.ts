@@ -8333,7 +8333,8 @@ export const da_DK: EnTranslations = {
       "warfareTradeBody": "Det er den bevidste handel. Krigsførelsesudstyr er bygget til at kæmpe mod spillere, ikke som en genvej forbi fangekælderniveauerne: et stykke Krigsførelsesudstyr bærer aldrig de kampvurderinger, en fangekælderepisk i samme plads gør, og alt, det bringer, er brugt på andre spillere. Vil du klare dig i arenaen, så køb det. Vil du rydde heroiske fangekældre hurtigere, så optjen dit udstyr i fangekældrene.",
       "warfareTradeBodyRatingSpent": "Det er den tilsigtede handel. Krigsudstyr er bygget til at kæmpe mod spillere, ikke som en genvej forbi dungeon-niveauerne: Et krigsstykke har aldrig de kampratings, som en dungeon-episk genstand i samme plads har, og de krigsvurderinger og sætbonusser, det i stedet har, bruges fuldstændigt på andre spillere. Hvis du vil kunne klare dig i arenaen, så køb det. Hvis du vil rydde heroiske dungeons hurtigere, så tjen dit udstyr i dungeons.",
       "vanguardHeading": "Vanguard-udstyr: Krigsførelse Sæson 2",
-      "vanguardBody": "Vanguard-udstyr er anden sæson af Krigsførelse-udstyr, solgt af de samme to kvartermestrene over det oprindelige lag, som forbliver til salg. Hver spec har sit eget Vanguard-sæt af fem dele, til hoved, skuldre, bryst, ben og hænder, og butikken viser kun de tre sæt din klasse kan bære, efterfulgt af de Vanguard-våben du kan føre. En Vanguard-del bærer de samme Krigsførelse-ratings som det oprindelige lag på et højere gjenstandsniveau, og hvert sæt har to bonusser, ved to og fire dele, der ændrer en af din specs evner. I modsætning til de oprindelige sæt fungerer disse bonusser overalt, udjegede inkluderet, men de er bygget til at kampe mod spillere, så et raid-sæt forbliver det bedre valg inde i et raid."
+      "vanguardBody": "Vanguard-udstyr er anden sæson af Krigsførelse-udstyr, solgt af de samme to kvartermestrene over det oprindelige lag, som forbliver til salg. Hver spec har sit eget Vanguard-sæt af fem dele, til hoved, skuldre, bryst, ben og hænder, og butikken viser kun de tre sæt din klasse kan bære, efterfulgt af de Vanguard-våben du kan føre. En Vanguard-del bærer de samme Krigsførelse-ratings som det oprindelige lag på et højere gjenstandsniveau, og hvert sæt har to bonusser, ved to og fire dele, der ændrer en af din specs evner. I modsætning til de oprindelige sæt fungerer disse bonusser overalt, udjegede inkluderet, men de er bygget til at kampe mod spillere, så et raid-sæt forbliver det bedre valg inde i et raid.",
+      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee or spellcasting rings give exactly the Hit Rating that stops your attacks missing, or your spells being resisted, against a player of your own level; the healer ring carries Haste Rating instead."
     },
     "worldPvpPage": {
       "heading": "Verden PvP",
@@ -18485,6 +18486,30 @@ export const da_DK: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Fortroppens vilde stav"
+      },
+      "vanguard_band_of_might": {
+        "name": "Vanguard's Band of Might"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Vanguard's Band of Precision"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Vanguard's Band of Focus"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Vanguard's Band of Mending"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Vanguard's Pendant of Might"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Vanguard's Pendant of Precision"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Vanguard's Pendant of Focus"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Vanguard's Pendant of Mending"
       },
       "conjured_water4": {
         "name": "Fremmanet kildevand"

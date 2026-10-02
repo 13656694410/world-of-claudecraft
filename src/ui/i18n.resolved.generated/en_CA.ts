@@ -8333,7 +8333,8 @@ export const en_CA: EnTranslations = {
       "warfareTradeBody": "That is the deliberate trade. Warfare gear is built for fighting players, not as a shortcut past the dungeon tiers: a Warfare piece never carries the combat ratings a dungeon epic in the same slot does, and everything it does bring is spent on other players. If you want to hold your own in the arena, buy it. If you want to clear heroics faster, earn your gear in the dungeons.",
       "warfareTradeBodyRatingSpent": "That is the deliberate trade. Warfare gear is built for fighting players, not as a shortcut past the dungeon tiers: a Warfare piece never carries the combat ratings a dungeon epic in the same slot does, and the Warfare rating and set bonuses it carries instead are spent entirely on other players. If you want to hold your own in the arena, buy it. If you want to clear heroics faster, earn your gear in the dungeons.",
       "vanguardHeading": "Vanguard gear: Warfare Season 2",
-      "vanguardBody": "Vanguard gear is the second season of Warfare gear, sold by the same two quartermasters above the original tier, which stays on sale. Every spec has its own Vanguard set of five pieces, for the head, shoulders, chest, legs and hands, and the shop lists only the three sets your class can wear, followed by the Vanguard weapons you can wield. A Vanguard piece carries the same Warfare ratings as the original tier at a higher item level, and each set has two bonuses, at two and four pieces, that change one of your spec's abilities. Unlike the original sets, those bonuses work everywhere, monsters included, but they are built for fighting players, so a raid set stays the better choice inside a raid."
+      "vanguardBody": "Vanguard gear is the second season of Warfare gear, sold by the same two quartermasters above the original tier, which stays on sale. Every spec has its own Vanguard set of five pieces, for the head, shoulders, chest, legs and hands, and the shop lists only the three sets your class can wear, followed by the Vanguard weapons you can wield. A Vanguard piece carries the same Warfare ratings as the original tier at a higher item level, and each set has two bonuses, at two and four pieces, that change one of your spec's abilities. Unlike the original sets, those bonuses work everywhere, monsters included, but they are built for fighting players, so a raid set stays the better choice inside a raid.",
+      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee or spellcasting rings give exactly the Hit Rating that stops your attacks missing, or your spells being resisted, against a player of your own level; the healer ring carries Haste Rating instead."
     },
     "worldPvpPage": {
       "heading": "World PvP",
@@ -18485,6 +18486,30 @@ export const en_CA: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Vanguard's Feral Staff"
+      },
+      "vanguard_band_of_might": {
+        "name": "Vanguard's Band of Might"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Vanguard's Band of Precision"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Vanguard's Band of Focus"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Vanguard's Band of Mending"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Vanguard's Pendant of Might"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Vanguard's Pendant of Precision"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Vanguard's Pendant of Focus"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Vanguard's Pendant of Mending"
       },
       "conjured_water4": {
         "name": "Conjured Springwater"

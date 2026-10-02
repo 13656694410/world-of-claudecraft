@@ -8333,7 +8333,8 @@ export const fr_FR: EnTranslations = {
       "warfareTradeBody": "C'est un compromis voulu. L'équipement de Guerre est conçu pour affronter des joueurs, pas comme un raccourci pour contourner les paliers de donjon : une pièce de Guerre ne porte jamais les scores de combat qu'apporte un objet épique de donjon dans le même emplacement, et tout ce qu'elle apporte se dépense sur d'autres joueurs. Si vous voulez tenir votre rang dans l'arène, achetez-la. Si vous voulez nettoyer les héroïques plus vite, gagnez votre équipement dans les donjons.",
       "warfareTradeBodyRatingSpent": "C’est le compromis voulu. L’équipement de guerre sert à combattre les joueurs et ne permet pas de sauter les paliers de donjon : une pièce de guerre ne porte jamais les cotes de combat d’un épique de donjon dans le même emplacement, et les cotes et bonus qu’elle porte sont entièrement consacrés aux autres joueurs. Pour tenir votre rang dans l’arène, achetez-le. Pour terminer les donjons héroïques plus vite, gagnez votre équipement dans les donjons.",
       "vanguardHeading": "Équipement d'Avant-garde : Guerre saison 2",
-      "vanguardBody": "L'équipement d'Avant-garde est la deuxième saison de l'équipement de Guerre, vendu par les deux mêmes intendants au-dessus du palier d'origine, qui reste en vente. Chaque spécialisation a son propre ensemble d'Avant-garde de cinq pièces, pour la tête, les épaules, le torse, les jambes et les mains, et la boutique ne liste que les trois ensembles que votre classe peut porter, suivis des armes d'Avant-garde que vous pouvez manier. Une pièce d'Avant-garde porte les mêmes scores de Guerre que le palier d'origine à un niveau d'objet supérieur, et chaque ensemble a deux bonus, à deux et quatre pièces, qui modifient l'une des capacités de votre spécialisation. Contrairement aux ensembles d'origine, ces bonus fonctionnent partout, monstres compris, mais ils sont conçus pour affronter des joueurs, si bien qu'un ensemble de raid reste le meilleur choix dans un raid."
+      "vanguardBody": "L'équipement d'Avant-garde est la deuxième saison de l'équipement de Guerre, vendu par les deux mêmes intendants au-dessus du palier d'origine, qui reste en vente. Chaque spécialisation a son propre ensemble d'Avant-garde de cinq pièces, pour la tête, les épaules, le torse, les jambes et les mains, et la boutique ne liste que les trois ensembles que votre classe peut porter, suivis des armes d'Avant-garde que vous pouvez manier. Une pièce d'Avant-garde porte les mêmes scores de Guerre que le palier d'origine à un niveau d'objet supérieur, et chaque ensemble a deux bonus, à deux et quatre pièces, qui modifient l'une des capacités de votre spécialisation. Contrairement aux ensembles d'origine, ces bonus fonctionnent partout, monstres compris, mais ils sont conçus pour affronter des joueurs, si bien qu'un ensemble de raid reste le meilleur choix dans un raid.",
+      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee or spellcasting rings give exactly the Hit Rating that stops your attacks missing, or your spells being resisted, against a player of your own level; the healer ring carries Haste Rating instead."
     },
     "worldPvpPage": {
       "heading": "JcJ en monde ouvert",
@@ -18485,6 +18486,30 @@ export const fr_FR: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Bâton farouche de l’Avant-garde"
+      },
+      "vanguard_band_of_might": {
+        "name": "Vanguard's Band of Might"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Vanguard's Band of Precision"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Vanguard's Band of Focus"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Vanguard's Band of Mending"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Vanguard's Pendant of Might"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Vanguard's Pendant of Precision"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Vanguard's Pendant of Focus"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Vanguard's Pendant of Mending"
       },
       "conjured_water4": {
         "name": "Eau de source invoquée"

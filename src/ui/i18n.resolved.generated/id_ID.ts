@@ -8333,7 +8333,8 @@ export const id_ID: EnTranslations = {
       "warfareTradeBody": "Itulah kompromi yang disengaja. Perlengkapan Perang dibuat untuk bertarung melawan pemain, bukan sebagai jalan pintas melewati tingkatan dungeon: satu perlengkapan Perang tak pernah membawa rating pertarungan yang dimiliki perlengkapan Epik dungeon di slot yang sama, dan semua yang ia bawa dihabiskan untuk melawan pemain lain. Jika kamu ingin bertahan sendiri di arena, belilah. Jika kamu ingin menuntaskan heroik lebih cepat, dapatkan perlengkapanmu di dungeon.",
       "warfareTradeBodyRatingSpent": "Itulah pertukaran yang disengaja. Perlengkapan Perang dibuat untuk melawan pemain, bukan jalan pintas melewati tingkatan dungeon: perlengkapan Perang tidak pernah membawa rating pertarungan yang dimiliki epik dungeon pada slot yang sama, dan rating Perang serta bonus set yang dibawanya sepenuhnya digunakan untuk melawan pemain lain. Jika ingin bertahan di arena, belilah. Jika ingin menuntaskan mode heroik lebih cepat, dapatkan perlengkapanmu di dungeon.",
       "vanguardHeading": "Perlengkapan Vanguard: Musim Peperangan 2",
-      "vanguardBody": "Perlengkapan Vanguard adalah musim kedua perlengkapan Peperangan, dijual oleh kedua dua kepala perbekalan yang sama di atas tingkat asli, yang tetap dijual. Setiap spesialisasi memiliki rangkaian Vanguard sendiri dengan lima potongan, untuk kepala, bahu, dada, kaki dan tangan, dan toko hanya mencantumkan tiga rangkaian yang kelas kamu dapat kenakan, diikuti oleh senjata Vanguard yang dapat kamu gunakan. Sebuah potongan Vanguard membawa peringkat Peperangan yang sama dengan tingkat asli pada tingkat item yang lebih tinggi, dan setiap rangkaian memiliki dua bonus, di dua dan empat potongan, yang mengubah salah satu kemampuan spesialisasi kamu. Tidak seperti rangkaian asli, bonus itu bekerja di mana-mana, monster termasuk, tetapi dibangun untuk melawan pemain, jadi rangkaian raid tetap menjadi pilihan yang lebih baik di dalam raid."
+      "vanguardBody": "Perlengkapan Vanguard adalah musim kedua perlengkapan Peperangan, dijual oleh kedua dua kepala perbekalan yang sama di atas tingkat asli, yang tetap dijual. Setiap spesialisasi memiliki rangkaian Vanguard sendiri dengan lima potongan, untuk kepala, bahu, dada, kaki dan tangan, dan toko hanya mencantumkan tiga rangkaian yang kelas kamu dapat kenakan, diikuti oleh senjata Vanguard yang dapat kamu gunakan. Sebuah potongan Vanguard membawa peringkat Peperangan yang sama dengan tingkat asli pada tingkat item yang lebih tinggi, dan setiap rangkaian memiliki dua bonus, di dua dan empat potongan, yang mengubah salah satu kemampuan spesialisasi kamu. Tidak seperti rangkaian asli, bonus itu bekerja di mana-mana, monster termasuk, tetapi dibangun untuk melawan pemain, jadi rangkaian raid tetap menjadi pilihan yang lebih baik di dalam raid.",
+      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee or spellcasting rings give exactly the Hit Rating that stops your attacks missing, or your spells being resisted, against a player of your own level; the healer ring carries Haste Rating instead."
     },
     "worldPvpPage": {
       "heading": "Peperangan Dunia",
@@ -18485,6 +18486,30 @@ export const id_ID: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Tongkat Liar Garda Depan"
+      },
+      "vanguard_band_of_might": {
+        "name": "Vanguard's Band of Might"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Vanguard's Band of Precision"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Vanguard's Band of Focus"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Vanguard's Band of Mending"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Vanguard's Pendant of Might"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Vanguard's Pendant of Precision"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Vanguard's Pendant of Focus"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Vanguard's Pendant of Mending"
       },
       "conjured_water4": {
         "name": "Air Mata Air Sihir"
