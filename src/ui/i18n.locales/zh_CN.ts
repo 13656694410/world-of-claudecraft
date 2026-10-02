@@ -2575,6 +2575,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.owned': '已拥有',
   'hudChrome.warfareShop.buyOwnedAria': '以 {honor} 购买 {item}，已拥有',
   'hudChrome.warfareShop.buyConfirmBody': '用 {honor} 购买 {item}？荣誉购买后无法退款。',
+  'hudChrome.warfareShop.buyConfirmBodyGold': '用 {price} 购买 {item}？此次购买无法退款。',
   'hudChrome.keybinds.bgFlag': '战场夺旗动作',
   'hudChrome.keybinds.friendlyNameplates': '切换友方姓名板',
   'hudChrome.pvp.mobileLabel': 'PvP',

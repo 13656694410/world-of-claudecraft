@@ -13848,6 +13848,7 @@ export type TranslationKeyFlat =
   | 'hudChrome.warfare.reasons.worldKill'
   | 'hudChrome.warfareShop.buyAria'
   | 'hudChrome.warfareShop.buyConfirmBody'
+  | 'hudChrome.warfareShop.buyConfirmBodyGold'
   | 'hudChrome.warfareShop.buyOwnedAria'
   | 'hudChrome.warfareShop.gossipOption'
   | 'hudChrome.warfareShop.gossipOptionAria'

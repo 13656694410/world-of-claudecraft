@@ -2857,7 +2857,8 @@ export const zh_TW: EnTranslations = {
       "owned": "已擁有",
       "buyAria": "以 {honor} 購買 {item}",
       "buyOwnedAria": "以 {honor} 購買 {item}，已擁有",
-      "buyConfirmBody": "用 {honor} 購買 {item}？榮譽購買後無法退款。"
+      "buyConfirmBody": "用 {honor} 購買 {item}？榮譽購買後無法退款。",
+      "buyConfirmBodyGold": "用 {price} 購買 {item}？此次購買無法退款。"
     },
     "charSheet": {
       "offense": "攻擊",

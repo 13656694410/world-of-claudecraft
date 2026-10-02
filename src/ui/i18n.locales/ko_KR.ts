@@ -2660,6 +2660,7 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.buyOwnedAria': '{honor}에 {item} 구매, 이미 보유 중',
   'hudChrome.warfareShop.buyConfirmBody':
     '{honor}에 {item}을(를) 구매하시겠습니까? 명예 구매는 환불되지 않습니다.',
+  'hudChrome.warfareShop.buyConfirmBodyGold': '{price}에 {item}을(를) 구매하시겠습니까? 이 구매는 환불되지 않습니다.',
   'hudChrome.keybinds.bgFlag': '전장 깃발 행동',
   'hudChrome.keybinds.friendlyNameplates': '우호 이름표 전환',
   'hudChrome.pvp.mobileLabel': 'PvP',

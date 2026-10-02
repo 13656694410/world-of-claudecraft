@@ -10,22 +10,28 @@
 
 export const pending: Record<string, readonly string[]> = {
   "es": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "es_ES": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "fr_FR": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "fr_CA": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "en_CA": [],
   "it_IT": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "de_DE": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "zh_CN": [],
@@ -33,31 +39,40 @@ export const pending: Record<string, readonly string[]> = {
   "ko_KR": [],
   "ja_JP": [],
   "pt_BR": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "ru_RU": [],
   "cs_CZ": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "nl_NL": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "pl_PL": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "id_ID": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "tr_TR": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "sv_SE": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "vi_VN": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "da_DK": [
+    "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ]
 };

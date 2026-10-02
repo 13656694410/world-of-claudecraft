@@ -2857,7 +2857,8 @@ export const nl_NL: EnTranslations = {
       "owned": "In bezit",
       "buyAria": "Koop {item} voor {honor}",
       "buyOwnedAria": "Koop {item} voor {honor}, al in bezit",
-      "buyConfirmBody": "{item} kopen voor {honor}? Aankopen met Eer kunnen niet worden terugbetaald."
+      "buyConfirmBody": "{item} kopen voor {honor}? Aankopen met Eer kunnen niet worden terugbetaald.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Aanval",

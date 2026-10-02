@@ -2857,7 +2857,8 @@ export const da_DK: EnTranslations = {
       "owned": "Ejet",
       "buyAria": "Køb {item} for {honor}",
       "buyOwnedAria": "Køb {item} for {honor}, allerede ejet",
-      "buyConfirmBody": "Køb {item} for {honor}? Køb med Ære kan ikke refunderes."
+      "buyConfirmBody": "Køb {item} for {honor}? Køb med Ære kan ikke refunderes.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Angreb",

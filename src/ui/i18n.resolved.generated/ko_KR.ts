@@ -2857,7 +2857,8 @@ export const ko_KR: EnTranslations = {
       "owned": "보유 중",
       "buyAria": "{honor}에 {item} 구매",
       "buyOwnedAria": "{honor}에 {item} 구매, 이미 보유 중",
-      "buyConfirmBody": "{honor}에 {item}을(를) 구매하시겠습니까? 명예 구매는 환불되지 않습니다."
+      "buyConfirmBody": "{honor}에 {item}을(를) 구매하시겠습니까? 명예 구매는 환불되지 않습니다.",
+      "buyConfirmBodyGold": "{price}에 {item}을(를) 구매하시겠습니까? 이 구매는 환불되지 않습니다."
     },
     "charSheet": {
       "offense": "공격",

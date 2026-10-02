@@ -140,11 +140,9 @@ export const table: ReliquaryLocaleTable = {
   },
   conquerors_warfare_gallery: {
     name: 'Galeria de Guerra',
-    desc: 'Os cinco kits de batalha de Guerra, conquistados peça por peça com honra.',
   },
   conquerors_warfare_armory: {
     name: 'Arsenal de Guerra',
-    desc: 'Joias e armas de Guerra compradas com honra suada.',
   },
   conquerors_vanguard_gallery: {
     name: 'Galeria da Vanguarda',

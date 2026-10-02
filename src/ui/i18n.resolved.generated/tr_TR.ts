@@ -2857,7 +2857,8 @@ export const tr_TR: EnTranslations = {
       "owned": "Sahip",
       "buyAria": "{honor} karşılığında {item} satın al",
       "buyOwnedAria": "{honor} karşılığında {item} satın al, zaten sahipsin",
-      "buyConfirmBody": "{honor} karşılığında {item} satın alınsın mı? Onur ile yapılan alımlar iade edilemez."
+      "buyConfirmBody": "{honor} karşılığında {item} satın alınsın mı? Onur ile yapılan alımlar iade edilemez.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Saldırı",

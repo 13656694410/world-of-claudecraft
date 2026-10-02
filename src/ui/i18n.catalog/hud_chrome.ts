@@ -3478,6 +3478,9 @@ export const hudChromeStrings = {
     // confirm gate matches the Heroic Marks shop's, whose title, accept and
     // cancel labels are currency-neutral and reused verbatim.
     buyConfirmBody: 'Buy {item} for {honor}? Honor purchases cannot be refunded.',
+    // Season 1 rows sell for gold (WARFARE_SEASON1_PRICE_COPPER); still
+    // soulbound with no sell value, so the same no-refund rule.
+    buyConfirmBodyGold: 'Buy {item} for {price}? This purchase cannot be refunded.',
   },
   // Character sheet showcase layout: the four titled stat-panel headings under
   // the primary attribute tiles (a 2x2 block: Offense beside Spell, Defense

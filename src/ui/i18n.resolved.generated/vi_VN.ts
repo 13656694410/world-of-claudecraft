@@ -2857,7 +2857,8 @@ export const vi_VN: EnTranslations = {
       "owned": "Sở Hữu",
       "buyAria": "Mua {item} với giá {honor}",
       "buyOwnedAria": "Mua {item} với giá {honor}, đã sở hữu",
-      "buyConfirmBody": "Mua {item} với giá {honor}? Giao dịch mua bằng Danh dự không thể hoàn lại."
+      "buyConfirmBody": "Mua {item} với giá {honor}? Giao dịch mua bằng Danh dự không thể hoàn lại.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Tấn Công",

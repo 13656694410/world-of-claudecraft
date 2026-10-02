@@ -165,11 +165,9 @@ export const table: ReliquaryLocaleTable = {
   // (wocStore.armoryTitle 武器庫).
   conquerors_warfare_gallery: {
     name: 'ウォーフェアギャラリー',
-    desc: '五つの戦争戦闘装備一式。名誉を積み、一つずつ手に入れます。',
   },
   conquerors_warfare_armory: {
     name: 'ウォーフェア武器庫',
-    desc: '苦労して得た名誉で購入する戦争の装飾品と武器。',
   },
   conquerors_vanguard_gallery: {
     name: 'ヴァンガードギャラリー',

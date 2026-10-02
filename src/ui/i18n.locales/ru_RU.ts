@@ -2694,6 +2694,7 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.buyOwnedAria': 'Купить {item} за {honor}, уже получено',
   'hudChrome.warfareShop.buyConfirmBody':
     'Купить {item} за {honor}? Покупки за честь не подлежат возврату.',
+  'hudChrome.warfareShop.buyConfirmBodyGold': 'Купить {item} за {price}? Эта покупка не подлежит возврату.',
   'hudChrome.keybinds.bgFlag': 'Действие с флагом',
   'hudChrome.keybinds.friendlyNameplates': 'Таблички дружественных',
   'hudChrome.pvp.mobileLabel': 'PvP',

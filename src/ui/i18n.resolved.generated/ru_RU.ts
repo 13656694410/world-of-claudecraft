@@ -2857,7 +2857,8 @@ export const ru_RU: EnTranslations = {
       "owned": "Получено",
       "buyAria": "Купить {item} за {honor}",
       "buyOwnedAria": "Купить {item} за {honor}, уже получено",
-      "buyConfirmBody": "Купить {item} за {honor}? Покупки за честь не подлежат возврату."
+      "buyConfirmBody": "Купить {item} за {honor}? Покупки за честь не подлежат возврату.",
+      "buyConfirmBodyGold": "Купить {item} за {price}? Эта покупка не подлежит возврату."
     },
     "charSheet": {
       "offense": "Атака",

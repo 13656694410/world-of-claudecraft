@@ -2857,7 +2857,8 @@ export const sv_SE: EnTranslations = {
       "owned": "Ägd",
       "buyAria": "Köp {item} för {honor}",
       "buyOwnedAria": "Köp {item} för {honor}, redan ägd",
-      "buyConfirmBody": "Köp {item} för {honor}? Köp med heder kan inte återbetalas."
+      "buyConfirmBody": "Köp {item} för {honor}? Köp med heder kan inte återbetalas.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Anfall",

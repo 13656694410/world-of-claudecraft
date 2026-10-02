@@ -2857,7 +2857,8 @@ export const cs_CZ: EnTranslations = {
       "owned": "Vlastněno",
       "buyAria": "Koupit {item} za {honor}",
       "buyOwnedAria": "Koupit {item} za {honor}, již vlastníš",
-      "buyConfirmBody": "Koupit {item} za {honor}? Nákupy za čest nelze vrátit."
+      "buyConfirmBody": "Koupit {item} za {honor}? Nákupy za čest nelze vrátit.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Útok",

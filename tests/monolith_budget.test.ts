@@ -544,7 +544,10 @@ const MONOLITHS: MonolithRow[] = [
     // slot_edit_hints_core.ts and the attack slot's dragstart payload sits on
     // one line. wc -l on the merged tree after biome. Exact count, zero slack.
     // Banner payload and expiry policy moved to banner_queue.ts for hill warnings.
-    ceiling: 18034,
+    // Lowered 18034 -> 18029: the Warfare purchase confirm body (Honor or, for
+    // Season 1, gold) moved to warfarePurchaseConfirmBody in
+    // src/ui/hud/vendor/warfare_vendor_window.ts. Extract, then lower.
+    ceiling: 18029,
     seam: 'pure view core + thin painter on PainterHost (src/ui/CLAUDE.md)',
   },
   {

@@ -2857,7 +2857,8 @@ export const id_ID: EnTranslations = {
       "owned": "Dimiliki",
       "buyAria": "Beli {item} seharga {honor}",
       "buyOwnedAria": "Beli {item} seharga {honor}, sudah dimiliki",
-      "buyConfirmBody": "Beli {item} seharga {honor}? Pembelian dengan Kehormatan tidak dapat dikembalikan."
+      "buyConfirmBody": "Beli {item} seharga {honor}? Pembelian dengan Kehormatan tidak dapat dikembalikan.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Serangan",

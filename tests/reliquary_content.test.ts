@@ -714,8 +714,17 @@ describe('Reliquary relic item ids resolve in ITEMS', () => {
       buyValue: ITEMS[itemId]?.buyValue,
       priceHonor: ITEMS[itemId]?.priceHonor,
     });
+    // The ONE copper exemption, decided rather than inherited: Warfare Season 1
+    // (FURY_STOCK) sells for gold since the owner rule of 2026-10-02 ("make the
+    // last season of PvP sets just worth gold"). A repeat gold purchase climbs
+    // only the relic's obtain COUNT, which is information and never a score (no
+    // completion read or deed reads it, see syncReliquaryCompletionDeeds), so
+    // the climb is cosmetic. Named by id so any other copper-priced relic still
+    // reds here.
+    const season1Gold = new Set(FURY_STOCK);
     const vendorOffenders: string[] = [];
     let honorExempt = 0;
+    let season1Exempt = 0;
     for (const [npcId, npc] of Object.entries(NPCS)) {
       for (const itemId of npc.vendorItems ?? []) {
         if (!isCataloguedRelicItem(itemId)) continue;
@@ -723,18 +732,27 @@ describe('Reliquary relic item ids resolve in ITEMS', () => {
           honorExempt += 1;
           continue;
         }
+        if (season1Gold.has(itemId)) {
+          season1Exempt += 1;
+          continue;
+        }
         vendorOffenders.push(`${npcId}:${itemId}`);
       }
     }
     expect(vendorOffenders).toEqual([]);
+    expect(season1Exempt).toBe(FURY_STOCK.length * 2);
     // The exemption's own premises: it really covers the two Warfare counters
     // (the entry stock plus Warfare Season 2 on both NPCS rows) and nothing rides it that could also
     // be bought for copper (a dual-priced row would fall back into the sweep
     // above by construction; this pins the classifier's copper half live).
     // The Warfare Season 2 stock and the two honor trinkets ride the same
     // exemption on both counters.
-    expect(honorExempt).toBe(HONOR_QUARTERMASTER_STOCK.length * 2);
-    expect(HONOR_QUARTERMASTER_STOCK.every((id) => honorOnly(priceOf(id)))).toBe(true);
+    expect(honorExempt).toBe((HONOR_QUARTERMASTER_STOCK.length - FURY_STOCK.length) * 2);
+    expect(
+      HONOR_QUARTERMASTER_STOCK.filter((id) => !season1Gold.has(id)).every((id) =>
+        honorOnly(priceOf(id)),
+      ),
+    ).toBe(true);
     expect(honorOnly(priceOf('deacon_reliquary_helm'))).toBe(false);
     // The DUAL-PRICED arm, which the live catalog exhibits nowhere today: an
     // item purchasable with BOTH honor and copper is not exempt, because the
