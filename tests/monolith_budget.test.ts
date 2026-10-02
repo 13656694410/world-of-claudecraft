@@ -1700,7 +1700,10 @@ const MONOLITHS: MonolithRow[] = [
     // LOWERED 9832 -> 9823: the Discord flair entity stamp moved to
     // discord_flair_stamp.ts, paying for the /flair hook (flair_command.ts) with
     // lines to spare. Exact count (wc -l after biome), zero slack.
-    ceiling: 9823,
+    // Lowered 9823 -> 9821: the once-a-second friend/guildmate position push
+    // moved to server/social_positions.ts, which paid for the /presence wiring
+    // (server/presence_privacy.ts). Extract, then lower.
+    ceiling: 9821,
     seam: 'a sibling server module; see the hot-path seams in server/CLAUDE.md',
   },
   {

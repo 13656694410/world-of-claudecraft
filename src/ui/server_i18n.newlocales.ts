@@ -124,6 +124,14 @@ export const SERVER_NEW = {
       'Příliš mnoho neúspěšných pokusů. Počkej pár minut a zkus to znovu.',
     'pet.nameNotAllowed': 'Jméno mazlíčka není povoleno.',
     'legendary.nameNotAllowed': 'Toto jméno není povoleno.',
+    'presence.everyone':
+      'Přátelé a členové cechu tě vidí online. Napiš /presence friends nebo /presence none a skryješ se.',
+    'presence.friends':
+      'Online tě vidí jen tví přátelé. Napiš /presence everyone nebo /presence none a změníš to.',
+    'presence.none':
+      'Pro přátele a členy cechu jsi offline. Napiš /presence everyone nebo /presence friends a změníš to.',
+    'presence.usage':
+      'Použití: /presence, /presence everyone, /presence friends nebo /presence none.',
     'time.day': '{count} den',
     'time.days': '{count} dní',
     'time.hour': '{count} hodina',
@@ -276,6 +284,14 @@ export const SERVER_NEW = {
     'moderation.tooManyFailed': 'For mange mislykkede forsøg. Vent et par minutter og prøv igen.',
     'pet.nameNotAllowed': 'Kæledyrsnavnet er ikke tilladt.',
     'legendary.nameNotAllowed': 'Det navn er ikke tilladt.',
+    'presence.everyone':
+      'Venner og medlemmer af din lavsforening kan se, at du er online. Skriv /presence friends eller /presence none for at skjule dig.',
+    'presence.friends':
+      'Kun dine venner kan se, at du er online. Skriv /presence everyone eller /presence none for at ændre det.',
+    'presence.none':
+      'Du vises som offline for venner og medlemmer af din lavsforening. Skriv /presence everyone eller /presence friends for at ændre det.',
+    'presence.usage':
+      'Brug: /presence, /presence everyone, /presence friends eller /presence none.',
     'time.day': '{count} dag',
     'time.days': '{count} dage',
     'time.hour': '{count} time',
@@ -432,6 +448,14 @@ export const SERVER_NEW = {
       'Terlalu banyak percobaan gagal. Tunggu beberapa menit lalu coba lagi.',
     'pet.nameNotAllowed': 'Nama peliharaan tidak diperbolehkan.',
     'legendary.nameNotAllowed': 'Nama itu tidak diperbolehkan.',
+    'presence.everyone':
+      'Teman dan anggota guild dapat melihatmu online. Ketik /presence friends atau /presence none untuk bersembunyi.',
+    'presence.friends':
+      'Hanya temanmu yang dapat melihatmu online. Ketik /presence everyone atau /presence none untuk mengubahnya.',
+    'presence.none':
+      'Kamu tampak offline bagi teman dan anggota guild. Ketik /presence everyone atau /presence friends untuk mengubahnya.',
+    'presence.usage':
+      'Penggunaan: /presence, /presence everyone, /presence friends, atau /presence none.',
     'time.day': '{count} hari',
     'time.days': '{count} hari',
     'time.hour': '{count} jam',
@@ -587,6 +611,14 @@ export const SERVER_NEW = {
       'Te veel mislukte pogingen. Wacht een paar minuten en probeer het opnieuw.',
     'pet.nameNotAllowed': 'Huisdiernaam is niet toegestaan.',
     'legendary.nameNotAllowed': 'Die naam is niet toegestaan.',
+    'presence.everyone':
+      'Vrienden en gildeleden kunnen zien dat je online bent. Typ /presence friends of /presence none om je te verbergen.',
+    'presence.friends':
+      'Alleen je vrienden kunnen zien dat je online bent. Typ /presence everyone of /presence none om dit te wijzigen.',
+    'presence.none':
+      'Je lijkt offline voor vrienden en gildeleden. Typ /presence everyone of /presence friends om dit te wijzigen.',
+    'presence.usage':
+      'Gebruik: /presence, /presence everyone, /presence friends of /presence none.',
     'time.day': '{count} dag',
     'time.days': '{count} dagen',
     'time.hour': '{count} uur',
@@ -744,6 +776,14 @@ export const SERVER_NEW = {
       'Zbyt wiele nieudanych prób. Odczekaj kilka minut i spróbuj ponownie.',
     'pet.nameNotAllowed': 'Imię zwierzęcia jest niedozwolone.',
     'legendary.nameNotAllowed': 'To imię jest niedozwolone.',
+    'presence.everyone':
+      'Znajomi i członkowie gildii widzą, że jesteś online. Wpisz /presence friends lub /presence none, aby się ukryć.',
+    'presence.friends':
+      'Tylko twoi znajomi widzą, że jesteś online. Wpisz /presence everyone lub /presence none, aby to zmienić.',
+    'presence.none':
+      'Dla znajomych i członków gildii jesteś offline. Wpisz /presence everyone lub /presence friends, aby to zmienić.',
+    'presence.usage':
+      'Użycie: /presence, /presence everyone, /presence friends lub /presence none.',
     'time.day': '{count} dzień',
     'time.days': '{count} dni',
     'time.hour': '{count} godzina',
@@ -897,6 +937,14 @@ export const SERVER_NEW = {
       'För många misslyckade försök. Vänta några minuter och försök igen.',
     'pet.nameNotAllowed': 'Djurnamnet är inte tillåtet.',
     'legendary.nameNotAllowed': 'Det namnet är inte tillåtet.',
+    'presence.everyone':
+      'Vänner och gillesmedlemmar kan se att du är online. Skriv /presence friends eller /presence none för att dölja dig.',
+    'presence.friends':
+      'Bara dina vänner kan se att du är online. Skriv /presence everyone eller /presence none för att ändra det.',
+    'presence.none':
+      'Du visas som offline för vänner och gillesmedlemmar. Skriv /presence everyone eller /presence friends för att ändra det.',
+    'presence.usage':
+      'Användning: /presence, /presence everyone, /presence friends eller /presence none.',
     'time.day': '{count} dag',
     'time.days': '{count} dagar',
     'time.hour': '{count} timme',
@@ -1048,6 +1096,14 @@ export const SERVER_NEW = {
     'moderation.tooManyFailed': 'Çok fazla başarısız deneme. Birkaç dakika bekleyip tekrar dene.',
     'pet.nameNotAllowed': 'Evcil adına izin verilmiyor.',
     'legendary.nameNotAllowed': 'Bu ada izin verilmiyor.',
+    'presence.everyone':
+      'Arkadaşların ve lonca üyeleri çevrimiçi olduğunu görebilir. Gizlenmek için /presence friends veya /presence none yaz.',
+    'presence.friends':
+      'Çevrimiçi olduğunu yalnızca arkadaşların görebilir. Değiştirmek için /presence everyone veya /presence none yaz.',
+    'presence.none':
+      'Arkadaşlarına ve lonca üyelerine çevrimdışı görünüyorsun. Değiştirmek için /presence everyone veya /presence friends yaz.',
+    'presence.usage':
+      'Kullanım: /presence, /presence everyone, /presence friends veya /presence none.',
     'time.day': '{count} gün',
     'time.days': '{count} gün',
     'time.hour': '{count} saat',
@@ -1203,6 +1259,14 @@ export const SERVER_NEW = {
     'moderation.tooManyFailed': 'Quá nhiều lần thử thất bại. Hãy chờ vài phút rồi thử lại.',
     'pet.nameNotAllowed': 'Tên thú nuôi không được phép.',
     'legendary.nameNotAllowed': 'Tên đó không được phép.',
+    'presence.everyone':
+      'Bạn bè và thành viên bang hội có thể thấy bạn trực tuyến. Gõ /presence friends hoặc /presence none để ẩn.',
+    'presence.friends':
+      'Chỉ bạn bè của bạn mới thấy bạn trực tuyến. Gõ /presence everyone hoặc /presence none để thay đổi.',
+    'presence.none':
+      'Bạn hiển thị ngoại tuyến với bạn bè và thành viên bang hội. Gõ /presence everyone hoặc /presence friends để thay đổi.',
+    'presence.usage':
+      'Cách dùng: /presence, /presence everyone, /presence friends hoặc /presence none.',
     'time.day': '{count} ngày',
     'time.days': '{count} ngày',
     'time.hour': '{count} giờ',

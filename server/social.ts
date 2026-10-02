@@ -328,6 +328,10 @@ export interface SocialTransport {
   deliver(characterId: number, events: SocialEvent[]): void;
   // re-send the full social panel state to a character if online
   pushSnapshot(characterId: number): void;
+  // true when the online character `subjectId` hides their presence from
+  // `viewerId` (server/presence_privacy.ts); treated like a block for presence.
+  // Optional so a transport without the setting reads as 'everyone'.
+  presenceHiddenFrom?(subjectId: number, viewerId: number): boolean;
   // An admin rename already committed in the DB. Update the online member's
   // live Sim state and notify their client without re-reading or rebuilding
   // the full social snapshot.
@@ -722,7 +726,8 @@ export class SocialService {
       otherCharId !== viewerCharId &&
       (viewerBlockedIds.has(otherCharId) ||
         !this.tx.blockListLoaded(otherCharId) ||
-        this.tx.isBlocking(otherCharId, viewerCharId))
+        this.tx.isBlocking(otherCharId, viewerCharId) ||
+        this.tx.presenceHiddenFrom?.(otherCharId, viewerCharId) === true)
     ) {
       return { online: false };
     }
@@ -901,6 +906,22 @@ export class SocialService {
   // this a blocked stalker (or someone the actor blocked) would keep hearing
   // the actor's login/logout and getting their panel refreshed with the
   // actor's live position.
+  // Re-send every online watcher's panel (friends who list the actor, and
+  // guildmates) after the actor's presence setting changes. No notice: the rows
+  // flip online or offline in place (server/presence_privacy.ts).
+  async refreshPresenceWatchers(actor: SocialActor): Promise<void> {
+    const pushed = new Set<number>();
+    const pushOnce = (id: number): void => {
+      if (id === actor.characterId || pushed.has(id) || !this.tx.isOnline(id)) return;
+      this.push(id);
+      pushed.add(id);
+    };
+    for (const id of await this.db.whoFriended(actor.characterId)) pushOnce(id);
+    const membership = await this.db.guildMembership(actor.characterId);
+    if (!membership) return;
+    for (const m of await this.db.guildMembers(membership.guildId)) pushOnce(m.id);
+  }
+
   async announcePresence(actor: SocialActor, online: boolean): Promise<void> {
     const [watchers, actorBlockedIds] = await Promise.all([
       this.db.whoFriended(actor.characterId),
@@ -914,7 +935,8 @@ export class SocialService {
     const blockedPair = (otherId: number): boolean =>
       actorBlocked.has(otherId) ||
       !this.tx.blockListLoaded(otherId) ||
-      this.tx.isBlocking(otherId, actor.characterId);
+      this.tx.isBlocking(otherId, actor.characterId) ||
+      this.tx.presenceHiddenFrom?.(actor.characterId, otherId) === true;
     const notified = new Set<number>();
     for (const watcherId of watchers) {
       if (!this.tx.isOnline(watcherId)) continue;

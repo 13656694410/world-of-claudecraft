@@ -408,6 +408,7 @@ import { dispatchPerfectItemCommand } from './perfect_item_command';
 import { parsePerfectingSwapCommand } from './perfecting_swap_command';
 import { runPeriodicSaveFlush } from './periodic_save_flush';
 import { writePlayerIdentityWire } from './player_identity_wire';
+import * as presence from './presence_privacy';
 import { VaultGameServices, type VaultMailSaveCapture } from './vault_game_services';
 import { dispatchVehicleCommand } from './vehicle_command_wire';
 import { dispatchWeeklyRewardCommand } from './weekly_reward_open';
@@ -451,6 +452,7 @@ import {
 import type { Presence, PresenceStatus, SocialActor, SocialTransport } from './social';
 import { guildStampRankOf, SocialService } from './social';
 import { PgSocialDb } from './social_db';
+import { broadcastSocialPositions } from './social_positions';
 import { reconcileOnLogin as reconcileSteamOnLogin } from './steam/mirror';
 import {
   type StorageAppliedEffectDraft,
@@ -978,6 +980,10 @@ export interface ClientSession
   // ignore commands. Distinct from `chatMutedUntil`, which is the ADMIN silence
   // applied TO this player by staff.
   ignoredIds: Set<number>;
+  // Presence privacy (server/presence_privacy.ts), loaded on join with the block
+  // list; friendIds is this character's own friends list, refreshed with the panel.
+  presenceMode: presence.PresenceMode;
+  friendIds: Set<number>;
   // name of the last player to whisper this session, for the /r reply
   lastWhisperFrom: string | null;
   // last explicit channel this player sent to; plain text follows it.
@@ -1622,6 +1628,9 @@ export class GameServer {
     refreshDiscordFlair: (session) => this.refreshDiscordFlair(session),
     sendChatNotice: (session, text) => this.sendChatNotice(session, text),
   };
+  private readonly presenceHost = presence.presenceHostFrom(this.flairHost, (s: ClientSession) =>
+    this.social.refreshPresenceWatchers({ characterId: s.characterId, name: s.name }),
+  );
   // Serializes every write of the single global Market blob (the 30s periodic
   // saveMarket/saveMail/saveRifts and the leave-path combined save). All
   // serialize whole-blob shared state; without a queue their transactions
@@ -2324,6 +2333,10 @@ export class GameServer {
         return s ? actor(s) : null;
       },
       isOnline: (id) => this.sessionByCharacterId(id) !== null,
+      presenceHiddenFrom: (subjectId, viewerId) => {
+        const s = this.sessionByCharacterId(subjectId);
+        return s !== null && presence.presenceHiddenFrom(s, viewerId);
+      },
       locationOf: (id) => {
         const s = this.sessionByCharacterId(id);
         return s ? this.presenceOf(s) : null;
@@ -2507,6 +2520,7 @@ export class GameServer {
           snap.guild?.tier ?? snap.myPledge?.tier ?? 0,
         );
       }
+      session.friendIds = new Set(snap.friends.map((f) => f.id));
       // remember who to track for the live position push (friends + guildmates)
       session.socialTrackedIds = [
         ...snap.friends.map((f) => f.id),
@@ -2517,40 +2531,15 @@ export class GameServer {
     }
   }
 
-  // Cheap (no-DB) periodic push: refresh the live positions of each client's
-  // already-known friends/guildmates so they stay current on the world map.
+  // The once-a-second friend/guildmate position push (server/social_positions.ts).
   private broadcastSocialPositions(): void {
-    for (const session of this.clients.values()) {
-      const ids = session.socialTrackedIds;
-      if (!ids || ids.length === 0) continue;
-      const list: {
-        id: number;
-        x: number;
-        z: number;
-        zone: string;
-        status: PresenceStatus;
-        title: string | null;
-      }[] = [];
-      for (const id of ids) {
-        const other = this.sessionByCharacterId(id);
-        if (!other) continue; // offline — snapshots own the online/offline flip
-        // A friend/guild edge on the OTHER side survives a block (blockAdd only
-        // cleans the blocker's own outgoing friend edge, never guild
-        // membership), so this tracked id can stay in socialTrackedIds long
-        // after a block either way. Refuse to leak live position across it,
-        // the same bidirectional rule canShowInWho already applies to /who.
-        if (!canShowInWho(session, other)) continue;
-        const loc = this.presenceOf(other);
-        if (loc.x === undefined || loc.z === undefined) continue;
-        // The live Book of Deeds title (sim meta, no DB read); the `social`
-        // frame's DB-sourced roster value lags the autosave, so this keeps
-        // non-nearby friends/guildmates current without a relog. Always
-        // present so a cleared title propagates as an explicit null.
-        const title = this.sim.meta(other.pid)?.activeTitle ?? null;
-        list.push({ id, x: loc.x, z: loc.z, zone: loc.zone, status: loc.status, title });
-      }
-      if (list.length > 0) this.send(session, { t: 'socialpos', list });
-    }
+    broadcastSocialPositions<ClientSession>({
+      sessions: () => this.clients.values(),
+      sessionByCharacterId: (id) => this.sessionByCharacterId(id),
+      presenceOf: (s) => this.presenceOf(s),
+      activeTitleOf: (s) => this.sim.meta(s.pid)?.activeTitle ?? null,
+      send: (s, frame) => this.send(s, frame as never),
+    });
   }
 
   start(): void {
@@ -3397,6 +3386,8 @@ export class GameServer {
       chatStrikes: meta.chatStrikes ?? 0,
       blockedIds: new Set(),
       blockListLoaded: false,
+      presenceMode: 'everyone',
+      friendIds: new Set(),
       guildStampSeq: 0,
       dirtyGuildBanks: new Map(),
       pendingStorageAppliedEffects: [],
@@ -3796,6 +3787,9 @@ export class GameServer {
   // let friends + guildmates know they've come online.
   private async initSocial(session: ClientSession, firstJoin = false): Promise<void> {
     try {
+      // Presence loads BEFORE the block list flips loaded: until both are known
+      // the character reads as hidden (fail closed), never as visible.
+      session.presenceMode = await presence.loadPresenceMode(pool, session.characterId);
       session.blockedIds = new Set(await this.socialDb.blockedIds(session.characterId));
       session.blockListLoaded = true;
     } catch (err) {
@@ -6901,6 +6895,10 @@ export class GameServer {
         if (this.handleChatFilterCommand(session, text, receivedAtMs / 1000)) break;
         // The player's own /flair on|off, usable while muted for the same reason.
         if (handleFlairChatCommand(this.flairHost, session, text, receivedAtMs / 1000)) break;
+        if (
+          presence.handlePresenceChatCommand(this.presenceHost, session, text, receivedAtMs / 1000)
+        )
+          break;
         if (this.isChatMuted(session)) break;
         // The chat lane is a pre-guard CO-LOCATED with the ladder, not at the
         // case entry (R5): the moderation router and the ignore/block/filter

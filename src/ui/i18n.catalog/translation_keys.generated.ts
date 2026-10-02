@@ -6499,6 +6499,7 @@ export type TranslationKeyFlat =
   | 'guide.commandsPage.playtime'
   | 'guide.commandsPage.pois'
   | 'guide.commandsPage.potion'
+  | 'guide.commandsPage.presence'
   | 'guide.commandsPage.pvp'
   | 'guide.commandsPage.pvpZones'
   | 'guide.commandsPage.quests'

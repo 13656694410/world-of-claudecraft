@@ -9,25 +9,55 @@
 // Reproducibility is checked by tests/i18n_resolved_equivalence.test.ts.
 
 export const pending: Record<string, readonly string[]> = {
-  "es": [],
-  "es_ES": [],
-  "fr_FR": [],
-  "fr_CA": [],
+  "es": [
+    "guide.commandsPage.presence"
+  ],
+  "es_ES": [
+    "guide.commandsPage.presence"
+  ],
+  "fr_FR": [
+    "guide.commandsPage.presence"
+  ],
+  "fr_CA": [
+    "guide.commandsPage.presence"
+  ],
   "en_CA": [],
-  "it_IT": [],
-  "de_DE": [],
+  "it_IT": [
+    "guide.commandsPage.presence"
+  ],
+  "de_DE": [
+    "guide.commandsPage.presence"
+  ],
   "zh_CN": [],
   "zh_TW": [],
   "ko_KR": [],
   "ja_JP": [],
-  "pt_BR": [],
+  "pt_BR": [
+    "guide.commandsPage.presence"
+  ],
   "ru_RU": [],
-  "cs_CZ": [],
-  "nl_NL": [],
-  "pl_PL": [],
-  "id_ID": [],
-  "tr_TR": [],
-  "sv_SE": [],
-  "vi_VN": [],
-  "da_DK": []
+  "cs_CZ": [
+    "guide.commandsPage.presence"
+  ],
+  "nl_NL": [
+    "guide.commandsPage.presence"
+  ],
+  "pl_PL": [
+    "guide.commandsPage.presence"
+  ],
+  "id_ID": [
+    "guide.commandsPage.presence"
+  ],
+  "tr_TR": [
+    "guide.commandsPage.presence"
+  ],
+  "sv_SE": [
+    "guide.commandsPage.presence"
+  ],
+  "vi_VN": [
+    "guide.commandsPage.presence"
+  ],
+  "da_DK": [
+    "guide.commandsPage.presence"
+  ]
 };

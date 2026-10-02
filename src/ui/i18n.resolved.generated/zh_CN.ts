@@ -7547,6 +7547,7 @@ export const zh_CN: EnTranslations = {
       "arena": "你在灰烬角斗场两个组别中的战绩：1v1 与 2v2 各自的评分、胜场、负场与胜率。",
       "pvp": "世界 PvP 旗帜：/pvp 切换，/pvp on 与 /pvp off 直接设置。已开启旗帜的玩家可以在任何地方互相作战；关闭需要 5 分钟。",
       "pvpZones": "世界 PvP 旗帜：/pvp 切换状态，/pvp on 和 /pvp off 分别开启和关闭。在争夺区域，已开启旗帜的玩家可以相互战斗；庇护区域禁止一切世界 PvP。进入正在进行的山丘之王活动圈会开启旗帜；关闭需要 5 分钟。",
+      "presence": "控制谁能通过好友列表和公会看到你在线：/presence everyone（默认）、/presence friends（仅你好友列表中的玩家）或 /presence none（显示为离线）。隐藏后，他们看不到你的在线标记、区域和地图位置；队伍成员始终能看到你。只输入 /presence 会告诉你当前设置。",
       "flair": "对其他玩家显示或隐藏你的 Discord 身份组，即彩色名字、身份组标签和聊天认证标签：/flair on 显示，/flair off 隐藏，只输入 /flair 会告诉你当前设置。需要已关联的 Discord 账号。",
       "listings": "你自己在世界市场上的挂单，包括要价、每一件还剩多久，以及你还能再挂多少。",
       "buyback": "你最近卖给商人、目前仍能买回来的东西。",

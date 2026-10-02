@@ -597,6 +597,20 @@ describe('createMinimapMarkers: the discriminated union per draw kind', () => {
     expect(allies.map((a) => a.ally)).toEqual(['friend', 'guild']);
   });
 
+  it('marks only ONLINE guildmates: a guildmate hiding their presence gets no diamond', () => {
+    // server/presence_privacy.ts: a hidden guildmate arrives offline in the
+    // roster, and the minimap must not track them through walls anyway.
+    const world = makeWorld('sim') as unknown as {
+      socialInfo: { guild: { members: { online: boolean }[] } };
+    };
+    world.socialInfo.guild.members[0].online = false;
+    const allies = buildMarkers(world as never).filter((m) => m.kind === 'ally') as Extract<
+      MinimapMarker,
+      { kind: 'ally' }
+    >[];
+    expect(allies.map((a) => a.ally)).toEqual(['friend']);
+  });
+
   it('drops the object-loot blip for a quest collectable the viewer is not on the quest for', () => {
     // Same gate the renderer uses to withhold the 3D view (isQuestGatedGroundObjectHidden):
     // an off-quest sparkle is not in the scene, so a blip would point at empty ground.

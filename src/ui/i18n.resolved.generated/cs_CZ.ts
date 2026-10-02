@@ -7547,6 +7547,7 @@ export const cs_CZ: EnTranslations = {
       "arena": "Tvé postavení v Popelavém koloseu v obou bracketech: hodnocení, výhry, prohry a poměr výher pro 1v1 a pro 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Příznak světového PvP: /pvp jej přepíná, /pvp on jej zapne a /pvp off vypne. Označení hráči spolu mohou bojovat ve sporných oblastech, útočiště nepovolují žádné boje ve světě a vstup do aktivního kruhu Krále kopce zapne váš příznak; vypnutí trvá 5 minut.",
+      "presence": "Who sees you online through friends lists and your guild: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none (you appear offline). Hidden, you get no online dot, zone or map position for them; your party always sees you. A plain /presence tells you which is set.",
       "flair": "Zobrazí nebo skryje tvou roli z Discordu pro ostatní hráče, tedy barevné jméno, štítek role a ověřený štítek v chatu: /flair on ji zobrazí, /flair off ji skryje a samotné /flair ti řekne, co je nastaveno. Vyžaduje propojený účet Discord.",
       "listings": "Tvé vlastní nabídky na Světovém trhu, s požadovanou cenou, časem, který každé zbývá, a kolik místa máš na další.",
       "buyback": "Co jsi nedávno prodal(a) obchodníkovi a co ještě můžeš koupit zpět.",

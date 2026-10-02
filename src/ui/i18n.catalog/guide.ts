@@ -1001,6 +1001,8 @@ export const guideStrings = {
     // reworded successor and `pvp` is retired in scripts/i18n_retired_keys.mjs.
     pvpZones:
       'World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other on contested ground, sanctuaries allow no world fighting at all, and entering an active King of the Hill circle raises your flag; switching off takes 5 minutes.',
+    presence:
+      'Who sees you online through friends lists and your guild: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none (you appear offline). Hidden, you get no online dot, zone or map position for them; your party always sees you. A plain /presence tells you which is set.',
     flair:
       'Shows or hides your Discord role for other players, meaning your colored name, role tag and verified chat tag: /flair on shows it, /flair off hides it, and a plain /flair tells you which is set. Needs a linked Discord account.',
     listings:

@@ -7547,6 +7547,7 @@ export const pt_BR: EnTranslations = {
       "arena": "Sua posição no Coliseu das Cinzas em ambas as categorias: classificação, vitórias, derrotas e taxa de vitórias para 1v1 e 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Bandeira de PvP Mundial: /pvp alterna o estado, /pvp on ativa e /pvp off desativa. Jogadores com bandeira podem lutar entre si em áreas disputadas, santuários não permitem nenhum combate no mundo, e entrar em um círculo ativo do Rei da Colina ativa sua bandeira; a desativação leva 5 minutos.",
+      "presence": "Who sees you online through friends lists and your guild: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none (you appear offline). Hidden, you get no online dot, zone or map position for them; your party always sees you. A plain /presence tells you which is set.",
       "flair": "Mostra ou oculta seu cargo do Discord para outros jogadores, ou seja, seu nome colorido, sua etiqueta de cargo e sua etiqueta verificada no chat: /flair on mostra, /flair off oculta e /flair sozinho informa qual está ativo. Requer uma conta do Discord vinculada.",
       "listings": "Suas próprias listagens no Mercado Mundial, com o preço pedido, o tempo restante de cada uma, e quanto espaço você ainda tem para mais.",
       "buyback": "O que você vendeu recentemente para um vendedor e ainda pode recomprar.",
