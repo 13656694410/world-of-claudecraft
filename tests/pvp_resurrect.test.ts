@@ -4,6 +4,7 @@
 // the pure rule, the offer stamped by a real world PvP death, the raise, every
 // refusal, the self-wire round trip to the ClientWorld mirror, and the death
 // screen's view core.
+import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('../server/db', () => ({
@@ -256,5 +257,15 @@ describe('updateDeathPromptView', () => {
     expect(v.ghostPrompt).toBe(false);
     updateDeathPromptView(v, false, false, false, false, at, null, false);
     expect(Object.values(v).every((shown) => shown === false)).toBe(true);
+  });
+});
+
+describe('the death panel fits three buttons', () => {
+  it('wraps the actions row so PvP Resurrect never pushes Release or Recap past the panel', () => {
+    const css = readFileSync(new URL('../src/styles/hud.css', import.meta.url), 'utf8');
+    const start = css.indexOf('#death-overlay .death-actions {');
+    expect(start, 'the death actions rule').toBeGreaterThan(-1);
+    const rule = css.slice(start, css.indexOf('}', start));
+    expect(rule).toContain('flex-wrap: wrap');
   });
 });
