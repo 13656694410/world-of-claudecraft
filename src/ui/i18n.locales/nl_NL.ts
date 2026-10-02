@@ -20036,9 +20036,13 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
     'Houd wereld-PvP ingeschakeld om {percent} meer ervaring en factiereputatie te verdienen. De bonussen stoppen zodra je vraagt om het uit te schakelen.',
   'hudChrome.worldPvp.rewardPaused':
     'Huidige PvP-reeks: {time} gespeeld (gepauzeerd aan de Beproevingskust)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Huidige PvP-reeks: {time} gespeeld (gepauzeerd zolang je dood bent)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Huidige PvP-reeks: {time} gespeeld (gepauzeerd in instanties)',
   'hudChrome.worldPvp.rewardProgress': 'Huidige PvP-reeks: {time} gespeeld',
   'hudChrome.worldPvp.rewardTitles':
-    'Verdien permanente titels na {thresholds} speeltijd met wereld-PvP ingeschakeld. Uitloggen en de Beproevingskust bezoeken pauzeren de teller. Uitschakelen zet hem terug op nul.',
+    'Verdien permanente titels na {thresholds} speeltijd in de open wereld met wereld-PvP ingeschakeld. Uitloggen, dood zijn, instanties en de Beproevingskust pauzeren de teller. Uitschakelen zet hem terug op nul.',
   'guide.worldPvpPage.introZones':
     'PvP in de open wereld is vrijwillig en hangt af van het gebied. Op betwist terrein maakt je ingeschakelde PvP-vlag alle spelers met een vlag buiten je groep of raid tot vijanden; na uitschakelen ben je na een korte vertraging weer toeschouwer. De Beproevingskust is het enige heiligdom zonder wereldgevechten en de drie noordelijkste gebieden gebruiken dezelfde vrijwillige vlagregels als de rest van de wereld. Bij het betreden van een actieve cirkel van Koning van de Heuvel wordt je vlag automatisch ingeschakeld. Groeps- en raidleden zijn nergens je vijanden; gildeleden buiten je groep zijn net als andere spelers aan te vallen.',
   'guide.worldPvpPage.zonesBody':

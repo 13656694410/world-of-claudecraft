@@ -2788,8 +2788,10 @@ export const pt_BR: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Mantenha o PvP mundial ativo para ganhar {percent} a mais de experiência e reputação de facção. Os bônus param quando você solicita a desativação.",
-      "rewardTitles": "Ganhe títulos permanentes após {thresholds} de tempo jogado com o PvP mundial ativo. Sair do jogo e visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.",
+      "rewardTitles": "Ganhe títulos permanentes após {thresholds} de tempo jogado no mundo aberto com o PvP mundial ativo. Sair do jogo, morrer, entrar em instâncias ou visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.",
       "rewardPaused": "Sequência PvP atual: {time} de jogo (pausada na Costa da Provação)",
+      "rewardPausedDead": "Sequência PvP atual: {time} de jogo (pausada enquanto você estiver morto)",
+      "rewardPausedInstance": "Sequência PvP atual: {time} de jogo (pausada dentro de instâncias)",
       "rewardProgress": "Sequência PvP atual: {time} de jogo",
       "tab": "PvP Mundial",
       "title": "PvP Mundial",
@@ -2857,7 +2859,8 @@ export const pt_BR: EnTranslations = {
       "owned": "Possuído",
       "buyAria": "Comprar {item} por {honor}",
       "buyOwnedAria": "Comprar {item} por {honor}, já possuído",
-      "buyConfirmBody": "Comprar {item} por {honor}? Compras com Honra não podem ser reembolsadas."
+      "buyConfirmBody": "Comprar {item} por {honor}? Compras com Honra não podem ser reembolsadas.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Ataque",
@@ -12770,6 +12773,7 @@ export const pt_BR: EnTranslations = {
       "dps": "({dps} de dano por segundo)",
       "armorStat": "{value} de armadura",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Usar: restaura {amount} de vida ao longo de {seconds} s. É preciso permanecer sentado enquanto come.",
       "useDrink": "Usar: restaura {amount} de mana ao longo de {seconds} s. É preciso permanecer sentado enquanto bebe.",
       "useElixir": "Uso: aumenta seu {stat} em {value} por {minutes} min. Substitui qualquer outro elixir ou pergaminho do mesmo atributo. Pode ser usado em combate.",

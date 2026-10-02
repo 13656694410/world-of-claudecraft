@@ -103,6 +103,7 @@ export {
 // public API in any meaningful sense: import it by path.
 export { loadHonorState, savedHonorState } from './honor_persist';
 export {
+  countsWarfareRating,
   PVP_DEFENSE_CAP,
   PVP_OFFENSE_CAP,
   PVP_RATING_PER_PCT,

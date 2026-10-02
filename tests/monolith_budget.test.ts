@@ -544,10 +544,13 @@ const MONOLITHS: MonolithRow[] = [
     // slot_edit_hints_core.ts and the attack slot's dragstart payload sits on
     // one line. wc -l on the merged tree after biome. Exact count, zero slack.
     // Banner payload and expiry policy moved to banner_queue.ts for hill warnings.
-    // Lowered 18034 -> 18028: the death-screen decisions (and the mirrored corpse
-    // range constant) moved to src/ui/hud/death/death_prompt_view.ts with the
-    // PvP Resurrect button. Extract, then lower.
-    ceiling: 18028,
+    // Lowered 18034 -> 18029: the Warfare purchase confirm body (Honor or, for
+    // Season 1, gold) moved to warfarePurchaseConfirmBody in
+    // src/ui/hud/vendor/warfare_vendor_window.ts. Extract, then lower.
+    // Lowered 18029 -> 18024 at the merge with PvP Resurrect: the death-screen
+    // decisions (and the mirrored corpse range constant) moved to
+    // src/ui/hud/death/death_prompt_view.ts. wc -l on the merged tree.
+    ceiling: 18024,
     seam: 'pure view core + thin painter on PainterHost (src/ui/CLAUDE.md)',
   },
   {

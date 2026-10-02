@@ -617,7 +617,10 @@ import {
 } from './hud/vendor/vendor_view';
 import { renderVendorWindow } from './hud/vendor/vendor_window';
 import { buildWarfareVendorView, warfareShopViewer } from './hud/vendor/warfare_vendor_view';
-import { renderWarfareVendorWindow } from './hud/vendor/warfare_vendor_window';
+import {
+  renderWarfareVendorWindow,
+  warfarePurchaseConfirmBody,
+} from './hud/vendor/warfare_vendor_window';
 import { afflictionFateThreadCount, createDoomMeter, destructionRuinPips } from './hud/warlock';
 import { WocTradeController } from './hud/woc_trade';
 import { HudFrameGroups, refreshHudFrameGroupLabels } from './hud_frame_groups';
@@ -5040,13 +5043,13 @@ export class Hud {
     this.aurasPainterDeps,
     document,
   );
-  // Target dots (#target-dots): the multi-target tracker for every debuff the
-  // LOCAL player has out. The selection core is class-agnostic (ownership plus
-  // isDebuffAura), so it needs no class knowledge here; the Hud supplies only the
-  // ownership predicate it already shares with the target strip, and the
-  // localization callbacks the core must not make itself.
+  // Target dots (#target-dots): every debuff the LOCAL player has out on a mob or a
+  // hostile player. Class-agnostic selection (ownership plus isDebuffAura); the Hud
+  // supplies only the ownership predicate and the PvP hostility verdict it shares
+  // with the target frame, plus the localization callbacks the core must not make.
   private readonly targetDotsView = createTargetDotsView<Entity>({
     isOwn: (a) => isOwnAura(a, this.sim.playerId),
+    isHostilePlayer: (e) => isPvpHostilePlayer(this.sim, e),
     auraName: (a) =>
       auraDisplayNameForHud(a.name, ABILITIES[a.id] ? abilityDisplayName(ABILITIES[a.id]) : null),
     targetName: (e) => entityDisplayName(e),
@@ -14864,26 +14867,19 @@ export class Hud {
     this.warfareVendorOpenerFocus = null;
   }
 
-  // Honor purchases debit an unrefundable currency and record no buyback
-  // (gold vendors are the only buyback source), exactly like Heroic Marks, so
-  // the buy command fires ONLY from the confirm callback.
+  // Warfare purchases are soulbound with no sell value (Honor, or gold for
+  // Season 1), so a mis-tap is unrefundable, exactly like Heroic Marks: the buy
+  // command fires ONLY from the confirm callback.
   private requestWarfarePurchase(npcId: number, itemId: string): void {
     const item = ITEMS[itemId];
     if (!item) return;
     // COUPLING: the title / accept / cancel labels are BORROWED from the Heroic
     // Marks shop because they are currency-neutral today. Specializing any of
     // the three heroicShop.buyConfirm* values for Marks would silently retitle
-    // this Honor dialog; mint warfareShop.* replacements here if that happens.
+    // this Warfare dialog; mint warfareShop.* replacements here if that happens.
     this.confirmDialog(
       t('heroicShop.buyConfirmTitle'),
-      t('hudChrome.warfareShop.buyConfirmBody', {
-        item: itemDisplayName(item),
-        honor: t('hudChrome.warfare.honorAmount', {
-          amount: formatNumber(Math.max(0, Math.floor(item.priceHonor ?? 0)), {
-            maximumFractionDigits: 0,
-          }),
-        }),
-      }),
+      warfarePurchaseConfirmBody(item),
       t('heroicShop.buyConfirmAccept'),
       t('heroicShop.buyConfirmCancel'),
       () => this.sim.buyItem(npcId, itemId),

@@ -2788,8 +2788,10 @@ export const id_ID: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Biarkan PvP Dunia aktif untuk mendapatkan {percent} lebih banyak pengalaman dan reputasi faksi. Bonus berhenti saat kamu meminta untuk menonaktifkannya.",
-      "rewardTitles": "Dapatkan gelar permanen setelah {thresholds} waktu bermain dengan PvP Dunia aktif. Keluar dari permainan dan mengunjungi Pesisir Pembuktian menjeda penghitung. Menonaktifkannya mengatur ulang penghitung.",
+      "rewardTitles": "Dapatkan gelar permanen setelah {thresholds} waktu bermain di dunia terbuka dengan PvP Dunia aktif. Keluar dari permainan, mati, berada di instans, dan mengunjungi Pesisir Pembuktian menjeda penghitung. Menonaktifkannya mengatur ulang penghitung.",
       "rewardPaused": "Rangkaian PvP saat ini: {time} bermain (dijeda di Pesisir Pembuktian)",
+      "rewardPausedDead": "Rangkaian PvP saat ini: {time} bermain (dijeda saat mati)",
+      "rewardPausedInstance": "Rangkaian PvP saat ini: {time} bermain (dijeda di dalam instans)",
       "rewardProgress": "Rangkaian PvP saat ini: {time} bermain",
       "tab": "Pertempuran Dunia PvP",
       "title": "Pertempuran Dunia PvP",
@@ -2857,7 +2859,8 @@ export const id_ID: EnTranslations = {
       "owned": "Dimiliki",
       "buyAria": "Beli {item} seharga {honor}",
       "buyOwnedAria": "Beli {item} seharga {honor}, sudah dimiliki",
-      "buyConfirmBody": "Beli {item} seharga {honor}? Pembelian dengan Kehormatan tidak dapat dikembalikan."
+      "buyConfirmBody": "Beli {item} seharga {honor}? Pembelian dengan Kehormatan tidak dapat dikembalikan.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Serangan",
@@ -12770,6 +12773,7 @@ export const id_ID: EnTranslations = {
       "dps": "({dps} kerusakan per detik)",
       "armorStat": "{value} Zirah",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Pakai: Memulihkan {amount} nyawa selama {seconds} detik. Harus tetap duduk selama makan.",
       "useDrink": "Pakai: Memulihkan {amount} mana selama {seconds} detik. Harus tetap duduk selama minum.",
       "useElixir": "Gunakan: Meningkatkan {stat} sebesar {value} selama {minutes} mnt. Menggantikan eliksir atau gulungan lain dengan statistik sama. Dapat digunakan dalam pertempuran.",

@@ -2788,8 +2788,10 @@ export const nl_NL: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Houd wereld-PvP ingeschakeld om {percent} meer ervaring en factiereputatie te verdienen. De bonussen stoppen zodra je vraagt om het uit te schakelen.",
-      "rewardTitles": "Verdien permanente titels na {thresholds} speeltijd met wereld-PvP ingeschakeld. Uitloggen en de Beproevingskust bezoeken pauzeren de teller. Uitschakelen zet hem terug op nul.",
+      "rewardTitles": "Verdien permanente titels na {thresholds} speeltijd in de open wereld met wereld-PvP ingeschakeld. Uitloggen, dood zijn, instanties en de Beproevingskust pauzeren de teller. Uitschakelen zet hem terug op nul.",
       "rewardPaused": "Huidige PvP-reeks: {time} gespeeld (gepauzeerd aan de Beproevingskust)",
+      "rewardPausedDead": "Huidige PvP-reeks: {time} gespeeld (gepauzeerd zolang je dood bent)",
+      "rewardPausedInstance": "Huidige PvP-reeks: {time} gespeeld (gepauzeerd in instanties)",
       "rewardProgress": "Huidige PvP-reeks: {time} gespeeld",
       "tab": "Wereldgevecht",
       "title": "Wereldgevecht",
@@ -2857,7 +2859,8 @@ export const nl_NL: EnTranslations = {
       "owned": "In bezit",
       "buyAria": "Koop {item} voor {honor}",
       "buyOwnedAria": "Koop {item} voor {honor}, al in bezit",
-      "buyConfirmBody": "{item} kopen voor {honor}? Aankopen met Eer kunnen niet worden terugbetaald."
+      "buyConfirmBody": "{item} kopen voor {honor}? Aankopen met Eer kunnen niet worden terugbetaald.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Aanval",
@@ -12770,6 +12773,7 @@ export const nl_NL: EnTranslations = {
       "dps": "({dps} schade per seconde)",
       "armorStat": "{value} Pantser",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Gebruik: Herstelt {amount} levenskracht over {seconds} sec. Je moet blijven zitten tijdens het eten.",
       "useDrink": "Gebruik: Herstelt {amount} mana over {seconds} sec. Je moet blijven zitten tijdens het drinken.",
       "useElixir": "Gebruik: verhoogt je {stat} met {value} gedurende {minutes} min. Vervangt elk ander elixer of perkament met dezelfde statistiek. Bruikbaar in gevecht.",

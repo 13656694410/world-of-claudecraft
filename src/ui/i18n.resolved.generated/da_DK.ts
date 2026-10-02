@@ -2788,8 +2788,10 @@ export const da_DK: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Hold verdens-PvP aktiveret for at få {percent} mere erfaring og fraktionsomdømme. Bonusserne ophører, når du anmoder om at slå det fra.",
-      "rewardTitles": "Optjen permanente titler efter {thresholds} spilletid med verdens-PvP aktiveret. Udlogning og besøg på Prøvestranden sætter tælleren på pause. Deaktivering nulstiller den.",
+      "rewardTitles": "Optjen permanente titler efter {thresholds} spilletid med verdens-PvP aktiveret i den åbne verden. Udlogning, død, instanser og Prøvestranden sætter tælleren på pause. Deaktivering nulstiller den.",
       "rewardPaused": "Nuværende PvP-serie: {time} spillet (sat på pause på Prøvestranden)",
+      "rewardPausedDead": "Nuværende PvP-serie: {time} spillet (sat på pause, mens du er død)",
+      "rewardPausedInstance": "Nuværende PvP-serie: {time} spillet (sat på pause i instanser)",
       "rewardProgress": "Nuværende PvP-serie: {time} spillet",
       "tab": "Verden PvP",
       "title": "Verden PvP",
@@ -2857,7 +2859,8 @@ export const da_DK: EnTranslations = {
       "owned": "Ejet",
       "buyAria": "Køb {item} for {honor}",
       "buyOwnedAria": "Køb {item} for {honor}, allerede ejet",
-      "buyConfirmBody": "Køb {item} for {honor}? Køb med Ære kan ikke refunderes."
+      "buyConfirmBody": "Køb {item} for {honor}? Køb med Ære kan ikke refunderes.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Angreb",
@@ -12770,6 +12773,7 @@ export const da_DK: EnTranslations = {
       "dps": "({dps} skade i sekundet)",
       "armorStat": "{value} Rustning",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Brug: Genopretter {amount} helbred over {seconds} sek. Skal forblive siddende mens du spiser.",
       "useDrink": "Brug: Genopretter {amount} mana over {seconds} sek. Skal forblive siddende mens du drikker.",
       "useElixir": "Brug: Øger din {stat} med {value} i {minutes} minutter. Erstatter enhver anden eliksir eller rulle med samme egenskab. Kan bruges i kamp.",

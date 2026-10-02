@@ -7973,6 +7973,9 @@
   .faction-currency-balance {
     color: var(--gold);
   }
+  .warfare-balance .warfare-balance-gold {
+    margin-left: 12px;
+  }
   .warfare-balance,
   .faction-currency-balance {
     margin: 6px 5px;
