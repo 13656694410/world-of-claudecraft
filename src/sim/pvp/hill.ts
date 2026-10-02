@@ -41,6 +41,12 @@ import { Rng } from '../rng';
 import type { SimContext } from '../sim_context';
 import type { ZoneDef } from '../types';
 import {
+  clearHillBounties,
+  type HillBountyBook,
+  hillCalloutFor,
+  syncHillBountyBadges,
+} from './hill_bounty';
+import {
   HILL_ACCRUAL_SECONDS,
   HILL_CAPTURE_SECONDS,
   HILL_DURATION_SECONDS,
@@ -97,6 +103,9 @@ export interface ActiveHill extends HillTimes {
   heldSeconds: number;
   /** Honor paid out by this hill so far (the readout and the tests). */
   honorPaid: number;
+  /** Kill and death streaks, repeat counts and the latest callout
+   *  (hill_bounty.ts), created on the hill's first hill kill. */
+  bounty?: HillBountyBook;
 }
 
 /** The Sim-owned session state, exposed on SimContext as a live view. */
@@ -251,6 +260,7 @@ export function spawnHill(
     heldSeconds: 0,
     honorPaid: 0,
   };
+  clearHillBounties(ctx, ctx.hillState.active);
   ctx.hillState.active = hill;
   announcePhase(ctx, hill, phase === 'warning' ? 'warning' : 'risen');
   return hill;
@@ -297,6 +307,7 @@ export function riseHillNow(ctx: SimContext): ActiveHill | null {
 export function endHillNow(ctx: SimContext): ActiveHill | null {
   const hill = ctx.hillState.active;
   if (!hill) return null;
+  clearHillBounties(ctx, hill);
   ctx.hillState.active = null;
   announcePhase(ctx, hill, 'fallen');
   return hill;
@@ -337,6 +348,7 @@ function updateSchedule(ctx: SimContext): void {
   const hill = state.active;
   if (hill) {
     if (ctx.time >= hill.closesAt) {
+      clearHillBounties(ctx, hill);
       state.active = null;
       announcePhase(ctx, hill, 'fallen');
     } else {
@@ -463,6 +475,7 @@ export function updateHill(ctx: SimContext): void {
   if (ctx.tickCount - state.passTick < PASS_TICKS) return;
   state.passTick = ctx.tickCount;
   if (ctx.worldPvpDisabled) {
+    clearHillBounties(ctx, state.active);
     state.active = null;
     return;
   }
@@ -473,6 +486,7 @@ export function updateHill(ctx: SimContext): void {
   countInside(ctx, live);
   updateContest(ctx, live, dt);
   payHolders(ctx, live, dt);
+  syncHillBountyBadges(ctx, live);
 }
 
 /** The IWorld readout for one viewer (src/world_api/world_pvp.ts HillInfo).
@@ -527,6 +541,8 @@ export function hillInfoFor(
     challenger: side(hill.challenger),
     challengerCount: hill.challenger === null ? 0 : (hill.counts.get(hill.challenger) ?? 0),
     contest: Math.floor(hill.contest),
+    // The announcer (hill_bounty.ts): everyone in the zone sees the same call.
+    callout: hillCalloutFor(ctx, hill),
   };
 }
 

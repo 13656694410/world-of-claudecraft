@@ -2843,6 +2843,15 @@ export const id_ID: EnTranslations = {
       "falls": "Jatuh dalam {minutes}",
       "pvpEntry": "Memasuki lingkaran aktif mengaktifkan PvP Dunia.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Anggota raid tidak dihitung: hanya pihak yang dapat memegang bukit"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const id_ID: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Pemain Curang >",
       "pledgeTag": "Ikrar {guild}",

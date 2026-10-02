@@ -2843,6 +2843,15 @@ export const it_IT: EnTranslations = {
       "falls": "Cade tra {minutes}",
       "pvpEntry": "Entrare nel cerchio attivo abilita il PvP mondiale.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "I membri di un'incursione non contano: solo i gruppi possono detenere la collina"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const it_IT: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Baro >",
       "pledgeTag": "Giuramento a {guild}",

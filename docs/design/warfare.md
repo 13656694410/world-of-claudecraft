@@ -621,6 +621,42 @@ map and continent overview also show a skull at the hill location during both
 warning and active phases. All markers disappear when the hill ends. The state
 is session-only and never persisted.
 
+### Bounties (owner spec, 2026-10-02)
+
+A world kill while the hill stands risen, with the victim or the player who
+landed the killing blow inside the circle, is a HILL kill (`hill_bounty.ts`).
+It pays the victim's bounty in place of the plain 10 Honor world kill, split
+between contributors as usual. A bounty follows League of Legends' pre-2024
+champion bounty, scaled from its 300 gold base to 10 Honor
+(`hill_bounty_rules.ts`):
+
+| Kill streak (no deaths) | 0 to 1 | 2 | 3 | 4 | 5 | 6 | 7 and up |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Bounty (Honor) | 10 | 15 | 20 | 23 | 27 | 30 | 33 |
+
+| Death streak (no kills) | 0 to 1 | 2 | 3 | 4 | 5 | 6 and up |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Bounty (Honor) | 10 | 9 | 7 | 6 | 5 | 3 |
+
+League documents only the death-streak floor (a third of the base), so the
+steps between are this game's own. Streaks count hill kills only, for the life
+of the hill: a kill adds one and ends the killer's death streak, a death ends
+the victim's kill streak and adds one death. Only a paid killing blow builds a
+streak (a grey or raid kill does not). Hill Honor ignores the hourly
+100/50/25/0 repeat decay: each contributor is paid in full for the first five
+kills of one victim on one hill (`HILL_BOUNTY_REPEAT_CAP`), then nothing. The
+gold stake keeps the normal decay.
+
+A running kill streak of two or more puts the bounty on the player's entity
+(`Entity.hillBounty`, the `hbn` entity wire bit), shown as `<Bounty 23>` on the
+nameplate and the target frame. A death streak is never advertised. The
+announcer calls each kill from three on (Killing Spree, Rampage, Unstoppable,
+Dominating, Godlike, then Legendary from eight), and a kill of a player on a
+streak of three or more is a Shut Down instead. The latest call rides the hill
+readout (`HillInfo.callout`) for `HILL_CALLOUT_SECONDS` (6), so everyone in the
+hill's zone sees the same banner once. Every badge comes down when the hill
+ends, however it ends.
+
 Test levers (dev realms only, `ALLOW_DEV_COMMANDS`; also buttons in the dev
 command window's Scenarios tab): `/dev hill [zone]` raises a hill at once and
 stands you on its rim; `/dev hill warn [zone] [seconds]` starts a countdown (the

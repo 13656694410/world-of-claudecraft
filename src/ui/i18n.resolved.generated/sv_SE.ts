@@ -2843,6 +2843,15 @@ export const sv_SE: EnTranslations = {
       "falls": "Faller om {minutes}",
       "pvpEntry": "Världs-PvP aktiveras när du går in i den aktiva cirkeln.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Rajdmedlemmar räknas inte: bara partier kan inneha kullen"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const sv_SE: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "BV",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Fuskare >",
       "pledgeTag": "Trogen {guild}",

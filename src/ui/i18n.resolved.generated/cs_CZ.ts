@@ -2843,6 +2843,15 @@ export const cs_CZ: EnTranslations = {
       "falls": "Padne za {minutes}",
       "pvpEntry": "Vstup do aktivního kruhu zapne světové PvP.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Členové raidu se nepočítají: kopec mohou ovládat jen skupiny"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const cs_CZ: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "PRYČ",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Podvodník >",
       "pledgeTag": "Přísaha cechu {guild}",

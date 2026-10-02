@@ -2843,6 +2843,15 @@ export const tr_TR: EnTranslations = {
       "falls": "{minutes} içinde düşüyor",
       "pvpEntry": "Aktif çembere girmek Dünya PvP'yi açar.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Akın üyeleri sayılmaz: yalnızca partiler tepeyi tutabilir"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const tr_TR: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "UZAKTA",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Hileci >",
       "pledgeTag": "{guild} Yeminlisi",

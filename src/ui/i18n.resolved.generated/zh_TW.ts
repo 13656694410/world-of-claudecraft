@@ -2843,6 +2843,15 @@ export const zh_TW: EnTranslations = {
       "falls": "將於 {minutes} 分鐘後消失",
       "pvpEntry": "進入活動圈會開啟世界 PvP。",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name}正在大殺特殺！",
+        "rampage": "{name}已經殺人如麻！",
+        "unstoppable": "{name}已經無人能擋！",
+        "dominating": "{name}已經主宰比賽！",
+        "godlike": "{name}已經接近神了！",
+        "legendary": "{name}已經超越神了！",
+        "shutDown": "{killer}終結了{victim}！"
+      },
       "standingRaid": "團隊成員不計入人數：只有隊伍才能佔據山丘"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const zh_TW: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "暫離",
+      "bountyTag": "懸賞 {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< 作弊者 >",
       "pledgeTag": "{guild}的宣誓者",

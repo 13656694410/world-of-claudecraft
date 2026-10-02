@@ -2843,6 +2843,15 @@ export const ko_KR: EnTranslations = {
       "falls": "{minutes} 후 무너짐",
       "pvpEntry": "활성 원에 들어가면 월드 PvP가 켜집니다.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name}님이 연속 처치 중입니다!",
+        "rampage": "{name}님이 학살 중입니다!",
+        "unstoppable": "{name}님을 막을 수 없습니다!",
+        "dominating": "{name}님이 전장을 지배하고 있습니다!",
+        "godlike": "{name}님이 신의 경지에 올랐습니다!",
+        "legendary": "{name}님이 전설이 되었습니다!",
+        "shutDown": "{killer}님이 {victim}님의 연속 처치를 끊었습니다!"
+      },
       "standingRaid": "공격대원은 인원수에 포함되지 않습니다: 파티만 언덕을 점령할 수 있습니다"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const ko_KR: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "자리비움",
+      "bountyTag": "현상금 {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< 부정행위자 >",
       "pledgeTag": "{guild} 서약자",

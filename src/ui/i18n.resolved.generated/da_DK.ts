@@ -2843,6 +2843,15 @@ export const da_DK: EnTranslations = {
       "falls": "Falder om {minutes}",
       "pvpEntry": "Verdens-PvP aktiveres, når du går ind i den aktive cirkel.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Raidmedlemmer tæller ikke: kun partier kan holde bakken"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const da_DK: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Snyder >",
       "pledgeTag": "Løfte til {guild}",

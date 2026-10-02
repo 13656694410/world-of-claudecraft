@@ -2843,6 +2843,15 @@ export const pl_PL: EnTranslations = {
       "falls": "Spada za {minutes}",
       "pvpEntry": "Wejście do aktywnego kręgu włącza PvP w świecie.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Członkowie rajdu się nie liczą: tylko drużyny mogą trzymać wzgórze"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const pl_PL: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Oszust >",
       "pledgeTag": "Ślubowanie: {guild}",

@@ -9,25 +9,160 @@
 // Reproducibility is checked by tests/i18n_resolved_equivalence.test.ts.
 
 export const pending: Record<string, readonly string[]> = {
-  "es": [],
-  "es_ES": [],
-  "fr_FR": [],
-  "fr_CA": [],
+  "es": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
+  "es_ES": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
+  "fr_FR": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
+  "fr_CA": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
   "en_CA": [],
-  "it_IT": [],
-  "de_DE": [],
+  "it_IT": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
+  "de_DE": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
   "zh_CN": [],
   "zh_TW": [],
   "ko_KR": [],
   "ja_JP": [],
-  "pt_BR": [],
+  "pt_BR": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
   "ru_RU": [],
-  "cs_CZ": [],
-  "nl_NL": [],
-  "pl_PL": [],
-  "id_ID": [],
-  "tr_TR": [],
-  "sv_SE": [],
-  "vi_VN": [],
-  "da_DK": []
+  "cs_CZ": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
+  "nl_NL": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
+  "pl_PL": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
+  "id_ID": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
+  "tr_TR": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
+  "sv_SE": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
+  "vi_VN": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ],
+  "da_DK": [
+    "hudChrome.hill.callout.dominating",
+    "hudChrome.hill.callout.godlike",
+    "hudChrome.hill.callout.killingSpree",
+    "hudChrome.hill.callout.legendary",
+    "hudChrome.hill.callout.rampage",
+    "hudChrome.hill.callout.shutDown",
+    "hudChrome.hill.callout.unstoppable",
+    "hudChrome.nameplate.bountyTag"
+  ]
 };

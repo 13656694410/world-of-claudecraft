@@ -133,6 +133,16 @@ ratings.
 
 ## King of the Hill
 
+- `hill_bounty_rules.ts` owns the PURE bounty tables (League of Legends'
+  champion bounty scaled to 10 Honor, `hillBountyHonor`), the per-hill repeat
+  cap (`hillRepeatHonorMultiplier`) and the announcer's calls
+  (`hillStreakCallout`). `hill_bounty.ts` owns the per-hill books on
+  `ActiveHill.bounty`: which world kills are hill kills (`hillKillFor`, called
+  from `worldPvpOnPlayerDeath`), the streaks, the `Entity.hillBounty` badge,
+  the readout's `callout` (`hillCalloutFor`) and the teardown at every way a
+  hill ends (`clearHillBounties`). It imports neither hill.ts nor world_pvp.ts
+  at runtime (ActiveHill is a type import), so both can call in. Pinned by
+  `tests/hill_bounty.test.ts`; docs/design/warfare.md "Bounties".
 - `hill_rules.ts` owns the PURE rules: who counts (`hillStanding`: parties
   only, so a raid member does not; level 10 or above), the group key (`hillGroupKey`: a party, or a lone
   player as a group of one; null for a raid), the strict-maximum leader

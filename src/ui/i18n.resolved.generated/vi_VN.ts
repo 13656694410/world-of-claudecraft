@@ -2843,6 +2843,15 @@ export const vi_VN: EnTranslations = {
       "falls": "Rơi xuống trong {minutes}",
       "pvpEntry": "Bước vào vòng tròn đang hoạt động sẽ bật PvP Thế Giới.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Thành viên cuộc tấn công không tính, chỉ các nhóm mới có thể giữ đồi"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const vi_VN: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "VắngMặt",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Kẻ Gian Lận >",
       "pledgeTag": "Trung Thành Với {guild}",

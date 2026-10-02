@@ -3444,6 +3444,18 @@ export const hudChromeStrings = {
     falls: 'Falls in {minutes}',
     pvpEntry: 'Entering the active circle enables World PvP.',
     pvpBanner: 'PvP',
+    // The King of the Hill announcer (src/sim/pvp/hill_bounty.ts): League of
+    // Legends' kill streak calls, shown to everyone in the hill's zone. {name}
+    // and {killer}/{victim} are character names, spliced verbatim.
+    callout: {
+      killingSpree: '{name} is on a Killing Spree!',
+      rampage: '{name} is on a Rampage!',
+      unstoppable: '{name} is Unstoppable!',
+      dominating: '{name} is Dominating!',
+      godlike: '{name} is Godlike!',
+      legendary: '{name} is Legendary!',
+      shutDown: '{killer} has shut down {victim}!',
+    },
     standingRaid: 'Raid members do not count: only parties can hold the hill',
   },
   // The WARFARE quartermaster's sectioned honor shop (#warfare-window,
@@ -5553,6 +5565,9 @@ export const hudChromeStrings = {
     // /afk tag prefixed to a player's overhead name (nameplate_painter.ts wraps
     // it in angle brackets: "<AFK> Name"). Short label, not a sentence.
     afkTag: 'AFK',
+    // King of the Hill: the Honor this player is worth while a kill streak runs
+    // (src/ui/hill_bounty_tag.ts wraps it in < >, like the PvP and AFK tags).
+    bountyTag: 'Bounty {honor}',
     // The World PvP flag tag, same bracket convention as afkTag.
     pvpTag: 'PvP',
     // The operator-applied Cheater sanction (src/sim/moderation/), resolved for

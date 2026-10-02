@@ -2843,6 +2843,15 @@ export const nl_NL: EnTranslations = {
       "falls": "Valt in {minutes}",
       "pvpEntry": "Bij het betreden van de actieve cirkel wordt wereld-PvP ingeschakeld.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Raidleden tellen niet mee: alleen groepen kunnen de heuvel bezetten"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const nl_NL: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Valsspeler >",
       "pledgeTag": "Gelofte aan {guild}",

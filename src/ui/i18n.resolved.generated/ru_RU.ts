@@ -2843,6 +2843,15 @@ export const ru_RU: EnTranslations = {
       "falls": "Падёт через {minutes}",
       "pvpEntry": "Вход в активный круг включает мировой PvP.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name}: серия убийств!",
+        "rampage": "{name}: буйство!",
+        "unstoppable": "{name}: неудержим!",
+        "dominating": "{name}: доминирует!",
+        "godlike": "{name}: подобен богу!",
+        "legendary": "{name}: легендарен!",
+        "shutDown": "{killer} прервал серию {victim}!"
+      },
       "standingRaid": "Участники рейда не учитываются: удерживать холм могут только группы"
     },
     "warfareShop": {
@@ -4194,6 +4203,7 @@ export const ru_RU: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Награда {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Читер >",
       "pledgeTag": "Присяга: {guild}",
