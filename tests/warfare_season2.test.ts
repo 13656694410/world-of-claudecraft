@@ -2,6 +2,8 @@
 // rules that keep honor gear under the raid tier in PvE, the set rows, and the
 // tank guard (docs/design/warfare-season-2.md, "The PvE promise").
 import { describe, expect, it } from 'vitest';
+import { meleeSwing } from '../src/sim/combat/auto_attack';
+import { effectiveSpellHit } from '../src/sim/combat/spell_resist';
 import { ABILITIES } from '../src/sim/content/classes';
 import { DEV_KIT_ROLES } from '../src/sim/content/dev_kit_roles';
 import { ITEM_SETS } from '../src/sim/content/item_sets';
@@ -462,7 +464,7 @@ describe('the combat ratings: a third of the raid piece, the raid Spell and Heal
 describe('the Season 2 jewelry', () => {
   const ring = (id: string) => ITEMS[id];
 
-  it('carries the PvP hit cap on the rings: two melee rings cancel the melee miss, two caster rings the spell resist', () => {
+  it('carries the PvP hit cap on the rings: two melee rings cancel the base melee miss, two caster rings the spell resist', () => {
     expect([
       SEASON2_MELEE_RING_HIT_RATING,
       SEASON2_CASTER_RING_HIT_RATING,
@@ -494,6 +496,40 @@ describe('the Season 2 jewelry', () => {
       if (ITEMS[id].slot === 'ring') continue;
       expect(ITEMS[id].hitRating ?? 0, id).toBe(0);
     }
+  });
+
+  it('caps a special attack against a same-level player, but dual-wield auto-attacks keep their extra miss', () => {
+    // The real swing path (combat/auto_attack.ts meleeSwing) with a fixed roll of
+    // 0.04: inside the base 5 percent miss, and inside the 10 percent dual-wield
+    // auto-attack penalty that the rings do not cover (the guide says so).
+    const sim = new Sim({ seed: 7, playerClass: 'warrior', autoEquip: true });
+    const p = sim.player;
+    const targetId = sim.addPlayer('mage', 'Target');
+    sim.setPlayerLevel(20, p.id);
+    sim.setPlayerLevel(20, targetId);
+    const target = sim.entities.get(targetId) as Entity;
+    p.critChance = 0;
+    target.dodgeChance = 0;
+    const swing = (white: boolean) =>
+      meleeSwing(sim.ctx, p, target, 0, null, {
+        cannotBeDodged: true,
+        whiteDualWieldPenalty: white,
+      });
+    sim.rng.next = () => 0.04;
+    expect(swing(false), 'no rings: 0.04 is inside the base 5 percent miss').toBe(false);
+    for (const slot of ['ring1', 'ring2'] as const) {
+      sim.addItem('vanguard_band_of_might', 1, p.id);
+      sim.equipItemToSlot('vanguard_band_of_might', slot, p.id);
+    }
+    sim.ctx.recalcPlayer(p);
+    sim.rng.next = () => 0.04;
+    expect(p.hitBonus).toBeCloseTo(0.05, 10);
+    expect(swing(false), 'two rings: the special attack lands').toBe(true);
+    expect(swing(true), 'two rings: a dual-wield auto-attack can still miss').toBe(false);
+    // Spells: two caster rings take a same-level resist to zero.
+    expect(
+      effectiveSpellHit(20, 20, hitFractionFromRating(2 * SEASON2_CASTER_RING_HIT_RATING)),
+    ).toBe(1);
   });
 
   it('gives each neck a third of the raid neck rating and copies the raid jewelry Spell and Healing Power', () => {

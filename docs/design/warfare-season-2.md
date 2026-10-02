@@ -134,7 +134,7 @@ everywhere. These rules hold them together:
 - **Art:** the weapons ship painted icons (the `warfare-season2-weapons-2026-09-25`
   and `warfare-season2-feral-staff-2026-09-29` batches in `public/ui/items/mapping.json`)
   and held models on shipped GLBs. The 135 armor
-  pieces and the 8 jewelry pieces sit on `ITEM_ART_PENDING` (pinned in `tests/item_icons.test.ts`) and draw their
+  pieces sit on `ITEM_ART_PENDING` (pinned in `tests/item_icons.test.ts`) and draw their
   procedural icon until a follow-up art pass paints them.
 - **Ids:** sets use a new prefix, `vanguard_<spec>`, so the existing `warfare_*` pins keep
   meaning the entry tier.
@@ -225,9 +225,11 @@ the priority. Season 1 is unchanged.
   Emberfury).
 - **Weapons:** 33 crit (a third of the raid weapon's 100).
 - **Necks:** 8 crit, 8 haste on the healer neck (a third of the raid neck's 25).
-- **Rings:** the PvP hit cap. Two melee rings (25 Hit each) cancel the 5 percent melee miss
-  against a same-level player, two caster rings (20 each) the 4 percent spell resist. Hit past
-  the cap does nothing in PvP, so the rings stop there; no other Season 2 piece carries Hit.
+- **Rings:** the PvP hit cap. Two melee rings (25 Hit each) cancel the base 5 percent melee
+  miss against a same-level player, two caster rings (20 each) the 4 percent spell resist.
+  Dual-wield auto-attacks keep their extra 10 percent miss, as in classic, so the cap covers
+  special attacks and single-weapon swings. Hit past the cap does nothing in PvP, so the rings
+  stop there; no other Season 2 piece carries Hit.
   Heals are never resisted, so the healer ring carries 20 haste instead.
 - **Spell Power and Healing Power:** the full kit (five pieces, staff, Season 2 neck and two
   rings, entry-tier waist and feet) lands on the raid lanes, 86 Spell Power and 172 healing.
@@ -235,6 +237,8 @@ the priority. Season 1 is unchanged.
   waist and feet stay as they are, so their raid share rides on the five armor pieces (a
   caster helm carries 9 Spell Power against the raid helm's 7). The one staff serves both
   roles: 34 Spell Power and 34 Healing Power.
+- **Art:** the eight jewelry pieces ship painted icons (the `vanguard-jewelry-icons-2026-10-03`
+  batch, SVG compositions by `scripts/generate_vanguard_jewelry_icons.mjs`).
 - **Jewelry stat line and Warfare:** the armor rule (0.9 of the ring or neck budget, stamina
   at the full-budget floor), and the entry-tier jewelry's Warfare rating, so every cap total
   is unchanged.

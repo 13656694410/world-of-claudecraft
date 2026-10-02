@@ -680,7 +680,8 @@ sale unchanged. Full design, the 54 set bonuses and their PvE ceilings:
   (since 2026-10-02, with Spell Power or Healing Power on caster and healer pieces), and 0.9
   of raid armor.
 - **Season 2 jewelry** (2026-10-02): one ring and one neck per role; the rings carry the PvP
-  hit cap (two melee rings 50 Hit, two caster rings 40, haste on the healer ring).
+  hit cap (two melee rings 50 Hit, two caster rings 40, haste on the healer ring); dual-wield
+  auto-attacks keep their extra 10 percent miss.
   The Warfare ratings are 1.8x (Offense) and 2.9x (Defense) the slot budget (rebalanced
   2026-10-02 from 2.2x and 3.4x), so only the full Season 2 kit, weapon included, reaches
   the 30 percent caps and the +80 percent Vitality cap, where a full entry-tier kit stops at

@@ -62,9 +62,11 @@ export const SEASON2_ARMOR_COMBAT_RATING = 28;
 export const SEASON2_WEAPON_COMBAT_RATING = 33;
 export const SEASON2_NECK_COMBAT_RATING = 8;
 /** The rings carry Hit sized to the PvP cap instead: two melee rings remove the
- *  5 percent melee miss against a same-level player and two caster rings the 4
- *  percent spell resist (types.ts meleeMissChance and spellHitChance, 10 Hit
- *  Rating per percent). Hit past the cap does nothing in PvP, so the rings stop
+ *  base 5 percent melee miss against a same-level player and two caster rings
+ *  the 4 percent spell resist (types.ts meleeMissChance and spellHitChance, 10
+ *  Hit Rating per percent). Dual-wield auto-attacks keep their extra 10 percent
+ *  (combat/auto_attack.ts DUAL_WIELD_WHITE_MISS_PENALTY), as in classic, so the
+ *  cap covers special attacks and single-weapon swings. Hit past the cap does nothing in PvP, so the rings stop
  *  there (the Cataclysm Gladiator's Ring of Accuracy). Heals are never resisted,
  *  so the healer ring swaps its Hit for the same amount of Haste (the Band of
  *  Meditation). No other Season 2 piece carries Hit. */
