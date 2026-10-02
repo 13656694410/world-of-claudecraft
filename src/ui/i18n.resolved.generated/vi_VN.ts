@@ -594,6 +594,8 @@ export const vi_VN: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Hồi Sinh Tại Xác Chết",
+      "pvpResurrect": "PvP Resurrect",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "Người Canh Giữ Nhợt Nhạt (Cái Giá của Người Canh Giữ)",
       "ghostHint": "Chạy đến nơi bạn chết hoặc nói chuyện với Người Giữ Xanh Xao để hồi sinh",
       "spiritHealerAlive": "Người Canh Giữ Nhợt Nhạt trông nom kẻ chết. Bạn vẫn còn ở giữa cõi sống.",
@@ -2786,8 +2788,10 @@ export const vi_VN: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Giữ PvP Thế Giới bật để nhận thêm {percent} kinh nghiệm và danh vọng phe phái. Phần thưởng cộng thêm dừng khi bạn yêu cầu tắt.",
-      "rewardTitles": "Nhận danh hiệu vĩnh viễn sau {thresholds} thời gian chơi khi bật PvP Thế Giới. Đăng xuất và đến Bờ Biển Thử Thách sẽ tạm dừng bộ đếm. Tắt PvP sẽ đặt lại bộ đếm.",
+      "rewardTitles": "Nhận danh hiệu vĩnh viễn sau {thresholds} thời gian chơi ở thế giới mở khi bật PvP Thế Giới. Đăng xuất, tử trận, ở trong phụ bản và đến Bờ Biển Thử Thách sẽ tạm dừng bộ đếm. Tắt PvP sẽ đặt lại bộ đếm.",
       "rewardPaused": "Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng tại Bờ Biển Thử Thách)",
+      "rewardPausedDead": "Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng khi tử trận)",
+      "rewardPausedInstance": "Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng trong phụ bản)",
       "rewardProgress": "Chuỗi PvP hiện tại: đã chơi {time}",
       "tab": "World PvP",
       "title": "World PvP",
@@ -2855,7 +2859,8 @@ export const vi_VN: EnTranslations = {
       "owned": "Sở Hữu",
       "buyAria": "Mua {item} với giá {honor}",
       "buyOwnedAria": "Mua {item} với giá {honor}, đã sở hữu",
-      "buyConfirmBody": "Mua {item} với giá {honor}? Giao dịch mua bằng Danh dự không thể hoàn lại."
+      "buyConfirmBody": "Mua {item} với giá {honor}? Giao dịch mua bằng Danh dự không thể hoàn lại.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Tấn Công",
@@ -12776,6 +12781,7 @@ export const vi_VN: EnTranslations = {
       "dps": "({dps} sát thương mỗi giây)",
       "armorStat": "{value} Giáp",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Dùng: Hồi {amount} sinh lực trong {seconds} giây. Phải ngồi yên khi ăn.",
       "useDrink": "Dùng: Hồi {amount} mana trong {seconds} giây. Phải ngồi yên khi uống.",
       "useElixir": "Dùng: Tăng {stat} của bạn thêm {value} trong {minutes} phút. Thay thế mọi tiên dược hoặc cuộn giấy khác cùng chỉ số. Có thể dùng trong giao tranh.",

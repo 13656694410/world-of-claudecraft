@@ -32,6 +32,7 @@ import {
   weaponDpsBudget,
 } from '../src/sim/item_budget';
 import { expectedLineBudget, itemLevel } from '../src/sim/item_level';
+import { countsWarfareRating } from '../src/sim/pvp/power';
 import { Sim } from '../src/sim/sim';
 import {
   armorReduction,
@@ -366,28 +367,127 @@ describe('the PvP promise: Season 2 is the PvP upgrade over a full Season 1 kit'
     return e;
   }
 
-  it('reaches every Warfare cap and carries more health than Season 1 in PvP', () => {
-    for (const [cls, spec, profile] of [
-      ['warrior', 'arms', 'str'],
-      ['warrior', 'prot', 'str'],
-      ['mage', 'fire', 'caster'],
-    ] as [PlayerClass, string, keyof typeof S1][]) {
+  // The full Season 2 kit: the spec's five pieces and its Season 2 weapon, with
+  // the Season 1 family's waist and feet and the Season 1 jewelry.
+  function season2Kit(
+    cls: PlayerClass,
+    spec: string,
+    profile: keyof typeof S1,
+    weapon: string,
+  ): Partial<Record<EquipSlot, string>> {
+    const family = S1[profile];
+    const kit: Partial<Record<EquipSlot, string>> = { ...family.extras };
+    for (const it of Object.values(ITEMS)) {
+      if (it.set === family.set) kit[it.slot as EquipSlot] = it.id;
+    }
+    const set = SEASON2_SETS.find((s) => s.cls === cls && s.spec === spec);
+    for (const id of set?.itemIds ?? []) kit[ITEMS[id].slot as EquipSlot] = id;
+    kit.mainhand = weapon;
+    return kit;
+  }
+
+  it('reaches every Warfare cap on the full kit and carries more health than Season 1 in PvP', () => {
+    // A one-hander lands exactly on the 30 percent Offense cap (the multipliers
+    // are the smallest that do), a two-hander one ring's worth over.
+    for (const [cls, spec, profile, weapon] of [
+      ['warrior', 'arms', 'str', 'vanguard_verdict_greatsword'],
+      ['warrior', 'prot', 'str', 'vanguard_oath_blade'],
+      ['mage', 'fire', 'caster', 'vanguard_warstaff'],
+    ] as [PlayerClass, string, keyof typeof S1, string][]) {
       const family = S1[profile];
       const s1: Partial<Record<EquipSlot, string>> = { ...family.extras };
       for (const it of Object.values(ITEMS)) {
         if (it.set === family.set) s1[it.slot as EquipSlot] = it.id;
       }
-      const s2: Partial<Record<EquipSlot, string>> = { ...s1 };
-      const set = SEASON2_SETS.find((s) => s.cls === cls && s.spec === spec);
-      for (const id of set?.itemIds ?? []) s2[ITEMS[id].slot as EquipSlot] = id;
       const a = inOpenWorld(cls, spec, s1);
-      const b = inOpenWorld(cls, spec, s2);
+      const b = inOpenWorld(cls, spec, season2Kit(cls, spec, profile, weapon));
       expect(b.stats.pvpOffense, `${cls}/${spec} offense`).toBeCloseTo(0.3, 10);
       expect(b.stats.pvpDefense, `${cls}/${spec} defense`).toBeCloseTo(0.3, 10);
       expect(b.stats.pvpVitality, `${cls}/${spec} vitality`).toBeCloseTo(0.8, 10);
-      // Owner target: about 10 percent more health than a full Season 1 kit.
-      expect(b.maxHp / a.maxHp, `${cls}/${spec} health over Season 1`).toBeGreaterThan(1.07);
+      // Owner target: about 10 percent more health than a full Season 1 kit,
+      // each side with its own weapon. Measured 2026-10-02: arms +8.0, prot +5.9,
+      // fire +14.7 percent (unchanged by the rebalance: Vitality caps at +80
+      // either way). Prot sits lowest because the Season 2 one-hander carries 8
+      // stamina against the Season 1 one-hander's 12.
+      expect(b.maxHp / a.maxHp, `${cls}/${spec} health over Season 1`).toBeGreaterThan(1.05);
     }
+  });
+
+  it('keeps a part kit under the caps: three pieces and a Season 2 weapon are not enough', () => {
+    // The reported build (owner rebalance, 2026-10-02): three Season 2 pieces
+    // and Season 2 greatswords in both hands, PvE gear everywhere else. At the
+    // old 2.2x and 3.4x multipliers it read 29.5 percent Offense and +76
+    // percent Vitality, everything the full kit gives.
+    const kit: Partial<Record<EquipSlot, string>> = {
+      ...bestEpicGearFor('warrior', 'fury'),
+      helmet: 'vanguard_warrior_fury_helmet',
+      chest: 'vanguard_warrior_fury_chest',
+      legs: 'vanguard_warrior_fury_legs',
+      mainhand: 'vanguard_verdict_greatsword',
+      offhand: 'vanguard_verdict_greatsword',
+    };
+    const e = inOpenWorld('warrior', 'fury', kit);
+    expect(e.offhandItemId, 'Titan grip pair equipped').toBe('vanguard_verdict_greatsword');
+    expect(e.stats.pvpOffense).toBeCloseTo(0.182, 10);
+    expect(e.stats.pvpOffense).toBeLessThan(0.2);
+    expect(e.stats.pvpVitality).toBeLessThan(0.5);
+  });
+
+  it('counts only the main hand weapon: an offhand weapon adds no Warfare rating', () => {
+    for (const [cls, spec, weapon] of [
+      ['warrior', 'fury', 'vanguard_verdict_greatsword'],
+      ['rogue', 'combat', 'vanguard_fang_dagger'],
+      ['shaman', 'enhancement', 'vanguard_oath_blade'],
+    ] as [PlayerClass, string, string][]) {
+      const one = inOpenWorld(cls, spec, { mainhand: weapon });
+      const two = inOpenWorld(cls, spec, { mainhand: weapon, offhand: weapon });
+      expect(two.offhandItemId, `${cls}/${spec} offhand equipped`).toBe(weapon);
+      expect(one.stats.pvpOffense, `${cls}/${spec} main hand counts`).toBeGreaterThan(0);
+      expect(two.stats.pvpOffense, `${cls}/${spec} offense`).toBe(one.stats.pvpOffense);
+      expect(two.stats.pvpDefense, `${cls}/${spec} defense`).toBe(one.stats.pvpDefense);
+      expect(two.stats.pvpVitality, `${cls}/${spec} vitality`).toBe(one.stats.pvpVitality);
+    }
+  });
+
+  it("skips a perfected copy's Warfare bonus in the offhand and keeps it in the main hand", () => {
+    // The per-copy bonus (loot_quality/core.ts rolls pvpOffenseRating and
+    // pvpDefenseRating onto a perfected copy) is the other half of the main
+    // hand rule: without the inner warfareCounts gate it would ride the offhand.
+    const sim = new Sim({ seed: 20061, playerClass: 'rogue', noPlayer: true });
+    const pid = sim.addPlayer('rogue', 'Twin');
+    sim.setPlayerLevel(20, pid);
+    sim.applyTalents({ spec: 'combat', rows: {} } as TalentAllocation, pid);
+    const dagger = 'vanguard_fang_dagger';
+    for (const slot of ['mainhand', 'offhand'] as EquipSlot[]) {
+      sim.addItem(dagger, 1, pid);
+      sim.equipItemToSlot(dagger, slot, pid);
+    }
+    const e = sim.entities.get(pid) as Entity;
+    const meta = sim.ctx.players.get(pid) as {
+      equipmentInstance: Partial<Record<EquipSlot, unknown>>;
+    };
+    const perfected = { rolled: { stats: { pvpOffenseRating: 40, pvpDefenseRating: 40 } } };
+    const read = (): [number, number] => {
+      sim.ctx.recalcPlayer(e);
+      return [e.stats.pvpOffense, e.stats.pvpDefense];
+    };
+    const plain = read();
+    meta.equipmentInstance.offhand = perfected;
+    expect(read(), 'a perfected offhand adds no Warfare rating').toEqual(plain);
+    delete meta.equipmentInstance.offhand;
+    meta.equipmentInstance.mainhand = perfected;
+    const boosted = read();
+    expect(boosted[0], 'the main hand copy counts').toBeGreaterThan(plain[0]);
+    expect(boosted[1]).toBeGreaterThan(plain[1]);
+  });
+
+  it('keeps Warfare rating on a non-weapon offhand', () => {
+    const shield = Object.values(ITEMS).find((i) => i.slot === 'offhand');
+    expect(shield, 'a non-weapon offhand exists in content').toBeDefined();
+    expect(countsWarfareRating('offhand', shield as ItemDef)).toBe(true);
+    const weapon = ITEMS.vanguard_fang_dagger;
+    expect(countsWarfareRating('mainhand', weapon)).toBe(true);
+    expect(countsWarfareRating('offhand', weapon)).toBe(false);
   });
 });
 

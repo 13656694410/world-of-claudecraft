@@ -594,6 +594,8 @@ export const ko_KR: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "시신에서 부활",
+      "pvpResurrect": "PvP 부활",
+      "pvpResurrectTitle": "가장 가까운 묘지에서 생명력이 가득 찬 상태로 부활하며, 새로운 부활 후유증은 걸리지 않습니다.",
       "resurrectAtHealer": "영혼 치유사 (부활의 후유증)",
       "ghostHint": "죽은 장소로 달려가거나 영혼 치유사에게 말을 걸어 부활하세요",
       "spiritHealerAlive": "영혼 치유사는 죽은 자를 지킵니다. 당신은 아직 산 자입니다.",
@@ -2786,8 +2788,10 @@ export const ko_KR: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "월드 PvP를 켜 두면 경험치와 진영 평판을 {percent} 더 얻습니다. 끄기를 요청하면 즉시 보너스가 중단됩니다.",
-      "rewardTitles": "월드 PvP를 켠 플레이 시간이 {thresholds}에 도달하면 영구 칭호를 얻습니다. 로그아웃하거나 수련의 해안에 머무는 동안 타이머가 멈춥니다. PvP를 끄면 초기화됩니다.",
+      "rewardTitles": "열린 세계에서 월드 PvP를 켠 플레이 시간이 {thresholds}에 도달하면 영구 칭호를 얻습니다. 로그아웃하거나 사망 상태이거나 인스턴스 또는 수련의 해안에 머무는 동안 타이머가 멈춥니다. PvP를 끄면 초기화됩니다.",
       "rewardPaused": "현재 PvP 유지 시간: {time} (수련의 해안에서 일시 정지)",
+      "rewardPausedDead": "현재 PvP 유지 시간: {time} (사망 상태에서 일시 정지)",
+      "rewardPausedInstance": "현재 PvP 유지 시간: {time} (인스턴스에서 일시 정지)",
       "rewardProgress": "현재 PvP 유지 시간: {time}",
       "tab": "월드 PvP",
       "title": "월드 PvP",
@@ -2855,7 +2859,8 @@ export const ko_KR: EnTranslations = {
       "owned": "보유 중",
       "buyAria": "{honor}에 {item} 구매",
       "buyOwnedAria": "{honor}에 {item} 구매, 이미 보유 중",
-      "buyConfirmBody": "{honor}에 {item}을(를) 구매하시겠습니까? 명예 구매는 환불되지 않습니다."
+      "buyConfirmBody": "{honor}에 {item}을(를) 구매하시겠습니까? 명예 구매는 환불되지 않습니다.",
+      "buyConfirmBodyGold": "{price}에 {item}을(를) 구매하시겠습니까? 이 구매는 환불되지 않습니다."
     },
     "charSheet": {
       "offense": "공격",
@@ -12776,6 +12781,7 @@ export const ko_KR: EnTranslations = {
       "dps": "(초당 피해 {dps})",
       "armorStat": "방어도 {value}",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "워페어는 주장비에서만 적용됩니다.",
       "useFood": "사용 효과: {seconds}초에 걸쳐 생명력 {amount} 회복. 먹는 동안 앉아 있어야 합니다.",
       "useDrink": "사용 효과: {seconds}초에 걸쳐 마나 {amount} 회복. 마시는 동안 앉아 있어야 합니다.",
       "useElixir": "사용: {stat}이(가) {value} 증가하며 {minutes}분 동안 지속됩니다. 같은 능력치의 다른 비약이나 두루마리를 대체합니다. 전투 중 사용 가능.",

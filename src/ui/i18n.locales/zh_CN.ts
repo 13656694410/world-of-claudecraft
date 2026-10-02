@@ -2580,6 +2580,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.owned': '已拥有',
   'hudChrome.warfareShop.buyOwnedAria': '以 {honor} 购买 {item}，已拥有',
   'hudChrome.warfareShop.buyConfirmBody': '用 {honor} 购买 {item}？荣誉购买后无法退款。',
+  'hudChrome.warfareShop.buyConfirmBodyGold': '用 {price} 购买 {item}？此次购买无法退款。',
   'hudChrome.keybinds.bgFlag': '战场夺旗动作',
   'hudChrome.keybinds.friendlyNameplates': '切换友方姓名板',
   'hudChrome.pvp.mobileLabel': 'PvP',
@@ -4436,6 +4437,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'itemUi.tooltip.dps': '（每秒 {dps} 伤害）',
   'itemUi.tooltip.armorStat': '{value} 护甲',
   'itemUi.tooltip.stat': '+{value} {stat}',
+  'itemUi.tooltip.warfareMainHandOnly': '战争属性仅在主手时生效。',
   'itemUi.tooltip.useFood': '使用：在 {seconds} 秒内恢复 {amount} 点生命值。进食时必须保持坐下。',
   'itemUi.tooltip.useDrink': '使用：在 {seconds} 秒内恢复 {amount} 点法力值。饮水时必须保持坐下。',
   'itemUi.tooltip.questItem': '任务物品',
@@ -5576,6 +5578,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.warlock_voidwalker.name': '虚空恶魔',
   'entities.mobs.ysolei.name': '伊索蕾，溺月化身',
   'hudChrome.death.resurrectAtCorpse': '在尸体旁复活',
+  'hudChrome.death.pvpResurrect': 'PvP 复活',
+  'hudChrome.death.pvpResurrectTitle': '在最近的墓地以满生命值复活，且不会新增复活后遗症。',
   'hudChrome.death.resurrectAtHealer': '灵魂医者（复活后遗症）',
   'hudChrome.death.healerConfirmTitle': '接受复活后遗症？',
   'hudChrome.death.healerConfirmBody':
@@ -18658,8 +18662,10 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     '保持世界PvP开启可多获得{percent}的经验值和阵营声望。请求关闭时，加成立即停止。',
   'hudChrome.worldPvp.rewardTitles':
-    '开启世界PvP的游戏时间达到{thresholds}时，可获得永久头衔。离线或身处试炼之滨时计时暂停。关闭PvP会重置计时。',
+    '在开放世界中开启世界PvP的游戏时间达到{thresholds}时，可获得永久头衔。离线、死亡、身处副本或试炼之滨时计时暂停。关闭PvP会重置计时。',
   'hudChrome.worldPvp.rewardPaused': '当前PvP连续游戏时间：{time}（在试炼之滨暂停）',
+  'hudChrome.worldPvp.rewardPausedDead': '当前PvP连续游戏时间：{time}（死亡期间暂停）',
+  'hudChrome.worldPvp.rewardPausedInstance': '当前PvP连续游戏时间：{time}（在副本中暂停）',
   'hudChrome.worldPvp.rewardProgress': '当前PvP连续游戏时间：{time}',
   'hudChrome.hill.pvpEntry': '进入活动圈会开启世界 PvP。',
   'hudChrome.hill.pvpBanner': 'PvP',

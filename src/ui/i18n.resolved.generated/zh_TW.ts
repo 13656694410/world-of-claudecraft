@@ -594,6 +594,8 @@ export const zh_TW: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "在屍體旁復活",
+      "pvpResurrect": "PvP 復活",
+      "pvpResurrectTitle": "在最近的墓地以滿生命值復活，且不會新增復活後遺症。",
       "resurrectAtHealer": "靈魂醫者（復活虛弱）",
       "ghostHint": "跑回你死亡的地點，或與靈魂醫者交談以復活",
       "spiritHealerAlive": "靈魂醫者只看護逝者。你仍是生者。",
@@ -2786,8 +2788,10 @@ export const zh_TW: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "保持世界PvP開啟可多獲得{percent}的經驗值和陣營聲望。請求關閉時，加成立即停止。",
-      "rewardTitles": "開啟世界PvP的遊戲時間達到{thresholds}時，可獲得永久頭銜。離線或身處試煉之濱時計時暫停。關閉PvP會重置計時。",
+      "rewardTitles": "在開放世界中開啟世界PvP的遊戲時間達到{thresholds}時，可獲得永久頭銜。離線、死亡、身處副本或試煉之濱時計時暫停。關閉PvP會重置計時。",
       "rewardPaused": "目前PvP連續遊戲時間：{time}（在試煉之濱暫停）",
+      "rewardPausedDead": "目前PvP連續遊戲時間：{time}（死亡期間暫停）",
+      "rewardPausedInstance": "目前PvP連續遊戲時間：{time}（在副本中暫停）",
       "rewardProgress": "目前PvP連續遊戲時間：{time}",
       "tab": "世界 PvP",
       "title": "世界 PvP",
@@ -2855,7 +2859,8 @@ export const zh_TW: EnTranslations = {
       "owned": "已擁有",
       "buyAria": "以 {honor} 購買 {item}",
       "buyOwnedAria": "以 {honor} 購買 {item}，已擁有",
-      "buyConfirmBody": "用 {honor} 購買 {item}？榮譽購買後無法退款。"
+      "buyConfirmBody": "用 {honor} 購買 {item}？榮譽購買後無法退款。",
+      "buyConfirmBodyGold": "用 {price} 購買 {item}？此次購買無法退款。"
     },
     "charSheet": {
       "offense": "攻擊",
@@ -12776,6 +12781,7 @@ export const zh_TW: EnTranslations = {
       "dps": "（每秒 {dps} 傷害）",
       "armorStat": "{value} 護甲",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "戰爭屬性僅在主手時生效。",
       "useFood": "使用：在 {seconds} 秒內恢復 {amount} 點生命值。進食時必須保持坐下。",
       "useDrink": "使用：在 {seconds} 秒內恢復 {amount} 點法力值。飲水時必須保持坐下。",
       "useElixir": "使用：使你的{stat}提高 {value} 點，持續 {minutes} 分鐘。會取代同屬性的其他藥劑或卷軸。戰鬥中可用。",

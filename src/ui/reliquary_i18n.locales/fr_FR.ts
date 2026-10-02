@@ -140,11 +140,9 @@ export const table: ReliquaryLocaleTable = {
   },
   conquerors_warfare_gallery: {
     name: 'Galerie de Guerre',
-    desc: "Les cinq tenues de combat de Guerre, gagnées pièce par pièce avec de l'honneur.",
   },
   conquerors_warfare_armory: {
     name: 'Armurerie de Guerre',
-    desc: 'Bijoux et armes de Guerre achetés avec un honneur durement gagné.',
   },
   conquerors_vanguard_gallery: {
     name: 'Galerie de l’Avant-garde',

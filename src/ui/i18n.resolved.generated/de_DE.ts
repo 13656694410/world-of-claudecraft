@@ -594,6 +594,8 @@ export const de_DE: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Am Leichnam wiederbeleben",
+      "pvpResurrect": "PvP Resurrect",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "Der Bleiche Hüter (Zoll des Hüters)",
       "ghostHint": "Laufe zum Ort deines Todes oder sprich mit dem Bleichen Hüter, um wiederbelebt zu werden",
       "spiritHealerAlive": "Der Bleiche Hüter wacht über die Toten. Du weilst noch unter den Lebenden.",
@@ -2786,8 +2788,10 @@ export const de_DE: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Lasse Welt-PvP aktiv, um {percent} mehr Erfahrung und Fraktionsruf zu erhalten. Die Boni enden, sobald du die Deaktivierung anforderst.",
-      "rewardTitles": "Erhalte nach {thresholds} Spielzeit mit aktivem Welt-PvP dauerhafte Titel. Ausloggen und Besuche an der Bewährungsküste pausieren den Zähler. Deaktivieren setzt ihn zurück.",
+      "rewardTitles": "Erhalte nach {thresholds} Spielzeit mit aktivem Welt-PvP in der offenen Welt dauerhafte Titel. Ausloggen, Tod, Instanzen und die Bewährungsküste pausieren den Zähler. Deaktivieren setzt ihn zurück.",
       "rewardPaused": "Aktuelle PvP-Serie: {time} Spielzeit (an der Bewährungsküste pausiert)",
+      "rewardPausedDead": "Aktuelle PvP-Serie: {time} Spielzeit (pausiert, solange du tot bist)",
+      "rewardPausedInstance": "Aktuelle PvP-Serie: {time} Spielzeit (in Instanzen pausiert)",
       "rewardProgress": "Aktuelle PvP-Serie: {time} Spielzeit",
       "tab": "Welt-PvP",
       "title": "Welt-PvP",
@@ -2855,7 +2859,8 @@ export const de_DE: EnTranslations = {
       "owned": "Im Besitz",
       "buyAria": "{item} für {honor} kaufen",
       "buyOwnedAria": "{item} für {honor} kaufen, bereits im Besitz",
-      "buyConfirmBody": "{item} für {honor} kaufen? Käufe mit Ehre können nicht erstattet werden."
+      "buyConfirmBody": "{item} für {honor} kaufen? Käufe mit Ehre können nicht erstattet werden.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Angriff",
@@ -12776,6 +12781,7 @@ export const de_DE: EnTranslations = {
       "dps": "({dps} Schaden pro Sekunde)",
       "armorStat": "{value} Rüstung",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Benutzen: Stellt über {seconds} Sek. {amount} Gesundheit wieder her. Ihr müsst beim Essen sitzen bleiben.",
       "useDrink": "Benutzen: Stellt über {seconds} Sek. {amount} Mana wieder her. Ihr müsst beim Trinken sitzen bleiben.",
       "useElixir": "Benutzen: Erhöht deine {stat} für {minutes} Min. um {value}. Ersetzt jedes andere Elixier oder jede Schriftrolle desselben Werts. Im Kampf verwendbar.",

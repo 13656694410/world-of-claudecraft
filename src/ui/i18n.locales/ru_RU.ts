@@ -2699,6 +2699,7 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.buyOwnedAria': 'Купить {item} за {honor}, уже получено',
   'hudChrome.warfareShop.buyConfirmBody':
     'Купить {item} за {honor}? Покупки за честь не подлежат возврату.',
+  'hudChrome.warfareShop.buyConfirmBodyGold': 'Купить {item} за {price}? Эта покупка не подлежит возврату.',
   'hudChrome.keybinds.bgFlag': 'Действие с флагом',
   'hudChrome.keybinds.friendlyNameplates': 'Таблички дружественных',
   'hudChrome.pvp.mobileLabel': 'PvP',
@@ -4675,6 +4676,7 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'itemUi.tooltip.dps': '({dps} урона в секунду)',
   'itemUi.tooltip.armorStat': '{value} брони',
   'itemUi.tooltip.stat': '+{value} {stat}',
+  'itemUi.tooltip.warfareMainHandOnly': 'Боевая мощь учитывается только в правой руке.',
   'itemUi.tooltip.useFood':
     'Использование: восстанавливает {amount} здоровья за {seconds} сек. Нужно оставаться сидя во время еды.',
   'itemUi.tooltip.useDrink':
@@ -5852,6 +5854,8 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.warlock_voidwalker.name': 'Демон Пустоты',
   'entities.mobs.ysolei.name': 'Изолея, Воплощение Утонувшей луны',
   'hudChrome.death.resurrectAtCorpse': 'Воскреснуть у тела',
+  'hudChrome.death.pvpResurrect': 'PvP-воскрешение',
+  'hudChrome.death.pvpResurrectTitle': 'Воскреснуть на ближайшем кладбище с полным здоровьем, без новой болезни воскрешения.',
   'hudChrome.death.resurrectAtHealer': 'Целитель душ (болезнь воскрешения)',
   'hudChrome.death.healerConfirmTitle': 'Принять болезнь воскрешения?',
   'hudChrome.death.healerConfirmBody':
@@ -19992,9 +19996,13 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     'При включенном мировом PvP вы получаете на {percent} больше опыта и репутации фракций. Бонусы прекращаются сразу после запроса на отключение.',
   'hudChrome.worldPvp.rewardTitles':
-    'Постоянные титулы выдаются за {thresholds} игрового времени с включенным мировым PvP. Выход из игры и пребывание на Берегу Испытаний приостанавливают таймер. Отключение PvP сбрасывает его.',
+    'Постоянные титулы выдаются за {thresholds} игрового времени в открытом мире с включенным мировым PvP. Выход из игры, смерть, пребывание в подземельях и на Берегу Испытаний приостанавливают таймер. Отключение PvP сбрасывает его.',
   'hudChrome.worldPvp.rewardPaused':
     'Текущая серия PvP: {time} игрового времени (приостановлена на Берегу Испытаний)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Текущая серия PvP: {time} игрового времени (приостановлена, пока вы мертвы)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Текущая серия PvP: {time} игрового времени (приостановлена в подземельях)',
   'hudChrome.worldPvp.rewardProgress': 'Текущая серия PvP: {time} игрового времени',
   'hudChrome.hill.pvpEntry': 'Вход в активный круг включает мировой PvP.',
   'hudChrome.hill.pvpBanner': 'PvP',

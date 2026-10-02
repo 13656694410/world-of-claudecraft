@@ -11,52 +11,76 @@
 export const pending: Record<string, readonly string[]> = {
   "es": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "es_ES": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "fr_FR": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "fr_CA": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "en_CA": [],
   "it_IT": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "de_DE": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "zh_CN": [],
   "zh_TW": [],
@@ -64,75 +88,111 @@ export const pending: Record<string, readonly string[]> = {
   "ja_JP": [],
   "pt_BR": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "ru_RU": [],
   "cs_CZ": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "nl_NL": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "pl_PL": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "id_ID": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "tr_TR": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "sv_SE": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "vi_VN": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ],
   "da_DK": [
     "guide.commandsPage.presence",
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.social.presence.everyone",
     "hudChrome.social.presence.friends",
     "hudChrome.social.presence.label",
     "hudChrome.social.presence.none",
-    "hudChrome.social.presence.title"
+    "hudChrome.social.presence.title",
+    "hudChrome.warfareShop.buyConfirmBodyGold",
+    "itemUi.tooltip.warfareMainHandOnly"
   ]
 };

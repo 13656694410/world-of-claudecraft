@@ -594,6 +594,8 @@ export const ja_JP: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "亡骸で復活",
+      "pvpResurrect": "PvP復活",
+      "pvpResurrectTitle": "最寄りの墓地でHP全快の状態で復活し、新たな復活の後遺症は付かない。",
       "resurrectAtHealer": "霊魂の癒し手（復活の後遺症）",
       "ghostHint": "死亡した場所まで走るか、霊魂の癒し手に話しかけて復活しよう",
       "spiritHealerAlive": "霊魂の癒し手は死者を見守っている。あなたはまだ生者だ。",
@@ -2786,8 +2788,10 @@ export const ja_JP: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "ワールドPvPを有効にしている間、経験値と勢力の評判の獲得量が{percent}増加します。無効化を要求した時点でボーナスは終了します。",
-      "rewardTitles": "ワールドPvPを有効にしたプレイ時間が{thresholds}に達すると、永続的な称号を獲得します。ログアウト中と修練の浜ではタイマーが停止します。PvPを無効にするとリセットされます。",
+      "rewardTitles": "オープンワールドでワールドPvPを有効にしたプレイ時間が{thresholds}に達すると、永続的な称号を獲得します。ログアウト中、死亡中、インスタンス内、修練の浜ではタイマーが停止します。PvPを無効にするとリセットされます。",
       "rewardPaused": "現在のPvP継続時間：{time}（修練の浜で一時停止中）",
+      "rewardPausedDead": "現在のPvP継続時間：{time}（死亡中のため一時停止中）",
+      "rewardPausedInstance": "現在のPvP継続時間：{time}（インスタンス内で一時停止中）",
       "rewardProgress": "現在のPvP継続時間：{time}",
       "tab": "ワールドPvP",
       "title": "ワールドPvP",
@@ -2855,7 +2859,8 @@ export const ja_JP: EnTranslations = {
       "owned": "所有済み",
       "buyAria": "{item}を{honor}で購入",
       "buyOwnedAria": "{item}を{honor}で購入、所有済み",
-      "buyConfirmBody": "{item}を{honor}で購入しますか？名誉での購入は返金できません。"
+      "buyConfirmBody": "{item}を{honor}で購入しますか？名誉での購入は返金できません。",
+      "buyConfirmBodyGold": "{item}を{price}で購入しますか？この購入は返金できません。"
     },
     "charSheet": {
       "offense": "攻撃",
@@ -12776,6 +12781,7 @@ export const ja_JP: EnTranslations = {
       "dps": "（秒間 {dps} ダメージ）",
       "armorStat": "防御力 {value}",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "ウォーフェアはメインハンドでのみ有効です。",
       "useFood": "使用: {seconds}秒かけて体力を{amount}回復します。食事中は座ったままでいる必要があります。",
       "useDrink": "使用: {seconds}秒かけてマナを{amount}回復します。飲んでいる間は座ったままでいる必要があります。",
       "useElixir": "使用: {stat}が{value}上昇し、{minutes}分間持続します。同じ能力値の他のエリクサーや巻物の効果を上書きします。戦闘中に使用可能。",

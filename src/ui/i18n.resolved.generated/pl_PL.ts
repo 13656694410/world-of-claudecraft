@@ -594,6 +594,8 @@ export const pl_PL: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Odrodź się przy zwłokach",
+      "pvpResurrect": "PvP Resurrect",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "Blady Strażnik (Myto Strażnika)",
       "ghostHint": "Biegnij do miejsca śmierci lub porozmawiaj z Bladym Strażnikiem, aby się wznowić",
       "spiritHealerAlive": "Blady Strażnik czuwa nad umarłymi. Ty wciąż jesteś wśród żywych.",
@@ -2786,8 +2788,10 @@ export const pl_PL: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Pozostaw światowe PvP włączone, aby zdobywać o {percent} więcej doświadczenia i reputacji frakcji. Premie kończą się, gdy poprosisz o wyłączenie.",
-      "rewardTitles": "Zdobywaj stałe tytuły po {thresholds} czasu gry z włączonym światowym PvP. Wylogowanie i odwiedziny na Wybrzeżu Prób wstrzymują licznik. Wyłączenie go zeruje.",
+      "rewardTitles": "Zdobywaj stałe tytuły po {thresholds} czasu gry w otwartym świecie z włączonym światowym PvP. Wylogowanie, śmierć, instancje i Wybrzeże Prób wstrzymują licznik. Wyłączenie go zeruje.",
       "rewardPaused": "Obecna seria PvP: {time} gry (wstrzymana na Wybrzeżu Prób)",
+      "rewardPausedDead": "Obecna seria PvP: {time} gry (wstrzymana, gdy nie żyjesz)",
+      "rewardPausedInstance": "Obecna seria PvP: {time} gry (wstrzymana w instancjach)",
       "rewardProgress": "Obecna seria PvP: {time} gry",
       "tab": "PvP Świata",
       "title": "PvP Świata",
@@ -2855,7 +2859,8 @@ export const pl_PL: EnTranslations = {
       "owned": "Posiadane",
       "buyAria": "Kup {item} za {honor}",
       "buyOwnedAria": "Kup {item} za {honor}, już posiadane",
-      "buyConfirmBody": "Kupić {item} za {honor}? Zakupów za Honor nie można zwrócić."
+      "buyConfirmBody": "Kupić {item} za {honor}? Zakupów za Honor nie można zwrócić.",
+      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
     },
     "charSheet": {
       "offense": "Atak",
@@ -12776,6 +12781,7 @@ export const pl_PL: EnTranslations = {
       "dps": "({dps} obrażeń na sekundę)",
       "armorStat": "{value} pancerza",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Użycie: Przywraca {amount} zdrowia w ciągu {seconds} s. Podczas jedzenia musisz pozostać w pozycji siedzącej.",
       "useDrink": "Użycie: Przywraca {amount} many w ciągu {seconds} s. Podczas picia musisz pozostać w pozycji siedzącej.",
       "useElixir": "Użycie: Zwiększa {stat} o {value} na {minutes} min. Zastępuje każdy inny eliksir lub zwój tej samej cechy. Można użyć w walce.",
