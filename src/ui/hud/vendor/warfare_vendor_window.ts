@@ -174,6 +174,9 @@ export function renderWarfareVendorWindow(
   const balance = document.createElement('div');
   balance.className = 'warfare-balance';
   balance.innerHTML = `${currencyIconHtml('honor')}${esc(t('hudChrome.warfare.balance', { amount: count(view.balance) }))}`;
+  // Gold rows grey out against the coin purse, so show it beside the Honor.
+  if (view.goldBalance !== null)
+    balance.innerHTML += `<span class="warfare-balance-gold ui-money">${deps.moneyHtml(view.goldBalance)}</span>`;
   el.appendChild(balance);
 
   let group: WarfareShopSection['group'] | null = null;

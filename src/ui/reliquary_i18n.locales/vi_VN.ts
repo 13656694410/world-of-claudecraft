@@ -140,11 +140,9 @@ export const table: ReliquaryLocaleTable = {
   },
   conquerors_warfare_gallery: {
     name: 'Phòng Trưng Bày Chiến Tranh',
-    desc: 'Năm bộ chiến trang Chiến Tranh, kiếm được từng món một bằng danh dự.',
   },
   conquerors_warfare_armory: {
     name: 'Kho Vũ Khí Chiến Tranh',
-    desc: 'Trang sức và vũ khí Chiến Tranh mua bằng danh dự khó nhọc mới có.',
   },
   conquerors_vanguard_gallery: {
     name: 'Phòng Trưng Bày Tiên Phong',

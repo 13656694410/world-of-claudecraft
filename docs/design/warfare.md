@@ -690,7 +690,7 @@ Warfare trinkets stay on honor (800 each). Still soulbound with no sell value.
 | Neck | 7 |
 | Ring | 5 |
 
-- The seven-piece armor set: **100 gold**. A complete 10-slot kit (armor,
+- The seven-piece armor set: **100 gold**. A complete 11-slot kit (armor,
   neck, two rings, main hand): **139 gold**.
 - A repeat gold purchase climbs only the relic's Reliquary obtain count, which is
   information and never a score, so the Reliquary's copper-vendor guard names

@@ -163,11 +163,9 @@ export const table: ReliquaryLocaleTable = {
   // shipped armory noun (wocStore.armoryTitle Арсенал).
   conquerors_warfare_gallery: {
     name: 'Галерея Боевой мощи',
-    desc: 'Пять боевых комплектов Войны, добываемых предмет за предметом за честь.',
   },
   conquerors_warfare_armory: {
     name: 'Арсенал Боевой мощи',
-    desc: 'Украшения и оружие Войны, купленные за тяжело добытую честь.',
   },
   conquerors_vanguard_gallery: {
     name: 'Галерея Авангарда',

@@ -140,11 +140,9 @@ export const table: ReliquaryLocaleTable = {
   },
   conquerors_warfare_gallery: {
     name: 'Galleria di Guerra',
-    desc: "I cinque completi da battaglia di Guerra, ottenuti pezzo per pezzo con l'onore.",
   },
   conquerors_warfare_armory: {
     name: 'Armeria di Guerra',
-    desc: 'Gioielli e armi di Guerra acquistati con onore sudato.',
   },
   conquerors_vanguard_gallery: {
     name: 'Galleria dell’Avanguardia',

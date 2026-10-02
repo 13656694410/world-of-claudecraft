@@ -143,6 +143,9 @@ export interface WarfareShopView {
   sections: WarfareShopSection[];
   /** The viewer's current Honor balance. */
   balance: number;
+  /** The viewer's gold, in copper, when any row sells for gold (so the window
+   *  shows the balance those rows are judged against); null otherwise. */
+  goldBalance: number | null;
 }
 
 export interface WarfareShopViewer {
@@ -345,5 +348,10 @@ export function buildWarfareVendorView(
       offers: weapons,
     });
   }
-  return { sections, balance: Math.max(0, Math.floor(viewer.honor)) };
+  const sellsForGold = sections.some((section) => section.offers.some((o) => o.copper > 0));
+  return {
+    sections,
+    balance: Math.max(0, Math.floor(viewer.honor)),
+    goldBalance: sellsForGold ? Math.max(0, Math.floor(viewer.copper)) : null,
+  };
 }

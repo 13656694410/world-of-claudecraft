@@ -634,6 +634,23 @@ describe('buildWarfareVendorView prices Season 1 in gold', () => {
     }
   });
 
+  it('carries the coin purse only when the stock sells something for gold', () => {
+    const withGold = buildWarfareVendorView(
+      FURY_STOCK,
+      ITEMS,
+      ITEM_SETS,
+      viewer({ copper: 98_765 }),
+    );
+    expect(withGold.goldBalance).toBe(98_765);
+    const honorOnly = buildWarfareVendorView(
+      HONOR_QUARTERMASTER_STOCK.filter((id) => !FURY_STOCK.includes(id)),
+      ITEMS,
+      ITEM_SETS,
+      viewer({ copper: 98_765, viewerClass: 'warrior' }),
+    );
+    expect(honorOnly.goldBalance).toBeNull();
+  });
+
   it('reads gold, not Honor, for the affordability of a Season 1 row', () => {
     const helm = 'furyforged_warhelm';
     const price = ITEMS[helm].buyValue as number;

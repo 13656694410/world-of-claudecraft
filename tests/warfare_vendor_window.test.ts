@@ -90,8 +90,12 @@ function section(key: string, offers: WarfareShopOffer[]): WarfareShopSection {
   };
 }
 
-function view(sections: WarfareShopSection[], balance = 500): WarfareShopView {
-  return { sections, balance };
+function view(
+  sections: WarfareShopSection[],
+  balance = 500,
+  goldBalance: number | null = null,
+): WarfareShopView {
+  return { sections, balance, goldBalance };
 }
 
 function deps(over: Partial<WarfareVendorWindowDeps> = {}): WarfareVendorWindowDeps {
@@ -193,6 +197,15 @@ describe('renderWarfareVendorWindow: Season 1 rows sell for gold', () => {
     const chest = tile(el, `buy:${SET_A}:poor_chest`);
     expect(chest.disabled).toBe(true);
     expect(chest.querySelector('.vi-price')?.classList.contains('unaffordable')).toBe(true);
+  });
+
+  it('shows the coin purse beside the Honor balance only when a row sells for gold', () => {
+    const el = mount();
+    const rows = [offer('gold_helm', 'helmet', { honor: 0, copper: 170_000 })];
+    renderWarfareVendorWindow(el, 'Draven', view([section(SET_A, rows)], 500, 1_234_567), deps());
+    expect(el.querySelector('.warfare-balance .warfare-balance-gold')?.innerHTML).toBe('1234567c');
+    renderWarfareVendorWindow(el, 'Draven', view([section(SET_A, rows)], 500, null), deps());
+    expect(el.querySelector('.warfare-balance-gold')).toBeNull();
   });
 
   it('confirms a gold purchase in gold and an Honor purchase in Honor', () => {
