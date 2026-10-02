@@ -595,7 +595,7 @@ export const it_IT: EnTranslations = {
     "death": {
       "resurrectAtCorpse": "Risorgi al cadavere",
       "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard with full health and mana, and no Keeper's Toll.",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "Il Custode Pallido (Mal di resurrezione)",
       "ghostHint": "Corri fino al luogo della tua morte oppure parla con il Custode Pallido per rivivere",
       "spiritHealerAlive": "Il Custode Pallido veglia sui morti. Tu sei ancora tra i vivi.",

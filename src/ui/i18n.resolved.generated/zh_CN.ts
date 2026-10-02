@@ -595,7 +595,7 @@ export const zh_CN: EnTranslations = {
     "death": {
       "resurrectAtCorpse": "在尸体旁复活",
       "pvpResurrect": "PvP 复活",
-      "pvpResurrectTitle": "在最近的墓地复活，生命值和法力值全满，且没有复活后遗症。",
+      "pvpResurrectTitle": "在最近的墓地以满生命值复活，且不会新增复活后遗症。",
       "resurrectAtHealer": "灵魂医者（复活后遗症）",
       "ghostHint": "跑回你死亡的地点，或与灵魂医者交谈以复活",
       "spiritHealerAlive": "灵魂医者只看护逝者。你仍是生者。",

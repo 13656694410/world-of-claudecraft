@@ -5793,7 +5793,7 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.ysolei.name': 'イソレイ、溺月の化身',
   'hudChrome.death.resurrectAtCorpse': '亡骸で復活',
   'hudChrome.death.pvpResurrect': 'PvP復活',
-  'hudChrome.death.pvpResurrectTitle': '最寄りの墓地でHPとマナが全快した状態で復活し、復活の後遺症もない。',
+  'hudChrome.death.pvpResurrectTitle': '最寄りの墓地でHP全快の状態で復活し、新たな復活の後遺症は付かない。',
   'hudChrome.death.resurrectAtHealer': '霊魂の癒し手（復活の後遺症）',
   'hudChrome.death.healerConfirmTitle': '復活の後遺症を受けますか？',
   'hudChrome.death.healerConfirmBody':

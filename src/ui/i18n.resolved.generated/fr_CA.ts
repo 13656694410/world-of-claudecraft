@@ -595,7 +595,7 @@ export const fr_CA: EnTranslations = {
     "death": {
       "resurrectAtCorpse": "Ressusciter près du cadavre",
       "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard with full health and mana, and no Keeper's Toll.",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "Le Veilleur pâle (Glas du Veilleur)",
       "ghostHint": "Courez jusqu'à l'endroit de votre mort ou parlez au Veilleur pâle pour revivre",
       "spiritHealerAlive": "Le Veilleur pâle veille sur les morts. Vous êtes encore parmi les vivants.",

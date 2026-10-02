@@ -595,7 +595,7 @@ export const en_CA: EnTranslations = {
     "death": {
       "resurrectAtCorpse": "Resurrect at Corpse",
       "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard with full health and mana, and no Keeper's Toll.",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "The Pale Keeper (Keeper's Toll)",
       "ghostHint": "Run to the location of your death or talk to the Pale Keeper to revive",
       "spiritHealerAlive": "The Pale Keeper watches over the dead. You are still among the living.",

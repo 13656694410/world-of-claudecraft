@@ -6049,8 +6049,9 @@ export interface Entity extends ClientMirroredEntityFields {
   corpseInstanceId: number | null;
   // PvP Resurrect (src/sim/pvp/pvp_resurrect.ts): true while this corpse may stand
   // up at the nearest graveyard at full health with no Keeper's Toll, because a
-  // hostile player had a hand in the death. Stamped at death, cleared by every
-  // revive (spirit.ts reviveAt); absent on everyone else.
+  // hostile player had a hand in the death. Reset when a living player dies
+  // (combat/damage.ts handleDeath), stamped by that death, and cleared by the
+  // shared revive (spirit.ts reviveAt); absent on everyone else.
   pvpResurrect?: boolean;
   scale: number;
   color: number;

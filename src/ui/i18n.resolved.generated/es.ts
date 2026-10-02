@@ -595,7 +595,7 @@ export const es: EnTranslations = {
     "death": {
       "resurrectAtCorpse": "Resucitar en el cadáver",
       "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard with full health and mana, and no Keeper's Toll.",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "El Guardián Pálido (Tañido del Guardián)",
       "ghostHint": "Corre hasta el lugar de tu muerte o habla con el Guardián Pálido para revivir",
       "spiritHealerAlive": "El Guardián Pálido vela por los muertos. Tú aún estás entre los vivos.",

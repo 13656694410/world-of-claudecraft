@@ -150,6 +150,26 @@ describe('PvP Resurrect in the Sim', () => {
     expect(v.pvpResurrect).toBe(true);
   });
 
+  it('a revive outside reviveAt (battleground seating) cannot carry the offer into a later death', () => {
+    const sim = world();
+    const { killer, victim } = duelists(sim);
+    slay(sim, killer, victim);
+    const v = ent(sim, victim);
+    expect(v.pvpResurrect).toBe(true);
+    // The queue pops while the PvP corpse lies there: the battleground seat
+    // revives through readyArenaFighter, never spirit.ts reviveAt.
+    sim.ctx.readyArenaFighter(v, { clearPrep: true });
+    v.ghost = false;
+    expect(v.dead).toBe(false);
+    // Back in the open world, a fall kills them with no player in it.
+    (sim as unknown as { time: number }).time += PVP_RESURRECT_WINDOW_SECONDS + 1;
+    sim.ctx.dealDamage(null, v, v.hp + 1_000, false, 'physical', 'Fall', 'hit');
+    expect(v.dead).toBe(true);
+    expect(v.pvpResurrect, 'the new death decides its own offer').toBe(false);
+    sim.pvpResurrect(victim);
+    expect(v.dead, 'and the server refuses the raise').toBe(true);
+  });
+
   it('refuses a ghost: a released spirit cannot take it where it stands', () => {
     const sim = world();
     const { killer, victim } = duelists(sim);

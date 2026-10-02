@@ -177,7 +177,7 @@ export const hudChromeStrings = {
     // only after a death a hostile player had a hand in, outside instances.
     pvpResurrect: 'PvP Resurrect',
     pvpResurrectTitle:
-      "Revive at the nearest graveyard with full health and mana, and no Keeper's Toll.",
+      "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
     // RETIRED in place: the ghost prompt's Pale Keeper button is gone (the ghost
     // talks to the Keeper instead). The key stays, already filled in all 20
     // locales, per the hud.core.mobileTarget retired-but-translated precedent.

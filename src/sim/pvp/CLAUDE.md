@@ -119,8 +119,11 @@ ratings.
   picks at full health and mana with no Keeper's Toll. `worldPvpOnPlayerDeath`
   stamps `Entity.pvpResurrect` at every player death from the same hostile-hit
   books the kill credit reads; the raise is `spirit.ts` `pvpResurrect` (refused
-  to a ghost), and every revive clears the stamp (`reviveAt`). The self record
-  carries it as `pvr` (`server/self_scalar_wire.ts`); the death screen's button is
+  to a ghost). A living player's death resets the stamp before deciding it
+  (`combat/damage.ts` `handleDeath`), so a revive that skips `reviveAt`
+  (battleground seating, the delve respawn) can never carry an offer into a
+  later death; `reviveAt` clears it too. The self record carries it as `pvr`,
+  lit only when the raise would be honored (`server/self_scalar_wire.ts`); the death screen's button is
   `src/ui/hud/death`. Imported by path from `world_pvp.ts` and `spirit.ts` (it
   imports neither, so no cycle). Pinned by `tests/pvp_resurrect.test.ts`.
 - `world_pvp_rewards_rules.ts` owns the pure 20% XP/reputation bonus, five

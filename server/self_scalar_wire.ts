@@ -11,6 +11,7 @@
 // self scalar lands here, not as another inline `maybe(...)` in game.ts. The
 // registry of delta keys is pinned by ALL_DELTA_KEYS in tests/snapshots.test.ts,
 // whose scrape reads this file like every other server emitter.
+import { pvpResurrectBarred } from '../src/sim/pvp/pvp_resurrect';
 import type { PlayerMeta } from '../src/sim/sim';
 import type { Entity } from '../src/sim/types';
 
@@ -81,9 +82,10 @@ export function emitSelfScalarKeys(
   // Delta-guarded: ships on death-release and clears on resurrect. The client
   // draws the corpse marker and gates the resurrect-at-corpse button on it.
   emit('corpse', p.corpsePos);
-  // The PvP Resurrect offer (src/sim/pvp/pvp_resurrect.ts), 0/1: lit while the
-  // corpse carries it (a released ghost keeps the bit; the death screen hides the
-  // button for a ghost and the server re-checks ghost, instance and jail at the
-  // raise), so it flips once per PvP death and once at the revive.
-  emit('pvr', p.dead && p.pvpResurrect === true ? 1 : 0);
+  // The PvP Resurrect offer (src/sim/pvp/pvp_resurrect.ts), 0/1: lit only while
+  // the raise would be honored, never for a corpse on the instance plane or in
+  // jail (the button would show and do nothing). A released ghost keeps the
+  // bit; the death screen hides the button for a ghost and the server re-checks
+  // everything at the raise. Flips once per PvP death and once at the revive.
+  emit('pvr', p.dead && p.pvpResurrect === true && !pvpResurrectBarred(p) ? 1 : 0);
 }

@@ -595,7 +595,7 @@ export const ja_JP: EnTranslations = {
     "death": {
       "resurrectAtCorpse": "亡骸で復活",
       "pvpResurrect": "PvP復活",
-      "pvpResurrectTitle": "最寄りの墓地でHPとマナが全快した状態で復活し、復活の後遺症もない。",
+      "pvpResurrectTitle": "最寄りの墓地でHP全快の状態で復活し、新たな復活の後遺症は付かない。",
       "resurrectAtHealer": "霊魂の癒し手（復活の後遺症）",
       "ghostHint": "死亡した場所まで走るか、霊魂の癒し手に話しかけて復活しよう",
       "spiritHealerAlive": "霊魂の癒し手は死者を見守っている。あなたはまだ生者だ。",

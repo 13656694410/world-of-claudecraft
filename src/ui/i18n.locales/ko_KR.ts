@@ -5759,7 +5759,7 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.ysolei.name': '이솔레이, 익사한 달의 화신',
   'hudChrome.death.resurrectAtCorpse': '시신에서 부활',
   'hudChrome.death.pvpResurrect': 'PvP 부활',
-  'hudChrome.death.pvpResurrectTitle': '가장 가까운 묘지에서 생명력과 마나가 가득 찬 상태로 부활하며, 부활 후유증이 없습니다.',
+  'hudChrome.death.pvpResurrectTitle': '가장 가까운 묘지에서 생명력이 가득 찬 상태로 부활하며, 새로운 부활 후유증은 걸리지 않습니다.',
   'hudChrome.death.resurrectAtHealer': '영혼 치유사 (부활의 후유증)',
   'hudChrome.death.healerConfirmTitle': '부활의 후유증을 감수하시겠습니까?',
   'hudChrome.death.healerConfirmBody':

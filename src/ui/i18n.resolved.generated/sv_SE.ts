@@ -595,7 +595,7 @@ export const sv_SE: EnTranslations = {
     "death": {
       "resurrectAtCorpse": "Återuppstå vid liket",
       "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard with full health and mana, and no Keeper's Toll.",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "Den bleka väktaren (Väktartullen)",
       "ghostHint": "Springa till platsen för din död eller tala med Den bleka väktaren för att återupplivas",
       "spiritHealerAlive": "Den bleka väktaren vakar över de döda. Du är fortfarande bland de levande.",
