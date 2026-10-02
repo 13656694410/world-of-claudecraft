@@ -36,18 +36,7 @@ import {
   NYTHRAXIS_BONE_SPIKE_VICTIMS_HEROIC,
   NYTHRAXIS_BONE_SPIKE_VICTIMS_NORMAL,
 } from '../src/sim/nythraxis_bone_spike';
-import {
-  NYTHRAXIS_BONE_STORM_CHARGE_SECONDS,
-  NYTHRAXIS_BONE_STORM_CHARGES,
-  NYTHRAXIS_BONE_STORM_FIRST_SECONDS,
-  NYTHRAXIS_BONE_STORM_GRAVEBREAKER_REARM_SECONDS,
-  NYTHRAXIS_BONE_STORM_RADIUS,
-  NYTHRAXIS_BONE_STORM_SECONDS,
-  NYTHRAXIS_BONE_STORM_SPEED_MULT,
-  nythraxisBoneSlamDamageMaxHp,
-  nythraxisBoneStormCadence,
-  nythraxisBoneStormWhirlTickMaxHp,
-} from '../src/sim/nythraxis_bone_storm';
+import { nythraxisBoneSlamDamageMaxHp } from '../src/sim/nythraxis_bone_storm';
 import {
   NYTHRAXIS_DREAD_CURSE_PER_STACK_HEROIC,
   NYTHRAXIS_DREAD_CURSE_PER_STACK_NORMAL,
@@ -178,7 +167,6 @@ describe('raid boss guide view', () => {
       'soul-rend',
       'deathless-rage',
       'kings-wrath',
-      'bone-storm',
       'crown-endures',
     ]);
     expect(heroicMechanics.map((mechanic) => mechanic.id)).toEqual([
@@ -190,14 +178,14 @@ describe('raid boss guide view', () => {
       'soul-rend',
       'deathless-rage',
       'kings-wrath',
-      'bone-storm',
       'crown-endures',
     ]);
     // Raise Fallen and the heroic court are switched off with the adds
-    // (NYTHRAXIS_ADDS_ENABLED), so neither tier lists them.
+    // (NYTHRAXIS_ADDS_ENABLED), so neither tier lists them; Bone Storm is
+    // retired from play the same way (NYTHRAXIS_BONE_STORM_ENABLED).
     // The Wardstones phase lost its Soulfire and Gravefire rows in v0.42.2 (the fires left the fight).
-    expect(normal.phases.map((phase) => phase.mechanics.length)).toEqual([5, 2, 3]);
-    expect(heroic.phases.map((phase) => phase.mechanics.length)).toEqual([5, 2, 3]);
+    expect(normal.phases.map((phase) => phase.mechanics.length)).toEqual([5, 2, 2]);
+    expect(heroic.phases.map((phase) => phase.mechanics.length)).toEqual([5, 2, 2]);
 
     expect(normal.phases.find((phase) => phase.id === 'throne')?.values).toBeUndefined();
     expect(normal.phases.find((phase) => phase.id === 'wardstones')).toMatchObject({
@@ -274,42 +262,12 @@ describe('raid boss guide view', () => {
       },
       percentValues: ['bonusNormal', 'bonusHeroic'],
     });
-    expect(normalMechanics.find((mechanic) => mechanic.id === 'bone-storm')).toMatchObject({
-      roles: ['all'],
-      flags: ['deadly', 'important'],
-      iconId: 'raid_nythraxis_bone_storm',
-      values: {
-        first: NYTHRAXIS_BONE_STORM_FIRST_SECONDS,
-        everyNormal: nythraxisBoneStormCadence('normal'),
-        everyHeroic: nythraxisBoneStormCadence('heroic'),
-        duration: NYTHRAXIS_BONE_STORM_SECONDS,
-        charges: NYTHRAXIS_BONE_STORM_CHARGES,
-        chargeSeconds: NYTHRAXIS_BONE_STORM_CHARGE_SECONDS,
-        speed: NYTHRAXIS_BONE_STORM_SPEED_MULT,
-        radius: NYTHRAXIS_BONE_STORM_RADIUS,
-        whirlNormal: nythraxisBoneStormWhirlTickMaxHp('normal'),
-        whirlHeroic: nythraxisBoneStormWhirlTickMaxHp('heroic'),
-        slamNormal: nythraxisBoneSlamDamageMaxHp('normal'),
-        slamHeroic: nythraxisBoneSlamDamageMaxHp('heroic'),
-        rearm: NYTHRAXIS_BONE_STORM_GRAVEBREAKER_REARM_SECONDS,
-      },
-      percentValues: ['whirlNormal', 'whirlHeroic', 'slamNormal', 'slamHeroic'],
-    });
-    // Literal pins beside the values block above, which is otherwise compared
-    // against the same helper the view calls; and the retired mid-storm spike
-    // and opening-slam values must be gone from the row (toMatchObject would
-    // not notice them).
+    // Bone Storm is retired from play: neither tier shows its row. The slam
+    // tuning stays pinned for when the switch flips back.
+    expect(normalMechanics.find((mechanic) => mechanic.id === 'bone-storm')).toBeUndefined();
+    expect(heroicMechanics.find((mechanic) => mechanic.id === 'bone-storm')).toBeUndefined();
     expect(nythraxisBoneSlamDamageMaxHp('normal')).toBe(0.23);
     expect(nythraxisBoneSlamDamageMaxHp('heroic')).toBe(0.37);
-    expect(
-      normalMechanics.find((mechanic) => mechanic.id === 'bone-storm')?.values,
-    ).not.toHaveProperty('spikeAt');
-    expect(
-      normalMechanics.find((mechanic) => mechanic.id === 'bone-storm')?.values,
-    ).not.toHaveProperty('openingSlamNormal');
-    expect(
-      heroicMechanics.find((mechanic) => mechanic.id === 'bone-storm')?.values,
-    ).not.toHaveProperty('openingSlamHeroic');
     expect(normalMechanics.find((mechanic) => mechanic.id === 'crown-endures')).toMatchObject({
       roles: ['damage'],
       flags: ['deadly'],
@@ -343,7 +301,6 @@ describe('raid boss guide view', () => {
       'binding-sigil',
       'soul-rend',
       'deathless-rage',
-      'bone-storm',
       'crown-endures',
     ];
     const base = 'hudChrome.raidBossGuide.nythraxis';
@@ -372,10 +329,6 @@ describe('raid boss guide view', () => {
       'deathless-rage': {
         summaryKey: `${base}.deathlessRageSummary`,
         responseKey: `${base}.deathlessRageResponse`,
-      },
-      'bone-storm': {
-        summaryKey: `${base}.boneStormSummary`,
-        responseKey: `${base}.boneStormResponse`,
       },
       'crown-endures': {
         summaryKey: `${base}.crownEnduresSummary`,
@@ -406,10 +359,6 @@ describe('raid boss guide view', () => {
       'deathless-rage': {
         summaryKey: `${base}.deathlessRageHeroicSummary`,
         responseKey: `${base}.deathlessRageResponse`,
-      },
-      'bone-storm': {
-        summaryKey: `${base}.boneStormHeroicSummary`,
-        responseKey: `${base}.boneStormResponse`,
       },
       'crown-endures': {
         summaryKey: `${base}.crownEnduresHeroicSummary`,
@@ -510,22 +459,6 @@ describe('raid boss guide view', () => {
     expect(summaryOf(heroic, 'kings-wrath')).toContain(
       `${pct(nythraxisKingsWrathDamageBonus('heroic'))} on Heroic`,
     );
-    expect(summaryOf(normal, 'bone-storm')).toContain(
-      `every ${nythraxisBoneStormCadence('normal')} sec`,
-    );
-    expect(summaryOf(normal, 'bone-storm')).toContain(
-      `${pct(nythraxisBoneSlamDamageMaxHp('normal'))} of maximum health`,
-    );
-    expect(summaryOf(heroic, 'bone-storm')).toContain(
-      `${pct(nythraxisBoneSlamDamageMaxHp('heroic'))} of maximum health`,
-    );
-    // The v0.43.0 opening-slam sentence is gone: one slam number per row.
-    expect(summaryOf(normal, 'bone-storm')).not.toContain(' instead');
-    expect(summaryOf(heroic, 'bone-storm')).not.toContain(' instead');
-    // The storm row no longer tells the raid a spike lands mid-storm; the
-    // spike row is the positive control that the matcher sees the name.
-    expect(summaryOf(normal, 'bone-storm')).not.toContain('Bone Spike');
-    expect(summaryOf(heroic, 'bone-storm')).not.toContain('Bone Spike');
     expect(summaryOf(normal, 'bone-spike')).toContain('Bone Spike');
     expect(summaryOf(normal, 'crown-endures')).toContain(
       `At ${nythraxisEnrageSeconds('normal')} sec from the pull`,

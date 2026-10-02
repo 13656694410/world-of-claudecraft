@@ -71,6 +71,7 @@ import {
 import {
   NYTHRAXIS_BONE_STORM_CHARGE_SECONDS,
   NYTHRAXIS_BONE_STORM_CHARGES,
+  NYTHRAXIS_BONE_STORM_ENABLED,
   NYTHRAXIS_BONE_STORM_FIRST_SECONDS,
   NYTHRAXIS_BONE_STORM_GRAVEBREAKER_REARM_SECONDS,
   NYTHRAXIS_BONE_STORM_RADIUS,
@@ -770,6 +771,7 @@ const NYTHRAXIS_PHASES: readonly PhaseDefinition[] = [
       },
       {
         id: 'bone-storm',
+        enabled: NYTHRAXIS_BONE_STORM_ENABLED,
         iconId: 'raid_nythraxis_bone_storm',
         nameKey: key('nythraxis.boneStormName'),
         summaryKey: {
