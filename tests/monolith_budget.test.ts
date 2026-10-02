@@ -1709,7 +1709,13 @@ const MONOLITHS: MonolithRow[] = [
     // Lowered 9823 -> 9822: the self record's corpse emit moved into
     // server/self_scalar_wire.ts beside the PvP Resurrect bit, which paid for
     // the pvp_resurrect dispatch case. Extract, then lower.
-    ceiling: 9822,
+    // Lowered 9822 -> 9813 at the merge with presence privacy: the
+    // once-a-second friend/guildmate position push moved to
+    // server/social_positions.ts, which paid for the /presence wiring
+    // (server/presence_privacy.ts builds its host from the social service, the
+    // setting rides the join metadata, and the transport hands the live session
+    // as the presence subject). wc -l on the merged tree.
+    ceiling: 9813,
     seam: 'a sibling server module; see the hot-path seams in server/CLAUDE.md',
   },
   {
