@@ -20187,7 +20187,10 @@ export const it_IT: Partial<Record<TranslationKey, string>> = {
     'La Riva della Prova è l’unico santuario: lì non puoi attivare il PvP mondiale né combattere altri giocatori.',
   'hudChrome.worldPvp.rewardBonus':
     'Mantieni attivo il PvP mondiale per ottenere {percent} di esperienza e reputazione di fazione in più. I bonus terminano quando ne richiedi la disattivazione.',
-  'hudChrome.worldPvp.rewardPaused': 'Serie PvP attuale: {time} di gioco (in pausa qui)',
+  'hudChrome.worldPvp.rewardPaused':
+    'Serie PvP attuale: {time} di gioco (in pausa sulla Riva della Prova)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Serie PvP attuale: {time} di gioco (in pausa nelle istanze)',
   'hudChrome.worldPvp.rewardProgress': 'Serie PvP attuale: {time} di gioco',
   'hudChrome.worldPvp.rewardTitles':
     'Ottieni titoli permanenti dopo {thresholds} di tempo giocato nel mondo aperto con il PvP mondiale attivo. La disconnessione, le istanze e la Riva della Prova mettono in pausa il timer. Disattivarlo lo azzera.',

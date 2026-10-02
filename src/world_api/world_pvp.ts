@@ -18,9 +18,10 @@ export interface WorldPvpInfo {
   flagged: boolean;
   /** Played seconds rounded down to whole minutes; absent on older servers. */
   rewardSeconds?: number;
-  /** The flag is armed but the streak is not ticking, because the player
-   *  stands in an instance or a sanctuary (world_pvp_rewards.ts
-   *  worldPvpRewardsTickAt); absent on older servers. */
+  /** The flag is armed but where the player stands pauses the streak: an
+   *  instance or a sanctuary (world_pvp_rewards.ts worldPvpRewardsTickOn).
+   *  Never true on a realm with the kill switch set, where no flag is ever
+   *  armed. Absent on older servers. */
   rewardPaused?: boolean;
   /** Seconds until the flag drops after /pvp off, or null when it is not
    *  switching off (armed for good, or not flagged). */

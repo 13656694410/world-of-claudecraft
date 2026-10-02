@@ -282,5 +282,9 @@ describe('World PvP rewards', () => {
     expect(meta.lifetimeXp - before).toBe(100);
     expect(awardFactionReputation(meta, 'rift_watch', 100, 20).gained).toBe(100);
     expect(meta.worldPvp?.rewardTicks ?? 0).toBe(0);
+    // No flag is ever armed under the kill switch, so even inside an instance
+    // the readout never claims a paused streak.
+    disabled.entities.get(restoredPid)!.pos.x = instanceOrigin(0, 0).x;
+    expect(disabled.worldPvpInfoFor(restoredPid)!.rewardPaused).toBe(false);
   });
 });

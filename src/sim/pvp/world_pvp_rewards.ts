@@ -7,17 +7,24 @@ import {
   WORLD_PVP_TITLE_THRESHOLDS,
   worldPvpRewardsActive,
 } from './world_pvp_rewards_rules';
+import type { WorldPvpZonePolicy } from './world_pvp_rules';
 import { worldPvpZonePolicyAt } from './world_pvp_zones';
 
-/** Does a flagged player standing here bank streak time? Only on open-world
- *  ground another flagged player can reach. Every instance (dungeon, raid,
- *  delve, rift, maze, arena, battleground) sits on the far-east plane past
- *  DUNGEON_X_THRESHOLD, the same line Vitality reads (vitality.ts), and a
- *  sanctuary has no world PvP at all. Without the plane check a flagged
- *  player could park inside a private dungeon copy, out of every rival's
- *  reach, and bank the titles risk-free. */
+/** Does a flagged player standing at world x, on ground of this zone policy,
+ *  bank streak time? Only on open-world ground another flagged player can
+ *  reach. Every instance (dungeon, raid, delve, rift, maze, arena,
+ *  battleground) sits on the far-east plane past DUNGEON_X_THRESHOLD, the same
+ *  line Vitality reads (vitality.ts), and a sanctuary has no world PvP at all.
+ *  Without the plane check a flagged player could park inside a private
+ *  dungeon copy, out of every rival's reach, and bank the titles risk-free. */
+export function worldPvpRewardsTickOn(x: number, zone: WorldPvpZonePolicy): boolean {
+  return x <= DUNGEON_X_THRESHOLD && zone !== 'sanctuary';
+}
+
+/** The same verdict read off the ground at (x, z). The plane check runs first
+ *  so a player inside an instance never pays the zone rectangle scan. */
 export function worldPvpRewardsTickAt(x: number, z: number): boolean {
-  return x <= DUNGEON_X_THRESHOLD && worldPvpZonePolicyAt(x, z) !== 'sanctuary';
+  return x <= DUNGEON_X_THRESHOLD && worldPvpRewardsTickOn(x, worldPvpZonePolicyAt(x, z));
 }
 
 export function updateWorldPvpRewards(ctx: SimContext): void {

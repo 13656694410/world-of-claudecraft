@@ -2787,7 +2787,8 @@ export const it_IT: EnTranslations = {
     "worldPvp": {
       "rewardBonus": "Mantieni attivo il PvP mondiale per ottenere {percent} di esperienza e reputazione di fazione in più. I bonus terminano quando ne richiedi la disattivazione.",
       "rewardTitles": "Ottieni titoli permanenti dopo {thresholds} di tempo giocato nel mondo aperto con il PvP mondiale attivo. La disconnessione, le istanze e la Riva della Prova mettono in pausa il timer. Disattivarlo lo azzera.",
-      "rewardPaused": "Serie PvP attuale: {time} di gioco (in pausa qui)",
+      "rewardPaused": "Serie PvP attuale: {time} di gioco (in pausa sulla Riva della Prova)",
+      "rewardPausedInstance": "Serie PvP attuale: {time} di gioco (in pausa nelle istanze)",
       "rewardProgress": "Serie PvP attuale: {time} di gioco",
       "tab": "PvP Mondiale",
       "title": "PvP Mondiale",

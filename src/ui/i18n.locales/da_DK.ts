@@ -19765,7 +19765,10 @@ export const da_DK: Partial<Record<TranslationKey, string>> = {
     'Prøvestranden er det eneste fristed: du kan ikke aktivere verdens-PvP eller kæmpe mod andre spillere der.',
   'hudChrome.worldPvp.rewardBonus':
     'Hold verdens-PvP aktiveret for at få {percent} mere erfaring og fraktionsomdømme. Bonusserne ophører, når du anmoder om at slå det fra.',
-  'hudChrome.worldPvp.rewardPaused': 'Nuværende PvP-serie: {time} spillet (sat på pause her)',
+  'hudChrome.worldPvp.rewardPaused':
+    'Nuværende PvP-serie: {time} spillet (sat på pause på Prøvestranden)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Nuværende PvP-serie: {time} spillet (sat på pause i instanser)',
   'hudChrome.worldPvp.rewardProgress': 'Nuværende PvP-serie: {time} spillet',
   'hudChrome.worldPvp.rewardTitles':
     'Optjen permanente titler efter {thresholds} spilletid med verdens-PvP aktiveret i den åbne verden. Udlogning, instanser og Prøvestranden sætter tælleren på pause. Deaktivering nulstiller den.',

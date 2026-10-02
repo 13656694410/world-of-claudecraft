@@ -20034,7 +20034,10 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
     'De Beproevingskust is het enige heiligdom: je kunt er geen wereld-PvP inschakelen of tegen andere spelers vechten.',
   'hudChrome.worldPvp.rewardBonus':
     'Houd wereld-PvP ingeschakeld om {percent} meer ervaring en factiereputatie te verdienen. De bonussen stoppen zodra je vraagt om het uit te schakelen.',
-  'hudChrome.worldPvp.rewardPaused': 'Huidige PvP-reeks: {time} gespeeld (hier gepauzeerd)',
+  'hudChrome.worldPvp.rewardPaused':
+    'Huidige PvP-reeks: {time} gespeeld (gepauzeerd aan de Beproevingskust)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Huidige PvP-reeks: {time} gespeeld (gepauzeerd in instanties)',
   'hudChrome.worldPvp.rewardProgress': 'Huidige PvP-reeks: {time} gespeeld',
   'hudChrome.worldPvp.rewardTitles':
     'Verdien permanente titels na {thresholds} speeltijd in de open wereld met wereld-PvP ingeschakeld. Uitloggen, instanties en de Beproevingskust pauzeren de teller. Uitschakelen zet hem terug op nul.',

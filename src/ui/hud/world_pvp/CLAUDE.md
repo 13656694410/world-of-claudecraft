@@ -45,4 +45,6 @@ The played-time reward clock uses h:mm and updates its text node in place; it
 does not enter the full-panel signature. Tutorial island blocks enable/keep-up;
 lowering the flag remains available. The paused line follows the sim's
 `WorldPvpInfo.rewardPaused` (an instance or a sanctuary), falling back to the
-sanctuary rule for an older server that sends no flag.
+sanctuary rule for an older server that sends no flag, and names its cause:
+`rewardPaused` on sanctuary ground, `rewardPausedInstance` everywhere else
+(instance ground reads contested, so the zone alone cannot tell).

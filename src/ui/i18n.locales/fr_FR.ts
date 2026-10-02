@@ -20281,7 +20281,10 @@ export const fr_FR: Partial<Record<TranslationKey, string>> = {
     'Le Rivage de l’Épreuve est le seul sanctuaire : vous ne pouvez ni y activer le JcJ mondial ni y combattre d’autres joueurs.',
   'hudChrome.worldPvp.rewardBonus':
     'Gardez le JcJ mondial activé pour gagner {percent} d’expérience et de réputation de faction supplémentaires. Les bonus cessent dès que vous demandez sa désactivation.',
-  'hudChrome.worldPvp.rewardPaused': 'Série JcJ actuelle : {time} de jeu (en pause ici)',
+  'hudChrome.worldPvp.rewardPaused':
+    'Série JcJ actuelle : {time} de jeu (en pause sur le Rivage de l’Épreuve)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Série JcJ actuelle : {time} de jeu (en pause dans les instances)',
   'hudChrome.worldPvp.rewardProgress': 'Série JcJ actuelle : {time} de jeu',
   'hudChrome.worldPvp.rewardTitles':
     'Obtenez des titres permanents après {thresholds} de temps de jeu dans le monde ouvert avec le JcJ mondial activé. La déconnexion, les instances et le Rivage de l’Épreuve suspendent le compteur. Désactiver le JcJ le remet à zéro.',

@@ -19775,7 +19775,10 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
     'Sınav Kıyısı tek sığınaktır: orada Dünya PvP’sini açamaz veya diğer oyuncularla savaşamazsın.',
   'hudChrome.worldPvp.rewardBonus':
     '{percent} daha fazla deneyim ve fraksiyon itibarı kazanmak için Dünya PvP’sini açık tut. Kapatmayı talep ettiğinde bonuslar sona erer.',
-  'hudChrome.worldPvp.rewardPaused': 'Mevcut PvP serisi: {time} oynandı (burada duraklatıldı)',
+  'hudChrome.worldPvp.rewardPaused':
+    'Mevcut PvP serisi: {time} oynandı (Sınav Kıyısı’nda duraklatıldı)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Mevcut PvP serisi: {time} oynandı (örneklerde duraklatıldı)',
   'hudChrome.worldPvp.rewardProgress': 'Mevcut PvP serisi: {time} oynandı',
   'hudChrome.worldPvp.rewardTitles':
     'Açık dünyada Dünya PvP’si açıkken {thresholds} oynama süresine ulaşarak kalıcı unvanlar kazan. Çıkış yapmak, örneklerde bulunmak ve Sınav Kıyısı’nı ziyaret etmek sayacı duraklatır. Kapatmak sayacı sıfırlar.',

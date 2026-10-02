@@ -19682,7 +19682,10 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
     'Zkušební pobřeží je jediným útočištěm: nelze tam zapnout světové PvP ani bojovat s jinými hráči.',
   'hudChrome.worldPvp.rewardBonus':
     'Nechte světové PvP zapnuté a získávejte o {percent} více zkušeností a reputace frakcí. Bonusy skončí, jakmile požádáte o vypnutí.',
-  'hudChrome.worldPvp.rewardPaused': 'Aktuální série PvP: odehráno {time} (zde pozastaveno)',
+  'hudChrome.worldPvp.rewardPaused':
+    'Aktuální série PvP: odehráno {time} (pozastaveno na Zkušebním pobřeží)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Aktuální série PvP: odehráno {time} (pozastaveno v instancích)',
   'hudChrome.worldPvp.rewardProgress': 'Aktuální série PvP: odehráno {time}',
   'hudChrome.worldPvp.rewardTitles':
     'Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP v otevřeném světě. Odhlášení, instance a Zkušební pobřeží časovač pozastaví. Vypnutí jej vynuluje.',

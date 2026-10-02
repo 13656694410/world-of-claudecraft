@@ -46,7 +46,7 @@ import { TICK_RATE } from '../types';
 import { hillContains } from './hill_rules';
 import { grantHonor } from './honor';
 import { updatePvpVitality } from './vitality';
-import { updateWorldPvpRewards, worldPvpRewardsTickAt } from './world_pvp_rewards';
+import { updateWorldPvpRewards, worldPvpRewardsTickOn } from './world_pvp_rewards';
 import { sanitizeWorldPvpRewardTicks, worldPvpRewardsActive } from './world_pvp_rewards_rules';
 import {
   WORLD_PVP_ASSIST_WINDOW,
@@ -773,15 +773,16 @@ export function worldPvpInfoFor(
   if (!r) return null;
   const state = r.meta.worldPvp;
   const remaining = worldPvpDisarmRemaining(r.meta, ctx.time);
+  const zone = worldPvpZonePolicyAt(r.e.pos.x, r.e.pos.z);
   return {
     flagged: state?.flagged === true,
     disarmRemaining: remaining === null ? null : Math.round(remaining),
     rewardSeconds: Math.floor((state?.rewardTicks ?? 0) / (TICK_RATE * 60)) * 60,
-    rewardPaused: worldPvpRewardsActive(state) && !worldPvpRewardsTickAt(r.e.pos.x, r.e.pos.z),
+    rewardPaused: worldPvpRewardsActive(state) && !worldPvpRewardsTickOn(r.e.pos.x, zone),
     kills: state?.kills ?? 0,
     deaths: state?.deaths ?? 0,
     levelLocked: r.e.level < WORLD_PVP_MIN_LEVEL,
-    zone: worldPvpZonePolicyAt(r.e.pos.x, r.e.pos.z),
+    zone,
     enabled: !ctx.worldPvpDisabled,
   };
 }

@@ -20040,7 +20040,10 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
     'A Costa da Provação é o único santuário: você não pode ativar o PvP mundial nem lutar contra outros jogadores lá.',
   'hudChrome.worldPvp.rewardBonus':
     'Mantenha o PvP mundial ativo para ganhar {percent} a mais de experiência e reputação de facção. Os bônus param quando você solicita a desativação.',
-  'hudChrome.worldPvp.rewardPaused': 'Sequência PvP atual: {time} de jogo (pausada aqui)',
+  'hudChrome.worldPvp.rewardPaused':
+    'Sequência PvP atual: {time} de jogo (pausada na Costa da Provação)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Sequência PvP atual: {time} de jogo (pausada dentro de instâncias)',
   'hudChrome.worldPvp.rewardProgress': 'Sequência PvP atual: {time} de jogo',
   'hudChrome.worldPvp.rewardTitles':
     'Ganhe títulos permanentes após {thresholds} de tempo jogado no mundo aberto com o PvP mundial ativo. Sair do jogo, entrar em instâncias ou visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.',

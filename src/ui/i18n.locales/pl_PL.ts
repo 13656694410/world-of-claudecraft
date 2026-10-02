@@ -19941,7 +19941,9 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
     'Wybrzeże Prób jest jedynym sanktuarium: nie można tam włączyć światowego PvP ani walczyć z innymi graczami.',
   'hudChrome.worldPvp.rewardBonus':
     'Pozostaw światowe PvP włączone, aby zdobywać o {percent} więcej doświadczenia i reputacji frakcji. Premie kończą się, gdy poprosisz o wyłączenie.',
-  'hudChrome.worldPvp.rewardPaused': 'Obecna seria PvP: {time} gry (tutaj wstrzymana)',
+  'hudChrome.worldPvp.rewardPaused': 'Obecna seria PvP: {time} gry (wstrzymana na Wybrzeżu Prób)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Obecna seria PvP: {time} gry (wstrzymana w instancjach)',
   'hudChrome.worldPvp.rewardProgress': 'Obecna seria PvP: {time} gry',
   'hudChrome.worldPvp.rewardTitles':
     'Zdobywaj stałe tytuły po {thresholds} czasu gry w otwartym świecie z włączonym światowym PvP. Wylogowanie, instancje i Wybrzeże Prób wstrzymują licznik. Wyłączenie go zeruje.',

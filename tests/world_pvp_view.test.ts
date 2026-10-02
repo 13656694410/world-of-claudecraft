@@ -728,7 +728,9 @@ describe('World PvP reward display', () => {
     expect(view(false)).toMatchObject({ action: 'sanctuary' });
     expect(view(true, 20)).toMatchObject({ action: 'sanctuary' });
     expect(view(true)).toMatchObject({ action: 'disable' });
-    expect(worldPvpBodyHtml(view(true))).toContain('Current PvP streak: 0:02 played (paused here)');
+    expect(worldPvpBodyHtml(view(true))).toContain(
+      'Current PvP streak: 0:02 played (paused on the Proving Shore)',
+    );
     expect(worldPvpBodyHtml(view(false))).toContain('aria-disabled="true"');
   });
 
@@ -741,8 +743,11 @@ describe('World PvP reward display', () => {
         confirming: false,
       });
     expect(view(true)).toMatchObject({ action: 'disable', rewardPaused: true });
-    expect(worldPvpBodyHtml(view(true))).toContain('Current PvP streak: 0:02 played (paused here)');
-    expect(worldPvpBodyHtml(view(false))).not.toContain('paused here');
+    expect(worldPvpBodyHtml(view(true))).toContain(
+      'Current PvP streak: 0:02 played (paused inside instances)',
+    );
+    expect(worldPvpBodyHtml(view(true))).not.toContain('Proving Shore)');
+    expect(worldPvpBodyHtml(view(false))).toContain('Current PvP streak: 0:02 played<');
     // An older server sends no flag: contested ground there was never paused.
     expect(view(undefined)).toMatchObject({ rewardPaused: false });
   });

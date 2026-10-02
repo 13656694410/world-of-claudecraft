@@ -20211,7 +20211,10 @@ No hay un límite de profesiones que debas temer. Cada personaje puede subir nue
     'La Costa de la Prueba es el único santuario: allí no puedes activar el JcJ mundial ni luchar contra otros jugadores.',
   'hudChrome.worldPvp.rewardBonus':
     'Mantén el JcJ mundial activado para ganar un {percent} más de experiencia y reputación de facción. Las bonificaciones terminan cuando solicitas desactivarlo.',
-  'hudChrome.worldPvp.rewardPaused': 'Racha JcJ actual: {time} de juego (en pausa aquí)',
+  'hudChrome.worldPvp.rewardPaused':
+    'Racha JcJ actual: {time} de juego (en pausa en la Costa de la Prueba)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Racha JcJ actual: {time} de juego (en pausa dentro de instancias)',
   'hudChrome.worldPvp.rewardProgress': 'Racha JcJ actual: {time} de juego',
   'hudChrome.worldPvp.rewardTitles':
     'Consigue títulos permanentes tras {thresholds} de tiempo jugado en el mundo abierto con el JcJ mundial activado. Desconectarte, entrar en instancias o visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.',

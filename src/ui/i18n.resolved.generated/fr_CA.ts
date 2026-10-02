@@ -2787,7 +2787,8 @@ export const fr_CA: EnTranslations = {
     "worldPvp": {
       "rewardBonus": "Gardez le JcJ mondial activé pour gagner {percent} d’expérience et de réputation de faction supplémentaires. Les bonus cessent dès que vous demandez sa désactivation.",
       "rewardTitles": "Obtenez des titres permanents après {thresholds} de temps de jeu dans le monde ouvert avec le JcJ mondial activé. La déconnexion, les instances et le Rivage de l’Épreuve suspendent le compteur. Désactiver le JcJ le remet à zéro.",
-      "rewardPaused": "Série JcJ actuelle : {time} de jeu (en pause ici)",
+      "rewardPaused": "Série JcJ actuelle : {time} de jeu (en pause sur le Rivage de l’Épreuve)",
+      "rewardPausedInstance": "Série JcJ actuelle : {time} de jeu (en pause dans les instances)",
       "rewardProgress": "Série JcJ actuelle : {time} de jeu",
       "tab": "JcJ mondial",
       "title": "JcJ mondial",

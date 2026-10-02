@@ -19783,7 +19783,9 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
     'Prövostranden är den enda fristaden: där kan du inte aktivera världs-PvP eller slåss mot andra spelare.',
   'hudChrome.worldPvp.rewardBonus':
     'Ha världs-PvP aktiverat för att få {percent} mer erfarenhet och fraktionsrykte. Bonusarna upphör när du begär att stänga av det.',
-  'hudChrome.worldPvp.rewardPaused': 'Nuvarande PvP-svit: {time} spelat (pausad här)',
+  'hudChrome.worldPvp.rewardPaused': 'Nuvarande PvP-svit: {time} spelat (pausad på Prövostranden)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Nuvarande PvP-svit: {time} spelat (pausad i instanser)',
   'hudChrome.worldPvp.rewardProgress': 'Nuvarande PvP-svit: {time} spelat',
   'hudChrome.worldPvp.rewardTitles':
     'Få permanenta titlar efter {thresholds} speltid i den öppna världen med världs-PvP aktiverat. Utloggning, instanser och Prövostranden pausar räknaren. Avstängning nollställer den.',

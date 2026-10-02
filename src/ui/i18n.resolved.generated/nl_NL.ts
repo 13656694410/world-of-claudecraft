@@ -2787,7 +2787,8 @@ export const nl_NL: EnTranslations = {
     "worldPvp": {
       "rewardBonus": "Houd wereld-PvP ingeschakeld om {percent} meer ervaring en factiereputatie te verdienen. De bonussen stoppen zodra je vraagt om het uit te schakelen.",
       "rewardTitles": "Verdien permanente titels na {thresholds} speeltijd in de open wereld met wereld-PvP ingeschakeld. Uitloggen, instanties en de Beproevingskust pauzeren de teller. Uitschakelen zet hem terug op nul.",
-      "rewardPaused": "Huidige PvP-reeks: {time} gespeeld (hier gepauzeerd)",
+      "rewardPaused": "Huidige PvP-reeks: {time} gespeeld (gepauzeerd aan de Beproevingskust)",
+      "rewardPausedInstance": "Huidige PvP-reeks: {time} gespeeld (gepauzeerd in instanties)",
       "rewardProgress": "Huidige PvP-reeks: {time} gespeeld",
       "tab": "Wereldgevecht",
       "title": "Wereldgevecht",

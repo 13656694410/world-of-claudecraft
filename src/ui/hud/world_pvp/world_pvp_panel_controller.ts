@@ -141,11 +141,15 @@ export function worldPvpBodyHtml(view: WorldPvpWindowView): string {
 
 type LiveView = Extract<WorldPvpWindowView, { kind: 'live' }>;
 
+/** The streak line names what paused it: the sanctuary underfoot, or else an
+ *  instance (instance ground reads contested, so the zone alone cannot tell). */
 function rewardProgressText(view: LiveView): string {
-  return t(
-    view.rewardPaused ? 'hudChrome.worldPvp.rewardPaused' : 'hudChrome.worldPvp.rewardProgress',
-    { time: rewardClockText(view.rewardSeconds) },
-  );
+  const key = !view.rewardPaused
+    ? 'hudChrome.worldPvp.rewardProgress'
+    : view.zone === 'sanctuary'
+      ? 'hudChrome.worldPvp.rewardPaused'
+      : 'hudChrome.worldPvp.rewardPausedInstance';
+  return t(key, { time: rewardClockText(view.rewardSeconds) });
 }
 
 /** Patch only the clock, preserving scroll position and button focus. */

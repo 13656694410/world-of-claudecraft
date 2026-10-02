@@ -20217,7 +20217,10 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
     'Die Bewährungsküste ist das einzige Schutzgebiet: Dort kannst du weder Welt-PvP aktivieren noch andere Spieler bekämpfen.',
   'hudChrome.worldPvp.rewardBonus':
     'Lasse Welt-PvP aktiv, um {percent} mehr Erfahrung und Fraktionsruf zu erhalten. Die Boni enden, sobald du die Deaktivierung anforderst.',
-  'hudChrome.worldPvp.rewardPaused': 'Aktuelle PvP-Serie: {time} Spielzeit (hier pausiert)',
+  'hudChrome.worldPvp.rewardPaused':
+    'Aktuelle PvP-Serie: {time} Spielzeit (an der Bewährungsküste pausiert)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Aktuelle PvP-Serie: {time} Spielzeit (in Instanzen pausiert)',
   'hudChrome.worldPvp.rewardProgress': 'Aktuelle PvP-Serie: {time} Spielzeit',
   'hudChrome.worldPvp.rewardTitles':
     'Erhalte nach {thresholds} Spielzeit mit aktivem Welt-PvP in der offenen Welt dauerhafte Titel. Ausloggen, Instanzen und die Bewährungsküste pausieren den Zähler. Deaktivieren setzt ihn zurück.',
