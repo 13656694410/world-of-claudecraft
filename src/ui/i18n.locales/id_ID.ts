@@ -18501,12 +18501,12 @@ export const id_ID: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Setiap {every} dtk, Nythraxis menghantam tank saat ini sebesar {hitNormal} kesehatan maksimum sebagai kerusakan Bayangan dan menambah satu tumpukan Kutukan Ngeri. Selama {duration} dtk, setiap tumpukan meningkatkan kerusakan yang diterima tank itu dari Nythraxis sebesar {perStackNormal}, hingga {max} tumpukan.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Setiap {everyHeroic} dtk, tangan kerangka menandai {countHeroic} lingkaran {radius} yd di bawah raider. Setelah {warning} dtk, setiap lingkaran meletus sebesar {burstHeroic} kesehatan maksimum sebagai kerusakan Bayangan, lalu terbakar sebagai Api Makam selama {flameHeroic} dtk, menghasilkan {tickHeroic} kesehatan maksimum setiap detik kepada siapa pun yang berdiri di dalamnya.',
+    'Setiap {everyHeroic} dtk, tangan kerangka menandai {countHeroic} lingkaran {radius} yd di bawah raider. Setelah {warning} dtk, setiap lingkaran meletus sebesar {burstHeroic} kesehatan maksimum sebagai kerusakan Bayangan, lalu terbakar sebagai Api Makam selama {flameHeroic} dtk, menghasilkan {tickHeroic} kesehatan maksimum setiap detik kepada siapa pun yang berdiri di dalamnya. Ini tidak pernah terjadi selama tanda Robekan Jiwa masih aktif atau dalam {gap} dtk setelah tanda itu hilang.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Erupsi Makam',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Keluarlah dari setiap lingkaran peringatan sebelum meletus dan jauhi tanah yang terbakar. Tank menarik Nythraxis menjauh dari api agar petarung jarak dekat punya ruang untuk bergerak.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Setiap {everyNormal} dtk, tangan kerangka menandai {countNormal} lingkaran {radius} yd di bawah raider. Setelah {warning} dtk, setiap lingkaran meletus sebesar {burstNormal} kesehatan maksimum sebagai kerusakan Bayangan, lalu terbakar sebagai Api Makam selama {flameNormal} dtk, menghasilkan {tickNormal} kesehatan maksimum setiap detik kepada siapa pun yang berdiri di dalamnya.',
+    'Setiap {everyNormal} dtk, tangan kerangka menandai {countNormal} lingkaran {radius} yd di bawah raider. Setelah {warning} dtk, setiap lingkaran meletus sebesar {burstNormal} kesehatan maksimum sebagai kerusakan Bayangan, lalu terbakar sebagai Api Makam selama {flameNormal} dtk, menghasilkan {tickNormal} kesehatan maksimum setiap detik kepada siapa pun yang berdiri di dalamnya. Ini tidak pernah terjadi selama tanda Robekan Jiwa masih aktif atau dalam {gap} dtk setelah tanda itu hilang.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Penghancur Makam',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tank menjaga Nythraxis menghadap menjauh dari raid. Semua orang lain tetap di belakang atau di sampingnya dan tidak pernah melintasi kerucut.',

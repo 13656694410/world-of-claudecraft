@@ -18496,12 +18496,12 @@ export const es: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Cada {every} s, Nythraxis golpea a su tanque actual con {hitNormal} de la salud máxima como daño de las Sombras y añade una acumulación de Maldición pavorosa. Durante {duration} s, cada acumulación aumenta el daño que ese tanque recibe de Nythraxis en {perStackNormal}, hasta {max} acumulaciones.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Cada {everyHeroic} s, manos esqueléticas marcan {countHeroic} círculos de {radius} yd bajo miembros de la banda. Tras {warning} s, cada círculo erupciona e inflige {burstHeroic} de la salud máxima como daño de las Sombras; luego arde como Llama sepulcral durante {flameHeroic} s e inflige {tickHeroic} de la salud máxima cada segundo a cualquiera que permanezca dentro.',
+    'Cada {everyHeroic} s, manos esqueléticas marcan {countHeroic} círculos de {radius} yd bajo miembros de la banda. Tras {warning} s, cada círculo erupciona e inflige {burstHeroic} de la salud máxima como daño de las Sombras; luego arde como Llama sepulcral durante {flameHeroic} s e inflige {tickHeroic} de la salud máxima cada segundo a cualquiera que permanezca dentro. Nunca ocurre mientras haya marcas de Desgarro de alma activas ni en los {gap} s posteriores a que desaparezcan.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Erupción sepulcral',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Sal de cada círculo de aviso antes de que erupcione y mantente fuera del suelo ardiente. Los tanques apartan a Nythraxis de las llamas para que los cuerpo a cuerpo tengan espacio.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Cada {everyNormal} s, manos esqueléticas marcan {countNormal} círculos de {radius} yd bajo miembros de la banda. Tras {warning} s, cada círculo erupciona e inflige {burstNormal} de la salud máxima como daño de las Sombras; luego arde como Llama sepulcral durante {flameNormal} s e inflige {tickNormal} de la salud máxima cada segundo a cualquiera que permanezca dentro.',
+    'Cada {everyNormal} s, manos esqueléticas marcan {countNormal} círculos de {radius} yd bajo miembros de la banda. Tras {warning} s, cada círculo erupciona e inflige {burstNormal} de la salud máxima como daño de las Sombras; luego arde como Llama sepulcral durante {flameNormal} s e inflige {tickNormal} de la salud máxima cada segundo a cualquiera que permanezca dentro. Nunca ocurre mientras haya marcas de Desgarro de alma activas ni en los {gap} s posteriores a que desaparezcan.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Quebrantatumbas',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Los tanques mantienen a Nythraxis mirando lejos de la banda. Todos los demás se quedan detrás o a su lado y nunca cruzan el cono.',

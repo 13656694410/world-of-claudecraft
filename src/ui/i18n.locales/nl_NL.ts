@@ -18481,12 +18481,12 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Elke {every} sec slaat Nythraxis zijn huidige tank voor {hitNormal} van maximale gezondheid als Schaduwschade en voegt een stapel Schrikvloek toe. Gedurende {duration} sec verhoogt elke stapel de schade die die tank van Nythraxis oploopt met {perStackNormal}, tot {max} stapels.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Elke {everyHeroic} sec markeren skelethanden {countHeroic} cirkels van {radius} yd onder raiders. Na {warning} sec barst elke cirkel uit voor {burstHeroic} van maximale gezondheid als Schaduwschade en brandt daarna {flameHeroic} sec als Grafvlam, die elke seconde {tickHeroic} van maximale gezondheid aanricht aan iedereen die erin staat.',
+    'Elke {everyHeroic} sec markeren skelethanden {countHeroic} cirkels van {radius} yd onder raiders. Na {warning} sec barst elke cirkel uit voor {burstHeroic} van maximale gezondheid als Schaduwschade en brandt daarna {flameHeroic} sec als Grafvlam, die elke seconde {tickHeroic} van maximale gezondheid aanricht aan iedereen die erin staat. Dit gebeurt nooit zolang er Zielenscheur-markeringen actief zijn, of binnen {gap} sec nadat ze verdwenen zijn.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Grafuitbarsting',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Stap uit elke waarschuwingscirkel voordat die uitbarst en blijf van de brandende grond. Tanks trekken Nythraxis uit de vlammen zodat melee ruimte houdt om te werken.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Elke {everyNormal} sec markeren skelethanden {countNormal} cirkels van {radius} yd onder raiders. Na {warning} sec barst elke cirkel uit voor {burstNormal} van maximale gezondheid als Schaduwschade en brandt daarna {flameNormal} sec als Grafvlam, die elke seconde {tickNormal} van maximale gezondheid aanricht aan iedereen die erin staat.',
+    'Elke {everyNormal} sec markeren skelethanden {countNormal} cirkels van {radius} yd onder raiders. Na {warning} sec barst elke cirkel uit voor {burstNormal} van maximale gezondheid als Schaduwschade en brandt daarna {flameNormal} sec als Grafvlam, die elke seconde {tickNormal} van maximale gezondheid aanricht aan iedereen die erin staat. Dit gebeurt nooit zolang er Zielenscheur-markeringen actief zijn, of binnen {gap} sec nadat ze verdwenen zijn.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Grafbreker',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tanks houden Nythraxis van de raid af gericht. Alle anderen blijven achter of naast hem en kruisen de kegel nooit.',

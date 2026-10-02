@@ -18226,12 +18226,12 @@ export const da_DK: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Hvert {every} sek rammer Nythraxis sin nuværende tank for {hitNormal} af maksimal sundhed som Skyggeskade og tilføjer en stak Rædselsforbandelse. I {duration} sek øger hver stak den skade, den tank tager fra Nythraxis, med {perStackNormal}, op til {max} stakke.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Hvert {everyHeroic} sek markerer skelethænder {countHeroic} cirkler på {radius} yd under raiddeltagere. Efter {warning} sek bryder hver cirkel ud for {burstHeroic} af maksimal sundhed som Skyggeskade og brænder derefter som Gravflamme i {flameHeroic} sek, hvilket giver {tickHeroic} af maksimal sundhed hvert sekund til alle, der står i den.',
+    'Hvert {everyHeroic} sek markerer skelethænder {countHeroic} cirkler på {radius} yd under raiddeltagere. Efter {warning} sek bryder hver cirkel ud for {burstHeroic} af maksimal sundhed som Skyggeskade og brænder derefter som Gravflamme i {flameHeroic} sek, hvilket giver {tickHeroic} af maksimal sundhed hvert sekund til alle, der står i den. Det sker aldrig, mens Sjæleflængen-mærker er aktive, eller inden for {gap} sek efter, at de er forsvundet.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Gravudbrud',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Træd ud af hver advarselscirkel, før den bryder ud, og hold jer væk fra brændende jord. Tanks trækker Nythraxis væk fra flammerne, så nærkampsspillere har plads til at arbejde.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Hvert {everyNormal} sek markerer skelethænder {countNormal} cirkler på {radius} yd under raiddeltagere. Efter {warning} sek bryder hver cirkel ud for {burstNormal} af maksimal sundhed som Skyggeskade og brænder derefter som Gravflamme i {flameNormal} sek, hvilket giver {tickNormal} af maksimal sundhed hvert sekund til alle, der står i den.',
+    'Hvert {everyNormal} sek markerer skelethænder {countNormal} cirkler på {radius} yd under raiddeltagere. Efter {warning} sek bryder hver cirkel ud for {burstNormal} af maksimal sundhed som Skyggeskade og brænder derefter som Gravflamme i {flameNormal} sek, hvilket giver {tickNormal} af maksimal sundhed hvert sekund til alle, der står i den. Det sker aldrig, mens Sjæleflængen-mærker er aktive, eller inden for {gap} sek efter, at de er forsvundet.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Gravbryder',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tanks holder Nythraxis vendt væk fra raidet. Alle andre står bag eller ved siden af ham og krydser aldrig keglen.',

@@ -2465,7 +2465,8 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.social.presence.everyone': '모두',
   'hudChrome.social.presence.friends': '친구만',
   'hudChrome.social.presence.none': '아무도 없음',
-  'hudChrome.social.presence.title': '친구 목록과 길드 명단에서 누가 당신의 접속 상태, 지역, 지도 위치를 볼 수 있는지 정합니다. 파티원은 항상 볼 수 있습니다.',
+  'hudChrome.social.presence.title':
+    '친구 목록과 길드 명단에서 누가 당신의 접속 상태, 지역, 지도 위치를 볼 수 있는지 정합니다. 파티원은 항상 볼 수 있습니다.',
   'hudChrome.social.hideOfflineTitle': '오프라인 길드원 숨기기',
   'hudChrome.social.billboard.label': '길드 게시판',
   'hudChrome.social.billboard.empty': '게시판에 아직 아무 내용도 없습니다.',
@@ -2666,7 +2667,8 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.buyOwnedAria': '{honor}에 {item} 구매, 이미 보유 중',
   'hudChrome.warfareShop.buyConfirmBody':
     '{honor}에 {item}을(를) 구매하시겠습니까? 명예 구매는 환불되지 않습니다.',
-  'hudChrome.warfareShop.buyConfirmBodyGold': '{price}에 {item}을(를) 구매하시겠습니까? 이 구매는 환불되지 않습니다.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    '{price}에 {item}을(를) 구매하시겠습니까? 이 구매는 환불되지 않습니다.',
   'hudChrome.keybinds.bgFlag': '전장 깃발 행동',
   'hudChrome.keybinds.friendlyNameplates': '우호 이름표 전환',
   'hudChrome.pvp.mobileLabel': 'PvP',
@@ -2788,7 +2790,8 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
     '업적의 서도 평판을 기록합니다. 한 진영에서 신뢰에 도달하는 것과 한 진영에서 챔피언에 도달하는 것이 각각 업적으로 기록되고, 세 진영 모두에서 챔피언에 도달하면 별도의 업적이 됩니다. 다른 업적과 마찬가지로 이는 장식일 뿐 힘이 되지 않으며, 챔피언 업적은 착용할 수 있는 칭호를 줍니다.',
   'guide.commandsPage.pvp':
     '월드 PvP 깃발: /pvp 로 전환하고 /pvp on 과 /pvp off 로 직접 설정합니다. 깃발을 올린 플레이어끼리는 어디서든 싸울 수 있으며, 끄는 데 5분이 걸립니다.',
-  'guide.commandsPage.presence': '친구 목록, 길드 명단, /who에서 누가 당신의 접속 상태를 볼지 정합니다. /presence everyone(기본값), /presence friends(내 친구 목록의 플레이어만), /presence none. 숨기면 상대에게 접속 표시, 지역, 지도 위치가 보이지 않지만 귓속말과 초대는 계속 받을 수 있으며, 파티원은 항상 볼 수 있습니다. /presence만 입력하면 현재 설정을 알려 줍니다.',
+  'guide.commandsPage.presence':
+    '친구 목록, 길드 명단, /who에서 누가 당신의 접속 상태를 볼지 정합니다. /presence everyone(기본값), /presence friends(내 친구 목록의 플레이어만), /presence none. 숨기면 상대에게 접속 표시, 지역, 지도 위치가 보이지 않지만 귓속말과 초대는 계속 받을 수 있으며, 파티원은 항상 볼 수 있습니다. /presence만 입력하면 현재 설정을 알려 줍니다.',
   'guide.commandsPage.flair':
     '다른 플레이어에게 보이는 Discord 역할(색상 이름, 역할 태그, 채팅 인증 태그)을 표시하거나 숨깁니다. /flair on은 표시, /flair off는 숨기기이며, /flair만 입력하면 현재 설정을 알려 줍니다. Discord 계정 연동이 필요합니다.',
   'guide.commandsPage.pvpZones':
@@ -5768,7 +5771,8 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.ysolei.name': '이솔레이, 익사한 달의 화신',
   'hudChrome.death.resurrectAtCorpse': '시신에서 부활',
   'hudChrome.death.pvpResurrect': 'PvP 부활',
-  'hudChrome.death.pvpResurrectTitle': '가장 가까운 묘지에서 생명력이 가득 찬 상태로 부활하며, 새로운 부활 후유증은 걸리지 않습니다.',
+  'hudChrome.death.pvpResurrectTitle':
+    '가장 가까운 묘지에서 생명력이 가득 찬 상태로 부활하며, 새로운 부활 후유증은 걸리지 않습니다.',
   'hudChrome.death.resurrectAtHealer': '영혼 치유사 (부활의 후유증)',
   'hudChrome.death.healerConfirmTitle': '부활의 후유증을 감수하시겠습니까?',
   'hudChrome.death.healerConfirmBody':
@@ -10012,9 +10016,9 @@ export const ko_KR: Partial<Record<TranslationKey, string>> = {
     '가장 가까운 사람이 뼈가시를 공격합니다. 누구의 공격이든 몇 번만 맞으면 부서지며 피해량은 상관없습니다. 치유사는 가시가 부서질 때까지 꿰뚫린 아군을 살려 둡니다.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': '무덤 분출',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    '{everyNormal}초마다 해골 손이 플레이어 발밑에 반경 {radius}야드의 원 {countNormal}개를 표시합니다. {warning}초 후 각 원이 폭발해 최대 생명력의 {burstNormal}만큼 암흑 피해를 입힌 뒤, {flameNormal}초 동안 무덤 화염으로 타올라 그 안에 서 있는 대상에게 매초 최대 생명력의 {tickNormal}만큼 피해를 입힙니다.',
+    '{everyNormal}초마다 해골 손이 플레이어 발밑에 반경 {radius}야드의 원 {countNormal}개를 표시합니다. {warning}초 후 각 원이 폭발해 최대 생명력의 {burstNormal}만큼 암흑 피해를 입힌 뒤, {flameNormal}초 동안 무덤 화염으로 타올라 그 안에 서 있는 대상에게 매초 최대 생명력의 {tickNormal}만큼 피해를 입힙니다. 영혼 가르기 표식이 활성화된 동안이나 표식이 사라진 후 {gap}초 이내에는 발생하지 않습니다.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    '{everyHeroic}초마다 해골 손이 플레이어 발밑에 반경 {radius}야드의 원 {countHeroic}개를 표시합니다. {warning}초 후 각 원이 폭발해 최대 생명력의 {burstHeroic}만큼 암흑 피해를 입힌 뒤, {flameHeroic}초 동안 무덤 화염으로 타오르며 그 안에 서 있는 대상에게 매초 최대 생명력의 {tickHeroic}만큼 피해를 입힙니다.',
+    '{everyHeroic}초마다 해골 손이 플레이어 발밑에 반경 {radius}야드의 원 {countHeroic}개를 표시합니다. {warning}초 후 각 원이 폭발해 최대 생명력의 {burstHeroic}만큼 암흑 피해를 입힌 뒤, {flameHeroic}초 동안 무덤 화염으로 타오르며 그 안에 서 있는 대상에게 매초 최대 생명력의 {tickHeroic}만큼 피해를 입힙니다. 영혼 가르기 표식이 활성화된 동안이나 표식이 사라진 후 {gap}초 이내에는 발생하지 않습니다.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     '폭발하기 전에 모든 경고 원 밖으로 나가고 불타는 바닥을 피하세요. 방어 담당은 근접 딜러가 움직일 공간을 확보할 수 있도록 나이트락시스를 화염에서 멀리 끌어냅니다.',
   'hudChrome.raidBossGuide.nythraxis.bindingSigilName': '결속의 인장',

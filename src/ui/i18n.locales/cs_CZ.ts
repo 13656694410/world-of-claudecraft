@@ -18161,12 +18161,12 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Každých {every} s Nythraxis zasáhne svého aktuálního tanka za {hitNormal} maximálního zdraví jako stínové poškození a přidá sadu Děsivé kletby. Po dobu {duration} s každá sada zvyšuje poškození, které tank utrpí od Nythraxise, o {perStackNormal}, až do {max} sad.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Každých {everyHeroic} s kostlivé ruce označí {countHeroic} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstHeroic} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameHeroic} s a každou sekundu způsobuje {tickHeroic} maximálního zdraví každému, kdo v něm stojí.',
+    'Každých {everyHeroic} s kostlivé ruce označí {countHeroic} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstHeroic} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameHeroic} s a každou sekundu způsobuje {tickHeroic} maximálního zdraví každému, kdo v něm stojí. Nikdy k tomu nedojde, dokud jsou aktivní značky Trhání duše, ani do {gap} s po jejich zmizení.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Hrobová erupce',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Ustupte z každého varovného kruhu, než vybuchne, a nestůjte na hořící zemi. Tankové odtáhnou Nythraxise od plamenů, aby měli bojovníci nablízko prostor.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Každých {everyNormal} s kostlivé ruce označí {countNormal} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstNormal} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameNormal} s a každou sekundu způsobuje {tickNormal} maximálního zdraví každému, kdo v něm stojí.',
+    'Každých {everyNormal} s kostlivé ruce označí {countNormal} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstNormal} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameNormal} s a každou sekundu způsobuje {tickNormal} maximálního zdraví každému, kdo v něm stojí. Nikdy k tomu nedojde, dokud jsou aktivní značky Trhání duše, ani do {gap} s po jejich zmizení.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Hrobobijec',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tankové drží Nythraxise otočeného pryč od raidu. Všichni ostatní stojí za ním nebo vedle něj a nikdy nekříží kužel.',

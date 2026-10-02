@@ -19245,12 +19245,12 @@ export const it_IT: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Ogni {every} s, Nythraxis colpisce il suo tank attuale per {hitNormal} della salute massima come danni da Ombra e aggiunge un accumulo di Maledizione funesta. Per {duration} s, ogni accumulo aumenta di {perStackNormal} i danni che quel tank subisce da Nythraxis, fino a {max} accumuli.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    "Ogni {everyHeroic} s, mani scheletriche segnano {countHeroic} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstHeroic} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameHeroic} s, infliggendo {tickHeroic} della salute massima ogni secondo a chiunque vi stia dentro.",
+    "Ogni {everyHeroic} s, mani scheletriche segnano {countHeroic} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstHeroic} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameHeroic} s, infliggendo {tickHeroic} della salute massima ogni secondo a chiunque vi stia dentro. Non accade mai mentre sono attivi i marchi di Squarcio d'anima, né nei {gap} s successivi alla loro scomparsa.",
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Eruzione sepolcrale',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Esci da ogni cerchio di avviso prima che erutti e resta fuori dal terreno in fiamme. I tank tirano Nythraxis lontano dalle fiamme così la mischia ha spazio per agire.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    "Ogni {everyNormal} s, mani scheletriche segnano {countNormal} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstNormal} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameNormal} s, infliggendo {tickNormal} della salute massima ogni secondo a chiunque vi stia dentro.",
+    "Ogni {everyNormal} s, mani scheletriche segnano {countNormal} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstNormal} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameNormal} s, infliggendo {tickNormal} della salute massima ogni secondo a chiunque vi stia dentro. Non accade mai mentre sono attivi i marchi di Squarcio d'anima, né nei {gap} s successivi alla loro scomparsa.",
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Spezzatombe',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     "I tank tengono Nythraxis rivolto lontano dall'incursione. Tutti gli altri restano dietro o di lato a lui e non attraversano mai il cono.",
