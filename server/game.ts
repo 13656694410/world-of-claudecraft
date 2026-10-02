@@ -2331,10 +2331,7 @@ export class GameServer {
         return s ? actor(s) : null;
       },
       isOnline: (id) => this.sessionByCharacterId(id) !== null,
-      presenceHiddenFrom: (subjectId, viewerId) => {
-        const s = this.sessionByCharacterId(subjectId);
-        return s !== null && presence.presenceHiddenFrom(s, viewerId);
-      },
+      presenceSubject: (id) => this.sessionByCharacterId(id),
       locationOf: (id) => {
         const s = this.sessionByCharacterId(id);
         return s ? this.presenceOf(s) : null;

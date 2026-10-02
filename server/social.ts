@@ -38,6 +38,7 @@ import { guildTierForLifetimeXp } from '../src/sim/guild_tier';
 import type { PlayerClass } from '../src/sim/types';
 import type { GuildPledgeSettings } from '../src/world_api/social_graph';
 import type { GuildPledgeSettingsInput } from './guild_pledge_settings_cmd';
+import { type PresenceSubject, presenceHiddenFrom } from './presence_privacy';
 
 // The built-in rank TIERS: the vocabulary of the live sim's guild membership
 // stamp (src/sim/guild_bank.ts GUILD_RANKS, pinned lockstep by
@@ -328,10 +329,12 @@ export interface SocialTransport {
   deliver(characterId: number, events: SocialEvent[]): void;
   // re-send the full social panel state to a character if online
   pushSnapshot(characterId: number): void;
-  // true when the online character `subjectId` hides their presence from
-  // `viewerId` (server/presence_privacy.ts); treated like a block for presence.
-  // Optional so a transport without the setting reads as 'everyone'.
-  presenceHiddenFrom?(subjectId: number, viewerId: number): boolean;
+  // The online character's presence subject (server/presence_privacy.ts: its
+  // setting and its own friends list), or null when not online. game.ts hands
+  // the LIVE session, so the friend-edge methods below can refresh its friend
+  // set in place. Optional so a transport without the setting reads as
+  // 'everyone'.
+  presenceSubject?(characterId: number): PresenceSubject | null;
   // An admin rename already committed in the DB. Update the online member's
   // live Sim state and notify their client without re-reading or rebuilding
   // the full social snapshot.
@@ -673,6 +676,9 @@ export class SocialService {
             ...m,
             rank: effectiveGuildRankId(ladder, m.rank),
             ...this.presence(charId, m.id, blockedByViewer),
+            // last_login updates at world entry, so a hidden member would read
+            // "last seen two minutes ago" while showing offline.
+            ...(this.hiddenFrom(m.id, charId) ? { lastLogin: null } : {}),
           }))
           .sort(
             (a, b) =>
@@ -727,7 +733,7 @@ export class SocialService {
       (viewerBlockedIds.has(otherCharId) ||
         !this.tx.blockListLoaded(otherCharId) ||
         this.tx.isBlocking(otherCharId, viewerCharId) ||
-        this.tx.presenceHiddenFrom?.(otherCharId, viewerCharId) === true)
+        this.hiddenFrom(otherCharId, viewerCharId))
     ) {
       return { online: false };
     }
@@ -879,7 +885,7 @@ export class SocialService {
     }
     await this.db.addFriend(actor.characterId, target.id);
     this.info(actor.characterId, `${target.name} added to friends.`);
-    this.push(actor.characterId);
+    this.friendEdgeChanged(actor.characterId, target.id, [...friends.map((f) => f.id), target.id]);
   }
 
   async friendRemove(actor: SocialActor, name: string): Promise<void> {
@@ -895,17 +901,21 @@ export class SocialService {
     }
     await this.db.removeFriend(actor.characterId, target.id);
     this.info(actor.characterId, `${target.name} removed from friends.`);
-    this.push(actor.characterId);
+    const remaining = friends.map((f) => f.id).filter((id) => id !== target.id);
+    this.friendEdgeChanged(actor.characterId, target.id, remaining);
   }
 
-  // Called by game.ts when a character logs in/out, so friends watching them
-  // see a come-online / go-offline notice (and refresh their panel). Filtered
-  // bidirectionally by block, the same as broadcastDeedUnlock: a friend-of-me
-  // or guild edge on the OTHER side survives a block (blockAdd only cleans the
-  // blocker's own outgoing friend edge, never guild membership), so without
-  // this a blocked stalker (or someone the actor blocked) would keep hearing
-  // the actor's login/logout and getting their panel refreshed with the
-  // actor's live position.
+  // A friend edge moved: the actor's own friends list decides who sees them in
+  // 'friends' mode, so refresh the live subject's set now (the panel push
+  // would refresh it only once its DB read lands) and re-push BOTH panels, or
+  // the other side keeps a stale online row until their next refresh.
+  private friendEdgeChanged(actorId: number, otherId: number, actorFriendIds: number[]): void {
+    const subject = this.tx.presenceSubject?.(actorId);
+    if (subject) subject.friendIds = new Set(actorFriendIds);
+    this.push(actorId);
+    if (this.tx.isOnline(otherId)) this.push(otherId);
+  }
+
   // Re-send every online watcher's panel (friends who list the actor, and
   // guildmates) after the actor's presence setting changes, and the actor's own
   // (its Friends footer shows the setting). No notice: the rows flip online or
@@ -924,6 +934,49 @@ export class SocialService {
     for (const m of await this.db.guildMembers(membership.guildId)) pushOnce(m.id);
   }
 
+  // Called by game.ts when a character logs in/out, so friends watching them
+  // see a come-online / go-offline notice (and refresh their panel). Filtered
+  // bidirectionally by block, the same as broadcastDeedUnlock: a friend-of-me
+  // or guild edge on the OTHER side survives a block (blockAdd only cleans the
+  // blocker's own outgoing friend edge, never guild membership), so without
+  // this a blocked stalker (or someone the actor blocked) would keep hearing
+  // the actor's login/logout and getting their panel refreshed with the
+  // actor's live position.
+
+  // Presence privacy (server/presence_privacy.ts): does the online character
+  // `subjectId` hide their presence from `viewerId`? The block-equivalent rule
+  // at every presence point.
+  private hiddenFrom(subjectId: number, viewerId: number): boolean {
+    const subject = this.tx.presenceSubject?.(subjectId);
+    return !!subject && presenceHiddenFrom(subject, viewerId);
+  }
+
+  // A frozen copy of an online subject, for a decision that outlives an await.
+  private presenceSnapshot(characterId: number): PresenceSubject | null {
+    const s = this.tx.presenceSubject?.(characterId);
+    return s
+      ? {
+          characterId: s.characterId,
+          presenceMode: s.presenceMode,
+          friendIds: new Set(s.friendIds),
+        }
+      : null;
+  }
+
+  // Online as a PUBLIC surface reports it (the guild board's officers online):
+  // a session AND not hiding. An anonymous viewer is nobody's friend, so any
+  // setting but 'everyone' reads offline there.
+  shownOnlinePublicly(characterId: number): boolean {
+    if (!this.tx.isOnline(characterId)) return false;
+    return (this.tx.presenceSubject?.(characterId)?.presenceMode ?? 'everyone') === 'everyone';
+  }
+
+  // Re-send one character's own panel: the /presence selector snaps back to
+  // the real setting when a change was throttled or failed.
+  resyncPanel(characterId: number): void {
+    this.push(characterId);
+  }
+
   // A quiet chat system line to one online character (no error banner): the
   // /presence confirmation (server/presence_privacy.ts).
   noticeTo(characterId: number, text: string): void {
@@ -931,6 +984,10 @@ export class SocialService {
   }
 
   async announcePresence(actor: SocialActor, online: boolean): Promise<void> {
+    // Taken BEFORE the first await: on logout the session leaves the live map
+    // while the reads below are in flight, and a verdict read afterwards would
+    // fail open and tell a hidden player's friends "has gone offline".
+    const subject = this.presenceSnapshot(actor.characterId);
     const [watchers, actorBlockedIds] = await Promise.all([
       this.db.whoFriended(actor.characterId),
       this.db.blockedIds(actor.characterId),
@@ -944,7 +1001,7 @@ export class SocialService {
       actorBlocked.has(otherId) ||
       !this.tx.blockListLoaded(otherId) ||
       this.tx.isBlocking(otherId, actor.characterId) ||
-      this.tx.presenceHiddenFrom?.(actor.characterId, otherId) === true;
+      (subject !== null && presenceHiddenFrom(subject, otherId));
     const notified = new Set<number>();
     for (const watcherId of watchers) {
       if (!this.tx.isOnline(watcherId)) continue;
@@ -2054,6 +2111,10 @@ export class SocialService {
   // stay in whoFriended and keep hearing these). The earner never receives it
   // (their own toast is client-side from the sim event).
   private async broadcastToEarnerAudience(actor: SocialActor, event: SocialEvent): Promise<void> {
+    // A celebration says the earner is on: it skips everyone their presence
+    // setting hides them from, decided before the first await (see
+    // announcePresence).
+    const subject = this.presenceSnapshot(actor.characterId);
     const [membership, followerIds, earnerBlockedIds] = await Promise.all([
       this.db.guildMembership(actor.characterId),
       this.db.whoFriended(actor.characterId),
@@ -2069,6 +2130,7 @@ export class SocialService {
       if (!this.tx.isOnline(id)) continue;
       if (this.tx.isBlocking(id, actor.characterId)) continue;
       if (earnerBlocked.has(id)) continue;
+      if (subject !== null && presenceHiddenFrom(subject, id)) continue;
       this.tx.deliver(id, [event]);
     }
   }

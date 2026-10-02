@@ -8,14 +8,20 @@ import { acquireFlairCommand } from './flair_command_guard';
 // block already means for presence, applied at the same four points:
 //   - the friends list and guild roster rows (online, zone, status, live x/z),
 //     server/social.ts presence();
-//   - the "has come online" notices, social.ts announcePresence();
+//   - the "has come online" / "has gone offline" notices, social.ts
+//     announcePresence(), decided from a snapshot taken before its first await;
+//   - the deed and Reliquary celebrations to friends and guildmates
+//     (social.ts broadcastToEarnerAudience);
+//   - the public guild board's officers online (social.ts shownOnlinePublicly);
+//   - a hidden guildmate's "last seen" (cleared, it updates at world entry);
 //   - the once-a-second live position push (socialpos) and /who, both through
 //     canShowInWho (server/who_roster.ts).
 // The minimap's friend dot and guild diamond follow from the rows (the client
 // draws them only for an ONLINE friend or guildmate), so a hidden character is
 // no longer tracked through walls. Party members are never affected: the party
 // frames and party minimap discs are a separate, consented channel. Nearby
-// players still see the character's body in the world, as with any stranger.
+// players still see the character's body in the world, as with any stranger,
+// and whispers and invites still reach a hidden player (the guide says so).
 //
 //   everyone  the default: friends and guildmates see you online
 //   friends   only characters on YOUR friends list do (the RuneScape rule)
@@ -112,12 +118,21 @@ export interface PresenceCommandHost<S extends PresenceSession> {
   consumeCommandLane(session: S, nowSec: number): boolean;
   /** Re-send every online friend's and guildmate's panel so the change shows now. */
   refreshPresenceWatchers(session: S): Promise<void>;
+  /** Re-send the sender's own panel: the selector snaps back to the real
+   *  setting when a change was throttled or failed. */
+  resyncOwnPanel(session: S): void;
   sendChatNotice(session: S, text: string): void;
 }
+
+/** A change refreshes every online friend's and guildmate's panel at once; any
+ *  further change inside this window waits for one trailing refresh, so
+ *  toggling every second in a big guild cannot become a stream of rebuilds. */
+export const PRESENCE_REFRESH_WINDOW_MS = 5_000;
 
 /** The social service surface the command needs (server/social.ts SocialService). */
 export interface PresenceSocial {
   refreshPresenceWatchers(actor: { characterId: number; name: string }): Promise<void>;
+  resyncPanel(characterId: number): void;
   noticeTo(characterId: number, text: string): void;
 }
 
@@ -130,12 +145,37 @@ export function presenceHostFrom<S extends PresenceSession>(
   flair: Pick<PresenceCommandHost<S>, 'pool' | 'consumeCommandLane'>,
   social: () => PresenceSocial,
 ): PresenceCommandHost<S> {
+  // characterId -> the open refresh window, and the change waiting for its end.
+  const windows = new Map<number, { pending: S | null }>();
+  const refreshNow = (session: S): Promise<void> =>
+    social().refreshPresenceWatchers({ characterId: session.characterId, name: session.name });
+  const open = (characterId: number): void => {
+    const w: { pending: S | null } = { pending: null };
+    windows.set(characterId, w);
+    const timer = setTimeout(() => {
+      windows.delete(characterId);
+      if (!w.pending) return;
+      open(characterId);
+      void refreshNow(w.pending).catch((err) => console.error('presence refresh failed:', err));
+    }, PRESENCE_REFRESH_WINDOW_MS);
+    timer.unref?.();
+  };
   return {
     pool: flair.pool,
     consumeCommandLane: (session, nowSec) => flair.consumeCommandLane(session, nowSec),
     sendChatNotice: (session, text) => social().noticeTo(session.characterId, text),
-    refreshPresenceWatchers: (session) =>
-      social().refreshPresenceWatchers({ characterId: session.characterId, name: session.name }),
+    resyncOwnPanel: (session) => social().resyncPanel(session.characterId),
+    refreshPresenceWatchers: async (session) => {
+      const w = windows.get(session.characterId);
+      if (w) {
+        // Inside the window: the sender's own panel now, the watchers once at its end.
+        w.pending = session;
+        social().resyncPanel(session.characterId);
+        return;
+      }
+      open(session.characterId);
+      await refreshNow(session);
+    },
   };
 }
 
@@ -170,11 +210,22 @@ export function handlePresenceChatCommand<S extends PresenceSession>(
 ): boolean {
   const cmd = parsePresenceCommand(text);
   if (!cmd) return false;
-  if (!host.consumeCommandLane(session, nowSec)) return true;
+  // A throttled or failed change must not leave the Social window's selector
+  // showing a setting the server never took: re-send the real one.
+  if (!host.consumeCommandLane(session, nowSec)) {
+    host.resyncOwnPanel(session);
+    return true;
+  }
   const release = acquireFlairCommand(host, session, nowSec);
-  if (!release) return true;
+  if (!release) {
+    host.resyncOwnPanel(session);
+    return true;
+  }
   void runPresenceCommand(host, session, cmd)
-    .catch((err) => console.error('presence command failed:', err))
+    .catch((err) => {
+      console.error('presence command failed:', err);
+      host.resyncOwnPanel(session);
+    })
     .finally(release);
   return true;
 }

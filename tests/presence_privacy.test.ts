@@ -20,9 +20,12 @@ vi.mock('../server/db', () => ({
 
 import { type ClientSession, GameServer } from '../server/game';
 import {
+  handlePresenceChatCommand,
   PRESENCE_NOTICES,
+  PRESENCE_REFRESH_WINDOW_MS,
   type PresenceCommandHost,
   type PresenceSession,
+  type PresenceSubject,
   parsePresenceCommand,
   presenceHiddenFrom,
   presenceHostFrom,
@@ -30,6 +33,7 @@ import {
 } from '../server/presence_privacy';
 import { type SocialDb, SocialService, type SocialTransport } from '../server/social';
 import { canShowInWho } from '../server/who_roster';
+import { defaultGuildRankLadder } from '../src/sim/guild_ranks';
 
 const VIEWER = 2;
 
@@ -78,6 +82,7 @@ describe('runPresenceCommand', () => {
       pool: { query } as never,
       consumeCommandLane: () => true,
       refreshPresenceWatchers: refresh,
+      resyncOwnPanel: vi.fn(),
       sendChatNotice: (_s, text) => notices.push(text),
     };
     return { h, query, notices, refresh };
@@ -124,7 +129,7 @@ describe('presenceHostFrom', () => {
     const query = vi.fn(async () => ({ rows: [] }));
     const host = presenceHostFrom<PresenceSession>(
       { pool: { query } as never, consumeCommandLane: () => true },
-      () => ({ noticeTo, refreshPresenceWatchers }),
+      () => ({ noticeTo, refreshPresenceWatchers, resyncPanel: vi.fn() }),
     );
     const session: PresenceSession = {
       accountId: 7,
@@ -212,18 +217,61 @@ describe('the setting at join', () => {
 });
 
 describe('the social service: roster rows, login notices and the refresh', () => {
-  function service(hidden: boolean) {
+  function service(hidden: boolean, opts: { leaveDuringReads?: boolean } = {}) {
     const delivered: number[] = [];
     const events: { type: string; text?: string }[] = [];
     const pushed: number[] = [];
+    const subject: PresenceSubject = {
+      characterId: 1,
+      presenceMode: hidden ? 'none' : 'everyone',
+      friendIds: new Set<number>(),
+    };
+    let live = true;
     const db = {
-      whoFriended: async () => [2],
+      whoFriended: async () => {
+        if (opts.leaveDuringReads) live = false;
+        return [2];
+      },
       blockedIds: async () => [],
-      guildMembership: async () => ({ guildId: 5, guildName: 'G', rank: 'member' }),
-      guildMembers: async () => [{ id: 1 }, { id: 3 }],
+      listFriends: async () => [{ id: 2, name: 'Bet' }],
+      listBlocks: async () => [],
+      listIgnores: async () => [],
+      findCharacterByName: async () => ({ id: 2, name: 'Bet' }),
+      removeFriend: async () => {},
+      addFriend: async () => {},
+      guildMembership: async () => ({
+        guildId: 5,
+        guildName: 'G',
+        rank: 'member',
+        ranks: defaultGuildRankLadder(),
+      }),
+      guildMembers: async () => [
+        {
+          id: 1,
+          name: 'Hider',
+          cls: 'warrior',
+          level: 20,
+          rank: 'member',
+          lastLogin: '2026-10-02T09:00:00Z',
+        },
+        {
+          id: 3,
+          name: 'Gimel',
+          cls: 'mage',
+          level: 20,
+          rank: 'member',
+          lastLogin: '2026-10-01T09:00:00Z',
+        },
+      ],
+      guildEvents: async () => [],
+      guildMotd: async () => ({ motd: '', motdSetBy: '' }),
+      guildPledgeSettings: async () => null,
+      guildPledges: async () => [],
+      guildLifetimeXpTotal: async () => 0,
+      pledgeOf: async () => null,
     } as unknown as SocialDb;
     const tx = {
-      isOnline: () => true,
+      isOnline: (id: number) => (id === 1 ? live : id === 2 || id === 3),
       blockListLoaded: () => true,
       isBlocking: () => false,
       locationOf: () => ({ zone: 'Eastbrook Vale', status: 'online', x: 1, z: 2 }),
@@ -232,7 +280,7 @@ describe('the social service: roster rows, login notices and the refresh', () =>
         events.push(...list);
       },
       pushSnapshot: (id: number) => pushed.push(id),
-      presenceHiddenFrom: () => hidden,
+      presenceSubject: (id: number) => (id === 1 && live ? subject : null),
     } as unknown as SocialTransport;
     const svc = new SocialService(
       db,
@@ -241,7 +289,7 @@ describe('the social service: roster rows, login notices and the refresh', () =>
       () => false,
       () => null,
     );
-    return { svc, delivered, events, pushed };
+    return { svc, delivered, events, pushed, subject };
   }
 
   it('a hidden character reads offline with no zone or position', () => {
@@ -260,6 +308,54 @@ describe('the social service: roster rows, login notices and the refresh', () =>
     expect(hidden.delivered).toEqual([]);
   });
 
+  it('a hidden character logging out sends no “has gone offline”, even when the session leaves mid-read', async () => {
+    // The logout race: the session leaves the live map while the announcement
+    // reads the DB. The decision is taken before the first await.
+    const hidden = service(true, { leaveDuringReads: true });
+    await hidden.svc.announcePresence({ characterId: 1, name: 'Hider' }, false);
+    expect(hidden.delivered).toEqual([]);
+    const shown = service(false, { leaveDuringReads: true });
+    await shown.svc.announcePresence({ characterId: 1, name: 'Hider' }, false);
+    expect(shown.delivered, 'a visible player still says goodbye').toContain(2);
+  });
+
+  it('keeps deed and Reliquary celebrations from the audience a hider hides from', async () => {
+    const hidden = service(true);
+    await hidden.svc.broadcastDeedUnlock({ characterId: 1, name: 'Hider' }, 'pvp_duel_first_win');
+    expect(hidden.delivered).toEqual([]);
+    const shown = service(false);
+    await shown.svc.broadcastDeedUnlock({ characterId: 1, name: 'Hider' }, 'pvp_duel_first_win');
+    expect(shown.delivered.sort()).toEqual([2, 3]);
+  });
+
+  it('reads a hiding player offline on public surfaces (the guild board officers)', () => {
+    const shown = service(false);
+    expect(shown.svc.shownOnlinePublicly(1)).toBe(true);
+    const hidden = service(true);
+    expect(hidden.svc.shownOnlinePublicly(1)).toBe(false);
+    hidden.subject.presenceMode = 'friends';
+    expect(hidden.svc.shownOnlinePublicly(1), 'an anonymous viewer is nobody’s friend').toBe(false);
+    expect(hidden.svc.shownOnlinePublicly(99), 'offline').toBe(false);
+  });
+
+  it('shows no “last seen” for a guildmate who hides from the viewer', async () => {
+    const hidden = service(true);
+    const snap = await hidden.svc.snapshot(2);
+    const row = snap.guild?.members.find((m) => m.id === 1);
+    expect(row).toMatchObject({ online: false, lastLogin: null });
+    const other = snap.guild?.members.find((m) => m.id === 3);
+    expect(other?.lastLogin, 'a visible member keeps it').toBe('2026-10-01T09:00:00Z');
+  });
+
+  it('a friend edge change refreshes the hider’s friend set at once and both panels', async () => {
+    const { svc, pushed, subject } = service(true);
+    subject.presenceMode = 'friends';
+    subject.friendIds = new Set([2]);
+    await svc.friendRemove({ characterId: 1, name: 'Hider' }, 'Bet');
+    expect([...(subject.friendIds ?? [])]).toEqual([]);
+    expect(pushed).toEqual([1, 2]);
+  });
+
   it('delivers the confirmation as a log event, not an error', () => {
     const { svc, delivered, events } = service(false);
     svc.noticeTo(1, PRESENCE_NOTICES.friends);
@@ -274,5 +370,67 @@ describe('the social service: roster rows, login notices and the refresh', () =>
     // each watcher exactly once although the guild roster also lists the actor.
     expect(pushed).toEqual([1, 2, 3]);
     expect(delivered, 'a refresh is silent').toEqual([]);
+  });
+});
+
+describe('a throttled or failed change, and the refresh window', () => {
+  function liveSession(): PresenceSession {
+    return { accountId: 7, characterId: 9, name: 'Hider', presenceMode: 'everyone' };
+  }
+
+  it('re-sends the sender’s own panel when the command lane refuses the change', () => {
+    const resyncOwnPanel = vi.fn();
+    const host = {
+      pool: { query: vi.fn() } as never,
+      consumeCommandLane: () => false,
+      refreshPresenceWatchers: vi.fn(),
+      resyncOwnPanel,
+      sendChatNotice: vi.fn(),
+    } as PresenceCommandHost<PresenceSession>;
+    expect(handlePresenceChatCommand(host, liveSession(), '/presence none', 1)).toBe(true);
+    expect(resyncOwnPanel).toHaveBeenCalledOnce();
+  });
+
+  it('re-sends the sender’s own panel when the save fails', async () => {
+    const resyncOwnPanel = vi.fn();
+    const host = {
+      pool: { query: vi.fn(async () => Promise.reject(new Error('db down'))) } as never,
+      consumeCommandLane: () => true,
+      refreshPresenceWatchers: vi.fn(),
+      resyncOwnPanel,
+      sendChatNotice: vi.fn(),
+    } as PresenceCommandHost<PresenceSession>;
+    const session = liveSession();
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    handlePresenceChatCommand(host, session, '/presence friends', 1);
+    await vi.waitFor(() => expect(resyncOwnPanel).toHaveBeenCalledOnce());
+    expect(session.presenceMode, 'the setting did not change').toBe('everyone');
+  });
+
+  it('refreshes the watchers at once, then once more at the end of the window however often it changes', async () => {
+    vi.useFakeTimers();
+    try {
+      const refreshPresenceWatchers = vi.fn(async () => {});
+      const resyncPanel = vi.fn();
+      const host = presenceHostFrom<PresenceSession>(
+        {
+          pool: { query: vi.fn(async () => ({ rows: [] })) } as never,
+          consumeCommandLane: () => true,
+        },
+        () => ({ noticeTo: vi.fn(), refreshPresenceWatchers, resyncPanel }),
+      );
+      const session = liveSession();
+      await host.refreshPresenceWatchers(session);
+      expect(refreshPresenceWatchers).toHaveBeenCalledOnce();
+      for (let i = 0; i < 5; i++) await host.refreshPresenceWatchers(session);
+      expect(refreshPresenceWatchers, 'coalesced inside the window').toHaveBeenCalledOnce();
+      expect(resyncPanel, 'the sender still sees each change').toHaveBeenCalledTimes(5);
+      await vi.advanceTimersByTimeAsync(PRESENCE_REFRESH_WINDOW_MS);
+      expect(refreshPresenceWatchers, 'one trailing refresh').toHaveBeenCalledTimes(2);
+      await vi.advanceTimersByTimeAsync(PRESENCE_REFRESH_WINDOW_MS);
+      expect(refreshPresenceWatchers, 'nothing pending, nothing more').toHaveBeenCalledTimes(2);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });
