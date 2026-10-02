@@ -5048,6 +5048,13 @@ export const sv_SE: EnTranslations = {
       "offlineHeader": "Frånkopplade ({n})",
       "hideOffline": "Dölj frånkopplade",
       "hideOfflineTitle": "Dölj frånkopplade gillesmedlemmar",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Gillets anslagstavla",
         "empty": "Inget på anslagstavlan än.",

@@ -5048,6 +5048,13 @@ export const es_ES: EnTranslations = {
       "offlineHeader": "Desconectados ({n})",
       "hideOffline": "Ocultar desconectados",
       "hideOfflineTitle": "Ocultar miembros desconectados de la hermandad",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Tablón de la Hermandad",
         "empty": "Aún no hay nada publicado en el tablón.",

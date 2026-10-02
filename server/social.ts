@@ -907,12 +907,14 @@ export class SocialService {
   // the actor's login/logout and getting their panel refreshed with the
   // actor's live position.
   // Re-send every online watcher's panel (friends who list the actor, and
-  // guildmates) after the actor's presence setting changes. No notice: the rows
-  // flip online or offline in place (server/presence_privacy.ts).
+  // guildmates) after the actor's presence setting changes, and the actor's own
+  // (its Friends footer shows the setting). No notice: the rows flip online or
+  // offline in place (server/presence_privacy.ts).
   async refreshPresenceWatchers(actor: SocialActor): Promise<void> {
-    const pushed = new Set<number>();
+    this.push(actor.characterId);
+    const pushed = new Set<number>([actor.characterId]);
     const pushOnce = (id: number): void => {
-      if (id === actor.characterId || pushed.has(id) || !this.tx.isOnline(id)) return;
+      if (pushed.has(id) || !this.tx.isOnline(id)) return;
       this.push(id);
       pushed.add(id);
     };

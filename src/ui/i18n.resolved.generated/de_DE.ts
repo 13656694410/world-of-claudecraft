@@ -5048,6 +5048,13 @@ export const de_DE: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Offline ausblenden",
       "hideOfflineTitle": "Offline-Gildenmitglieder ausblenden",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Gildenpinnwand",
         "empty": "Noch nichts an der Pinnwand.",

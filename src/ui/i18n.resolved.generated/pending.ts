@@ -10,54 +10,129 @@
 
 export const pending: Record<string, readonly string[]> = {
   "es": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "es_ES": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "fr_FR": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "fr_CA": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "en_CA": [],
   "it_IT": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "de_DE": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "zh_CN": [],
   "zh_TW": [],
   "ko_KR": [],
   "ja_JP": [],
   "pt_BR": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "ru_RU": [],
   "cs_CZ": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "nl_NL": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "pl_PL": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "id_ID": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "tr_TR": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "sv_SE": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "vi_VN": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ],
   "da_DK": [
-    "guide.commandsPage.presence"
+    "guide.commandsPage.presence",
+    "hudChrome.social.presence.everyone",
+    "hudChrome.social.presence.friends",
+    "hudChrome.social.presence.label",
+    "hudChrome.social.presence.none",
+    "hudChrome.social.presence.title"
   ]
 };

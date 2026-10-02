@@ -180,7 +180,13 @@ describe('the social service: roster rows, login notices and the refresh', () =>
       pushSnapshot: (id: number) => pushed.push(id),
       presenceHiddenFrom: () => hidden,
     } as unknown as SocialTransport;
-    const svc = new SocialService(db, tx, () => 0, () => false, () => null);
+    const svc = new SocialService(
+      db,
+      tx,
+      () => 0,
+      () => false,
+      () => null,
+    );
     return { svc, delivered, pushed };
   }
 
@@ -200,10 +206,12 @@ describe('the social service: roster rows, login notices and the refresh', () =>
     expect(hidden.delivered).toEqual([]);
   });
 
-  it('a setting change refreshes every online friend and guildmate once, never the actor', async () => {
+  it('a setting change refreshes the actor and every online friend and guildmate once', async () => {
     const { svc, pushed, delivered } = service(true);
     await svc.refreshPresenceWatchers({ characterId: 1, name: 'Hider' });
-    expect(pushed.sort()).toEqual([2, 3]);
+    // The actor's own panel first (its Friends footer shows the setting), then
+    // each watcher exactly once although the guild roster also lists the actor.
+    expect(pushed).toEqual([1, 2, 3]);
     expect(delivered, 'a refresh is silent').toEqual([]);
   });
 });

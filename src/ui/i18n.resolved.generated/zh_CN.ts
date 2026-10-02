@@ -5048,6 +5048,13 @@ export const zh_CN: EnTranslations = {
       "offlineHeader": "离线 ({n})",
       "hideOffline": "隐藏离线",
       "hideOfflineTitle": "隐藏离线公会成员",
+      "presence": {
+        "label": "对谁显示在线",
+        "everyone": "所有人",
+        "friends": "仅好友",
+        "none": "无人",
+        "title": "谁能在好友列表和公会名单中看到你在线，以及你的区域和地图位置。队伍成员始终能看到你。"
+      },
       "billboard": {
         "label": "公会公告板",
         "empty": "公告板上还没有内容。",

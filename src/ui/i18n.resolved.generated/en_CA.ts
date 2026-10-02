@@ -5048,6 +5048,13 @@ export const en_CA: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Hide offline",
       "hideOfflineTitle": "Hide offline guild members",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Guild Billboard",
         "empty": "Nothing on the billboard yet.",

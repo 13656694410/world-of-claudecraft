@@ -5048,6 +5048,13 @@ export const pl_PL: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Ukryj offline",
       "hideOfflineTitle": "Ukryj offline członków gildii",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Tablica ogłoszeń gildii",
         "empty": "Na tablicy ogłoszeń nic jeszcze nie ma.",

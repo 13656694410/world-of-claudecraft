@@ -5048,6 +5048,13 @@ export const id_ID: EnTranslations = {
       "offlineHeader": "Luring ({n})",
       "hideOffline": "Sembunyikan yang luring",
       "hideOfflineTitle": "Sembunyikan anggota serikat yang sedang luring",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Papan Pengumuman Serikat",
         "empty": "Belum ada apa pun di papan pengumuman.",

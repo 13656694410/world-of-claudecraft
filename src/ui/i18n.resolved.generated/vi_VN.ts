@@ -5048,6 +5048,13 @@ export const vi_VN: EnTranslations = {
       "offlineHeader": "Ngoại Tuyến ({n})",
       "hideOffline": "Ẩn ngoại tuyến",
       "hideOfflineTitle": "Ẩn thành viên bang hội ngoại tuyến",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Bảng Tin Bang Hội",
         "empty": "Bảng tin chưa có gì được dán lên.",

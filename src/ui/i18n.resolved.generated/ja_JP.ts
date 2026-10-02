@@ -5048,6 +5048,13 @@ export const ja_JP: EnTranslations = {
       "offlineHeader": "オフライン ({n})",
       "hideOffline": "オフラインを非表示",
       "hideOfflineTitle": "オフラインのギルドメンバーを非表示",
+      "presence": {
+        "label": "オンライン表示の相手",
+        "everyone": "全員",
+        "friends": "フレンドのみ",
+        "none": "なし",
+        "title": "フレンドリストとギルド名簿で誰にオンライン状態、ゾーン、マップ上の位置を見せるか。パーティーメンバーには常に表示されます。"
+      },
       "billboard": {
         "label": "ギルド掲示板",
         "empty": "掲示板にはまだ何もありません。",

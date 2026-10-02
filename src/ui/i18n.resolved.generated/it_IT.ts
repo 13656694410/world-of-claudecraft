@@ -5048,6 +5048,13 @@ export const it_IT: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Nascondi offline",
       "hideOfflineTitle": "Nascondi i membri della gilda offline",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Bacheca della Gilda",
         "empty": "Non c'è ancora nulla sulla bacheca.",

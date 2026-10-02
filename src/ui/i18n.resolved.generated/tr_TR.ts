@@ -5048,6 +5048,13 @@ export const tr_TR: EnTranslations = {
       "offlineHeader": "Çevrimdışı ({n})",
       "hideOffline": "Çevrimdışıları gizle",
       "hideOfflineTitle": "Çevrimdışı lonca üyelerini gizle",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Lonca Panosu",
         "empty": "Panoda henüz bir şey yok.",

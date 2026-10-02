@@ -5048,6 +5048,13 @@ export const da_DK: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Skjul offline",
       "hideOfflineTitle": "Skjul offline gildemedlemmer",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Laugsopslagstavle",
         "empty": "Der er intet på opslagstavlen endnu.",

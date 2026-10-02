@@ -5048,6 +5048,13 @@ export const cs_CZ: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Skrýt offline",
       "hideOfflineTitle": "Skrýt offline hráče",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Cechovní nástěnka",
         "empty": "Na nástěnce zatím nic není.",

@@ -1,4 +1,5 @@
 import type { Pool } from 'pg';
+import { PRESENCE_MODES, type PresenceMode } from '../src/world_api/social_graph';
 import { acquireFlairCommand } from './flair_command_guard';
 
 // Presence privacy (owner rule, 2026-10-02: "hide themselves from friends like in
@@ -22,9 +23,7 @@ import { acquireFlairCommand } from './flair_command_guard';
 //
 // Per character, persisted in characters.presence_mode (social_db.ts schema).
 
-export type PresenceMode = 'everyone' | 'friends' | 'none';
-
-export const PRESENCE_MODES: readonly PresenceMode[] = ['everyone', 'friends', 'none'];
+export { PRESENCE_MODES, type PresenceMode };
 
 /** The minimal view of the character whose presence is being shown. */
 export interface PresenceSubject {

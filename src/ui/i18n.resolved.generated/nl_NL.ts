@@ -5048,6 +5048,13 @@ export const nl_NL: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Offline verbergen",
       "hideOfflineTitle": "Offline gildeleden verbergen",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Gildeprikbord",
         "empty": "Nog niets op het prikbord.",

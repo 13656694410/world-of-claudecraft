@@ -2492,7 +2492,7 @@ export class GameServer {
       if (snap.guild && !this.sim.guildBanks.has(snap.guild.id)) {
         await this.guildBankLazyLoader.ensureLoaded(snap.guild.id);
       }
-      this.send(session, { t: 'social', ...snap });
+      this.send(session, { t: 'social', ...snap, presenceMode: session.presenceMode });
       // Stamp the guild name onto the player's world entity so it rides the
       // identity wire and shows under their nameplate for everyone nearby,
       // PAIRED with the session-only membership stamp the guild bank's
