@@ -3055,8 +3055,11 @@ describe('dungeons: raid lockout gate', () => {
     enterDungeon(sim.ctx, 'nythraxis_boss_arena', leader);
     const claim = claimedDungeon(sim, 'nythraxis_boss_arena', 'normal');
     const claimId = claim.exitId;
-    teleport(sim, sim.entities.get(leader) as AnyEntity, 0, 0);
+    // Flipped from inside, so the change's implicit reset is refused and the
+    // explicit Reset All is what moves the claim once the raid is outside.
     sim.setDungeonDifficulty('heroic', leader);
+    expect(claim.exitId).toBe(claimId);
+    teleport(sim, sim.entities.get(leader) as AnyEntity, 0, 0);
 
     sim.resetDungeonInstances(leader);
 
@@ -3099,6 +3102,7 @@ describe('dungeons: raid lockout gate', () => {
     teleport(sim, sim.entities.get(leader) as AnyEntity, 0, 0);
     sim.setDungeonDifficulty('heroic', leader);
     const inst = claimedDungeon(sim, 'nythraxis_boss_arena', 'heroic');
+    expect(inst).toBeTruthy();
     enterDungeon(sim.ctx, 'nythraxis_boss_arena', leader);
     // Flipped back from inside: the implicit reset is refused.
     sim.setDungeonDifficulty('normal', leader);
