@@ -16,9 +16,11 @@ export function canObserveEntity(sim: Sim, viewer: Entity, entity: Entity, d2: n
     return false;
   if (entity.kind !== 'player') return true;
   // A released spirit is seen only by its own party or raid, everywhere: a
-  // ghost cannot be attacked, so a stranger's ghost is a free scout. The body
-  // before release stays visible to everyone.
-  if (entity.ghost && !inViewerGroup(sim, viewer, entity)) return false;
+  // ghost cannot be attacked, so a stranger's ghost is a free scout. Other
+  // ghosts still see it (the classic graveyard crowd): one spirit learns
+  // nothing about the living from another. The body before release stays
+  // visible to everyone.
+  if (entity.ghost && !viewer.ghost && !inViewerGroup(sim, viewer, entity)) return false;
   if (!isStealthed(entity)) return true;
   if (sim.isHostileTo(viewer, entity)) return false;
   const sameParty = inViewerGroup(sim, viewer, entity);

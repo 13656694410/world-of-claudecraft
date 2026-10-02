@@ -539,6 +539,31 @@ describe('crowd interest management', () => {
     expect(shipped(viewerFc)).toBe(true);
   });
 
+  it('lets a stranger ghost be seen by other ghosts (the classic graveyard crowd)', () => {
+    placeSubjectAt(10);
+    const s = server.sim.entities.get(subject.pid)!;
+    const v = server.sim.entities.get(viewer.pid)!;
+    const shipped = (): boolean => {
+      const snap = lastSnap(viewerFc.sent);
+      return entRecord(snap, subject.pid) !== null || inKeep(snap, subject.pid);
+    };
+    s.hp = 0;
+    s.dead = true;
+    server.sim.releaseSpirit(subject.pid);
+    placeSubjectAt(10);
+    viewerFc.sent.length = 0;
+    step(server);
+    expect(shipped(), 'a living stranger does not see the ghost').toBe(false);
+    v.hp = 0;
+    v.dead = true;
+    server.sim.releaseSpirit(viewer.pid);
+    expect(v.ghost).toBe(true);
+    placeSubjectAt(10);
+    viewerFc.sent.length = 0;
+    step(server);
+    expect(shipped(), 'a ghost sees the other ghost').toBe(true);
+  });
+
   it('keeps stationary npcs visible out to the legacy 120yd radius', () => {
     const npc = [...server.sim.entities.values()].find((e) => e.kind === 'npc')!;
     // viewer 110yd from the npc, subject player at the same distance
