@@ -2786,8 +2786,9 @@ export const de_DE: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Lasse Welt-PvP aktiv, um {percent} mehr Erfahrung und Fraktionsruf zu erhalten. Die Boni enden, sobald du die Deaktivierung anforderst.",
-      "rewardTitles": "Erhalte nach {thresholds} Spielzeit mit aktivem Welt-PvP in der offenen Welt dauerhafte Titel. Ausloggen, Instanzen und die Bewährungsküste pausieren den Zähler. Deaktivieren setzt ihn zurück.",
+      "rewardTitles": "Erhalte nach {thresholds} Spielzeit mit aktivem Welt-PvP in der offenen Welt dauerhafte Titel. Ausloggen, Tod, Instanzen und die Bewährungsküste pausieren den Zähler. Deaktivieren setzt ihn zurück.",
       "rewardPaused": "Aktuelle PvP-Serie: {time} Spielzeit (an der Bewährungsküste pausiert)",
+      "rewardPausedDead": "Aktuelle PvP-Serie: {time} Spielzeit (pausiert, solange du tot bist)",
       "rewardPausedInstance": "Aktuelle PvP-Serie: {time} Spielzeit (in Instanzen pausiert)",
       "rewardProgress": "Aktuelle PvP-Serie: {time} Spielzeit",
       "tab": "Welt-PvP",

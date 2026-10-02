@@ -46,7 +46,7 @@ import { TICK_RATE } from '../types';
 import { hillContains } from './hill_rules';
 import { grantHonor } from './honor';
 import { updatePvpVitality } from './vitality';
-import { updateWorldPvpRewards, worldPvpRewardsTickOn } from './world_pvp_rewards';
+import { updateWorldPvpRewards, worldPvpRewardPause } from './world_pvp_rewards';
 import { sanitizeWorldPvpRewardTicks, worldPvpRewardsActive } from './world_pvp_rewards_rules';
 import {
   WORLD_PVP_ASSIST_WINDOW,
@@ -778,7 +778,7 @@ export function worldPvpInfoFor(
     flagged: state?.flagged === true,
     disarmRemaining: remaining === null ? null : Math.round(remaining),
     rewardSeconds: Math.floor((state?.rewardTicks ?? 0) / (TICK_RATE * 60)) * 60,
-    rewardPaused: worldPvpRewardsActive(state) && !worldPvpRewardsTickOn(r.e.pos.x, zone),
+    rewardPause: worldPvpRewardsActive(state) ? worldPvpRewardPause(r.e, zone) : null,
     kills: state?.kills ?? 0,
     deaths: state?.deaths ?? 0,
     levelLocked: r.e.level < WORLD_PVP_MIN_LEVEL,

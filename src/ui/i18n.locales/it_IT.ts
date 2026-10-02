@@ -20189,11 +20189,13 @@ export const it_IT: Partial<Record<TranslationKey, string>> = {
     'Mantieni attivo il PvP mondiale per ottenere {percent} di esperienza e reputazione di fazione in più. I bonus terminano quando ne richiedi la disattivazione.',
   'hudChrome.worldPvp.rewardPaused':
     'Serie PvP attuale: {time} di gioco (in pausa sulla Riva della Prova)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Serie PvP attuale: {time} di gioco (in pausa finché sei morto)',
   'hudChrome.worldPvp.rewardPausedInstance':
     'Serie PvP attuale: {time} di gioco (in pausa nelle istanze)',
   'hudChrome.worldPvp.rewardProgress': 'Serie PvP attuale: {time} di gioco',
   'hudChrome.worldPvp.rewardTitles':
-    'Ottieni titoli permanenti dopo {thresholds} di tempo giocato nel mondo aperto con il PvP mondiale attivo. La disconnessione, le istanze e la Riva della Prova mettono in pausa il timer. Disattivarlo lo azzera.',
+    'Ottieni titoli permanenti dopo {thresholds} di tempo giocato nel mondo aperto con il PvP mondiale attivo. La disconnessione, la morte, le istanze e la Riva della Prova mettono in pausa il timer. Disattivarlo lo azzera.',
   'guide.worldPvpPage.introZones':
     "Il PvP nel mondo aperto è facoltativo e dipende dal terreno. Alzando la bandiera, gli altri giocatori contrassegnati fuori dal tuo gruppo o incursione diventano nemici nelle zone contese; abbassandola, dopo una breve attesa torni spettatore. La Riva della Prova è l'unico santuario, senza combattimenti PvP mondiali. Le tre zone più a nord seguono le stesse regole di partecipazione volontaria del resto del mondo. Entrare nel cerchio attivo del Re della Collina alza automaticamente la bandiera. I compagni di gruppo e incursione non sono mai nemici; i membri della gilda fuori dal tuo gruppo possono essere combattuti come gli altri giocatori.",
   'guide.worldPvpPage.zonesBody':

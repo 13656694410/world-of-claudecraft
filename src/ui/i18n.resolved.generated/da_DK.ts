@@ -2786,8 +2786,9 @@ export const da_DK: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Hold verdens-PvP aktiveret for at få {percent} mere erfaring og fraktionsomdømme. Bonusserne ophører, når du anmoder om at slå det fra.",
-      "rewardTitles": "Optjen permanente titler efter {thresholds} spilletid med verdens-PvP aktiveret i den åbne verden. Udlogning, instanser og Prøvestranden sætter tælleren på pause. Deaktivering nulstiller den.",
+      "rewardTitles": "Optjen permanente titler efter {thresholds} spilletid med verdens-PvP aktiveret i den åbne verden. Udlogning, død, instanser og Prøvestranden sætter tælleren på pause. Deaktivering nulstiller den.",
       "rewardPaused": "Nuværende PvP-serie: {time} spillet (sat på pause på Prøvestranden)",
+      "rewardPausedDead": "Nuværende PvP-serie: {time} spillet (sat på pause, mens du er død)",
       "rewardPausedInstance": "Nuværende PvP-serie: {time} spillet (sat på pause i instanser)",
       "rewardProgress": "Nuværende PvP-serie: {time} spillet",
       "tab": "Verden PvP",

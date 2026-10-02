@@ -223,7 +223,7 @@ describe('the /pvp flag lifecycle', () => {
     const a = addFighter(sim, 'Aleph');
     expect(sim.worldPvpInfoFor(a)).toEqual({
       rewardSeconds: 0,
-      rewardPaused: false,
+      rewardPause: null,
       flagged: false,
       disarmRemaining: null,
       kills: 0,

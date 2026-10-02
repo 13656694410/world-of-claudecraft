@@ -20042,11 +20042,13 @@ export const pt_BR: Partial<Record<TranslationKey, string>> = {
     'Mantenha o PvP mundial ativo para ganhar {percent} a mais de experiência e reputação de facção. Os bônus param quando você solicita a desativação.',
   'hudChrome.worldPvp.rewardPaused':
     'Sequência PvP atual: {time} de jogo (pausada na Costa da Provação)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Sequência PvP atual: {time} de jogo (pausada enquanto você estiver morto)',
   'hudChrome.worldPvp.rewardPausedInstance':
     'Sequência PvP atual: {time} de jogo (pausada dentro de instâncias)',
   'hudChrome.worldPvp.rewardProgress': 'Sequência PvP atual: {time} de jogo',
   'hudChrome.worldPvp.rewardTitles':
-    'Ganhe títulos permanentes após {thresholds} de tempo jogado no mundo aberto com o PvP mundial ativo. Sair do jogo, entrar em instâncias ou visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.',
+    'Ganhe títulos permanentes após {thresholds} de tempo jogado no mundo aberto com o PvP mundial ativo. Sair do jogo, morrer, entrar em instâncias ou visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.',
   'guide.worldPvpPage.introZones':
     'O PvP em mundo aberto é opcional e depende do terreno. Em áreas disputadas, ativar sua bandeira de PvP torna inimigos todos os jogadores com bandeira fora do seu grupo ou raide; desativá-la torna você espectador novamente após um breve atraso. A Costa da Provação é o único santuário, sem combates no mundo, e as três áreas mais ao norte seguem as mesmas regras de bandeira opcional do restante do mundo. Entrar em um círculo ativo do Rei da Colina ativa sua bandeira automaticamente. Companheiros de grupo e raide nunca são seus inimigos em lugar algum; membros da guilda fora do seu grupo podem ser atacados como qualquer outro jogador.',
   'guide.worldPvpPage.zonesBody':

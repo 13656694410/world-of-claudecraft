@@ -19777,11 +19777,12 @@ export const tr_TR: Partial<Record<TranslationKey, string>> = {
     '{percent} daha fazla deneyim ve fraksiyon itibarı kazanmak için Dünya PvP’sini açık tut. Kapatmayı talep ettiğinde bonuslar sona erer.',
   'hudChrome.worldPvp.rewardPaused':
     'Mevcut PvP serisi: {time} oynandı (Sınav Kıyısı’nda duraklatıldı)',
+  'hudChrome.worldPvp.rewardPausedDead': 'Mevcut PvP serisi: {time} oynandı (ölüyken duraklatıldı)',
   'hudChrome.worldPvp.rewardPausedInstance':
     'Mevcut PvP serisi: {time} oynandı (örneklerde duraklatıldı)',
   'hudChrome.worldPvp.rewardProgress': 'Mevcut PvP serisi: {time} oynandı',
   'hudChrome.worldPvp.rewardTitles':
-    'Açık dünyada Dünya PvP’si açıkken {thresholds} oynama süresine ulaşarak kalıcı unvanlar kazan. Çıkış yapmak, örneklerde bulunmak ve Sınav Kıyısı’nı ziyaret etmek sayacı duraklatır. Kapatmak sayacı sıfırlar.',
+    'Açık dünyada Dünya PvP’si açıkken {thresholds} oynama süresine ulaşarak kalıcı unvanlar kazan. Çıkış yapmak, ölü olmak, örneklerde bulunmak ve Sınav Kıyısı’nı ziyaret etmek sayacı duraklatır. Kapatmak sayacı sıfırlar.',
   'guide.worldPvpPage.introZones':
     'Açık dünyada PvP isteğe bağlıdır ve bulunduğun bölgeye göre değişir. Çekişmeli bölgelerde PvP bayrağını açınca grup veya baskının dışındaki tüm bayraklı oyuncular düşman olur; kapatınca kısa bir gecikmenin ardından yeniden seyirci olursun. Sınav Kıyısı, dünya savaşlarının olmadığı tek sığınaktır ve en kuzeydeki üç bölge de dünyanın geri kalanıyla aynı isteğe bağlı bayrak kurallarını kullanır. Tepe Derdine etkinliğinin aktif çemberine girmek bayrağını otomatik olarak açar. Grup ve baskın arkadaşların hiçbir yerde düşmanın olmaz; grubun dışındaki lonca üyeleri diğer oyuncular gibi hedeftir.',
   'guide.worldPvpPage.zonesBody':

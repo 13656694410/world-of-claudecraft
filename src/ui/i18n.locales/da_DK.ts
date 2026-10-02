@@ -19767,11 +19767,13 @@ export const da_DK: Partial<Record<TranslationKey, string>> = {
     'Hold verdens-PvP aktiveret for at få {percent} mere erfaring og fraktionsomdømme. Bonusserne ophører, når du anmoder om at slå det fra.',
   'hudChrome.worldPvp.rewardPaused':
     'Nuværende PvP-serie: {time} spillet (sat på pause på Prøvestranden)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Nuværende PvP-serie: {time} spillet (sat på pause, mens du er død)',
   'hudChrome.worldPvp.rewardPausedInstance':
     'Nuværende PvP-serie: {time} spillet (sat på pause i instanser)',
   'hudChrome.worldPvp.rewardProgress': 'Nuværende PvP-serie: {time} spillet',
   'hudChrome.worldPvp.rewardTitles':
-    'Optjen permanente titler efter {thresholds} spilletid med verdens-PvP aktiveret i den åbne verden. Udlogning, instanser og Prøvestranden sætter tælleren på pause. Deaktivering nulstiller den.',
+    'Optjen permanente titler efter {thresholds} spilletid med verdens-PvP aktiveret i den åbne verden. Udlogning, død, instanser og Prøvestranden sætter tælleren på pause. Deaktivering nulstiller den.',
   'guide.worldPvpPage.introZones':
     'PvP i den åbne verden er frivilligt og afhænger af området. På omstridt jord gør dit aktive PvP-flag alle spillere med flag uden for din gruppe eller dit raid til fjender; slår du det fra, bliver du tilskuer igen efter en kort forsinkelse. Prøvestranden er det eneste fristed uden verdenskampe, og de tre nordligste områder bruger samme frivillige flagregler som resten af verden. Dit flag aktiveres automatisk, når du går ind i en aktiv cirkel i Konge af Bakken. Gruppe- og raidfæller er aldrig dine fjender; guildmedlemmer uden for din gruppe er mål som alle andre.',
   'guide.worldPvpPage.zonesBody':

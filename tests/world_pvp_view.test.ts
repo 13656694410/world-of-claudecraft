@@ -734,22 +734,24 @@ describe('World PvP reward display', () => {
     expect(worldPvpBodyHtml(view(false))).toContain('aria-disabled="true"');
   });
 
-  it('shows the streak paused inside an instance, where the ground still reads contested', () => {
+  it('names the pause cause the sim sends, where instance ground still reads contested', () => {
     setLanguage('en');
-    const view = (rewardPaused: boolean | undefined) =>
+    const view = (rewardPause: WorldPvpInfo['rewardPause']) =>
       buildWorldPvpWindowView({
-        info: info({ flagged: true, zone: 'contested', rewardSeconds: 120, rewardPaused }),
+        info: info({ flagged: true, zone: 'contested', rewardSeconds: 120, rewardPause }),
         honor: 0,
         confirming: false,
       });
-    expect(view(true)).toMatchObject({ action: 'disable', rewardPaused: true });
-    expect(worldPvpBodyHtml(view(true))).toContain(
+    expect(view('instance')).toMatchObject({ action: 'disable', rewardPause: 'instance' });
+    expect(worldPvpBodyHtml(view('instance'))).toContain(
       'Current PvP streak: 0:02 played (paused inside instances)',
     );
-    expect(worldPvpBodyHtml(view(true))).not.toContain('Proving Shore)');
-    expect(worldPvpBodyHtml(view(false))).toContain('Current PvP streak: 0:02 played<');
-    // An older server sends no flag: contested ground there was never paused.
-    expect(view(undefined)).toMatchObject({ rewardPaused: false });
+    expect(worldPvpBodyHtml(view('dead'))).toContain(
+      'Current PvP streak: 0:02 played (paused while dead)',
+    );
+    expect(worldPvpBodyHtml(view(null))).toContain('Current PvP streak: 0:02 played<');
+    // An older server sends no cause: contested ground there was never paused.
+    expect(view(undefined)).toMatchObject({ rewardPause: null });
   });
 
   it('displays the bonus and streak rules, without progress in the repaint signature', () => {
@@ -768,7 +770,7 @@ describe('World PvP reward display', () => {
     const html = worldPvpBodyHtml(first);
     expect(html).toContain('20% more experience and faction reputation');
     expect(html).toContain('with World PvP on in the open world');
-    expect(html).toContain('Logout, instances and the Proving Shore pause the timer');
+    expect(html).toContain('Logout, death, instances and the Proving Shore pause the timer');
     expect(html).toContain('Switching off resets it');
     expect(html).toContain('Current PvP streak: 1:00 played');
     expect(html).toContain('7 days');

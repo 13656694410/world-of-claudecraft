@@ -12,17 +12,20 @@
 
 export type WorldPvpZone = 'sanctuary' | 'contested' | 'ffa';
 
+/** Why an armed World PvP streak is not ticking (src/sim/pvp/world_pvp_rewards.ts). */
+export type WorldPvpRewardPause = 'dead' | 'instance' | 'sanctuary';
+
 export interface WorldPvpInfo {
   /** Attackable by, and able to attack, other flagged players right now.
    *  Stays true through the whole disarm countdown. */
   flagged: boolean;
   /** Played seconds rounded down to whole minutes; absent on older servers. */
   rewardSeconds?: number;
-  /** The flag is armed but where the player stands pauses the streak: an
-   *  instance or a sanctuary (world_pvp_rewards.ts worldPvpRewardsTickOn).
-   *  Never true on a realm with the kill switch set, where no flag is ever
-   *  armed. Absent on older servers. */
-  rewardPaused?: boolean;
+  /** Why the armed streak is paused right now: dead (a corpse or a ghost),
+   *  inside an instance, or on sanctuary ground (world_pvp_rewards.ts
+   *  worldPvpRewardPause). Null while it ticks or while no flag is armed, so
+   *  always null on a realm with the kill switch set. Absent on older servers. */
+  rewardPause?: WorldPvpRewardPause | null;
   /** Seconds until the flag drops after /pvp off, or null when it is not
    *  switching off (armed for good, or not flagged). */
   disarmRemaining: number | null;

@@ -19684,11 +19684,13 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
     'Nechte světové PvP zapnuté a získávejte o {percent} více zkušeností a reputace frakcí. Bonusy skončí, jakmile požádáte o vypnutí.',
   'hudChrome.worldPvp.rewardPaused':
     'Aktuální série PvP: odehráno {time} (pozastaveno na Zkušebním pobřeží)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Aktuální série PvP: odehráno {time} (pozastaveno, dokud jste mrtví)',
   'hudChrome.worldPvp.rewardPausedInstance':
     'Aktuální série PvP: odehráno {time} (pozastaveno v instancích)',
   'hudChrome.worldPvp.rewardProgress': 'Aktuální série PvP: odehráno {time}',
   'hudChrome.worldPvp.rewardTitles':
-    'Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP v otevřeném světě. Odhlášení, instance a Zkušební pobřeží časovač pozastaví. Vypnutí jej vynuluje.',
+    'Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP v otevřeném světě. Odhlášení, smrt, instance a Zkušební pobřeží časovač pozastaví. Vypnutí jej vynuluje.',
   'guide.worldPvpPage.introZones':
     'PvP v otevřeném světě je dobrovolné a záleží na oblasti. Ve sporných oblastech z vás zapnutý příznak PvP dělá nepřítele všech označených hráčů mimo vaši skupinu či nájezd; po vypnutí a krátké prodlevě jste opět pozorovatelem. Zkušební pobřeží je jediné útočiště bez bojů ve světě a tři nejsevernější oblasti používají stejná pravidla dobrovolného příznaku jako zbytek světa. Vstup do aktivního kruhu Krále kopce automaticky zapne váš příznak. Členové skupiny a nájezdu nikdy nejsou vašimi nepřáteli; členové cechu mimo vaši skupinu jsou běžné cíle.',
   'guide.worldPvpPage.zonesBody':

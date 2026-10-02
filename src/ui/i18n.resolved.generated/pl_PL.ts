@@ -2786,8 +2786,9 @@ export const pl_PL: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Pozostaw światowe PvP włączone, aby zdobywać o {percent} więcej doświadczenia i reputacji frakcji. Premie kończą się, gdy poprosisz o wyłączenie.",
-      "rewardTitles": "Zdobywaj stałe tytuły po {thresholds} czasu gry w otwartym świecie z włączonym światowym PvP. Wylogowanie, instancje i Wybrzeże Prób wstrzymują licznik. Wyłączenie go zeruje.",
+      "rewardTitles": "Zdobywaj stałe tytuły po {thresholds} czasu gry w otwartym świecie z włączonym światowym PvP. Wylogowanie, śmierć, instancje i Wybrzeże Prób wstrzymują licznik. Wyłączenie go zeruje.",
       "rewardPaused": "Obecna seria PvP: {time} gry (wstrzymana na Wybrzeżu Prób)",
+      "rewardPausedDead": "Obecna seria PvP: {time} gry (wstrzymana, gdy nie żyjesz)",
       "rewardPausedInstance": "Obecna seria PvP: {time} gry (wstrzymana w instancjach)",
       "rewardProgress": "Obecna seria PvP: {time} gry",
       "tab": "PvP Świata",

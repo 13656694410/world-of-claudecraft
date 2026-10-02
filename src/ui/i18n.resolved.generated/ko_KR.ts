@@ -2786,8 +2786,9 @@ export const ko_KR: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "월드 PvP를 켜 두면 경험치와 진영 평판을 {percent} 더 얻습니다. 끄기를 요청하면 즉시 보너스가 중단됩니다.",
-      "rewardTitles": "열린 세계에서 월드 PvP를 켠 플레이 시간이 {thresholds}에 도달하면 영구 칭호를 얻습니다. 로그아웃하거나 인스턴스 또는 수련의 해안에 머무는 동안 타이머가 멈춥니다. PvP를 끄면 초기화됩니다.",
+      "rewardTitles": "열린 세계에서 월드 PvP를 켠 플레이 시간이 {thresholds}에 도달하면 영구 칭호를 얻습니다. 로그아웃하거나 사망 상태이거나 인스턴스 또는 수련의 해안에 머무는 동안 타이머가 멈춥니다. PvP를 끄면 초기화됩니다.",
       "rewardPaused": "현재 PvP 유지 시간: {time} (수련의 해안에서 일시 정지)",
+      "rewardPausedDead": "현재 PvP 유지 시간: {time} (사망 상태에서 일시 정지)",
       "rewardPausedInstance": "현재 PvP 유지 시간: {time} (인스턴스에서 일시 정지)",
       "rewardProgress": "현재 PvP 유지 시간: {time}",
       "tab": "월드 PvP",
