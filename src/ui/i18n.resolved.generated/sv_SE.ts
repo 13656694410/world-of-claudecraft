@@ -2786,8 +2786,10 @@ export const sv_SE: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Ha världs-PvP aktiverat för att få {percent} mer erfarenhet och fraktionsrykte. Bonusarna upphör när du begär att stänga av det.",
-      "rewardTitles": "Få permanenta titlar efter {thresholds} speltid med världs-PvP aktiverat. Utloggning och besök på Prövostranden pausar räknaren. Avstängning nollställer den.",
+      "rewardTitles": "Få permanenta titlar efter {thresholds} speltid i den öppna världen med världs-PvP aktiverat. Utloggning, död, instanser och Prövostranden pausar räknaren. Avstängning nollställer den.",
       "rewardPaused": "Nuvarande PvP-svit: {time} spelat (pausad på Prövostranden)",
+      "rewardPausedDead": "Nuvarande PvP-svit: {time} spelat (pausad medan du är död)",
+      "rewardPausedInstance": "Nuvarande PvP-svit: {time} spelat (pausad i instanser)",
       "rewardProgress": "Nuvarande PvP-svit: {time} spelat",
       "tab": "Världskamp",
       "title": "Världskamp",

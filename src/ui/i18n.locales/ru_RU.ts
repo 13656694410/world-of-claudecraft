@@ -19986,9 +19986,13 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     'При включенном мировом PvP вы получаете на {percent} больше опыта и репутации фракций. Бонусы прекращаются сразу после запроса на отключение.',
   'hudChrome.worldPvp.rewardTitles':
-    'Постоянные титулы выдаются за {thresholds} игрового времени с включенным мировым PvP. Выход из игры и пребывание на Берегу Испытаний приостанавливают таймер. Отключение PvP сбрасывает его.',
+    'Постоянные титулы выдаются за {thresholds} игрового времени в открытом мире с включенным мировым PvP. Выход из игры, смерть, пребывание в подземельях и на Берегу Испытаний приостанавливают таймер. Отключение PvP сбрасывает его.',
   'hudChrome.worldPvp.rewardPaused':
     'Текущая серия PvP: {time} игрового времени (приостановлена на Берегу Испытаний)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Текущая серия PvP: {time} игрового времени (приостановлена, пока вы мертвы)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Текущая серия PvP: {time} игрового времени (приостановлена в подземельях)',
   'hudChrome.worldPvp.rewardProgress': 'Текущая серия PvP: {time} игрового времени',
   'hudChrome.hill.pvpEntry': 'Вход в активный круг включает мировой PvP.',
   'hudChrome.hill.pvpBanner': 'PvP',

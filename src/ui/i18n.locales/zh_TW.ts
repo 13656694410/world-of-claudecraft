@@ -18670,8 +18670,10 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     '保持世界PvP開啟可多獲得{percent}的經驗值和陣營聲望。請求關閉時，加成立即停止。',
   'hudChrome.worldPvp.rewardTitles':
-    '開啟世界PvP的遊戲時間達到{thresholds}時，可獲得永久頭銜。離線或身處試煉之濱時計時暫停。關閉PvP會重置計時。',
+    '在開放世界中開啟世界PvP的遊戲時間達到{thresholds}時，可獲得永久頭銜。離線、死亡、身處副本或試煉之濱時計時暫停。關閉PvP會重置計時。',
   'hudChrome.worldPvp.rewardPaused': '目前PvP連續遊戲時間：{time}（在試煉之濱暫停）',
+  'hudChrome.worldPvp.rewardPausedDead': '目前PvP連續遊戲時間：{time}（死亡期間暫停）',
+  'hudChrome.worldPvp.rewardPausedInstance': '目前PvP連續遊戲時間：{time}（在副本中暫停）',
   'hudChrome.worldPvp.rewardProgress': '目前PvP連續遊戲時間：{time}',
   'hudChrome.hill.pvpEntry': '進入活動圈會開啟世界 PvP。',
   'hudChrome.hill.pvpBanner': 'PvP',

@@ -19784,9 +19784,13 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     'Ha världs-PvP aktiverat för att få {percent} mer erfarenhet och fraktionsrykte. Bonusarna upphör när du begär att stänga av det.',
   'hudChrome.worldPvp.rewardPaused': 'Nuvarande PvP-svit: {time} spelat (pausad på Prövostranden)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Nuvarande PvP-svit: {time} spelat (pausad medan du är död)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Nuvarande PvP-svit: {time} spelat (pausad i instanser)',
   'hudChrome.worldPvp.rewardProgress': 'Nuvarande PvP-svit: {time} spelat',
   'hudChrome.worldPvp.rewardTitles':
-    'Få permanenta titlar efter {thresholds} speltid med världs-PvP aktiverat. Utloggning och besök på Prövostranden pausar räknaren. Avstängning nollställer den.',
+    'Få permanenta titlar efter {thresholds} speltid i den öppna världen med världs-PvP aktiverat. Utloggning, död, instanser och Prövostranden pausar räknaren. Avstängning nollställer den.',
   'guide.worldPvpPage.introZones':
     'PvP i den öppna världen är frivilligt och beror på området. På omstridd mark gör din aktiva PvP-flagga alla flaggade spelare utanför din grupp eller raid till fiender; stänger du av den blir du åskådare igen efter en kort fördröjning. Prövostranden är den enda fristaden utan världsstrider, och de tre nordligaste områdena använder samma frivilliga flaggregler som resten av världen. Din flagga aktiveras automatiskt när du går in i en aktiv cirkel i Kullens kung. Grupp- och raidkamrater är aldrig dina fiender någonstans; guildmedlemmar utanför din grupp är mål som alla andra.',
   'guide.worldPvpPage.zonesBody':

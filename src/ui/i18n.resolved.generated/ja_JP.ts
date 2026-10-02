@@ -2786,8 +2786,10 @@ export const ja_JP: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "ワールドPvPを有効にしている間、経験値と勢力の評判の獲得量が{percent}増加します。無効化を要求した時点でボーナスは終了します。",
-      "rewardTitles": "ワールドPvPを有効にしたプレイ時間が{thresholds}に達すると、永続的な称号を獲得します。ログアウト中と修練の浜ではタイマーが停止します。PvPを無効にするとリセットされます。",
+      "rewardTitles": "オープンワールドでワールドPvPを有効にしたプレイ時間が{thresholds}に達すると、永続的な称号を獲得します。ログアウト中、死亡中、インスタンス内、修練の浜ではタイマーが停止します。PvPを無効にするとリセットされます。",
       "rewardPaused": "現在のPvP継続時間：{time}（修練の浜で一時停止中）",
+      "rewardPausedDead": "現在のPvP継続時間：{time}（死亡中のため一時停止中）",
+      "rewardPausedInstance": "現在のPvP継続時間：{time}（インスタンス内で一時停止中）",
       "rewardProgress": "現在のPvP継続時間：{time}",
       "tab": "ワールドPvP",
       "title": "ワールドPvP",

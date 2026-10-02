@@ -2786,8 +2786,10 @@ export const es_ES: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Mantén el JcJ mundial activado para ganar un {percent} más de experiencia y reputación de facción. Las bonificaciones terminan cuando solicitas desactivarlo.",
-      "rewardTitles": "Consigue títulos permanentes tras {thresholds} de tiempo jugado con el JcJ mundial activado. Desconectarte y visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.",
+      "rewardTitles": "Consigue títulos permanentes tras {thresholds} de tiempo jugado en el mundo abierto con el JcJ mundial activado. Desconectarte, morir, entrar en instancias o visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.",
       "rewardPaused": "Racha JcJ actual: {time} de juego (en pausa en la Costa de la Prueba)",
+      "rewardPausedDead": "Racha JcJ actual: {time} de juego (en pausa mientras estás muerto)",
+      "rewardPausedInstance": "Racha JcJ actual: {time} de juego (en pausa dentro de instancias)",
       "rewardProgress": "Racha JcJ actual: {time} de juego",
       "tab": "JcJ mundial",
       "title": "JcJ mundial",

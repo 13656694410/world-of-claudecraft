@@ -2786,8 +2786,10 @@ export const zh_CN: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "保持世界PvP开启可多获得{percent}的经验值和阵营声望。请求关闭时，加成立即停止。",
-      "rewardTitles": "开启世界PvP的游戏时间达到{thresholds}时，可获得永久头衔。离线或身处试炼之滨时计时暂停。关闭PvP会重置计时。",
+      "rewardTitles": "在开放世界中开启世界PvP的游戏时间达到{thresholds}时，可获得永久头衔。离线、死亡、身处副本或试炼之滨时计时暂停。关闭PvP会重置计时。",
       "rewardPaused": "当前PvP连续游戏时间：{time}（在试炼之滨暂停）",
+      "rewardPausedDead": "当前PvP连续游戏时间：{time}（死亡期间暂停）",
+      "rewardPausedInstance": "当前PvP连续游戏时间：{time}（在副本中暂停）",
       "rewardProgress": "当前PvP连续游戏时间：{time}",
       "tab": "世界 PvP",
       "title": "世界 PvP",
