@@ -7029,7 +7029,14 @@ export const zh_TW: EnTranslations = {
       "discord": "加入Discord",
       "communityWiki": "社群Wiki",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "遊玩與社群連結"
+      "linksLabel": "遊玩與社群連結",
+      "guidesLabel": "玩家指南",
+      "guideFree": "Free MMORPGs",
+      "guideGamesLikeWow": "類似 WoW 的遊戲",
+      "guideBest": "Best MMORPGs",
+      "guideNew": "New MMORPGs",
+      "guideBrowser": "瀏覽器 MMORPG",
+      "guideGamesLikeDiablo": "類似《暗黑破壞神》的遊戲"
     },
     "language": {
       "label": "語言",
@@ -9667,7 +9674,14 @@ export const zh_TW: EnTranslations = {
     "whitepaper": "白皮書",
     "terms": "服務條款",
     "privacy": "隱私權政策",
-    "discordLabel": "加入Discord社區"
+    "discordLabel": "加入Discord社區",
+    "guidesLabel": "玩家指南",
+    "guideFree": "Free MMORPGs",
+    "guideGamesLikeWow": "類似 WoW 的遊戲",
+    "guideBest": "Best MMORPGs",
+    "guideNew": "New MMORPGs",
+    "guideBrowser": "瀏覽器 MMORPG",
+    "guideGamesLikeDiablo": "類似《暗黑破壞神》的遊戲"
   },
   "settings": {
     "languageLoading": "正在載入語言...",

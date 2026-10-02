@@ -7029,7 +7029,14 @@ export const ja_JP: EnTranslations = {
       "discord": "Discordに参加",
       "communityWiki": "コミュニティWiki",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "プレイとコミュニティのリンク"
+      "linksLabel": "プレイとコミュニティのリンク",
+      "guidesLabel": "プレイヤーガイド",
+      "guideFree": "Free MMORPGs",
+      "guideGamesLikeWow": "WoWに似たゲーム",
+      "guideBest": "Best MMORPGs",
+      "guideNew": "New MMORPGs",
+      "guideBrowser": "ブラウザMMORPG",
+      "guideGamesLikeDiablo": "ディアブロに似たゲーム"
     },
     "language": {
       "label": "言語",
@@ -9667,7 +9674,14 @@ export const ja_JP: EnTranslations = {
     "whitepaper": "ホワイトペーパー",
     "terms": "利用規約",
     "privacy": "プライバシーポリシー",
-    "discordLabel": "Discordに参加する"
+    "discordLabel": "Discordに参加する",
+    "guidesLabel": "プレイヤーガイド",
+    "guideFree": "Free MMORPGs",
+    "guideGamesLikeWow": "WoWに似たゲーム",
+    "guideBest": "Best MMORPGs",
+    "guideNew": "New MMORPGs",
+    "guideBrowser": "ブラウザMMORPG",
+    "guideGamesLikeDiablo": "ディアブロに似たゲーム"
   },
   "settings": {
     "languageLoading": "言語を読み込んでいます...",

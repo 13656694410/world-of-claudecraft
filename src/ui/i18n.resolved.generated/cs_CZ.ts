@@ -7029,7 +7029,14 @@ export const cs_CZ: EnTranslations = {
       "discord": "Připojit se na Discord",
       "communityWiki": "Komunitní wiki",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Odkazy na hru a komunitu"
+      "linksLabel": "Odkazy na hru a komunitu",
+      "guidesLabel": "Player guides",
+      "guideFree": "Free MMORPGs",
+      "guideGamesLikeWow": "Games like WoW",
+      "guideBest": "Best MMORPGs",
+      "guideNew": "New MMORPGs",
+      "guideBrowser": "Browser MMORPGs",
+      "guideGamesLikeDiablo": "Games like Diablo"
     },
     "language": {
       "label": "Jazyk",
@@ -9667,7 +9674,14 @@ export const cs_CZ: EnTranslations = {
     "whitepaper": "Whitepaper",
     "terms": "Podmínky služby",
     "privacy": "Zásady ochrany soukromí",
-    "discordLabel": "Připojit se na Discord"
+    "discordLabel": "Připojit se na Discord",
+    "guidesLabel": "Player guides",
+    "guideFree": "Free MMORPGs",
+    "guideGamesLikeWow": "Games like WoW",
+    "guideBest": "Best MMORPGs",
+    "guideNew": "New MMORPGs",
+    "guideBrowser": "Browser MMORPGs",
+    "guideGamesLikeDiablo": "Games like Diablo"
   },
   "settings": {
     "languageLoading": "Načítá se jazyk...",

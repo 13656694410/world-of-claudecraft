@@ -7029,7 +7029,14 @@ export const vi_VN: EnTranslations = {
       "discord": "Tham gia Discord",
       "communityWiki": "Wiki Cộng Đồng",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Liên kết chơi và cộng đồng"
+      "linksLabel": "Liên kết chơi và cộng đồng",
+      "guidesLabel": "Player guides",
+      "guideFree": "Free MMORPGs",
+      "guideGamesLikeWow": "Games like WoW",
+      "guideBest": "Best MMORPGs",
+      "guideNew": "New MMORPGs",
+      "guideBrowser": "Browser MMORPGs",
+      "guideGamesLikeDiablo": "Games like Diablo"
     },
     "language": {
       "label": "Ngôn ngữ",
@@ -9667,7 +9674,14 @@ export const vi_VN: EnTranslations = {
     "whitepaper": "Sách trắng",
     "terms": "Điều Khoản Dịch Vụ",
     "privacy": "Chính Sách Bảo Mật",
-    "discordLabel": "Tham Gia Discord"
+    "discordLabel": "Tham Gia Discord",
+    "guidesLabel": "Player guides",
+    "guideFree": "Free MMORPGs",
+    "guideGamesLikeWow": "Games like WoW",
+    "guideBest": "Best MMORPGs",
+    "guideNew": "New MMORPGs",
+    "guideBrowser": "Browser MMORPGs",
+    "guideGamesLikeDiablo": "Games like Diablo"
   },
   "settings": {
     "languageLoading": "Đang tải ngôn ngữ...",

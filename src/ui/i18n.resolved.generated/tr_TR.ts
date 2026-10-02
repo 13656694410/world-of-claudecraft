@@ -7029,7 +7029,14 @@ export const tr_TR: EnTranslations = {
       "discord": "Discord'a Katıl",
       "communityWiki": "Topluluk Wiki'si",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Oyun ve topluluk bağlantıları"
+      "linksLabel": "Oyun ve topluluk bağlantıları",
+      "guidesLabel": "Player guides",
+      "guideFree": "Free MMORPGs",
+      "guideGamesLikeWow": "Games like WoW",
+      "guideBest": "Best MMORPGs",
+      "guideNew": "New MMORPGs",
+      "guideBrowser": "Browser MMORPGs",
+      "guideGamesLikeDiablo": "Games like Diablo"
     },
     "language": {
       "label": "Dil",
@@ -9667,7 +9674,14 @@ export const tr_TR: EnTranslations = {
     "whitepaper": "Teknik Doküman",
     "terms": "Hizmet Koşulları",
     "privacy": "Gizlilik Politikası",
-    "discordLabel": "Discord'a Katıl"
+    "discordLabel": "Discord'a Katıl",
+    "guidesLabel": "Player guides",
+    "guideFree": "Free MMORPGs",
+    "guideGamesLikeWow": "Games like WoW",
+    "guideBest": "Best MMORPGs",
+    "guideNew": "New MMORPGs",
+    "guideBrowser": "Browser MMORPGs",
+    "guideGamesLikeDiablo": "Games like Diablo"
   },
   "settings": {
     "languageLoading": "Dil yükleniyor...",
