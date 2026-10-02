@@ -12770,6 +12770,7 @@ export const fr_CA: EnTranslations = {
       "dps": "({dps} dégâts par seconde)",
       "armorStat": "{value} armure",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Utiliser : rend {amount} points de vie en {seconds} s. Vous devez rester assis en mangeant.",
       "useDrink": "Utiliser : rend {amount} points de mana en {seconds} s. Vous devez rester assis en buvant.",
       "useElixir": "Utiliser : augmente votre {stat} de {value} pendant {minutes} min. Remplace tout autre élixir ou parchemin du même attribut. Utilisable en combat.",

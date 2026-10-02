@@ -4616,6 +4616,7 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'itemUi.tooltip.dps': '（秒間 {dps} ダメージ）',
   'itemUi.tooltip.armorStat': '防御力 {value}',
   'itemUi.tooltip.stat': '+{value} {stat}',
+  'itemUi.tooltip.warfareMainHandOnly': 'ウォーフェアはメインハンドでのみ有効です。',
   'itemUi.tooltip.useFood':
     '使用: {seconds}秒かけて体力を{amount}回復します。食事中は座ったままでいる必要があります。',
   'itemUi.tooltip.useDrink':

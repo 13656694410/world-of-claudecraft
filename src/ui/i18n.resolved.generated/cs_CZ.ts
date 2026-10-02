@@ -12770,6 +12770,7 @@ export const cs_CZ: EnTranslations = {
       "dps": "({dps} poškození za sekundu)",
       "armorStat": "{value} brnění",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Použití: Obnoví {amount} zdraví během {seconds} s. Při jídle musíš zůstat sedět.",
       "useDrink": "Použití: Obnoví {amount} many během {seconds} s. Při pití musíš zůstat sedět.",
       "useElixir": "Použití: Zvyšuje {stat} o {value} na {minutes} min. Nahradí jiný elixír nebo svitek stejné vlastnosti. Použitelné v boji.",

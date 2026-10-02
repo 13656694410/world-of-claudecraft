@@ -12770,6 +12770,7 @@ export const zh_CN: EnTranslations = {
       "dps": "（每秒 {dps} 伤害）",
       "armorStat": "{value} 护甲",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "战争属性仅在主手时生效。",
       "useFood": "使用：在 {seconds} 秒内恢复 {amount} 点生命值。进食时必须保持坐下。",
       "useDrink": "使用：在 {seconds} 秒内恢复 {amount} 点法力值。饮水时必须保持坐下。",
       "useElixir": "使用：使你的{stat}提高 {value} 点，持续 {minutes} 分钟。会顶替其他任何同属性的药剂或卷轴。战斗中可用。",

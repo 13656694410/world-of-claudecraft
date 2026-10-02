@@ -12770,6 +12770,7 @@ export const it_IT: EnTranslations = {
       "dps": "({dps} danni al secondo)",
       "armorStat": "{value} armatura",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Usa: ripristina {amount} salute in {seconds} s. Devi restare seduto mentre mangi.",
       "useDrink": "Usa: ripristina {amount} mana in {seconds} s. Devi restare seduto mentre bevi.",
       "useElixir": "Uso: aumenta il tuo {stat} di {value} per {minutes} min. Sostituisce ogni altro elisir o pergamena dello stesso attributo. Usabile in combattimento.",

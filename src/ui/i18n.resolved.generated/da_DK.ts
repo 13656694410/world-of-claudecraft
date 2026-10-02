@@ -12770,6 +12770,7 @@ export const da_DK: EnTranslations = {
       "dps": "({dps} skade i sekundet)",
       "armorStat": "{value} Rustning",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Brug: Genopretter {amount} helbred over {seconds} sek. Skal forblive siddende mens du spiser.",
       "useDrink": "Brug: Genopretter {amount} mana over {seconds} sek. Skal forblive siddende mens du drikker.",
       "useElixir": "Brug: Øger din {stat} med {value} i {minutes} minutter. Erstatter enhver anden eliksir eller rulle med samme egenskab. Kan bruges i kamp.",

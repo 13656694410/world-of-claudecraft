@@ -12770,6 +12770,7 @@ export const de_DE: EnTranslations = {
       "dps": "({dps} Schaden pro Sekunde)",
       "armorStat": "{value} Rüstung",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Benutzen: Stellt über {seconds} Sek. {amount} Gesundheit wieder her. Ihr müsst beim Essen sitzen bleiben.",
       "useDrink": "Benutzen: Stellt über {seconds} Sek. {amount} Mana wieder her. Ihr müsst beim Trinken sitzen bleiben.",
       "useElixir": "Benutzen: Erhöht deine {stat} für {minutes} Min. um {value}. Ersetzt jedes andere Elixier oder jede Schriftrolle desselben Werts. Im Kampf verwendbar.",

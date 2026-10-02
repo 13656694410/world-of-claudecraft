@@ -12770,6 +12770,7 @@ export const pl_PL: EnTranslations = {
       "dps": "({dps} obrażeń na sekundę)",
       "armorStat": "{value} pancerza",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Użycie: Przywraca {amount} zdrowia w ciągu {seconds} s. Podczas jedzenia musisz pozostać w pozycji siedzącej.",
       "useDrink": "Użycie: Przywraca {amount} many w ciągu {seconds} s. Podczas picia musisz pozostać w pozycji siedzącej.",
       "useElixir": "Użycie: Zwiększa {stat} o {value} na {minutes} min. Zastępuje każdy inny eliksir lub zwój tej samej cechy. Można użyć w walce.",

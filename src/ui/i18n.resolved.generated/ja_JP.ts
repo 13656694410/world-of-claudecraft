@@ -12770,6 +12770,7 @@ export const ja_JP: EnTranslations = {
       "dps": "（秒間 {dps} ダメージ）",
       "armorStat": "防御力 {value}",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "ウォーフェアはメインハンドでのみ有効です。",
       "useFood": "使用: {seconds}秒かけて体力を{amount}回復します。食事中は座ったままでいる必要があります。",
       "useDrink": "使用: {seconds}秒かけてマナを{amount}回復します。飲んでいる間は座ったままでいる必要があります。",
       "useElixir": "使用: {stat}が{value}上昇し、{minutes}分間持続します。同じ能力値の他のエリクサーや巻物の効果を上書きします。戦闘中に使用可能。",

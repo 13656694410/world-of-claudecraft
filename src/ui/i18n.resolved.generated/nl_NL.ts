@@ -12770,6 +12770,7 @@ export const nl_NL: EnTranslations = {
       "dps": "({dps} schade per seconde)",
       "armorStat": "{value} Pantser",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Gebruik: Herstelt {amount} levenskracht over {seconds} sec. Je moet blijven zitten tijdens het eten.",
       "useDrink": "Gebruik: Herstelt {amount} mana over {seconds} sec. Je moet blijven zitten tijdens het drinken.",
       "useElixir": "Gebruik: verhoogt je {stat} met {value} gedurende {minutes} min. Vervangt elk ander elixer of perkament met dezelfde statistiek. Bruikbaar in gevecht.",

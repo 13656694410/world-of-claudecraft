@@ -12770,6 +12770,7 @@ export const id_ID: EnTranslations = {
       "dps": "({dps} kerusakan per detik)",
       "armorStat": "{value} Zirah",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Pakai: Memulihkan {amount} nyawa selama {seconds} detik. Harus tetap duduk selama makan.",
       "useDrink": "Pakai: Memulihkan {amount} mana selama {seconds} detik. Harus tetap duduk selama minum.",
       "useElixir": "Gunakan: Meningkatkan {stat} sebesar {value} selama {minutes} mnt. Menggantikan eliksir atau gulungan lain dengan statistik sama. Dapat digunakan dalam pertempuran.",

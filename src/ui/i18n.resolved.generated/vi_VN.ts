@@ -12770,6 +12770,7 @@ export const vi_VN: EnTranslations = {
       "dps": "({dps} sát thương mỗi giây)",
       "armorStat": "{value} Giáp",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Dùng: Hồi {amount} sinh lực trong {seconds} giây. Phải ngồi yên khi ăn.",
       "useDrink": "Dùng: Hồi {amount} mana trong {seconds} giây. Phải ngồi yên khi uống.",
       "useElixir": "Dùng: Tăng {stat} của bạn thêm {value} trong {minutes} phút. Thay thế mọi tiên dược hoặc cuộn giấy khác cùng chỉ số. Có thể dùng trong giao tranh.",

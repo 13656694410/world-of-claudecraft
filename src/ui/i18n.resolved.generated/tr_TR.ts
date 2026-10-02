@@ -12770,6 +12770,7 @@ export const tr_TR: EnTranslations = {
       "dps": "(saniyede {dps} hasar)",
       "armorStat": "{value} Zırh",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Warfare counts only in the main hand.",
       "useFood": "Kullanım: {seconds} saniyede {amount} can yeniler. Yerken oturur kalmalısın.",
       "useDrink": "Kullanım: {seconds} saniyede {amount} mana yeniler. İçerken oturur kalmalısın.",
       "useElixir": "Kullan: {stat} niteliğini {minutes} dakika boyunca {value} artırır. Aynı nitelikteki başka bir iksir veya parşömenin yerini alır. Savaşta kullanılabilir.",
