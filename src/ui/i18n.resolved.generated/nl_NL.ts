@@ -8333,7 +8333,8 @@ export const nl_NL: EnTranslations = {
       "warfareTradeBody": "Dat is de bewuste ruil. Oorlogvoeringsuitrusting is gebouwd om tegen spelers te vechten, niet als kortere weg langs de kerkerniveaus: een stuk Oorlogvoeringsuitrusting draagt nooit de gevechtswaarderingen die een episch kerkerstuk in dezelfde gleuf wel heeft, en alles wat het wel meebrengt, wordt besteed aan andere spelers. Wil je jezelf staande houden in de arena, koop het dan. Wil je heroïsche kerkers sneller uitspelen, verdien je uitrusting dan in de kerkers.",
       "warfareTradeBodyRatingSpent": "Dat is de bewuste ruil. Oorlogsuitrusting is gemaakt om tegen spelers te vechten, niet als sluiproute langs de kerkerlagen. Een Oorlogsstuk draagt nooit de gevechtsratings die een episch kerkerstuk op dezelfde plek heeft, en de rating en setbonussen voor Oorlogsvoering die het in plaats daarvan draagt, worden volledig tegen andere spelers ingezet. Als je je in de arena wilt weren, koop het dan. Als je heroïsche kerkers sneller wilt voltooien, verdien je uitrusting dan in de kerkers.",
       "vanguardHeading": "Voortocht-uitrusting: Oorlogsseizoen 2",
-      "vanguardBody": "Voortocht-uitrusting is het tweede seizoen van Oorlogsuitrusting, verkocht door dezelfde twee kwartierafdelingen boven de originele rang, die in te koop blijft. Elke spec heeft zijn eigen Voortocht-set van vijf stukken, voor het hoofd, schouders, borst, benen en handen, en de winkel geeft alleen de drie sets weer die je klasse kan dragen, gevolgd door de Voortocht-wapens die je kunt hanteren. Een Voortocht-stuk draagt dezelfde Oorlogswaarden als de originele rang op een hoger voorwerpniveau, en elke set heeft twee bonussen, op twee en vier stukken, die een van je spec's vaardigheden veranderen. In tegenstelling tot de originele sets werken die bonussen overal, monsters inbegrepen, maar ze zijn gebouwd voor gevechten tussen spelers, dus een raidset blijft de betere keuze binnen een raid."
+      "vanguardBody": "Voortocht-uitrusting is het tweede seizoen van Oorlogsuitrusting, verkocht door dezelfde twee kwartierafdelingen boven de originele rang, die in te koop blijft. Elke spec heeft zijn eigen Voortocht-set van vijf stukken, voor het hoofd, schouders, borst, benen en handen, en de winkel geeft alleen de drie sets weer die je klasse kan dragen, gevolgd door de Voortocht-wapens die je kunt hanteren. Een Voortocht-stuk draagt dezelfde Oorlogswaarden als de originele rang op een hoger voorwerpniveau, en elke set heeft twee bonussen, op twee en vier stukken, die een van je spec's vaardigheden veranderen. In tegenstelling tot de originele sets werken die bonussen overal, monsters inbegrepen, maar ze zijn gebouwd voor gevechten tussen spelers, dus een raidset blijft de betere keuze binnen een raid.",
+      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
     },
     "worldPvpPage": {
       "heading": "Wereld-PvP",
@@ -18485,6 +18486,30 @@ export const nl_NL: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Wilde staf van de Voorhoede"
+      },
+      "vanguard_band_of_might": {
+        "name": "Vanguard's Band of Might"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Vanguard's Band of Precision"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Vanguard's Band of Focus"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Vanguard's Band of Mending"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Vanguard's Pendant of Might"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Vanguard's Pendant of Precision"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Vanguard's Pendant of Focus"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Vanguard's Pendant of Mending"
       },
       "conjured_water4": {
         "name": "Getoverd bronwater"

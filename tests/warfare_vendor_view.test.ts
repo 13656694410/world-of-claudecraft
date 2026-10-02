@@ -10,6 +10,7 @@
 import { describe, expect, it } from 'vitest';
 import { ITEM_SETS } from '../src/sim/content/item_sets';
 import { FURY_STOCK, HONOR_QUARTERMASTER_STOCK } from '../src/sim/content/pvp_honor';
+import { SEASON2_JEWELRY_IDS } from '../src/sim/content/pvp_honor_season2';
 import { ITEMS } from '../src/sim/data';
 import { Sim } from '../src/sim/sim';
 import type { InvSlot, ItemDef, ItemSet } from '../src/sim/types';
@@ -17,6 +18,7 @@ import {
   buildWarfareVendorView,
   isWarfareVendorNpc,
   WARFARE_SHOP_JEWELRY_KEY,
+  WARFARE_SHOP_SEASON2_JEWELRY_KEY,
   WARFARE_SHOP_SEASON2_WEAPONS_KEY,
   WARFARE_SHOP_SET_ORDER,
   WARFARE_SHOP_WEAPONS_KEY,
@@ -534,6 +536,7 @@ describe('buildWarfareVendorView over the full honor stock (Warfare Season 2 fir
       'vanguard_mage_fire',
       'vanguard_mage_frost',
       WARFARE_SHOP_SEASON2_WEAPONS_KEY,
+      WARFARE_SHOP_SEASON2_JEWELRY_KEY,
     ]);
     for (const setId of ['vanguard_mage_arcane', 'vanguard_mage_fire', 'vanguard_mage_frost']) {
       const section = setSection(view, setId);
@@ -581,6 +584,37 @@ describe('buildWarfareVendorView over the full honor stock (Warfare Season 2 fir
       const sets = view.sections.filter((s) => s.group === 'season2' && s.kind === 'set');
       expect(sets, cls).toHaveLength(3);
       for (const s of sets) expect(s.key.startsWith(`vanguard_${cls}_`), s.key).toBe(true);
+    }
+  });
+
+  it('lists all eight Season 2 jewelry pieces in their own Season 2 section, never with the entry jewelry', () => {
+    for (const cls of ['warrior', 'mage', 'priest']) {
+      const view = buildWarfareVendorView(
+        HONOR_QUARTERMASTER_STOCK,
+        ITEMS,
+        ITEM_SETS,
+        viewer({ viewerClass: cls }),
+      );
+      const season = view.sections.find((s) => s.key === WARFARE_SHOP_SEASON2_JEWELRY_KEY);
+      expect(season?.kind, cls).toBe('jewelry');
+      expect(season?.group, cls).toBe('season2');
+      // Unlocked jewelry: every class sees all eight, in stock order.
+      expect(
+        season?.offers.map((o) => o.itemId),
+        cls,
+      ).toEqual([...SEASON2_JEWELRY_IDS]);
+      expect(
+        season?.offers.every((o) => o.honor > 0 && o.copper === 0),
+        cls,
+      ).toBe(true);
+      const entry = view.sections.find((s) => s.key === WARFARE_SHOP_JEWELRY_KEY);
+      expect(entry?.group, cls).toBe('entry');
+      for (const id of SEASON2_JEWELRY_IDS) {
+        expect(
+          entry?.offers.some((o) => o.itemId === id),
+          `${cls}: ${id} not in the entry jewelry`,
+        ).toBe(false);
+      }
     }
   });
 

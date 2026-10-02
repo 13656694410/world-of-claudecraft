@@ -57,6 +57,7 @@ export const WARFARE_SHOP_SET_ORDER: readonly string[] = [
 export const WARFARE_SHOP_JEWELRY_KEY = 'jewelry';
 export const WARFARE_SHOP_WEAPONS_KEY = 'weapons';
 export const WARFARE_SHOP_SEASON2_WEAPONS_KEY = 'season2_weapons';
+export const WARFARE_SHOP_SEASON2_JEWELRY_KEY = 'season2_jewelry';
 
 /** The NpcDef shape this window gates on. A FLAG, never a hard-coded npc id:
  *  the Heroic Quartermaster is keyed to a single id and a second one would have
@@ -253,6 +254,7 @@ export function buildWarfareVendorView(
   const jewelry: WarfareShopOffer[] = [];
   const weapons: WarfareShopOffer[] = [];
   const seasonWeapons: WarfareShopOffer[] = [];
+  const seasonJewelry: WarfareShopOffer[] = [];
   for (const itemId of stock) {
     const item = items[itemId];
     if (!item) continue;
@@ -262,6 +264,10 @@ export function buildWarfareVendorView(
     if (SEASON2_IDS.has(itemId) && !wearableBy(item, viewer.viewerClass)) continue;
     if (SEASON2_IDS.has(itemId) && item.kind === 'weapon') {
       seasonWeapons.push(offer);
+    } else if (SEASON2_IDS.has(itemId) && !item.set) {
+      // Season 2 neck and rings: their own section in the Season 2 group, so
+      // they never mix into the entry tier's jewelry.
+      seasonJewelry.push(offer);
     } else if (item.set) {
       const existing = bySet.get(item.set);
       if (existing) existing.push(offer);
@@ -289,16 +295,25 @@ export function buildWarfareVendorView(
   ];
 
   const sections: WarfareShopSection[] = [];
-  const pushSeasonWeapons = () => {
-    if (seasonWeapons.length === 0) return;
-    sections.push({
-      kind: 'weapons',
-      group: 'season2',
-      key: WARFARE_SHOP_SEASON2_WEAPONS_KEY,
-      offers: seasonWeapons,
-    });
+  const pushSeasonWeaponsAndJewelry = () => {
+    if (seasonWeapons.length > 0) {
+      sections.push({
+        kind: 'weapons',
+        group: 'season2',
+        key: WARFARE_SHOP_SEASON2_WEAPONS_KEY,
+        offers: seasonWeapons,
+      });
+    }
+    if (seasonJewelry.length > 0) {
+      sections.push({
+        kind: 'jewelry',
+        group: 'season2',
+        key: WARFARE_SHOP_SEASON2_JEWELRY_KEY,
+        offers: seasonJewelry,
+      });
+    }
   };
-  if (seasonSetIds.length === 0) pushSeasonWeapons();
+  if (seasonSetIds.length === 0) pushSeasonWeaponsAndJewelry();
   for (const setId of orderedSetIds) {
     const offers = bySet.get(setId) as WarfareShopOffer[];
     const ownedPieces = distinctSlots(offers, viewer.ownedItemIds);
@@ -329,8 +344,9 @@ export function buildWarfareVendorView(
         ? { pieces: pending.pieces, remaining: pending.pieces - ownedPieces }
         : null,
     });
-    // Season 2 weapons close the Season 2 group, before the entry tier starts.
-    if (setId === seasonSetIds[seasonSetIds.length - 1]) pushSeasonWeapons();
+    // Season 2 weapons and jewelry close the Season 2 group, before the entry
+    // tier starts.
+    if (setId === seasonSetIds[seasonSetIds.length - 1]) pushSeasonWeaponsAndJewelry();
   }
   if (jewelry.length > 0) {
     sections.push({

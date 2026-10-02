@@ -8333,7 +8333,8 @@ export const it_IT: EnTranslations = {
       "warfareTradeBody": "Questo è lo scambio voluto. L'equipaggiamento da Guerra è costruito per combattere altri giocatori, non come scorciatoia per saltare i livelli dei dungeon: un pezzo da Guerra non porta mai gli indici di combattimento di un epico da dungeon nello stesso slot, e tutto ciò che offre si spende su altri giocatori. Se vuoi tenere testa in arena, compralo. Se vuoi completare le eroiche più in fretta, guadagnati l'equipaggiamento nei dungeon.",
       "warfareTradeBodyRatingSpent": "È questo lo scambio voluto. L’equipaggiamento da Guerra serve a combattere i giocatori, non a saltare i livelli dei dungeon: un pezzo da Guerra non porta mai le valutazioni di combattimento che avrebbe un epico da dungeon nello stesso slot, e la valutazione da Guerra e i bonus del completo che porta sono spesi interamente contro altri giocatori. Se vuoi reggere nell’arena, compralo. Se vuoi superare più velocemente le modalità eroiche, guadagna l’equipaggiamento nei dungeon.",
       "vanguardHeading": "Equipaggiamento dell'Avanguardia: Guerra Stagione 2",
-      "vanguardBody": "L'equipaggiamento dell'Avanguardia è la seconda stagione dell'equipaggiamento da Guerra, venduto dagli stessi due quartiermastri al di sopra del livello originale, che resta comunque in vendita. Ogni specializzazione ha il proprio set dell'Avanguardia di cinque pezzi, per testa, spalle, petto, gambe e mani, e il negozio elenca solo i tre set che la tua classe può indossare, seguiti dalle armi dell'Avanguardia che puoi impugnare. Un pezzo dell'Avanguardia porta gli stessi indici di Guerra del livello originale a un livello oggetto superiore, e ogni set ha due bonus, a due e quattro pezzi, che modificano una delle abilità della tua specializzazione. A differenza dei set originali, questi bonus funzionano ovunque, mostri inclusi, ma sono pensati per combattere altri giocatori, quindi un set da incursione resta la scelta migliore all'interno di un'incursione."
+      "vanguardBody": "L'equipaggiamento dell'Avanguardia è la seconda stagione dell'equipaggiamento da Guerra, venduto dagli stessi due quartiermastri al di sopra del livello originale, che resta comunque in vendita. Ogni specializzazione ha il proprio set dell'Avanguardia di cinque pezzi, per testa, spalle, petto, gambe e mani, e il negozio elenca solo i tre set che la tua classe può indossare, seguiti dalle armi dell'Avanguardia che puoi impugnare. Un pezzo dell'Avanguardia porta gli stessi indici di Guerra del livello originale a un livello oggetto superiore, e ogni set ha due bonus, a due e quattro pezzi, che modificano una delle abilità della tua specializzazione. A differenza dei set originali, questi bonus funzionano ovunque, mostri inclusi, ma sono pensati per combattere altri giocatori, quindi un set da incursione resta la scelta migliore all'interno di un'incursione.",
+      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
     },
     "worldPvpPage": {
       "heading": "PvP Mondiale",
@@ -18485,6 +18486,30 @@ export const it_IT: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Bastone ferino dell’Avanguardia"
+      },
+      "vanguard_band_of_might": {
+        "name": "Vanguard's Band of Might"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Vanguard's Band of Precision"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Vanguard's Band of Focus"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Vanguard's Band of Mending"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Vanguard's Pendant of Might"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Vanguard's Pendant of Precision"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Vanguard's Pendant of Focus"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Vanguard's Pendant of Mending"
       },
       "conjured_water4": {
         "name": "Acqua sorgiva evocata"

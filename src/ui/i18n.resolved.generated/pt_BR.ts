@@ -8333,7 +8333,8 @@ export const pt_BR: EnTranslations = {
       "warfareTradeBody": "Essa é a troca deliberada. O equipamento de Guerra é feito para lutar contra jogadores, não como um atalho para pular os níveis de masmorra: uma peça de Guerra nunca carrega os índices de combate que um Épico de masmorra no mesmo encaixe carrega, e tudo o que ela realmente traz é gasto contra outros jogadores. Se você quer se sair bem na arena, compre-o. Se você quer concluir os heroicos mais rápido, conquiste seu equipamento nas masmorras.",
       "warfareTradeBodyRatingSpent": "Essa é a troca deliberada. O equipamento de Guerra foi feito para lutar contra jogadores, não para pular os níveis das masmorras: uma peça de Guerra nunca traz as classificações de combate que um épico de masmorra no mesmo espaço traz, e as classificações de Guerra e os bônus de conjunto que ela traz são gastos inteiramente contra outros jogadores. Se quiser se garantir na arena, compre-o. Se quiser limpar heroicas mais rápido, conquiste seu equipamento nas masmorras.",
       "vanguardHeading": "Equipamento de Guerra da Vanguarda: Temporada 2",
-      "vanguardBody": "O equipamento da Vanguarda é a segunda temporada do equipamento de Guerra, vendido pelos mesmos dois intendentes, acima do nível original, que continua à venda. Cada especialização tem seu próprio conjunto da Vanguarda de cinco peças, para cabeça, ombros, peito, pernas e mãos, e a loja lista apenas os três conjuntos que sua classe pode usar, seguidos das armas da Vanguarda que você pode empunhar. Uma peça da Vanguarda carrega as mesmas classificações de Guerra do nível original, em um nível de item mais alto, e cada conjunto tem dois bônus, em duas e quatro peças, que alteram uma das habilidades da sua especialização. Diferente dos conjuntos originais, esses bônus funcionam em qualquer lugar, incluindo contra monstros, mas foram feitos para lutar contra jogadores, então um conjunto de raide continua sendo a melhor escolha dentro de uma raide."
+      "vanguardBody": "O equipamento da Vanguarda é a segunda temporada do equipamento de Guerra, vendido pelos mesmos dois intendentes, acima do nível original, que continua à venda. Cada especialização tem seu próprio conjunto da Vanguarda de cinco peças, para cabeça, ombros, peito, pernas e mãos, e a loja lista apenas os três conjuntos que sua classe pode usar, seguidos das armas da Vanguarda que você pode empunhar. Uma peça da Vanguarda carrega as mesmas classificações de Guerra do nível original, em um nível de item mais alto, e cada conjunto tem dois bônus, em duas e quatro peças, que alteram uma das habilidades da sua especialização. Diferente dos conjuntos originais, esses bônus funcionam em qualquer lugar, incluindo contra monstros, mas foram feitos para lutar contra jogadores, então um conjunto de raide continua sendo a melhor escolha dentro de uma raide.",
+      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
     },
     "worldPvpPage": {
       "heading": "JcJ Mundial",
@@ -18485,6 +18486,30 @@ export const pt_BR: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Cajado Feral da Vanguarda"
+      },
+      "vanguard_band_of_might": {
+        "name": "Vanguard's Band of Might"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Vanguard's Band of Precision"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Vanguard's Band of Focus"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Vanguard's Band of Mending"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Vanguard's Pendant of Might"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Vanguard's Pendant of Precision"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Vanguard's Pendant of Focus"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Vanguard's Pendant of Mending"
       },
       "conjured_water4": {
         "name": "Água de Nascente Conjurada"

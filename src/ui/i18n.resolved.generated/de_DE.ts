@@ -8333,7 +8333,8 @@ export const de_DE: EnTranslations = {
       "warfareTradeBody": "Das ist der bewusste Kompromiss. Kriegsführungsausrüstung ist für den Kampf gegen Spieler gebaut, nicht als Abkürzung an den Dungeon-Stufen vorbei: Ein Kriegsführungsteil trägt niemals die Kampfwertungen, die ein Dungeon-Epic im selben Slot bietet, und alles, was es mitbringt, ist für andere Spieler bestimmt. Willst du dich in der Arena behaupten, kauf sie dir. Willst du heroische Dungeons schneller schaffen, verdiene dir deine Ausrüstung in den Dungeons.",
       "warfareTradeBodyRatingSpent": "Kriegsführungsausrüstung ist für Spieler gegen Spieler gedacht und überspringt keine Dungeonstufen. Sie trägt nicht die Kampfbewertungen eines Dungeonepics, sondern investiert ihre Bewertungen und Setboni vollständig in Kämpfe gegen Spieler. Für die Arena kaufst du sie, für schnellere heroische Dungeons verdienst du deine Ausrüstung dort.",
       "vanguardHeading": "Vorhut-Ausrüstung: Kriegsführung Saison 2",
-      "vanguardBody": "Vorhut-Ausrüstung ist die zweite Saison der Kriegsführungsausrüstung, verkauft von denselben zwei Quartiermeistern, oberhalb der ursprünglichen Stufe, die weiterhin im Angebot bleibt. Jede Spezialisierung hat ihr eigenes Vorhut-Set aus fünf Teilen, für Kopf, Schultern, Brust, Beine und Hände, und der Laden listet nur die drei Sets, die deine Klasse tragen kann, gefolgt von den Vorhut-Waffen, die du führen kannst. Ein Vorhut-Teil trägt dieselben Kriegsführungswertungen wie die ursprüngliche Stufe, jedoch bei einer höheren Gegenstandsstufe, und jedes Set hat zwei Boni, bei zwei und vier Teilen, die eine Fähigkeit deiner Spezialisierung verändern. Anders als die ursprünglichen Sets wirken diese Boni überall, auch gegen Monster, doch sie sind für den Kampf gegen Spieler gebaut, sodass ein Schlachtzug-Set innerhalb eines Schlachtzugs die bessere Wahl bleibt."
+      "vanguardBody": "Vorhut-Ausrüstung ist die zweite Saison der Kriegsführungsausrüstung, verkauft von denselben zwei Quartiermeistern, oberhalb der ursprünglichen Stufe, die weiterhin im Angebot bleibt. Jede Spezialisierung hat ihr eigenes Vorhut-Set aus fünf Teilen, für Kopf, Schultern, Brust, Beine und Hände, und der Laden listet nur die drei Sets, die deine Klasse tragen kann, gefolgt von den Vorhut-Waffen, die du führen kannst. Ein Vorhut-Teil trägt dieselben Kriegsführungswertungen wie die ursprüngliche Stufe, jedoch bei einer höheren Gegenstandsstufe, und jedes Set hat zwei Boni, bei zwei und vier Teilen, die eine Fähigkeit deiner Spezialisierung verändern. Anders als die ursprünglichen Sets wirken diese Boni überall, auch gegen Monster, doch sie sind für den Kampf gegen Spieler gebaut, sodass ein Schlachtzug-Set innerhalb eines Schlachtzugs die bessere Wahl bleibt.",
+      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
     },
     "worldPvpPage": {
       "heading": "Welt-PvP",
@@ -18485,6 +18486,30 @@ export const de_DE: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Wildheitsstab der Vorhut"
+      },
+      "vanguard_band_of_might": {
+        "name": "Vanguard's Band of Might"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Vanguard's Band of Precision"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Vanguard's Band of Focus"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Vanguard's Band of Mending"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Vanguard's Pendant of Might"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Vanguard's Pendant of Precision"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Vanguard's Pendant of Focus"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Vanguard's Pendant of Mending"
       },
       "conjured_water4": {
         "name": "Herbeigezaubertes Quellwasser"

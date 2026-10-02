@@ -8333,7 +8333,8 @@ export const vi_VN: EnTranslations = {
       "warfareTradeBody": "Đó là sự đánh đổi có chủ ý. Trang bị Chiến Tranh được tạo ra để chiến đấu với người chơi, không phải để làm đường tắt vượt qua các bậc hầm ngục: một món trang bị Chiến Tranh không bao giờ mang chỉ số chiến đấu như một món sử thi hầm ngục cùng ô trang bị, và mọi thứ nó mang lại chỉ dùng được trước người chơi khác. Nếu bạn muốn trụ vững ở đấu trường, hãy mua nó. Nếu bạn muốn dọn heroic nhanh hơn, hãy kiếm trang bị của mình trong các hầm ngục.",
       "warfareTradeBodyRatingSpent": "Đó là sự đánh đổi có chủ đích. Trang bị Chiến Trận dành cho việc đấu với người chơi, không phải đường tắt vượt các bậc phó bản: một món Chiến Trận không có những điểm chỉ số chiến đấu mà món sử thi phó bản cùng ô có; thay vào đó, điểm Chiến Trận và thưởng bộ của nó được dành hoàn toàn cho đối thủ là người chơi. Muốn đứng vững trong đấu trường thì hãy mua. Muốn vượt phó bản anh hùng nhanh hơn thì hãy kiếm trang bị trong phó bản.",
       "vanguardHeading": "Áo Vanguard: Mùa Chiến Tranh 2",
-      "vanguardBody": "Áo Vanguard là mùa thứ hai của Áo Chiến Tranh, được bán bởi cùng hai quân nhu trưởng ở trên tầng gốc, tầng gốc vẫn bán. Mỗi đặc hóa có bộ Vanguard riêng của năm bộ, cho đầu, vai, ngực, chân và tay, và cửa hàng chỉ liệt kê ba bộ lớp của bạn có thể mặc, theo sau đó là vũ khí Vanguard bạn có thể sử dụng. Một bộ Vanguard mang xếp hạng Chiến Tranh giống như tầng gốc ở mức vật phẩm cao hơn, và mỗi bộ có hai tiền thưởng, ở hai và bốn bộ, thay đổi một trong các khả năng của đặc hóa của bạn. Không giống như các bộ gốc, những tiền thưởng đó hoạt động ở mọi nơi, quái vật bao gồm, nhưng chúng được xây dựng để chiến đấu với người chơi, vì vậy bộ đột kích vẫn là lựa chọn tốt hơn bên trong một đột kích."
+      "vanguardBody": "Áo Vanguard là mùa thứ hai của Áo Chiến Tranh, được bán bởi cùng hai quân nhu trưởng ở trên tầng gốc, tầng gốc vẫn bán. Mỗi đặc hóa có bộ Vanguard riêng của năm bộ, cho đầu, vai, ngực, chân và tay, và cửa hàng chỉ liệt kê ba bộ lớp của bạn có thể mặc, theo sau đó là vũ khí Vanguard bạn có thể sử dụng. Một bộ Vanguard mang xếp hạng Chiến Tranh giống như tầng gốc ở mức vật phẩm cao hơn, và mỗi bộ có hai tiền thưởng, ở hai và bốn bộ, thay đổi một trong các khả năng của đặc hóa của bạn. Không giống như các bộ gốc, những tiền thưởng đó hoạt động ở mọi nơi, quái vật bao gồm, nhưng chúng được xây dựng để chiến đấu với người chơi, vì vậy bộ đột kích vẫn là lựa chọn tốt hơn bên trong một đột kích.",
+      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
     },
     "worldPvpPage": {
       "heading": "Chiến Tranh Thế Giới",
@@ -18485,6 +18486,30 @@ export const vi_VN: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Trượng Hoang Dã của Tiên Phong"
+      },
+      "vanguard_band_of_might": {
+        "name": "Vanguard's Band of Might"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Vanguard's Band of Precision"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Vanguard's Band of Focus"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Vanguard's Band of Mending"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Vanguard's Pendant of Might"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Vanguard's Pendant of Precision"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Vanguard's Pendant of Focus"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Vanguard's Pendant of Mending"
       },
       "conjured_water4": {
         "name": "Nước Suối Được Tạo Phép"

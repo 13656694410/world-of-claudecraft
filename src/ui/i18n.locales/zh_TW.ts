@@ -1010,9 +1010,19 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_warrior_prot_shoulder.name': '鐵軍肩甲',
   'entities.items.vanguard_feral_staff.name': '先鋒野性法杖',
   'entities.items.vanguard_warstaff.name': '先鋒之戰杖',
+  'entities.items.vanguard_band_of_might.name': '先鋒力量指環',
+  'entities.items.vanguard_band_of_precision.name': '先鋒精準指環',
+  'entities.items.vanguard_band_of_focus.name': '先鋒專注指環',
+  'entities.items.vanguard_band_of_mending.name': '先鋒癒合指環',
+  'entities.items.vanguard_pendant_of_might.name': '先鋒力量墜飾',
+  'entities.items.vanguard_pendant_of_precision.name': '先鋒精準墜飾',
+  'entities.items.vanguard_pendant_of_focus.name': '先鋒專注墜飾',
+  'entities.items.vanguard_pendant_of_mending.name': '先鋒癒合墜飾',
   'entities.npcs.glider_apprentice.name': '絲凱',
   'guide.arenaPage.vanguardBody':
     '先鋒裝備是戰爭裝備的第二季，由同樣兩位軍需官在原本品級之上一併販售，原本品級依然在架上。每個專精都有自己專屬的先鋒套裝，共五件：頭部、肩部、胸部、腿部與手部，商店只會列出你的職業能穿的三套先鋒套裝，其後才是你能揮舞的先鋒武器。先鋒裝備件帶有與原本品級相同的戰爭評級，只是物品等級更高，而每套套裝都有兩件式與四件式加成，會改變你專精的一項技能。與原本的套裝不同，這些加成在任何地方都會生效，連對付怪物也不例外，但它們是為了對抗玩家而打造的，所以在團隊副本中，團隊套裝依然是更好的選擇。',
+  'guide.arenaPage.vanguardStatsBody':
+    '與原版裝備不同，先鋒裝備還帶有戰鬥等級：每件先鋒護甲、武器和墜飾都帶有暴擊等級或急速等級，施法者和治療者的裝備還額外提供法術強度或治療強度。先鋒指環和墜飾與武器一同出售，所有職業都可以佩戴。佩戴兩枚先鋒近戰指環，恰好提供足夠的命中等級，消除你對同等級玩家攻擊的基礎未命中幾率；佩戴兩枚施法指環，則同樣消除你的法術被抵抗的幾率。雙持時的自動攻擊仍保留額外的未命中幾率。治療指環則改為提供急速等級。',
   'guide.arenaPage.vanguardHeading': '先鋒裝備：戰爭套裝第二季',
   'guide.settingsPage.ifColorblindMode':
     '將尼思拉克西斯的地面危害（墓穴爆發的警示圈、墓穴烈焰與靈魂之火的火池、墓火直線，以及靈魂撕裂的標記）重新著色為色盲友善的配色，色相與亮度分明，讓重疊的圓圈仍能分辨邊緣。大小、計時與位置一律不變。',

@@ -569,7 +569,8 @@ describe('Reliquary Conqueror catalog structure', () => {
       // +139 at the second release/v0.44.0 base merge: the Warfare Season 2 page: 650.
       // +32 at the 2026-09-28 merge into feature/buried-hoards: the Buried Hoards page: 682.
       // +1 for the feral staff on the existing Vanguard gallery page.
-    ).toBe(688);
+      // +8 for the Season 2 jewelry on the same page (2026-10-02): 696.
+    ).toBe(696);
     // Distinct mark ids: the 10 shipped before Phase 21, the 19 rare-slain
     // proofs of conquerors_rares_of_the_realm, the two craft masterwork
     // marks (masterwork:jewelcrafting, masterwork:inscription), and the
@@ -826,7 +827,11 @@ describe('Reliquary relic item ids resolve in ITEMS', () => {
     expect(RELIQUARY_ITEM_TO_PAGES.get('vanguard_feral_staff')).toEqual([
       'conquerors_vanguard_gallery',
     ]);
-    expect(RELIQUARY_ITEM_TO_PAGES.size).toBe(522);
+    // The eight Season 2 jewelry pieces join the same page (2026-10-02): 530.
+    expect(RELIQUARY_ITEM_TO_PAGES.get('vanguard_band_of_might')).toEqual([
+      'conquerors_vanguard_gallery',
+    ]);
+    expect(RELIQUARY_ITEM_TO_PAGES.size).toBe(530);
     for (const [id, pages] of RELIQUARY_ITEM_TO_PAGES) {
       expect(pages.length, `catalogued id ${id} maps to an empty page list`).toBeGreaterThan(0);
     }
