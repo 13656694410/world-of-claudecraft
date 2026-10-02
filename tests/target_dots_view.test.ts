@@ -411,11 +411,19 @@ describe('createTargetDotsView: hostile players', () => {
     expect(state.rows[0].onCurrentTarget).toBe(true);
   });
 
-  it('never asks the verdict about a player carrying nothing', () => {
+  // The verdict is the full PvP pair rule and nearly every player carries a buff,
+  // so it is asked only about a player carrying one of OUR live debuffs.
+  it('asks the verdict only about a player carrying one of our live debuffs', () => {
     const asked: number[] = [];
     const view = makePvpView(new Set([20]), asked);
     view.tick({
-      entities: [player(20, 'Rival', []), player(21, 'Other', [aura({ id: 'corruption' })])],
+      entities: [
+        player(20, 'Rival', []),
+        player(21, 'Dotted', [aura({ id: 'corruption' })]),
+        player(22, 'Buffed', [aura({ id: 'renew', kind: 'hot' as AuraKind, value: 5 })]),
+        player(23, 'Theirs', [aura({ id: 'agony', sourceId: THEIRS })]),
+        player(24, 'Lapsed', [aura({ id: 'corruption', remaining: 0 })]),
+      ],
       targetId: null,
       enabled: true,
     });

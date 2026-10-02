@@ -138,17 +138,28 @@ export interface TargetDotsViewCore<TEntity extends TargetDotsEntityInput = Targ
   tick(input: TargetDotsInput<TEntity>): TargetDotsState;
 }
 
+/** Does this aura earn a row: the local player's own, harmful, and still running? */
+function isListedAura(aura: TargetDotsAuraInput, deps: Pick<TargetDotsDeps, 'isOwn'>): boolean {
+  return deps.isOwn(aura) && isDebuffAura(aura.kind, aura.value) && aura.remaining > 0;
+}
+
 /** Is this entity an enemy the player can have a debuff out on? A living mob, or
  *  a living player the host's hostility verdict names (PvP: duel, battleground,
- *  arena, open-world /pvp). The cheap aura-count test runs before the verdict, so
- *  a player carrying nothing never pays for it. */
+ *  arena, open-world /pvp). The verdict is the full pair rule and nearly every
+ *  player carries a buff, so it is asked only about a player already carrying one
+ *  of our listed auras: a crowd of strangers costs an ownership scan per frame,
+ *  never a verdict each. */
 function isTrackableTarget<TEntity extends TargetDotsEntityInput>(
   entity: TEntity,
-  isHostilePlayer: ((entity: TEntity) => boolean) | undefined,
+  deps: TargetDotsDeps<TEntity>,
 ): boolean {
   if (entity.dead || entity.auras.length === 0) return false;
   if (entity.kind === 'mob') return true;
-  return entity.kind === 'player' && isHostilePlayer !== undefined && isHostilePlayer(entity);
+  if (entity.kind !== 'player' || deps.isHostilePlayer === undefined) return false;
+  for (const aura of entity.auras) {
+    if (isListedAura(aura, deps)) return deps.isHostilePlayer(entity);
+  }
+  return false;
 }
 
 function newRow(): TargetDotRow {
@@ -232,7 +243,7 @@ export function createTargetDotsView<TEntity extends TargetDotsEntityInput>(
       primary.length = 0;
       others.length = 0;
       for (const entity of input.entities) {
-        if (!isTrackableTarget(entity, deps.isHostilePlayer)) continue;
+        if (!isTrackableTarget(entity, deps)) continue;
         if (input.targetId !== null && entity.id === input.targetId) primary.push(entity);
         else others.push(entity);
       }
@@ -251,10 +262,7 @@ export function createTargetDotsView<TEntity extends TargetDotsEntityInput>(
           // happened to apply them in.
           auraScratch.length = 0;
           for (const aura of entity.auras) {
-            if (!deps.isOwn(aura)) continue;
-            if (!isDebuffAura(aura.kind, aura.value)) continue;
-            if (aura.remaining <= 0) continue;
-            auraScratch.push(aura);
+            if (isListedAura(aura, deps)) auraScratch.push(aura);
           }
           auraScratch.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
           let previousId = '';
