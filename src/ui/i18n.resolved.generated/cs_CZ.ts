@@ -503,7 +503,8 @@ export const cs_CZ: EnTranslations = {
         "dungeon_heroic": "Kořist z hrdinských dungeonů",
         "world": "Kořist ze světových úkolů",
         "pvp": "Výbava VÁLEČNICTVÍ"
-      }
+      },
+      "previewClaimNotice": "Čekají na vás odměny. Navštivte strážce trezoru v Eastbrooku, otevřete je a vyzvedněte si je."
     },
     "ferry": {
       "regionLabel": "Jízdní řád přívozu",
@@ -2784,6 +2785,10 @@ export const cs_CZ: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Nechte světové PvP zapnuté a získávejte o {percent} více zkušeností a reputace frakcí. Bonusy skončí, jakmile požádáte o vypnutí.",
+      "rewardTitles": "Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP. Odhlášení a návštěva Zkušebního pobřeží časovač pozastaví. Vypnutí jej vynuluje.",
+      "rewardPaused": "Aktuální série PvP: odehráno {time} (pozastaveno na Zkušebním pobřeží)",
+      "rewardProgress": "Aktuální série PvP: odehráno {time}",
       "tab": "Světové PvP",
       "title": "Světové PvP",
       "blurb": "Zvedni vlajku a bojuj s ostatními hráči se zvednutou vlajkou kdekoli v otevřeném světě. Poraz jednoho a vezmi si podíl z jeho měšce, plus Čest na výbavu Válečnictví. Bojiště a arény pořád vyplácejí víc.",
@@ -2795,20 +2800,20 @@ export const cs_CZ: EnTranslations = {
       "zoneContested": "Sporné území: bojují tu jen hráči se zvednutou vlajkou.",
       "zoneFfa": "Volné území: tady je každý platným cílem.",
       "realmDisabled": "Světové PvP je na této říši vypnuté.",
-      "groundSanctuary": "Zkušební pobřeží a Eastbrookské údolí jsou útočiště: žádné světové PvP tam vůbec neprobíhá.",
+      "groundSanctuary": "Zkušební pobřeží je jediným útočištěm: nelze tam zapnout světové PvP ani bojovat s jinými hráči.",
       "groundContested": "Všude jinde je území sporné: bojovat mohou jen dva hráči se zvednutou vlajkou.",
-      "groundFfa": "Dračí země, Kraj Mrazivého závoje a Jantarový pád jsou volné území: tam může bojovat kdokoli, s vlajkou i bez ní.",
+      "groundFfa": "Dračí země, Kraj Mrazivého závoje a Jantarový pád používají běžné příznaky PvP. Vstup do aktivního kruhu Krále kopce zapne váš příznak.",
       "groupLine": "Členové skupiny a raidu vůči sobě nikdy nejsou nepřátelští. Cechovní spolubojovníci mimo tvou skupinu mohou bojovat.",
-      "markLine": "Napadení hráče bez vlajky tam zvedne tvou vlastní vlajku; napadení hráče se zvednutou vlajkou ji nezvedne nikdy.",
+      "markLine": "Vstup do aktivního kruhu kopce zapne světové PvP. Po opuštění kruhu zůstává příznak zapnutý.",
       "aidLine": "Léčení, štítování nebo posilování hráče se zvednutou vlajkou ve světovém boji zvedne i tvou vlajku.",
       "stakeLine": "Poražený zaplatí {cap} nebo {percent} svého měšce, podle toho, co je méně.",
-      "noStakeLine": "Hráč bez vlajky zabitý na volném území neztrácí žádné zlato.",
+      "noStakeLine": "Neoznačené hráče nelze v otevřeném světě napadnout.",
       "noTakeLine": "Bojovník bez vlajky také nezískává žádné zlato: to se přesouvá jen mezi dvěma hráči se zvednutou vlajkou.",
       "honorLine": "{honor} cti za zabití, rozděleno mezi všechny, kdo pomohli.",
       "splitLine": "Čisté 1 na 1 vyplatí celý vklad; pomocníci a jejich léčitelé se o něj dělí.",
       "repeatLine": "Opakovaná zabití jednoho hráče vyplatí {second}, pak {third}, pak nic; počítadlo se vynuluje {reset} po prvním zabití.",
       "greyLine": "Hráči o víc než {levels} úrovní níž než ty neplatí nic.",
-      "disarmLine": "Vypnutí trvá {minutes} minut a čeká na konec boje.",
+      "disarmLine": "Vypnutí trvá {minutes} minut a čeká, až opustíte aktivní kopec a skončí boj.",
       "record": "Bilance: {kills} zabití, {deaths} úmrtí",
       "enable": "Zapnout světové PvP",
       "disable": "Vypnout světové PvP",
@@ -2836,6 +2841,8 @@ export const cs_CZ: EnTranslations = {
       "distance": "{yards} yardů ke kruhu",
       "rises": "Vystoupí za {minutes}",
       "falls": "Padne za {minutes}",
+      "pvpEntry": "Vstup do aktivního kruhu zapne světové PvP.",
+      "pvpBanner": "PvP",
       "standingRaid": "Členové raidu se nepočítají: kopec mohou ovládat jen skupiny"
     },
     "warfareShop": {
@@ -4572,12 +4579,11 @@ export const cs_CZ: EnTranslations = {
       "memberSinceDays": "{days} d na Discordu",
       "roleTag": {
         "levyst": "Levy St",
-        "admin": "Admin",
         "coredevs": "Hlavní dev",
         "devs": "Dev",
-        "seniormods": "Senior moderátor",
+        "seniormods": "Strážce",
         "mods": "Mod",
-        "juniormods": "Junior moderátor",
+        "juniormods": "Pozorovatel",
         "artists": "Umělec",
         "contentcreator": "Tvůrce obsahu",
         "legend": "LEGENDA",
@@ -7540,7 +7546,8 @@ export const cs_CZ: EnTranslations = {
       "session": "Co jsi udělal(a) od přihlášení: zabití, smrti, poškození a zkušenosti.",
       "arena": "Tvé postavení v Popelavém koloseu v obou bracketech: hodnocení, výhry, prohry a poměr výher pro 1v1 a pro 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
-      "pvpZones": "PvP vlajka ve světě: /pvp ji přepne, /pvp on a /pvp off ji nastaví. Označení hráči proti sobě mohou bojovat na sporném území, svatyně nedovolují žádný světový boj vůbec a zóny volno pro všechny ho dovolují s vlajkou i bez ní; vypnutí trvá 5 minut.",
+      "pvpZones": "Příznak světového PvP: /pvp jej přepíná, /pvp on jej zapne a /pvp off vypne. Označení hráči spolu mohou bojovat ve sporných oblastech, útočiště nepovolují žádné boje ve světě a vstup do aktivního kruhu Krále kopce zapne váš příznak; vypnutí trvá 5 minut.",
+      "flair": "Zobrazí nebo skryje tvou roli z Discordu pro ostatní hráče, tedy barevné jméno, štítek role a ověřený štítek v chatu: /flair on ji zobrazí, /flair off ji skryje a samotné /flair ti řekne, co je nastaveno. Vyžaduje propojený účet Discord.",
       "listings": "Tvé vlastní nabídky na Světovém trhu, s požadovanou cenou, časem, který každé zbývá, a kolik místa máš na další.",
       "buyback": "Co jsi nedávno prodal(a) obchodníkovi a co ještě můžeš koupit zpět.",
       "groupState": "Jak na tom právě jsi",
@@ -8314,16 +8321,16 @@ export const cs_CZ: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Pravidla fair play",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Boj hráč proti hráči v otevřeném světě je dobrovolný, a to, na jaké zemi zrovna stojíš, rozhoduje, co to znamená. Zvedni svou PvP vlajku a každý jiný označený hráč, který není v tvé skupině ani výpravě, se na sporném území stane nepřítelem; stáhni ji a po krátkém zpoždění jsi zase jen přihlížející. Dvě zóny jsou svatyně, kde se vůbec neodehrává žádný světový boj, a tři nejsevernější zóny jsou území volno pro všechny, kde je každý přítomný férovým cílem, ať má vlajku, nebo ne. Spoluhráči ze skupiny a výpravy nejsou nikdy nikde tvými nepřáteli; spoluhráči z gildy mimo tvou skupinu jsou férovým cílem jako kdokoli jiný.",
+      "introZones": "PvP v otevřeném světě je dobrovolné a záleží na oblasti. Ve sporných oblastech z vás zapnutý příznak PvP dělá nepřítele všech označených hráčů mimo vaši skupinu či nájezd; po vypnutí a krátké prodlevě jste opět pozorovatelem. Zkušební pobřeží je jediné útočiště bez bojů ve světě a tři nejsevernější oblasti používají stejná pravidla dobrovolného příznaku jako zbytek světa. Vstup do aktivního kruhu Krále kopce automaticky zapne váš příznak. Členové skupiny a nájezdu nikdy nejsou vašimi nepřáteli; členové cechu mimo vaši skupinu jsou běžné cíle.",
       "zonesHeading": "Kde se odehrává světové PvP",
-      "zonesBody": "Svět má tři druhy území. Zkušební pobřeží a Eastbrookské údolí jsou svatyně: neodehrává se tam vůbec žádné světové PvP, s vlajkou ani bez ní, takže nová postava nikdy nemůže být napadena dřív, než pozná, co vlajka znamená. Většina světa je sporné území, kde výše popsané pravidlo vlajky je celý příběh. Dračí země, Kraj Mrazivého závoje a Jantarový pád, tři nejsevernější zóny, jsou území volno pro všechny: každý, kdo v nich stojí, může zaútočit na kohokoli jiného, kdo v nich stojí, s vlajkou i bez ní, a je ti to řečeno, jakmile do nich vstoupíš, a znovu, když je opustíš. Útok na hráče, který tam není označen, zvedne tvou vlastní vlajku, takže útočník vždy nakonec nese riziko. Zásah hráče, který je už označen, ji nikdy nezvedne, což znamená, že bránit sebe sama, nebo bránit někoho, kdo není označen, tě nic nestojí.",
+      "zonesBody": "Zkušební pobřeží je jediné útočiště: není tam světové PvP a příznak nelze zapnout. Již zapnutý příznak zůstává, ale postup k titulu za odehraný čas se do odchodu pozastaví. Všude jinde, včetně Dračích zemí, Kraje Mrazivého závoje a Jantarového pádu, mohou bojovat pouze označení hráči. Vstup do aktivního kruhu Krále kopce automaticky zapne váš příznak, pokud splňujete běžný požadavek na úroveň. Varovný kruh příznak nezapíná. Po opuštění aktivního kruhu zůstává příznak zapnutý; pomocí /pvp off zahájíte běžný pětiminutový odpočet, který nemůže skončit, dokud jste uvnitř aktivního kopce nebo stále bojujete.",
       "flagBodyAid": "Napiš do chatu /pvp, nebo otevři okno PvP na G a použij záložku Světové PvP, která ukazuje i tvou bilanci a co je v sázce. Zvednutí vlajky je okamžité, jakmile jsi za počátečními úrovněmi. Stažení spustí odpočet několika minut a vlajka nespadne, dokud ještě bojuješ, takže vypnutí nikdy není únik z boje, který jsi sám(a) začal(a). Léčení, štítování nebo posilování označeného hráče, který je v boji, zvedne i tvou vlastní vlajku, takže nikdo neudržuje bojovníka naživu zpoza vlajky, kterou sám nenosí; pomoc hráči, který není označen, nezvedne nic.",
       "stakesUnflaggedTake": "Ani neoznačený bojovník nedostane nic: zlato mění majitele jen mezi dvěma označenými hráči, i když Čest si stále vydělá každý, kdo pomohl.",
-      "stakesBodyFlagged": "Když je označený hráč poražen jiným hráčem, poražený zaplatí malý podíl zlata ze svého měšce, zastropovaný na skromnou částku, a vítězové získají Čest k výbavě Válečnictví. Hráč, který nebyl označen, neplatí žádné zlato, ani když padne v zóně volno pro všechny. O obojí se dělí každý, kdo pomohl: zásah, který zabil, každý, kdo cíl krátce předtím poškodil, a léčitelé, kteří ty bojovníky drželi na nohou. Čistý souboj jednoho na jednoho vyplatí celý balík; skupina si ho rozdělí.",
+      "stakesBodyFlagged": "Když označeného hráče porazí jiný hráč, poražený zaplatí malý podíl zlata ze svého měšce, omezený na skromnou částku, a vítězové získají Čest na výbavu Válečnictví. Neoznačeného hráče nelze v otevřeném světě napadnout. O zlato i Čest se dělí všichni, kdo pomohli: hráč, který zasadil smrtící úder, každý, kdo cíl krátce předtím zranil, a léčitelé, kteří tyto bojovníky udrželi na nohou. V čistém souboji jeden na jednoho připadne vítězi celá částka; skupina si ji rozdělí.",
       "hillHeading": "Král kopce",
-      "hillBody": "Once every three hours, at a moment nobody can predict, the whole realm is told that a hill will rise in one of the free-for-all zones in fifteen minutes, and the circle where it will stand is marked on open ground. When it rises it stands for forty-five minutes, then falls. The party with the most players standing inside contests the hill, and after a minute of unbroken majority the hill is theirs; a lone player counts as a party of one, but raid members do not count at all. While a party holds the hill, each of its members standing inside earns a little Honor every minute, so a full party holding an uncontested hill for its whole stand earns a little less than one battleground win pays. A bar over the field shows who holds it, your numbers against theirs, and the contest clock; /hill in chat says where it stands.",
+      "hillBody": "Každé dvě hodiny se v Dračích zemích, Kraji Mrazivého závoje nebo Jantarovém pádu objeví kopec. Říše dostane varování patnáct minut předem a kruh je vyznačen na otevřeném prostranství. Kopec zůstává aktivní třicet minut. Vstup do aktivního kruhu zapne příznak světového PvP podle běžných pravidel úrovně, a to i členům nájezdu. Skupina s největším počtem způsobilých hráčů uvnitř získá kopec po minutě nepřerušené převahy; samotný hráč se počítá jako jednočlenná skupina, ale členové nájezdu a hráči pod požadovanou úrovní pro PvP nemohou kopec obsadit ani získávat Čest z kopce. Každý držitel uvnitř získává Čest stále rychleji. Odměny přicházejí častěji a jejich výše roste rychleji, takže celková Čest zůstává stejná jako při dřívější pětačtyřicetiminutové události. Změna držitele spustí růst odměn od začátku. Po opuštění kruhu zůstává příznak zapnutý; /pvp off používá běžnou pětiminutovou prodlevu a nemůže doběhnout uvnitř aktivního kopce ani během boje. Lišta kopce ukazuje držitele, počty hráčů a postup obsazování; /hill oznámí jeho polohu.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "hillBodyRamp": "Jednou za tři hodiny, v okamžiku, který nikdo nedokáže předvídat, se celé říši oznámí, že za patnáct minut vyroste kopec v jedné ze zón volno pro všechny, a kruh, kde bude stát, je vyznačen na volné zemi. Když vyroste, stojí čtyřicet pět minut, pak padne. O kopec soupeří skupina s nejvíce hráči uvnitř, a po minutě nepřerušené většiny kopec připadne jí; osamělý hráč se počítá jako skupina o jednom, ale členové výpravy se nepočítají vůbec. Dokud skupina drží kopec, každý její člen uvnitř získává každou minutu Čest, a čím déle stejná skupina kopec drží, tím víc každá minuta vyplácí: plná skupina, která drží nesporný kopec po celou dobu jeho stání, vydělá zhruba tolik jako tři výhry na bojišti. Když kopec změní držitele, noví držitelé začnou počítat od začátku. Lišta nad bojištěm ukazuje, kdo kopec drží, tvá čísla proti jejich a čas souboje; /hill v chatu řekne, kde kopec stojí.",
+      "hillBodyRamp": "Každé dvě hodiny se v Dračích zemích, Kraji Mrazivého závoje nebo Jantarovém pádu objeví kopec. Říše dostane varování patnáct minut předem a kruh je vyznačen na otevřeném prostranství. Kopec zůstává aktivní třicet minut. Vstup do aktivního kruhu zapne příznak světového PvP podle běžných pravidel úrovně, a to i členům nájezdu. Skupina s největším počtem způsobilých hráčů uvnitř získá kopec po minutě nepřerušené převahy; samotný hráč se počítá jako jednočlenná skupina, ale členové nájezdu a hráči pod požadovanou úrovní pro PvP nemohou kopec obsadit ani získávat Čest z kopce. Každý držitel uvnitř získává Čest stále rychleji. Odměny přicházejí častěji a jejich výše roste rychleji, takže celková Čest zůstává stejná jako při dřívější pětačtyřicetiminutové události. Změna držitele spustí růst odměn od začátku. Po opuštění kruhu zůstává příznak zapnutý; /pvp off používá běžnou pětiminutovou prodlevu a nemůže doběhnout uvnitř aktivního kopce ani během boje. Lišta kopce ukazuje držitele, počty hráčů a postup obsazování; /hill oznámí jeho polohu.",
       "limitsBodyRaids": "Porážení stejného hráče znovu a znovu vyplácí pokaždé méně a brzy nic, a tvůj počet proti tomu hráči se resetuje až zhruba hodinu po prvním z těch zabití, takže čekání na jedné oběti se nikdy nevyplatí. Cíl hluboko pod tvou úrovní nevyplatí vůbec nic. Bojiště a Arény se řídí vlastními pravidly, dokud jsi uvnitř, a vyplácí víc Cti než otevřený svět, takže světové PvP je pomalejší cesta ke stejnému obchodníkovi. Výpravy nezískávají ze světových zabití nic: člen výpravy nedostane žádnou Čest ani zlato a nezmenší podíl nikoho jiného, takže boj jako skupina se vyplatí."
     },
     "thornhollowPage": {
@@ -12124,6 +12131,7 @@ export const cs_CZ: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Přepne automatický útok na cíl. Kliknutí pravým tlačítkem na nepřítele také zaútočí.",
       "attackRemoveHint": "Klikni pravým tlačítkem pro odebrání z lišty a uvolnění slotu.",
+      "moveHint": "Přesunete přetažením se stisknutým Shiftem",
       "emptySlot": "Prázdný slot",
       "slotAria": "Akční slot {slot}: {ability}",
       "emptySlotAria": "Akční slot {slot}: prázdný",
@@ -18451,6 +18459,9 @@ export const cs_CZ: EnTranslations = {
       "vanguard_warstaff": {
         "name": "Bojová hůl Předvoje"
       },
+      "vanguard_feral_staff": {
+        "name": "Divoká hůl Předvoje"
+      },
       "conjured_water4": {
         "name": "Vyčarovaná pramenitá voda"
       },
@@ -24179,8 +24190,8 @@ export const cs_CZ: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Krvohřívová kůže",
-        "bonus2": "Čas obnovy Medvědího výpadu je kratší o 3 s.",
-        "bonus4": "Medvědí výpad tě zaštítí a pohltí 6 % tvého maximálního zdraví na 6 s."
+        "bonus2": "Zkracuje doby obnovení schopností Výpad a Medvědí výpad o 3 s.",
+        "bonus4": "Zkracuje dobu obnovení schopnosti Úprk o 15 s."
       },
       "vanguard_druid_restoration": {
         "name": "Roucho Bodlákokvětu",

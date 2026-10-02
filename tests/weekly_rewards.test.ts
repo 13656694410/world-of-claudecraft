@@ -655,6 +655,19 @@ describe('weekly vault choices', () => {
     expect(sim.tick().some((event) => event.type === 'weekly_rewards')).toBe(true);
     expect(weeklyRewardInfoFor(sim.ctx, pid)).not.toBeNull();
   });
+  it('provides weeklyRewardInfo anywhere with canClaim gated on keeper proximity', () => {
+    const { sim, pid, player } = make();
+    const atKeeper = weeklyRewardInfoFor(sim.ctx, pid);
+    expect(atKeeper).not.toBeNull();
+    expect(atKeeper?.canClaim).toBe(true);
+
+    player.pos.x -= 100;
+    sim.ctx.rebucket(player);
+    const remote = weeklyRewardInfoFor(sim.ctx, pid);
+    expect(remote).not.toBeNull();
+    expect(remote?.canClaim).toBe(false);
+    expect(remote?.state).toEqual(atKeeper?.state);
+  });
   it('Talk opens the keeper menu only while alive and nearby', () => {
     const { sim, pid, player } = make();
     sim.talkToNpc(WEEKLY_KEEPER_ENTITY_ID, pid);

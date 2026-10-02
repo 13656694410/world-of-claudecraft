@@ -61,14 +61,14 @@ describe('the Coinsack Scurrier', () => {
     const { inst, goblin } = hoard();
     expect(goblin?.templateId).toBe(HOARD_GOBLIN_TEMPLATE_ID);
     expect(inst.mobIds).not.toContain(goblin!.id);
-    expect(goblin!.maxHp).toBe(hoardGoblinHealth(goblin!.level, 1));
+    expect(goblin!.maxHp).toBe(hoardGoblinHealth(goblin!.level, inst.vault!.rarity));
     expect(goblin!.hp).toBe(goblin!.maxHp);
   });
 
-  it('is sized for the head count and paid at the room chest rate', () => {
+  it('is sized for the fixed rarity budget and paid at the room chest rate', () => {
     // A lone reader at level 20: about 15 seconds of steady damage.
-    expect(hoardGoblinHealth(20, 1)).toBe(1200);
-    expect(hoardGoblinHealth(20, 5)).toBe(3000);
+    expect(hoardGoblinHealth(20, 'common')).toBe(1200);
+    expect(hoardGoblinHealth(20, 'rare')).toBe(3000);
     // The casket's level-20 copper (6g) times each rarity's chest share.
     expect(hoardGoblinCopper(20, 'common')).toBe(18_000);
     expect(hoardGoblinCopper(20, 'rare')).toBe(36_000);

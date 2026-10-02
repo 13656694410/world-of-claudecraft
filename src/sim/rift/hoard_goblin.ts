@@ -16,6 +16,7 @@
 
 import { CASKET_MATERIAL_POOL, treasureCasketCopper } from '../clue_casket';
 import {
+  type TreasureMapRarity,
   VAULT_GUEST_PAYOUTS_PER_CYCLE,
   VAULT_PAYOUTS,
   vaultHealthFactor,
@@ -37,8 +38,8 @@ export const HOARD_GOBLIN_CHANCE = 0.15;
 export const HOARD_GOBLIN_ESCAPE_SEC = 20;
 /** Seconds it lingers untouched before it leaves on its own. */
 export const HOARD_GOBLIN_IDLE_SEC = 120;
-/** Health per level before the head-count factor: at level 20 a lone reader
- *  faces 1200 (about 15 seconds of steady damage), a full party 3000. */
+/** Health per level before the rarity factor: level 20 common has 1200 HP,
+ *  while the five-player rarities have 3000 HP. */
 export const HOARD_GOBLIN_HEALTH_PER_LEVEL = 150;
 /** Share of the player's run speed it runs at: a chaser always closes on it. */
 export const HOARD_GOBLIN_SPEED_SHARE = 0.8;
@@ -57,9 +58,9 @@ export function hoardGoblinCopper(
   return Math.round(treasureCasketCopper(level) * VAULT_PAYOUTS[rarity].copperMult);
 }
 
-/** Its maximum health for a level and the head count the hoard was scaled for. */
-export function hoardGoblinHealth(level: number, headCount: number): number {
-  return Math.round(HOARD_GOBLIN_HEALTH_PER_LEVEL * level * vaultHealthFactor(headCount));
+/** Its maximum health for a level and fixed map rarity. */
+export function hoardGoblinHealth(level: number, rarity: TreasureMapRarity): number {
+  return Math.round(HOARD_GOBLIN_HEALTH_PER_LEVEL * level * vaultHealthFactor(rarity));
 }
 
 /** Roll for a goblin in a freshly spawned hoard room (spawnRiftFloor). The roll
@@ -88,7 +89,7 @@ export function maybeSpawnHoardGoblin(
     level,
     ctx.groundPos(origin.x + spot.x + 2, origin.z + spot.z),
   );
-  mob.maxHp = hoardGoblinHealth(level, vault.headCount);
+  mob.maxHp = hoardGoblinHealth(level, vault.rarity);
   mob.hp = mob.maxHp;
   mob.facing = Math.PI;
   mob.prevFacing = mob.facing;

@@ -140,6 +140,14 @@ describe('dungeon finder window painter (source contract)', () => {
       /heroicSingles\.length > 0[\s\S]{0,80}t\('hudChrome\.finder\.lootHeroic'\)/,
     );
   });
+
+  it('supports the vault tab to preview the Great Vault in read-only mode', () => {
+    expect(src).toContain("['vault', 'hudChrome.weeklyRewards.title', 'crown']");
+    expect(src).toContain('createWeeklyRewardsTab(');
+    expect(src).toContain('readOnly: true');
+    expect(src).toContain("el.classList.toggle('df-vault-mode', view.tab === 'vault')");
+    expect(src).toContain('this.vaultPane.close()');
+  });
 });
 
 describe('dungeon finder group-found popup (source contract)', () => {
@@ -188,5 +196,12 @@ describe('dungeon finder window stylesheet contract', () => {
   it('gives the HUD render gate the same flex open-state check the painter writes', () => {
     const hud = readFileSync(resolve(process.cwd(), 'src/ui/hud.ts'), 'utf8');
     expect(hud).toContain("$('#dungeon-finder-window').style.display === 'flex'");
+  });
+
+  it('defines .df-vault-mode and preview notice styling with token variables', () => {
+    expect(components).toContain('#dungeon-finder-window.df-vault-mode');
+    expect(components).toContain('.df-body-vault');
+    expect(components).toContain('.df-vault-container');
+    expect(components).toContain('.weekly-preview-notice');
   });
 });

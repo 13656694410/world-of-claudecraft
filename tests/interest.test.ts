@@ -109,6 +109,34 @@ describe('crowd interest management', () => {
     placeAt(server, subject.pid, at.x, at.z);
   }
 
+  it('shows a vault only to its owner and current party, removing it on party leave', () => {
+    placeSubjectAt(10);
+    const pos = besideViewer(server.sim.entities.get(viewer.pid)!, 15);
+    const portal = createGroundObject(
+      90_050,
+      '',
+      'Buried Hoard',
+      server.sim.groundPos(pos.x, pos.z),
+    );
+    portal.templateId = 'hoard_entrance';
+    portal.vaultOwnerPid = subject.pid;
+    portal.vaultOwnerCharacterId = subject.characterId;
+    server.sim.entities.set(portal.id, portal);
+    server.sim.grid.insert(portal);
+    broadcast(server);
+    expect(entRecord(lastSnap(viewerFc.sent), portal.id)).toBeNull();
+    expect(entRecord(lastSnap(subjectFc.sent), portal.id)).not.toBeNull();
+    server.sim.partyInvite(viewer.pid, subject.pid);
+    server.sim.partyAccept(viewer.pid);
+    step(server);
+    expect(entRecord(lastSnap(viewerFc.sent), portal.id)).not.toBeNull();
+    server.sim.partyLeave(viewer.pid);
+    step(server);
+    expect(entRecord(lastSnap(viewerFc.sent), portal.id)).toBeNull();
+    expect(inKeep(lastSnap(viewerFc.sent), portal.id)).toBe(false);
+    expect(viewer.sentEnts.has(portal.id)).toBe(false);
+  });
+
   it('sends full identity on first sight and lite records afterwards', () => {
     placeSubjectAt(30);
     broadcast(server);

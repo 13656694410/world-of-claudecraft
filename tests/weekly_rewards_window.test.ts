@@ -226,4 +226,51 @@ describe('weekly reward pane', () => {
     pane.renderInto(root);
     expect(root.querySelector('.weekly-heroic-upgrade')).toBeNull();
   });
+
+  it('renders in read-only mode for remote preview without claim interactions', () => {
+    const state = emptyWeeklyRewards(604800000);
+    state.vaults = [
+      { resetAtMs: 1000, choices: [{ pool: 'raid', itemId: 'orb_of_the_last_spring' }] },
+    ];
+    const info = {
+      state,
+      nowMs: 2000,
+      playerLevel: 20,
+      canClaim: false,
+      worldQuestsAvailable: true,
+      readyWeeks: 1,
+    };
+    const root = document.createElement('div');
+    const pane = new WeeklyRewardsTab(
+      {
+        world: () =>
+          ({
+            cfg: { playerClass: 'mage' },
+            weeklyRewardInfo: info,
+          }) as IWorld,
+        presentation: {
+          itemIcon: () => '',
+          attachTooltip: vi.fn(),
+        } as unknown as PainterHostPresentation,
+        onInventoryChanged: vi.fn(),
+      },
+      { readOnly: true },
+    );
+    pane.renderInto(root);
+    const container = root.querySelector('#weekly-rewards-panel')!;
+    expect(container.classList.contains('weekly-rewards--readonly')).toBe(true);
+    expect(container.classList.contains('ui-center-xy')).toBe(false);
+    expect((container as HTMLElement).style.position).toBe('');
+
+    // Renders the preview notice instead of the start-claim button.
+    expect(root.querySelector('.weekly-start-claim')).toBeNull();
+    const notice = root.querySelector('.weekly-preview-notice');
+    expect(notice).not.toBeNull();
+    expect(notice?.textContent).toContain('Visit the Vault Keeper in Eastbrook');
+
+    // Milestones and tracks remain visible.
+    expect(root.querySelectorAll('.weekly-track')).toHaveLength(4);
+    expect(root.querySelector('.vault-reveal-trigger')).toBeNull();
+    pane.close();
+  });
 });

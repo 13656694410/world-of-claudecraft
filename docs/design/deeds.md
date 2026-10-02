@@ -127,6 +127,10 @@ server store always canonical.
    the instance/room presence roster, so a healer or taunt tank who leaves no
    damage trace is still credited, and because instance slots are group-private
    a passenger riding the kill is the group's own choice, not open-world AFK.
+   Approved exception: the opt-in played-time deeds `pvp_flag_1h`,
+   `pvp_flag_3h`, `pvp_flag_6h`, `pvp_flag_24h`, and `pvp_flag_168h`
+   count connected flagged time, including AFK, but pause on the Proving Shore.
+   Logout preserves progress; requesting PvP off resets it. Earned titles remain.
 7. **Thresholds sit where natural play lands.** Most of the catalog is
    reachable in the first two-thirds of a character's journey; sub-1%
    unlocks are deliberate prestige only.

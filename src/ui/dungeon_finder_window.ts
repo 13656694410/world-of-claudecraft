@@ -45,6 +45,7 @@ import { formatNumber, type TranslationKey, t, tPlural } from './i18n';
 import { QUALITY_COLOR } from './icons';
 import type { PainterHostPresentation } from './painter_host';
 import { svgIcon } from './ui_icons';
+import { createWeeklyRewardsTab, type WeeklyRewardsTab } from './weekly_rewards_window';
 
 // Render-skip sentinel for the pre-sync note (online, before the first `df`
 // snapshot lands). A live sig is always JSON (starts with '['), so this token
@@ -76,8 +77,17 @@ export class DungeonFinderWindow {
   // Clock slots refreshed in place between structural rebuilds.
   private clockSlots = new Map<string, HTMLElement>();
   private lastClockText = new Map<string, string>();
+  private readonly vaultPane: WeeklyRewardsTab;
 
-  constructor(private readonly deps: DungeonFinderWindowDeps) {}
+  constructor(private readonly deps: DungeonFinderWindowDeps) {
+    this.vaultPane = createWeeklyRewardsTab(
+      {
+        ...this.deps,
+        onInventoryChanged: () => {},
+      },
+      { readOnly: true },
+    );
+  }
 
   get isOpen(): boolean {
     return this.deps.root().style.display === 'flex';
@@ -117,6 +127,7 @@ export class DungeonFinderWindow {
       return;
     }
     this.deps.hideTooltip();
+    this.vaultPane.close();
     el.style.display = 'none';
     this.clockSlots.clear();
     this.lastClockText.clear();
@@ -164,6 +175,13 @@ export class DungeonFinderWindow {
     const sig = `${view.sig}|${this.pane}`;
     if (sig === this.lastSig) {
       this.updateClocks(view.clocks);
+      if (this.tab === 'vault') {
+        this.vaultPane.refreshCountdown();
+        this.vaultPane.refreshIfChanged(() => {
+          this.lastSig = '';
+          this.render();
+        });
+      }
       return;
     }
     this.lastSig = sig;
@@ -173,8 +191,17 @@ export class DungeonFinderWindow {
     // the fresh one, else selecting a row near the bottom snaps the list back to the
     // top and scrolls the just-picked dungeon out of view (the bank/spellbook idiom).
     const prevRailScrollTop = el.querySelector('.df-rail')?.scrollTop ?? 0;
+    el.classList.toggle('df-vault-mode', view.tab === 'vault');
     el.innerHTML = this.liveHtml(view);
     this.wire(el, view);
+    if (view.tab === 'vault') {
+      const container = el.querySelector<HTMLElement>('#df-vault-container');
+      if (container) {
+        this.vaultPane.renderInto(container);
+      }
+    } else {
+      this.vaultPane.close();
+    }
     const rail = el.querySelector('.df-rail');
     if (rail) rail.scrollTop = prevRailScrollTop;
     this.cacheClockSlots(el);
@@ -374,6 +401,7 @@ export class DungeonFinderWindow {
         ['catalogue', 'hudChrome.finder.tabCatalogue', 'skull'],
         ['queue', 'hudChrome.finder.tabQueue', 'social'],
         ['board', 'hudChrome.finder.tabBoard', 'chest'],
+        ['vault', 'hudChrome.weeklyRewards.title', 'crown'],
       ] as const
     )
       .map(
@@ -387,8 +415,10 @@ export class DungeonFinderWindow {
         ? this.catalogueHtml(view.rows, view.detail)
         : view.tab === 'queue'
           ? this.queueHtml(view.queue)
-          : this.boardHtml(view.board);
-    return `${this.titleHtml() + tabs + proposal}<div class="df-body${view.tab === 'catalogue' ? ' df-body-catalogue' : ''}">${body}</div>`;
+          : view.tab === 'board'
+            ? this.boardHtml(view.board)
+            : '<div class="df-vault-container" id="df-vault-container"></div>';
+    return `${this.titleHtml() + tabs + proposal}<div class="df-body${view.tab === 'catalogue' ? ' df-body-catalogue' : ''}${view.tab === 'vault' ? ' df-body-vault' : ''}">${body}</div>`;
   }
 
   // --- catalogue -----------------------------------------------------------

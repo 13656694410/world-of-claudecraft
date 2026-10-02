@@ -1255,24 +1255,21 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.confirmCancel': 'Avbryt',
   'hudChrome.worldPvp.disable': 'Inaktivera världskamp',
   'hudChrome.worldPvp.disarmLine':
-    'Att slå av tar {minutes} minuter och väntar på att kampen slutar.',
+    'Det tar {minutes} minuter att stänga av flaggan, och det väntar tills du lämnar den aktiva kullen och striden är över.',
   'hudChrome.worldPvp.enable': 'Aktivera världskamp',
   'hudChrome.worldPvp.greyLine': 'Spelare mer än {levels} nivåer under dig betalar ingenting.',
   'hudChrome.worldPvp.groundContested':
     'Överallt annars är omstritt: endast två flaggade spelare kan slåss.',
   'hudChrome.worldPvp.groundFfa':
-    'Draklandet, Frostslöjans räckvidd och Glödskogen är free-for-all: alla där kan slåss, flaggade eller inte.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'Provstranden och Östbrooks dal är helgedomar: ingen världskamp alls.',
+    'Drakländerna, Frostslöjans vidder och Bärnstensfallet använder vanliga PvP-flaggor. Din flagga aktiveras när du går in i en aktiv cirkel i Kullens kung.',
   'hudChrome.worldPvp.groupLine':
     'Grupp- och raidmedlemmar är aldrig fientliga mot varandra. Gildekamrater utanför din grupp kan slåss.',
   'hudChrome.worldPvp.honorLine': '{honor} Heder per seger, delad mellan alla som hjälpte.',
   'hudChrome.worldPvp.keepUp': 'Håll flaggan uppe',
   'hudChrome.worldPvp.levelReq': 'Kräver nivå {level}.',
   'hudChrome.worldPvp.markLine':
-    'Att attackera en ej flaggad spelare där höjer din egen flagga; att attackera en flaggad gör det aldrig.',
-  'hudChrome.worldPvp.noStakeLine':
-    'En ej flaggad spelare som dödas på free-for-all marken förlorar inget guld.',
+    'Världs-PvP aktiveras när du går in i en aktiv kullcirkel. Din flagga förblir aktiv när du lämnar cirkeln.',
+  'hudChrome.worldPvp.noStakeLine': 'Oflaggade spelare kan inte angripas i den öppna världen.',
   'hudChrome.worldPvp.noTakeLine':
     'En ej flaggad fighter tar inget guld heller: det flyttas bara mellan två flaggade spelare.',
   'hudChrome.worldPvp.pending': 'Väntar på din PvP-status från riket.',
@@ -1863,9 +1860,9 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus4':
     'Att kasta Gripande rötter låter dig kasta medan du rör dig och ökar din rörelse med 20 procent i 4 sec. Kan inte inträffa mer än en gång var 20 sec.',
   'entities.itemSets.vanguard_druid_balance.name': 'Starwarden Raiment',
-  'entities.itemSets.vanguard_druid_feral.bonus2': 'Bruinrusningens nedräkning minskas med 3 sec.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Bruinrusning skyddar dig för 6 procent av din maximala hälsa i 6 sec.',
+  'entities.itemSets.vanguard_druid_feral.bonus2':
+    'Minskar nedkylningstiderna för Utfall och Bruinrusning med 3 sek.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Minskar nedkylningstiden för Rusa med 15 sek.',
   'entities.itemSets.vanguard_druid_feral.name': 'Bloodmane Hide',
   'entities.itemSets.vanguard_druid_restoration.bonus2': 'Fleetmends nedräkning minskas med 1 sec.',
   'entities.itemSets.vanguard_druid_restoration.bonus4':
@@ -2296,8 +2293,10 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Vanguard-utrustning: Warfare säsong 2',
   'guide.combat.unstuckBodyWindow':
     'Om världen fångar dig någonstans du inte kan ta dig ut, skriv /unstuck. Du måste vara utanför strid och stå stille, inte hålld av en bedövning eller en rot, och inte i en tvekamp eller en arenomatch: en kort nedräkning körs, och att röra dig eller ta skada avbryter det. När det slutförs är du placerad vid närmaste kyrkogård. Det dödar aldrig dig och det lämnar ingen lik, och om du redan var nere höjer det upp dig där istället. Den första användningen på en timme kostar dig ingenting. Använd det igen inom en timme från senast och priset är Unstuck sjukdom, en tillfällig försvagning av allt du är som har slitit av innan du kunde använda kommandot igen, och som Vaktarens tull sparar helt nya karaktärer.',
+  'guide.commandsPage.flair':
+    'Visar eller döljer din Discord-roll för andra spelare, alltså ditt färgade namn, din rolltagg och din verifierade chattagg: /flair on visar den, /flair off döljer den och bara /flair berättar vad som är inställt. Kräver ett kopplat Discord-konto.',
   'guide.commandsPage.pvpZones':
-    'Världens PvP-flagga: /pvp växlar den, /pvp on och /pvp off ställer in den. Flaggade spelare kan slåss med varandra på omstridigt område, helgedomar tillåter ingen världsstrid alls, och fritt-för-allt-zonerna tillåter det med eller utan flagga; att stänga av tar 5 minuter.',
+    'Flagga för världs-PvP: /pvp växlar den, /pvp on slår på den och /pvp off stänger av den. Flaggade spelare kan slåss mot varandra på omstridd mark, fristäder tillåter inga världsstrider alls och din flagga aktiveras när du går in i en aktiv cirkel i Kullens kung; det tar 5 minuter att stänga av den.',
   'guide.commandsPage.unstuckWindow':
     'Vägen ut när världen har fångat dig. Stå stille genom en kort nedräkning och du flytas till närmaste kyrkogård, och höjd där om du redan hade fallit. Den första användningen på en timme är gratis. Använd det igen inom en timme från senast och det lämnar dig försvagad av Unstuck sjukdom ett tag efteråt, så det är en räddning snarare än en genväg.',
   'guide.factionsPage.automatonsBody':
@@ -2368,20 +2367,16 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.flagHeading': 'Att höja och sänka flaggan',
   'guide.worldPvpPage.heading': 'Världens PvP',
   'guide.worldPvpPage.hillBodyRamp':
-    'En gång var tredje timme, vid ett tillfälle ingen kan förutsäga, blir hela riket berättat att en kulle kommer att stiga i en av fritt-för-allt-zonerna om femton minuter, och cirkeln där det kommer att stå markeras på öppen mark. När den stiger står den i fyrtiofem minuter, sedan faller. Partiet med mest spelare som står innanför bestrid kullen, och efter en minut av obruten majoritet är kullen deras; en ensamspelare räknas som ett parti av en, men raid-medlemmar räknas inte alls. Medan ett parti håller kullen, tjänar var och en av dess medlemmar som står innanför Ära varje minut, och ju längre samma parti håller det, desto mer varje minut betalar: ett fullt parti som håller en omtvistet kulle för hela sin tid tjänar ungefär lika mycket som tre slagfält-segrar. När kullen byter händer startar de nya innehavarna räkningen från början. En stapel över fältet visar vem som håller det, dina nummer mot deras, och tävlingsklockan; /hill i chatten säger var den står.',
+    'Varannan timme dyker en kulle upp i Drakländerna, Frostslöjans vidder eller Bärnstensfallet. Riket får en varning femton minuter i förväg och cirkeln markeras på öppen mark. Kullen är aktiv i trettio minuter. När du går in i den aktiva cirkeln aktiveras din flagga för världs-PvP enligt de vanliga nivåreglerna, även för raidmedlemmar. Gruppen med flest behöriga spelare i cirkeln tar kullen efter en minut med obruten majoritet; en ensam spelare räknas som en grupp på en, men raidmedlemmar och spelare under nivåkravet för PvP kan varken inta kullen eller tjäna Ära från den. Varje innehavare som står i cirkeln tjänar Ära i ökande takt. Utbetalningarna sker oftare och ökar snabbare, så att den totala Äran från det tidigare evenemanget på fyrtiofem minuter bevaras. När kullen byter innehavare börjar ökningen om från början. Din flagga förblir aktiv när du lämnar cirkeln; /pvp off använder den vanliga fördröjningen på fem minuter och kan inte slutföras på en aktiv kulle eller under strid. Kullens stapel visar kontroll, spelarantal och erövringsförlopp; /hill anger dess plats.',
   'guide.worldPvpPage.hillHeading': 'Kullens kung',
-  'guide.worldPvpPage.introZones':
-    'Öppen världsspeler-mot-spelare är val-in, och marken du står på bestämmer vad det betyder. Höj din PvP-flagga och varje annan flaggad spelare som inte är i ditt parti eller raid blir en fiende på omstridigt område; sänk den och, efter en kort fördröjning, är du en åskådare igen. Två zoner är helgedomar där ingen världsstrid händer alls, och de tre nordligaste zonerna är fritt-för-allt-område där alla närvarande är rättvis spel, flagga eller ingen flagga. Parti- och raid-kamrater är aldrig dina fiender någonstans; skickekamrater utanför din grupp är rättvis spel som vilken som helst.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Att besegra samma spelare igen och igen betalar mindre varje gång och snart ingenting, och din räkning mot den spelaren börjar bara igen ungefär en timme efter den första av dessa dödningar, så att läger en offer är aldrig värt väntan. Ett mål långt under din nivå betalar ingenting alls. Slagfält och Arenor kör sina egna regler medan du är inne i dem, och de betalar mer Ära än den öppna världen, så världens PvP är den långsammare vägen till samma leverantör. Raid tjänar ingenting från världsdödningar: en raid-medlem tar ingen Ära eller guld och krymper inte någon annans andel, så slå som ett parti för att bli betald.',
   'guide.worldPvpPage.limitsHeading': 'Fair play-regler',
   'guide.worldPvpPage.stakesBodyFlagged':
-    'När en flaggad spelare besegras av en annan spelare, betalar förloraren en liten andel av guldet i sin börs, begränsad till ett blygsamt belopp, och vinnarna tjänar Ära mot Kriget-utrustning. En spelare som inte var flaggad betalar inget guld alls, även när de faller i en fritt-för-allt-zon. Alla som hjälpte delar båda: slaggöringen, någon som skadade målet strax innan, och helarna som höll dessa brottare stående. En ren en-mot-en-betalar hela potten; en grupp delar det.',
+    'När en flaggad spelare besegras av en annan spelare betalar förloraren en liten del av guldet i sin börs, begränsad till ett blygsamt belopp, och vinnarna tjänar Ära till Kriget-utrustning. En oflaggad spelare kan inte angripas i den öppna världen. Alla som hjälpte till delar på både guld och Ära: spelaren som gav dödsstöten, alla som skadade målet strax före och helarna som höll dessa kämpar på benen. En ren en-mot-en-strid ger hela potten; en grupp delar på den.',
   'guide.worldPvpPage.stakesHeading': 'Vad en dödning är värd',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'En oflaggrad kämpare får inte heller någon: guld byter endast ägare mellan två flaggade spelare, men alla som hjälpte tjänar fortfarande Heder.',
-  'guide.worldPvpPage.zonesBody':
-    'Världen är uppdelad i tre sorters mark. Prövostranden och Östbäcksdalen är fredade områden: ingen världs-PvP förekommer där överhuvudtaget, flaggad eller inte, så en ny karaktär kan aldrig anfallas innan de förstår vad flaggan betyder. Det mesta av världen är omstritt, där flaggreglerna ovan är hela berättelsen. Drakländerna, Frostslöjans vidder och Bärnstensfallet, de tre nordligaste zonerna, är fri-för-allmark: alla som står där kan anfalla alla andra som står där, med eller utan flagga, och du underrättas när du går in och igen när du går ut. Att anfalla en spelare som inte är flaggad där höjer din egen flagga, så en angripare slutar alltid med att bära risken. Att slå en spelare som redan är flaggad höjer aldrig den, vilket betyder att försvara dig själv eller försvara någon som inte är flaggad inte kostar dig något.',
   'guide.worldPvpPage.zonesHeading': 'Var världs-PvP förekommer',
   'landing.headline': 'Äventyr med vänner.',
   'landing.contribute': 'Bidra till spelet',
@@ -5977,9 +5972,9 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Välj din kamera',
   'hudChrome.discord.link.joinServer': 'Gå med i Discord-servern',
   'hudChrome.discord.roleTag.contentcreator': 'Innehållsskapare',
-  'hudChrome.discord.roleTag.juniormods': 'Junior-mod',
+  'hudChrome.discord.roleTag.juniormods': 'Observatör',
   'hudChrome.discord.roleTag.legend': 'LEGEND',
-  'hudChrome.discord.roleTag.seniormods': 'Senior-mod',
+  'hudChrome.discord.roleTag.seniormods': 'Väktare',
   'hudChrome.discord.roleTag.shill': 'MARKNADSFÖRARE',
   'hudChrome.finder.accept': 'Acceptera',
   'hudChrome.finder.acceptApplicantAria': 'Acceptera {name}',
@@ -7053,7 +7048,6 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'Den bleka väktaren (Väktartullen)',
   'hudChrome.death.spiritHealerAlive':
     'Den bleka väktaren vakar över de döda. Du är fortfarande bland de levande.',
-  'hudChrome.discord.roleTag.admin': 'Admin',
   'hudChrome.frameReset.label': 'Återställ ramarnas positioner',
   'hudChrome.mailbox.arrivedBanner': 'Korpen har landat: post från {name}.',
   'hudChrome.mailbox.arrivedLog': 'Du har ny post från {name}.',
@@ -19781,4 +19775,24 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Håll Skift och dra för att flytta',
+  'entities.items.vanguard_feral_staff.name': 'Förtruppens vilda stav',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Belöningar väntar. Besök Valvförvaltaren i Eastbrook för att öppna och hämta dem.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Prövostranden är den enda fristaden: där kan du inte aktivera världs-PvP eller slåss mot andra spelare.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Ha världs-PvP aktiverat för att få {percent} mer erfarenhet och fraktionsrykte. Bonusarna upphör när du begär att stänga av det.',
+  'hudChrome.worldPvp.rewardPaused': 'Nuvarande PvP-svit: {time} spelat (pausad på Prövostranden)',
+  'hudChrome.worldPvp.rewardProgress': 'Nuvarande PvP-svit: {time} spelat',
+  'hudChrome.worldPvp.rewardTitles':
+    'Få permanenta titlar efter {thresholds} speltid med världs-PvP aktiverat. Utloggning och besök på Prövostranden pausar räknaren. Avstängning nollställer den.',
+  'guide.worldPvpPage.introZones':
+    'PvP i den öppna världen är frivilligt och beror på området. På omstridd mark gör din aktiva PvP-flagga alla flaggade spelare utanför din grupp eller raid till fiender; stänger du av den blir du åskådare igen efter en kort fördröjning. Prövostranden är den enda fristaden utan världsstrider, och de tre nordligaste områdena använder samma frivilliga flaggregler som resten av världen. Din flagga aktiveras automatiskt när du går in i en aktiv cirkel i Kullens kung. Grupp- och raidkamrater är aldrig dina fiender någonstans; guildmedlemmar utanför din grupp är mål som alla andra.',
+  'guide.worldPvpPage.zonesBody':
+    'Prövostranden är den enda fristaden: ingen världs-PvP sker där och du kan inte aktivera din flagga. En aktiv flagga förblir aktiv, men framsteg mot titlar baserade på speltid pausas tills du lämnar området. Överallt annars, även i Drakländerna, Frostslöjans vidder och Bärnstensfallet, kan bara flaggade spelare slåss. Din flagga aktiveras automatiskt när du går in i en aktiv cirkel i Kullens kung om du uppfyller det vanliga nivåkravet. Varningscirkeln aktiverar inte din flagga. Flaggan förblir aktiv när du lämnar den aktiva cirkeln; använd /pvp off för att starta den vanliga nedräkningen på fem minuter, som inte kan slutföras medan du är inne på en aktiv kulle eller fortfarande i strid.',
+  'guide.worldPvpPage.hillBody':
+    'Varannan timme dyker en kulle upp i Drakländerna, Frostslöjans vidder eller Bärnstensfallet. Riket får en varning femton minuter i förväg och cirkeln markeras på öppen mark. Kullen är aktiv i trettio minuter. När du går in i den aktiva cirkeln aktiveras din flagga för världs-PvP enligt de vanliga nivåreglerna, även för raidmedlemmar. Gruppen med flest behöriga spelare i cirkeln tar kullen efter en minut med obruten majoritet; en ensam spelare räknas som en grupp på en, men raidmedlemmar och spelare under nivåkravet för PvP kan varken inta kullen eller tjäna Ära från den. Varje innehavare som står i cirkeln tjänar Ära i ökande takt. Utbetalningarna sker oftare och ökar snabbare, så att den totala Äran från det tidigare evenemanget på fyrtiofem minuter bevaras. När kullen byter innehavare börjar ökningen om från början. Din flagga förblir aktiv när du lämnar cirkeln; /pvp off använder den vanliga fördröjningen på fem minuter och kan inte slutföras på en aktiv kulle eller under strid. Kullens stapel visar kontroll, spelarantal och erövringsförlopp; /hill anger dess plats.',
+  'hudChrome.hill.pvpEntry': 'Världs-PvP aktiveras när du går in i den aktiva cirkeln.',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

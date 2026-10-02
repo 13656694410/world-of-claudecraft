@@ -7,7 +7,7 @@
 // and their healers; the grey rule; the persisted per-victim diminishing
 // returns; the paid-death guard), the healer auto-flag, the books sweep, the
 // persistence round trip, and the determinism guarantees.
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { applyHeal } from '../src/sim/combat/heal';
 import { BUILTIN_WORLD, PLAYER_START, ZONES } from '../src/sim/data';
 import {
@@ -67,7 +67,7 @@ const SEED = 7;
 /** Contested ground (the mutual-flag rule), a free-for-all zone, and the two
  *  sanctuaries, by zone id; placeIn stands a player on the zone's graveyard
  *  (open ground, no hub colliders). Every fighter starts on contested ground:
- *  the default spawn is Eastbrook Vale, a sanctuary, where nobody is hostile. */
+ *  the default spawn is Eastbrook Vale; Thornpeak keeps the fixture explicit. */
 const CONTESTED_ZONE = 'thornpeak_heights';
 const FFA_ZONE = 'drakelands';
 const STARTER_ZONE = 'eastbrook_vale';
@@ -222,6 +222,7 @@ describe('the /pvp flag lifecycle', () => {
     const sim = world();
     const a = addFighter(sim, 'Aleph');
     expect(sim.worldPvpInfoFor(a)).toEqual({
+      rewardSeconds: 0,
       flagged: false,
       disarmRemaining: null,
       kills: 0,
@@ -928,7 +929,7 @@ describe('the ground: sanctuaries', () => {
     flag(sim, a);
     flag(sim, b);
     expect(sim.isHostileTo(ent(sim, a), ent(sim, b))).toBe(true);
-    for (const zone of [STARTER_ZONE, TUTORIAL_ZONE]) {
+    for (const zone of [TUTORIAL_ZONE]) {
       placeIn(sim, a, zone);
       placeIn(sim, b, zone, 2);
       expect(sim.isHostileTo(ent(sim, a), ent(sim, b))).toBe(false);
@@ -948,8 +949,8 @@ describe('the ground: sanctuaries', () => {
     const c = addFighter(sim, 'Gimel');
     flag(sim, a);
     tickSeconds(sim, 1);
-    placeIn(sim, a, STARTER_ZONE);
-    placeIn(sim, c, STARTER_ZONE, 2);
+    placeIn(sim, a, TUTORIAL_ZONE);
+    placeIn(sim, c, TUTORIAL_ZONE, 2);
     expect(tickCollecting(sim, 1, a)).toContain(WORLD_PVP_SANCTUARY_LINE);
     placeIn(sim, c, CONTESTED_ZONE);
     expect(tickCollecting(sim, 1, c)).toEqual([]);
@@ -975,9 +976,9 @@ describe('the ground: sanctuaries', () => {
 
   it('aid given AND received inside a sanctuary never marks the helper (the real cast)', () => {
     const { sim, a, priest } = sanctuaryAid();
-    // The fighter is kited to the starter zone's edge with the priest inside it.
-    placeIn(sim, priest, STARTER_ZONE);
-    placeIn(sim, a, STARTER_ZONE, 2);
+    // The fighter is kited to the tutorial island with the priest inside it.
+    placeIn(sim, priest, TUTORIAL_ZONE);
+    placeIn(sim, a, TUTORIAL_ZONE, 2);
     sim.castAbilityOn('power_word_shield', a, priest);
     sim.tick();
     expect(ent(sim, a).auras.some((aura) => aura.kind === 'absorb')).toBe(true);
@@ -987,7 +988,7 @@ describe('the ground: sanctuaries', () => {
 
   it('aid GIVEN from inside a sanctuary marks nobody, the fighter still on contested ground', () => {
     const { sim, a, priest } = sanctuaryAid();
-    placeIn(sim, priest, STARTER_ZONE);
+    placeIn(sim, priest, TUTORIAL_ZONE);
     worldPvpOnPlayerAided(sim.ctx, ent(sim, a), ent(sim, priest));
     expect(ent(sim, priest).pvpFlag).toBeUndefined();
     expect(sim.worldPvpBooks.recentSupport.has(a)).toBe(false);
@@ -995,7 +996,7 @@ describe('the ground: sanctuaries', () => {
 
   it('aid RECEIVED inside a sanctuary marks nobody, the helper still on contested ground', () => {
     const { sim, a, priest } = sanctuaryAid();
-    placeIn(sim, a, STARTER_ZONE);
+    placeIn(sim, a, TUTORIAL_ZONE);
     worldPvpOnPlayerAided(sim.ctx, ent(sim, a), ent(sim, priest));
     expect(ent(sim, priest).pvpFlag).toBeUndefined();
     expect(sim.worldPvpBooks.recentSupport.has(a)).toBe(false);
@@ -1010,6 +1011,13 @@ describe('the ground: sanctuaries', () => {
 });
 
 describe('the ground: free-for-all zones', () => {
+  // Synthetic FFA ground preserves generic rule coverage; no shipped zone is FFA.
+  beforeEach(() => {
+    ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp = 'ffa';
+  });
+  afterEach(() => {
+    delete ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp;
+  });
   function brawl(): { sim: Sim; a: number; b: number } {
     const sim = world();
     const a = addFighter(sim, 'Aleph', 20, 1001);
@@ -1239,6 +1247,13 @@ describe('the ground: free-for-all zones', () => {
 });
 
 describe('aid: shields and buffs count like heals', () => {
+  // Synthetic FFA ground preserves generic rule coverage; no shipped zone is FFA.
+  beforeEach(() => {
+    ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp = 'ffa';
+  });
+  afterEach(() => {
+    delete ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp;
+  });
   function fight(): { sim: Sim; a: number; victim: number; priest: number } {
     const sim = world();
     const a = addFighter(sim, 'Aleph', 20, 1);
@@ -1302,7 +1317,7 @@ describe('aid: shields and buffs count like heals', () => {
     expect(ent(sim, a).auras.some((aura) => aura.kind === 'buff_sta_pct')).toBe(true);
   });
 
-  it('a heal with no target at all still self-casts: only a World PvP enemy on the target refuses', () => {
+  it('a heal with no target at all still self-casts', () => {
     const { sim, priest } = fight();
     ent(sim, priest).targetId = null;
     ent(sim, priest).hp = 1;
@@ -1337,7 +1352,90 @@ describe('aid: shields and buffs count like heals', () => {
   });
 });
 
+describe('a friendly cast with a World PvP enemy targeted lands on the caster', () => {
+  // The classic self-cast a duel, arena or battleground healer already gets: a
+  // flagged priest fighting a flagged enemy presses a heal with that enemy still
+  // selected, and the heal lands on the priest instead of being refused with the
+  // aid line.
+  function engaged(): { sim: Sim; priest: number; enemy: number } {
+    const sim = world();
+    const priest = addFighter(sim, 'Priest', 20, 1, 'priest');
+    const enemy = addFighter(sim, 'Enemy', 20, 2);
+    standTogether(sim, [priest, enemy]);
+    flag(sim, priest);
+    flag(sim, enemy);
+    expect(sim.isHostileTo(ent(sim, priest), ent(sim, enemy))).toBe(true);
+    hit(sim, enemy, priest, 150);
+    ent(sim, priest).targetId = enemy;
+    sim.events = [];
+    return { sim, priest, enemy };
+  }
+
+  it('an instant shield lands on the caster and keeps the enemy selected', () => {
+    const { sim, priest, enemy } = engaged();
+    sim.castAbility('power_word_shield', priest);
+    const errors = errorLines(sim, priest);
+    sim.tick();
+    expect(errors).not.toContain(WORLD_PVP_AID_REFUSED_LINE);
+    expect(ent(sim, priest).auras.some((aura) => aura.kind === 'absorb')).toBe(true);
+    expect(ent(sim, enemy).auras.some((aura) => aura.kind === 'absorb')).toBe(false);
+    expect(ent(sim, priest).targetId).toBe(enemy);
+  });
+
+  it('a timed heal starts and finishes on the caster', () => {
+    const { sim, priest, enemy } = engaged();
+    const before = ent(sim, priest).hp;
+    sim.castAbility('lesser_heal', priest);
+    const errors = errorLines(sim, priest);
+    expect(ent(sim, priest).castingAbility).toBe('lesser_heal');
+    for (let i = 0; i < Math.round(2.5 / DT); i++) {
+      for (const ev of sim.tick()) {
+        if (ev.type === 'error' && ev.pid === priest) errors.push(ev.text);
+      }
+    }
+    expect(errors).not.toContain(WORLD_PVP_AID_REFUSED_LINE);
+    expect(ent(sim, priest).castingAbility).toBeNull();
+    // Rank 1 heals at least 47: in-combat regeneration cannot account for that.
+    expect(ent(sim, priest).hp).toBeGreaterThanOrEqual(before + 47);
+    expect(ent(sim, enemy).hp).toBe(ent(sim, enemy).maxHp);
+  });
+
+  it('a heal whose locked target turns into an enemy mid-cast still fails the finish', () => {
+    const sim = world();
+    const priest = addFighter(sim, 'Priest', 20, 1, 'priest');
+    const stranger = addFighter(sim, 'Stranger', 20, 2);
+    standTogether(sim, [priest, stranger]);
+    flag(sim, stranger);
+    ent(sim, stranger).hp -= 100;
+    const strangerHp = ent(sim, stranger).hp;
+    const priestHp = ent(sim, priest).hp;
+    ent(sim, priest).targetId = stranger;
+    sim.castAbility('lesser_heal', priest);
+    expect(ent(sim, priest).castingAbility).toBe('lesser_heal');
+    // Raising the priest's own flag mid-cast makes the two flagged strangers.
+    sim.setWorldPvpFlag(true, priest);
+    expect(sim.isHostileTo(ent(sim, priest), ent(sim, stranger))).toBe(true);
+    const errors: string[] = [];
+    for (let i = 0; i < Math.round(2.5 / DT); i++) {
+      for (const ev of sim.tick()) {
+        if (ev.type === 'error' && ev.pid === priest) errors.push(ev.text);
+      }
+    }
+    expect(errors).toContain(WORLD_PVP_AID_REFUSED_LINE);
+    // Out-of-combat regeneration ticks; a heal (at least 47) never landed.
+    expect(ent(sim, stranger).hp).toBeLessThan(strangerHp + 47);
+    expect(ent(sim, priest).hp).toBe(priestHp);
+  });
+});
+
 describe('periodic harm follows the live verdict (src/sim/combat/periodic_harm.ts)', () => {
+  // Synthetic FFA ground preserves generic rule coverage; no shipped zone is FFA.
+  beforeEach(() => {
+    ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp = 'ffa';
+  });
+  afterEach(() => {
+    delete ZONES.find((z) => z.id === FFA_ZONE)!.worldPvp;
+  });
   /** An unflagged priest opens on an unflagged stranger in a free-for-all
    *  zone with a pure damage-over-time spell. The bolt lands a tick later and
    *  the first damaging tick is still three seconds out, so at return nobody
@@ -1389,7 +1487,7 @@ describe('periodic harm follows the live verdict (src/sim/combat/periodic_harm.t
     const shed = dotted();
     flag(shed.sim, shed.priest);
     flag(shed.sim, shed.b);
-    placeIn(shed.sim, shed.b, STARTER_ZONE);
+    placeIn(shed.sim, shed.b, TUTORIAL_ZONE);
     tickSeconds(shed.sim, 7);
     expect(ent(shed.sim, shed.b).hp).toBe(ent(shed.sim, shed.b).maxHp);
     expect(hasDot(shed.sim, shed.b)).toBe(false);

@@ -47,6 +47,7 @@ import {
 } from './hud/battleground';
 import {
   buildWorldPvpWindowView,
+  updateWorldPvpRewardProgress,
   WORLD_PVP_ACTION_FOCUS_KEY,
   wireWorldPvpPanel,
   worldPvpBodyHtml,
@@ -306,7 +307,10 @@ export class ArenaWindow {
       confirming: this.worldConfirming,
     });
     const sig = `${view.sig}|${strip.tabs.map((s2) => (s2.locked ? 1 : 0)).join('')}`;
-    if (sig === this.lastSig) return;
+    if (sig === this.lastSig) {
+      updateWorldPvpRewardProgress(el, view);
+      return;
+    }
     this.lastSig = sig;
     // The disarm countdown rebuilds this panel once a second: a keyboard user
     // on the action button must land back on it (or its successor) after the

@@ -1,7 +1,7 @@
 // Warfare Season 2 ("Vanguard"): the top tier of honor gear, sold beside the
 // Warfare entry tier (content/pvp_honor.ts) by both honor quartermasters. One
 // five-piece set per spec (27 sets, the raid sets' slots and 2/4 thresholds)
-// plus four weapons. Built once from docs/design/warfare-season-2.md (names) and
+// plus weapons. Built once from docs/design/warfare-season-2.md (names) and
 // the named rules below by a one-off script, and maintained by hand from here:
 // tests/warfare_season2.test.ts pins every rule, so an edit that breaks one
 // fails there. The design doc is the review record.
@@ -415,6 +415,7 @@ export const SEASON2_WEAPON_IDS: readonly string[] = [
   'vanguard_oath_blade',
   'vanguard_fang_dagger',
   'vanguard_warstaff',
+  'vanguard_feral_staff',
 ];
 
 export const SEASON2_ITEMS: Record<string, ItemDef> = {
@@ -2677,7 +2678,7 @@ export const SEASON2_ITEMS: Record<string, ItemDef> = {
     slot: 'helmet',
     quality: 'epic',
     requiredLevel: 20,
-    stats: { armor: 167, agi: 12, sta: 7 },
+    stats: { armor: 167, str: 12, sta: 7 },
     pvpOffenseRating: 46,
     pvpDefenseRating: 71,
     priceHonor: 1350,
@@ -2695,7 +2696,7 @@ export const SEASON2_ITEMS: Record<string, ItemDef> = {
     slot: 'shoulder',
     quality: 'epic',
     requiredLevel: 20,
-    stats: { armor: 149, agi: 10, sta: 6 },
+    stats: { armor: 149, str: 10, sta: 6 },
     pvpOffenseRating: 40,
     pvpDefenseRating: 61,
     priceHonor: 1050,
@@ -2713,7 +2714,7 @@ export const SEASON2_ITEMS: Record<string, ItemDef> = {
     slot: 'chest',
     quality: 'epic',
     requiredLevel: 20,
-    stats: { armor: 194, agi: 15, sta: 8 },
+    stats: { armor: 194, str: 15, sta: 8 },
     pvpOffenseRating: 55,
     pvpDefenseRating: 85,
     priceHonor: 1800,
@@ -2731,7 +2732,7 @@ export const SEASON2_ITEMS: Record<string, ItemDef> = {
     slot: 'legs',
     quality: 'epic',
     requiredLevel: 20,
-    stats: { armor: 176, agi: 13, sta: 7 },
+    stats: { armor: 176, str: 13, sta: 7 },
     pvpOffenseRating: 48,
     pvpDefenseRating: 75,
     priceHonor: 1575,
@@ -2749,7 +2750,7 @@ export const SEASON2_ITEMS: Record<string, ItemDef> = {
     slot: 'gloves',
     quality: 'epic',
     requiredLevel: 20,
-    stats: { armor: 135, agi: 9, sta: 6 },
+    stats: { armor: 135, str: 9, sta: 6 },
     pvpOffenseRating: 37,
     pvpDefenseRating: 58,
     priceHonor: 825,
@@ -2913,6 +2914,24 @@ export const SEASON2_ITEMS: Record<string, ItemDef> = {
     sellValue: 0,
     soulbound: true,
     requiredClass: ['mage', 'priest', 'warlock', 'shaman', 'paladin', 'druid'],
+  },
+  vanguard_feral_staff: {
+    id: 'vanguard_feral_staff',
+    name: "Vanguard's Feral Staff",
+    kind: 'weapon',
+    slot: 'mainhand',
+    hand: 'twohand',
+    quality: 'epic',
+    requiredLevel: 20,
+    weapon: { min: 47, max: 71, speed: 3 },
+    stats: { str: 10, agi: 9, sta: 11 },
+    pvpOffenseRating: 73,
+    pvpDefenseRating: 112,
+    priceHonor: 1800,
+    sellValue: 0,
+    soulbound: true,
+    requiredClass: ['druid'],
+    classLocked: true,
   },
 };
 

@@ -561,6 +561,7 @@ import { refreshStartSkinPickerPortraits } from './ui/start_skin_picker_portrait
 import { refreshSteamLinkStatus, wireSteamLink } from './ui/steam_link';
 import { shouldShowStorePromo } from './ui/store_promo_card';
 import { talentRowOptionIconRef } from './ui/talent_icons';
+import { privacyUrlFor, termsUrlFor, whitepaperUrlFor } from './ui/terms_link';
 import { type PresetId, type ThemeKnob, ThemeStore } from './ui/theme';
 import {
   classifyAuthCode,
@@ -776,6 +777,28 @@ function syncBuildInfo(): void {
   el.title = t('meta.builtOn', { date: __APP_BUILD_DATE__ });
 }
 
+function syncFooterLegalLinks(): void {
+  const origin = globalThis.location?.origin ?? '';
+  const whitepaper = document.querySelector<HTMLAnchorElement>('a[data-i18n="footer.whitepaper"]');
+  if (whitepaper) {
+    whitepaper.href = whitepaperUrlFor(origin);
+    whitepaper.target = '_blank';
+    whitepaper.rel = 'noopener noreferrer';
+  }
+  const terms = document.querySelector<HTMLAnchorElement>('a[data-i18n="footer.terms"]');
+  if (terms) {
+    terms.href = termsUrlFor(origin);
+    terms.target = '_blank';
+    terms.rel = 'noopener noreferrer';
+  }
+  const privacy = document.querySelector<HTMLAnchorElement>('a[data-i18n="footer.privacy"]');
+  if (privacy) {
+    privacy.href = privacyUrlFor(origin);
+    privacy.target = '_blank';
+    privacy.rel = 'noopener noreferrer';
+  }
+}
+
 function syncAppViewport(): void {
   syncAppViewportShared();
   applyMobileHudLayout();
@@ -826,6 +849,7 @@ function syncCommunityMenuMode(): void {
 setInterfaceMode(interfaceModeFromSetting(new Settings().get('interfaceMode')));
 syncAppViewport();
 syncBuildInfo();
+syncFooterLegalLinks();
 scheduleNativeUpdateCheck(__APP_VERSION__);
 void notifyOtaAppReady();
 // Visible OTA gate (native shells only; installOtaUpdateGate is inert
