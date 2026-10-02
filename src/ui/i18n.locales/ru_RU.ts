@@ -2492,6 +2492,11 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.social.onlineHeader': 'В сети ({n})',
   'hudChrome.social.offlineHeader': 'Не в сети ({n})',
   'hudChrome.social.hideOffline': 'Скрыть офлайн',
+  'hudChrome.social.presence.label': 'Показывать меня в сети',
+  'hudChrome.social.presence.everyone': 'Всем',
+  'hudChrome.social.presence.friends': 'Только друзьям',
+  'hudChrome.social.presence.none': 'Никому',
+  'hudChrome.social.presence.title': 'Кто видит, что вы в сети, в списках друзей и составе гильдии, вместе с вашей зоной и положением на карте. Группа видит вас всегда.',
   'hudChrome.social.hideOfflineTitle': 'Скрыть офлайн участников гильдии',
   'hudChrome.social.billboard.label': 'Доска объявлений гильдии',
   'hudChrome.social.billboard.empty': 'На доске объявлений пока пусто.',
@@ -2824,6 +2829,7 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
     'Книга деяний тоже ведёт счёт вашей репутации: Доверенный у фракции и Чемпион у фракции записываются как отдельные деяния, а Чемпион у всех трёх сразу есть своё деяние. Как и все деяния, они лишь украшение и никогда не сила, а деяния Чемпиона дают титул, который можно носить.',
   'guide.commandsPage.pvp':
     'Флаг мирового PvP: /pvp переключает его, /pvp on и /pvp off задают. Игроки с флагом могут сражаться друг с другом где угодно; отключение занимает 5 минут.',
+  'guide.commandsPage.presence': 'Кто видит, что вы в сети, в списках друзей, составе гильдии и /who: /presence everyone (по умолчанию), /presence friends (только игроки из вашего списка друзей) или /presence none. Когда вы скрыты, они не видят вашего статуса, зоны и положения на карте, но шёпот и приглашения до вас доходят; группа видит вас всегда. Просто /presence покажет текущую настройку.',
   'guide.commandsPage.flair':
     'Показывает или скрывает вашу роль в Discord для других игроков: цветное имя, метку роли и подтверждённую метку в чате. /flair on показывает её, /flair off скрывает, а просто /flair сообщает текущую настройку. Нужен привязанный аккаунт Discord.',
   'guide.commandsPage.pvpZones':

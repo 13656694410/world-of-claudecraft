@@ -2388,6 +2388,11 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.social.onlineHeader': '在线 ({n})',
   'hudChrome.social.offlineHeader': '离线 ({n})',
   'hudChrome.social.hideOffline': '隐藏离线',
+  'hudChrome.social.presence.label': '对谁显示在线',
+  'hudChrome.social.presence.everyone': '所有人',
+  'hudChrome.social.presence.friends': '仅好友',
+  'hudChrome.social.presence.none': '无人',
+  'hudChrome.social.presence.title': '谁能在好友列表和公会名单中看到你在线，以及你的区域和地图位置。队伍成员始终能看到你。',
   'hudChrome.social.hideOfflineTitle': '隐藏离线公会成员',
   'hudChrome.social.billboard.label': '公会公告板',
   'hudChrome.social.billboard.empty': '公告板上还没有内容。',
@@ -2697,6 +2702,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '功绩之书也会记录你的声望：与某个阵营达到信任、与某个阵营达到冠军各记为一项功绩，与三个阵营都达到冠军则是另一项功绩。和所有功绩一样，它们只是装饰，从不带来战力，而冠军功绩会授予一个可佩戴的头衔。',
   'guide.commandsPage.pvp':
     '世界 PvP 旗帜：/pvp 切换，/pvp on 与 /pvp off 直接设置。已开启旗帜的玩家可以在任何地方互相作战；关闭需要 5 分钟。',
+  'guide.commandsPage.presence': '控制谁能在好友列表、公会名单和 /who 中看到你在线：/presence everyone（默认）、/presence friends（仅你好友列表中的玩家）或 /presence none。隐藏后，他们看不到你的在线标记、区域和地图位置，但密语和邀请仍能送达你；队伍成员始终能看到你。只输入 /presence 会告诉你当前设置。',
   'guide.commandsPage.flair':
     '对其他玩家显示或隐藏你的 Discord 身份组，即彩色名字、身份组标签和聊天认证标签：/flair on 显示，/flair off 隐藏，只输入 /flair 会告诉你当前设置。需要已关联的 Discord 账号。',
   'guide.commandsPage.pvpZones':

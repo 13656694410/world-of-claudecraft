@@ -5063,6 +5063,13 @@ export const it_IT: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Nascondi offline",
       "hideOfflineTitle": "Nascondi i membri della gilda offline",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Bacheca della Gilda",
         "empty": "Non c'è ancora nulla sulla bacheca.",
@@ -7562,6 +7569,7 @@ export const it_IT: EnTranslations = {
       "arena": "Il tuo piazzamento nel Colosseo Cinereo in entrambe le categorie: indice, vittorie, sconfitte e percentuale di vittorie per l'1v1 e per il 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Bandiera PvP mondiale: /pvp la alterna, /pvp on e /pvp off la attivano e disattivano. I giocatori contrassegnati possono combattersi nelle zone contese; i santuari vietano ogni combattimento PvP mondiale. Entrare nel cerchio attivo del Re della Collina alza la tua bandiera; disattivarla richiede 5 minuti.",
+      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
       "flair": "Mostra o nasconde il tuo ruolo Discord agli altri giocatori, cioè il nome colorato, il tag del ruolo e il tag verificato in chat: /flair on lo mostra, /flair off lo nasconde e /flair da solo ti dice quale impostazione è attiva. Richiede un account Discord collegato.",
       "listings": "Le tue inserzioni sul Mercato Mondiale, con il prezzo richiesto, il tempo rimasto per ciascuna, e quanto spazio hai per aggiungerne altre.",
       "buyback": "Cosa hai venduto di recente a un venditore e potresti ancora ricomprare.",

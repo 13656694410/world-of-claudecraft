@@ -5063,6 +5063,13 @@ export const vi_VN: EnTranslations = {
       "offlineHeader": "Ngoại Tuyến ({n})",
       "hideOffline": "Ẩn ngoại tuyến",
       "hideOfflineTitle": "Ẩn thành viên bang hội ngoại tuyến",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Bảng Tin Bang Hội",
         "empty": "Bảng tin chưa có gì được dán lên.",
@@ -7562,6 +7569,7 @@ export const vi_VN: EnTranslations = {
       "arena": "Vị thế của bạn tại Đấu Trường Tro Tàn ở cả hai hạng đấu: điểm xếp hạng, số trận thắng, số trận thua và tỷ lệ thắng cho 1v1 và cho 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Cờ PvP Thế Giới: /pvp chuyển trạng thái, /pvp on bật và /pvp off tắt. Người chơi có cờ có thể giao chiến với nhau tại vùng tranh chấp, khu an toàn không cho phép bất kỳ giao tranh thế giới nào, và bước vào vòng tròn đang hoạt động của Vua Của Ngọn Đồi sẽ bật cờ của bạn; tắt cờ mất 5 phút.",
+      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
       "flair": "Hiện hoặc ẩn vai trò Discord của bạn với người chơi khác, gồm tên có màu, nhãn vai trò và nhãn trò chuyện đã xác minh: /flair on để hiện, /flair off để ẩn, còn chỉ gõ /flair sẽ cho biết thiết lập hiện tại. Cần liên kết tài khoản Discord.",
       "listings": "Những món hàng bạn đang rao bán trên Chợ Thế Giới, cùng giá chào bán, thời gian còn lại của mỗi món, và bạn còn bao nhiêu chỗ trống để rao thêm.",
       "buyback": "Những gì bạn vừa bán cho người bán gần đây và vẫn có thể mua lại.",

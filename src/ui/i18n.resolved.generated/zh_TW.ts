@@ -5063,6 +5063,13 @@ export const zh_TW: EnTranslations = {
       "offlineHeader": "離線 ({n})",
       "hideOffline": "隱藏離線",
       "hideOfflineTitle": "隱藏離線公會成員",
+      "presence": {
+        "label": "對誰顯示在線",
+        "everyone": "所有人",
+        "friends": "僅好友",
+        "none": "無人",
+        "title": "誰能在好友名單和公會名單中看到你在線，以及你的區域和地圖位置。隊伍成員始終能看到你。"
+      },
       "billboard": {
         "label": "公會公告板",
         "empty": "公告板上還沒有內容。",
@@ -7562,6 +7569,7 @@ export const zh_TW: EnTranslations = {
       "arena": "你在灰燼鬥獸場兩個級別中的成績：一對一與二對二的評分、勝場、敗場與勝率。",
       "pvp": "世界 PvP 旗幟：/pvp 切換，/pvp on 與 /pvp off 直接設定。已開啟旗幟的玩家可以在任何地方互相作戰；關閉需要 5 分鐘。",
       "pvpZones": "世界 PvP 旗幟：/pvp 切換狀態，/pvp on 和 /pvp off 分別開啟和關閉。在爭奪區域，已開啟旗幟的玩家可以互相戰鬥；庇護區域禁止一切世界 PvP。進入正在進行的山丘之王活動圈會開啟旗幟；關閉需要 5 分鐘。",
+      "presence": "控制誰能在好友名單、公會名單和 /who 中看到你在線：/presence everyone（預設）、/presence friends（僅你好友名單中的玩家）或 /presence none。隱藏後，他們看不到你的在線標記、區域和地圖位置，但密語和邀請仍能送達你；隊伍成員始終能看到你。只輸入 /presence 會告訴你目前的設定。",
       "flair": "對其他玩家顯示或隱藏你的 Discord 身分組，也就是彩色名稱、身分組標籤和聊天認證標籤：/flair on 顯示，/flair off 隱藏，只輸入 /flair 會告訴你目前的設定。需要已連結的 Discord 帳號。",
       "listings": "你自己在世界市場上的上架商品，附上開價、各自剩餘的時間，以及你還有多少上架空間。",
       "buyback": "你近期賣給商人、目前仍能買回的東西。",

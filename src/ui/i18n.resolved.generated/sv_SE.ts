@@ -5063,6 +5063,13 @@ export const sv_SE: EnTranslations = {
       "offlineHeader": "Frånkopplade ({n})",
       "hideOffline": "Dölj frånkopplade",
       "hideOfflineTitle": "Dölj frånkopplade gillesmedlemmar",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Gillets anslagstavla",
         "empty": "Inget på anslagstavlan än.",
@@ -7562,6 +7569,7 @@ export const sv_SE: EnTranslations = {
       "arena": "Din Coliseum-status i båda divisionerna: rankning, vinster, förluster och vinstprocent för 1v1 och 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Flagga för världs-PvP: /pvp växlar den, /pvp on slår på den och /pvp off stänger av den. Flaggade spelare kan slåss mot varandra på omstridd mark, fristäder tillåter inga världsstrider alls och din flagga aktiveras när du går in i en aktiv cirkel i Kullens kung; det tar 5 minuter att stänga av den.",
+      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
       "flair": "Visar eller döljer din Discord-roll för andra spelare, alltså ditt färgade namn, din rolltagg och din verifierade chattagg: /flair on visar den, /flair off döljer den och bara /flair berättar vad som är inställt. Kräver ett kopplat Discord-konto.",
       "listings": "Dina egna listningar på Världsmarknaden, med begärt pris, tiden var och en har kvar, och hur mycket utrymme du har för fler.",
       "buyback": "Vad du nyligen sålt till en handlare och fortfarande kan köpa tillbaka.",

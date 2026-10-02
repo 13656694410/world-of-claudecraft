@@ -7011,6 +7011,16 @@ export const hudChromeStrings = {
     offlineHeader: 'Offline ({n})',
     hideOffline: 'Hide offline',
     hideOfflineTitle: 'Hide offline guild members',
+    // The Friends footer's presence setting (server/presence_privacy.ts): who sees
+    // you online through friends lists and the guild roster.
+    presence: {
+      label: 'Show me online to',
+      everyone: 'Everyone',
+      friends: 'Friends only',
+      none: 'No one',
+      title:
+        'Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you.',
+    },
     // The guild billboard: a short officer-set message (announcements, Discord
     // links) pinned atop the Guild tab. Rendered as plain escaped text only,
     // deliberately (player-controlled; never linkified). {name} in setBy is the

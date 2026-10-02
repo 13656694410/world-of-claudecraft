@@ -5063,6 +5063,13 @@ export const nl_NL: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Offline verbergen",
       "hideOfflineTitle": "Offline gildeleden verbergen",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Gildeprikbord",
         "empty": "Nog niets op het prikbord.",
@@ -7562,6 +7569,7 @@ export const nl_NL: EnTranslations = {
       "arena": "Je status in het Asgrauwe Colosseum in beide categorieën: waardering, winsten, verliezen en winstpercentage voor 1v1 en voor 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Wereld-PvP-vlag: /pvp wisselt de stand, /pvp on schakelt hem in en /pvp off schakelt hem uit. Spelers met een vlag kunnen elkaar op betwist terrein bevechten, heiligdommen staan geen wereldgevechten toe en bij het betreden van een actieve cirkel van Koning van de Heuvel wordt je vlag ingeschakeld; uitschakelen duurt 5 minuten.",
+      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
       "flair": "Toont of verbergt je Discord-rol voor andere spelers, dus je gekleurde naam, je rollabel en je geverifieerde chatlabel: /flair on toont hem, /flair off verbergt hem, en alleen /flair vertelt je wat er is ingesteld. Vereist een gekoppeld Discord-account.",
       "listings": "Je eigen plaatsingen op de Wereldmarkt, met de vraagprijs, de resterende tijd van elk, en hoeveel ruimte je nog hebt voor meer.",
       "buyback": "Wat je onlangs aan een handelaar hebt verkocht en nog kunt terugkopen.",

@@ -5063,6 +5063,13 @@ export const da_DK: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Skjul offline",
       "hideOfflineTitle": "Skjul offline gildemedlemmer",
+      "presence": {
+        "label": "Show me online to",
+        "everyone": "Everyone",
+        "friends": "Friends only",
+        "none": "No one",
+        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+      },
       "billboard": {
         "label": "Laugsopslagstavle",
         "empty": "Der er intet på opslagstavlen endnu.",
@@ -7562,6 +7569,7 @@ export const da_DK: EnTranslations = {
       "arena": "Din placering i Det Askegrå Colosseum i begge kategorier: rating, sejre, nederlag og sejrsrate for 1v1 og for 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Flag til verdens-PvP: /pvp skifter tilstand, /pvp on slår det til, og /pvp off slår det fra. Spillere med flag kan kæmpe mod hinanden på omstridt jord, fristeder tillader ingen verdenskampe, og dit flag aktiveres, når du går ind i en aktiv cirkel i Konge af Bakken; det tager 5 minutter at slå det fra.",
+      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
       "flair": "Viser eller skjuler din Discord-rolle for andre spillere, altså dit farvede navn, dit rollemærke og dit bekræftede chatmærke: /flair on viser den, /flair off skjuler den, og /flair alene fortæller dig, hvad der er valgt. Kræver en tilknyttet Discord-konto.",
       "listings": "Dine egne opslag på Verdensmarkedet, med udbudsprisen, tiden hvert har tilbage, og hvor meget plads du har til flere.",
       "buyback": "Hvad du for nylig solgte til en handlende, og som du stadig kan købe tilbage.",

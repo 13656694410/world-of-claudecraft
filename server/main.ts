@@ -2946,7 +2946,8 @@ configureLeaderboardRuntime({
   perfProfile: () => liveGame().perfProfile(),
   getLeaderboard,
   getGuildLeaderboard,
-  isCharacterOnline: (id) => liveGame().hasSessionForCharacter(id),
+  // Officers online on the PUBLIC guild board: a hidden officer reads offline.
+  isCharacterOnline: (id) => liveGame().social.shownOnlinePublicly(id),
   getDevLeaderboard: () => topContributors(),
   getDeedsLeaderboard,
   deedsSelfRank,
