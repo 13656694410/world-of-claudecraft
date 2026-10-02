@@ -32,6 +32,7 @@ import {
   weaponDpsBudget,
 } from '../src/sim/item_budget';
 import { expectedLineBudget, itemLevel } from '../src/sim/item_level';
+import { countsWarfareRating } from '../src/sim/pvp/power';
 import { Sim } from '../src/sim/sim';
 import {
   armorReduction,
@@ -403,7 +404,6 @@ describe('the PvP promise: Season 2 is the PvP upgrade over a full Season 1 kit'
       expect(b.stats.pvpOffense, `${cls}/${spec} offense`).toBeCloseTo(0.3, 10);
       expect(b.stats.pvpDefense, `${cls}/${spec} defense`).toBeCloseTo(0.3, 10);
       expect(b.stats.pvpVitality, `${cls}/${spec} vitality`).toBeCloseTo(0.8, 10);
-      // Owner target: about 10 percent more health than a full Season 1 kit.
       // Owner target: about 10 percent more health than a full Season 1 kit,
       // each side with its own weapon. Measured 2026-10-02: arms +8.0, prot +5.9,
       // fire +14.7 percent (unchanged by the rebalance: Vitality caps at +80
@@ -447,6 +447,47 @@ describe('the PvP promise: Season 2 is the PvP upgrade over a full Season 1 kit'
       expect(two.stats.pvpDefense, `${cls}/${spec} defense`).toBe(one.stats.pvpDefense);
       expect(two.stats.pvpVitality, `${cls}/${spec} vitality`).toBe(one.stats.pvpVitality);
     }
+  });
+
+  it("skips a perfected copy's Warfare bonus in the offhand and keeps it in the main hand", () => {
+    // The per-copy bonus (loot_quality/core.ts rolls pvpOffenseRating and
+    // pvpDefenseRating onto a perfected copy) is the other half of the main
+    // hand rule: without the inner warfareCounts gate it would ride the offhand.
+    const sim = new Sim({ seed: 20061, playerClass: 'rogue', noPlayer: true });
+    const pid = sim.addPlayer('rogue', 'Twin');
+    sim.setPlayerLevel(20, pid);
+    sim.applyTalents({ spec: 'combat', rows: {} } as TalentAllocation, pid);
+    const dagger = 'vanguard_fang_dagger';
+    for (const slot of ['mainhand', 'offhand'] as EquipSlot[]) {
+      sim.addItem(dagger, 1, pid);
+      sim.equipItemToSlot(dagger, slot, pid);
+    }
+    const e = sim.entities.get(pid) as Entity;
+    const meta = sim.ctx.players.get(pid) as {
+      equipmentInstance: Partial<Record<EquipSlot, unknown>>;
+    };
+    const perfected = { rolled: { stats: { pvpOffenseRating: 40, pvpDefenseRating: 40 } } };
+    const read = (): [number, number] => {
+      sim.ctx.recalcPlayer(e);
+      return [e.stats.pvpOffense, e.stats.pvpDefense];
+    };
+    const plain = read();
+    meta.equipmentInstance.offhand = perfected;
+    expect(read(), 'a perfected offhand adds no Warfare rating').toEqual(plain);
+    delete meta.equipmentInstance.offhand;
+    meta.equipmentInstance.mainhand = perfected;
+    const boosted = read();
+    expect(boosted[0], 'the main hand copy counts').toBeGreaterThan(plain[0]);
+    expect(boosted[1]).toBeGreaterThan(plain[1]);
+  });
+
+  it('keeps Warfare rating on a non-weapon offhand', () => {
+    const shield = Object.values(ITEMS).find((i) => i.slot === 'offhand');
+    expect(shield, 'a non-weapon offhand exists in content').toBeDefined();
+    expect(countsWarfareRating('offhand', shield as ItemDef)).toBe(true);
+    const weapon = ITEMS.vanguard_fang_dagger;
+    expect(countsWarfareRating('mainhand', weapon)).toBe(true);
+    expect(countsWarfareRating('offhand', weapon)).toBe(false);
   });
 });
 
