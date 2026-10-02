@@ -924,6 +924,12 @@ export class SocialService {
     for (const m of await this.db.guildMembers(membership.guildId)) pushOnce(m.id);
   }
 
+  // A quiet chat system line to one online character (no error banner): the
+  // /presence confirmation (server/presence_privacy.ts).
+  noticeTo(characterId: number, text: string): void {
+    this.tx.deliver(characterId, [{ type: 'log', text, color: '#7fd4ff' }]);
+  }
+
   async announcePresence(actor: SocialActor, online: boolean): Promise<void> {
     const [watchers, actorBlockedIds] = await Promise.all([
       this.db.whoFriended(actor.characterId),

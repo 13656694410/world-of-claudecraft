@@ -121,17 +121,27 @@ export interface PresenceCommandHost<S extends PresenceSession> {
   sendChatNotice(session: S, text: string): void;
 }
 
-/** The /presence host shares the /flair host's pool, command lane and notice
- *  sender, plus the one thing only presence needs: the watcher refresh. */
+/** The social service surface the command needs (server/social.ts SocialService). */
+export interface PresenceSocial {
+  refreshPresenceWatchers(actor: { characterId: number; name: string }): Promise<void>;
+  noticeTo(characterId: number, text: string): void;
+}
+
+/** The /presence host shares the /flair host's pool and command lane; the
+ *  watcher refresh and the confirmation go through the social service. The
+ *  confirmation is a quiet chat system line, never the red error banner a
+ *  /flair notice uses: picking a setting from the Social window is not an
+ *  error. `social` is read lazily (GameServer builds it after its fields). */
 export function presenceHostFrom<S extends PresenceSession>(
-  flair: Pick<PresenceCommandHost<S>, 'pool' | 'consumeCommandLane' | 'sendChatNotice'>,
-  refreshPresenceWatchers: (session: S) => Promise<void>,
+  flair: Pick<PresenceCommandHost<S>, 'pool' | 'consumeCommandLane'>,
+  social: () => PresenceSocial,
 ): PresenceCommandHost<S> {
   return {
     pool: flair.pool,
     consumeCommandLane: (session, nowSec) => flair.consumeCommandLane(session, nowSec),
-    sendChatNotice: (session, text) => flair.sendChatNotice(session, text),
-    refreshPresenceWatchers,
+    sendChatNotice: (session, text) => social().noticeTo(session.characterId, text),
+    refreshPresenceWatchers: (session) =>
+      social().refreshPresenceWatchers({ characterId: session.characterId, name: session.name }),
   };
 }
 

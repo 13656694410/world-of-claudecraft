@@ -24,6 +24,7 @@ import {
   type PresenceSession,
   parsePresenceCommand,
   presenceHiddenFrom,
+  presenceHostFrom,
   runPresenceCommand,
 } from '../server/presence_privacy';
 import { type SocialDb, SocialService, type SocialTransport } from '../server/social';
@@ -115,6 +116,27 @@ describe('runPresenceCommand', () => {
   });
 });
 
+describe('presenceHostFrom', () => {
+  it('confirms through a quiet social log line, never the red error banner, and refreshes once', async () => {
+    const noticeTo = vi.fn();
+    const refreshPresenceWatchers = vi.fn(async () => {});
+    const query = vi.fn(async () => ({ rows: [] }));
+    const host = presenceHostFrom<PresenceSession>(
+      { pool: { query } as never, consumeCommandLane: () => true },
+      () => ({ noticeTo, refreshPresenceWatchers }),
+    );
+    const session: PresenceSession = {
+      accountId: 7,
+      characterId: 9,
+      name: 'Hider',
+      presenceMode: 'everyone',
+    };
+    await runPresenceCommand(host, session, { kind: 'set', mode: 'none' });
+    expect(refreshPresenceWatchers).toHaveBeenCalledWith({ characterId: 9, name: 'Hider' });
+    expect(noticeTo).toHaveBeenCalledWith(9, PRESENCE_NOTICES.none);
+  });
+});
+
 describe('canShowInWho honours the candidate’s presence (/who and the position push)', () => {
   const viewer = { characterId: VIEWER, blockListLoaded: true, blockedIds: new Set<number>() };
   const base = { characterId: 1, blockListLoaded: true, blockedIds: new Set<number>() };
@@ -164,6 +186,7 @@ describe('the live position push on the authoritative server', () => {
 describe('the social service: roster rows, login notices and the refresh', () => {
   function service(hidden: boolean) {
     const delivered: number[] = [];
+    const events: { type: string; text?: string }[] = [];
     const pushed: number[] = [];
     const db = {
       whoFriended: async () => [2],
@@ -176,7 +199,10 @@ describe('the social service: roster rows, login notices and the refresh', () =>
       blockListLoaded: () => true,
       isBlocking: () => false,
       locationOf: () => ({ zone: 'Eastbrook Vale', status: 'online', x: 1, z: 2 }),
-      deliver: (id: number) => delivered.push(id),
+      deliver: (id: number, list: { type: string; text?: string }[]) => {
+        delivered.push(id);
+        events.push(...list);
+      },
       pushSnapshot: (id: number) => pushed.push(id),
       presenceHiddenFrom: () => hidden,
     } as unknown as SocialTransport;
@@ -187,7 +213,7 @@ describe('the social service: roster rows, login notices and the refresh', () =>
       () => false,
       () => null,
     );
-    return { svc, delivered, pushed };
+    return { svc, delivered, events, pushed };
   }
 
   it('a hidden character reads offline with no zone or position', () => {
@@ -204,6 +230,13 @@ describe('the social service: roster rows, login notices and the refresh', () =>
     const hidden = service(true);
     await hidden.svc.announcePresence({ characterId: 1, name: 'Hider' }, true);
     expect(hidden.delivered).toEqual([]);
+  });
+
+  it('delivers the confirmation as a log event, not an error', () => {
+    const { svc, delivered, events } = service(false);
+    svc.noticeTo(1, PRESENCE_NOTICES.friends);
+    expect(delivered).toEqual([1]);
+    expect(events).toEqual([{ type: 'log', text: PRESENCE_NOTICES.friends, color: '#7fd4ff' }]);
   });
 
   it('a setting change refreshes the actor and every online friend and guildmate once', async () => {

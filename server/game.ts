@@ -1628,9 +1628,7 @@ export class GameServer {
     refreshDiscordFlair: (session) => this.refreshDiscordFlair(session),
     sendChatNotice: (session, text) => this.sendChatNotice(session, text),
   };
-  private readonly presenceHost = presence.presenceHostFrom(this.flairHost, (s: ClientSession) =>
-    this.social.refreshPresenceWatchers({ characterId: s.characterId, name: s.name }),
-  );
+  private readonly presenceHost = presence.presenceHostFrom(this.flairHost, () => this.social);
   // Serializes every write of the single global Market blob (the 30s periodic
   // saveMarket/saveMail/saveRifts and the leave-path combined save). All
   // serialize whole-blob shared state; without a queue their transactions
