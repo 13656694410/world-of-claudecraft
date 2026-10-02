@@ -12,7 +12,8 @@ import { BUILTIN_WORLD } from '../src/sim/data';
 import { hasShadowCloak, shadowActionsLocked } from '../src/sim/shadow_action_lock';
 import { Sim } from '../src/sim/sim';
 import { WORLD_SEED } from '../src/sim/world_seed';
-import { createShadowActionBarView } from '../src/ui/world_quest_shadow_view';
+import { t } from '../src/ui/i18n';
+import { createShadowActionBarView, shadowActionHint } from '../src/ui/world_quest_shadow_view';
 
 function setup() {
   const sim = new Sim({
@@ -158,6 +159,7 @@ describe('Duskweave dispatches world quest', () => {
         expect(progress.shadow?.suspicion).toBeLessThan(0.5);
         trace.push(progress.shadow!.suspicion);
         expect(view.tick(sim, () => '').slots[0].usable).toBe(true);
+        expect(shadowActionHint(sim)).toBe(t('questUi.worldQuest.shadow.stealTip'));
         shadowChooseSlot(sim, 0);
         expect(progress.shadow?.stealing?.targetId).toBe(id);
         tick(sim);

@@ -60,9 +60,16 @@ export function shadowActionHint(world: ShadowTargetWorld): string {
     return t('questUi.worldQuest.shadow.channel', {
       seconds: formatNumber(shadow.stealing.remaining, { maximumFractionDigits: 1 }),
     });
-  if (shadow && (shadow.suspicion > 0 || shadowBeamExposure(world.entities, world.player)))
+  if (
+    shadow &&
+    (shadow.suspicion >= SHADOW_STEAL_SUSPICION_LIMIT ||
+      shadowBeamExposure(world.entities, world.player))
+  )
     return t('questUi.worldQuest.shadow.danger');
+  // A steal still open under the limit gets the steal tip, so the hint never
+  // says "get out of sight" while the Pick Pocket button is lit.
   if (shadowPickpocketTarget(world) !== undefined) return t('questUi.worldQuest.shadow.stealTip');
+  if (shadow && shadow.suspicion > 0) return t('questUi.worldQuest.shadow.danger');
   if (shadowNearbyCarrier(world) !== undefined) return t('questUi.worldQuest.shadow.behind');
   return t('questUi.worldQuest.shadow.noTarget');
 }

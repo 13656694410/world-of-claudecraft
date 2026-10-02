@@ -25,8 +25,6 @@ export const SHADOW_BEAM_FILL_SECONDS = 0.6;
 /** Seconds brushing a carrier's contact circle before you are caught. */
 export const SHADOW_CONTACT_FILL_SECONDS = 1.6;
 
-export { SHADOW_STEAL_SUSPICION_LIMIT } from './content/world_quest_shadow';
-
 export function ensureShadowPost(ctx: SimContext): void {
   if (ctx.cfg.world && !ctx.cfg.world.npcs[SHADOW_NPC_DEF.id]) return;
   for (const row of [{ entityId: SHADOW_NPC_ID, npc: SHADOW_NPC_DEF }, ...SHADOW_GUARDS]) {

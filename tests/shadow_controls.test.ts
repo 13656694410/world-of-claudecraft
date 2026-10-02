@@ -112,6 +112,9 @@ describe('shadow action controls', () => {
     const view = createShadowActionBarView();
     expect(view.tick(world, () => '').slots[0].usable).toBe(allowed);
     expect(view.tick(world, () => '').slots[1].usable).toBe(true);
+    expect(shadowActionHint(world)).toBe(
+      t(allowed ? 'questUi.worldQuest.shadow.stealTip' : 'questUi.worldQuest.shadow.danger'),
+    );
     shadowChooseSlot(world, 0);
     expect(raw.shadowWorldQuestAction).toHaveBeenCalledTimes(allowed ? 1 : 0);
     if (allowed)
@@ -119,6 +122,15 @@ describe('shadow action controls', () => {
         'pickpocket',
         SHADOW_GUARDS[0].entityId,
       );
+  });
+  it('keeps the danger hint while suspicion lingers with no steal open', () => {
+    const { world, raw, progress } = rig();
+    progress.shadow.suspicion = 0.2;
+    raw.player.pos.x = -10;
+    expect(shadowPickpocketTarget(world)).toBeUndefined();
+    expect(shadowActionHint(world)).toBe(t('questUi.worldQuest.shadow.danger'));
+    progress.shadow.suspicion = 0;
+    expect(shadowActionHint(world)).toBe(t('questUi.worldQuest.shadow.noTarget'));
   });
   it.each([0, 0.2, 0.499])('blocks a lantern beam even at suspicion %s', (suspicion) => {
     const { world, raw, progress } = rig();
