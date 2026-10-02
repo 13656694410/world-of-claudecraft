@@ -18418,12 +18418,12 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Co {every} sek. Nythraxis uderza obecnego tanka za {hitNormal} maksymalnego zdrowia jako obrażenia Cienia i dodaje ładunek Straszliwej Klątwy. Przez {duration} sek. każdy ładunek zwiększa obrażenia, które ten tank otrzymuje od Nythraxis, o {perStackNormal}, do {max} ładunków.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Co {everyHeroic} sek. szkieletowe dłonie oznaczają pod rajderami {countHeroic} kręgów o promieniu {radius} jardów. Po {warning} sek. każdy krąg wybucha za {burstHeroic} maksymalnego zdrowia jako obrażenia Cienia, potem płonie jako Grobowy Płomień przez {flameHeroic} sek., zadając {tickHeroic} maksymalnego zdrowia co sekundę każdemu, kto w nim stoi.',
+    'Co {everyHeroic} sek. szkieletowe dłonie oznaczają pod rajderami {countHeroic} kręgów o promieniu {radius} jardów. Po {warning} sek. każdy krąg wybucha za {burstHeroic} maksymalnego zdrowia jako obrażenia Cienia, potem płonie jako Grobowy Płomień przez {flameHeroic} sek., zadając {tickHeroic} maksymalnego zdrowia co sekundę każdemu, kto w nim stoi. Nigdy nie następuje, gdy aktywne są znaki Rozdarcia Duszy, ani w ciągu {gap} sek. po ich zniknięciu.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Grobowa Erupcja',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Wyjdźcie z każdego kręgu ostrzegawczego, zanim wybuchnie, i trzymajcie się z dala od płonącej ziemi. Tankowie odciągają Nythraxis od płomieni, aby walczący wręcz mieli miejsce do pracy.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Co {everyNormal} sek. szkieletowe dłonie oznaczają pod rajderami {countNormal} kręgów o promieniu {radius} jardów. Po {warning} sek. każdy krąg wybucha za {burstNormal} maksymalnego zdrowia jako obrażenia Cienia, potem płonie jako Grobowy Płomień przez {flameNormal} sek., zadając {tickNormal} maksymalnego zdrowia co sekundę każdemu, kto w nim stoi.',
+    'Co {everyNormal} sek. szkieletowe dłonie oznaczają pod rajderami {countNormal} kręgów o promieniu {radius} jardów. Po {warning} sek. każdy krąg wybucha za {burstNormal} maksymalnego zdrowia jako obrażenia Cienia, potem płonie jako Grobowy Płomień przez {flameNormal} sek., zadając {tickNormal} maksymalnego zdrowia co sekundę każdemu, kto w nim stoi. Nigdy nie następuje, gdy aktywne są znaki Rozdarcia Duszy, ani w ciągu {gap} sek. po ich zniknięciu.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Grobołamacz',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tankowie trzymają Nythraxis twarzą odwróconą od rajdu. Wszyscy inni stoją za nim lub obok niego i nigdy nie przecinają stożka.',

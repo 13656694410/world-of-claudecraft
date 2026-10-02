@@ -9647,9 +9647,9 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
     '離得最近的人攻擊骨刺：任何人命中幾次即可擊碎，無論傷害多寡。治療者在骨刺被擊碎前保住被穿刺團員的性命。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': '墓穴爆發',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    '每{everyNormal}秒，骸骨之手會在{countNormal}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstNormal}的暗影傷害，隨後化為墓焰燃燒{flameNormal}秒，對站在其中的人每秒造成相當於最大生命值{tickNormal}的傷害。',
+    '每{everyNormal}秒，骸骨之手會在{countNormal}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstNormal}的暗影傷害，隨後化為墓焰燃燒{flameNormal}秒，對站在其中的人每秒造成相當於最大生命值{tickNormal}的傷害。靈魂撕裂標記存在期間以及標記消失後{gap}秒內，此技能不會發動。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    '每{everyHeroic}秒，骸骨之手會在{countHeroic}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstHeroic}的暗影傷害，隨後化為墓焰燃燒{flameHeroic}秒，對站在其中的人每秒造成相當於最大生命值{tickHeroic}的傷害。',
+    '每{everyHeroic}秒，骸骨之手會在{countHeroic}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstHeroic}的暗影傷害，隨後化為墓焰燃燒{flameHeroic}秒，對站在其中的人每秒造成相當於最大生命值{tickHeroic}的傷害。靈魂撕裂標記存在期間以及標記消失後{gap}秒內，此技能不會發動。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     '在每個警示圈爆發前離開範圍，並遠離燃燒地面。坦克應將尼思拉克西斯拉離火場，讓近戰保有輸出空間。',
   'hudChrome.raidBossGuide.nythraxis.bindingSigilName': '束縛印記',

@@ -10038,9 +10038,9 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
     '最も近い者が骨の棘を攻撃する。誰の攻撃でも数回当てれば砕け、ダメージ量は問わない。ヒーラーは棘が砕けるまで串刺しにされた味方を生かし続ける。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': '墓所の噴出',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    '{everyNormal}秒ごとに、骸骨の手がレイドメンバーの足元に{radius}ヤードの円を{countNormal}個描く。{warning}秒後、各円は最大体力の{burstNormal}を闇ダメージとして噴出させ、その後{flameNormal}秒間墓炎として燃え続け、中に立つ者へ毎秒最大体力の{tickNormal}を与える。',
+    '{everyNormal}秒ごとに、骸骨の手がレイドメンバーの足元に{radius}ヤードの円を{countNormal}個描く。{warning}秒後、各円は最大体力の{burstNormal}を闇ダメージとして噴出させ、その後{flameNormal}秒間墓炎として燃え続け、中に立つ者へ毎秒最大体力の{tickNormal}を与える。魂の裂傷のマークが有効な間と、マークが消えてから{gap}秒以内には発生しない。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    '{everyHeroic}秒ごとに、骸骨の手がレイドメンバーの足元に{radius}ヤードの円を{countHeroic}個描く。{warning}秒後、各円は最大体力の{burstHeroic}を闇ダメージとして噴出させ、その後{flameHeroic}秒間墓炎として燃え続け、中に立つ者へ毎秒最大体力の{tickHeroic}を与える。',
+    '{everyHeroic}秒ごとに、骸骨の手がレイドメンバーの足元に{radius}ヤードの円を{countHeroic}個描く。{warning}秒後、各円は最大体力の{burstHeroic}を闇ダメージとして噴出させ、その後{flameHeroic}秒間墓炎として燃え続け、中に立つ者へ毎秒最大体力の{tickHeroic}を与える。魂の裂傷のマークが有効な間と、マークが消えてから{gap}秒以内には発生しない。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     '噴出する前にすべての警告円から外へ出て、燃える地面を避け続ける。タンクはナイスラクシスを炎から引き離し、近接が動ける余地を確保する。',
   'hudChrome.raidBossGuide.nythraxis.bindingSigilName': '拘束の印',

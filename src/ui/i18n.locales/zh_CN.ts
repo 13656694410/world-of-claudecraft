@@ -9646,9 +9646,9 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '离得最近的人攻击骨刺：任何人命中几次即可击碎，无论伤害多少。治疗者在骨刺被击碎前保住被穿刺队员的性命。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': '坟场爆裂',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    '每 {everyNormal} 秒，森森白骨之手会在队员脚下标记 {countNormal} 个半径 {radius} 码的圆圈。{warning} 秒后，每个圆圈都会爆裂，造成 {burstNormal} 最大生命值的暗影伤害，随后化为坟场烈焰燃烧 {flameNormal} 秒，对站在其中的任何人每秒造成 {tickNormal} 最大生命值的伤害。',
+    '每 {everyNormal} 秒，森森白骨之手会在队员脚下标记 {countNormal} 个半径 {radius} 码的圆圈。{warning} 秒后，每个圆圈都会爆裂，造成 {burstNormal} 最大生命值的暗影伤害，随后化为坟场烈焰燃烧 {flameNormal} 秒，对站在其中的任何人每秒造成 {tickNormal} 最大生命值的伤害。灵魂撕裂标记存在期间以及标记消失后 {gap} 秒内，此技能不会发动。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    '每 {everyHeroic} 秒，森森白骨之手会在队员脚下标记 {countHeroic} 个半径 {radius} 码的圆圈。{warning} 秒后，每个圆圈都会爆裂，造成 {burstHeroic} 最大生命值的暗影伤害，随后化为坟场烈焰燃烧 {flameHeroic} 秒，对站在其中的任何人每秒造成 {tickHeroic} 最大生命值的伤害。',
+    '每 {everyHeroic} 秒，森森白骨之手会在队员脚下标记 {countHeroic} 个半径 {radius} 码的圆圈。{warning} 秒后，每个圆圈都会爆裂，造成 {burstHeroic} 最大生命值的暗影伤害，随后化为坟场烈焰燃烧 {flameHeroic} 秒，对站在其中的任何人每秒造成 {tickHeroic} 最大生命值的伤害。灵魂撕裂标记存在期间以及标记消失后 {gap} 秒内，此技能不会发动。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     '在每个预警圆圈爆裂前离开，并远离燃烧地面。坦克应将尼思拉克西斯拉离火焰区域，为近战输出留出空间。',
   'hudChrome.raidBossGuide.nythraxis.bindingSigilName': '束缚法阵',
