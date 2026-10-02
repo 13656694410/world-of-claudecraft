@@ -980,8 +980,8 @@ export interface ClientSession
   // ignore commands. Distinct from `chatMutedUntil`, which is the ADMIN silence
   // applied TO this player by staff.
   ignoredIds: Set<number>;
-  // Presence privacy (server/presence_privacy.ts), loaded on join with the block
-  // list; friendIds is this character's own friends list, refreshed with the panel.
+  // Presence privacy (server/presence_privacy.ts), read with the character row at
+  // join; friendIds is this character's own friends list, refreshed with the panel.
   presenceMode: presence.PresenceMode;
   friendIds: Set<number>;
   // name of the last player to whisper this session, for the /r reply
@@ -3206,6 +3206,7 @@ export class GameServer {
         // The account ledger loaded for this account (server/account_ledger_db.ts);
         // absent on the bare test join, which then fills a fresh ledger alone.
         accountLedger?: AccountLedger;
+        presenceMode?: string | null;
         chatStrikes?: number;
         isAdmin?: boolean;
         adminPermissions?: readonly string[];
@@ -3384,7 +3385,7 @@ export class GameServer {
       chatStrikes: meta.chatStrikes ?? 0,
       blockedIds: new Set(),
       blockListLoaded: false,
-      presenceMode: 'everyone',
+      presenceMode: presence.isPresenceMode(meta.presenceMode) ? meta.presenceMode : 'everyone',
       friendIds: new Set(),
       guildStampSeq: 0,
       dirtyGuildBanks: new Map(),
@@ -3785,9 +3786,6 @@ export class GameServer {
   // let friends + guildmates know they've come online.
   private async initSocial(session: ClientSession, firstJoin = false): Promise<void> {
     try {
-      // Presence loads BEFORE the block list flips loaded: until both are known
-      // the character reads as hidden (fail closed), never as visible.
-      session.presenceMode = await presence.loadPresenceMode(pool, session.characterId);
       session.blockedIds = new Set(await this.socialDb.blockedIds(session.characterId));
       session.blockListLoaded = true;
     } catch (err) {

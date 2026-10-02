@@ -51,12 +51,6 @@ export function isPresenceMode(value: unknown): value is PresenceMode {
 // Persistence
 // ---------------------------------------------------------------------------
 
-export async function loadPresenceMode(pool: Pool, characterId: number): Promise<PresenceMode> {
-  const res = await pool.query('SELECT presence_mode FROM characters WHERE id = $1', [characterId]);
-  const value = (res.rows[0] as { presence_mode?: unknown } | undefined)?.presence_mode;
-  return isPresenceMode(value) ? value : 'everyone';
-}
-
 export async function savePresenceMode(
   pool: Pool,
   characterId: number,

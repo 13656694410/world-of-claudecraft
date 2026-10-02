@@ -3,6 +3,7 @@
 // here: the pure rule, the command parse and run, and every point it gates
 // (canShowInWho for /who and the live position push, the roster rows, the login
 // notices, and the watcher refresh after a change).
+import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('../server/db', () => ({
@@ -180,6 +181,33 @@ describe('the live position push on the authoritative server', () => {
     expect(push(), 'not on the tracked player’s own friends list').toBe(false);
     tracked.friendIds = new Set([watcher.characterId]);
     expect(push()).toBe(true);
+  });
+});
+
+describe('the setting at join', () => {
+  function fakeWs() {
+    return { readyState: 1, send: () => {} };
+  }
+
+  it('applies the stored setting from the join metadata, and falls back on junk', () => {
+    const server = new GameServer();
+    const hidden = server.join(fakeWs() as never, 1, 1, 'Hider', 'warrior', null, false, {
+      presenceMode: 'none',
+    } as never) as ClientSession;
+    expect(hidden.presenceMode).toBe('none');
+    const junk = server.join(fakeWs() as never, 2, 2, 'Junk', 'warrior', null, false, {
+      presenceMode: 'invisible',
+    } as never) as ClientSession;
+    expect(junk.presenceMode).toBe('everyone');
+  });
+
+  it('reads the column with the character row the join path selects', () => {
+    const db = readFileSync(new URL('../server/db.ts', import.meta.url), 'utf8');
+    expect(db).toMatch(
+      /SELECT id, account_id, name,[^']*presence_mode FROM characters WHERE id = \$1/,
+    );
+    const auth = readFileSync(new URL('../server/ws_auth.ts', import.meta.url), 'utf8');
+    expect(auth).toContain('presenceMode: character.presence_mode ?? null,');
   });
 });
 
