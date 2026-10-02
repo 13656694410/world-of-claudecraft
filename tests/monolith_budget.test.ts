@@ -547,7 +547,10 @@ const MONOLITHS: MonolithRow[] = [
     // Lowered 18034 -> 18029: the Warfare purchase confirm body (Honor or, for
     // Season 1, gold) moved to warfarePurchaseConfirmBody in
     // src/ui/hud/vendor/warfare_vendor_window.ts. Extract, then lower.
-    ceiling: 18029,
+    // Lowered 18029 -> 18024 at the merge with PvP Resurrect: the death-screen
+    // decisions (and the mirrored corpse range constant) moved to
+    // src/ui/hud/death/death_prompt_view.ts. wc -l on the merged tree.
+    ceiling: 18024,
     seam: 'pure view core + thin painter on PainterHost (src/ui/CLAUDE.md)',
   },
   {
@@ -1703,7 +1706,10 @@ const MONOLITHS: MonolithRow[] = [
     // LOWERED 9832 -> 9823: the Discord flair entity stamp moved to
     // discord_flair_stamp.ts, paying for the /flair hook (flair_command.ts) with
     // lines to spare. Exact count (wc -l after biome), zero slack.
-    ceiling: 9823,
+    // Lowered 9823 -> 9822: the self record's corpse emit moved into
+    // server/self_scalar_wire.ts beside the PvP Resurrect bit, which paid for
+    // the pvp_resurrect dispatch case. Extract, then lower.
+    ceiling: 9822,
     seam: 'a sibling server module; see the hot-path seams in server/CLAUDE.md',
   },
   {

@@ -10486,6 +10486,8 @@ export type TranslationKeyFlat =
   | 'hudChrome.death.keeperTalkLeave'
   | 'hudChrome.death.keeperTalkSparedBody'
   | 'hudChrome.death.keeperTalkTitle'
+  | 'hudChrome.death.pvpResurrect'
+  | 'hudChrome.death.pvpResurrectTitle'
   | 'hudChrome.death.resurrectAtCorpse'
   | 'hudChrome.death.resurrectAtHealer'
   | 'hudChrome.death.spiritHealerAlive'

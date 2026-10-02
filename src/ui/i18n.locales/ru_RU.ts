@@ -5848,6 +5848,8 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.warlock_voidwalker.name': 'Демон Пустоты',
   'entities.mobs.ysolei.name': 'Изолея, Воплощение Утонувшей луны',
   'hudChrome.death.resurrectAtCorpse': 'Воскреснуть у тела',
+  'hudChrome.death.pvpResurrect': 'PvP-воскрешение',
+  'hudChrome.death.pvpResurrectTitle': 'Воскреснуть на ближайшем кладбище с полным здоровьем, без новой болезни воскрешения.',
   'hudChrome.death.resurrectAtHealer': 'Целитель душ (болезнь воскрешения)',
   'hudChrome.death.healerConfirmTitle': 'Принять болезнь воскрешения?',
   'hudChrome.death.healerConfirmBody':

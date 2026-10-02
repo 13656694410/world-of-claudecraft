@@ -173,6 +173,11 @@ export const hudChromeStrings = {
   // ghost-state additions shown once the spirit has been released.
   death: {
     resurrectAtCorpse: 'Resurrect at Corpse',
+    // The death screen's PvP Resurrect button (src/sim/pvp/pvp_resurrect.ts): shown
+    // only after a death a hostile player had a hand in, outside instances.
+    pvpResurrect: 'PvP Resurrect',
+    pvpResurrectTitle:
+      "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
     // RETIRED in place: the ghost prompt's Pale Keeper button is gone (the ghost
     // talks to the Keeper instead). The key stays, already filled in all 20
     // locales, per the hud.core.mobileTarget retired-but-translated precedent.

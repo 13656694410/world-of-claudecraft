@@ -10,27 +10,39 @@
 
 export const pending: Record<string, readonly string[]> = {
   "es": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "es_ES": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "fr_FR": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "fr_CA": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "en_CA": [],
   "it_IT": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "de_DE": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
@@ -39,39 +51,57 @@ export const pending: Record<string, readonly string[]> = {
   "ko_KR": [],
   "ja_JP": [],
   "pt_BR": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "ru_RU": [],
   "cs_CZ": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "nl_NL": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "pl_PL": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "id_ID": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "tr_TR": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "sv_SE": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "vi_VN": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ],
   "da_DK": [
+    "hudChrome.death.pvpResurrect",
+    "hudChrome.death.pvpResurrectTitle",
     "hudChrome.warfareShop.buyConfirmBodyGold",
     "itemUi.tooltip.warfareMainHandOnly"
   ]

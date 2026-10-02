@@ -594,6 +594,8 @@ export const vi_VN: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Hồi Sinh Tại Xác Chết",
+      "pvpResurrect": "PvP Resurrect",
+      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
       "resurrectAtHealer": "Người Canh Giữ Nhợt Nhạt (Cái Giá của Người Canh Giữ)",
       "ghostHint": "Chạy đến nơi bạn chết hoặc nói chuyện với Người Giữ Xanh Xao để hồi sinh",
       "spiritHealerAlive": "Người Canh Giữ Nhợt Nhạt trông nom kẻ chết. Bạn vẫn còn ở giữa cõi sống.",

@@ -594,6 +594,8 @@ export const zh_TW: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "在屍體旁復活",
+      "pvpResurrect": "PvP 復活",
+      "pvpResurrectTitle": "在最近的墓地以滿生命值復活，且不會新增復活後遺症。",
       "resurrectAtHealer": "靈魂醫者（復活虛弱）",
       "ghostHint": "跑回你死亡的地點，或與靈魂醫者交談以復活",
       "spiritHealerAlive": "靈魂醫者只看護逝者。你仍是生者。",
