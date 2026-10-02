@@ -2847,6 +2847,15 @@ export const de_DE: EnTranslations = {
       "falls": "Sinkt in {minutes}",
       "pvpEntry": "Das Betreten des aktiven Kreises aktiviert Welt-PvP.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Schlachtzugsmitglieder zählen nicht: Nur Gruppen können den Hügel halten"
     },
     "warfareShop": {
@@ -4199,6 +4208,7 @@ export const de_DE: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Schummler >",
       "pledgeTag": "Gelöbnis: {guild}",

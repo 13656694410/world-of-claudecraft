@@ -21,6 +21,19 @@ export {
   warnNextHillNow,
 } from './hill';
 export {
+  HILL_BOUNTY_BASE_HONOR,
+  HILL_BOUNTY_DEATH_STREAK_HONOR,
+  HILL_BOUNTY_KILL_STREAK_HONOR,
+  HILL_BOUNTY_REPEAT_CAP,
+  HILL_CALLOUT_SECONDS,
+  HILL_SHUTDOWN_STREAK,
+  type HillCalloutKind,
+  type HillStreakCalloutKind,
+  hillBountyHonor,
+  hillRepeatHonorMultiplier,
+  hillStreakCallout,
+} from './hill_bounty_rules';
+export {
   HILL_ACCRUAL_SECONDS,
   HILL_CAPTURE_SECONDS,
   HILL_DURATION_SECONDS,

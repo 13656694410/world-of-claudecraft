@@ -2847,6 +2847,15 @@ export const ja_JP: EnTranslations = {
       "falls": "{minutes}後に消滅",
       "pvpEntry": "開催中の円に入るとワールドPvPが有効になります。",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name}：キリングスプリー！",
+        "rampage": "{name}：ランペイジ！",
+        "unstoppable": "{name}：アンストッパブル！",
+        "dominating": "{name}：ドミネイティング！",
+        "godlike": "{name}：ゴッドライク！",
+        "legendary": "{name}：レジェンダリー！",
+        "shutDown": "{killer}が{victim}をシャットダウン！"
+      },
       "standingRaid": "レイドメンバーはカウントされません：丘を保持できるのはパーティのみです"
     },
     "warfareShop": {
@@ -4199,6 +4208,7 @@ export const ja_JP: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "退席",
+      "bountyTag": "賞金 {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< チーター >",
       "pledgeTag": "{guild}への誓約者",

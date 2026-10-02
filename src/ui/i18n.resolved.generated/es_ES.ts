@@ -2847,6 +2847,15 @@ export const es_ES: EnTranslations = {
       "falls": "Cae en {minutes}",
       "pvpEntry": "Entrar en el círculo activo activa el JcJ mundial.",
       "pvpBanner": "JcJ",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Los miembros de banda no cuentan: solo los grupos pueden controlar la colina"
     },
     "warfareShop": {
@@ -4199,6 +4208,7 @@ export const es_ES: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "JcJ",
       "cheaterTag": "< Tramposo >",
       "pledgeTag": "Juramento a {guild}",

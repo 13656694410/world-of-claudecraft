@@ -2847,6 +2847,15 @@ export const en_XA: EnTranslations = {
       "falls": "[Ƒáļļš íñ {minutes}]",
       "pvpEntry": "[Éñţéŕíñĝ ţĥé áçţíʋé çíŕçļé éñáƀļéš Ŵóŕļð ÞʋÞ.]",
       "pvpBanner": "[ÞʋÞ]",
+      "callout": {
+        "killingSpree": "[{name} íš óñ á Ķíļļíñĝ Šþŕéé!]",
+        "rampage": "[{name} íš óñ á Ŕáɱþáĝé!]",
+        "unstoppable": "[{name} íš Úñšţóþþáƀļé!]",
+        "dominating": "[{name} íš Ðóɱíñáţíñĝ!]",
+        "godlike": "[{name} íš Ĝóðļíķé!]",
+        "legendary": "[{name} íš Ļéĝéñðáŕý!]",
+        "shutDown": "[{killer} ĥáš šĥúţ ðóŵñ {victim}!]"
+      },
       "standingRaid": "[Ŕáíð ɱéɱƀéŕš ðó ñóţ çóúñţ: óñļý þáŕţíéš çáñ ĥóļð ţĥé ĥíļļ]"
     },
     "warfareShop": {
@@ -4199,6 +4208,7 @@ export const en_XA: EnTranslations = {
       "mobLevel": "[{level}]",
       "mobEliteLevel": "[{level}+]",
       "afkTag": "[ÁƑĶ]",
+      "bountyTag": "[Ɓóúñţý {honor}]",
       "pvpTag": "[ÞʋÞ]",
       "cheaterTag": "[< Çĥéáţéŕ >]",
       "pledgeTag": "[Þļéðĝé óƒ {guild}]",

@@ -2847,6 +2847,15 @@ export const fr_CA: EnTranslations = {
       "falls": "Retombe dans {minutes}",
       "pvpEntry": "Entrer dans le cercle actif active le JcJ mondial.",
       "pvpBanner": "JcJ",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Les membres du raid ne comptent pas : seuls les groupes peuvent détenir la colline"
     },
     "warfareShop": {
@@ -4199,6 +4208,7 @@ export const fr_CA: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "JcJ",
       "cheaterTag": "< Tricheur >",
       "pledgeTag": "Serment de {guild}",

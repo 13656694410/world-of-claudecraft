@@ -2847,6 +2847,15 @@ export const en_CA: EnTranslations = {
       "falls": "Falls in {minutes}",
       "pvpEntry": "Entering the active circle enables World PvP.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Raid members do not count: only parties can hold the hill"
     },
     "warfareShop": {
@@ -4199,6 +4208,7 @@ export const en_CA: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Cheater >",
       "pledgeTag": "Pledge of {guild}",

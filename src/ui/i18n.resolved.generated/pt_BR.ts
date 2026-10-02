@@ -2847,6 +2847,15 @@ export const pt_BR: EnTranslations = {
       "falls": "Cai em {minutes}",
       "pvpEntry": "Entrar no círculo ativo ativa o PvP Mundial.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} is on a Killing Spree!",
+        "rampage": "{name} is on a Rampage!",
+        "unstoppable": "{name} is Unstoppable!",
+        "dominating": "{name} is Dominating!",
+        "godlike": "{name} is Godlike!",
+        "legendary": "{name} is Legendary!",
+        "shutDown": "{killer} has shut down {victim}!"
+      },
       "standingRaid": "Membros de raide não contam: apenas grupos podem controlar a colina"
     },
     "warfareShop": {
@@ -4199,6 +4208,7 @@ export const pt_BR: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Bounty {honor}",
       "pvpTag": "JcJ",
       "cheaterTag": "< Trapaceiro >",
       "pledgeTag": "Promessa a {guild}",

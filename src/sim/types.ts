@@ -5831,6 +5831,11 @@ export interface Entity extends ClientMirroredEntityFields {
    *  unflagged, so an unflagged character samples and serializes exactly as
    *  before the flag existed. */
   pvpFlag?: boolean;
+  /** King of the Hill bounty (src/sim/pvp/hill_bounty.ts): the Honor this
+   *  player is worth while a kill streak on the risen hill lifts it above the
+   *  plain world kill. Rides the entity wire (`hbn`) so every nearby client tags
+   *  the nameplate and target frame; absent otherwise. */
+  hillBounty?: number;
   /** Host-only disconnect grace marker; absent for offline/headless players. Never persisted. */
   pvpRewardsPaused?: boolean;
   /** WARFARE Vitality switch (src/sim/pvp/vitality.ts): false while the player
