@@ -60,11 +60,15 @@ describe('player-guide footer links', () => {
     expect(play?.querySelector('a.guide-cta')?.getAttribute('href')).toBe('/play');
   });
 
-  it('ships the same six links in the homepage footer HTML, not injected by script', () => {
-    const html = readFileSync(path.resolve(process.cwd(), 'index.html'), 'utf8');
-    const row = html.match(/<nav class="footer-guides-row"[\s\S]*?<\/nav>/)?.[0] ?? '';
-    expect(row).toContain('aria-label="Player guides"');
-    expect(row).toContain('data-i18n-aria="footer.guidesLabel"');
-    expect([...row.matchAll(/href="([^"]+)"/g)].map((m) => m[1])).toEqual(GUIDES);
-  });
+  // index.html (/) and play.html (/play) carry the same homepage footer, and both are indexed.
+  it.each(['index.html', 'play.html'])(
+    'ships the same six links in the %s footer HTML, not injected by script',
+    (shell) => {
+      const html = readFileSync(path.resolve(process.cwd(), shell), 'utf8');
+      const row = html.match(/<nav class="footer-guides-row"[\s\S]*?<\/nav>/)?.[0] ?? '';
+      expect(row).toContain('aria-label="Player guides"');
+      expect(row).toContain('data-i18n-aria="footer.guidesLabel"');
+      expect([...row.matchAll(/href="([^"]+)"/g)].map((m) => m[1])).toEqual(GUIDES);
+    },
+  );
 });
