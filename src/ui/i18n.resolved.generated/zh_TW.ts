@@ -439,8 +439,8 @@ export const zh_TW: EnTranslations = {
         "worldMany": "已完成{count}個世界任務",
         "pvpOne": "已贏得{count}場積分賽",
         "pvpMany": "已贏得{count}場積分賽",
-        "pvpWinOne": "{count} PvP Win",
-        "pvpWinMany": "{count} PvP Wins"
+        "pvpWinOne": "已獲得{count}場PvP勝利",
+        "pvpWinMany": "已獲得{count}場PvP勝利"
       },
       "requiredTask": {
         "raidOne": "擊敗{count}個團隊副本首領",
@@ -451,8 +451,8 @@ export const zh_TW: EnTranslations = {
         "worldMany": "完成{count}個世界任務",
         "pvpOne": "贏得{count}場積分賽",
         "pvpMany": "贏得{count}場積分賽",
-        "pvpWinOne": "Earn {count} PvP Win",
-        "pvpWinMany": "Earn {count} PvP Wins"
+        "pvpWinOne": "獲得{count}場PvP勝利",
+        "pvpWinMany": "獲得{count}場PvP勝利"
       },
       "readyWeeks": "未領取的週次：{count}。請先領取最早完成的那一週。",
       "claimLastWeek": "領取上週的獎勵",
@@ -8366,7 +8366,7 @@ export const zh_TW: EnTranslations = {
       "hillBody": "每兩小時，龍裔荒原、霜幕之境或琥珀秋境會出現一座活動山丘。全伺服器會提前十五分鐘收到預告，空地上會標出圓圈。山丘活動持續三十分鐘。進入活動圈會依一般等級規則開啟世界 PvP 旗幟，團隊成員也不例外。圈內符合條件的玩家人數最多的小隊，在連續保持人數優勢一分鐘後佔領山丘；單人視為一人小隊，但團隊成員和未達到 PvP 等級要求的玩家不能佔領或獲得山丘榮譽。佔領方每名站在圈內的成員都會以逐漸提高的速率獲得榮譽。發獎頻率和獎勵遞增速度均已加快，保留原四十五分鐘活動的榮譽總量。佔領方變更會重設獎勵遞增。離開圈後旗幟仍保留；/pvp off 使用一般的五分鐘延遲，在活動山丘內或戰鬥中無法完成。山丘狀態列顯示控制方、人數和佔領進度；/hill 顯示位置。",
       "limitsBodyHour": "反覆擊敗同一名玩家，每次的收益都會減少並很快歸零，而你對那名玩家的計數要在首次擊殺約一小時之後才會重新開始，所以蹲守同一個目標永遠不值得等待。遠低於你等級的目標不會帶來任何收益。在戰場和競技場內部適用它們自己的規則，而且它們提供的榮譽比開放世界更多，因此世界 PvP 是通往同一位商人的較慢道路。",
       "hillBodyRamp": "每兩小時，龍裔荒原、霜幕之境或琥珀秋境會出現一座活動山丘。全伺服器會提前十五分鐘收到預告，空地上會標出圓圈。山丘活動持續三十分鐘。進入活動圈會依一般等級規則開啟世界 PvP 旗幟，團隊成員也不例外。圈內符合條件的玩家人數最多的小隊，在連續保持人數優勢一分鐘後佔領山丘；單人視為一人小隊，但團隊成員和未達到 PvP 等級要求的玩家不能佔領或獲得山丘榮譽。佔領方每名站在圈內的成員都會以逐漸提高的速率獲得榮譽。發獎頻率和獎勵遞增速度均已加快，保留原四十五分鐘活動的榮譽總量。佔領方變更會重設獎勵遞增。離開圈後旗幟仍保留；/pvp off 使用一般的五分鐘延遲，在活動山丘內或戰鬥中無法完成。山丘狀態列顯示控制方、人數和佔領進度；/hill 顯示位置。",
-      "hillBodyRanked": "Every two hours, a hill rises in the Drakelands, the Frostveil Reach or the Amberfall. The realm receives a fifteen-minute warning, and the circle is marked on open ground. The hill stays active for thirty minutes. Entering the active circle raises your World PvP flag under the normal level rules, including for raid members. The party with the most eligible players inside takes the hill after a minute of unbroken majority; a lone player counts as a party of one, but raid members and players below the PvP level requirement cannot capture or earn hill Honor. Each holder standing inside earns Honor at an increasing rate. Payouts and their ramp are faster, preserving the total Honor of the former forty-five-minute event. A change of holder restarts the ramp. Every five minutes while the hill stands, the realm hears its location and the groups ranked by time held. When the hill falls, each player who stood inside for at least a minute for the longest-holding group, and is still in that group, earns one win toward the Weekly Vault PvP row. Leaving the circle keeps your flag up; /pvp off uses the normal five-minute delay and cannot finish inside an active hill or during combat. The hill bar shows control, numbers and capture progress; /hill reports its location.",
+      "hillBodyRanked": "每兩小時，龍裔荒原、霜幕之境或琥珀秋境會出現一座活動山丘。全伺服器會提前十五分鐘收到預告，空地上會標出圓圈。山丘活動持續三十分鐘。進入活動圈會依一般等級規則開啟世界 PvP 旗幟，團隊成員也不例外。圈內符合條件的玩家人數最多的小隊，在連續保持人數優勢一分鐘後佔領山丘；單人視為一人小隊，但團隊成員和未達到 PvP 等級要求的玩家不能佔領或獲得山丘榮譽。佔領方每名站在圈內的成員都會以逐漸提高的速率獲得榮譽，佔領方變更會重設獎勵遞增。山丘活動期間，全伺服器每五分鐘會收到位置提醒和各隊伍的佔領時長排名。山丘結束時，佔領總時長最長的隊伍中，曾在佔領期間站在圈內至少一分鐘且仍留在隊伍中的玩家，會為每週寶庫的 PvP 獎勵進度獲得一場勝利。離開圈後旗幟仍保留；/pvp off 使用一般的五分鐘延遲，在活動山丘內或戰鬥中無法完成。山丘狀態列顯示控制方、人數和佔領進度；/hill 顯示位置。",
       "limitsBodyRaids": "反覆擊敗同一名玩家，每次的收益都會減少並很快歸零，而你對那名玩家的計數要在首次擊殺約一小時之後才會重新開始，所以蹲守同一個目標永遠不值得等待。遠低於你等級的目標不會帶來任何收益。在戰場和競技場內部適用它們自己的規則，而且它們提供的榮譽比開放世界更多，因此世界 PvP 是通往同一位商人的較慢道路。團隊無法從世界擊殺中獲得任何收益：團隊成員既得不到榮譽也得不到金幣，也不會減少其他人的份額，所以想獲得報酬就以隊伍身分作戰。"
     },
     "thornhollowPage": {

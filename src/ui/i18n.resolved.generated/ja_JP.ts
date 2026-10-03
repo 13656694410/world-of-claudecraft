@@ -439,8 +439,8 @@ export const ja_JP: EnTranslations = {
         "worldMany": "ワールドクエスト{count}件完了",
         "pvpOne": "レート戦{count}勝",
         "pvpMany": "レート戦{count}勝",
-        "pvpWinOne": "{count} PvP Win",
-        "pvpWinMany": "{count} PvP Wins"
+        "pvpWinOne": "PvPで{count}勝",
+        "pvpWinMany": "PvPで{count}勝"
       },
       "requiredTask": {
         "raidOne": "レイドボスを{count}体撃破する",
@@ -451,8 +451,8 @@ export const ja_JP: EnTranslations = {
         "worldMany": "ワールドクエストを{count}件完了する",
         "pvpOne": "レート戦で{count}勝する",
         "pvpMany": "レート戦で{count}勝する",
-        "pvpWinOne": "Earn {count} PvP Win",
-        "pvpWinMany": "Earn {count} PvP Wins"
+        "pvpWinOne": "PvPで{count}勝する",
+        "pvpWinMany": "PvPで{count}勝する"
       },
       "readyWeeks": "未受領の週：{count}。完了した最も古い週から受け取ってください。",
       "claimLastWeek": "先週の報酬を受け取る",
@@ -8366,7 +8366,7 @@ export const ja_JP: EnTranslations = {
       "hillBody": "2時間ごとにドレイクランド、フロストヴェイルの果て、アンバーフォールのいずれかに丘が出現します。レルム全体に15分前の予告が届き、開けた地面に円が表示されます。丘は30分間有効です。開催中の円に入ると、レイドメンバーも含め、通常のレベル条件に従ってワールドPvPフラグが立ちます。円内の参加資格を持つ人数が最も多いパーティーが、1分間連続で優勢を保つと丘を占領します。単独プレイヤーは1人パーティーとして扱われますが、レイドメンバーとPvP必要レベル未満のプレイヤーは占領も丘の名誉獲得もできません。占領側の円内の各メンバーは、次第に高まる割合で名誉を得ます。報酬の支給頻度と増加速度が上がり、以前の45分間のイベントと同じ名誉総量が保たれます。占領側が変わると増加は最初から始まります。円から出てもフラグは残ります。/pvp offは通常の5分待ちを使い、開催中の丘の中や戦闘中には完了しません。丘のバーには占領側、人数、占領進捗が表示され、/hillで場所を確認できます。",
       "limitsBodyHour": "同じプレイヤーを繰り返し倒すと報酬は毎回減り、すぐにゼロになります。そのプレイヤーに対するカウントは最初の撃破からおよそ1時間後にようやく元に戻るため、一人を狙い続けて待つ価値はありません。自分よりはるかに低いレベルの相手からは何も得られません。バトルグラウンドとアリーナの中では独自のルールが適用され、オープンワールドより多くの名誉を支払うため、ワールドPvPは同じ商人へ向かう遠回りの道です。",
       "hillBodyRamp": "2時間ごとにドレイクランド、フロストヴェイルの果て、アンバーフォールのいずれかに丘が出現します。レルム全体に15分前の予告が届き、開けた地面に円が表示されます。丘は30分間有効です。開催中の円に入ると、レイドメンバーも含め、通常のレベル条件に従ってワールドPvPフラグが立ちます。円内の参加資格を持つ人数が最も多いパーティーが、1分間連続で優勢を保つと丘を占領します。単独プレイヤーは1人パーティーとして扱われますが、レイドメンバーとPvP必要レベル未満のプレイヤーは占領も丘の名誉獲得もできません。占領側の円内の各メンバーは、次第に高まる割合で名誉を得ます。報酬の支給頻度と増加速度が上がり、以前の45分間のイベントと同じ名誉総量が保たれます。占領側が変わると増加は最初から始まります。円から出てもフラグは残ります。/pvp offは通常の5分待ちを使い、開催中の丘の中や戦闘中には完了しません。丘のバーには占領側、人数、占領進捗が表示され、/hillで場所を確認できます。",
-      "hillBodyRanked": "Every two hours, a hill rises in the Drakelands, the Frostveil Reach or the Amberfall. The realm receives a fifteen-minute warning, and the circle is marked on open ground. The hill stays active for thirty minutes. Entering the active circle raises your World PvP flag under the normal level rules, including for raid members. The party with the most eligible players inside takes the hill after a minute of unbroken majority; a lone player counts as a party of one, but raid members and players below the PvP level requirement cannot capture or earn hill Honor. Each holder standing inside earns Honor at an increasing rate. Payouts and their ramp are faster, preserving the total Honor of the former forty-five-minute event. A change of holder restarts the ramp. Every five minutes while the hill stands, the realm hears its location and the groups ranked by time held. When the hill falls, each player who stood inside for at least a minute for the longest-holding group, and is still in that group, earns one win toward the Weekly Vault PvP row. Leaving the circle keeps your flag up; /pvp off uses the normal five-minute delay and cannot finish inside an active hill or during combat. The hill bar shows control, numbers and capture progress; /hill reports its location.",
+      "hillBodyRanked": "2時間ごとにドレイクランド、フロストヴェイルの果て、アンバーフォールのいずれかに丘が出現します。レルム全体に15分前の予告が届き、開けた地面に円が表示されます。丘は30分間有効です。開催中の円に入ると、レイドメンバーも含め、通常のレベル条件に従ってワールドPvPフラグが立ちます。円内の参加資格を持つ人数が最も多いパーティーが、1分間連続で優勢を保つと丘を占領します。単独プレイヤーは1人パーティーとして扱われますが、レイドメンバーとPvP必要レベル未満のプレイヤーは占領も丘の名誉獲得もできません。占領側の円内の各メンバーは次第に高まる割合で名誉を得て、占領側が変わると増加は最初から始まります。丘の開催中は5分ごとに場所と各グループの占領時間ランキングがレルム全体に告知されます。丘が終わると、合計占領時間が最も長いグループに属し、そのグループの占領中に円内に1分以上立ち、終了時にもグループに残っているプレイヤーは、週間宝物庫のPvP進捗に1勝を獲得します。円から出てもフラグは残ります。/pvp offは通常の5分待ちを使い、開催中の丘の中や戦闘中には完了しません。丘のバーには占領側、人数、占領進捗が表示され、/hillで場所を確認できます。",
       "limitsBodyRaids": "同じプレイヤーを繰り返し倒すと報酬は毎回減り、すぐにゼロになります。そのプレイヤーに対するカウントは最初の撃破からおよそ1時間後にようやく元に戻るため、一人を狙い続けて待つ価値はありません。自分よりはるかに低いレベルの相手からは何も得られません。バトルグラウンドとアリーナの中では独自のルールが適用され、オープンワールドより多くの名誉を支払うため、ワールドPvPは同じ商人へ向かう遠回りの道です。レイドはワールドでの撃破から何も得られません。レイドのメンバーは名誉もゴールドも受け取らず、他の人の取り分も減らさないため、報酬を得るにはパーティで戦いましょう。"
     },
     "thornhollowPage": {

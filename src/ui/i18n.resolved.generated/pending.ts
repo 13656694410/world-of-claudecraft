@@ -142,12 +142,7 @@ export const pending: Record<string, readonly string[]> = {
     "footer.guideNew",
     "guide.footer.guideBest",
     "guide.footer.guideFree",
-    "guide.footer.guideNew",
-    "guide.worldPvpPage.hillBodyRanked",
-    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
-    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
-    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
-    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
+    "guide.footer.guideNew"
   ],
   "zh_TW": [
     "footer.guideBest",
@@ -155,12 +150,7 @@ export const pending: Record<string, readonly string[]> = {
     "footer.guideNew",
     "guide.footer.guideBest",
     "guide.footer.guideFree",
-    "guide.footer.guideNew",
-    "guide.worldPvpPage.hillBodyRanked",
-    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
-    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
-    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
-    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
+    "guide.footer.guideNew"
   ],
   "ko_KR": [
     "footer.guideBest",
@@ -168,12 +158,7 @@ export const pending: Record<string, readonly string[]> = {
     "footer.guideNew",
     "guide.footer.guideBest",
     "guide.footer.guideFree",
-    "guide.footer.guideNew",
-    "guide.worldPvpPage.hillBodyRanked",
-    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
-    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
-    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
-    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
+    "guide.footer.guideNew"
   ],
   "ja_JP": [
     "footer.guideBest",
@@ -181,12 +166,7 @@ export const pending: Record<string, readonly string[]> = {
     "footer.guideNew",
     "guide.footer.guideBest",
     "guide.footer.guideFree",
-    "guide.footer.guideNew",
-    "guide.worldPvpPage.hillBodyRanked",
-    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
-    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
-    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
-    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
+    "guide.footer.guideNew"
   ],
   "pt_BR": [
     "footer.guideBest",
@@ -215,12 +195,7 @@ export const pending: Record<string, readonly string[]> = {
     "footer.guideNew",
     "guide.footer.guideBest",
     "guide.footer.guideFree",
-    "guide.footer.guideNew",
-    "guide.worldPvpPage.hillBodyRanked",
-    "hudChrome.weeklyRewards.completedTask.pvpWinMany",
-    "hudChrome.weeklyRewards.completedTask.pvpWinOne",
-    "hudChrome.weeklyRewards.requiredTask.pvpWinMany",
-    "hudChrome.weeklyRewards.requiredTask.pvpWinOne"
+    "guide.footer.guideNew"
   ],
   "cs_CZ": [
     "footer.guideBest",
