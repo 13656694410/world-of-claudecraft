@@ -40,10 +40,10 @@ const INTAKE_ROOT = path.join(REPO_ROOT, 'docs/design/fenbridge-rebuild/img2thre
 // compress_glb_textures.mjs is a fingerprint input from PR #3775's
 // Tripo baseColor UASTC routing. The GLBs were size-preserving reminted from
 // the candidate bytes so only the sourceFingerprint hex and sha256 pins moved.
-// v0.44.3: re-stamped only the two fingerprint fields after the package version
+// v0.44.4: re-stamped only the two fingerprint fields after the package version
 // bump; reversing them restores each prior GLB byte for byte.
 const EXPECTED_SOURCE_FINGERPRINT =
-  '9c2ebab840eb086c37d44151d8de6e210343894fa7428eb7684740befa73bb3d';
+  'bef6158630344b3bdb5bb8a7cbb3d2100adc32b16b0df5188faafbe1eefd6a3e';
 const EXPECTED_SUPPORT_FINGERPRINT =
   'fb8cc23a5076a734b1d2c20a365f43b2610be2319a9b2785bcde051a64ac6e1a';
 const FOUNDATION_TRIANGLES = 84;
@@ -59,85 +59,85 @@ interface ExpectedArtifact {
 const EXPECTED_ARTIFACTS: Readonly<Record<string, ExpectedArtifact>> = {
   warden_gatehouse: {
     bytes: 141_848,
-    sha256: 'f57404ea2e52a04677f86c7e5c36edb88b4816424aa114aafc21d931f66f20c1',
+    sha256: 'edc064a7dd4fdc14122e928f31a7c76ee284dd608702c23ddea6e80542f3347b',
     triangles: 8_766,
     primitiveTriangles: [8_695, 71],
   },
   crooked_reed_inn: {
     bytes: 149_080,
-    sha256: 'ca187e97fdc2b90144f0d2351a44bd455fe570cebc6c550beab4a20df3f06813',
+    sha256: '483409089d2d575022c223116e0d4ddd4b2bf4a74494ee8dff44361070191ef9',
     triangles: 8_949,
     primitiveTriangles: [8_807, 142],
   },
   lantern_chapel: {
     bytes: 107_392,
-    sha256: 'a6942349a3df1ac531d278b50455dc17087717b29c7dcd72523b1d8450bc86d7',
+    sha256: 'b1587a7b99d316dc488dcafcfd0d5410c86e37830e8726dbc33ef1eaf612d529',
     triangles: 6_671,
     primitiveTriangles: [6_486, 185],
   },
   moonwort_apothecary: {
     bytes: 104_468,
-    sha256: 'f7c2b8460eaf2319967c2739648e3055bad324db54910a87ce714b7f30c68e35',
+    sha256: 'f5626f2f8eb18b1e953ed12a9e65bdd0bbf75949aed97a15d1006e12755497de',
     triangles: 6_086,
     primitiveTriangles: [6_017, 69],
   },
   gilded_strongbox: {
     bytes: 69_908,
-    sha256: 'cdbb4138355fa6d1eadf80360dda51ea5d83985d30d20515f99dd34effe1c81b',
+    sha256: 'ac7c28dd2024bf00e9a4e29cbd6fb986dced226c33b69bbfbcdb2987a85b91d6',
     triangles: 4_133,
     primitiveTriangles: [4_033, 100],
   },
   hesk_tannery: {
     bytes: 198_908,
-    sha256: '1175e79684b9ab880c03098ac827cde74b4898c8bbfa4b82df7ffce4058cbf24',
+    sha256: '681cc3cfe34f8841b0baf3e3aadb9ebb253a87dec2ae4a258760b8f0cb56305b',
     triangles: 12_740,
     primitiveTriangles: [12_581, 159],
   },
   scout_lodge: {
     bytes: 110_556,
-    sha256: '86053873c2853d4547f1f526891b90b155f8e89a37f7ab6b14cd7e62771ad977',
+    sha256: '102b17493807c9accf3a3914a029828dba0ca89d9c3b04b6e42145534eb5e012',
     triangles: 6_507,
     primitiveTriangles: [6_431, 76],
   },
   mirelight_cistern: {
     bytes: 48_940,
-    sha256: 'b6fad3c40c3ead53a52c809ec8853c086e5c7be0cb090c90df51be8c2083ed71',
+    sha256: 'b18ffe3e8398fa2ee78deafbc9feea17d6cd418e933d5376c1d9cf6e86c20bad',
     triangles: 2_388,
     primitiveTriangles: [2_328, 60],
   },
   provision_stall: {
     bytes: 26_332,
-    sha256: '31b764ea1e5c0c527c0a0ef09d2dacd4439048dbc7b286fcd607817fc804c744',
+    sha256: '708de7945f98d556394ced312432f892910de29f146888ed4c028a3bfef909e8',
     triangles: 1_304,
     primitiveTriangles: [1_280, 24],
   },
   palisade_wing: {
     bytes: 15_680,
-    sha256: '4a40b5cc3b755d992c0b20fc56f998948db87fd1d51b3f368036ebcdc83222e8',
+    sha256: '48f169a609e06919eb579121478510d88d5d3ecefe9283878c4b76f12ad6d8d8',
     triangles: 766,
     primitiveTriangles: [766],
   },
   gate_arch: {
     bytes: 24_276,
-    sha256: '65b9207a2f4371d22362f3da16621a7be1a26442d2e82346bceada9e00936c95',
+    sha256: 'e02451260b8c0f717e7dbce3904331411b182899ec5334e42bc8f3a122bbd0a7',
     triangles: 1_216,
     primitiveTriangles: [1_192, 24],
   },
   boardwalk: {
     bytes: 9_264,
-    sha256: 'b91b0a7f5145e9f1865de2c15a52f84491d23e766e2c4fdc336848dd0cd8fb9e',
+    sha256: '0d1e37f8e2c18add169ee26a29c2beea48b1f9b95c23b1d0e759b086edb509b6',
     triangles: 376,
     primitiveTriangles: [376],
   },
   muster_board: {
     bytes: 17_480,
-    sha256: 'da11eb86893eb15198b7ae54355c643b8451320bdafc61c7e4a94a0a54693c91',
+    sha256: '7b6b853c1e23330b89f7ef011cdccc1da12be9574b4d975d53e6fe6337576063',
     triangles: 760,
     primitiveTriangles: [736, 24],
   },
   muster_order: {
     bytes: 6_888,
-    sha256: '90e18987a2c2a51341b3e93526fdbc1254048e9445e6490d68efdf11b009a7bc',
+    sha256: '8eafe05b91a7f30a50c84a016466884da3aadd1f89a91a20284b937a4fcba39b',
     triangles: 204,
     primitiveTriangles: [204],
   },
