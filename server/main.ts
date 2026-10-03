@@ -430,7 +430,7 @@ import {
   requestedSfxVersion,
   sfxBlobIntegrityMatches,
 } from './static_cache';
-import { spaFallbackStatus } from './static_fallback';
+import { STATIC_PAGE_ALIASES, spaFallbackStatus } from './static_fallback';
 import { readStaticSfxSnapshot, type StaticSfxSnapshot } from './static_sfx';
 import { stopSteamMirror } from './steam/mirror';
 import {
@@ -548,35 +548,6 @@ const STATIC_DIR = path.join(__dirname, '..', 'dist');
 const SFX_PACK_DIR = process.env.SFX_PACK_DIR?.trim()
   ? path.resolve(process.env.SFX_PACK_DIR.trim())
   : null;
-// Pretty URLs that serve standalone static HTML pages.
-const STATIC_PAGE_ALIASES = new Map([
-  ['/links', '/links.html'],
-  ['/links/', '/links.html'],
-  ['/social', '/links.html'],
-  ['/social/', '/links.html'],
-  ['/social-media-links', '/links.html'],
-  ['/social-media-links/', '/links.html'],
-  ['/play', '/play.html'],
-  ['/play/', '/play.html'],
-  ['/wallet-handoff', '/wallet-handoff.html'],
-  ['/wallet-handoff/', '/wallet-handoff.html'],
-  ['/privacy', '/privacy.html'],
-  ['/privacy/', '/privacy.html'],
-  ['/terms', '/terms.html'],
-  ['/terms/', '/terms.html'],
-  ['/merch', '/merch.html'],
-  ['/merch/', '/merch.html'],
-  ['/press', '/press.html'],
-  ['/press/', '/press.html'],
-  ['/data-deletion', '/data-deletion.html'],
-  ['/data-deletion/', '/data-deletion.html'],
-  ['/support', '/support.html'],
-  ['/support/', '/support.html'],
-  ['/wiki', '/guide.html'],
-  ['/wiki/', '/guide.html'],
-  ['/editor', '/editor.html'],
-  ['/editor/', '/editor.html'],
-]);
 // Chat-log and perf-report retention days (0 = forever) plus the Turnstile secret
 // and the hard per-IP WS cap now live on the boot Config (see activeConfig above):
 // startServer reads config.chatLogRetentionDays / .perfReportRetentionDays /

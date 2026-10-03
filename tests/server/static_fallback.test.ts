@@ -10,12 +10,14 @@
 // for exactly the three shell files (existence + body) and passes every other fs
 // call through, the same pass-through shape tests/server/static_fd_leak.test.ts uses.
 
-import { readFileSync } from 'node:fs';
 import * as http from 'node:http';
-import path from 'node:path';
 import { Readable } from 'node:stream';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
-import { SHELL_CLIENT_ROUTES, spaFallbackStatus } from '../../server/static_fallback';
+import {
+  STATIC_PAGE_ALIASES as ALIASES,
+  SHELL_CLIENT_ROUTES,
+  spaFallbackStatus,
+} from '../../server/static_fallback';
 
 const SHELL = /[\\/]dist[\\/](index|guide|admin)\.html$/;
 
@@ -34,16 +36,8 @@ vi.mock('node:fs', async (importOriginal) => {
   return { ...wrapped, default: wrapped };
 });
 
-// Every pretty-URL alias in server/main.ts, read from the source so a new alias is covered
-// without editing this file.
-const mainSource = readFileSync(path.resolve(process.cwd(), 'server/main.ts'), 'utf8');
-const aliasBlock = mainSource.match(/const STATIC_PAGE_ALIASES = new Map\(\[([\s\S]*?)\]\);/)?.[1];
-const ALIASES = new Map(
-  [...(aliasBlock ?? '').matchAll(/\['([^']+)', '([^']+)'\]/g)].map((m) => [m[1], m[2]]),
-);
-
 describe('spaFallbackStatus', () => {
-  it('reads every alias from main.ts', () => {
+  it('covers the pretty-URL aliases serveStatic rewrites', () => {
     expect(ALIASES.size).toBeGreaterThanOrEqual(20);
     expect(ALIASES.get('/play')).toBe('/play.html');
     expect(ALIASES.get('/wiki')).toBe('/guide.html');
