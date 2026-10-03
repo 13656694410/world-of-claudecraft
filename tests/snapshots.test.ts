@@ -5764,6 +5764,7 @@ const ALL_DELTA_KEYS = [
   'prk',
   'prof',
   'ptime',
+  'pvr',
   'qdone',
   'qlog',
   'reliq',
@@ -5898,6 +5899,7 @@ const TERSE_TO_IWORLD: Record<string, string> = {
   prk: 'prestigeRank',
   prof: 'professionsState',
   ptime: 'playtimeSeconds',
+  pvr: 'pvpResurrect',
   qdone: 'questsDone',
   qlog: 'questLog',
   res: 'resource',
@@ -6066,7 +6068,7 @@ function dirtyEveryDeltaField(): {
   // World PvP: the wpvp self readout (meta) and the pvp entity bit (entity).
   meta.worldPvp = { flagged: true, disarmAt: null, kills: 2, deaths: 1 };
   sim.entities.get(lp)!.pvpFlag = true;
-  // King of the Hill: a hill stands (in a free-for-all zone the leader is not
+  // King of the Hill: a hill stands (in a northern zone the leader is not
   // in), so the hill self readout rides the snapshot.
   spawnHillNow(sim.ctx);
   meta.restedXp = 222;
@@ -6504,13 +6506,14 @@ describe('full self-state snapshot delta fixture', () => {
       // gated null: the two keys are mutually exclusive on one player by
       // design. Its non-null arrival (and the by-reference mirror) is pinned
       // in tests/vault_wire.test.ts instead.
-      // This fixture stands at a different banker; the weekly keeper gate stays closed.
-      if (key === 'cvault' || key === 'weeklyRewards') {
+      if (key === 'cvault') {
         expect(snap.self[key], 'self.cvault must arrive as the explicit gated null').toBeNull();
         continue;
       }
       expect(snap.self[key], `self.${key} arrived null`).not.toBeNull();
     }
+    // The Weekly Vault preview is global, but this fixture is away from its keeper.
+    expect(snap.self.weeklyRewards).toMatchObject({ canClaim: false });
   });
 
   it('mirrors every dirtied self value onto the correct decode target', () => {
@@ -6553,20 +6556,22 @@ describe('full self-state snapshot delta fixture', () => {
       kills: 2,
       deaths: 1,
       zone: 'contested', // the fixture leader stands on contested ground
+      rewardPause: 'instance', // inside the delve the armed streak is paused
       enabled: true,
     });
     expect(client.player.pvpFlag).toBe(true);
     // hill -> hillInfo (social_self_wire.ts): the standing hill from the
     // leader's seat (outside its zone, so the live fields are zero; the
-    // fixture leader is ungrouped, so counts as a group of one).
+    // fixture leader is below level 10, so cannot count on the hill).
+    expect(client.player.level).toBeLessThan(10);
     expect(client.hillInfo).toMatchObject({
       radius: 50,
       phase: 'active',
-      standing: 'counted',
+      standing: 'level',
       holder: 'none',
       inZone: false,
       inside: false,
-      minutesLeft: 45,
+      minutesLeft: 30,
     });
     expect(['drakelands', 'frostveil', 'amberfall']).toContain(client.hillInfo?.zoneId);
     expect(client.restedXp).toBe(222); // rxp -> restedXp
@@ -7151,7 +7156,7 @@ describe('gather node cooldown wire round trip (ncd)', () => {
 });
 
 describe('delta-key contract pins (anti-drift)', () => {
-  it('ALL_DELTA_KEYS contains exactly 113 unique keys in sorted order', () => {
+  it('ALL_DELTA_KEYS contains exactly 114 unique keys in sorted order', () => {
     // 109 plus the release batch's pending Town Focus and Spell Crit core keys.
     // +1: guildBank (Guild Bank Phase 2), +1: the battleground bg key, +1: the
     // commission order board's corder key (issue #1298), +1: the character
@@ -7208,9 +7213,11 @@ describe('delta-key contract pins (anti-drift)', () => {
     // base merge, for 109.
     // The release batch's pending Town Focus and the Spell Crit sheet cell's
     // shared crit core scb (server/self_scalar_wire.ts), at the third
-    // release/v0.44.0 base merge, for 111.
-    expect(ALL_DELTA_KEYS).toHaveLength(113);
-    expect(new Set(ALL_DELTA_KEYS).size).toBe(113);
+    // release/v0.44.0 base merge, for 111. (The keys reaching 113 landed
+    // without a note here.) The PvP Resurrect offer pvr
+    // (server/self_scalar_wire.ts, src/sim/pvp/pvp_resurrect.ts), for 114.
+    expect(ALL_DELTA_KEYS).toHaveLength(114);
+    expect(new Set(ALL_DELTA_KEYS).size).toBe(114);
     expect([...ALL_DELTA_KEYS]).toEqual([...ALL_DELTA_KEYS].sort());
   });
 
@@ -7380,7 +7387,7 @@ describe('delta-key contract pins (anti-drift)', () => {
     // The Weekly Vault's weeklyRewards self key (PR 4052) makes 107.
     // The World PvP readout wpvp and the King of the Hill readout hill make 109.
     // The release batch's pending Town Focus and Spell Crit core keys make 111.
-    expect(scraped.size).toBe(113);
+    expect(scraped.size).toBe(114);
     expect([...scraped].sort()).toEqual([...ALL_DELTA_KEYS].sort());
   });
 

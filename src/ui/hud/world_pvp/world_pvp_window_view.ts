@@ -17,13 +17,19 @@ import {
   WORLD_PVP_STAKE_FRACTION,
   worldPvpPairMultiplier,
 } from '../../../sim/pvp/world_pvp_rules';
-import type { WorldPvpInfo, WorldPvpZone } from '../../../world_api';
+import type { WorldPvpInfo, WorldPvpRewardPause, WorldPvpZone } from '../../../world_api';
 
 /** What the one action button does. `locked` renders the raise disabled with
  *  the level requirement; `keepUp` cancels a running disarm countdown;
  *  `realmOff` renders it disabled because the realm's kill switch is set (the
  *  sim refuses every raise there, so no press could ever land). */
-export type WorldPvpActionKind = 'enable' | 'disable' | 'keepUp' | 'locked' | 'realmOff';
+export type WorldPvpActionKind =
+  | 'enable'
+  | 'disable'
+  | 'keepUp'
+  | 'locked'
+  | 'realmOff'
+  | 'sanctuary';
 
 export interface WorldPvpStakes {
   stakeCapCopper: number;
@@ -55,6 +61,10 @@ export type WorldPvpWindowView =
       kills: number;
       deaths: number;
       honor: number;
+      rewardSeconds: number;
+      /** Why the armed streak is paused (dead, an instance, a sanctuary), or
+       *  null while it ticks. */
+      rewardPause: WorldPvpRewardPause | null;
       /** The ground under the player right now, for the status card's second
        *  line. Reported whatever the kill switch says, so `realmEnabled` is
        *  what decides whether it means anything. */
@@ -64,7 +74,7 @@ export type WorldPvpWindowView =
        *  ground line is dropped (no zone policy is live to report). */
       realmEnabled: boolean;
       stakes: WorldPvpStakes;
-      /** Render-skip signature: every id and number the markup depends on. */
+      /** Full-panel signature; the reward clock is patched separately. */
       sig: string;
     };
 
@@ -94,7 +104,9 @@ export function worldPvpAction(info: WorldPvpInfo): WorldPvpActionKind {
   // restores a saved flag and auto-raises nobody there, so the flag is always
   // down and the only honest button is a disabled one.
   if (info.enabled === false) return 'realmOff';
-  if (info.flagged) return info.disarmRemaining === null ? 'disable' : 'keepUp';
+  if (info.flagged && info.disarmRemaining === null) return 'disable';
+  if (info.zone === 'sanctuary') return 'sanctuary';
+  if (info.flagged) return 'keepUp';
   return info.levelLocked ? 'locked' : 'enable';
 }
 
@@ -126,6 +138,14 @@ export function buildWorldPvpWindowView(input: WorldPvpWindowViewInput): WorldPv
     kills: info.kills,
     deaths: info.deaths,
     honor: input.honor,
+    rewardSeconds: info.rewardSeconds ?? 0,
+    // An older server sends no cause; its only pause was the sanctuary.
+    rewardPause:
+      info.rewardPause !== undefined
+        ? info.rewardPause
+        : info.flagged && info.disarmRemaining === null && info.zone === 'sanctuary'
+          ? 'sanctuary'
+          : null,
     zone: info.zone,
     realmEnabled: info.enabled !== false,
     stakes: WORLD_PVP_STAKES,

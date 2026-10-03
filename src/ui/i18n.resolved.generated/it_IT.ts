@@ -507,7 +507,8 @@ export const it_IT: EnTranslations = {
         "dungeon_heroic": "Bottino di spedizione eroica",
         "world": "Bottino da missione mondiale",
         "pvp": "Equipaggiamento da Guerra"
-      }
+      },
+      "previewClaimNotice": "Ti aspettano delle ricompense. Visita il Custode del Caveau a Eastbrook per aprirle e ritirarle."
     },
     "ferry": {
       "regionLabel": "Orario dei traghetti",
@@ -597,6 +598,8 @@ export const it_IT: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Risorgi al cadavere",
+      "pvpResurrect": "Risorgi PvP",
+      "pvpResurrectTitle": "Risorgi al cimitero più vicino a piena salute, senza un nuovo Mal di resurrezione.",
       "resurrectAtHealer": "Il Custode Pallido (Mal di resurrezione)",
       "ghostHint": "Corri fino al luogo della tua morte oppure parla con il Custode Pallido per rivivere",
       "spiritHealerAlive": "Il Custode Pallido veglia sui morti. Tu sei ancora tra i vivi.",
@@ -2788,6 +2791,12 @@ export const it_IT: EnTranslations = {
       }
     },
     "worldPvp": {
+      "rewardBonus": "Mantieni attivo il PvP mondiale per ottenere {percent} di esperienza e reputazione di fazione in più. I bonus terminano quando ne richiedi la disattivazione.",
+      "rewardTitles": "Ottieni titoli permanenti dopo {thresholds} di tempo giocato nel mondo aperto con il PvP mondiale attivo. La disconnessione, la morte, le istanze e la Riva della Prova mettono in pausa il timer. Disattivarlo lo azzera.",
+      "rewardPaused": "Serie PvP attuale: {time} di gioco (in pausa sulla Riva della Prova)",
+      "rewardPausedDead": "Serie PvP attuale: {time} di gioco (in pausa finché sei morto)",
+      "rewardPausedInstance": "Serie PvP attuale: {time} di gioco (in pausa nelle istanze)",
+      "rewardProgress": "Serie PvP attuale: {time} di gioco",
       "tab": "PvP Mondiale",
       "title": "PvP Mondiale",
       "blurb": "Alza la tua bandiera per combattere altri giocatori contrassegnati ovunque nel mondo aperto. Sconfiggine uno e prendi una quota della sua borsa, più Onore per l'equipaggiamento da Guerra. I campi di battaglia e le arene pagano comunque di più.",
@@ -2799,20 +2808,20 @@ export const it_IT: EnTranslations = {
       "zoneContested": "Terreno conteso: qui combattono solo i giocatori contrassegnati.",
       "zoneFfa": "Terreno a tutti contro tutti: qui chiunque è bersaglio legittimo.",
       "realmDisabled": "Il PvP Mondiale è disattivato su questo reame.",
-      "groundSanctuary": "La Riva della Prova e la Valle di Eastbrook sono santuari: nessun PvP Mondiale in assoluto.",
+      "groundSanctuary": "La Riva della Prova è l’unico santuario: lì non puoi attivare il PvP mondiale né combattere altri giocatori.",
       "groundContested": "Ovunque altrove è terreno conteso: possono combattere solo due giocatori contrassegnati.",
-      "groundFfa": "Drakelands, La Distesa di Frostveil e Amberfall sono a tutti contro tutti: chiunque lì può combattere, con o senza bandiera.",
+      "groundFfa": "Drakelands, La Distesa di Frostveil e Amberfall usano le normali bandiere PvP. Entrare nel cerchio attivo del Re della Collina alza la tua bandiera.",
       "groupLine": "I membri del gruppo e dell'incursione non sono mai ostili tra loro. I compagni di gilda fuori dal tuo gruppo possono combattere.",
-      "markLine": "Attaccare lì un giocatore senza bandiera alza la tua; attaccarne uno contrassegnato non lo fa mai.",
+      "markLine": "Entrare nel cerchio di una collina attiva abilita il PvP mondiale. Uscire mantiene la bandiera alzata.",
       "aidLine": "Curare, proteggere o potenziare un giocatore contrassegnato in uno scontro nel mondo alza la tua bandiera.",
       "stakeLine": "Il perdente paga {cap} o il {percent} della sua borsa, qualunque sia minore.",
-      "noStakeLine": "Un giocatore senza bandiera ucciso in terreno a tutti contro tutti non perde oro.",
+      "noStakeLine": "I giocatori senza bandiera non possono essere attaccati nel mondo aperto.",
       "noTakeLine": "Anche un combattente senza bandiera non prende oro: si sposta solo tra due giocatori contrassegnati.",
       "honorLine": "{honor} Onore per uccisione, diviso tra chiunque abbia aiutato.",
       "splitLine": "Un 1 contro 1 pulito paga l'intero piatto; chi aiuta e i suoi guaritori lo condividono.",
       "repeatLine": "Le uccisioni ripetute dello stesso giocatore pagano {second}, poi {third}, poi nulla; il conteggio si azzera {reset} dopo la prima uccisione.",
       "greyLine": "I giocatori più di {levels} livelli sotto di te non pagano nulla.",
-      "disarmLine": "La disattivazione richiede {minutes} minuti e attende la fine del combattimento.",
+      "disarmLine": "La disattivazione richiede {minutes} minuti e attende che tu esca dalla collina attiva e che il combattimento finisca.",
       "record": "Record: {kills} uccisioni, {deaths} morti",
       "enable": "Attiva PvP Mondiale",
       "disable": "Disattiva PvP Mondiale",
@@ -2840,6 +2849,17 @@ export const it_IT: EnTranslations = {
       "distance": "{yards} m al cerchio",
       "rises": "Sorge tra {minutes}",
       "falls": "Cade tra {minutes}",
+      "pvpEntry": "Entrare nel cerchio attivo abilita il PvP mondiale.",
+      "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} è in Follia Omicida!",
+        "rampage": "{name} è Scatenato!",
+        "unstoppable": "{name} è Inarrestabile!",
+        "dominating": "{name} sta Dominando!",
+        "godlike": "{name} è Divino!",
+        "legendary": "{name} è Leggendario!",
+        "shutDown": "{killer} ha zittito {victim}!"
+      },
       "standingRaid": "I membri di un'incursione non contano: solo i gruppi possono detenere la collina"
     },
     "warfareShop": {
@@ -2852,7 +2872,8 @@ export const it_IT: EnTranslations = {
       "owned": "Posseduto",
       "buyAria": "Compra {item} per {honor}",
       "buyOwnedAria": "Compra {item} per {honor}, già posseduto",
-      "buyConfirmBody": "Comprare {item} per {honor}? Gli acquisti in Onore non sono rimborsabili."
+      "buyConfirmBody": "Comprare {item} per {honor}? Gli acquisti in Onore non sono rimborsabili.",
+      "buyConfirmBodyGold": "Acquistare {item} per {price}? Questo acquisto non può essere rimborsato."
     },
     "charSheet": {
       "offense": "Attacco",
@@ -3875,8 +3896,8 @@ export const it_IT: EnTranslations = {
         "boneSpikeHeroicSummary": "Ogni {everyHeroic} s, Nythraxis impala {victimsHeroic} membri dell'incursione diversi dal suo bersaglio attuale su Spine ossee. Un membro impalato non può agire e perde {drainHeroic} della salute massima ogni secondo finché la sua spina non viene distrutta. Una spina si frantuma dopo {hitsHeroic} colpi da chiunque, a prescindere dal danno inflitto. Un giocatore già impalato non può essere scelto di nuovo per {cooldown} s, così le spine si distribuiscono su tutta l'incursione.",
         "boneSpikeResponse": "Chi è più vicino colpisce la Spina ossea: pochi colpi da chiunque la frantumano, a prescindere dal danno. I curatori tengono in vita gli impalati mentre le spine cadono.",
         "graveEruptionName": "Eruzione sepolcrale",
-        "graveEruptionSummary": "Ogni {everyNormal} s, mani scheletriche segnano {countNormal} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstNormal} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameNormal} s, infliggendo {tickNormal} della salute massima ogni secondo a chiunque vi stia dentro.",
-        "graveEruptionHeroicSummary": "Ogni {everyHeroic} s, mani scheletriche segnano {countHeroic} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstHeroic} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameHeroic} s, infliggendo {tickHeroic} della salute massima ogni secondo a chiunque vi stia dentro.",
+        "graveEruptionSummary": "Ogni {everyNormal} s, mani scheletriche segnano {countNormal} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstNormal} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameNormal} s, infliggendo {tickNormal} della salute massima ogni secondo a chiunque vi stia dentro. Non accade mai mentre sono attivi i marchi di Squarcio d'anima, né nei {gap} s successivi alla loro scomparsa.",
+        "graveEruptionHeroicSummary": "Ogni {everyHeroic} s, mani scheletriche segnano {countHeroic} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstHeroic} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameHeroic} s, infliggendo {tickHeroic} della salute massima ogni secondo a chiunque vi stia dentro. Non accade mai mentre sono attivi i marchi di Squarcio d'anima, né nei {gap} s successivi alla loro scomparsa.",
         "graveEruptionResponse": "Esci da ogni cerchio di avviso prima che erutti e resta fuori dal terreno in fiamme. I tank tirano Nythraxis lontano dalle fiamme così la mischia ha spazio per agire.",
         "bindingSigilName": "Sigillo vincolante",
         "bindingSigilSummary": "Ogni {everyNormal} s, un sigillo delle antiche protezioni divampa su una delle due piattaforme ai lati del trono, a {sideOffset} yd a sinistra o a destra (dal lato dell'incursione) del punto in cui Nythraxis si trovava al pull, alternando il lato a ogni lancio e lui inizia Ascensione immortale, guadagnando {ascensionNormal} di danni e velocità d'attacco ogni {ascensionEvery} s. Se resta sul sigillo entro {bindNormal} s, viene Vincolato: l'Ascensione viene purificata, è stordito per {stunNormal} s e subisce {vulnerability} danni in più per {boundNormal} s. Altrimenti ogni membro dell'incursione subisce {unboundHitNormal} della salute massima come danni da Ombra e lui mantiene {unboundBonusNormal} danni in più fino al prossimo vincolo.",
@@ -4191,6 +4212,7 @@ export const it_IT: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Taglia {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Baro >",
       "pledgeTag": "Giuramento a {guild}",
@@ -4576,12 +4598,11 @@ export const it_IT: EnTranslations = {
       "memberSinceDays": "{days}g nel Discord",
       "roleTag": {
         "levyst": "Levy St",
-        "admin": "Admin",
         "coredevs": "Sviluppatore Principale",
         "devs": "Dev",
-        "seniormods": "Moderatore Senior",
+        "seniormods": "Sentinella",
         "mods": "Mod",
-        "juniormods": "Moderatore Junior",
+        "juniormods": "Osservatore",
         "artists": "Artista",
         "contentcreator": "Creatore di Contenuti",
         "legend": "LEGGENDA",
@@ -5046,6 +5067,13 @@ export const it_IT: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Nascondi offline",
       "hideOfflineTitle": "Nascondi i membri della gilda offline",
+      "presence": {
+        "label": "Mostrami online a",
+        "everyone": "Tutti",
+        "friends": "Solo amici",
+        "none": "Nessuno",
+        "title": "Chi ti vede online negli elenchi amici e nella lista gilda, con la tua zona e posizione sulla mappa. Il tuo gruppo ti vede sempre."
+      },
       "billboard": {
         "label": "Bacheca della Gilda",
         "empty": "Non c'è ancora nulla sulla bacheca.",
@@ -7033,7 +7061,14 @@ export const it_IT: EnTranslations = {
       "discord": "Unisciti al Discord",
       "communityWiki": "Wiki della Comunità",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Collegamenti al gioco e alla community"
+      "linksLabel": "Collegamenti al gioco e alla community",
+      "guidesLabel": "Player guides",
+      "guideFree": "Free MMORPGs",
+      "guideGamesLikeWow": "Games like WoW",
+      "guideBest": "Best MMORPGs",
+      "guideNew": "New MMORPGs",
+      "guideBrowser": "Browser MMORPGs",
+      "guideGamesLikeDiablo": "Games like Diablo"
     },
     "language": {
       "label": "Lingua",
@@ -7544,7 +7579,9 @@ export const it_IT: EnTranslations = {
       "session": "Cosa hai fatto da quando hai effettuato l'accesso: uccisioni, morti, danni ed esperienza.",
       "arena": "Il tuo piazzamento nel Colosseo Cinereo in entrambe le categorie: indice, vittorie, sconfitte e percentuale di vittorie per l'1v1 e per il 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
-      "pvpZones": "Bandiera PvP Mondiale: /pvp la attiva o disattiva, /pvp on e /pvp off la impostano direttamente. I giocatori contrassegnati possono combattersi a vicenda in territorio conteso, i santuari non permettono alcun combattimento nel mondo, e le zone a tutti contro tutti lo permettono con o senza bandiera; disattivarla richiede 5 minuti.",
+      "pvpZones": "Bandiera PvP mondiale: /pvp la alterna, /pvp on e /pvp off la attivano e disattivano. I giocatori contrassegnati possono combattersi nelle zone contese; i santuari vietano ogni combattimento PvP mondiale. Entrare nel cerchio attivo del Re della Collina alza la tua bandiera; disattivarla richiede 5 minuti.",
+      "presence": "Chi ti vede online negli elenchi amici, la tua lista gilda e /who: /presence everyone (il predefinito), /presence friends (solo i giocatori nella tua lista amici), o /presence none. Nascosto, non vedono alcun puntino online, zona o posizione sulla mappa per te, sebbene i sussurri e gli inviti ti raggiungino ancora; il tuo gruppo ti vede sempre. Un semplice /presence ti dice quale sia impostato.",
+      "flair": "Mostra o nasconde il tuo ruolo Discord agli altri giocatori, cioè il nome colorato, il tag del ruolo e il tag verificato in chat: /flair on lo mostra, /flair off lo nasconde e /flair da solo ti dice quale impostazione è attiva. Richiede un account Discord collegato.",
       "listings": "Le tue inserzioni sul Mercato Mondiale, con il prezzo richiesto, il tempo rimasto per ciascuna, e quanto spazio hai per aggiungerne altre.",
       "buyback": "Cosa hai venduto di recente a un venditore e potresti ancora ricomprare.",
       "groupState": "Il tuo stato attuale",
@@ -8307,7 +8344,8 @@ export const it_IT: EnTranslations = {
       "warfareTradeBody": "Questo è lo scambio voluto. L'equipaggiamento da Guerra è costruito per combattere altri giocatori, non come scorciatoia per saltare i livelli dei dungeon: un pezzo da Guerra non porta mai gli indici di combattimento di un epico da dungeon nello stesso slot, e tutto ciò che offre si spende su altri giocatori. Se vuoi tenere testa in arena, compralo. Se vuoi completare le eroiche più in fretta, guadagnati l'equipaggiamento nei dungeon.",
       "warfareTradeBodyRatingSpent": "È questo lo scambio voluto. L’equipaggiamento da Guerra serve a combattere i giocatori, non a saltare i livelli dei dungeon: un pezzo da Guerra non porta mai le valutazioni di combattimento che avrebbe un epico da dungeon nello stesso slot, e la valutazione da Guerra e i bonus del completo che porta sono spesi interamente contro altri giocatori. Se vuoi reggere nell’arena, compralo. Se vuoi superare più velocemente le modalità eroiche, guadagna l’equipaggiamento nei dungeon.",
       "vanguardHeading": "Equipaggiamento dell'Avanguardia: Guerra Stagione 2",
-      "vanguardBody": "L'equipaggiamento dell'Avanguardia è la seconda stagione dell'equipaggiamento da Guerra, venduto dagli stessi due quartiermastri al di sopra del livello originale, che resta comunque in vendita. Ogni specializzazione ha il proprio set dell'Avanguardia di cinque pezzi, per testa, spalle, petto, gambe e mani, e il negozio elenca solo i tre set che la tua classe può indossare, seguiti dalle armi dell'Avanguardia che puoi impugnare. Un pezzo dell'Avanguardia porta gli stessi indici di Guerra del livello originale a un livello oggetto superiore, e ogni set ha due bonus, a due e quattro pezzi, che modificano una delle abilità della tua specializzazione. A differenza dei set originali, questi bonus funzionano ovunque, mostri inclusi, ma sono pensati per combattere altri giocatori, quindi un set da incursione resta la scelta migliore all'interno di un'incursione."
+      "vanguardBody": "L'equipaggiamento dell'Avanguardia è la seconda stagione dell'equipaggiamento da Guerra, venduto dagli stessi due quartiermastri al di sopra del livello originale, che resta comunque in vendita. Ogni specializzazione ha il proprio set dell'Avanguardia di cinque pezzi, per testa, spalle, petto, gambe e mani, e il negozio elenca solo i tre set che la tua classe può indossare, seguiti dalle armi dell'Avanguardia che puoi impugnare. Un pezzo dell'Avanguardia porta gli stessi indici di Guerra del livello originale a un livello oggetto superiore, e ogni set ha due bonus, a due e quattro pezzi, che modificano una delle abilità della tua specializzazione. A differenza dei set originali, questi bonus funzionano ovunque, mostri inclusi, ma sono pensati per combattere altri giocatori, quindi un set da incursione resta la scelta migliore all'interno di un'incursione.",
+      "vanguardStatsBody": "Diversamente dal livello originale, l'equipaggiamento dell'Avanguardia porta anche classificazioni di combattimento: ogni pezzo di armatura, arma e collana dell'Avanguardia ha Indice di Critico o Indice di Celerità, e i pezzi degli incantatori e guaritori aggiungono Potere Magico o Potere di Guarigione. Gli anelli e le collane dell'Avanguardia sono venduti accanto alle armi, e ogni classe può indossarli. Due degli anelli da mischia dell'Avanguardia danno esattamente l'Indice di Colpo che elimina la possibilità di base che i tuoi attacchi manchino un giocatore del tuo stesso livello, e due anelli da incantatore fanno lo stesso per i tuoi incantesimi che vengono resistiti. Gli attacchi automatici mentre si impugna doppiamente mantengono la loro possibilità di errore aggiuntiva. L'anello del guaritore invece porta l'Indice di Celerità."
     },
     "worldPvpPage": {
       "heading": "PvP Mondiale",
@@ -8318,17 +8356,17 @@ export const it_IT: EnTranslations = {
       "stakesBody": "When flagged players defeat a flagged player, the loser pays a small share of the gold in their purse, capped at a modest amount, and the winners earn Honor toward Warfare gear. Everyone who helped shares both: the killing blow, anyone who damaged the target shortly before, and the healers who kept those fighters standing. A clean one-on-one pays the whole pot; a group splits it.",
       "limitsHeading": "Regole di gioco leale",
       "limitsBody": "Defeating the same player again and again pays less each time and soon nothing, and the counter resets with the daily reset. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "introZones": "Il PvP a mondo aperto è facoltativo, e il terreno su cui ti trovi decide cosa questo significhi. Alza la tua bandiera PvP e ogni altro giocatore contrassegnato che non è nel tuo gruppo o nella tua incursione diventa un nemico in territorio conteso; abbassala e, dopo un breve ritardo, torni a essere uno spettatore. Due zone sono santuari dove non avviene mai alcun combattimento nel mondo, e le tre zone più a nord sono terreno a tutti contro tutti dove chiunque sia presente è bersaglio legittimo, con o senza bandiera. I compagni di gruppo e di incursione non sono mai tuoi nemici in nessun luogo; i compagni di gilda al di fuori del tuo gruppo sono bersaglio legittimo come chiunque altro.",
+      "introZones": "Il PvP nel mondo aperto è facoltativo e dipende dal terreno. Alzando la bandiera, gli altri giocatori contrassegnati fuori dal tuo gruppo o incursione diventano nemici nelle zone contese; abbassandola, dopo una breve attesa torni spettatore. La Riva della Prova è l'unico santuario, senza combattimenti PvP mondiali. Le tre zone più a nord seguono le stesse regole di partecipazione volontaria del resto del mondo. Entrare nel cerchio attivo del Re della Collina alza automaticamente la bandiera. I compagni di gruppo e incursione non sono mai nemici; i membri della gilda fuori dal tuo gruppo possono essere combattuti come gli altri giocatori.",
       "zonesHeading": "Dove avviene il PvP mondiale",
-      "zonesBody": "Il mondo ha tre tipi di terreno. La Riva della Prova e la Valle di Eastbrook sono santuari: lì non avviene mai alcun PvP mondiale, contrassegnati o no, quindi un personaggio nuovo non può mai essere attaccato prima di sapere cosa sia la bandiera. Gran parte del mondo è terreno conteso, dove la regola della bandiera descritta sopra è tutta la storia. Drakelands, la Distesa di Frostveil e Amberfall, le tre zone più a nord, sono terreno a tutti contro tutti: chiunque vi si trovi può attaccare chiunque altro vi si trovi, con o senza bandiera, e te ne viene data notizia sia quando entri sia quando esci. Attaccare lì un giocatore non contrassegnato alza la tua bandiera, quindi un aggressore finisce sempre per portare il rischio. Colpire un giocatore già contrassegnato non la alza mai, il che significa che difendere te stesso, o difendere qualcuno che non è contrassegnato, non ti costa nulla.",
+      "zonesBody": "La Riva della Prova è l'unico santuario: non vi si combatte in PvP mondiale e non puoi alzare la bandiera. Una bandiera già attiva rimane tale, ma il progresso dei titoli basato sul tempo giocato si sospende finché non esci. Ovunque altrove, comprese le zone Drakelands, La Distesa di Frostveil e Amberfall, possono combattere solo i giocatori contrassegnati. Entrare nel cerchio attivo del Re della Collina alza automaticamente la bandiera se soddisfi il normale requisito di livello. Il cerchio di preavviso non ti contrassegna. Uscire dal cerchio attivo mantiene la bandiera alzata; /pvp off avvia il normale conto alla rovescia di cinque minuti, che non può terminare dentro una collina attiva o durante un combattimento.",
       "flagBodyAid": "Digita /pvp in chat, oppure apri la finestra PvP con G e usa la scheda PvP Mondiale, che mostra anche il tuo bilancio e la posta in gioco. Alzare la bandiera è istantaneo una volta superati i livelli iniziali. Abbassarla avvia un conto alla rovescia di alcuni minuti, e la bandiera non cadrà finché sei ancora in combattimento, quindi disattivarla non è mai una via di fuga da uno scontro che hai iniziato tu. Curare, proteggere con uno scudo o potenziare un giocatore contrassegnato che è in combattimento alza anche la tua bandiera, così nessuno sostiene un combattente restando al riparo di una bandiera che non porta; aiutare un giocatore non contrassegnato non alza nulla.",
       "stakesUnflaggedTake": "Né un combattente non contrassegnato ne prende: le monete cambiano mano solo tra due giocatori contrassegnati, anche se chiunque abbia contribuito guadagna comunque l'Onore.",
-      "stakesBodyFlagged": "Quando un giocatore contrassegnato viene sconfitto da un altro giocatore, il perdente paga una piccola parte delle monete nella sua borsa, limitata a un importo modesto, e i vincitori guadagnano Onore verso l'equipaggiamento da Guerra. Un giocatore non contrassegnato non paga alcuna moneta, anche se cade in una zona a tutti contro tutti. Chiunque abbia contribuito condivide entrambe le cose: il colpo di grazia, chiunque abbia danneggiato il bersaglio poco prima, e i guaritori che hanno tenuto in piedi quei combattenti. Un pulito uno contro uno paga l'intero bottino; un gruppo lo divide.",
+      "stakesBodyFlagged": "Quando un giocatore contrassegnato viene sconfitto da un altro giocatore, il perdente paga una piccola parte delle monete nella sua borsa, limitata a un importo modesto, e i vincitori guadagnano Onore verso l'equipaggiamento da Guerra. I giocatori senza bandiera non possono essere attaccati nel mondo aperto. Chiunque abbia contribuito condivide entrambe le cose: il colpo di grazia, chiunque abbia danneggiato il bersaglio poco prima, e i guaritori che hanno tenuto in piedi quei combattenti. Un pulito uno contro uno paga l'intero bottino; un gruppo lo divide.",
       "hillHeading": "Il Re della Collina",
-      "hillBody": "Once every three hours, at a moment nobody can predict, the whole realm is told that a hill will rise in one of the free-for-all zones in fifteen minutes, and the circle where it will stand is marked on open ground. When it rises it stands for forty-five minutes, then falls. The party with the most players standing inside contests the hill, and after a minute of unbroken majority the hill is theirs; a lone player counts as a party of one, but raid members do not count at all. While a party holds the hill, each of its members standing inside earns a little Honor every minute, so a full party holding an uncontested hill for its whole stand earns a little less than one battleground win pays. A bar over the field shows who holds it, your numbers against theirs, and the contest clock; /hill in chat says where it stands.",
+      "hillBody": "Ogni due ore compare una collina in Drakelands, La Distesa di Frostveil o Amberfall. Il reame riceve un preavviso di quindici minuti e il cerchio viene segnato su terreno aperto. La collina resta attiva per trenta minuti. Entrare nel cerchio attivo alza la bandiera PvP mondiale secondo i normali requisiti di livello, anche per i membri di un'incursione. Il gruppo con più giocatori idonei all'interno conquista la collina dopo un minuto di maggioranza ininterrotta; un giocatore solo conta come gruppo di uno, ma i membri di incursioni e i giocatori sotto il livello PvP richiesto non possono conquistare né guadagnare Onore della collina. Ogni difensore all'interno guadagna Onore a un ritmo crescente. Le assegnazioni e la loro crescita sono più rapide, mantenendo l'Onore totale del precedente evento di quarantacinque minuti. Un cambio di controllo azzera la crescita. Uscire mantiene la bandiera alzata; /pvp off richiede i soliti cinque minuti e non può completarsi dentro una collina attiva o in combattimento. La barra mostra controllo, numero di giocatori e progresso di conquista; /hill indica la posizione.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
-      "hillBodyRamp": "Una volta ogni tre ore, in un momento che nessuno può prevedere, l'intero reame viene avvisato che una collina sorgerà in una delle zone a tutti contro tutti tra quindici minuti, e il cerchio dove si ergerà è segnato su terreno aperto. Quando sorge resta in piedi per quarantacinque minuti, poi cade. Il gruppo con più giocatori al suo interno contende la collina, e dopo un minuto di maggioranza ininterrotta la collina è sua; un giocatore solitario conta come un gruppo di uno, ma i membri di un'incursione non contano affatto. Mentre un gruppo tiene la collina, ciascuno dei suoi membri al suo interno guadagna Onore ogni minuto, e più a lungo lo stesso gruppo la tiene, più paga ogni minuto: un gruppo completo che tiene una collina incontrastata per l'intera durata guadagna quanto circa tre vittorie in campo di battaglia. Quando la collina cambia mano, i nuovi detentori ricominciano il conteggio da capo. Una barra sopra il campo mostra chi la controlla, i tuoi numeri contro i loro, e il tempo della contesa; /hill in chat indica dove si trova.",
-      "hillBodyRanked": "Once every three hours, at a moment nobody can predict, the whole realm is told that a hill will rise in one of the free-for-all zones in fifteen minutes, and the circle where it will stand is marked on open ground. When it rises it stands for forty-five minutes, then falls, and every five minutes while it stands the realm is told where it is and which groups have held it longest. The party with the most players standing inside contests the hill, and after a minute of unbroken majority the hill is theirs; a lone player counts as a party of one, but raid members do not count at all. While a party holds the hill, each of its members standing inside earns Honor every minute, and the longer the same party holds it, the more each minute pays: a full party holding an uncontested hill for its whole stand earns about as much as three battleground wins. When the hill changes hands, the new holders start the count from the beginning. When it falls, everyone who stood inside for at least a minute for the group that held it longest in total, and is still in that group, earns one win toward the PvP row of the Weekly Vault. A bar over the field shows who holds it, your numbers against theirs, and the contest clock; /hill in chat says where it stands.",
+      "hillBodyRamp": "Ogni due ore compare una collina in Drakelands, La Distesa di Frostveil o Amberfall. Il reame riceve un preavviso di quindici minuti e il cerchio viene segnato su terreno aperto. La collina resta attiva per trenta minuti. Entrare nel cerchio attivo alza la bandiera PvP mondiale secondo i normali requisiti di livello, anche per i membri di un'incursione. Il gruppo con più giocatori idonei all'interno conquista la collina dopo un minuto di maggioranza ininterrotta; un giocatore solo conta come gruppo di uno, ma i membri di incursioni e i giocatori sotto il livello PvP richiesto non possono conquistare né guadagnare Onore della collina. Ogni difensore all'interno guadagna Onore a un ritmo crescente. Le assegnazioni e la loro crescita sono più rapide, mantenendo l'Onore totale del precedente evento di quarantacinque minuti. Un cambio di controllo azzera la crescita. Uscire mantiene la bandiera alzata; /pvp off richiede i soliti cinque minuti e non può completarsi dentro una collina attiva o in combattimento. La barra mostra controllo, numero di giocatori e progresso di conquista; /hill indica la posizione.",
+      "hillBodyRanked": "Every two hours, a hill rises in the Drakelands, the Frostveil Reach or the Amberfall. The realm receives a fifteen-minute warning, and the circle is marked on open ground. The hill stays active for thirty minutes. Entering the active circle raises your World PvP flag under the normal level rules, including for raid members. The party with the most eligible players inside takes the hill after a minute of unbroken majority; a lone player counts as a party of one, but raid members and players below the PvP level requirement cannot capture or earn hill Honor. Each holder standing inside earns Honor at an increasing rate. Payouts and their ramp are faster, preserving the total Honor of the former forty-five-minute event. A change of holder restarts the ramp. Every five minutes while the hill stands, the realm hears its location and the groups ranked by time held. When the hill falls, each player who stood inside for at least a minute for the longest-holding group, and is still in that group, earns one win toward the Weekly Vault PvP row. Leaving the circle keeps your flag up; /pvp off uses the normal five-minute delay and cannot finish inside an active hill or during combat. The hill bar shows control, numbers and capture progress; /hill reports its location.",
       "limitsBodyRaids": "Sconfiggere lo stesso giocatore più e più volte paga sempre meno e presto nulla, e il tuo conteggio contro quel giocatore riparte da capo solo circa un'ora dopo la prima di quelle uccisioni, quindi appostarsi su una singola vittima non vale mai l'attesa. Un bersaglio molto al di sotto del tuo livello non paga assolutamente nulla. I Campi di Battaglia e i Colossei seguono le proprie regole mentre sei al loro interno, e pagano più Onore del mondo aperto, quindi il PvP mondiale è la strada più lenta verso lo stesso mercante. Le incursioni non guadagnano nulla dalle uccisioni nel mondo: un membro di un'incursione non riceve Onore né monete e non riduce la quota di nessun altro, quindi combatti in gruppo per essere pagato."
     },
     "thornhollowPage": {
@@ -9672,7 +9710,14 @@ export const it_IT: EnTranslations = {
     "whitepaper": "Libro bianco",
     "terms": "Termini di servizio",
     "privacy": "Informativa sulla privacy",
-    "discordLabel": "Entra nel Discord"
+    "discordLabel": "Entra nel Discord",
+    "guidesLabel": "Player guides",
+    "guideFree": "Free MMORPGs",
+    "guideGamesLikeWow": "Games like WoW",
+    "guideBest": "Best MMORPGs",
+    "guideNew": "New MMORPGs",
+    "guideBrowser": "Browser MMORPGs",
+    "guideGamesLikeDiablo": "Games like Diablo"
   },
   "settings": {
     "languageLoading": "Caricamento della lingua...",
@@ -12129,6 +12174,7 @@ export const it_IT: EnTranslations = {
       "cooldownMinutes": "{minutes}m",
       "attackTooltip": "Attiva o disattiva l'autoattacco sul bersaglio. Anche il clic destro su un nemico attacca.",
       "attackRemoveHint": "Clic destro per rimuoverlo dalla barra e liberare lo slot.",
+      "moveHint": "Tieni premuto Maiusc e trascina per spostare",
       "emptySlot": "Slot vuoto",
       "slotAria": "Slot azione {slot}: {ability}",
       "emptySlotAria": "Slot azione {slot}: vuoto",
@@ -12765,6 +12811,7 @@ export const it_IT: EnTranslations = {
       "dps": "({dps} danni al secondo)",
       "armorStat": "{value} armatura",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Guerra si conta solo nella mano principale.",
       "useFood": "Usa: ripristina {amount} salute in {seconds} s. Devi restare seduto mentre mangi.",
       "useDrink": "Usa: ripristina {amount} mana in {seconds} s. Devi restare seduto mentre bevi.",
       "useElixir": "Uso: aumenta il tuo {stat} di {value} per {minutes} min. Sostituisce ogni altro elisir o pergamena dello stesso attributo. Usabile in combattimento.",
@@ -18455,6 +18502,33 @@ export const it_IT: EnTranslations = {
       },
       "vanguard_warstaff": {
         "name": "Bastone da Guerra dell'Avanguardia"
+      },
+      "vanguard_feral_staff": {
+        "name": "Bastone ferino dell’Avanguardia"
+      },
+      "vanguard_band_of_might": {
+        "name": "Anello di Avanguardia di Potenza"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Anello di Avanguardia di Precisione"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Anello di Avanguardia di Mira"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Anello di Avanguardia di Guarigione"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Ciondolo di Avanguardia di Potenza"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Ciondolo di Avanguardia di Precisione"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Ciondolo di Avanguardia di Mira"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Ciondolo di Avanguardia di Guarigione"
       },
       "conjured_water4": {
         "name": "Acqua sorgiva evocata"
@@ -24184,8 +24258,8 @@ export const it_IT: EnTranslations = {
       },
       "vanguard_druid_feral": {
         "name": "Pelle Sanguicriniera",
-        "bonus2": "Il tempo di recupero di Carica di Bruin è ridotto di 3 sec.",
-        "bonus4": "Carica di Bruin ti protegge con uno scudo pari al 6 percento della tua salute massima per 6 sec."
+        "bonus2": "Riduce i tempi di recupero di Balzo e Carica di Bruin di 3 s.",
+        "bonus4": "Riduce il tempo di recupero di Scatto di 15 s."
       },
       "vanguard_druid_restoration": {
         "name": "Veste Cardofiore",

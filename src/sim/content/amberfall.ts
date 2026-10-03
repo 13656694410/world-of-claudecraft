@@ -20,7 +20,6 @@ import { emptyZoneProps } from '../types';
 
 export const AMBERFALL_ZONE: ZoneDef = {
   id: 'amberfall',
-  worldPvp: 'ffa',
   name: 'The Amberfall',
   riftPortalEligible: true,
   riftTierWeights: { B: 0.15, A: 0.55, S: 0.3 },

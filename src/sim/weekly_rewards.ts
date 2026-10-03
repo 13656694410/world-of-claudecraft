@@ -293,8 +293,9 @@ export function talkToWeeklyKeeper(ctx: SimContext, npc: Entity, player: Entity)
 }
 export function weeklyRewardInfoFor(ctx: SimContext, pid: number): WeeklyRewardInfo | null {
   const r = ctx.resolve(pid);
-  if (!r || !nearWeeklyKeeper(ctx, r.e)) return null;
+  if (!r) return null;
   const state = stateFor(ctx, r.meta);
+  const atKeeper = nearWeeklyKeeper(ctx, r.e);
   return {
     state: {
       resetAtMs: state.resetAtMs,
@@ -329,7 +330,7 @@ export function weeklyRewardInfoFor(ctx: SimContext, pid: number): WeeklyRewardI
     },
     playerLevel: r.e.level,
     nowMs: Math.floor(ctx.lockoutNowMs() / 1000) * 1000,
-    canClaim: true,
+    canClaim: atKeeper,
     // Live whenever the previous raid tier holds something this class can wear
     // (every shipped class today); a class with no wearable piece sees the row
     // unavailable rather than an empty roll.

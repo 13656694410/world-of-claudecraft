@@ -409,3 +409,23 @@ describe('buildContinentMapModel: party markers', () => {
     expect(sim).toEqual(client);
   });
 });
+
+describe('King of the Hill continent marker', () => {
+  it.each(['sim', 'client'] as const)(
+    'shows a remote hill for %s and clears it when the event ends',
+    (shape) => {
+      const world = worldAt(shape, 0, 100);
+      const x = 0,
+        z = 2000;
+      Object.assign(world, { hillInfo: { x, z, phase: 'warning' } });
+      const model = buildContinentMapModel(input(world, 1));
+      expect(model.hill).toEqual({
+        mx: ((WORLD_MAX_X - x) / (WORLD_MAX_X - WORLD_MIN_X)) * CANVAS,
+        my: ((WORLD_MAX_Z - z) / (WORLD_MAX_Z - WORLD_MIN_Z)) * CANVAS,
+        phase: 'warning',
+      });
+      Object.assign(world, { hillInfo: null });
+      expect(buildContinentMapModel(input(world, 1)).hill).toBeNull();
+    },
+  );
+});

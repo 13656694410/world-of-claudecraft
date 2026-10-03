@@ -677,6 +677,7 @@ import * as tradeMod from './social/trade';
 import {
   applyResurrectionSickness,
   applyUnstuckSickness,
+  pvpResurrect,
   RESURRECTION_SICKNESS_ID,
   releasePlayerSpirit,
   resurrectAtCorpse,
@@ -719,6 +720,7 @@ import { personalGliderLeaderboard as gliderRecordsPage } from './glider_persona
 import { spawnStaticWorldObjects } from './ground_object_spawns';
 import { chainPullInstanceOnBossAggro } from './instances/boss_chain_pull';
 import { buyCrucibleVendorItem as buyCrucibleVendorItemImpl } from './instances/crucible_vendor';
+import { setDungeonDifficulty as setDungeonDifficultyImpl } from './instances/difficulty_selection';
 import {
   awardHeroicMarks as awardHeroicMarksImpl,
   DEFAULT_RAID_LOCKOUT_MS,
@@ -868,7 +870,6 @@ import {
   type ItemInstancePayload,
   type ItemUseResult,
   isConsuming,
-  isDungeonDifficulty,
   isEquipSlot,
   isNonSpellCast,
   isPetClass,
@@ -9040,6 +9041,9 @@ export class Sim {
   resurrectAtSpiritHealer(pid?: number): boolean {
     return resurrectAtSpiritHealer(this.ctx, pid);
   }
+  pvpResurrect(pid?: number): void {
+    pvpResurrect(this.ctx, pid, (id) => this.releaseSpirit(id));
+  }
 
   respondToResurrection(accept: boolean, pid?: number): void {
     resurrectionOfferMod.respondToResurrection(this.ctx, accept, pid);
@@ -10587,30 +10591,9 @@ export class Sim {
     return this.dungeonDifficultyForPid(r.meta.entityId);
   }
 
+  // Owned by instances/difficulty_selection (a change also resets empty claims).
   setDungeonDifficulty(difficulty: DungeonDifficulty, pid?: number): void {
-    if (!isDungeonDifficulty(difficulty)) return;
-    const r = this.resolve(pid);
-    if (!r) return;
-    const party = this.partyOf(r.meta.entityId);
-    if (party && party.leader !== r.meta.entityId) {
-      this.error(r.meta.entityId, 'You are not the party leader.');
-      return;
-    }
-    // Only the SETTER's own preference is stamped: members mirror the party via
-    // dungeonDifficultyForPid while grouped and keep their own prior preference
-    // after leaving, so a stale stamp can never leak into another group.
-    if (difficulty === 'normal') delete r.meta.dungeonDifficulty;
-    else r.meta.dungeonDifficulty = difficulty;
-    if (party) {
-      if (difficulty === 'normal') delete party.dungeonDifficulty;
-      else party.dungeonDifficulty = difficulty;
-    }
-    this.error(
-      r.meta.entityId,
-      difficulty === 'heroic'
-        ? 'Dungeon difficulty set to Heroic.'
-        : 'Dungeon difficulty set to Normal.',
-    );
+    setDungeonDifficultyImpl(this.ctx, difficulty, pid);
   }
 
   // Owned by instances/dungeons (heroic final-boss reward + lockout settlement);

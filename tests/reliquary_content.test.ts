@@ -471,7 +471,7 @@ describe('Reliquary Conqueror catalog structure', () => {
     // Clue Scroll Treasure Hunter title joins it: 445.
     // the Viridian Valestrider's reins (PR 4175, release/v0.44.0 base merge) takes a horizons_mounts slot: 446.
     // the trinket slot's 18 trinkets (PR 4173): twelve item relics plus the five Crucible raid trinkets: 463.
-    expect(full).toEqual({ owned: 495, total: 495 });
+    expect(full).toEqual({ owned: 500, total: 500 });
     // The Warfare Season 2 Vanguard Gallery (135 set pieces and four weapons)
     // is class-personal and sits outside completion, so it moves neither pair.
     const character = catalogCharacterCompletion({
@@ -504,7 +504,7 @@ describe('Reliquary Conqueror catalog structure', () => {
     // 412 at the release/v0.43.0 merge: the Arcane Calligraphy gold title slot.
     // 415 with the three faction standing Champion title slots. 416 with the
     // Clue Scroll Treasure Hunter title slot. 417 with the Viridian Valestrider's reins (PR 4175, release/v0.44.0 base merge). 434 with the trinket slot's 18 trinkets (PR 4173).
-    expect(character).toEqual({ owned: 466, total: 466 });
+    expect(character).toEqual({ owned: 471, total: 471 });
     // The Warfare Season 2 page is class-personal, outside completion.
   });
 
@@ -568,7 +568,9 @@ describe('Reliquary Conqueror catalog structure', () => {
       // the trinket slot's 18 trinkets (PR 4173): twelve slots plus two per Crucible raid trinket: 511.
       // +139 at the second release/v0.44.0 base merge: the Warfare Season 2 page: 650.
       // +32 at the 2026-09-28 merge into feature/buried-hoards: the Buried Hoards page: 682.
-    ).toBe(682);
+      // +1 for the feral staff on the existing Vanguard gallery page.
+      // +8 for the Season 2 jewelry on the same page (2026-10-02): 696.
+    ).toBe(696);
     // Distinct mark ids: the 10 shipped before Phase 21, the 19 rare-slain
     // proofs of conquerors_rares_of_the_realm, the two craft masterwork
     // marks (masterwork:jewelcrafting, masterwork:inscription), and the
@@ -713,8 +715,17 @@ describe('Reliquary relic item ids resolve in ITEMS', () => {
       buyValue: ITEMS[itemId]?.buyValue,
       priceHonor: ITEMS[itemId]?.priceHonor,
     });
+    // The ONE copper exemption, decided rather than inherited: Warfare Season 1
+    // (FURY_STOCK) sells for gold since the owner rule of 2026-10-02 ("make the
+    // last season of PvP sets just worth gold"). A repeat gold purchase climbs
+    // only the relic's obtain COUNT, which is information and never a score (no
+    // completion read or deed reads it, see syncReliquaryCompletionDeeds), so
+    // the climb is cosmetic. Named by id so any other copper-priced relic still
+    // reds here.
+    const season1Gold = new Set(FURY_STOCK);
     const vendorOffenders: string[] = [];
     let honorExempt = 0;
+    let season1Exempt = 0;
     for (const [npcId, npc] of Object.entries(NPCS)) {
       for (const itemId of npc.vendorItems ?? []) {
         if (!isCataloguedRelicItem(itemId)) continue;
@@ -722,18 +733,27 @@ describe('Reliquary relic item ids resolve in ITEMS', () => {
           honorExempt += 1;
           continue;
         }
+        if (season1Gold.has(itemId)) {
+          season1Exempt += 1;
+          continue;
+        }
         vendorOffenders.push(`${npcId}:${itemId}`);
       }
     }
     expect(vendorOffenders).toEqual([]);
+    expect(season1Exempt).toBe(FURY_STOCK.length * 2);
     // The exemption's own premises: it really covers the two Warfare counters
     // (the entry stock plus Warfare Season 2 on both NPCS rows) and nothing rides it that could also
     // be bought for copper (a dual-priced row would fall back into the sweep
     // above by construction; this pins the classifier's copper half live).
     // The Warfare Season 2 stock and the two honor trinkets ride the same
     // exemption on both counters.
-    expect(honorExempt).toBe(HONOR_QUARTERMASTER_STOCK.length * 2);
-    expect(HONOR_QUARTERMASTER_STOCK.every((id) => honorOnly(priceOf(id)))).toBe(true);
+    expect(honorExempt).toBe((HONOR_QUARTERMASTER_STOCK.length - FURY_STOCK.length) * 2);
+    expect(
+      HONOR_QUARTERMASTER_STOCK.filter((id) => !season1Gold.has(id)).every((id) =>
+        honorOnly(priceOf(id)),
+      ),
+    ).toBe(true);
     expect(honorOnly(priceOf('deacon_reliquary_helm'))).toBe(false);
     // The DUAL-PRICED arm, which the live catalog exhibits nowhere today: an
     // item purchasable with BOTH honor and copper is not exempt, because the
@@ -803,7 +823,15 @@ describe('Reliquary relic item ids resolve in ITEMS', () => {
     // Plus the five Crucible raid trinkets (each on its boss's Normal and
     // Heroic page, one id each): 350.
     // +139: the Warfare Season 2 page (second release/v0.44.0 base merge): 489.
-    expect(RELIQUARY_ITEM_TO_PAGES.size).toBe(521);
+    // The feral staff adds one catalogued item on the existing Vanguard page.
+    expect(RELIQUARY_ITEM_TO_PAGES.get('vanguard_feral_staff')).toEqual([
+      'conquerors_vanguard_gallery',
+    ]);
+    // The eight Season 2 jewelry pieces join the same page (2026-10-02): 530.
+    expect(RELIQUARY_ITEM_TO_PAGES.get('vanguard_band_of_might')).toEqual([
+      'conquerors_vanguard_gallery',
+    ]);
+    expect(RELIQUARY_ITEM_TO_PAGES.size).toBe(530);
     for (const [id, pages] of RELIQUARY_ITEM_TO_PAGES) {
       expect(pages.length, `catalogued id ${id} maps to an empty page list`).toBeGreaterThan(0);
     }
@@ -3196,7 +3224,7 @@ const EXPECTED_DISTINCT_SOURCES: Record<string, number> = {
   // Jewelcrafting and Inscription titles + the farming Harvestmaster + the
   // Crucible raid's flawless title + the three faction standing Champion
   // titles + the Clue Scroll Treasure Hunter title.
-  horizons_titles: 49,
+  horizons_titles: 54,
   // 29 = 27 distinct rift mobs across the ten rare multi-hints (eight theme
   // bosses + both citadel bosses + 17 trash carriers), plus the B and S rank
   // doors. The rift_first_clear activity left with the bands.

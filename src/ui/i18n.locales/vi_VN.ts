@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const vi_VN: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Hồi Sinh PvP',
+  'hudChrome.death.pvpResurrectTitle':
+    'Hồi sinh tại nghĩa trang gần nhất với đầy đủ sức khỏe, không bị Lệ Phí Người Giữ mới.',
+  'hudChrome.hill.callout.dominating': '{name} Đang Thống Trị!',
+  'hudChrome.hill.callout.godlike': '{name} Giống Như Thần!',
+  'hudChrome.hill.callout.killingSpree': '{name} Đang Trên Mạch Hành Quyết!',
+  'hudChrome.hill.callout.legendary': '{name} Thật Huyền Thoại!',
+  'hudChrome.hill.callout.rampage': '{name} Đang Tàn Phá!',
+  'hudChrome.hill.callout.shutDown': '{killer} Đã Dừng {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} Không Thể Dừng!',
+  'hudChrome.nameplate.bountyTag': 'Tiền Thưởng {honor}',
+  'hudChrome.social.presence.everyone': 'Mọi Người',
+  'hudChrome.social.presence.friends': 'Chỉ Bạn Bè',
+  'hudChrome.social.presence.label': 'Hiển Thị Trực Tuyến Cho',
+  'hudChrome.social.presence.none': 'Không Ai',
+  'hudChrome.social.presence.title':
+    'Ai thấy bạn trực tuyến trong danh sách bạn bè và danh sách thành viên hội, kèm theo khu vực và vị trí bản đồ của bạn. Đội của bạn luôn thấy bạn.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Mua {item} với giá {price}? Lần mua này không thể hoàn lại.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Chiến Tranh chỉ tính trong tay chính.',
+  'entities.items.vanguard_band_of_focus.name': 'Vòng Tay Tiền Phương Tập Trung',
+  'entities.items.vanguard_band_of_mending.name': 'Vòng Tay Tiền Phương Chữa Lành',
+  'entities.items.vanguard_band_of_might.name': 'Vòng Tay Tiền Phương Sức Mạnh',
+  'entities.items.vanguard_band_of_precision.name': 'Vòng Tay Tiền Phương Chính Xác',
+  'entities.items.vanguard_pendant_of_focus.name': 'Mặt Dây Tiền Phương Tập Trung',
+  'entities.items.vanguard_pendant_of_mending.name': 'Mặt Dây Tiền Phương Chữa Lành',
+  'entities.items.vanguard_pendant_of_might.name': 'Mặt Dây Tiền Phương Sức Mạnh',
+  'entities.items.vanguard_pendant_of_precision.name': 'Mặt Dây Tiền Phương Chính Xác',
+  'guide.arenaPage.vanguardStatsBody':
+    'Không giống như tầng gốc, trang bị Tiền Phương cũng mang Chỉ Số Tấn Công: mỗi bộ áo, vũ khí và dây chuyền Tiền Phương có Chỉ Số Chí Mạng hoặc Chỉ Số Thần Tốc, và bộ cho những người dùng phép thuật và chữa lành thêm Sức Mạnh Phép Thuật hoặc Sức Mạnh Trị Liệu. Những chiếc nhẫn và dây chuyền Tiền Phương được bán cạnh vũ khí, và mọi dòng đều có thể mặc. Hai chiếc nhẫn tấn công gần Tiền Phương cung cấp đúng Chỉ Số Trúng Đòn để loại bỏ cơ hội trúng đòn cơ bản khi tấn công người chơi cùng cấp của bạn, và hai chiếc nhẫn dùng phép thuật làm tương tự cho việc phép thuật bị chống lại. Tấn công tự động khi dùng hai vũ khí vẫn giữ cơ hội trúng đòn bổ sung. Nhẫn chữa lành mang Chỉ Số Thần Tốc thay vào đó.',
+  'guide.commandsPage.presence':
+    'Ai thấy bạn trực tuyến trong danh sách bạn bè, danh sách hội của bạn và /who: /presence everyone (mặc định), /presence friends (chỉ những người chơi trong danh sách bạn bè của bạn), hoặc /presence none. Ẩn, họ không thấy dấu trực tuyến, khu vực hoặc vị trí bản đồ của bạn, mặc dù thì thầm và lời mời vẫn đến được bạn; đội của bạn luôn thấy bạn. Một lệnh /presence đơn giản sẽ cho bạn biết cái nào được đặt.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}p',
   'abilityUi.cast.hoard_cast_bat_dive': 'Lao Xuống',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Lao Xuống Sâu',
@@ -1253,16 +1285,15 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
     'Những người chơi khác có cờ sẽ có thể tấn công bạn ở bất kỳ nơi nào và lấy tối đa {cap} từ số tiền của bạn khi họ thắng. Bạn có thể tắt lại, nhưng phải mất {minutes} phút.',
   'hudChrome.worldPvp.confirmCancel': 'Hủy',
   'hudChrome.worldPvp.disable': 'Tắt World PvP',
-  'hudChrome.worldPvp.disarmLine': 'Tắt mất {minutes} phút và chờ đợi trận chiến kết thúc.',
+  'hudChrome.worldPvp.disarmLine':
+    'Tắt cờ mất {minutes} phút và phải chờ đến khi bạn rời ngọn đồi đang hoạt động và giao tranh kết thúc.',
   'hudChrome.worldPvp.enable': 'Bật World PvP',
   'hudChrome.worldPvp.greyLine':
     'Những người chơi thấp hơn bạn quá {levels} cấp độ không trả gì cả.',
   'hudChrome.worldPvp.groundContested':
     'Ở những nơi khác là tranh chấp: chỉ hai người chơi có cờ có thể chiến đấu.',
   'hudChrome.worldPvp.groundFfa':
-    'Drakelands, Frostveil Reach và Amberfall là vùng chiến đấu tự do: mọi người ở đó đều có thể chiến đấu, có cờ hay không.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'Proving Shore và Eastbrook Vale là những nơi bảo vệ: không có World PvP nào cả.',
+    'Vùng Đất Rồng, Đỉnh Sương Giá và Xứ Thu Hổ Phách dùng cờ PvP thông thường. Bước vào vòng tròn đang hoạt động của Vua Của Ngọn Đồi sẽ bật cờ của bạn.',
   'hudChrome.worldPvp.groupLine':
     'Các thành viên trong nhóm và cuộc tập kích không bao giờ thù địch với nhau. Các guildmate ngoài nhóm của bạn có thể chiến đấu.',
   'hudChrome.worldPvp.honorLine':
@@ -1270,9 +1301,9 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.keepUp': 'Giữ Cờ Lên',
   'hudChrome.worldPvp.levelReq': 'Yêu cầu cấp độ {level}.',
   'hudChrome.worldPvp.markLine':
-    'Tấn công một người chơi không có cờ ở đó sẽ nâng cao cờ của bạn; tấn công một người có cờ thì không.',
+    'Bước vào vòng tròn ngọn đồi đang hoạt động sẽ bật PvP Thế Giới. Rời vòng tròn vẫn giữ cờ của bạn bật.',
   'hudChrome.worldPvp.noStakeLine':
-    'Một chiến binh không có cờ bị giết trên đất chiến đấu tự do sẽ mất không vàng.',
+    'Người chơi không có cờ không thể bị tấn công trong thế giới mở.',
   'hudChrome.worldPvp.noTakeLine':
     'Một chiến binh không có cờ cũng không lấy vàng: nó chỉ chuyển động giữa hai người chơi có cờ.',
   'hudChrome.worldPvp.pending': 'Chờ đợi trạng thái PvP của bạn từ vương quốc.',
@@ -1858,9 +1889,9 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'entities.itemSets.vanguard_druid_balance.bonus4':
     'Truyền tải Rễ Siết Chặt cho phép bạn truyền tải khi đang di chuyển và tăng tốc độ di chuyển của bạn 20 phần trăm trong 4 giây. Không thể xảy ra nhiều hơn một lần mỗi 20 giây.',
   'entities.itemSets.vanguard_druid_balance.name': 'Starwarden Raiment',
-  'entities.itemSets.vanguard_druid_feral.bonus2': 'Cooldown Cú Lao Bruin giảm 3 giây.',
-  'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Cú Lao Bruin bảo vệ bạn với 6 phần trăm sức khỏe tối đa của bạn trong 6 giây.',
+  'entities.itemSets.vanguard_druid_feral.bonus2':
+    'Giảm thời gian hồi của Lao Vồ và Cú Lao Bruin đi 3 giây.',
+  'entities.itemSets.vanguard_druid_feral.bonus4': 'Giảm thời gian hồi của Lao Nhanh đi 15 giây.',
   'entities.itemSets.vanguard_druid_feral.name': 'Bloodmane Hide',
   'entities.itemSets.vanguard_druid_restoration.bonus2': 'Cooldown Fleetmend giảm 1 giây.',
   'entities.itemSets.vanguard_druid_restoration.bonus4':
@@ -2282,8 +2313,10 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Áo Vanguard: Mùa Chiến Tranh 2',
   'guide.combat.unstuckBodyWindow':
     "Nếu thế giới mắc kẹt bạn ở một nơi bạn không thể thoát ra được, gõ /unstuck. Bạn cần phải hết chiến đấu và đứng yên, không bị giữ bởi choáng hoặc gốc, và không trong một cuộc đấu hay một trận đấu sân vận động: một bộ đếm ngược ngắn chạy, và chuyển động hoặc nhận đòn hủy nó. Khi nó kết thúc bạn được đặt xuống ở nghĩa trang gần nhất. Nó không bao giờ giết bạn và nó không để lại xác chết, và nếu bạn đã ngã rồi nó sẽ nâng bạn lên ở đó thay thế. Lần sử dụng đầu tiên trong một giờ không tốn bạn gì. Sử dụng nó lại trong một giờ kể từ lần cuối cùng và giá cả là Unstuck Sickness, một sự suy yếu tạm thời của tất cả bạn đã mặc được vào lúc bạn có thể sử dụng lệnh lại, và giống như Keeper's Toll nó tha thứ cho các nhân vật hoàn toàn mới.",
+  'guide.commandsPage.flair':
+    'Hiện hoặc ẩn vai trò Discord của bạn với người chơi khác, gồm tên có màu, nhãn vai trò và nhãn trò chuyện đã xác minh: /flair on để hiện, /flair off để ẩn, còn chỉ gõ /flair sẽ cho biết thiết lập hiện tại. Cần liên kết tài khoản Discord.',
   'guide.commandsPage.pvpZones':
-    'Cờ Chiến Tranh Thế Giới: /pvp chuyển đổi nó, /pvp on và /pvp off đặt nó. Các người chơi có cờ có thể chiến đấu với nhau trên mặt đất tranh chấp, các thánh địa không cho phép chiến đấu thế giới nào cả, và các khu vực tự do cho tất cả cho phép nó có hoặc không có cờ; tắt chuyển đổi mất 5 phút.',
+    'Cờ PvP Thế Giới: /pvp chuyển trạng thái, /pvp on bật và /pvp off tắt. Người chơi có cờ có thể giao chiến với nhau tại vùng tranh chấp, khu an toàn không cho phép bất kỳ giao tranh thế giới nào, và bước vào vòng tròn đang hoạt động của Vua Của Ngọn Đồi sẽ bật cờ của bạn; tắt cờ mất 5 phút.',
   'guide.commandsPage.unstuckWindow':
     'Cách thoát khi thế giới đã mắc kẹt bạn. Đứng yên qua một bộ đếm ngược ngắn và bạn được di chuyển đến nghĩa trang gần nhất, và nâng lên ở đó nếu bạn đã ngã rồi. Lần sử dụng đầu tiên trong một giờ là miễn phí. Sử dụng nó lại trong một giờ kể từ lần cuối cùng và nó để lại bạn bị suy yếu bởi Unstuck Sickness một thời gian sau đó, vì vậy nó là một cuộc cứu hộ thay vì một phím tắt.',
   'guide.factionsPage.automatonsBody':
@@ -2354,20 +2387,16 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.flagHeading': 'Nâng Lên và Hạ Cờ',
   'guide.worldPvpPage.heading': 'Chiến Tranh Thế Giới',
   'guide.worldPvpPage.hillBodyRamp':
-    'Một lần mỗi ba giờ, vào một thời điểm không ai có thể dự đoán, toàn bộ vương quốc được thông báo rằng một ngọn đồi sẽ mọc lên ở một trong các khu vực tự do trong năm phút, và vòng tròn nơi nó sẽ đứng được đánh dấu trên mặt đất mở. Khi nó mọc lên nó đứng trong bốn mươi lăm phút, rồi rơi. Bên có nhiều người chơi nhất đứng bên trong tranh giành ngọn đồi, và sau một phút đa số không bị phá vỡ ngọn đồi là của họ; một người chơi cô lập được tính như một bên của một, nhưng các thành viên đột kích không tính ở tất cả. Trong khi một bên giữ ngọn đồi, mỗi thành viên của nó đứng bên trong kiếm Danh dự mỗi phút, và càng lâu bên cùng giữ nó, càng nhiều tiền mỗi phút trả: một bên đầy đủ giữ một ngọn đồi tranh chấp cho toàn bộ đứng kiếm được khoảng như ba chiến thắng sân vận động. Khi ngọn đồi thay đổi tay, những chủ mới bắt đầu số lượng từ đầu. Một thanh trên trường cho thấy ai nắm giữ nó, số của bạn chống lại số của họ, và đồng hồ cuộc thi; /hill trong trò chuyện nói nơi nó đứng.',
+    'Cứ mỗi hai giờ, một ngọn đồi xuất hiện tại Vùng Đất Rồng, Đỉnh Sương Giá hoặc Xứ Thu Hổ Phách. Toàn vương quốc nhận cảnh báo trước mười lăm phút và vòng tròn được đánh dấu trên đất trống. Ngọn đồi hoạt động trong ba mươi phút. Bước vào vòng tròn đang hoạt động sẽ bật cờ PvP Thế Giới theo quy tắc cấp độ thông thường, kể cả với thành viên nhóm đột kích. Tổ đội có nhiều người chơi đủ điều kiện nhất bên trong sẽ chiếm ngọn đồi sau một phút duy trì ưu thế số lượng liên tục; người chơi một mình được tính là tổ đội một người, nhưng thành viên nhóm đột kích và người chơi chưa đạt cấp độ yêu cầu của PvP không thể chiếm đồi hoặc nhận Danh dự từ đồi. Mỗi người thuộc tổ đội kiểm soát đang đứng bên trong nhận Danh dự với tốc độ tăng dần. Phần thưởng được trao thường xuyên hơn và tăng nhanh hơn, giữ nguyên tổng Danh dự của sự kiện bốn mươi lăm phút trước đây. Khi quyền kiểm soát đổi chủ, mức thưởng bắt đầu tăng lại từ đầu. Rời vòng tròn vẫn giữ cờ bật; /pvp off áp dụng thời gian chờ năm phút thông thường và không thể hoàn tất bên trong ngọn đồi đang hoạt động hoặc trong lúc chiến đấu. Thanh ngọn đồi hiển thị quyền kiểm soát, số người và tiến độ chiếm giữ; /hill cho biết vị trí của đồi.',
   'guide.worldPvpPage.hillHeading': 'Vua Của Ngọn Đồi',
-  'guide.worldPvpPage.introZones':
-    'Chiến tranh của người chơi mở trong thế giới là tùy chọn, và mặt đất bạn đang đứng quyết định ý nghĩa của nó. Nâng cờ PvP của bạn lên và mỗi người chơi cờ khác không ở trong nhóm hoặc đột kích của bạn trở thành một kẻ thù trên mặt đất tranh chấp; hạ xuống và, sau một khoảng thời gian ngắn, bạn là một người xem lại. Hai khu vực là những nơi thánh thiện nơi không có chiến đấu thế giới nào xảy ra cả, và ba khu vực phía bắc nhất là mặt đất tự do cho tất cả nơi mọi người có mặt là công bằng trò chơi, cờ hay không cờ. Bè nhóm và các đồng chủ đột kích không bao giờ là kẻ thù của bạn ở bất kỳ nơi nào; các thành viên bang ngoài nhóm của bạn là công bằng trò chơi giống như bất kỳ ai khác.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Đánh bại cùng một người chơi lại và lại trả ít hơn mỗi lần và sớm không gì cả, và số lượng của bạn chống lại người chơi đó chỉ bắt đầu lại khoảng một giờ sau những vết sưng đầu tiên của những vết sưng đó, vì vậy cắm trại một nạn nhân không bao giờ đáng chờ đợi. Một mục tiêu xa dưới cấp độ của bạn trả không gì cả. Các sân vận động chiến đấu và Arena chạy các quy tắc riêng của họ trong khi bạn ở bên trong chúng, và họ trả nhiều Danh dự hơn thế giới mở, vì vậy chiến tranh thế giới là con đường chậm hơn đến cùng một người bán hàng. Đột kích không kiếm được gì từ vết sưng thế giới: một thành viên đột kích không lấy Danh dự hoặc vàng và không làm nhỏ lại chia sẻ của bất kỳ ai khác, vì vậy hãy chiến đấu như một bên để được trả tiền.',
   'guide.worldPvpPage.limitsHeading': 'Quy Tắc Chơi Công Bằng',
   'guide.worldPvpPage.stakesBodyFlagged':
-    'Khi một người chơi cờ bị đánh bại bởi một người chơi khác, người thua trả một chia sẻ nhỏ của vàng trong ví của họ, được giới hạn ở một số tiền khiêm tốn, và những người chiến thắng kiếm được Danh dự hướng đến áo Chiến Tranh. Một người chơi không được gắc trả không vàng nào cả, ngay cả khi họ ngã trong một khu vực tự do cho tất cả. Tất cả những người giúp đỡ chia cả hai: cú đánh giết, bất kỳ ai tổn thương mục tiêu ngắn gọn trước đó, và những người chữa bệnh đã giữ những chiến binh đó đứng. Một người chơi sạch sẽ trả toàn bộ tổng tiền; một nhóm chia nó.',
+    'Khi một người chơi có cờ bị người chơi khác đánh bại, người thua trả một phần nhỏ số vàng trong túi, với mức trần vừa phải, còn người thắng nhận Danh dự để mua trang bị Chiến Tranh. Người chơi không có cờ không thể bị tấn công trong thế giới mở. Tất cả những người góp sức đều được chia cả vàng lẫn Danh dự: người tung đòn kết liễu, bất kỳ ai gây sát thương lên mục tiêu ngay trước đó, và người hồi máu đã giữ các chiến binh ấy sống sót. Một trận đấu tay đôi thuần túy trao toàn bộ phần thưởng cho người thắng; tổ đội sẽ chia nhau.',
   'guide.worldPvpPage.stakesHeading': 'Một Chiến Thắng Được Thưởng Gì',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Một chiến binh không cắm cờ cũng không nhận được gì: vàng chỉ chuyển tay giữa hai người chơi đã cắm cờ, mặc dù tất cả những người giúp đỡ vẫn kiếm được Danh Dự.',
-  'guide.worldPvpPage.zonesBody':
-    'Thế giới có ba loại địa thế. Bờ Biển Thử Thách và Thung Lũng Đông Khê là những nơi bảo vệ: không có tranh chấp PvP nào xảy ra ở đó cả, cắm cờ hay không, vì vậy một nhân vật mới không bao giờ có thể bị tấn công trước khi họ biết cờ là gì. Hầu hết thế giới là vùng tranh chấp, nơi quy tắc cờ ở trên là cả câu chuyện. Vùng Đất Rồng, Đỉnh Sương Giá và Xứ Thu Hổ Phách, ba vùng phía bắc nhất, là chiến trường tự do: mọi người đứng ở đó có thể tấn công mọi người khác đứng ở đó, cắm cờ hay không, và bạn được thông báo khi bạn bước vào và lại khi bạn rời đi. Tấn công một người chơi không cắm cờ ở đó sẽ cắm cờ cho chính mình, vì vậy kẻ xâm lược luôn kết thúc lúc chịu rủi ro. Đánh một người chơi đã cắm cờ không bao giờ cắm cờ, điều này có nghĩa là tự vệ, hoặc bảo vệ ai đó không cắm cờ, hoàn toàn không tốn kém gì.',
   'guide.worldPvpPage.zonesHeading': 'Nơi Tranh Chấp PvP Xảy Ra',
   'landing.headline': 'Phiêu lưu cùng bạn bè.',
   'landing.contribute': 'Đóng góp cho trò chơi',
@@ -5944,9 +5973,9 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Chọn Máy Ảnh Của Bạn',
   'hudChrome.discord.link.joinServer': 'Chỉ cần tham gia máy chủ Discord',
   'hudChrome.discord.roleTag.contentcreator': 'Nhà Sáng Tạo Nội Dung',
-  'hudChrome.discord.roleTag.juniormods': 'Điều Hành Viên Mới',
+  'hudChrome.discord.roleTag.juniormods': 'Quan Sát Viên',
   'hudChrome.discord.roleTag.legend': 'HUYỀN THOẠI',
-  'hudChrome.discord.roleTag.seniormods': 'Điều Hành Viên Cấp Cao',
+  'hudChrome.discord.roleTag.seniormods': 'Lính Canh',
   'hudChrome.discord.roleTag.shill': 'QUẢNG BÁ VIÊN',
   'hudChrome.discord.roleTagChatTitle': 'Vai trò máy chủ đã xác minh: {role}',
   'hudChrome.finder.accept': 'Chấp Nhận',
@@ -7206,7 +7235,6 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'Người Canh Giữ Nhợt Nhạt (Cái Giá của Người Canh Giữ)',
   'hudChrome.death.spiritHealerAlive':
     'Người Canh Giữ Nhợt Nhạt trông nom kẻ chết. Bạn vẫn còn ở giữa cõi sống.',
-  'hudChrome.discord.roleTag.admin': 'Quản Trị Viên',
   'hudChrome.enchanting.disenchantConfirmBody':
     'Thao tác này phá hủy {item} và thu được nguyên liệu huyền bí. Không thể hoàn tác.',
   'hudChrome.enchanting.disenchantConfirmBodySpecial':
@@ -18357,12 +18385,12 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Mỗi {every} giây, Nythraxis đánh tank hiện tại của hắn gây {hitNormal} máu tối đa dưới dạng sát thương Bóng Tối và thêm một cộng dồn Lời Nguyền Kinh Hoàng. Trong {duration} giây, mỗi cộng dồn tăng sát thương tank đó nhận từ Nythraxis thêm {perStackNormal}, tối đa {max} cộng dồn.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Mỗi {everyHeroic} giây, bàn tay xương đánh dấu {countHeroic} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstHeroic} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameHeroic} giây, gây {tickHeroic} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó.',
+    'Mỗi {everyHeroic} giây, bàn tay xương đánh dấu {countHeroic} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstHeroic} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameHeroic} giây, gây {tickHeroic} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó. Điều này không bao giờ xảy ra khi dấu Xé Linh Hồn còn hiệu lực hoặc trong vòng {gap} giây sau khi dấu biến mất.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Mộ Phần Phun Trào',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Bước ra khỏi mọi vòng cảnh báo trước khi chúng phun trào và tránh mặt đất đang cháy. Tank kéo Nythraxis ra khỏi lửa để cận chiến có chỗ đánh.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Mỗi {everyNormal} giây, bàn tay xương đánh dấu {countNormal} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstNormal} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameNormal} giây, gây {tickNormal} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó.',
+    'Mỗi {everyNormal} giây, bàn tay xương đánh dấu {countNormal} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstNormal} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameNormal} giây, gây {tickNormal} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó. Điều này không bao giờ xảy ra khi dấu Xé Linh Hồn còn hiệu lực hoặc trong vòng {gap} giây sau khi dấu biến mất.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Phá Mộ',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tank giữ Nythraxis quay mặt khỏi raid. Mọi người khác đứng sau hoặc bên cạnh hắn và không bao giờ băng qua hình nón.',
@@ -19845,4 +19873,29 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Giữ Shift và kéo để di chuyển',
+  'entities.items.vanguard_feral_staff.name': 'Trượng Hoang Dã của Tiên Phong',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Phần thưởng đang chờ. Hãy đến gặp Người Giữ Kho Báu tại Eastbrook để mở và nhận.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Bờ Biển Thử Thách là khu an toàn duy nhất: bạn không thể bật PvP Thế Giới hoặc chiến đấu với người chơi khác tại đây.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Giữ PvP Thế Giới bật để nhận thêm {percent} kinh nghiệm và danh vọng phe phái. Phần thưởng cộng thêm dừng khi bạn yêu cầu tắt.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng tại Bờ Biển Thử Thách)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng khi tử trận)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng trong phụ bản)',
+  'hudChrome.worldPvp.rewardProgress': 'Chuỗi PvP hiện tại: đã chơi {time}',
+  'hudChrome.worldPvp.rewardTitles':
+    'Nhận danh hiệu vĩnh viễn sau {thresholds} thời gian chơi ở thế giới mở khi bật PvP Thế Giới. Đăng xuất, tử trận, ở trong phụ bản và đến Bờ Biển Thử Thách sẽ tạm dừng bộ đếm. Tắt PvP sẽ đặt lại bộ đếm.',
+  'guide.worldPvpPage.introZones':
+    'PvP thế giới mở là tự nguyện và phụ thuộc vào khu vực. Tại vùng tranh chấp, bật cờ PvP khiến mọi người chơi có cờ ngoài tổ đội hoặc nhóm đột kích của bạn thành kẻ địch; tắt cờ sẽ đưa bạn về trạng thái đứng ngoài sau một khoảng chờ ngắn. Bờ Biển Thử Thách là khu an toàn duy nhất không có giao tranh thế giới, và ba vùng cực bắc áp dụng cùng quy tắc bật cờ tự nguyện như phần còn lại của thế giới. Bước vào vòng tròn đang hoạt động của Vua Của Ngọn Đồi sẽ tự động bật cờ của bạn. Đồng đội trong tổ đội và nhóm đột kích không bao giờ là kẻ địch của bạn ở bất cứ đâu; thành viên bang hội ngoài nhóm vẫn có thể bị tấn công như người khác.',
+  'guide.worldPvpPage.zonesBody':
+    'Bờ Biển Thử Thách là khu an toàn duy nhất: không có PvP Thế Giới tại đây và bạn không thể bật cờ. Cờ đã bật vẫn được giữ nguyên, nhưng tiến độ danh hiệu theo thời gian chơi sẽ tạm dừng cho đến khi bạn rời đi. Ở mọi nơi khác, bao gồm Vùng Đất Rồng, Đỉnh Sương Giá và Xứ Thu Hổ Phách, chỉ người chơi có cờ mới có thể giao chiến. Bước vào vòng tròn đang hoạt động của Vua Của Ngọn Đồi sẽ tự động bật cờ nếu bạn đáp ứng yêu cầu cấp độ thông thường. Vòng tròn cảnh báo không bật cờ của bạn. Rời vòng tròn đang hoạt động vẫn giữ cờ bật; dùng /pvp off để bắt đầu đếm ngược năm phút như bình thường. Đếm ngược không thể hoàn tất khi bạn còn ở trong ngọn đồi đang hoạt động hoặc vẫn đang chiến đấu.',
+  'guide.worldPvpPage.hillBody':
+    'Cứ mỗi hai giờ, một ngọn đồi xuất hiện tại Vùng Đất Rồng, Đỉnh Sương Giá hoặc Xứ Thu Hổ Phách. Toàn vương quốc nhận cảnh báo trước mười lăm phút và vòng tròn được đánh dấu trên đất trống. Ngọn đồi hoạt động trong ba mươi phút. Bước vào vòng tròn đang hoạt động sẽ bật cờ PvP Thế Giới theo quy tắc cấp độ thông thường, kể cả với thành viên nhóm đột kích. Tổ đội có nhiều người chơi đủ điều kiện nhất bên trong sẽ chiếm ngọn đồi sau một phút duy trì ưu thế số lượng liên tục; người chơi một mình được tính là tổ đội một người, nhưng thành viên nhóm đột kích và người chơi chưa đạt cấp độ yêu cầu của PvP không thể chiếm đồi hoặc nhận Danh dự từ đồi. Mỗi người thuộc tổ đội kiểm soát đang đứng bên trong nhận Danh dự với tốc độ tăng dần. Phần thưởng được trao thường xuyên hơn và tăng nhanh hơn, giữ nguyên tổng Danh dự của sự kiện bốn mươi lăm phút trước đây. Khi quyền kiểm soát đổi chủ, mức thưởng bắt đầu tăng lại từ đầu. Rời vòng tròn vẫn giữ cờ bật; /pvp off áp dụng thời gian chờ năm phút thông thường và không thể hoàn tất bên trong ngọn đồi đang hoạt động hoặc trong lúc chiến đấu. Thanh ngọn đồi hiển thị quyền kiểm soát, số người và tiến độ chiếm giữ; /hill cho biết vị trí của đồi.',
+  'hudChrome.hill.pvpEntry': 'Bước vào vòng tròn đang hoạt động sẽ bật PvP Thế Giới.',
+  'hudChrome.hill.pvpBanner': 'PvP',
 };

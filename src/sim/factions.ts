@@ -2,6 +2,7 @@
 // allied faction identity, zone attribution, standing tiers, and reputation
 // awards. Pure functions; zero RNG, no wall clock, no DOM/Three.js imports.
 
+import { worldPvpRewardAmount } from './pvp/world_pvp_rewards_rules';
 import type { PlayerMeta } from './sim';
 import type { WorldQuestDef } from './types';
 
@@ -310,7 +311,7 @@ export function awardFactionReputation(
   }
   const current = meta.factions[factionId] ?? 0;
   const cap = maxStandingForLevel(playerLevel);
-  const add = Math.max(0, Math.floor(amount));
+  const add = Math.max(0, Math.floor(worldPvpRewardAmount(amount, meta.worldPvp)));
   const newTotal = Math.min(cap, current + add);
   const gained = newTotal - current;
   meta.factions[factionId] = newTotal;

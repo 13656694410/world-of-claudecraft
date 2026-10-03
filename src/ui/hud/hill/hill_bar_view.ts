@@ -8,7 +8,13 @@
 // painter (hill_bar_painter.ts) only paints; every decision is here.
 
 import { HILL_CAPTURE_SECONDS } from '../../../sim/pvp';
-import type { HillInfo, HillPhaseInfo, HillSide, HillStandingInfo } from '../../../world_api';
+import type {
+  HillCalloutInfo,
+  HillInfo,
+  HillPhaseInfo,
+  HillSide,
+  HillStandingInfo,
+} from '../../../world_api';
 
 export interface HillBarLive {
   visible: true;
@@ -34,6 +40,8 @@ export interface HillBarLive {
   distanceYards: number;
   /** Whole minutes to the rise (warning) or the fall (risen). */
   minutesLeft: number;
+  /** The latest fresh announcer call (src/sim/pvp/hill_bounty.ts), or null. */
+  callout: HillCalloutInfo | null;
 }
 
 export interface HillBarHidden {
@@ -44,6 +52,16 @@ export interface HillBarHidden {
 export type HillBarView = HillBarLive | HillBarHidden;
 
 const HIDDEN: HillBarHidden = { visible: false, sig: 'hidden' };
+
+/** Announce entry or activation only for viewers eligible for the PvP flag.
+ * Raid members cannot capture, but entering still flags them. */
+export function shouldAnnounceHillPvp(previous: HillBarView | null, next: HillBarView): boolean {
+  return hillPvpExposed(next) && !hillPvpExposed(previous);
+}
+
+function hillPvpExposed(view: HillBarView | null): boolean {
+  return !!view?.visible && view.phase === 'active' && view.inside && view.standing !== 'level';
+}
 
 /** The count the viewer's group is measured against (the bar's right-hand
  *  number): the holder's present members, or the largest other group's while
@@ -90,5 +108,16 @@ export function buildHillBarView(
     inside: info.inside,
     distanceYards,
     minutesLeft: info.minutesLeft,
+    callout: info.callout ?? null,
   };
+}
+
+/** The call to announce this frame: a fresh callout the bar has not shown
+ *  yet (each id exactly once), else null. */
+export function hillCalloutToShow(
+  shownId: string | null,
+  view: HillBarView,
+): HillCalloutInfo | null {
+  if (!view.visible || !view.callout || view.callout.id === shownId) return null;
+  return view.callout;
 }

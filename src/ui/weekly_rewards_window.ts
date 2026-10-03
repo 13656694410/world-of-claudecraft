@@ -20,13 +20,17 @@ export function createWeeklyRewardsTab(
     onInventoryChanged(): void;
     hideTooltip(): void;
   },
+  options?: { readOnly?: boolean },
 ): WeeklyRewardsTab {
-  return new WeeklyRewardsTab({
-    world: () => host.world(),
-    presentation: host,
-    onInventoryChanged: () => host.onInventoryChanged(),
-    hideTooltip: () => host.hideTooltip(),
-  });
+  return new WeeklyRewardsTab(
+    {
+      world: () => host.world(),
+      presentation: host,
+      onInventoryChanged: () => host.onInventoryChanged(),
+      hideTooltip: () => host.hideTooltip(),
+    },
+    options,
+  );
 }
 export class WeeklyRewardsTab {
   private timer: HTMLElement | null = null;
@@ -41,8 +45,11 @@ export class WeeklyRewardsTab {
       onInventoryChanged(): void;
       hideTooltip?(): void;
     },
+    private readonly options?: {
+      readOnly?: boolean;
+    },
   ) {
-    this.claimFlow = new WeeklyRewardClaimController(deps);
+    this.claimFlow = new WeeklyRewardClaimController(deps, options);
   }
   close(): void {
     this.claimFlow.close();
@@ -79,17 +86,19 @@ export class WeeklyRewardsTab {
   }
   renderInto(parent: HTMLElement): void {
     this.claimFlow.pause();
-    // Discard a previously dragged bank's inline insets before using the large sheet.
-    for (const property of ['left', 'top', 'right', 'bottom', 'transform'])
-      parent.style.removeProperty(property);
-    delete parent.dataset.windowMoved;
+    if (!this.options?.readOnly) {
+      // Discard a previously dragged bank's inline insets before using the large sheet.
+      for (const property of ['left', 'top', 'right', 'bottom', 'transform'])
+        parent.style.removeProperty(property);
+      delete parent.dataset.windowMoved;
+    }
     const world = this.deps.world();
     const info = world.weeklyRewardInfo;
     this.timer = null;
     this.timerText = '';
     const panel = document.createElement('section');
     panel.id = WEEKLY_PANEL_ID;
-    panel.className = 'weekly-rewards bank-scroll';
+    panel.className = `weekly-rewards bank-scroll${this.options?.readOnly ? ' weekly-rewards--readonly' : ''}`;
     panel.setAttribute('role', 'region');
     panel.setAttribute('aria-label', t('hudChrome.weeklyRewards.title'));
     if (!info) {

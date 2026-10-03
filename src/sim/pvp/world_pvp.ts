@@ -42,8 +42,20 @@ import { formatMoney } from '../format_money';
 import type { PlayerMeta } from '../sim';
 import type { SimContext } from '../sim_context';
 import type { Entity } from '../types';
+import { TICK_RATE } from '../types';
+import {
+  endHillKillStreak,
+  hillKillFor,
+  hillKillHonorMultiplier,
+  recordHillKill,
+} from './hill_bounty';
+import { hillContains } from './hill_rules';
 import { grantHonor } from './honor';
+import { pvpIdentityOf } from './pvp_identity';
+import { notePvpResurrectAtDeath } from './pvp_resurrect';
 import { updatePvpVitality } from './vitality';
+import { updateWorldPvpRewards, worldPvpRewardPause } from './world_pvp_rewards';
+import { sanitizeWorldPvpRewardTicks, worldPvpRewardsActive } from './world_pvp_rewards_rules';
 import {
   WORLD_PVP_ASSIST_WINDOW,
   WORLD_PVP_DISARM_SECONDS,
@@ -67,6 +79,8 @@ export interface WorldPvpMetaState {
   /** Attackable by, and able to attack, other flagged players right now. Stays
    *  true through the whole disarm countdown. */
   flagged: boolean;
+  /** Played ticks with the flag armed; capped at the seven-day title. */
+  rewardTicks?: number;
   /** Sim time the flag drops after /pvp off, or null while armed for good (or
    *  not flagged at all). */
   disarmAt: number | null;
@@ -85,6 +99,8 @@ export interface WorldPvpMetaState {
  *  time restarts at zero on every boot (the node-readiness precedent). */
 export interface WorldPvpSavedState {
   flagged: boolean;
+  /** Played ticks with the flag armed; capped at the seven-day title. */
+  rewardTicks?: number;
   disarmRemaining?: number;
   kills?: number;
   deaths?: number;
@@ -165,11 +181,12 @@ export const WORLD_PVP_FFA_ENTER_LINE =
   'You have entered a free-for-all PvP zone: anyone here can attack you.';
 export const WORLD_PVP_FFA_LEAVE_LINE = 'You have left the free-for-all PvP zone.';
 export const WORLD_PVP_SANCTUARY_LINE = 'This is a sanctuary: World PvP is off here.';
-/** The refusal a heal, shield or buff meets when its target is a player the
- *  open world has made an enemy (combat/casting_lifecycle.ts): once the aid
- *  rule has flagged a helper, that helper and the stranger they were keeping
- *  up are two flagged strangers, and the only way to keep aiding them is the
- *  exemption, a party. Said out loud rather than self-cast in silence. */
+/** The refusal a heal, shield or buff meets when the unit it NAMES (a hover
+ *  override, or a timed cast's locked target) is a player the open world has
+ *  made an enemy (combat/casting_lifecycle.ts): once the aid rule has flagged a
+ *  helper, that helper and the stranger they were keeping up are two flagged
+ *  strangers, and the only way to keep aiding them is the exemption, a party.
+ *  An enemy merely selected is the classic self-cast, never this refusal. */
 export const WORLD_PVP_AID_REFUSED_LINE =
   'You cannot aid a World PvP enemy: invite them to your party first.';
 
@@ -221,6 +238,26 @@ function autoRaiseTarget(ctx: SimContext, e: Entity): PlayerMeta | null {
   return ctx.players.get(e.id) ?? null;
 }
 
+/** Active hills use the ordinary flag and its eligibility gates. Raid members
+ * are flagged too, even though they cannot capture or earn hill honor. */
+export function worldPvpOnHillPresence(ctx: SimContext, e: Entity): boolean {
+  if (
+    ctx.worldPvpDisabled ||
+    e.dead ||
+    e.jailed ||
+    e.level < WORLD_PVP_MIN_LEVEL ||
+    inInstancedPvp(ctx, e.id) ||
+    worldPvpZonePolicyAt(e.pos.x, e.pos.z) === 'sanctuary'
+  )
+    return false;
+  const meta = ctx.players.get(e.id);
+  if (!meta) return false;
+  if (!meta.worldPvp?.flagged) {
+    raiseFlag(ctx, e, meta, 'World PvP enabled: other flagged players can attack you.');
+  }
+  return true;
+}
+
 /**
  * Raise or lower the flag. Raising it during the disarm countdown cancels the
  * countdown (the flag never dropped, so nothing re-announces the enable).
@@ -252,6 +289,10 @@ export function setWorldPvpFlag(ctx: SimContext, pid: number, enabled: boolean):
       ctx.error(pid, `You must be at least level ${WORLD_PVP_MIN_LEVEL} to enable World PvP.`);
       return false;
     }
+    if (worldPvpZonePolicyAt(r.e.pos.x, r.e.pos.z) === 'sanctuary') {
+      ctx.error(pid, WORLD_PVP_SANCTUARY_LINE);
+      return false;
+    }
     if (current?.flagged) {
       // Mid-countdown: keep the flag, drop the clock.
       current.disarmAt = null;
@@ -270,6 +311,7 @@ export function setWorldPvpFlag(ctx: SimContext, pid: number, enabled: boolean):
     ctx.error(pid, 'World PvP is already switching off.');
     return false;
   }
+  current.rewardTicks = 0;
   current.disarmAt = ctx.time + WORLD_PVP_DISARM_SECONDS;
   current.changedAt = ctx.time;
   const books = ctx.worldPvpBooks;
@@ -344,6 +386,23 @@ function noticeZoneChanges(ctx: SimContext, books: WorldPvpBooks): void {
  * minute the books are swept.
  */
 export function updateWorldPvp(ctx: SimContext): void {
+  // Movement has already run: crossing the live rim raises the flag this tick,
+  // even if the player leaves before the slower hill capture/payout pass.
+  const activeHill = ctx.hillState.active;
+  if (
+    !ctx.worldPvpDisabled &&
+    activeHill?.phase === 'active' &&
+    ctx.time >= activeHill.risesAt &&
+    ctx.time < activeHill.closesAt
+  ) {
+    for (const meta of ctx.players.values()) {
+      const e = ctx.entities.get(meta.entityId);
+      if (e && !e.pvpFlag && hillContains(activeHill, e.pos.x, e.pos.z)) {
+        worldPvpOnHillPresence(ctx, e);
+      }
+    }
+  }
+  updateWorldPvpRewards(ctx);
   const books = ctx.worldPvpBooks;
   if (ctx.time >= books.nextDisarmAt) {
     let next = Number.POSITIVE_INFINITY;
@@ -357,7 +416,14 @@ export function updateWorldPvp(ctx: SimContext): void {
         next = Math.min(next, state.disarmAt);
         continue;
       }
-      if (e.inCombat) {
+      const hill = ctx.hillState.active;
+      const onHill =
+        !ctx.worldPvpDisabled &&
+        hill?.phase === 'active' &&
+        ctx.time >= hill.risesAt &&
+        ctx.time < hill.closesAt &&
+        hillContains(hill, e.pos.x, e.pos.z);
+      if (e.inCombat || onHill) {
         next = Math.min(next, ctx.time);
         continue;
       }
@@ -551,17 +617,9 @@ export function worldPvpOnPlayerAided(ctx: SimContext, target: Entity, source: E
   noteRecent(ctx.worldPvpBooks.recentSupport, target.id, helper.id, ctx.time);
 }
 
-/** The rename-proof identity the DR book keys a character by (the
- *  honorTeamIdentity convention: database character ids online, the stable
- *  character name offline). */
-function identityOf(meta: PlayerMeta): string {
-  return meta.characterId !== undefined
-    ? `character:${meta.characterId}`
-    : `name:${meta.name.trim().toLowerCase()}`;
-}
-
+/** The DR book's key: the two rename-proof identities (pvp_identity.ts). */
 function pairKey(contributor: PlayerMeta, victim: PlayerMeta): string {
-  return `${identityOf(contributor)}>${identityOf(victim)}`;
+  return `${pvpIdentityOf(contributor)}>${pvpIdentityOf(victim)}`;
 }
 
 /** Kills of this victim this contributor was already paid for inside the open
@@ -591,6 +649,8 @@ interface Contributor {
   e: Entity;
   meta: PlayerMeta;
   mult: number;
+  /** The Honor multiplier: the gold one, or the hill repeat cap on a hill kill. */
+  honorMult: number;
 }
 
 /** What one paid contributor is told. Exported for the client matcher tests. */
@@ -642,16 +702,31 @@ export function worldPvpOnPlayerDeath(
 ): void {
   const books = ctx.worldPvpBooks;
   const helpers = books.recentDamage.get(victim.id);
+  const killerPlayer = controllerOf(ctx, killer);
+  const killerHostile = !!killerPlayer && isWorldPvpHostile(ctx, killerPlayer, victim);
+  // Every player death decides its own PvP Resurrect offer (pvp_resurrect.ts),
+  // from the same hostile-hit books the kill credit reads, before they clear.
+  if (victim.kind === 'player') notePvpResurrectAtDeath(ctx, victim, killerHostile, helpers);
   books.recentDamage.delete(victim.id);
   books.recentSupport.delete(victim.id);
   if (books.paidDeaths.has(victim.id)) return;
   const victimMeta = ctx.players.get(victim.id);
   if (!victimMeta) return;
-  const killerPlayer = controllerOf(ctx, killer);
-  if (!killerPlayer || !isWorldPvpHostile(ctx, killerPlayer, victim)) return;
+  if (!killerPlayer || !killerHostile) {
+    // A fall, a mob, a friendly kill: still a death, so a running hill kill
+    // streak ends (hill_bounty.ts endHillKillStreak).
+    endHillKillStreak(ctx, victimMeta);
+    return;
+  }
   books.paidDeaths.add(victim.id);
   ensureState(victimMeta).deaths++;
 
+  // A kill over a risen hill (hill_bounty.ts) pays the victim's bounty, and its
+  // Honor ignores the hourly repeat decay up to the hill's own repeat cap; the
+  // gold stake keeps the decay either way.
+  const hillKill = hillKillFor(ctx, killerPlayer, victim, victimMeta);
+  // A world kill away from the circle is no hill kill, but it is a death.
+  if (!hillKill) endHillKillStreak(ctx, victimMeta);
   const contributors: Contributor[] = [];
   const seen = new Set<number>();
   const fresh = (at: number) => ctx.time - at <= WORLD_PVP_ASSIST_WINDOW;
@@ -663,8 +738,9 @@ export function worldPvpOnPlayerDeath(
     if (!worldPvpGroupEarns(ctx.partyOf(pid))) return;
     if (worldPvpVictimIsGrey(r.e.level, victim.level)) return;
     const mult = worldPvpPairMultiplier(worldPvpPairRepeats(ctx, r.meta, victimMeta));
-    if (mult <= 0) return;
-    contributors.push({ e: r.e, meta: r.meta, mult });
+    const honorMult = hillKill ? hillKillHonorMultiplier(hillKill, r.meta, victimMeta) : mult;
+    if (mult <= 0 && honorMult <= 0) return;
+    contributors.push({ e: r.e, meta: r.meta, mult, honorMult });
   };
   consider(killerPlayer.id);
   if (helpers) {
@@ -678,24 +754,43 @@ export function worldPvpOnPlayerDeath(
   }
 
   const n = contributors.length;
+  const killerMeta = ctx.players.get(killerPlayer.id);
+  if (hillKill && killerMeta) {
+    const honorPaid = contributors.filter((c) => c.honorMult > 0).map((c) => c.meta);
+    const killerCounted = contributors.some((c) => c.e.id === killerPlayer.id);
+    recordHillKill(ctx, hillKill, killerMeta, victimMeta, honorPaid, killerCounted);
+  }
   if (n === 0) {
     notice(ctx, victim.id, worldPvpDefeatLine(killerPlayer.name, 0, 1), DEFEATED_COLOR);
     return;
   }
-  const gold = worldPvpSplit(victim.pvpFlag ? worldPvpStake(victimMeta.copper) : 0, n);
-  const honor = worldPvpSplit(WORLD_PVP_KILL_HONOR, n);
+  // Gold splits between the contributors the hourly decay still pays, Honor
+  // between those the Honor rule pays: on an ordinary world kill these are the
+  // same contributors; on a hill kill a helper decayed out of the stake still
+  // earns the bounty without thinning anyone's gold.
+  const goldEarners = contributors.filter((c) => c.mult > 0).length;
+  const honorEarners = contributors.filter((c) => c.honorMult > 0).length;
+  const gold = worldPvpSplit(victim.pvpFlag ? worldPvpStake(victimMeta.copper) : 0, goldEarners);
+  const honor = worldPvpSplit(hillKill ? hillKill.bounty : WORLD_PVP_KILL_HONOR, honorEarners);
   let taken = 0;
   for (const c of contributors) {
     const isKiller = c.e.id === killerPlayer.id;
-    const goldShare = c.e.pvpFlag
-      ? Math.floor((gold.share + (isKiller ? gold.killerBonus : 0)) * c.mult)
-      : 0;
-    const honorShare = Math.floor((honor.share + (isKiller ? honor.killerBonus : 0)) * c.mult);
-    notePairKill(ctx, c.meta, victimMeta);
+    const goldShare =
+      c.e.pvpFlag && c.mult > 0
+        ? Math.floor((gold.share + (isKiller ? gold.killerBonus : 0)) * c.mult)
+        : 0;
+    const honorShare =
+      c.honorMult > 0
+        ? Math.floor((honor.share + (isKiller ? honor.killerBonus : 0)) * c.honorMult)
+        : 0;
+    // The hourly decay counts only the kills it paid (a decayed-out helper paid
+    // by a hill's bounty does not climb it further).
+    if (c.mult > 0) notePairKill(ctx, c.meta, victimMeta);
     ensureState(c.meta).kills++;
     c.meta.copper += goldShare;
     taken += goldShare;
-    notice(ctx, c.e.id, worldPvpKillLine(victim.name, goldShare, n));
+    // "split N ways" counts the contributors the gold split between.
+    notice(ctx, c.e.id, worldPvpKillLine(victim.name, goldShare, goldEarners));
     grantHonor(ctx, c.meta, honorShare, isKiller ? 'world_kill' : 'world_assist');
   }
   victimMeta.copper = Math.max(0, victimMeta.copper - taken);
@@ -715,13 +810,16 @@ export function worldPvpInfoFor(
   if (!r) return null;
   const state = r.meta.worldPvp;
   const remaining = worldPvpDisarmRemaining(r.meta, ctx.time);
+  const zone = worldPvpZonePolicyAt(r.e.pos.x, r.e.pos.z);
   return {
     flagged: state?.flagged === true,
     disarmRemaining: remaining === null ? null : Math.round(remaining),
+    rewardSeconds: Math.floor((state?.rewardTicks ?? 0) / (TICK_RATE * 60)) * 60,
+    rewardPause: worldPvpRewardsActive(state) ? worldPvpRewardPause(r.e, zone) : null,
     kills: state?.kills ?? 0,
     deaths: state?.deaths ?? 0,
     levelLocked: r.e.level < WORLD_PVP_MIN_LEVEL,
-    zone: worldPvpZonePolicyAt(r.e.pos.x, r.e.pos.z),
+    zone,
     enabled: !ctx.worldPvpDisabled,
   };
 }
@@ -735,6 +833,7 @@ export function savedWorldPvpState(meta: PlayerMeta, now: number): WorldPvpSaved
   const remaining = worldPvpDisarmRemaining(meta, now);
   return {
     flagged: state.flagged,
+    ...(state.rewardTicks ? { rewardTicks: state.rewardTicks } : {}),
     ...(remaining !== null ? { disarmRemaining: remaining } : {}),
     ...(state.kills > 0 ? { kills: state.kills } : {}),
     ...(state.deaths > 0 ? { deaths: state.deaths } : {}),
@@ -778,7 +877,9 @@ export function loadWorldPvpState(
       ? Math.max(0, record.disarmRemaining)
       : null;
   const disarmAt = remaining === null ? null : ctx.time + remaining;
-  meta.worldPvp = { flagged, disarmAt, kills, deaths };
+  const rewardTicks =
+    flagged && disarmAt === null ? sanitizeWorldPvpRewardTicks(record.rewardTicks) : 0;
+  meta.worldPvp = { flagged, disarmAt, kills, deaths, ...(rewardTicks > 0 ? { rewardTicks } : {}) };
   e.pvpFlag = flagged;
   if (disarmAt !== null) {
     const books = ctx.worldPvpBooks;

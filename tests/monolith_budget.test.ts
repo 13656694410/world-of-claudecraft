@@ -537,7 +537,20 @@ const MONOLITHS: MonolithRow[] = [
     // (Reuben's call): both parent pins for the record, the release 18081 and the
     // branch 18235; the two sides' additions compose to 18093 by wc -l on the merged
     // tree (after biome). Exact count, zero slack.
-    ceiling: 18093,
+    // LOWERED 18093 -> 18074 by moving the saved-build bar apply rule (and its
+    // comment) into ActionBarController.applyLoadout. Exact count, zero slack.
+    // LOWERED 18074 -> 18071 at the release/v0.44.1 sync of the Shift-drag
+    // slot move: the slot tooltip's edit-gesture hints live in
+    // slot_edit_hints_core.ts and the attack slot's dragstart payload sits on
+    // one line. wc -l on the merged tree after biome. Exact count, zero slack.
+    // Banner payload and expiry policy moved to banner_queue.ts for hill warnings.
+    // Lowered 18034 -> 18029: the Warfare purchase confirm body (Honor or, for
+    // Season 1, gold) moved to warfarePurchaseConfirmBody in
+    // src/ui/hud/vendor/warfare_vendor_window.ts. Extract, then lower.
+    // Lowered 18029 -> 18024 at the merge with PvP Resurrect: the death-screen
+    // decisions (and the mirrored corpse range constant) moved to
+    // src/ui/hud/death/death_prompt_view.ts. wc -l on the merged tree.
+    ceiling: 18024,
     seam: 'pure view core + thin painter on PainterHost (src/ui/CLAUDE.md)',
   },
   {
@@ -1207,7 +1220,12 @@ const MONOLITHS: MonolithRow[] = [
     // integration/world-quests-v0440 (the Eastbrook ferry, PR 4225, composes
     // with the branch's): exact count measured on the MERGED working tree
     // (wc -l after biome), never reconciled by arithmetic. Zero slack.
-    ceiling: 11642,
+    // Down 11642 -> 11615 for the party difficulty-switch fix: the
+    // setDungeonDifficulty body moved to src/sim/instances/difficulty_selection.ts
+    // (it gained an implicit reset on change). Exact count, zero slack.
+    // Re-pinned to 11619 at the release/v0.44.4 base merge (PvP Resurrect,
+    // PR 4318, adds its lines): exact count on the MERGED tree. Zero slack.
+    ceiling: 11619,
     seam: 'a sim system module behind SimContext (src/sim/CLAUDE.md)',
   },
   {
@@ -1689,7 +1707,20 @@ const MONOLITHS: MonolithRow[] = [
     // (Reuben's call): both parent pins for the record, the release 9827 and the
     // branch 9965; the two sides' additions compose to 9840 by wc -l on the merged
     // tree (after biome). Exact count, zero slack.
-    ceiling: 9840,
+    // Viewer admission moved to entity_observation.ts; bank the extraction.
+    // LOWERED 9832 -> 9823: the Discord flair entity stamp moved to
+    // discord_flair_stamp.ts, paying for the /flair hook (flair_command.ts) with
+    // lines to spare. Exact count (wc -l after biome), zero slack.
+    // Lowered 9823 -> 9822: the self record's corpse emit moved into
+    // server/self_scalar_wire.ts beside the PvP Resurrect bit, which paid for
+    // the pvp_resurrect dispatch case. Extract, then lower.
+    // Lowered 9822 -> 9813 at the merge with presence privacy: the
+    // once-a-second friend/guildmate position push moved to
+    // server/social_positions.ts, which paid for the /presence wiring
+    // (server/presence_privacy.ts builds its host from the social service, the
+    // setting rides the join metadata, and the transport hands the live session
+    // as the presence subject). wc -l on the merged tree.
+    ceiling: 9813,
     seam: 'a sibling server module; see the hot-path seams in server/CLAUDE.md',
   },
   {

@@ -171,6 +171,7 @@ export const WEAPON_TYPE_BY_ITEM: Record<string, ItemWeaponType> = {
   vanguard_oath_blade: 'sword',
   vanguard_fang_dagger: 'dagger',
   vanguard_warstaff: 'staff',
+  vanguard_feral_staff: 'staff',
 };
 
 /**
