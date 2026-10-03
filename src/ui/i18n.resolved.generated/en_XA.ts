@@ -7057,7 +7057,14 @@ export const en_XA: EnTranslations = {
       "discord": "[Ĵóíñ ţĥé Ðíšçóŕð]",
       "communityWiki": "[Çóɱɱúñíţý Ŵíķí]",
       "rights": "[Ŵóŕļð óƒ ÇļáúðéÇŕáƒţ]",
-      "linksLabel": "[Þļáý áñð çóɱɱúñíţý ļíñķš]"
+      "linksLabel": "[Þļáý áñð çóɱɱúñíţý ļíñķš]",
+      "guidesLabel": "[Þļáýéŕ ĝúíðéš]",
+      "guideFree": "[Ƒŕéé ⱮⱮÓŔÞĜš]",
+      "guideGamesLikeWow": "[Ĝáɱéš ļíķé ŴóŴ]",
+      "guideBest": "[Ɓéšţ ⱮⱮÓŔÞĜš]",
+      "guideNew": "[Ñéŵ ⱮⱮÓŔÞĜš]",
+      "guideBrowser": "[Ɓŕóŵšéŕ ⱮⱮÓŔÞĜš]",
+      "guideGamesLikeDiablo": "[Ĝáɱéš ļíķé Ðíáƀļó]"
     },
     "language": {
       "label": "[Ļáñĝúáĝé]",
@@ -9698,7 +9705,14 @@ export const en_XA: EnTranslations = {
     "whitepaper": "[Ŵĥíţéþáþéŕ]",
     "terms": "[Ţéŕɱš óƒ Šéŕʋíçé]",
     "privacy": "[Þŕíʋáçý Þóļíçý]",
-    "discordLabel": "[Ĵóíñ ţĥé Ðíšçóŕð]"
+    "discordLabel": "[Ĵóíñ ţĥé Ðíšçóŕð]",
+    "guidesLabel": "[Þļáýéŕ ĝúíðéš]",
+    "guideFree": "[Ƒŕéé ⱮⱮÓŔÞĜš]",
+    "guideGamesLikeWow": "[Ĝáɱéš ļíķé ŴóŴ]",
+    "guideBest": "[Ɓéšţ ⱮⱮÓŔÞĜš]",
+    "guideNew": "[Ñéŵ ⱮⱮÓŔÞĜš]",
+    "guideBrowser": "[Ɓŕóŵšéŕ ⱮⱮÓŔÞĜš]",
+    "guideGamesLikeDiablo": "[Ĝáɱéš ļíķé Ðíáƀļó]"
   },
   "settings": {
     "languageLoading": "[Ļóáðíñĝ ļáñĝúáĝé...]",

@@ -1005,11 +1005,14 @@ describe('client HTML shell', () => {
     expect(mainTs).toContain("alternateName: 'World of Claudecraft'");
     expect(mainTs).toContain("'https://github.com/levy-street/world-of-claudecraft'");
     expect(robotsTxt.trim()).toBe(
-      'User-agent: *\nAllow: /\n\nSitemap: https://worldofclaudecraft.com/sitemap.xml\nSitemap: https://worldofclaudecraft.com/sitemap-characters.xml',
+      'User-agent: *\nAllow: /\n\nSitemap: https://worldofclaudecraft.com/sitemap.xml\nSitemap: https://worldofclaudecraft.com/sitemap-characters.xml\nSitemap: https://worldofclaudecraft.com/sitemap-marketing.xml',
     );
     expect(robotsTxt).toContain('Sitemap: https://worldofclaudecraft.com/sitemap.xml');
     // The dynamic per-character sitemap (served by the game server) is advertised too.
     expect(robotsTxt).toContain('Sitemap: https://worldofclaudecraft.com/sitemap-characters.xml');
+    // The player-guide pages are served by nginx beside the game (woc-marketing-website);
+    // their sitemap index is advertised here so crawlers find them from the game's robots.txt.
+    expect(robotsTxt).toContain('Sitemap: https://worldofclaudecraft.com/sitemap-marketing.xml');
     expect(sitemapXml).toContain('<loc>https://worldofclaudecraft.com/</loc>');
     expect(sitemapXml).toContain('<loc>https://worldofclaudecraft.com/links</loc>');
     expect(sitemapXml).toContain('<loc>https://worldofclaudecraft.com/play</loc>');
