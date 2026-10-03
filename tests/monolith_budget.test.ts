@@ -1223,7 +1223,9 @@ const MONOLITHS: MonolithRow[] = [
     // Down 11642 -> 11615 for the party difficulty-switch fix: the
     // setDungeonDifficulty body moved to src/sim/instances/difficulty_selection.ts
     // (it gained an implicit reset on change). Exact count, zero slack.
-    ceiling: 11615,
+    // Re-pinned to 11619 at the release/v0.44.4 base merge (PvP Resurrect,
+    // PR 4318, adds its lines): exact count on the MERGED tree. Zero slack.
+    ceiling: 11619,
     seam: 'a sim system module behind SimContext (src/sim/CLAUDE.md)',
   },
   {
