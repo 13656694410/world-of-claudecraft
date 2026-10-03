@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const da_DK: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'PvP Genoplivning',
+  'hudChrome.death.pvpResurrectTitle':
+    'Genoplives ved nærmeste kirkegård med fuld sundhed, uden ny Kyperens Told.',
+  'hudChrome.hill.callout.dominating': '{name} dominerer!',
+  'hudChrome.hill.callout.godlike': '{name} er guddommelig!',
+  'hudChrome.hill.callout.killingSpree': '{name} er på en drabsserie!',
+  'hudChrome.hill.callout.legendary': '{name} er legendarisk!',
+  'hudChrome.hill.callout.rampage': '{name} raser!',
+  'hudChrome.hill.callout.shutDown': '{killer} har stoppet {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} er ustoppelig!',
+  'hudChrome.nameplate.bountyTag': 'Dusør {honor}',
+  'hudChrome.social.presence.everyone': 'Alle',
+  'hudChrome.social.presence.friends': 'Kun venner',
+  'hudChrome.social.presence.label': 'Vis mig online til',
+  'hudChrome.social.presence.none': 'Ingen',
+  'hudChrome.social.presence.title':
+    'Hvem der ser dig online på vennelister og laugsmandtal, med din zone og kortposition. Dit hold ser altid dig.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Køb {item} for {price}? Dette køb kan ikke refunderes.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Krigsførelse tæller kun i hovedhånden.',
+  'entities.items.vanguard_band_of_focus.name': 'Avantgardes Ring af Fokus',
+  'entities.items.vanguard_band_of_mending.name': 'Avantgardes Ring af Helbredelse',
+  'entities.items.vanguard_band_of_might.name': 'Avantgardes Ring af Styrke',
+  'entities.items.vanguard_band_of_precision.name': 'Avantgardes Ring af Præcision',
+  'entities.items.vanguard_pendant_of_focus.name': 'Avantgardes Anheng af Fokus',
+  'entities.items.vanguard_pendant_of_mending.name': 'Avantgardes Anheng af Helbredelse',
+  'entities.items.vanguard_pendant_of_might.name': 'Avantgardes Anheng af Styrke',
+  'entities.items.vanguard_pendant_of_precision.name': 'Avantgardes Anheng af Præcision',
+  'guide.arenaPage.vanguardStatsBody':
+    'I modsætning til det oprindelige lag bærer Avantgarde-udstyr også kampvurderinger: hver Avantgarde-rustningsdel, våben og halskæde har Kritvurdering eller Hastevurdering, og delene for tryllebrugeren og læger tilføjer Besværgelseskraft eller Helbredelseskraft. Avantgarde-ringene og halskederne sælges ved siden af væbnerne, og enhver klasse kan tage dem på. To af Avantgardes nærkampiringe giver nøjagtigt Rammevurderingen, der fjerner basischancen for, at dine angreb mangler en spiller på dit eget niveau, og to tryllebrugeres ringe gør det samme for dine besværgelser, der bliver modstået. Autoangreb under dobbeltkamp beholder deres ekstra manglende chance. Læger-ringen bærer i stedet Hastevurdering.',
+  'guide.commandsPage.presence':
+    'Hvem der ser dig online på vennelister, dit laugsmandtal og /who: /presence everyone (standarden), /presence friends (kun spillere på din venneliste) eller /presence none. Skjult ser de ingen online prik, zone eller kortposition for dig, skønt hvisker og invitationer stadig når dig; dit hold ser altid dig. En almindelig /presence fortæller dig, hvad der er sat.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Dykning',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Dybdyk',

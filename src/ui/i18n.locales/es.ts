@@ -13,6 +13,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const es: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Resucitar JcJ',
+  'hudChrome.death.pvpResurrectTitle':
+    'Revive en el cementerio más cercano con vida plena, sin un nuevo Tañido del Guardián.',
+  'hudChrome.hill.callout.dominating': '¡{name} está Dominando!',
+  'hudChrome.hill.callout.godlike': '¡{name} es Divino!',
+  'hudChrome.hill.callout.killingSpree': '¡{name} está en Racha Letal!',
+  'hudChrome.hill.callout.legendary': '¡{name} es Legendario!',
+  'hudChrome.hill.callout.rampage': '¡{name} está Desenfrenado!',
+  'hudChrome.hill.callout.shutDown': '¡{killer} ha detenido a {victim}!',
+  'hudChrome.hill.callout.unstoppable': '¡{name} es Imparable!',
+  'hudChrome.nameplate.bountyTag': 'Recompensa {honor}',
+  'hudChrome.social.presence.everyone': 'Todos',
+  'hudChrome.social.presence.friends': 'Solo amigos',
+  'hudChrome.social.presence.label': 'Mostrarme conectado a',
+  'hudChrome.social.presence.none': 'Nadie',
+  'hudChrome.social.presence.title':
+    'Quién te ve conectado en listas de amigos y el registro de hermandad, con tu zona y posición en el mapa. Tu grupo siempre te ve.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    '¿Comprar {item} por {price}? Esta compra no se puede reembolsar.',
+  'itemUi.tooltip.warfareMainHandOnly': 'La Pericia bélica se cuenta solo en la mano principal.',
+  'entities.items.vanguard_band_of_focus.name': 'Anillo de Vanguardia de Enfoque',
+  'entities.items.vanguard_band_of_mending.name': 'Anillo de Vanguardia de Curación',
+  'entities.items.vanguard_band_of_might.name': 'Anillo de Vanguardia de Poder',
+  'entities.items.vanguard_band_of_precision.name': 'Anillo de Vanguardia de Precisión',
+  'entities.items.vanguard_pendant_of_focus.name': 'Colgante de Vanguardia de Enfoque',
+  'entities.items.vanguard_pendant_of_mending.name': 'Colgante de Vanguardia de Curación',
+  'entities.items.vanguard_pendant_of_might.name': 'Colgante de Vanguardia de Poder',
+  'entities.items.vanguard_pendant_of_precision.name': 'Colgante de Vanguardia de Precisión',
+  'guide.arenaPage.vanguardStatsBody':
+    'A diferencia del nivel original, el equipo de Vanguardia también lleva índices de combate: cada pieza de armadura, arma y collar de Vanguardia tiene Índice de Golpe Crítico o Índice de Celeridad, y las piezas de lanzador de hechizos y sanador añaden Poder con Hechizos o Poder de Sanación. Los anillos y collares de Vanguardia se venden junto con las armas, y todas las clases pueden usarlos. Dos de los anillos cuerpo a cuerpo de Vanguardia dan exactamente el Índice de Impacto que elimina la posibilidad base de que tus ataques fallen contra un jugador de tu nivel, y dos anillos de lanzador de hechizos hacen lo mismo con que tus hechizos sean resistidos. Los ataques automáticos mientras luchas con dos armas conservan su posibilidad de fallo adicional. El anillo de sanador lleva Índice de Celeridad en su lugar.',
+  'guide.commandsPage.presence':
+    'Quién te ve conectado en listas de amigos, el registro de tu hermandad y /who: /presence everyone (el predeterminado), /presence friends (solo jugadores de tu lista de amigos), o /presence none. Oculto, no ven un punto conectado, zona o posición de mapa para ti, aunque los susurros e invitaciones aún te llegan; tu grupo siempre te ve. Un /presence a secas te dice cuál está establecido.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Buceando',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Buceo de Embestida',

@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const sv_SE: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'PvP Återupplivning',
+  'hudChrome.death.pvpResurrectTitle':
+    'Återuppstå vid närmaste kyrkogård med full hälsa, utan ny Väktartull.',
+  'hudChrome.hill.callout.dominating': '{name} dominerar!',
+  'hudChrome.hill.callout.godlike': '{name} är gudalik!',
+  'hudChrome.hill.callout.killingSpree': '{name} är på en mördarspree!',
+  'hudChrome.hill.callout.legendary': '{name} är legendarisk!',
+  'hudChrome.hill.callout.rampage': '{name} härjar!',
+  'hudChrome.hill.callout.shutDown': '{killer} har stoppat {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} är omöjlig att stoppa!',
+  'hudChrome.nameplate.bountyTag': 'Belöning {honor}',
+  'hudChrome.social.presence.everyone': 'Alla',
+  'hudChrome.social.presence.friends': 'Endast vänner',
+  'hudChrome.social.presence.label': 'Visa mig online för',
+  'hudChrome.social.presence.none': 'Ingen',
+  'hudChrome.social.presence.title':
+    'Vem som ser dig online i vännernas listor och gildsamlandet, med din zon och kartposition. Ditt lag ser alltid dig.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Köp {item} för {price}? Detta köp kan inte återbetalas.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Krigföring räknas endast i huvudhanden.',
+  'entities.items.vanguard_band_of_focus.name': 'Förtruppens ring av fokus',
+  'entities.items.vanguard_band_of_mending.name': 'Förtruppens ring av läkning',
+  'entities.items.vanguard_band_of_might.name': 'Förtruppens ring av kraft',
+  'entities.items.vanguard_band_of_precision.name': 'Förtruppens ring av precision',
+  'entities.items.vanguard_pendant_of_focus.name': 'Förtruppens hänge av fokus',
+  'entities.items.vanguard_pendant_of_mending.name': 'Förtruppens hänge av läkning',
+  'entities.items.vanguard_pendant_of_might.name': 'Förtruppens hänge av kraft',
+  'entities.items.vanguard_pendant_of_precision.name': 'Förtruppens hänge av precision',
+  'guide.arenaPage.vanguardStatsBody':
+    'Till skillnad från den ursprungliga nivån bär Förtruppsutrustning även stridsvärden: varje förtruppspans rustning, vapen och halsband har antingen Kritvärde eller Snabbhetsvärde, och spellcaster- och läkardelarna lägger till Besvärjelsekraft eller Läkningskraft. Förtruppens ringar och halsband säljs vid sidan av vapnen, och alla klasser kan bära dem. Två av Förtruppens närkampingsringar ger exakt det Träffvärde som tar bort baschansen för att dina attacker missar en spelare på din egen nivå, och två spellcaster-ringar gör samma för dina besvärjelser att bli motverkade. Autoattacker medan dual-wielding behåller sin extra misschans. Läkarringen bär Snabbhetsvärde istället.',
+  'guide.commandsPage.presence':
+    'Vem som ser dig online i vännernas listor, ditt gildsamlande och /who: /presence everyone (förval), /presence friends (endast spelare på din vännerlista) eller /presence none. Dold ser de ingen online-prick, zon eller kartposition för dig, dock når vissningar och inbjudningar dig ändå; ditt lag ser alltid dig. En enkel /presence talar om för dig vilken som är inställd.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Dykning',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Störtdykning',

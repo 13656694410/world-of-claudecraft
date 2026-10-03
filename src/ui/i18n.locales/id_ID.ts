@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const id_ID: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Bangkit PvP',
+  'hudChrome.death.pvpResurrectTitle':
+    'Bangkit di kuburan terdekat dengan kesehatan penuh, tanpa Pajak Penjaga yang baru.',
+  'hudChrome.hill.callout.dominating': '{name} menguasai!',
+  'hudChrome.hill.callout.godlike': '{name} seperti dewa!',
+  'hudChrome.hill.callout.killingSpree': '{name} berdarah-darahan!',
+  'hudChrome.hill.callout.legendary': '{name} legendaris!',
+  'hudChrome.hill.callout.rampage': '{name} mengamuk!',
+  'hudChrome.hill.callout.shutDown': '{killer} telah membungkam {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} tidak terbendung!',
+  'hudChrome.nameplate.bountyTag': 'Hadiah {honor}',
+  'hudChrome.social.presence.everyone': 'Semua orang',
+  'hudChrome.social.presence.friends': 'Hanya teman',
+  'hudChrome.social.presence.label': 'Tampilkan diriku online ke',
+  'hudChrome.social.presence.none': 'Tidak ada',
+  'hudChrome.social.presence.title':
+    'Siapa yang melihatmu online di daftar teman dan rostelunsur serikat, beserta zona dan posisi petamu. Partimu selalu melihatmu.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Beli {item} seharga {price}? Pembelian ini tidak dapat dikembalikan.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Perang hanya dihitung di tangan utama.',
+  'entities.items.vanguard_band_of_focus.name': 'Sabuk Pelopor Fokus',
+  'entities.items.vanguard_band_of_mending.name': 'Sabuk Pelopor Penyembuhan',
+  'entities.items.vanguard_band_of_might.name': 'Sabuk Pelopor Kekuatan',
+  'entities.items.vanguard_band_of_precision.name': 'Sabuk Pelopor Presisi',
+  'entities.items.vanguard_pendant_of_focus.name': 'Liontin Pelopor Fokus',
+  'entities.items.vanguard_pendant_of_mending.name': 'Liontin Pelopor Penyembuhan',
+  'entities.items.vanguard_pendant_of_might.name': 'Liontin Pelopor Kekuatan',
+  'entities.items.vanguard_pendant_of_precision.name': 'Liontin Pelopor Presisi',
+  'guide.arenaPage.vanguardStatsBody':
+    'Tidak seperti tingkat asli, perlengkapan Pelopor juga membawa rating pertarungan: setiap baju zirah Pelopor, senjata, dan kalung memiliki Rating Kritis atau Rating Kecepatan, dan bagian untuk penyihir dan penyembuh menambahkan Kekuatan Mantra atau Kekuatan Penyembuhan. Cincin dan kalung Pelopor dijual di sebelah senjata, dan setiap kelas dapat memakainya. Dua dari cincin jarak dekat Pelopor memberikan persis Rating Pukulan yang menghilangkan peluang dasar serangan mu meleset pada pemain level mu, dan dua cincin penyihir melakukan hal yang sama untuk mantramu ditolak. Serangan otomatis saat dual-wielding tetap mempertahankan peluang meleset tambahan mereka. Cincin penyembuh membawa Rating Kecepatan sebagai gantinya.',
+  'guide.commandsPage.presence':
+    'Siapa yang melihatmu online di daftar teman, rostelunsur serikatmu, dan /who: /presence everyone (standar), /presence friends (hanya pemain di daftar temamu) atau /presence none. Tersembunyi, mereka tidak melihat titik online, zona, atau posisi peta untukmu, meski bisikan dan undangan tetap menjangkaumu; partimu selalu melihatmu. Ketik /presence saja untuk memberitahumu mana yang diatur.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Menyelam',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Menyelam Dalam',

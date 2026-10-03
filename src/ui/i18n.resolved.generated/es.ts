@@ -594,8 +594,8 @@ export const es: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Resucitar en el cadáver",
-      "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
+      "pvpResurrect": "Resucitar JcJ",
+      "pvpResurrectTitle": "Revive en el cementerio más cercano con vida plena, sin un nuevo Tañido del Guardián.",
       "resurrectAtHealer": "El Guardián Pálido (Tañido del Guardián)",
       "ghostHint": "Corre hasta el lugar de tu muerte o habla con el Guardián Pálido para revivir",
       "spiritHealerAlive": "El Guardián Pálido vela por los muertos. Tú aún estás entre los vivos.",
@@ -2848,13 +2848,13 @@ export const es: EnTranslations = {
       "pvpEntry": "Entrar en el círculo activo activa el JcJ mundial.",
       "pvpBanner": "JcJ",
       "callout": {
-        "killingSpree": "{name} is on a Killing Spree!",
-        "rampage": "{name} is on a Rampage!",
-        "unstoppable": "{name} is Unstoppable!",
-        "dominating": "{name} is Dominating!",
-        "godlike": "{name} is Godlike!",
-        "legendary": "{name} is Legendary!",
-        "shutDown": "{killer} has shut down {victim}!"
+        "killingSpree": "¡{name} está en Racha Letal!",
+        "rampage": "¡{name} está Desenfrenado!",
+        "unstoppable": "¡{name} es Imparable!",
+        "dominating": "¡{name} está Dominando!",
+        "godlike": "¡{name} es Divino!",
+        "legendary": "¡{name} es Legendario!",
+        "shutDown": "¡{killer} ha detenido a {victim}!"
       },
       "standingRaid": "Los miembros de banda no cuentan: solo los grupos pueden controlar la colina"
     },
@@ -2869,7 +2869,7 @@ export const es: EnTranslations = {
       "buyAria": "Comprar {item} por {honor}",
       "buyOwnedAria": "Comprar {item} por {honor}, ya adquirido",
       "buyConfirmBody": "¿Comprar {item} por {honor}? Las compras con Honor no se pueden reembolsar.",
-      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
+      "buyConfirmBodyGold": "¿Comprar {item} por {price}? Esta compra no se puede reembolsar."
     },
     "charSheet": {
       "offense": "Ofensiva",
@@ -4208,7 +4208,7 @@ export const es: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
-      "bountyTag": "Bounty {honor}",
+      "bountyTag": "Recompensa {honor}",
       "pvpTag": "JcJ",
       "cheaterTag": "< Tramposo >",
       "pledgeTag": "Juramento a {guild}",
@@ -5064,11 +5064,11 @@ export const es: EnTranslations = {
       "hideOffline": "Ocultar desconectados",
       "hideOfflineTitle": "Ocultar miembros desconectados de la hermandad",
       "presence": {
-        "label": "Show me online to",
-        "everyone": "Everyone",
-        "friends": "Friends only",
-        "none": "No one",
-        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+        "label": "Mostrarme conectado a",
+        "everyone": "Todos",
+        "friends": "Solo amigos",
+        "none": "Nadie",
+        "title": "Quién te ve conectado en listas de amigos y el registro de hermandad, con tu zona y posición en el mapa. Tu grupo siempre te ve."
       },
       "billboard": {
         "label": "Tablón de la Hermandad",
@@ -7569,7 +7569,7 @@ export const es: EnTranslations = {
       "arena": "Tu posición en el Coliseo Ceniciento en ambas categorías: índice, victorias, derrotas y porcentaje de victorias para 1c1 y para 2c2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Bandera JcJ mundial: /pvp la alterna; /pvp on y /pvp off la activan y desactivan. Los jugadores marcados pueden luchar entre sí en zonas disputadas; los santuarios no permiten combates JcJ mundiales. Entrar en el círculo activo del Rey de la Colina activa tu bandera. Desactivarla tarda 5 minutos.",
-      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
+      "presence": "Quién te ve conectado en listas de amigos, el registro de tu hermandad y /who: /presence everyone (el predeterminado), /presence friends (solo jugadores de tu lista de amigos), o /presence none. Oculto, no ven un punto conectado, zona o posición de mapa para ti, aunque los susurros e invitaciones aún te llegan; tu grupo siempre te ve. Un /presence a secas te dice cuál está establecido.",
       "flair": "Muestra u oculta tu rol de Discord a otros jugadores, es decir, tu nombre en color, tu etiqueta de rol y tu etiqueta de chat verificada: /flair on lo muestra, /flair off lo oculta y /flair a secas te dice cuál está activo. Requiere una cuenta de Discord vinculada.",
       "listings": "Tus propios anuncios en el Mercado Mundial, con el precio pedido, el tiempo que le queda a cada uno, y cuánto espacio te queda para publicar más.",
       "buyback": "Lo que has vendido recientemente a un vendedor y todavía puedes recomprar.",
@@ -8334,7 +8334,7 @@ export const es: EnTranslations = {
       "warfareTradeBodyRatingSpent": "Ese es el intercambio deliberado. El equipo de Guerra está hecho para combatir jugadores, no para saltarse los niveles de mazmorra: una pieza de Guerra nunca lleva los índices de combate que tendría un épico de mazmorra en el mismo hueco, y los índices y bonificaciones de Guerra que sí lleva se gastan por completo contra otros jugadores. Si quieres competir en arena, cómpralo. Si quieres limpiar heroicas más rápido, consigue tu equipo en las mazmorras.",
       "vanguardHeading": "Equipo de Vanguardia: Guerra, temporada 2",
       "vanguardBody": "El equipo de Vanguardia es la segunda temporada del equipo de Guerra, vendido por los mismos dos intendentes, por encima del nivel original, que sigue a la venta. Cada especialización tiene su propio conjunto de Vanguardia de cinco piezas, para la cabeza, los hombros, el pecho, las piernas y las manos, y la tienda solo lista los tres conjuntos que tu clase puede vestir, seguidos de las armas de Vanguardia que puedes empuñar. Una pieza de Vanguardia lleva las mismas características de Guerra que el nivel original a un nivel de objeto más alto, y cada conjunto tiene dos bonificaciones, a dos y cuatro piezas, que cambian una de las habilidades de tu especialización. A diferencia de los conjuntos originales, esas bonificaciones funcionan en todas partes, monstruos incluidos, pero están pensadas para luchar contra jugadores, así que un conjunto de banda sigue siendo la mejor opción dentro de una banda.",
-      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
+      "vanguardStatsBody": "A diferencia del nivel original, el equipo de Vanguardia también lleva índices de combate: cada pieza de armadura, arma y collar de Vanguardia tiene Índice de Golpe Crítico o Índice de Celeridad, y las piezas de lanzador de hechizos y sanador añaden Poder con Hechizos o Poder de Sanación. Los anillos y collares de Vanguardia se venden junto con las armas, y todas las clases pueden usarlos. Dos de los anillos cuerpo a cuerpo de Vanguardia dan exactamente el Índice de Impacto que elimina la posibilidad base de que tus ataques fallen contra un jugador de tu nivel, y dos anillos de lanzador de hechizos hacen lo mismo con que tus hechizos sean resistidos. Los ataques automáticos mientras luchas con dos armas conservan su posibilidad de fallo adicional. El anillo de sanador lleva Índice de Celeridad en su lugar."
     },
     "worldPvpPage": {
       "heading": "JcJ Mundial",
@@ -12792,7 +12792,7 @@ export const es: EnTranslations = {
       "dps": "({dps} de daño por segundo)",
       "armorStat": "{value} de armadura",
       "stat": "+{value} {stat}",
-      "warfareMainHandOnly": "Warfare counts only in the main hand.",
+      "warfareMainHandOnly": "La Pericia bélica se cuenta solo en la mano principal.",
       "useFood": "Uso: restaura {amount} de salud durante {seconds} s. Debes permanecer sentado mientras comes.",
       "useDrink": "Uso: restaura {amount} de maná durante {seconds} s. Debes permanecer sentado mientras bebes.",
       "useElixir": "Uso: aumenta tu {stat} en {value} durante {minutes} min. Reemplaza cualquier otro elixir o pergamino del mismo atributo. Se puede usar en combate.",
@@ -18488,28 +18488,28 @@ export const es: EnTranslations = {
         "name": "Bastón feral de la Vanguardia"
       },
       "vanguard_band_of_might": {
-        "name": "Vanguard's Band of Might"
+        "name": "Anillo de Vanguardia de Poder"
       },
       "vanguard_band_of_precision": {
-        "name": "Vanguard's Band of Precision"
+        "name": "Anillo de Vanguardia de Precisión"
       },
       "vanguard_band_of_focus": {
-        "name": "Vanguard's Band of Focus"
+        "name": "Anillo de Vanguardia de Enfoque"
       },
       "vanguard_band_of_mending": {
-        "name": "Vanguard's Band of Mending"
+        "name": "Anillo de Vanguardia de Curación"
       },
       "vanguard_pendant_of_might": {
-        "name": "Vanguard's Pendant of Might"
+        "name": "Colgante de Vanguardia de Poder"
       },
       "vanguard_pendant_of_precision": {
-        "name": "Vanguard's Pendant of Precision"
+        "name": "Colgante de Vanguardia de Precisión"
       },
       "vanguard_pendant_of_focus": {
-        "name": "Vanguard's Pendant of Focus"
+        "name": "Colgante de Vanguardia de Enfoque"
       },
       "vanguard_pendant_of_mending": {
-        "name": "Vanguard's Pendant of Mending"
+        "name": "Colgante de Vanguardia de Curación"
       },
       "conjured_water4": {
         "name": "Agua de Manantial Conjurada"

@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const tr_TR: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'PvP Diriltme',
+  'hudChrome.death.pvpResurrectTitle':
+    'En yakın mezarlıkta tam sağlıkla dirilt, yeni bir Bekçi Bedeli olmadan.',
+  'hudChrome.hill.callout.dominating': '{name} Hükmediyor!',
+  'hudChrome.hill.callout.godlike': '{name} Tanrısal!',
+  'hudChrome.hill.callout.killingSpree': '{name} Katliam Akışındadır!',
+  'hudChrome.hill.callout.legendary': '{name} Efsanevî!',
+  'hudChrome.hill.callout.rampage': '{name} Çılgın Öfkededir!',
+  'hudChrome.hill.callout.shutDown': '{killer}, {victim} serisini bitirdi!',
+  'hudChrome.hill.callout.unstoppable': '{name} Durdurulamaz!',
+  'hudChrome.nameplate.bountyTag': 'Ödül {honor}',
+  'hudChrome.social.presence.everyone': 'Herkes',
+  'hudChrome.social.presence.friends': 'Sadece arkadaşlar',
+  'hudChrome.social.presence.label': 'Beni çevrimiçi olarak göster',
+  'hudChrome.social.presence.none': 'Kimse',
+  'hudChrome.social.presence.title':
+    'Kimin seni arkadaş listelerinde ve lonca çizelgesinde çevrimiçi göreceği, bölgen ve harita konumunla. Partun seni her zaman görür.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    '{item} için {price} karşılığında satın alınsın mı? Bu satın alma geri alınamaz.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Savaş sadece ana elde sayılır.',
+  'entities.items.vanguard_band_of_focus.name': "Öncü'nün Odaklanma Halkası",
+  'entities.items.vanguard_band_of_mending.name': "Öncü'nün İyileştirme Halkası",
+  'entities.items.vanguard_band_of_might.name': "Öncü'nün Güç Halkası",
+  'entities.items.vanguard_band_of_precision.name': "Öncü'nün Kesinlik Halkası",
+  'entities.items.vanguard_pendant_of_focus.name': "Öncü'nün Odaklanma Kolyesi",
+  'entities.items.vanguard_pendant_of_mending.name': "Öncü'nün İyileştirme Kolyesi",
+  'entities.items.vanguard_pendant_of_might.name': "Öncü'nün Güç Kolyesi",
+  'entities.items.vanguard_pendant_of_precision.name': "Öncü'nün Kesinlik Kolyesi",
+  'guide.arenaPage.vanguardStatsBody':
+    'Orijinal seviyenin aksine, Öncü ekipmesi savaş puanlarını da taşır: her Öncü zırh parçası, silah ve kolyenin Kritik Puanı veya Hız Puanı vardır ve büyücü ile iyileştirici parçalar Büyü Gücü veya İyileştirme Gücü ekler. Öncü yüzükleri ve kolyeler silahların yanında satılır ve her sınıf onları giyebilir. Öncü yakın dövüş yüzüklerinden ikisi tam olarak senin sınıfının oyuncusu kadar seviyedeki saldırılarını vuracağı şansını ortadan kaldıran İsabetlilik Puanı verir ve iki büyü yüzüğü senin büyülerinin dirençli olması için aynı şeyi yapar. Çift silah tutarken otomatik saldırılar ekstra kaçırma şansını korur. İyileştirici yüzüğü bunun yerine Hız Puanı taşır.',
+  'guide.commandsPage.presence':
+    "Arkadaş listelerinde, lonca çizelgesinde ve /who'da seni çevrimiçi olarak kimin göreceği: /presence everyone (varsayılan), /presence friends (sadece arkadaş listendeki oyuncular) veya /presence none. Gizliyken, senin için hiç çevrimiçi nokta, bölge veya harita konumu görmezler, fakat fısıltılar ve davetiyeler sana ulaşmaya devam eder; grubun seni her zaman görür. Düz /presence sana hangisinin ayarlanmış olduğunu söyler.",
   'abilityUi.actionBar.cooldownMinutes': '{minutes}d',
   'abilityUi.cast.hoard_cast_bat_dive': 'Dalış',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Derin Dalış',

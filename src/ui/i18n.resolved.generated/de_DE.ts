@@ -594,8 +594,8 @@ export const de_DE: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Am Leichnam wiederbeleben",
-      "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
+      "pvpResurrect": "PvP-Wiederbelebung",
+      "pvpResurrectTitle": "Belebe dich auf dem nächsten Friedhof mit voller Gesundheit wieder, ohne einen neuen Zoll des Hüters.",
       "resurrectAtHealer": "Der Bleiche Hüter (Zoll des Hüters)",
       "ghostHint": "Laufe zum Ort deines Todes oder sprich mit dem Bleichen Hüter, um wiederbelebt zu werden",
       "spiritHealerAlive": "Der Bleiche Hüter wacht über die Toten. Du weilst noch unter den Lebenden.",
@@ -2848,13 +2848,13 @@ export const de_DE: EnTranslations = {
       "pvpEntry": "Das Betreten des aktiven Kreises aktiviert Welt-PvP.",
       "pvpBanner": "PvP",
       "callout": {
-        "killingSpree": "{name} is on a Killing Spree!",
-        "rampage": "{name} is on a Rampage!",
-        "unstoppable": "{name} is Unstoppable!",
-        "dominating": "{name} is Dominating!",
-        "godlike": "{name} is Godlike!",
-        "legendary": "{name} is Legendary!",
-        "shutDown": "{killer} has shut down {victim}!"
+        "killingSpree": "{name} befindet sich in einem Tötungsrausch!",
+        "rampage": "{name} begeht ein Massaker!",
+        "unstoppable": "{name} ist unaufhaltsam!",
+        "dominating": "{name} dominiert!",
+        "godlike": "{name} ist göttlich!",
+        "legendary": "{name} ist legendär!",
+        "shutDown": "{killer} hat {victim} ausgeschaltet!"
       },
       "standingRaid": "Schlachtzugsmitglieder zählen nicht: Nur Gruppen können den Hügel halten"
     },
@@ -2869,7 +2869,7 @@ export const de_DE: EnTranslations = {
       "buyAria": "{item} für {honor} kaufen",
       "buyOwnedAria": "{item} für {honor} kaufen, bereits im Besitz",
       "buyConfirmBody": "{item} für {honor} kaufen? Käufe mit Ehre können nicht erstattet werden.",
-      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
+      "buyConfirmBodyGold": "{item} für {price} kaufen? Diesen Kauf kannst du nicht rückgängig machen."
     },
     "charSheet": {
       "offense": "Angriff",
@@ -4208,7 +4208,7 @@ export const de_DE: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
-      "bountyTag": "Bounty {honor}",
+      "bountyTag": "Kopfgeld {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Schummler >",
       "pledgeTag": "Gelöbnis: {guild}",
@@ -5064,11 +5064,11 @@ export const de_DE: EnTranslations = {
       "hideOffline": "Offline ausblenden",
       "hideOfflineTitle": "Offline-Gildenmitglieder ausblenden",
       "presence": {
-        "label": "Show me online to",
-        "everyone": "Everyone",
-        "friends": "Friends only",
-        "none": "No one",
-        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+        "label": "Online sichtbar für",
+        "everyone": "Jeder",
+        "friends": "Nur Freunde",
+        "none": "Niemand",
+        "title": "Wer sieht dich online in Freundeslisten und der Gildenliste, mit deiner Zone und Kartenposition. Deine Gruppe sieht dich immer."
       },
       "billboard": {
         "label": "Gildenpinnwand",
@@ -7569,7 +7569,7 @@ export const de_DE: EnTranslations = {
       "arena": "Dein Stand im Aschenen Kolosseum in beiden Wertungsklassen: Wertung, Siege, Niederlagen und Gewinnrate für 1v1 und für 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Welt-PvP-Flagge: /pvp schaltet sie um, /pvp on und /pvp off setzen den Zustand. Geflaggte Spieler können auf umkämpftem Boden gegeneinander kämpfen; in Schutzgebieten gibt es kein Welt-PvP. Das Betreten des aktiven Kreises von König des Hügels setzt deine Flagge. Das Ausschalten dauert 5 Minuten.",
-      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
+      "presence": "Wer sieht dich online in Freundeslisten, deiner Gildenliste und /who: /presence everyone (der Standard), /presence friends (nur Spieler auf deiner Freundesliste), oder /presence none. Versteckt sehen sie keinen Online-Punkt, keine Zone und keine Kartenposition für dich, obwohl Flüstern und Einladungen dich immer noch erreichen; deine Gruppe sieht dich immer. Ein einfaches /presence sagt dir, was eingestellt ist.",
       "flair": "Zeigt oder verbirgt deine Discord-Rolle für andere Spieler, also deinen farbigen Namen, dein Rollenabzeichen und dein verifiziertes Chat-Abzeichen: /flair on zeigt sie an, /flair off blendet sie aus, und /flair allein sagt dir, was eingestellt ist. Erfordert ein verknüpftes Discord-Konto.",
       "listings": "Deine eigenen Angebote auf dem Weltmarkt, mit dem geforderten Preis, der verbleibenden Zeit für jedes und wie viel Platz du für weitere hast.",
       "buyback": "Was du kürzlich an einen Händler verkauft hast und noch zurückkaufen könntest.",
@@ -8334,7 +8334,7 @@ export const de_DE: EnTranslations = {
       "warfareTradeBodyRatingSpent": "Kriegsführungsausrüstung ist für Spieler gegen Spieler gedacht und überspringt keine Dungeonstufen. Sie trägt nicht die Kampfbewertungen eines Dungeonepics, sondern investiert ihre Bewertungen und Setboni vollständig in Kämpfe gegen Spieler. Für die Arena kaufst du sie, für schnellere heroische Dungeons verdienst du deine Ausrüstung dort.",
       "vanguardHeading": "Vorhut-Ausrüstung: Kriegsführung Saison 2",
       "vanguardBody": "Vorhut-Ausrüstung ist die zweite Saison der Kriegsführungsausrüstung, verkauft von denselben zwei Quartiermeistern, oberhalb der ursprünglichen Stufe, die weiterhin im Angebot bleibt. Jede Spezialisierung hat ihr eigenes Vorhut-Set aus fünf Teilen, für Kopf, Schultern, Brust, Beine und Hände, und der Laden listet nur die drei Sets, die deine Klasse tragen kann, gefolgt von den Vorhut-Waffen, die du führen kannst. Ein Vorhut-Teil trägt dieselben Kriegsführungswertungen wie die ursprüngliche Stufe, jedoch bei einer höheren Gegenstandsstufe, und jedes Set hat zwei Boni, bei zwei und vier Teilen, die eine Fähigkeit deiner Spezialisierung verändern. Anders als die ursprünglichen Sets wirken diese Boni überall, auch gegen Monster, doch sie sind für den Kampf gegen Spieler gebaut, sodass ein Schlachtzug-Set innerhalb eines Schlachtzugs die bessere Wahl bleibt.",
-      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
+      "vanguardStatsBody": "Anders als die ursprüngliche Stufe trägt die Vorhut-Ausrüstung auch Kampfwertungen: Jedes Vorhut-Rüstungsteil, jede Waffe und jede Halskette hat Kritische Trefferwertung oder Tempowertung, und die Teile für Zauberer und Heiler fügen Zaubermacht oder Heilkraft hinzu. Die Vorhut-Ringe und Halsketten werden neben den Waffen verkauft, und jede Klasse kann sie tragen. Zwei der Vorhut-Nahkampfringe geben genau die Trefferwertung, die deine Attacken von einem Spieler deiner Stufe garantiert trifft, und zwei Zaubererringe machen das Gleiche für deine Zauber, die nicht widerstanden werden. Automatische Angriffe beim Doppelwielding behalten ihre zusätzliche Verfehlungschance. Der Heiler-Ring trägt stattdessen Tempowertung."
     },
     "worldPvpPage": {
       "heading": "Welt-PvP",
@@ -12792,7 +12792,7 @@ export const de_DE: EnTranslations = {
       "dps": "({dps} Schaden pro Sekunde)",
       "armorStat": "{value} Rüstung",
       "stat": "+{value} {stat}",
-      "warfareMainHandOnly": "Warfare counts only in the main hand.",
+      "warfareMainHandOnly": "Kriegsführung zählt nur in der Haupthand.",
       "useFood": "Benutzen: Stellt über {seconds} Sek. {amount} Gesundheit wieder her. Ihr müsst beim Essen sitzen bleiben.",
       "useDrink": "Benutzen: Stellt über {seconds} Sek. {amount} Mana wieder her. Ihr müsst beim Trinken sitzen bleiben.",
       "useElixir": "Benutzen: Erhöht deine {stat} für {minutes} Min. um {value}. Ersetzt jedes andere Elixier oder jede Schriftrolle desselben Werts. Im Kampf verwendbar.",
@@ -18488,28 +18488,28 @@ export const de_DE: EnTranslations = {
         "name": "Wildheitsstab der Vorhut"
       },
       "vanguard_band_of_might": {
-        "name": "Vanguard's Band of Might"
+        "name": "Vorhut-Ring der Macht"
       },
       "vanguard_band_of_precision": {
-        "name": "Vanguard's Band of Precision"
+        "name": "Vorhut-Ring der Präzision"
       },
       "vanguard_band_of_focus": {
-        "name": "Vanguard's Band of Focus"
+        "name": "Vorhut-Ring des Fokus"
       },
       "vanguard_band_of_mending": {
-        "name": "Vanguard's Band of Mending"
+        "name": "Vorhut-Ring der Heilung"
       },
       "vanguard_pendant_of_might": {
-        "name": "Vanguard's Pendant of Might"
+        "name": "Vorhut-Amulett der Macht"
       },
       "vanguard_pendant_of_precision": {
-        "name": "Vanguard's Pendant of Precision"
+        "name": "Vorhut-Amulett der Präzision"
       },
       "vanguard_pendant_of_focus": {
-        "name": "Vanguard's Pendant of Focus"
+        "name": "Vorhut-Amulett des Fokus"
       },
       "vanguard_pendant_of_mending": {
-        "name": "Vanguard's Pendant of Mending"
+        "name": "Vorhut-Amulett der Heilung"
       },
       "conjured_water4": {
         "name": "Herbeigezaubertes Quellwasser"

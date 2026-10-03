@@ -594,8 +594,8 @@ export const pl_PL: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Odrodź się przy zwłokach",
-      "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
+      "pvpResurrect": "Wznowienie PvP",
+      "pvpResurrectTitle": "Wznów się na najbliższym cmentarzu z pełnym zdrowiem, bez nowej Daniny Strażnika.",
       "resurrectAtHealer": "Blady Strażnik (Myto Strażnika)",
       "ghostHint": "Biegnij do miejsca śmierci lub porozmawiaj z Bladym Strażnikiem, aby się wznowić",
       "spiritHealerAlive": "Blady Strażnik czuwa nad umarłymi. Ty wciąż jesteś wśród żywych.",
@@ -2848,13 +2848,13 @@ export const pl_PL: EnTranslations = {
       "pvpEntry": "Wejście do aktywnego kręgu włącza PvP w świecie.",
       "pvpBanner": "PvP",
       "callout": {
-        "killingSpree": "{name} is on a Killing Spree!",
-        "rampage": "{name} is on a Rampage!",
-        "unstoppable": "{name} is Unstoppable!",
-        "dominating": "{name} is Dominating!",
-        "godlike": "{name} is Godlike!",
-        "legendary": "{name} is Legendary!",
-        "shutDown": "{killer} has shut down {victim}!"
+        "killingSpree": "{name} ma serię zabójstw!",
+        "rampage": "{name} szaleje!",
+        "unstoppable": "{name} jest nie do zatrzymania!",
+        "dominating": "{name} dominuje!",
+        "godlike": "{name} jest boski!",
+        "legendary": "{name} jest legendarny!",
+        "shutDown": "{killer} zakończył(a) passę gracza {victim}!"
       },
       "standingRaid": "Członkowie rajdu się nie liczą: tylko drużyny mogą trzymać wzgórze"
     },
@@ -2869,7 +2869,7 @@ export const pl_PL: EnTranslations = {
       "buyAria": "Kup {item} za {honor}",
       "buyOwnedAria": "Kup {item} za {honor}, już posiadane",
       "buyConfirmBody": "Kupić {item} za {honor}? Zakupów za Honor nie można zwrócić.",
-      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
+      "buyConfirmBodyGold": "Kupić {item} za {price}? Ten zakup nie może być zwrócony."
     },
     "charSheet": {
       "offense": "Atak",
@@ -4208,7 +4208,7 @@ export const pl_PL: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
-      "bountyTag": "Bounty {honor}",
+      "bountyTag": "Nagroda {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Oszust >",
       "pledgeTag": "Ślubowanie: {guild}",
@@ -5064,11 +5064,11 @@ export const pl_PL: EnTranslations = {
       "hideOffline": "Ukryj offline",
       "hideOfflineTitle": "Ukryj offline członków gildii",
       "presence": {
-        "label": "Show me online to",
-        "everyone": "Everyone",
-        "friends": "Friends only",
-        "none": "No one",
-        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+        "label": "Pokaż mnie jako online",
+        "everyone": "Wszyscy",
+        "friends": "Tylko przyjaciele",
+        "none": "Nikt",
+        "title": "Kto cię widzi jako online na listach przyjaciół i w rostrze gildii, twoją strefę i pozycję na mapie. Twoja drużyna cię zawsze widzi."
       },
       "billboard": {
         "label": "Tablica ogłoszeń gildii",
@@ -7569,7 +7569,7 @@ export const pl_PL: EnTranslations = {
       "arena": "Twoja pozycja w Popielnym Koloseum w obu przedziałach: ranking, zwycięstwa, porażki i wskaźnik zwycięstw dla 1 na 1 i 2 na 2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Flaga PvP w świecie: /pvp ją przełącza, /pvp on włącza, a /pvp off wyłącza. Oznaczeni gracze mogą walczyć ze sobą na spornych terenach, sanktuaria nie pozwalają na żadne walki w świecie, a wejście do aktywnego kręgu Króla Wzgórza włącza twoją flagę; wyłączenie trwa 5 minut.",
-      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
+      "presence": "Kto cię widzi jako online na listach przyjaciół, w spisie członków gildii i /who: /presence everyone (domyślnie), /presence friends (tylko gracze na twojej liście przyjaciół), lub /presence none. Gdy jesteś ukryty, nie widzą żadnej kropki online, twojej strefy ani pozycji na mapie, chociaż szepty i zaproszenia do ciebie docierają; twoja drużyna zawsze cię widzi. Zwykłe /presence mówi ci, co jest ustawione.",
       "flair": "Pokazuje lub ukrywa twoją rolę z Discorda przed innymi graczami, czyli kolorową nazwę, plakietkę roli i zweryfikowaną plakietkę na czacie: /flair on ją pokazuje, /flair off ją ukrywa, a samo /flair mówi, co jest ustawione. Wymaga połączonego konta Discord.",
       "listings": "Twoje własne oferty na Rynku Świata, wraz z ceną wywoławczą, pozostałym czasem każdej z nich i tym, ile masz jeszcze miejsca na kolejne.",
       "buyback": "Co ostatnio sprzedałeś sprzedawcy i wciąż możesz odkupić.",
@@ -8334,7 +8334,7 @@ export const pl_PL: EnTranslations = {
       "warfareTradeBodyRatingSpent": "To zamierzona wymiana. Sprzęt Wojny służy do walki z graczami, a nie do omijania poziomów lochów: część sprzętu Wojny nigdy nie ma ocen bojowych, które ma epicki przedmiot z lochu w tym samym miejscu, lecz zamiast tego całą swoją ocenę Wojny i premie zestawu przeznacza na innych graczy. Jeśli chcesz utrzymać się na arenie, kup go. Jeśli chcesz szybciej czyścić tryby heroiczne, zdobądź sprzęt w lochach.",
       "vanguardHeading": "Zbroja Awangardy: Sezon Wojenki 2",
       "vanguardBody": "Zbroja Awangardy to drugi sezon zbroi wojennej, sprzedawanej przez tych samych dwóch kwatermistrzów powyżej oryginalnego poziomu, który pozostaje w sprzedaży. Każda specjalizacja ma swój własny zestaw Awangardy pięciu części, dla głowy, ramion, klatki piersiowej, nóg i rąk, a sklep wyświetla tylko trzy zestawy, które twoja klasa może nosić, a następnie broń Awangardy, którą możesz władać. Część Awangardy nosi te same oceny wojennej co oryginalny poziom na wyższym poziomie przedmiotu, a każdy zestaw ma dwa bonusy, przy dwóch i czterech częściach, które zmieniają jedną z umiejętności twojej specjalizacji. W przeciwieństwie do oryginalnych zestawów, te bonusy działają wszędzie, potwory wlączone, ale są zbudowane do walki z graczami, więc zestaw rajdu pozostaje lepszym wyborem wewnątrz rajdu.",
-      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
+      "vanguardStatsBody": "W przeciwieństwie do oryginalnego poziomu, zbroja Awangardy nosi też oceny bojowe: każdy kawałek zbroi Awangardy, broń i naszyjnik ma Ocenę Krytyczną lub Ocenę Pośpiechu, a części dla czarownika i uzdrowiciela dodają Moc Zaklęcia lub Moc Leczenia. Pierścienie i naszyjniki Awangardy są sprzedawane obok broni i każda klasa je może nosić. Dwa z pierścieni Awangardy do walki wręcz dają dokładnie Ocenę Trafienia, która eliminuje szansę, że twoje ataki trafią gracza twojego poziomu, a dwa pierścienie czarowania robią to samo dla twoich zaklęć, które są oporami. Ataki automatyczne podczas walki z dwiema bronią zachowują swoją dodatkową szansę chybienia. Pierścień uzdrowiciela nosi zamiast tego Ocenę Pośpiechu."
     },
     "worldPvpPage": {
       "heading": "PvP na Świecie",
@@ -12792,7 +12792,7 @@ export const pl_PL: EnTranslations = {
       "dps": "({dps} obrażeń na sekundę)",
       "armorStat": "{value} pancerza",
       "stat": "+{value} {stat}",
-      "warfareMainHandOnly": "Warfare counts only in the main hand.",
+      "warfareMainHandOnly": "Działania wojenne liczą się tylko w głównej ręce.",
       "useFood": "Użycie: Przywraca {amount} zdrowia w ciągu {seconds} s. Podczas jedzenia musisz pozostać w pozycji siedzącej.",
       "useDrink": "Użycie: Przywraca {amount} many w ciągu {seconds} s. Podczas picia musisz pozostać w pozycji siedzącej.",
       "useElixir": "Użycie: Zwiększa {stat} o {value} na {minutes} min. Zastępuje każdy inny eliksir lub zwój tej samej cechy. Można użyć w walce.",
@@ -18488,28 +18488,28 @@ export const pl_PL: EnTranslations = {
         "name": "Dziki kostur Awangardy"
       },
       "vanguard_band_of_might": {
-        "name": "Vanguard's Band of Might"
+        "name": "Pierścień Awangardy Mocy"
       },
       "vanguard_band_of_precision": {
-        "name": "Vanguard's Band of Precision"
+        "name": "Pierścień Awangardy Precyzji"
       },
       "vanguard_band_of_focus": {
-        "name": "Vanguard's Band of Focus"
+        "name": "Pierścień Awangardy Skupienia"
       },
       "vanguard_band_of_mending": {
-        "name": "Vanguard's Band of Mending"
+        "name": "Pierścień Awangardy Gojenia"
       },
       "vanguard_pendant_of_might": {
-        "name": "Vanguard's Pendant of Might"
+        "name": "Wisior Awangardy Mocy"
       },
       "vanguard_pendant_of_precision": {
-        "name": "Vanguard's Pendant of Precision"
+        "name": "Wisior Awangardy Precyzji"
       },
       "vanguard_pendant_of_focus": {
-        "name": "Vanguard's Pendant of Focus"
+        "name": "Wisior Awangardy Skupienia"
       },
       "vanguard_pendant_of_mending": {
-        "name": "Vanguard's Pendant of Mending"
+        "name": "Wisior Awangardy Gojenia"
       },
       "conjured_water4": {
         "name": "Wyczarowana woda źródlana"

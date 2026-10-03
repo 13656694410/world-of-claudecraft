@@ -140,9 +140,11 @@ export const table: ReliquaryLocaleTable = {
   },
   conquerors_warfare_gallery: {
     name: 'Savaş Galerisi',
+    desc: 'Birinci sezonun beş Savaş muharebe takımı, şimdi altın karşılığında parça parça satılmaktadır.',
   },
   conquerors_warfare_armory: {
     name: 'Savaş Cephaneliği',
+    desc: 'Savaş takıları ve silahları, birinci sezon altın karşılığında ve iki harika eşya onur karşılığında.',
   },
   conquerors_vanguard_gallery: {
     name: 'Öncü Galerisi',

@@ -13,6 +13,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const it_IT: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Risorgi PvP',
+  'hudChrome.death.pvpResurrectTitle':
+    'Risorgi al cimitero più vicino a piena salute, senza un nuovo Mal di resurrezione.',
+  'hudChrome.hill.callout.dominating': '{name} sta Dominando!',
+  'hudChrome.hill.callout.godlike': '{name} è Divino!',
+  'hudChrome.hill.callout.killingSpree': '{name} è in Follia Omicida!',
+  'hudChrome.hill.callout.legendary': '{name} è Leggendario!',
+  'hudChrome.hill.callout.rampage': '{name} è Scatenato!',
+  'hudChrome.hill.callout.shutDown': '{killer} ha zittito {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} è Inarrestabile!',
+  'hudChrome.nameplate.bountyTag': 'Taglia {honor}',
+  'hudChrome.social.presence.everyone': 'Tutti',
+  'hudChrome.social.presence.friends': 'Solo amici',
+  'hudChrome.social.presence.label': 'Mostrami online a',
+  'hudChrome.social.presence.none': 'Nessuno',
+  'hudChrome.social.presence.title':
+    'Chi ti vede online negli elenchi amici e nella lista gilda, con la tua zona e posizione sulla mappa. Il tuo gruppo ti vede sempre.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Acquistare {item} per {price}? Questo acquisto non può essere rimborsato.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Guerra si conta solo nella mano principale.',
+  'entities.items.vanguard_band_of_focus.name': 'Anello di Avanguardia di Mira',
+  'entities.items.vanguard_band_of_mending.name': 'Anello di Avanguardia di Guarigione',
+  'entities.items.vanguard_band_of_might.name': 'Anello di Avanguardia di Potenza',
+  'entities.items.vanguard_band_of_precision.name': 'Anello di Avanguardia di Precisione',
+  'entities.items.vanguard_pendant_of_focus.name': 'Ciondolo di Avanguardia di Mira',
+  'entities.items.vanguard_pendant_of_mending.name': 'Ciondolo di Avanguardia di Guarigione',
+  'entities.items.vanguard_pendant_of_might.name': 'Ciondolo di Avanguardia di Potenza',
+  'entities.items.vanguard_pendant_of_precision.name': 'Ciondolo di Avanguardia di Precisione',
+  'guide.arenaPage.vanguardStatsBody':
+    "Diversamente dal livello originale, l'equipaggiamento dell'Avanguardia porta anche classificazioni di combattimento: ogni pezzo di armatura, arma e collana dell'Avanguardia ha Indice di Critico o Indice di Celerità, e i pezzi degli incantatori e guaritori aggiungono Potere Magico o Potere di Guarigione. Gli anelli e le collane dell'Avanguardia sono venduti accanto alle armi, e ogni classe può indossarli. Due degli anelli da mischia dell'Avanguardia danno esattamente l'Indice di Colpo che elimina la possibilità di base che i tuoi attacchi manchino un giocatore del tuo stesso livello, e due anelli da incantatore fanno lo stesso per i tuoi incantesimi che vengono resistiti. Gli attacchi automatici mentre si impugna doppiamente mantengono la loro possibilità di errore aggiuntiva. L'anello del guaritore invece porta l'Indice di Celerità.",
+  'guide.commandsPage.presence':
+    'Chi ti vede online negli elenchi amici, la tua lista gilda e /who: /presence everyone (il predefinito), /presence friends (solo i giocatori nella tua lista amici), o /presence none. Nascosto, non vedono alcun puntino online, zona o posizione sulla mappa per te, sebbene i sussurri e gli inviti ti raggiungino ancora; il tuo gruppo ti vede sempre. Un semplice /presence ti dice quale sia impostato.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Tuffo',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Tuffo Precipitoso',

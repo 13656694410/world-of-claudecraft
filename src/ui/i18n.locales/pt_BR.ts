@@ -13,6 +13,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const pt_BR: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Ressuscitar PvP',
+  'hudChrome.death.pvpResurrectTitle':
+    'Reviver no cemitério mais próximo com saúde plena, sem um novo Tributo do Guardião.',
+  'hudChrome.hill.callout.dominating': '{name} está Dominando!',
+  'hudChrome.hill.callout.godlike': '{name} é Divino!',
+  'hudChrome.hill.callout.killingSpree': '{name} está em Matança Crescente!',
+  'hudChrome.hill.callout.legendary': '{name} é Lendário!',
+  'hudChrome.hill.callout.rampage': '{name} está Descontrolado!',
+  'hudChrome.hill.callout.shutDown': '{killer} derrubou {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} é Imparável!',
+  'hudChrome.nameplate.bountyTag': 'Recompensa {honor}',
+  'hudChrome.social.presence.everyone': 'Todos',
+  'hudChrome.social.presence.friends': 'Só amigos',
+  'hudChrome.social.presence.label': 'Mostrar-me online para',
+  'hudChrome.social.presence.none': 'Ninguém',
+  'hudChrome.social.presence.title':
+    'Quem vê você online em listas de amigos e na lista da guilda, com sua zona e posição no mapa. Seu grupo sempre vê você.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Comprar {item} por {price}? Esta compra não pode ser reembolsada.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Guerra se conta apenas na mão principal.',
+  'entities.items.vanguard_band_of_focus.name': 'Anel da Vanguarda de Foco',
+  'entities.items.vanguard_band_of_mending.name': 'Anel da Vanguarda de Cura',
+  'entities.items.vanguard_band_of_might.name': 'Anel da Vanguarda de Poder',
+  'entities.items.vanguard_band_of_precision.name': 'Anel da Vanguarda de Precisão',
+  'entities.items.vanguard_pendant_of_focus.name': 'Pingente da Vanguarda de Foco',
+  'entities.items.vanguard_pendant_of_mending.name': 'Pingente da Vanguarda de Cura',
+  'entities.items.vanguard_pendant_of_might.name': 'Pingente da Vanguarda de Poder',
+  'entities.items.vanguard_pendant_of_precision.name': 'Pingente da Vanguarda de Precisão',
+  'guide.arenaPage.vanguardStatsBody':
+    'Diferentemente do nível original, o equipamento da Vanguarda também traz classificações de combate: cada peça de armadura, arma e colar da Vanguarda tem Índice de Crítico ou Índice de Aceleração, e as peças de lançador de feitiço e curador adicionam Poder Mágico ou Poder de Cura. Os anéis e colares da Vanguarda são vendidos junto com as armas, e todas as classes podem usá-los. Dois dos anéis de combate corpo a corpo da Vanguarda dão exatamente a Classificação de Acerto que remove a chance base de seus ataques errarem um jogador de seu próprio nível, e dois anéis de lançador de feitiço fazem o mesmo para seus feitiços serem resistidos. Ataques automáticos enquanto se empunha duas armas mantêm sua chance de erro extra. O anel de curador carrega Índice de Aceleração em seu lugar.',
+  'guide.commandsPage.presence':
+    'Quem vê você online em listas de amigos, sua lista de guilda e /who: /presence everyone (o padrão), /presence friends (apenas jogadores em sua lista de amigos), ou /presence none. Oculto, eles não veem um ponto online, zona ou posição do mapa para você, mas sussurros e convites ainda chegam a você; seu grupo sempre vê você. Um simples /presence diz a você qual está configurado.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Mergulhando',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Mergulho em Profundidade',

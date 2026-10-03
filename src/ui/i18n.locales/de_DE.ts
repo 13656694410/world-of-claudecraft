@@ -13,6 +13,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const de_DE: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'PvP-Wiederbelebung',
+  'hudChrome.death.pvpResurrectTitle':
+    'Belebe dich auf dem nächsten Friedhof mit voller Gesundheit wieder, ohne einen neuen Zoll des Hüters.',
+  'hudChrome.hill.callout.dominating': '{name} dominiert!',
+  'hudChrome.hill.callout.godlike': '{name} ist göttlich!',
+  'hudChrome.hill.callout.killingSpree': '{name} befindet sich in einem Tötungsrausch!',
+  'hudChrome.hill.callout.legendary': '{name} ist legendär!',
+  'hudChrome.hill.callout.rampage': '{name} begeht ein Massaker!',
+  'hudChrome.hill.callout.shutDown': '{killer} hat {victim} ausgeschaltet!',
+  'hudChrome.hill.callout.unstoppable': '{name} ist unaufhaltsam!',
+  'hudChrome.nameplate.bountyTag': 'Kopfgeld {honor}',
+  'hudChrome.social.presence.everyone': 'Jeder',
+  'hudChrome.social.presence.friends': 'Nur Freunde',
+  'hudChrome.social.presence.label': 'Online sichtbar für',
+  'hudChrome.social.presence.none': 'Niemand',
+  'hudChrome.social.presence.title':
+    'Wer sieht dich online in Freundeslisten und der Gildenliste, mit deiner Zone und Kartenposition. Deine Gruppe sieht dich immer.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    '{item} für {price} kaufen? Diesen Kauf kannst du nicht rückgängig machen.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Kriegsführung zählt nur in der Haupthand.',
+  'entities.items.vanguard_band_of_focus.name': 'Vorhut-Ring des Fokus',
+  'entities.items.vanguard_band_of_mending.name': 'Vorhut-Ring der Heilung',
+  'entities.items.vanguard_band_of_might.name': 'Vorhut-Ring der Macht',
+  'entities.items.vanguard_band_of_precision.name': 'Vorhut-Ring der Präzision',
+  'entities.items.vanguard_pendant_of_focus.name': 'Vorhut-Amulett des Fokus',
+  'entities.items.vanguard_pendant_of_mending.name': 'Vorhut-Amulett der Heilung',
+  'entities.items.vanguard_pendant_of_might.name': 'Vorhut-Amulett der Macht',
+  'entities.items.vanguard_pendant_of_precision.name': 'Vorhut-Amulett der Präzision',
+  'guide.arenaPage.vanguardStatsBody':
+    'Anders als die ursprüngliche Stufe trägt die Vorhut-Ausrüstung auch Kampfwertungen: Jedes Vorhut-Rüstungsteil, jede Waffe und jede Halskette hat Kritische Trefferwertung oder Tempowertung, und die Teile für Zauberer und Heiler fügen Zaubermacht oder Heilkraft hinzu. Die Vorhut-Ringe und Halsketten werden neben den Waffen verkauft, und jede Klasse kann sie tragen. Zwei der Vorhut-Nahkampfringe geben genau die Trefferwertung, die deine Attacken von einem Spieler deiner Stufe garantiert trifft, und zwei Zaubererringe machen das Gleiche für deine Zauber, die nicht widerstanden werden. Automatische Angriffe beim Doppelwielding behalten ihre zusätzliche Verfehlungschance. Der Heiler-Ring trägt stattdessen Tempowertung.',
+  'guide.commandsPage.presence':
+    'Wer sieht dich online in Freundeslisten, deiner Gildenliste und /who: /presence everyone (der Standard), /presence friends (nur Spieler auf deiner Freundesliste), oder /presence none. Versteckt sehen sie keinen Online-Punkt, keine Zone und keine Kartenposition für dich, obwohl Flüstern und Einladungen dich immer noch erreichen; deine Gruppe sieht dich immer. Ein einfaches /presence sagt dir, was eingestellt ist.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Tauchen',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Sturzbiss',

@@ -594,8 +594,8 @@ export const id_ID: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Bangkit di Jasad",
-      "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
+      "pvpResurrect": "Bangkit PvP",
+      "pvpResurrectTitle": "Bangkit di kuburan terdekat dengan kesehatan penuh, tanpa Pajak Penjaga yang baru.",
       "resurrectAtHealer": "Sang Penjaga Pucat (Upeti Sang Penjaga)",
       "ghostHint": "Berlari ke lokasi kematianmu atau berbicara dengan Penjaga Pucat untuk hidup kembali",
       "spiritHealerAlive": "Sang Penjaga Pucat mengawasi para mati. Kamu masih termasuk yang hidup.",
@@ -2848,13 +2848,13 @@ export const id_ID: EnTranslations = {
       "pvpEntry": "Memasuki lingkaran aktif mengaktifkan PvP Dunia.",
       "pvpBanner": "PvP",
       "callout": {
-        "killingSpree": "{name} is on a Killing Spree!",
-        "rampage": "{name} is on a Rampage!",
-        "unstoppable": "{name} is Unstoppable!",
-        "dominating": "{name} is Dominating!",
-        "godlike": "{name} is Godlike!",
-        "legendary": "{name} is Legendary!",
-        "shutDown": "{killer} has shut down {victim}!"
+        "killingSpree": "{name} berdarah-darahan!",
+        "rampage": "{name} mengamuk!",
+        "unstoppable": "{name} tidak terbendung!",
+        "dominating": "{name} menguasai!",
+        "godlike": "{name} seperti dewa!",
+        "legendary": "{name} legendaris!",
+        "shutDown": "{killer} telah membungkam {victim}!"
       },
       "standingRaid": "Anggota raid tidak dihitung: hanya pihak yang dapat memegang bukit"
     },
@@ -2869,7 +2869,7 @@ export const id_ID: EnTranslations = {
       "buyAria": "Beli {item} seharga {honor}",
       "buyOwnedAria": "Beli {item} seharga {honor}, sudah dimiliki",
       "buyConfirmBody": "Beli {item} seharga {honor}? Pembelian dengan Kehormatan tidak dapat dikembalikan.",
-      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
+      "buyConfirmBodyGold": "Beli {item} seharga {price}? Pembelian ini tidak dapat dikembalikan."
     },
     "charSheet": {
       "offense": "Serangan",
@@ -4208,7 +4208,7 @@ export const id_ID: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
-      "bountyTag": "Bounty {honor}",
+      "bountyTag": "Hadiah {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Pemain Curang >",
       "pledgeTag": "Ikrar {guild}",
@@ -5064,11 +5064,11 @@ export const id_ID: EnTranslations = {
       "hideOffline": "Sembunyikan yang luring",
       "hideOfflineTitle": "Sembunyikan anggota serikat yang sedang luring",
       "presence": {
-        "label": "Show me online to",
-        "everyone": "Everyone",
-        "friends": "Friends only",
-        "none": "No one",
-        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+        "label": "Tampilkan diriku online ke",
+        "everyone": "Semua orang",
+        "friends": "Hanya teman",
+        "none": "Tidak ada",
+        "title": "Siapa yang melihatmu online di daftar teman dan rostelunsur serikat, beserta zona dan posisi petamu. Partimu selalu melihatmu."
       },
       "billboard": {
         "label": "Papan Pengumuman Serikat",
@@ -7569,7 +7569,7 @@ export const id_ID: EnTranslations = {
       "arena": "Kedudukanmu di Coliseum Abu pada kedua bracket: peringkat, menang, kalah, dan rasio kemenangan untuk 1v1 dan 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Bendera PvP Dunia: /pvp mengganti statusnya, /pvp on mengaktifkannya, dan /pvp off menonaktifkannya. Pemain berbendera dapat saling bertarung di wilayah sengketa, tempat perlindungan tidak mengizinkan pertempuran dunia sama sekali, dan memasuki lingkaran Raja Bukit yang aktif mengaktifkan benderamu; penonaktifan membutuhkan 5 menit.",
-      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
+      "presence": "Siapa yang melihatmu online di daftar teman, rostelunsur serikatmu, dan /who: /presence everyone (standar), /presence friends (hanya pemain di daftar temamu) atau /presence none. Tersembunyi, mereka tidak melihat titik online, zona, atau posisi peta untukmu, meski bisikan dan undangan tetap menjangkaumu; partimu selalu melihatmu. Ketik /presence saja untuk memberitahumu mana yang diatur.",
       "flair": "Menampilkan atau menyembunyikan peran Discord kamu bagi pemain lain, yaitu nama berwarna, tanda peran, dan tanda obrolan terverifikasi: /flair on menampilkannya, /flair off menyembunyikannya, dan /flair saja memberi tahu pengaturan yang aktif. Memerlukan akun Discord yang tertaut.",
       "listings": "Daftar milikmu sendiri di Pasar Dunia, lengkap dengan harga yang diminta, waktu tersisa masing-masing, dan berapa banyak ruang yang masih kamu miliki untuk menambah lagi.",
       "buyback": "Apa yang baru-baru ini kamu jual ke pedagang dan masih bisa kamu beli kembali.",
@@ -8334,7 +8334,7 @@ export const id_ID: EnTranslations = {
       "warfareTradeBodyRatingSpent": "Itulah pertukaran yang disengaja. Perlengkapan Perang dibuat untuk melawan pemain, bukan jalan pintas melewati tingkatan dungeon: perlengkapan Perang tidak pernah membawa rating pertarungan yang dimiliki epik dungeon pada slot yang sama, dan rating Perang serta bonus set yang dibawanya sepenuhnya digunakan untuk melawan pemain lain. Jika ingin bertahan di arena, belilah. Jika ingin menuntaskan mode heroik lebih cepat, dapatkan perlengkapanmu di dungeon.",
       "vanguardHeading": "Perlengkapan Vanguard: Musim Peperangan 2",
       "vanguardBody": "Perlengkapan Vanguard adalah musim kedua perlengkapan Peperangan, dijual oleh kedua dua kepala perbekalan yang sama di atas tingkat asli, yang tetap dijual. Setiap spesialisasi memiliki rangkaian Vanguard sendiri dengan lima potongan, untuk kepala, bahu, dada, kaki dan tangan, dan toko hanya mencantumkan tiga rangkaian yang kelas kamu dapat kenakan, diikuti oleh senjata Vanguard yang dapat kamu gunakan. Sebuah potongan Vanguard membawa peringkat Peperangan yang sama dengan tingkat asli pada tingkat item yang lebih tinggi, dan setiap rangkaian memiliki dua bonus, di dua dan empat potongan, yang mengubah salah satu kemampuan spesialisasi kamu. Tidak seperti rangkaian asli, bonus itu bekerja di mana-mana, monster termasuk, tetapi dibangun untuk melawan pemain, jadi rangkaian raid tetap menjadi pilihan yang lebih baik di dalam raid.",
-      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
+      "vanguardStatsBody": "Tidak seperti tingkat asli, perlengkapan Pelopor juga membawa rating pertarungan: setiap baju zirah Pelopor, senjata, dan kalung memiliki Rating Kritis atau Rating Kecepatan, dan bagian untuk penyihir dan penyembuh menambahkan Kekuatan Mantra atau Kekuatan Penyembuhan. Cincin dan kalung Pelopor dijual di sebelah senjata, dan setiap kelas dapat memakainya. Dua dari cincin jarak dekat Pelopor memberikan persis Rating Pukulan yang menghilangkan peluang dasar serangan mu meleset pada pemain level mu, dan dua cincin penyihir melakukan hal yang sama untuk mantramu ditolak. Serangan otomatis saat dual-wielding tetap mempertahankan peluang meleset tambahan mereka. Cincin penyembuh membawa Rating Kecepatan sebagai gantinya."
     },
     "worldPvpPage": {
       "heading": "Peperangan Dunia",
@@ -12792,7 +12792,7 @@ export const id_ID: EnTranslations = {
       "dps": "({dps} kerusakan per detik)",
       "armorStat": "{value} Zirah",
       "stat": "+{value} {stat}",
-      "warfareMainHandOnly": "Warfare counts only in the main hand.",
+      "warfareMainHandOnly": "Perang hanya dihitung di tangan utama.",
       "useFood": "Pakai: Memulihkan {amount} nyawa selama {seconds} detik. Harus tetap duduk selama makan.",
       "useDrink": "Pakai: Memulihkan {amount} mana selama {seconds} detik. Harus tetap duduk selama minum.",
       "useElixir": "Gunakan: Meningkatkan {stat} sebesar {value} selama {minutes} mnt. Menggantikan eliksir atau gulungan lain dengan statistik sama. Dapat digunakan dalam pertempuran.",
@@ -18488,28 +18488,28 @@ export const id_ID: EnTranslations = {
         "name": "Tongkat Liar Garda Depan"
       },
       "vanguard_band_of_might": {
-        "name": "Vanguard's Band of Might"
+        "name": "Sabuk Pelopor Kekuatan"
       },
       "vanguard_band_of_precision": {
-        "name": "Vanguard's Band of Precision"
+        "name": "Sabuk Pelopor Presisi"
       },
       "vanguard_band_of_focus": {
-        "name": "Vanguard's Band of Focus"
+        "name": "Sabuk Pelopor Fokus"
       },
       "vanguard_band_of_mending": {
-        "name": "Vanguard's Band of Mending"
+        "name": "Sabuk Pelopor Penyembuhan"
       },
       "vanguard_pendant_of_might": {
-        "name": "Vanguard's Pendant of Might"
+        "name": "Liontin Pelopor Kekuatan"
       },
       "vanguard_pendant_of_precision": {
-        "name": "Vanguard's Pendant of Precision"
+        "name": "Liontin Pelopor Presisi"
       },
       "vanguard_pendant_of_focus": {
-        "name": "Vanguard's Pendant of Focus"
+        "name": "Liontin Pelopor Fokus"
       },
       "vanguard_pendant_of_mending": {
-        "name": "Vanguard's Pendant of Mending"
+        "name": "Liontin Pelopor Penyembuhan"
       },
       "conjured_water4": {
         "name": "Air Mata Air Sihir"

@@ -140,9 +140,11 @@ export const table: ReliquaryLocaleTable = {
   },
   conquerors_warfare_gallery: {
     name: 'Kriegsführungsgalerie',
+    desc: 'Die fünf Kriegsführungs-Kampfausrüstungen der ersten Saison, jetzt einzeln für Gold verkauft.',
   },
   conquerors_warfare_armory: {
     name: 'Kriegsführungsarsenal',
+    desc: 'Kriegsführungsschmuck und -waffen, die erste Saison für Gold und die zwei Schmuckstücke für Ehre.',
   },
   conquerors_vanguard_gallery: {
     name: 'Vorhutgalerie',

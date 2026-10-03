@@ -594,8 +594,8 @@ export const it_IT: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Risorgi al cadavere",
-      "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
+      "pvpResurrect": "Risorgi PvP",
+      "pvpResurrectTitle": "Risorgi al cimitero più vicino a piena salute, senza un nuovo Mal di resurrezione.",
       "resurrectAtHealer": "Il Custode Pallido (Mal di resurrezione)",
       "ghostHint": "Corri fino al luogo della tua morte oppure parla con il Custode Pallido per rivivere",
       "spiritHealerAlive": "Il Custode Pallido veglia sui morti. Tu sei ancora tra i vivi.",
@@ -2848,13 +2848,13 @@ export const it_IT: EnTranslations = {
       "pvpEntry": "Entrare nel cerchio attivo abilita il PvP mondiale.",
       "pvpBanner": "PvP",
       "callout": {
-        "killingSpree": "{name} is on a Killing Spree!",
-        "rampage": "{name} is on a Rampage!",
-        "unstoppable": "{name} is Unstoppable!",
-        "dominating": "{name} is Dominating!",
-        "godlike": "{name} is Godlike!",
-        "legendary": "{name} is Legendary!",
-        "shutDown": "{killer} has shut down {victim}!"
+        "killingSpree": "{name} è in Follia Omicida!",
+        "rampage": "{name} è Scatenato!",
+        "unstoppable": "{name} è Inarrestabile!",
+        "dominating": "{name} sta Dominando!",
+        "godlike": "{name} è Divino!",
+        "legendary": "{name} è Leggendario!",
+        "shutDown": "{killer} ha zittito {victim}!"
       },
       "standingRaid": "I membri di un'incursione non contano: solo i gruppi possono detenere la collina"
     },
@@ -2869,7 +2869,7 @@ export const it_IT: EnTranslations = {
       "buyAria": "Compra {item} per {honor}",
       "buyOwnedAria": "Compra {item} per {honor}, già posseduto",
       "buyConfirmBody": "Comprare {item} per {honor}? Gli acquisti in Onore non sono rimborsabili.",
-      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
+      "buyConfirmBodyGold": "Acquistare {item} per {price}? Questo acquisto non può essere rimborsato."
     },
     "charSheet": {
       "offense": "Attacco",
@@ -4208,7 +4208,7 @@ export const it_IT: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
-      "bountyTag": "Bounty {honor}",
+      "bountyTag": "Taglia {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Baro >",
       "pledgeTag": "Giuramento a {guild}",
@@ -5064,11 +5064,11 @@ export const it_IT: EnTranslations = {
       "hideOffline": "Nascondi offline",
       "hideOfflineTitle": "Nascondi i membri della gilda offline",
       "presence": {
-        "label": "Show me online to",
-        "everyone": "Everyone",
-        "friends": "Friends only",
-        "none": "No one",
-        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+        "label": "Mostrami online a",
+        "everyone": "Tutti",
+        "friends": "Solo amici",
+        "none": "Nessuno",
+        "title": "Chi ti vede online negli elenchi amici e nella lista gilda, con la tua zona e posizione sulla mappa. Il tuo gruppo ti vede sempre."
       },
       "billboard": {
         "label": "Bacheca della Gilda",
@@ -7569,7 +7569,7 @@ export const it_IT: EnTranslations = {
       "arena": "Il tuo piazzamento nel Colosseo Cinereo in entrambe le categorie: indice, vittorie, sconfitte e percentuale di vittorie per l'1v1 e per il 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Bandiera PvP mondiale: /pvp la alterna, /pvp on e /pvp off la attivano e disattivano. I giocatori contrassegnati possono combattersi nelle zone contese; i santuari vietano ogni combattimento PvP mondiale. Entrare nel cerchio attivo del Re della Collina alza la tua bandiera; disattivarla richiede 5 minuti.",
-      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
+      "presence": "Chi ti vede online negli elenchi amici, la tua lista gilda e /who: /presence everyone (il predefinito), /presence friends (solo i giocatori nella tua lista amici), o /presence none. Nascosto, non vedono alcun puntino online, zona o posizione sulla mappa per te, sebbene i sussurri e gli inviti ti raggiungino ancora; il tuo gruppo ti vede sempre. Un semplice /presence ti dice quale sia impostato.",
       "flair": "Mostra o nasconde il tuo ruolo Discord agli altri giocatori, cioè il nome colorato, il tag del ruolo e il tag verificato in chat: /flair on lo mostra, /flair off lo nasconde e /flair da solo ti dice quale impostazione è attiva. Richiede un account Discord collegato.",
       "listings": "Le tue inserzioni sul Mercato Mondiale, con il prezzo richiesto, il tempo rimasto per ciascuna, e quanto spazio hai per aggiungerne altre.",
       "buyback": "Cosa hai venduto di recente a un venditore e potresti ancora ricomprare.",
@@ -8334,7 +8334,7 @@ export const it_IT: EnTranslations = {
       "warfareTradeBodyRatingSpent": "È questo lo scambio voluto. L’equipaggiamento da Guerra serve a combattere i giocatori, non a saltare i livelli dei dungeon: un pezzo da Guerra non porta mai le valutazioni di combattimento che avrebbe un epico da dungeon nello stesso slot, e la valutazione da Guerra e i bonus del completo che porta sono spesi interamente contro altri giocatori. Se vuoi reggere nell’arena, compralo. Se vuoi superare più velocemente le modalità eroiche, guadagna l’equipaggiamento nei dungeon.",
       "vanguardHeading": "Equipaggiamento dell'Avanguardia: Guerra Stagione 2",
       "vanguardBody": "L'equipaggiamento dell'Avanguardia è la seconda stagione dell'equipaggiamento da Guerra, venduto dagli stessi due quartiermastri al di sopra del livello originale, che resta comunque in vendita. Ogni specializzazione ha il proprio set dell'Avanguardia di cinque pezzi, per testa, spalle, petto, gambe e mani, e il negozio elenca solo i tre set che la tua classe può indossare, seguiti dalle armi dell'Avanguardia che puoi impugnare. Un pezzo dell'Avanguardia porta gli stessi indici di Guerra del livello originale a un livello oggetto superiore, e ogni set ha due bonus, a due e quattro pezzi, che modificano una delle abilità della tua specializzazione. A differenza dei set originali, questi bonus funzionano ovunque, mostri inclusi, ma sono pensati per combattere altri giocatori, quindi un set da incursione resta la scelta migliore all'interno di un'incursione.",
-      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
+      "vanguardStatsBody": "Diversamente dal livello originale, l'equipaggiamento dell'Avanguardia porta anche classificazioni di combattimento: ogni pezzo di armatura, arma e collana dell'Avanguardia ha Indice di Critico o Indice di Celerità, e i pezzi degli incantatori e guaritori aggiungono Potere Magico o Potere di Guarigione. Gli anelli e le collane dell'Avanguardia sono venduti accanto alle armi, e ogni classe può indossarli. Due degli anelli da mischia dell'Avanguardia danno esattamente l'Indice di Colpo che elimina la possibilità di base che i tuoi attacchi manchino un giocatore del tuo stesso livello, e due anelli da incantatore fanno lo stesso per i tuoi incantesimi che vengono resistiti. Gli attacchi automatici mentre si impugna doppiamente mantengono la loro possibilità di errore aggiuntiva. L'anello del guaritore invece porta l'Indice di Celerità."
     },
     "worldPvpPage": {
       "heading": "PvP Mondiale",
@@ -12792,7 +12792,7 @@ export const it_IT: EnTranslations = {
       "dps": "({dps} danni al secondo)",
       "armorStat": "{value} armatura",
       "stat": "+{value} {stat}",
-      "warfareMainHandOnly": "Warfare counts only in the main hand.",
+      "warfareMainHandOnly": "Guerra si conta solo nella mano principale.",
       "useFood": "Usa: ripristina {amount} salute in {seconds} s. Devi restare seduto mentre mangi.",
       "useDrink": "Usa: ripristina {amount} mana in {seconds} s. Devi restare seduto mentre bevi.",
       "useElixir": "Uso: aumenta il tuo {stat} di {value} per {minutes} min. Sostituisce ogni altro elisir o pergamena dello stesso attributo. Usabile in combattimento.",
@@ -18488,28 +18488,28 @@ export const it_IT: EnTranslations = {
         "name": "Bastone ferino dell’Avanguardia"
       },
       "vanguard_band_of_might": {
-        "name": "Vanguard's Band of Might"
+        "name": "Anello di Avanguardia di Potenza"
       },
       "vanguard_band_of_precision": {
-        "name": "Vanguard's Band of Precision"
+        "name": "Anello di Avanguardia di Precisione"
       },
       "vanguard_band_of_focus": {
-        "name": "Vanguard's Band of Focus"
+        "name": "Anello di Avanguardia di Mira"
       },
       "vanguard_band_of_mending": {
-        "name": "Vanguard's Band of Mending"
+        "name": "Anello di Avanguardia di Guarigione"
       },
       "vanguard_pendant_of_might": {
-        "name": "Vanguard's Pendant of Might"
+        "name": "Ciondolo di Avanguardia di Potenza"
       },
       "vanguard_pendant_of_precision": {
-        "name": "Vanguard's Pendant of Precision"
+        "name": "Ciondolo di Avanguardia di Precisione"
       },
       "vanguard_pendant_of_focus": {
-        "name": "Vanguard's Pendant of Focus"
+        "name": "Ciondolo di Avanguardia di Mira"
       },
       "vanguard_pendant_of_mending": {
-        "name": "Vanguard's Pendant of Mending"
+        "name": "Ciondolo di Avanguardia di Guarigione"
       },
       "conjured_water4": {
         "name": "Acqua sorgiva evocata"

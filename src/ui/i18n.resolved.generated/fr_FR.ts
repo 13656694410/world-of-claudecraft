@@ -594,8 +594,8 @@ export const fr_FR: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Ressusciter près du cadavre",
-      "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
+      "pvpResurrect": "Résurrection JcJ",
+      "pvpResurrectTitle": "Ressuscitez au cimetière le plus proche avec la santé complète, sans nouveau Glas du Veilleur.",
       "resurrectAtHealer": "Le Veilleur pâle (Glas du Veilleur)",
       "ghostHint": "Courez jusqu'à l'endroit de votre mort ou parlez au Veilleur pâle pour revivre",
       "spiritHealerAlive": "Le Veilleur pâle veille sur les morts. Vous êtes encore parmi les vivants.",
@@ -2848,13 +2848,13 @@ export const fr_FR: EnTranslations = {
       "pvpEntry": "Entrer dans le cercle actif active le JcJ mondial.",
       "pvpBanner": "JcJ",
       "callout": {
-        "killingSpree": "{name} is on a Killing Spree!",
-        "rampage": "{name} is on a Rampage!",
-        "unstoppable": "{name} is Unstoppable!",
-        "dominating": "{name} is Dominating!",
-        "godlike": "{name} is Godlike!",
-        "legendary": "{name} is Legendary!",
-        "shutDown": "{killer} has shut down {victim}!"
+        "killingSpree": "{name} fait un carnage !",
+        "rampage": "{name} déchaîne la furie !",
+        "unstoppable": "{name} est inarrêtable !",
+        "dominating": "{name} domine !",
+        "godlike": "{name} est divin !",
+        "legendary": "{name} est légendaire !",
+        "shutDown": "{killer} a arrêté {victim} !"
       },
       "standingRaid": "Les membres du raid ne comptent pas : seuls les groupes peuvent détenir la colline"
     },
@@ -2869,7 +2869,7 @@ export const fr_FR: EnTranslations = {
       "buyAria": "Acheter {item} pour {honor}",
       "buyOwnedAria": "Acheter {item} pour {honor}, déjà possédé",
       "buyConfirmBody": "Acheter {item} pour {honor} ? Les achats en honneur ne sont pas remboursables.",
-      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
+      "buyConfirmBodyGold": "Acheter {item} pour {price} ? Cet achat ne peut pas être remboursé."
     },
     "charSheet": {
       "offense": "Attaque",
@@ -4208,7 +4208,7 @@ export const fr_FR: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
-      "bountyTag": "Bounty {honor}",
+      "bountyTag": "Prime {honor}",
       "pvpTag": "JcJ",
       "cheaterTag": "< Tricheur >",
       "pledgeTag": "Serment de {guild}",
@@ -5064,11 +5064,11 @@ export const fr_FR: EnTranslations = {
       "hideOffline": "Masquer les hors ligne",
       "hideOfflineTitle": "Masquer les membres de guilde hors ligne",
       "presence": {
-        "label": "Show me online to",
-        "everyone": "Everyone",
-        "friends": "Friends only",
-        "none": "No one",
-        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+        "label": "Me montrer en ligne à",
+        "everyone": "Tous",
+        "friends": "Amis uniquement",
+        "none": "Personne",
+        "title": "Qui vous voit en ligne dans les listes d'amis et la feuille de guilde, avec votre zone et position sur la carte. Votre groupe vous voit toujours."
       },
       "billboard": {
         "label": "Tableau d'affichage de la guilde",
@@ -7569,7 +7569,7 @@ export const fr_FR: EnTranslations = {
       "arena": "Votre classement au Colisée cendré dans les deux catégories : cote, victoires, défaites et taux de victoires en 1c1 et en 2c2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Drapeau JcJ mondial : /pvp le bascule ; /pvp on et /pvp off l'activent et le désactivent. Les joueurs marqués peuvent s'affronter en zone contestée ; les sanctuaires interdisent tout JcJ mondial. Entrer dans le cercle actif du Roi de la colline lève votre drapeau. Le désactiver prend 5 minutes.",
-      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
+      "presence": "Qui vous voit en ligne dans les listes d'amis, votre feuille de guilde et /who : /presence everyone (par défaut), /presence friends (uniquement les joueurs sur votre liste d'amis), ou /presence none. Masqué, ils ne voient ni votre point en ligne, ni votre zone ni votre position sur la carte, bien que les chuchotements et les invitations vous atteignent toujours ; votre groupe vous voit toujours. Un simple /presence vous indique ce qui est défini.",
       "flair": "Affiche ou masque votre rôle Discord pour les autres joueurs, c’est-à-dire votre nom en couleur, votre badge de rôle et votre badge de discussion vérifié : /flair on l’affiche, /flair off le masque, et /flair seul vous indique le réglage actuel. Nécessite un compte Discord lié.",
       "listings": "Vos propres annonces sur le Marché mondial, avec le prix demandé, le temps restant de chacune, et la place qu'il vous reste pour en publier d'autres.",
       "buyback": "Ce que vous avez vendu récemment à un marchand et que vous pouvez encore racheter.",
@@ -8334,7 +8334,7 @@ export const fr_FR: EnTranslations = {
       "warfareTradeBodyRatingSpent": "C’est le compromis voulu. L’équipement de guerre sert à combattre les joueurs et ne permet pas de sauter les paliers de donjon : une pièce de guerre ne porte jamais les cotes de combat d’un épique de donjon dans le même emplacement, et les cotes et bonus qu’elle porte sont entièrement consacrés aux autres joueurs. Pour tenir votre rang dans l’arène, achetez-le. Pour terminer les donjons héroïques plus vite, gagnez votre équipement dans les donjons.",
       "vanguardHeading": "Équipement d'Avant-garde : Guerre saison 2",
       "vanguardBody": "L'équipement d'Avant-garde est la deuxième saison de l'équipement de Guerre, vendu par les deux mêmes intendants au-dessus du palier d'origine, qui reste en vente. Chaque spécialisation a son propre ensemble d'Avant-garde de cinq pièces, pour la tête, les épaules, le torse, les jambes et les mains, et la boutique ne liste que les trois ensembles que votre classe peut porter, suivis des armes d'Avant-garde que vous pouvez manier. Une pièce d'Avant-garde porte les mêmes scores de Guerre que le palier d'origine à un niveau d'objet supérieur, et chaque ensemble a deux bonus, à deux et quatre pièces, qui modifient l'une des capacités de votre spécialisation. Contrairement aux ensembles d'origine, ces bonus fonctionnent partout, monstres compris, mais ils sont conçus pour affronter des joueurs, si bien qu'un ensemble de raid reste le meilleur choix dans un raid.",
-      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
+      "vanguardStatsBody": "Contrairement au palier d'origine, l'équipement d'Avant-garde porte aussi des notes de combat : chaque pièce d'Avant-garde, arme et pendentif a un Score de critique ou un Score de hâte, et les pièces de lanceur de sorts et de soigneur ajoutent une Puissance des sorts ou une Puissance de soins. Les anneaux et pendentifs d'Avant-garde sont vendus à côté des armes, et toutes les classes peuvent les porter. Deux des anneaux d'Avant-garde de mêlée donnent exactement la Précision qui élimine la chance de base que vos attaques manquent un joueur de votre niveau, et deux anneaux de lanceur de sorts font de même pour vos sorts étant résistés. Les auto-attaques en combat à deux armes gardent leur chance supplémentaire de manquer. L'anneau de soigneur porte un Score de hâte à la place."
     },
     "worldPvpPage": {
       "heading": "JcJ en monde ouvert",
@@ -12792,7 +12792,7 @@ export const fr_FR: EnTranslations = {
       "dps": "({dps} dégâts par seconde)",
       "armorStat": "{value} armure",
       "stat": "+{value} {stat}",
-      "warfareMainHandOnly": "Warfare counts only in the main hand.",
+      "warfareMainHandOnly": "L'Art de la guerre ne compte que dans la main principale.",
       "useFood": "Utiliser : rend {amount} points de vie en {seconds} s. Vous devez rester assis en mangeant.",
       "useDrink": "Utiliser : rend {amount} points de mana en {seconds} s. Vous devez rester assis en buvant.",
       "useElixir": "Utiliser : augmente votre {stat} de {value} pendant {minutes} min. Remplace tout autre élixir ou parchemin du même attribut. Utilisable en combat.",
@@ -18488,28 +18488,28 @@ export const fr_FR: EnTranslations = {
         "name": "Bâton farouche de l’Avant-garde"
       },
       "vanguard_band_of_might": {
-        "name": "Vanguard's Band of Might"
+        "name": "Anneau d'Avant-garde de Puissance"
       },
       "vanguard_band_of_precision": {
-        "name": "Vanguard's Band of Precision"
+        "name": "Anneau d'Avant-garde de Précision"
       },
       "vanguard_band_of_focus": {
-        "name": "Vanguard's Band of Focus"
+        "name": "Anneau d'Avant-garde de Concentration"
       },
       "vanguard_band_of_mending": {
-        "name": "Vanguard's Band of Mending"
+        "name": "Anneau d'Avant-garde de Soins"
       },
       "vanguard_pendant_of_might": {
-        "name": "Vanguard's Pendant of Might"
+        "name": "Pendentif d'Avant-garde de Puissance"
       },
       "vanguard_pendant_of_precision": {
-        "name": "Vanguard's Pendant of Precision"
+        "name": "Pendentif d'Avant-garde de Précision"
       },
       "vanguard_pendant_of_focus": {
-        "name": "Vanguard's Pendant of Focus"
+        "name": "Pendentif d'Avant-garde de Concentration"
       },
       "vanguard_pendant_of_mending": {
-        "name": "Vanguard's Pendant of Mending"
+        "name": "Pendentif d'Avant-garde de Soins"
       },
       "conjured_water4": {
         "name": "Eau de source invoquée"

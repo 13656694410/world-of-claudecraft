@@ -594,8 +594,8 @@ export const sv_SE: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Återuppstå vid liket",
-      "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
+      "pvpResurrect": "PvP Återupplivning",
+      "pvpResurrectTitle": "Återuppstå vid närmaste kyrkogård med full hälsa, utan ny Väktartull.",
       "resurrectAtHealer": "Den bleka väktaren (Väktartullen)",
       "ghostHint": "Springa till platsen för din död eller tala med Den bleka väktaren för att återupplivas",
       "spiritHealerAlive": "Den bleka väktaren vakar över de döda. Du är fortfarande bland de levande.",
@@ -2848,13 +2848,13 @@ export const sv_SE: EnTranslations = {
       "pvpEntry": "Världs-PvP aktiveras när du går in i den aktiva cirkeln.",
       "pvpBanner": "PvP",
       "callout": {
-        "killingSpree": "{name} is on a Killing Spree!",
-        "rampage": "{name} is on a Rampage!",
-        "unstoppable": "{name} is Unstoppable!",
-        "dominating": "{name} is Dominating!",
-        "godlike": "{name} is Godlike!",
-        "legendary": "{name} is Legendary!",
-        "shutDown": "{killer} has shut down {victim}!"
+        "killingSpree": "{name} är på en mördarspree!",
+        "rampage": "{name} härjar!",
+        "unstoppable": "{name} är omöjlig att stoppa!",
+        "dominating": "{name} dominerar!",
+        "godlike": "{name} är gudalik!",
+        "legendary": "{name} är legendarisk!",
+        "shutDown": "{killer} har stoppat {victim}!"
       },
       "standingRaid": "Rajdmedlemmar räknas inte: bara partier kan inneha kullen"
     },
@@ -2869,7 +2869,7 @@ export const sv_SE: EnTranslations = {
       "buyAria": "Köp {item} för {honor}",
       "buyOwnedAria": "Köp {item} för {honor}, redan ägd",
       "buyConfirmBody": "Köp {item} för {honor}? Köp med heder kan inte återbetalas.",
-      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
+      "buyConfirmBodyGold": "Köp {item} för {price}? Detta köp kan inte återbetalas."
     },
     "charSheet": {
       "offense": "Anfall",
@@ -4208,7 +4208,7 @@ export const sv_SE: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "BV",
-      "bountyTag": "Bounty {honor}",
+      "bountyTag": "Belöning {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Fuskare >",
       "pledgeTag": "Trogen {guild}",
@@ -5064,11 +5064,11 @@ export const sv_SE: EnTranslations = {
       "hideOffline": "Dölj frånkopplade",
       "hideOfflineTitle": "Dölj frånkopplade gillesmedlemmar",
       "presence": {
-        "label": "Show me online to",
-        "everyone": "Everyone",
-        "friends": "Friends only",
-        "none": "No one",
-        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+        "label": "Visa mig online för",
+        "everyone": "Alla",
+        "friends": "Endast vänner",
+        "none": "Ingen",
+        "title": "Vem som ser dig online i vännernas listor och gildsamlandet, med din zon och kartposition. Ditt lag ser alltid dig."
       },
       "billboard": {
         "label": "Gillets anslagstavla",
@@ -7569,7 +7569,7 @@ export const sv_SE: EnTranslations = {
       "arena": "Din Coliseum-status i båda divisionerna: rankning, vinster, förluster och vinstprocent för 1v1 och 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Flagga för världs-PvP: /pvp växlar den, /pvp on slår på den och /pvp off stänger av den. Flaggade spelare kan slåss mot varandra på omstridd mark, fristäder tillåter inga världsstrider alls och din flagga aktiveras när du går in i en aktiv cirkel i Kullens kung; det tar 5 minuter att stänga av den.",
-      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
+      "presence": "Vem som ser dig online i vännernas listor, ditt gildsamlande och /who: /presence everyone (förval), /presence friends (endast spelare på din vännerlista) eller /presence none. Dold ser de ingen online-prick, zon eller kartposition för dig, dock når vissningar och inbjudningar dig ändå; ditt lag ser alltid dig. En enkel /presence talar om för dig vilken som är inställd.",
       "flair": "Visar eller döljer din Discord-roll för andra spelare, alltså ditt färgade namn, din rolltagg och din verifierade chattagg: /flair on visar den, /flair off döljer den och bara /flair berättar vad som är inställt. Kräver ett kopplat Discord-konto.",
       "listings": "Dina egna listningar på Världsmarknaden, med begärt pris, tiden var och en har kvar, och hur mycket utrymme du har för fler.",
       "buyback": "Vad du nyligen sålt till en handlare och fortfarande kan köpa tillbaka.",
@@ -8334,7 +8334,7 @@ export const sv_SE: EnTranslations = {
       "warfareTradeBodyRatingSpent": "Det är den avsiktliga avvägningen. Krigföringsutrustning är byggd för att slåss mot spelare, inte som en genväg förbi fängelsehålornas nivåer: ett krigföringsföremål har aldrig de stridsvärden som en episk fängelsehåleutrustning på samma plats har, och krigföringsvärdet och setbonusarna det får i stället används helt mot andra spelare. Vill du hävda dig på arenan, köp den. Vill du klara hjältemodiga fängelsehålor snabbare, förtjäna din utrustning där.",
       "vanguardHeading": "Vanguard-utrustning: Warfare säsong 2",
       "vanguardBody": "Vanguard-utrustning är andra säsongen Warfare-utrustning, såld av samma två intendenter över den ursprungliga nivån, som stannar till försäljning. Varje specialisering har sin egen Vanguard-uppsättning av fem delar, för huvudet, skuldror, bröstkorg, ben och händer, och butiken listar bara de tre uppsättningarna din klass kan bära, följt av de Vanguard-vapen du kan använda. En Vanguard-del bär samma Warfare-värderingar som den ursprungliga nivån på en högre föremålsnivå, och varje uppsättning har två bonusar, vid två och fyra delar, som ändrar en av din specialiserings förmågor. Till skillnad från de ursprungliga uppsättningarna fungerar dessa bonusar överallt, monster inkluderade, men de är byggda för att slåss mot spelare, så en raid-uppsättning förblir det bättre valet inne i en raid.",
-      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
+      "vanguardStatsBody": "Till skillnad från den ursprungliga nivån bär Förtruppsutrustning även stridsvärden: varje förtruppspans rustning, vapen och halsband har antingen Kritvärde eller Snabbhetsvärde, och spellcaster- och läkardelarna lägger till Besvärjelsekraft eller Läkningskraft. Förtruppens ringar och halsband säljs vid sidan av vapnen, och alla klasser kan bära dem. Två av Förtruppens närkampingsringar ger exakt det Träffvärde som tar bort baschansen för att dina attacker missar en spelare på din egen nivå, och två spellcaster-ringar gör samma för dina besvärjelser att bli motverkade. Autoattacker medan dual-wielding behåller sin extra misschans. Läkarringen bär Snabbhetsvärde istället."
     },
     "worldPvpPage": {
       "heading": "Världens PvP",
@@ -12792,7 +12792,7 @@ export const sv_SE: EnTranslations = {
       "dps": "({dps} skada per sekund)",
       "armorStat": "{value} Rustning",
       "stat": "+{value} {stat}",
-      "warfareMainHandOnly": "Warfare counts only in the main hand.",
+      "warfareMainHandOnly": "Krigföring räknas endast i huvudhanden.",
       "useFood": "Använd: Återställer {amount} hälsa under {seconds} sek. Du måste förbli sittande medan du äter.",
       "useDrink": "Använd: Återställer {amount} mana under {seconds} sek. Du måste förbli sittande medan du dricker.",
       "useElixir": "Användning: Ökar din {stat} med {value} i {minutes} minuter. Ersätter annan elixir eller rulle med samma egenskap. Kan användas i strid.",
@@ -18488,28 +18488,28 @@ export const sv_SE: EnTranslations = {
         "name": "Förtruppens vilda stav"
       },
       "vanguard_band_of_might": {
-        "name": "Vanguard's Band of Might"
+        "name": "Förtruppens ring av kraft"
       },
       "vanguard_band_of_precision": {
-        "name": "Vanguard's Band of Precision"
+        "name": "Förtruppens ring av precision"
       },
       "vanguard_band_of_focus": {
-        "name": "Vanguard's Band of Focus"
+        "name": "Förtruppens ring av fokus"
       },
       "vanguard_band_of_mending": {
-        "name": "Vanguard's Band of Mending"
+        "name": "Förtruppens ring av läkning"
       },
       "vanguard_pendant_of_might": {
-        "name": "Vanguard's Pendant of Might"
+        "name": "Förtruppens hänge av kraft"
       },
       "vanguard_pendant_of_precision": {
-        "name": "Vanguard's Pendant of Precision"
+        "name": "Förtruppens hänge av precision"
       },
       "vanguard_pendant_of_focus": {
-        "name": "Vanguard's Pendant of Focus"
+        "name": "Förtruppens hänge av fokus"
       },
       "vanguard_pendant_of_mending": {
-        "name": "Vanguard's Pendant of Mending"
+        "name": "Förtruppens hänge av läkning"
       },
       "conjured_water4": {
         "name": "Frambesvärjt källvatten"

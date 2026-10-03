@@ -594,8 +594,8 @@ export const cs_CZ: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Vzkřísit u mrtvoly",
-      "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
+      "pvpResurrect": "PvP Vzkříšení",
+      "pvpResurrectTitle": "Vzkříšit se u nejbližšího hřbitova s plným zdravím, bez nového Strážcova mýta.",
       "resurrectAtHealer": "Bledý strážce (Strážcovo mýto)",
       "ghostHint": "Doběhni na místo své smrti, nebo promluv s Bledým strážcem a nech se vzkřísit",
       "spiritHealerAlive": "Bledý strážce dohlíží na mrtvé. Ty jsi stále mezi živými.",
@@ -2848,13 +2848,13 @@ export const cs_CZ: EnTranslations = {
       "pvpEntry": "Vstup do aktivního kruhu zapne světové PvP.",
       "pvpBanner": "PvP",
       "callout": {
-        "killingSpree": "{name} is on a Killing Spree!",
-        "rampage": "{name} is on a Rampage!",
-        "unstoppable": "{name} is Unstoppable!",
-        "dominating": "{name} is Dominating!",
-        "godlike": "{name} is Godlike!",
-        "legendary": "{name} is Legendary!",
-        "shutDown": "{killer} has shut down {victim}!"
+        "killingSpree": "{name} je na vražedné řádě!",
+        "rampage": "{name} řádí!",
+        "unstoppable": "{name} je nezastavitelný!",
+        "dominating": "{name} dominuje!",
+        "godlike": "{name} je božský!",
+        "legendary": "{name} je legendární!",
+        "shutDown": "{killer} zastavil(a) {victim}!"
       },
       "standingRaid": "Členové raidu se nepočítají: kopec mohou ovládat jen skupiny"
     },
@@ -2869,7 +2869,7 @@ export const cs_CZ: EnTranslations = {
       "buyAria": "Koupit {item} za {honor}",
       "buyOwnedAria": "Koupit {item} za {honor}, již vlastníš",
       "buyConfirmBody": "Koupit {item} za {honor}? Nákupy za čest nelze vrátit.",
-      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
+      "buyConfirmBodyGold": "Koupit {item} za {price}? Tento nákup nelze vrátit."
     },
     "charSheet": {
       "offense": "Útok",
@@ -4208,7 +4208,7 @@ export const cs_CZ: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "PRYČ",
-      "bountyTag": "Bounty {honor}",
+      "bountyTag": "Cena {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Podvodník >",
       "pledgeTag": "Přísaha cechu {guild}",
@@ -5064,11 +5064,11 @@ export const cs_CZ: EnTranslations = {
       "hideOffline": "Skrýt offline",
       "hideOfflineTitle": "Skrýt offline hráče",
       "presence": {
-        "label": "Show me online to",
-        "everyone": "Everyone",
-        "friends": "Friends only",
-        "none": "No one",
-        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+        "label": "Ukázat mi jako online",
+        "everyone": "Všichni",
+        "friends": "Pouze přátelé",
+        "none": "Nikdo",
+        "title": "Kdo tě vidí jako online v seznamech přátel a v seznamu cechu, tvoji zónu a pozici na mapě. Tvá skupina tě vždy vidí."
       },
       "billboard": {
         "label": "Cechovní nástěnka",
@@ -7569,7 +7569,7 @@ export const cs_CZ: EnTranslations = {
       "arena": "Tvé postavení v Popelavém koloseu v obou bracketech: hodnocení, výhry, prohry a poměr výher pro 1v1 a pro 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Příznak světového PvP: /pvp jej přepíná, /pvp on jej zapne a /pvp off vypne. Označení hráči spolu mohou bojovat ve sporných oblastech, útočiště nepovolují žádné boje ve světě a vstup do aktivního kruhu Krále kopce zapne váš příznak; vypnutí trvá 5 minut.",
-      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
+      "presence": "Kdo tě vidí jako online v seznamech přátel, v seznamu cechu a v /who: /presence everyone (výchozí), /presence friends (pouze hráči na tvém seznamu přátel), nebo /presence none. Když jsi skrytý, nevidí žádný online bod, tvoji zónu ani pozici na mapě, i když ti šepoty a pozvánky stále docházejí; tvá skupina tě vždy vidí. Pouhý /presence ti řekne, co je nastaveno.",
       "flair": "Zobrazí nebo skryje tvou roli z Discordu pro ostatní hráče, tedy barevné jméno, štítek role a ověřený štítek v chatu: /flair on ji zobrazí, /flair off ji skryje a samotné /flair ti řekne, co je nastaveno. Vyžaduje propojený účet Discord.",
       "listings": "Tvé vlastní nabídky na Světovém trhu, s požadovanou cenou, časem, který každé zbývá, a kolik místa máš na další.",
       "buyback": "Co jsi nedávno prodal(a) obchodníkovi a co ještě můžeš koupit zpět.",
@@ -8334,7 +8334,7 @@ export const cs_CZ: EnTranslations = {
       "warfareTradeBodyRatingSpent": "To je záměrný obchod. Válečnická výbava je stavěná na boj s hráči, ne jako zkratka přes dungeonové stupně: kus Válečnictví nikdy nenese bojová hodnocení, která má epický dungeonový kus ve stejném slotu, a hodnocení Válečnictví i bonusy sady, které nese místo nich, se utrácejí výhradně proti hráčům. Chceš-li obstát v aréně, kup si ji. Chceš-li rychleji čistit hrdinské dungeony, získávej výbavu v dungeonech.",
       "vanguardHeading": "Výbava Předvoje: Válečnictví, sezóna 2",
       "vanguardBody": "Výbava Předvoje je druhá sezóna válečnické výbavy, prodávaná stejnými dvěma intendanty nad původním stupněm, který zůstává v prodeji. Každá specializace má vlastní sadu Předvoje o pěti kusech, na hlavu, ramena, hruď, nohy a ruce, a obchod nabízí jen tři sady, které tvoje třída může nosit, následované zbraněmi Předvoje, které umíš vládnout. Kus Předvoje nese stejná Válečnická hodnocení jako původní stupeň, jen na vyšší úrovni předmětu, a každá sada má dva bonusy, na dvou a čtyřech kusech, které mění jednu ze schopností tvé specializace. Na rozdíl od původních sad tyto bonusy fungují všude, nestvůry nevyjímaje, ale jsou stavěné na boj proti hráčům, takže raidová sada zůstává lepší volbou uvnitř raidu.",
-      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
+      "vanguardStatsBody": "Na rozdíl od původní úrovně nese výbava Předvoje také bojová hodnocení: každý Předvojův kus zbroje, zbraň a náhrdelník má Hodnocení kritického zásahu nebo Hodnocení rychlosti, a kouzelnickovské a léčitelské kusy přidávají Sílu kouzel nebo Sílu léčení. Předvojské prsteny a náhrdelníky se prodávají vedle zbraní a nosit je mohou všechny třídy. Dva z Předvojských melee prstenů dávají přesně Hodnocení zásahu, které odstraňuje základní šanci, že tvůj útok mine hráče tvé úrovně, a dva kouzelnictví prsteny dělají totéž pro tvá kouzla, aby byla odolávána. Auto-útoky při duálním držení zbraní si zachovávají svou zvýšenou šanci zmeškat. Léčitelský prsten nese místo toho Hodnocení rychlosti."
     },
     "worldPvpPage": {
       "heading": "Světové PvP",
@@ -12792,7 +12792,7 @@ export const cs_CZ: EnTranslations = {
       "dps": "({dps} poškození za sekundu)",
       "armorStat": "{value} brnění",
       "stat": "+{value} {stat}",
-      "warfareMainHandOnly": "Warfare counts only in the main hand.",
+      "warfareMainHandOnly": "Válečnictví se počítá pouze v hlavní ruce.",
       "useFood": "Použití: Obnoví {amount} zdraví během {seconds} s. Při jídle musíš zůstat sedět.",
       "useDrink": "Použití: Obnoví {amount} many během {seconds} s. Při pití musíš zůstat sedět.",
       "useElixir": "Použití: Zvyšuje {stat} o {value} na {minutes} min. Nahradí jiný elixír nebo svitek stejné vlastnosti. Použitelné v boji.",
@@ -18488,28 +18488,28 @@ export const cs_CZ: EnTranslations = {
         "name": "Divoká hůl Předvoje"
       },
       "vanguard_band_of_might": {
-        "name": "Vanguard's Band of Might"
+        "name": "Předvojovo pásmo moci"
       },
       "vanguard_band_of_precision": {
-        "name": "Vanguard's Band of Precision"
+        "name": "Předvojovo pásmo přesnosti"
       },
       "vanguard_band_of_focus": {
-        "name": "Vanguard's Band of Focus"
+        "name": "Předvojovo pásmo zaměření"
       },
       "vanguard_band_of_mending": {
-        "name": "Vanguard's Band of Mending"
+        "name": "Předvojovo pásmo hojení"
       },
       "vanguard_pendant_of_might": {
-        "name": "Vanguard's Pendant of Might"
+        "name": "Předvojův přívěsek moci"
       },
       "vanguard_pendant_of_precision": {
-        "name": "Vanguard's Pendant of Precision"
+        "name": "Předvojův přívěsek přesnosti"
       },
       "vanguard_pendant_of_focus": {
-        "name": "Vanguard's Pendant of Focus"
+        "name": "Předvojův přívěsek zaměření"
       },
       "vanguard_pendant_of_mending": {
-        "name": "Vanguard's Pendant of Mending"
+        "name": "Předvojův přívěsek hojení"
       },
       "conjured_water4": {
         "name": "Vyčarovaná pramenitá voda"

@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const vi_VN: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Hồi Sinh PvP',
+  'hudChrome.death.pvpResurrectTitle':
+    'Hồi sinh tại nghĩa trang gần nhất với đầy đủ sức khỏe, không bị Lệ Phí Người Giữ mới.',
+  'hudChrome.hill.callout.dominating': '{name} Đang Thống Trị!',
+  'hudChrome.hill.callout.godlike': '{name} Giống Như Thần!',
+  'hudChrome.hill.callout.killingSpree': '{name} Đang Trên Mạch Hành Quyết!',
+  'hudChrome.hill.callout.legendary': '{name} Thật Huyền Thoại!',
+  'hudChrome.hill.callout.rampage': '{name} Đang Tàn Phá!',
+  'hudChrome.hill.callout.shutDown': '{killer} Đã Dừng {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} Không Thể Dừng!',
+  'hudChrome.nameplate.bountyTag': 'Tiền Thưởng {honor}',
+  'hudChrome.social.presence.everyone': 'Mọi Người',
+  'hudChrome.social.presence.friends': 'Chỉ Bạn Bè',
+  'hudChrome.social.presence.label': 'Hiển Thị Trực Tuyến Cho',
+  'hudChrome.social.presence.none': 'Không Ai',
+  'hudChrome.social.presence.title':
+    'Ai thấy bạn trực tuyến trong danh sách bạn bè và danh sách thành viên hội, kèm theo khu vực và vị trí bản đồ của bạn. Đội của bạn luôn thấy bạn.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Mua {item} với giá {price}? Lần mua này không thể hoàn lại.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Chiến Tranh chỉ tính trong tay chính.',
+  'entities.items.vanguard_band_of_focus.name': 'Vòng Tay Tiền Phương Tập Trung',
+  'entities.items.vanguard_band_of_mending.name': 'Vòng Tay Tiền Phương Chữa Lành',
+  'entities.items.vanguard_band_of_might.name': 'Vòng Tay Tiền Phương Sức Mạnh',
+  'entities.items.vanguard_band_of_precision.name': 'Vòng Tay Tiền Phương Chính Xác',
+  'entities.items.vanguard_pendant_of_focus.name': 'Mặt Dây Tiền Phương Tập Trung',
+  'entities.items.vanguard_pendant_of_mending.name': 'Mặt Dây Tiền Phương Chữa Lành',
+  'entities.items.vanguard_pendant_of_might.name': 'Mặt Dây Tiền Phương Sức Mạnh',
+  'entities.items.vanguard_pendant_of_precision.name': 'Mặt Dây Tiền Phương Chính Xác',
+  'guide.arenaPage.vanguardStatsBody':
+    'Không giống như tầng gốc, trang bị Tiền Phương cũng mang Chỉ Số Tấn Công: mỗi bộ áo, vũ khí và dây chuyền Tiền Phương có Chỉ Số Chí Mạng hoặc Chỉ Số Thần Tốc, và bộ cho những người dùng phép thuật và chữa lành thêm Sức Mạnh Phép Thuật hoặc Sức Mạnh Trị Liệu. Những chiếc nhẫn và dây chuyền Tiền Phương được bán cạnh vũ khí, và mọi dòng đều có thể mặc. Hai chiếc nhẫn tấn công gần Tiền Phương cung cấp đúng Chỉ Số Trúng Đòn để loại bỏ cơ hội trúng đòn cơ bản khi tấn công người chơi cùng cấp của bạn, và hai chiếc nhẫn dùng phép thuật làm tương tự cho việc phép thuật bị chống lại. Tấn công tự động khi dùng hai vũ khí vẫn giữ cơ hội trúng đòn bổ sung. Nhẫn chữa lành mang Chỉ Số Thần Tốc thay vào đó.',
+  'guide.commandsPage.presence':
+    'Ai thấy bạn trực tuyến trong danh sách bạn bè, danh sách hội của bạn và /who: /presence everyone (mặc định), /presence friends (chỉ những người chơi trong danh sách bạn bè của bạn), hoặc /presence none. Ẩn, họ không thấy dấu trực tuyến, khu vực hoặc vị trí bản đồ của bạn, mặc dù thì thầm và lời mời vẫn đến được bạn; đội của bạn luôn thấy bạn. Một lệnh /presence đơn giản sẽ cho bạn biết cái nào được đặt.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}p',
   'abilityUi.cast.hoard_cast_bat_dive': 'Lao Xuống',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Lao Xuống Sâu',

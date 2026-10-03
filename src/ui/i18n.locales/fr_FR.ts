@@ -13,6 +13,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const fr_FR: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Résurrection JcJ',
+  'hudChrome.death.pvpResurrectTitle':
+    'Ressuscitez au cimetière le plus proche avec la santé complète, sans nouveau Glas du Veilleur.',
+  'hudChrome.hill.callout.dominating': '{name} domine !',
+  'hudChrome.hill.callout.godlike': '{name} est divin !',
+  'hudChrome.hill.callout.killingSpree': '{name} fait un carnage !',
+  'hudChrome.hill.callout.legendary': '{name} est légendaire !',
+  'hudChrome.hill.callout.rampage': '{name} déchaîne la furie !',
+  'hudChrome.hill.callout.shutDown': '{killer} a arrêté {victim} !',
+  'hudChrome.hill.callout.unstoppable': '{name} est inarrêtable !',
+  'hudChrome.nameplate.bountyTag': 'Prime {honor}',
+  'hudChrome.social.presence.everyone': 'Tous',
+  'hudChrome.social.presence.friends': 'Amis uniquement',
+  'hudChrome.social.presence.label': 'Me montrer en ligne à',
+  'hudChrome.social.presence.none': 'Personne',
+  'hudChrome.social.presence.title':
+    "Qui vous voit en ligne dans les listes d'amis et la feuille de guilde, avec votre zone et position sur la carte. Votre groupe vous voit toujours.",
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Acheter {item} pour {price} ? Cet achat ne peut pas être remboursé.',
+  'itemUi.tooltip.warfareMainHandOnly': "L'Art de la guerre ne compte que dans la main principale.",
+  'entities.items.vanguard_band_of_focus.name': "Anneau d'Avant-garde de Concentration",
+  'entities.items.vanguard_band_of_mending.name': "Anneau d'Avant-garde de Soins",
+  'entities.items.vanguard_band_of_might.name': "Anneau d'Avant-garde de Puissance",
+  'entities.items.vanguard_band_of_precision.name': "Anneau d'Avant-garde de Précision",
+  'entities.items.vanguard_pendant_of_focus.name': "Pendentif d'Avant-garde de Concentration",
+  'entities.items.vanguard_pendant_of_mending.name': "Pendentif d'Avant-garde de Soins",
+  'entities.items.vanguard_pendant_of_might.name': "Pendentif d'Avant-garde de Puissance",
+  'entities.items.vanguard_pendant_of_precision.name': "Pendentif d'Avant-garde de Précision",
+  'guide.arenaPage.vanguardStatsBody':
+    "Contrairement au palier d'origine, l'équipement d'Avant-garde porte aussi des notes de combat : chaque pièce d'Avant-garde, arme et pendentif a un Score de critique ou un Score de hâte, et les pièces de lanceur de sorts et de soigneur ajoutent une Puissance des sorts ou une Puissance de soins. Les anneaux et pendentifs d'Avant-garde sont vendus à côté des armes, et toutes les classes peuvent les porter. Deux des anneaux d'Avant-garde de mêlée donnent exactement la Précision qui élimine la chance de base que vos attaques manquent un joueur de votre niveau, et deux anneaux de lanceur de sorts font de même pour vos sorts étant résistés. Les auto-attaques en combat à deux armes gardent leur chance supplémentaire de manquer. L'anneau de soigneur porte un Score de hâte à la place.",
+  'guide.commandsPage.presence':
+    "Qui vous voit en ligne dans les listes d'amis, votre feuille de guilde et /who : /presence everyone (par défaut), /presence friends (uniquement les joueurs sur votre liste d'amis), ou /presence none. Masqué, ils ne voient ni votre point en ligne, ni votre zone ni votre position sur la carte, bien que les chuchotements et les invitations vous atteignent toujours ; votre groupe vous voit toujours. Un simple /presence vous indique ce qui est défini.",
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Piqué',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Piqué foudroyant',

@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const pl_PL: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Wznowienie PvP',
+  'hudChrome.death.pvpResurrectTitle':
+    'Wznów się na najbliższym cmentarzu z pełnym zdrowiem, bez nowej Daniny Strażnika.',
+  'hudChrome.hill.callout.dominating': '{name} dominuje!',
+  'hudChrome.hill.callout.godlike': '{name} jest boski!',
+  'hudChrome.hill.callout.killingSpree': '{name} ma serię zabójstw!',
+  'hudChrome.hill.callout.legendary': '{name} jest legendarny!',
+  'hudChrome.hill.callout.rampage': '{name} szaleje!',
+  'hudChrome.hill.callout.shutDown': '{killer} zakończył(a) passę gracza {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} jest nie do zatrzymania!',
+  'hudChrome.nameplate.bountyTag': 'Nagroda {honor}',
+  'hudChrome.social.presence.everyone': 'Wszyscy',
+  'hudChrome.social.presence.friends': 'Tylko przyjaciele',
+  'hudChrome.social.presence.label': 'Pokaż mnie jako online',
+  'hudChrome.social.presence.none': 'Nikt',
+  'hudChrome.social.presence.title':
+    'Kto cię widzi jako online na listach przyjaciół i w rostrze gildii, twoją strefę i pozycję na mapie. Twoja drużyna cię zawsze widzi.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Kupić {item} za {price}? Ten zakup nie może być zwrócony.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Działania wojenne liczą się tylko w głównej ręce.',
+  'entities.items.vanguard_band_of_focus.name': 'Pierścień Awangardy Skupienia',
+  'entities.items.vanguard_band_of_mending.name': 'Pierścień Awangardy Gojenia',
+  'entities.items.vanguard_band_of_might.name': 'Pierścień Awangardy Mocy',
+  'entities.items.vanguard_band_of_precision.name': 'Pierścień Awangardy Precyzji',
+  'entities.items.vanguard_pendant_of_focus.name': 'Wisior Awangardy Skupienia',
+  'entities.items.vanguard_pendant_of_mending.name': 'Wisior Awangardy Gojenia',
+  'entities.items.vanguard_pendant_of_might.name': 'Wisior Awangardy Mocy',
+  'entities.items.vanguard_pendant_of_precision.name': 'Wisior Awangardy Precyzji',
+  'guide.arenaPage.vanguardStatsBody':
+    'W przeciwieństwie do oryginalnego poziomu, zbroja Awangardy nosi też oceny bojowe: każdy kawałek zbroi Awangardy, broń i naszyjnik ma Ocenę Krytyczną lub Ocenę Pośpiechu, a części dla czarownika i uzdrowiciela dodają Moc Zaklęcia lub Moc Leczenia. Pierścienie i naszyjniki Awangardy są sprzedawane obok broni i każda klasa je może nosić. Dwa z pierścieni Awangardy do walki wręcz dają dokładnie Ocenę Trafienia, która eliminuje szansę, że twoje ataki trafią gracza twojego poziomu, a dwa pierścienie czarowania robią to samo dla twoich zaklęć, które są oporami. Ataki automatyczne podczas walki z dwiema bronią zachowują swoją dodatkową szansę chybienia. Pierścień uzdrowiciela nosi zamiast tego Ocenę Pośpiechu.',
+  'guide.commandsPage.presence':
+    'Kto cię widzi jako online na listach przyjaciół, w spisie członków gildii i /who: /presence everyone (domyślnie), /presence friends (tylko gracze na twojej liście przyjaciół), lub /presence none. Gdy jesteś ukryty, nie widzą żadnej kropki online, twojej strefy ani pozycji na mapie, chociaż szepty i zaproszenia do ciebie docierają; twoja drużyna zawsze cię widzi. Zwykłe /presence mówi ci, co jest ustawione.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Nurkowanie',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Głębokie nurkowanie',

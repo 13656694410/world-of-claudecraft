@@ -140,9 +140,11 @@ export const table: ReliquaryLocaleTable = {
   },
   conquerors_warfare_gallery: {
     name: 'Oorlogsvoeringgalerij',
+    desc: 'De vijf Oorlogvoeringsstrijdkits van het eerste seizoen, nu stuk voor stuk voor goud verkocht.',
   },
   conquerors_warfare_armory: {
     name: 'Oorlogsvoeringwapenkamer',
+    desc: 'Oorlogsvoering-juwelen en wapens, het eerste seizoen voor goud en de twee juwelen voor eer.',
   },
   conquerors_vanguard_gallery: {
     name: 'Voorhoedegalerij',

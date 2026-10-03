@@ -140,9 +140,11 @@ export const table: ReliquaryLocaleTable = {
   },
   conquerors_warfare_gallery: {
     name: 'Krigsførelsesgalleri',
+    desc: 'De fem Krigsførelses kampsæt fra den første sæson, nu solgt stykke for stykke for guldmønter.',
   },
   conquerors_warfare_armory: {
     name: 'Krigsførelsens våbenkammer',
+    desc: 'Krigsførelses smykker og våben, den første sæson for guldmønter og de to klinkekugler for ære.',
   },
   conquerors_vanguard_gallery: {
     name: 'Fortropsgalleri',

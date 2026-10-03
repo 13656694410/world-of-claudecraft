@@ -594,8 +594,8 @@ export const nl_NL: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Herrijs bij je lijk",
-      "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
+      "pvpResurrect": "PvP-Opstanding",
+      "pvpResurrectTitle": "Herverrijzen op de dichtstbijzijnde begraafplaats met volledige gezondheid, zonder een nieuwe Tol van de Hoeder.",
       "resurrectAtHealer": "De Bleke Hoeder (Tol van de Hoeder)",
       "ghostHint": "Ren naar de plaats van je dood of spreek de Bleek Bewaarder aan om weer tot leven te komen",
       "spiritHealerAlive": "De Bleke Hoeder waakt over de doden. Jij bent nog onder de levenden.",
@@ -2848,13 +2848,13 @@ export const nl_NL: EnTranslations = {
       "pvpEntry": "Bij het betreden van de actieve cirkel wordt wereld-PvP ingeschakeld.",
       "pvpBanner": "PvP",
       "callout": {
-        "killingSpree": "{name} is on a Killing Spree!",
-        "rampage": "{name} is on a Rampage!",
-        "unstoppable": "{name} is Unstoppable!",
-        "dominating": "{name} is Dominating!",
-        "godlike": "{name} is Godlike!",
-        "legendary": "{name} is Legendary!",
-        "shutDown": "{killer} has shut down {victim}!"
+        "killingSpree": "{name} voert een moordpartij uit!",
+        "rampage": "{name} gaat volledig uit zijn dak!",
+        "unstoppable": "{name} is onstopbaar!",
+        "dominating": "{name} domineert!",
+        "godlike": "{name} is goddelijk!",
+        "legendary": "{name} is legendarisch!",
+        "shutDown": "{killer} heeft de reeks van {victim} beëindigd!"
       },
       "standingRaid": "Raidleden tellen niet mee: alleen groepen kunnen de heuvel bezetten"
     },
@@ -2869,7 +2869,7 @@ export const nl_NL: EnTranslations = {
       "buyAria": "Koop {item} voor {honor}",
       "buyOwnedAria": "Koop {item} voor {honor}, al in bezit",
       "buyConfirmBody": "{item} kopen voor {honor}? Aankopen met Eer kunnen niet worden terugbetaald.",
-      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
+      "buyConfirmBodyGold": "{item} voor {price} kopen? Deze aankoop kan niet worden terugbetaald."
     },
     "charSheet": {
       "offense": "Aanval",
@@ -4208,7 +4208,7 @@ export const nl_NL: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
-      "bountyTag": "Bounty {honor}",
+      "bountyTag": "Premie {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Valsspeler >",
       "pledgeTag": "Gelofte aan {guild}",
@@ -5064,11 +5064,11 @@ export const nl_NL: EnTranslations = {
       "hideOffline": "Offline verbergen",
       "hideOfflineTitle": "Offline gildeleden verbergen",
       "presence": {
-        "label": "Show me online to",
-        "everyone": "Everyone",
-        "friends": "Friends only",
-        "none": "No one",
-        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+        "label": "Laat me online zien voor",
+        "everyone": "Iedereen",
+        "friends": "Alleen vrienden",
+        "none": "Niemand",
+        "title": "Wie ziet je online in vriendenlijsten en het gilderooster, met je zone en kaartpositie. Je groep ziet je altijd."
       },
       "billboard": {
         "label": "Gildeprikbord",
@@ -7569,7 +7569,7 @@ export const nl_NL: EnTranslations = {
       "arena": "Je status in het Asgrauwe Colosseum in beide categorieën: waardering, winsten, verliezen en winstpercentage voor 1v1 en voor 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Wereld-PvP-vlag: /pvp wisselt de stand, /pvp on schakelt hem in en /pvp off schakelt hem uit. Spelers met een vlag kunnen elkaar op betwist terrein bevechten, heiligdommen staan geen wereldgevechten toe en bij het betreden van een actieve cirkel van Koning van de Heuvel wordt je vlag ingeschakeld; uitschakelen duurt 5 minuten.",
-      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
+      "presence": "Wie ziet je online in vriendenlijsten, je gilderooster en /who: /presence everyone (het standaard), /presence friends (alleen spelers op je vriendenlijst), of /presence none. Verborgen, ze zien geen online stip, zone of kaartpositie voor je, hoewel gefluister en uitnodigingen je nog steeds bereiken; je groep ziet je altijd. Een eenvoudige /presence vertelt je wat er is ingesteld.",
       "flair": "Toont of verbergt je Discord-rol voor andere spelers, dus je gekleurde naam, je rollabel en je geverifieerde chatlabel: /flair on toont hem, /flair off verbergt hem, en alleen /flair vertelt je wat er is ingesteld. Vereist een gekoppeld Discord-account.",
       "listings": "Je eigen plaatsingen op de Wereldmarkt, met de vraagprijs, de resterende tijd van elk, en hoeveel ruimte je nog hebt voor meer.",
       "buyback": "Wat je onlangs aan een handelaar hebt verkocht en nog kunt terugkopen.",
@@ -8334,7 +8334,7 @@ export const nl_NL: EnTranslations = {
       "warfareTradeBodyRatingSpent": "Dat is de bewuste ruil. Oorlogsuitrusting is gemaakt om tegen spelers te vechten, niet als sluiproute langs de kerkerlagen. Een Oorlogsstuk draagt nooit de gevechtsratings die een episch kerkerstuk op dezelfde plek heeft, en de rating en setbonussen voor Oorlogsvoering die het in plaats daarvan draagt, worden volledig tegen andere spelers ingezet. Als je je in de arena wilt weren, koop het dan. Als je heroïsche kerkers sneller wilt voltooien, verdien je uitrusting dan in de kerkers.",
       "vanguardHeading": "Voortocht-uitrusting: Oorlogsseizoen 2",
       "vanguardBody": "Voortocht-uitrusting is het tweede seizoen van Oorlogsuitrusting, verkocht door dezelfde twee kwartierafdelingen boven de originele rang, die in te koop blijft. Elke spec heeft zijn eigen Voortocht-set van vijf stukken, voor het hoofd, schouders, borst, benen en handen, en de winkel geeft alleen de drie sets weer die je klasse kan dragen, gevolgd door de Voortocht-wapens die je kunt hanteren. Een Voortocht-stuk draagt dezelfde Oorlogswaarden als de originele rang op een hoger voorwerpniveau, en elke set heeft twee bonussen, op twee en vier stukken, die een van je spec's vaardigheden veranderen. In tegenstelling tot de originele sets werken die bonussen overal, monsters inbegrepen, maar ze zijn gebouwd voor gevechten tussen spelers, dus een raidset blijft de betere keuze binnen een raid.",
-      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
+      "vanguardStatsBody": "In tegenstelling tot de originele rang, draagt Voortocht-uitrusting ook gevechtswaarderingen: elk stuk Voortocht-harnas, wapen en halsketting heeft een Kritieke-waardering of Snelheidswaardering, en de delen voor tovenaar en heelmeester voegen Spreukkracht of Genezingskracht toe. De Voortocht-ringen en halskettingen worden naast de wapens verkocht, en elke klasse kan ze dragen. Twee van de Voortocht-nabijavechtsringen geven exact de Raakwaarde die ervoor zorgt dat je aanvallen zeker raken tegen een speler van je eigen niveau, en twee tovenaarringen doen hetzelfde voor je spreuken niet worden tegengewerkt. Auto-aanvallen met twee wapens behouden hun extra miskans. De heelmeester-ring draagt in plaats daarvan een Snelheidswaardering."
     },
     "worldPvpPage": {
       "heading": "Wereld-PvP",
@@ -12792,7 +12792,7 @@ export const nl_NL: EnTranslations = {
       "dps": "({dps} schade per seconde)",
       "armorStat": "{value} Pantser",
       "stat": "+{value} {stat}",
-      "warfareMainHandOnly": "Warfare counts only in the main hand.",
+      "warfareMainHandOnly": "Oorlogvoering telt alleen in de hoofdhand.",
       "useFood": "Gebruik: Herstelt {amount} levenskracht over {seconds} sec. Je moet blijven zitten tijdens het eten.",
       "useDrink": "Gebruik: Herstelt {amount} mana over {seconds} sec. Je moet blijven zitten tijdens het drinken.",
       "useElixir": "Gebruik: verhoogt je {stat} met {value} gedurende {minutes} min. Vervangt elk ander elixer of perkament met dezelfde statistiek. Bruikbaar in gevecht.",
@@ -18488,28 +18488,28 @@ export const nl_NL: EnTranslations = {
         "name": "Wilde staf van de Voorhoede"
       },
       "vanguard_band_of_might": {
-        "name": "Vanguard's Band of Might"
+        "name": "Voortocht-ring van Kracht"
       },
       "vanguard_band_of_precision": {
-        "name": "Vanguard's Band of Precision"
+        "name": "Voortocht-ring van Precisie"
       },
       "vanguard_band_of_focus": {
-        "name": "Vanguard's Band of Focus"
+        "name": "Voortocht-ring van Concentratie"
       },
       "vanguard_band_of_mending": {
-        "name": "Vanguard's Band of Mending"
+        "name": "Voortocht-ring van Verzorging"
       },
       "vanguard_pendant_of_might": {
-        "name": "Vanguard's Pendant of Might"
+        "name": "Voortocht-hanger van Kracht"
       },
       "vanguard_pendant_of_precision": {
-        "name": "Vanguard's Pendant of Precision"
+        "name": "Voortocht-hanger van Precisie"
       },
       "vanguard_pendant_of_focus": {
-        "name": "Vanguard's Pendant of Focus"
+        "name": "Voortocht-hanger van Concentratie"
       },
       "vanguard_pendant_of_mending": {
-        "name": "Vanguard's Pendant of Mending"
+        "name": "Voortocht-hanger van Verzorging"
       },
       "conjured_water4": {
         "name": "Getoverd bronwater"

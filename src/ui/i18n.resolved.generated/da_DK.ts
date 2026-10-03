@@ -594,8 +594,8 @@ export const da_DK: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Genopstå ved liget",
-      "pvpResurrect": "PvP Resurrect",
-      "pvpResurrectTitle": "Revive at the nearest graveyard at full health, without a new Keeper's Toll.",
+      "pvpResurrect": "PvP Genoplivning",
+      "pvpResurrectTitle": "Genoplives ved nærmeste kirkegård med fuld sundhed, uden ny Kyperens Told.",
       "resurrectAtHealer": "Den Blege Vogter (Vogterens Klokke)",
       "ghostHint": "Løb til stedet for din død eller tale med Blegekyperen for at blive genoplivet",
       "spiritHealerAlive": "Den Blege Vogter våger over de døde. Du er stadig blandt de levende.",
@@ -2848,13 +2848,13 @@ export const da_DK: EnTranslations = {
       "pvpEntry": "Verdens-PvP aktiveres, når du går ind i den aktive cirkel.",
       "pvpBanner": "PvP",
       "callout": {
-        "killingSpree": "{name} is on a Killing Spree!",
-        "rampage": "{name} is on a Rampage!",
-        "unstoppable": "{name} is Unstoppable!",
-        "dominating": "{name} is Dominating!",
-        "godlike": "{name} is Godlike!",
-        "legendary": "{name} is Legendary!",
-        "shutDown": "{killer} has shut down {victim}!"
+        "killingSpree": "{name} er på en drabsserie!",
+        "rampage": "{name} raser!",
+        "unstoppable": "{name} er ustoppelig!",
+        "dominating": "{name} dominerer!",
+        "godlike": "{name} er guddommelig!",
+        "legendary": "{name} er legendarisk!",
+        "shutDown": "{killer} har stoppet {victim}!"
       },
       "standingRaid": "Raidmedlemmer tæller ikke: kun partier kan holde bakken"
     },
@@ -2869,7 +2869,7 @@ export const da_DK: EnTranslations = {
       "buyAria": "Køb {item} for {honor}",
       "buyOwnedAria": "Køb {item} for {honor}, allerede ejet",
       "buyConfirmBody": "Køb {item} for {honor}? Køb med Ære kan ikke refunderes.",
-      "buyConfirmBodyGold": "Buy {item} for {price}? This purchase cannot be refunded."
+      "buyConfirmBodyGold": "Køb {item} for {price}? Dette køb kan ikke refunderes."
     },
     "charSheet": {
       "offense": "Angreb",
@@ -4208,7 +4208,7 @@ export const da_DK: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
-      "bountyTag": "Bounty {honor}",
+      "bountyTag": "Dusør {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Snyder >",
       "pledgeTag": "Løfte til {guild}",
@@ -5064,11 +5064,11 @@ export const da_DK: EnTranslations = {
       "hideOffline": "Skjul offline",
       "hideOfflineTitle": "Skjul offline gildemedlemmer",
       "presence": {
-        "label": "Show me online to",
-        "everyone": "Everyone",
-        "friends": "Friends only",
-        "none": "No one",
-        "title": "Who sees you online in friends lists and the guild roster, with your zone and map position. Your party always sees you."
+        "label": "Vis mig online til",
+        "everyone": "Alle",
+        "friends": "Kun venner",
+        "none": "Ingen",
+        "title": "Hvem der ser dig online på vennelister og laugsmandtal, med din zone og kortposition. Dit hold ser altid dig."
       },
       "billboard": {
         "label": "Laugsopslagstavle",
@@ -7569,7 +7569,7 @@ export const da_DK: EnTranslations = {
       "arena": "Din placering i Det Askegrå Colosseum i begge kategorier: rating, sejre, nederlag og sejrsrate for 1v1 og for 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Flag til verdens-PvP: /pvp skifter tilstand, /pvp on slår det til, og /pvp off slår det fra. Spillere med flag kan kæmpe mod hinanden på omstridt jord, fristeder tillader ingen verdenskampe, og dit flag aktiveres, når du går ind i en aktiv cirkel i Konge af Bakken; det tager 5 minutter at slå det fra.",
-      "presence": "Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.",
+      "presence": "Hvem der ser dig online på vennelister, dit laugsmandtal og /who: /presence everyone (standarden), /presence friends (kun spillere på din venneliste) eller /presence none. Skjult ser de ingen online prik, zone eller kortposition for dig, skønt hvisker og invitationer stadig når dig; dit hold ser altid dig. En almindelig /presence fortæller dig, hvad der er sat.",
       "flair": "Viser eller skjuler din Discord-rolle for andre spillere, altså dit farvede navn, dit rollemærke og dit bekræftede chatmærke: /flair on viser den, /flair off skjuler den, og /flair alene fortæller dig, hvad der er valgt. Kræver en tilknyttet Discord-konto.",
       "listings": "Dine egne opslag på Verdensmarkedet, med udbudsprisen, tiden hvert har tilbage, og hvor meget plads du har til flere.",
       "buyback": "Hvad du for nylig solgte til en handlende, og som du stadig kan købe tilbage.",
@@ -8334,7 +8334,7 @@ export const da_DK: EnTranslations = {
       "warfareTradeBodyRatingSpent": "Det er den tilsigtede handel. Krigsudstyr er bygget til at kæmpe mod spillere, ikke som en genvej forbi dungeon-niveauerne: Et krigsstykke har aldrig de kampratings, som en dungeon-episk genstand i samme plads har, og de krigsvurderinger og sætbonusser, det i stedet har, bruges fuldstændigt på andre spillere. Hvis du vil kunne klare dig i arenaen, så køb det. Hvis du vil rydde heroiske dungeons hurtigere, så tjen dit udstyr i dungeons.",
       "vanguardHeading": "Vanguard-udstyr: Krigsførelse Sæson 2",
       "vanguardBody": "Vanguard-udstyr er anden sæson af Krigsførelse-udstyr, solgt af de samme to kvartermestrene over det oprindelige lag, som forbliver til salg. Hver spec har sit eget Vanguard-sæt af fem dele, til hoved, skuldre, bryst, ben og hænder, og butikken viser kun de tre sæt din klasse kan bære, efterfulgt af de Vanguard-våben du kan føre. En Vanguard-del bærer de samme Krigsførelse-ratings som det oprindelige lag på et højere gjenstandsniveau, og hvert sæt har to bonusser, ved to og fire dele, der ændrer en af din specs evner. I modsætning til de oprindelige sæt fungerer disse bonusser overalt, udjegede inkluderet, men de er bygget til at kampe mod spillere, så et raid-sæt forbliver det bedre valg inde i et raid.",
-      "vanguardStatsBody": "Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead."
+      "vanguardStatsBody": "I modsætning til det oprindelige lag bærer Avantgarde-udstyr også kampvurderinger: hver Avantgarde-rustningsdel, våben og halskæde har Kritvurdering eller Hastevurdering, og delene for tryllebrugeren og læger tilføjer Besværgelseskraft eller Helbredelseskraft. Avantgarde-ringene og halskederne sælges ved siden af væbnerne, og enhver klasse kan tage dem på. To af Avantgardes nærkampiringe giver nøjagtigt Rammevurderingen, der fjerner basischancen for, at dine angreb mangler en spiller på dit eget niveau, og to tryllebrugeres ringe gør det samme for dine besværgelser, der bliver modstået. Autoangreb under dobbeltkamp beholder deres ekstra manglende chance. Læger-ringen bærer i stedet Hastevurdering."
     },
     "worldPvpPage": {
       "heading": "Verden PvP",
@@ -12792,7 +12792,7 @@ export const da_DK: EnTranslations = {
       "dps": "({dps} skade i sekundet)",
       "armorStat": "{value} Rustning",
       "stat": "+{value} {stat}",
-      "warfareMainHandOnly": "Warfare counts only in the main hand.",
+      "warfareMainHandOnly": "Krigsførelse tæller kun i hovedhånden.",
       "useFood": "Brug: Genopretter {amount} helbred over {seconds} sek. Skal forblive siddende mens du spiser.",
       "useDrink": "Brug: Genopretter {amount} mana over {seconds} sek. Skal forblive siddende mens du drikker.",
       "useElixir": "Brug: Øger din {stat} med {value} i {minutes} minutter. Erstatter enhver anden eliksir eller rulle med samme egenskab. Kan bruges i kamp.",
@@ -18488,28 +18488,28 @@ export const da_DK: EnTranslations = {
         "name": "Fortroppens vilde stav"
       },
       "vanguard_band_of_might": {
-        "name": "Vanguard's Band of Might"
+        "name": "Avantgardes Ring af Styrke"
       },
       "vanguard_band_of_precision": {
-        "name": "Vanguard's Band of Precision"
+        "name": "Avantgardes Ring af Præcision"
       },
       "vanguard_band_of_focus": {
-        "name": "Vanguard's Band of Focus"
+        "name": "Avantgardes Ring af Fokus"
       },
       "vanguard_band_of_mending": {
-        "name": "Vanguard's Band of Mending"
+        "name": "Avantgardes Ring af Helbredelse"
       },
       "vanguard_pendant_of_might": {
-        "name": "Vanguard's Pendant of Might"
+        "name": "Avantgardes Anheng af Styrke"
       },
       "vanguard_pendant_of_precision": {
-        "name": "Vanguard's Pendant of Precision"
+        "name": "Avantgardes Anheng af Præcision"
       },
       "vanguard_pendant_of_focus": {
-        "name": "Vanguard's Pendant of Focus"
+        "name": "Avantgardes Anheng af Fokus"
       },
       "vanguard_pendant_of_mending": {
-        "name": "Vanguard's Pendant of Mending"
+        "name": "Avantgardes Anheng af Helbredelse"
       },
       "conjured_water4": {
         "name": "Fremmanet kildevand"
