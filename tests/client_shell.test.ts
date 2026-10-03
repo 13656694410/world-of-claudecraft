@@ -90,6 +90,11 @@ const serverMain = readFileSync(new URL('../server/main.ts', import.meta.url), '
   /\r\n/g,
   '\n',
 );
+// The server's pretty-URL alias table (STATIC_PAGE_ALIASES), imported by server/main.ts.
+const serverAliases = readFileSync(
+  new URL('../server/static_fallback.ts', import.meta.url),
+  'utf8',
+);
 const mainTs = readFileSync(new URL('../src/main.ts', import.meta.url), 'utf8').replace(
   /\r\n/g,
   '\n',
@@ -1073,10 +1078,10 @@ describe('client HTML shell', () => {
     expect(viteConfig).toContain("['/terms', '/terms.html']");
     expect(viteConfig).toContain("['/data-deletion', '/data-deletion.html']");
     expect(viteConfig).toContain("['/support', '/support.html']");
-    expect(serverMain).toContain("['/privacy', '/privacy.html']");
-    expect(serverMain).toContain("['/terms', '/terms.html']");
-    expect(serverMain).toContain("['/data-deletion', '/data-deletion.html']");
-    expect(serverMain).toContain("['/support', '/support.html']");
+    expect(serverAliases).toContain("['/privacy', '/privacy.html']");
+    expect(serverAliases).toContain("['/terms', '/terms.html']");
+    expect(serverAliases).toContain("['/data-deletion', '/data-deletion.html']");
+    expect(serverAliases).toContain("['/support', '/support.html']");
   });
 
   it('loads Meta Pixel outside local development and tracks level 5', () => {
