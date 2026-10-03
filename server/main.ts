@@ -430,6 +430,7 @@ import {
   requestedSfxVersion,
   sfxBlobIntegrityMatches,
 } from './static_cache';
+import { spaFallbackStatus } from './static_fallback';
 import { readStaticSfxSnapshot, type StaticSfxSnapshot } from './static_sfx';
 import { stopSteamMirror } from './steam/mirror';
 import {
@@ -1467,6 +1468,8 @@ function serveStatic(req: http.IncomingMessage, res: http.ServerResponse): void 
     return;
   }
   let urlPath = requestUrl.pathname;
+  // The raw pathname, kept for the SPA fallback's status (urlPath is rewritten below).
+  const requestPath = urlPath;
   // The curated Guide is the site wiki: a client-routed SPA served at /wiki with its
   // own shell, so deep paths (/wiki/classes/...) fall back to guide.html rather than the
   // game's index.html. (It previously 302'd to a standalone MediaWiki; that is retired.)
@@ -1513,10 +1516,13 @@ function serveStatic(req: http.IncomingMessage, res: http.ServerResponse): void 
       res.end('not found');
       return;
     }
-    // SPA fallback
+    // SPA fallback. Known client routes answer 200; any other path gets the same shell
+    // with a 404 status, so invented URLs are not soft-404 copies of the homepage
+    // (server/static_fallback.ts).
     const index = path.join(STATIC_DIR, shell);
     if (fs.existsSync(index)) {
-      res.writeHead(200, { 'Content-Type': 'text/html', 'Cache-Control': 'no-cache' });
+      const status = spaFallbackStatus(requestPath, isAdminRequest(req), STATIC_PAGE_ALIASES);
+      res.writeHead(status, { 'Content-Type': 'text/html', 'Cache-Control': 'no-cache' });
       streamStaticFile(index, res);
     } else {
       res.writeHead(404);
