@@ -858,6 +858,14 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_verdict_greatsword.name': '先锋之裁决',
   'entities.items.vanguard_feral_staff.name': '先锋野性法杖',
   'entities.items.vanguard_warstaff.name': '先锋之战杖',
+  'entities.items.vanguard_band_of_might.name': '先锋力量指环',
+  'entities.items.vanguard_band_of_precision.name': '先锋精准指环',
+  'entities.items.vanguard_band_of_focus.name': '先锋专注指环',
+  'entities.items.vanguard_band_of_mending.name': '先锋愈合指环',
+  'entities.items.vanguard_pendant_of_might.name': '先锋力量坠饰',
+  'entities.items.vanguard_pendant_of_precision.name': '先锋精准坠饰',
+  'entities.items.vanguard_pendant_of_focus.name': '先锋专注坠饰',
+  'entities.items.vanguard_pendant_of_mending.name': '先锋愈合坠饰',
   'entities.npcs.glider_apprentice.name': '斯凯',
   'devCommand.actions.hillend.description': '让当前山丘立即回落。',
   'devCommand.actions.hillend.label': '结束山丘',
@@ -878,6 +886,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.abilities.thunderstorm.name': '碎风暴',
   'guide.arenaPage.vanguardBody':
     '先锋套装是战争套装的第二个赛季，由同样的两位军需官在原有品级之上出售，原品级仍照常在售。每个专精都有自己专属的五件先锋套装，涵盖头部、肩部、胸部、腿部与双手，商店只会列出你的职业能穿的三套装备，随后是你能使用的先锋武器。先锋装备带有与原有品级相同的战争等级，只是物品等级更高，并且每套装备都有两条套装效果，分别在凑齐两件与四件时触发，会改变你某个专精技能的效果。与原有套装不同，这些效果在任何场合都会生效，包括对怪物，但它们是为对抗玩家而设计的，因此在团队副本里，团队副本套装仍是更好的选择。',
+  'guide.arenaPage.vanguardStatsBody':
+    '与原版装备不同，先锋装备还带有战斗等级：每件先锋护甲、武器和坠饰都带有暴击等级或急速等级，施法者和治疗者的装备还额外提供法术强度或治疗强度。先锋指环和坠饰与武器一同出售，所有职业都可以佩戴。佩戴两枚先锋近战指环，恰好提供足够的命中等级，消除你对同等级玩家攻击的基础未命中几率；佩戴两枚施法指环，则同样消除你的法术被抵抗的几率。双持时的自动攻击仍保留额外的未命中几率。治疗指环则改为提供急速等级。',
   'guide.arenaPage.vanguardHeading': '先锋套装：战争第二赛季',
   'guide.settingsPage.ifColorblindMode':
     '将尼思拉克西斯的地面危险标识（坟场爆裂的预警圆环、坟场烈焰与灵魂之火的地面毒池、墓火直线，以及灵魂撕裂标记）重新上色为色盲安全配色，各标识色相与明暗分明，让重叠的圆圈也能分清边界。大小、计时与位置始终不变。',
@@ -1337,6 +1347,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.nameplate.mobEliteLevel': '{level}+',
   'hudChrome.nameplate.mobLevel': '{level}',
   'hudChrome.nameplate.afkTag': '暂离',
+  'hudChrome.nameplate.bountyTag': '悬赏 {honor}',
   'hudChrome.nameplate.cheaterTag': '< 作弊者 >',
   'hudChrome.nameplate.pledgeTag': '{guild}的宣誓者',
   'hudChrome.nameplate.npcRoleTag': '<{role}>',
@@ -2387,6 +2398,12 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.social.onlineHeader': '在线 ({n})',
   'hudChrome.social.offlineHeader': '离线 ({n})',
   'hudChrome.social.hideOffline': '隐藏离线',
+  'hudChrome.social.presence.label': '对谁显示在线',
+  'hudChrome.social.presence.everyone': '所有人',
+  'hudChrome.social.presence.friends': '仅好友',
+  'hudChrome.social.presence.none': '无人',
+  'hudChrome.social.presence.title':
+    '谁能在好友列表和公会名单中看到你在线，以及你的区域和地图位置。队伍成员始终能看到你。',
   'hudChrome.social.hideOfflineTitle': '隐藏离线公会成员',
   'hudChrome.social.billboard.label': '公会公告板',
   'hudChrome.social.billboard.empty': '公告板上还没有内容。',
@@ -2575,6 +2592,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.owned': '已拥有',
   'hudChrome.warfareShop.buyOwnedAria': '以 {honor} 购买 {item}，已拥有',
   'hudChrome.warfareShop.buyConfirmBody': '用 {honor} 购买 {item}？荣誉购买后无法退款。',
+  'hudChrome.warfareShop.buyConfirmBodyGold': '用 {price} 购买 {item}？此次购买无法退款。',
   'hudChrome.keybinds.bgFlag': '战场夺旗动作',
   'hudChrome.keybinds.friendlyNameplates': '切换友方姓名板',
   'hudChrome.pvp.mobileLabel': 'PvP',
@@ -2695,6 +2713,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '功绩之书也会记录你的声望：与某个阵营达到信任、与某个阵营达到冠军各记为一项功绩，与三个阵营都达到冠军则是另一项功绩。和所有功绩一样，它们只是装饰，从不带来战力，而冠军功绩会授予一个可佩戴的头衔。',
   'guide.commandsPage.pvp':
     '世界 PvP 旗帜：/pvp 切换，/pvp on 与 /pvp off 直接设置。已开启旗帜的玩家可以在任何地方互相作战；关闭需要 5 分钟。',
+  'guide.commandsPage.presence':
+    '控制谁能在好友列表、公会名单和 /who 中看到你在线：/presence everyone（默认）、/presence friends（仅你好友列表中的玩家）或 /presence none。隐藏后，他们看不到你的在线标记、区域和地图位置，但密语和邀请仍能送达你；队伍成员始终能看到你。只输入 /presence 会告诉你当前设置。',
   'guide.commandsPage.flair':
     '对其他玩家显示或隐藏你的 Discord 身份组，即彩色名字、身份组标签和聊天认证标签：/flair on 显示，/flair off 隐藏，只输入 /flair 会告诉你当前设置。需要已关联的 Discord 账号。',
   'guide.commandsPage.pvpZones':
@@ -4430,6 +4450,7 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'itemUi.tooltip.dps': '（每秒 {dps} 伤害）',
   'itemUi.tooltip.armorStat': '{value} 护甲',
   'itemUi.tooltip.stat': '+{value} {stat}',
+  'itemUi.tooltip.warfareMainHandOnly': '战争属性仅在主手时生效。',
   'itemUi.tooltip.useFood': '使用：在 {seconds} 秒内恢复 {amount} 点生命值。进食时必须保持坐下。',
   'itemUi.tooltip.useDrink': '使用：在 {seconds} 秒内恢复 {amount} 点法力值。饮水时必须保持坐下。',
   'itemUi.tooltip.questItem': '任务物品',
@@ -5570,6 +5591,8 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.warlock_voidwalker.name': '虚空恶魔',
   'entities.mobs.ysolei.name': '伊索蕾，溺月化身',
   'hudChrome.death.resurrectAtCorpse': '在尸体旁复活',
+  'hudChrome.death.pvpResurrect': 'PvP 复活',
+  'hudChrome.death.pvpResurrectTitle': '在最近的墓地以满生命值复活，且不会新增复活后遗症。',
   'hudChrome.death.resurrectAtHealer': '灵魂医者（复活后遗症）',
   'hudChrome.death.healerConfirmTitle': '接受复活后遗症？',
   'hudChrome.death.healerConfirmBody':
@@ -9623,9 +9646,9 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
     '离得最近的人攻击骨刺：任何人命中几次即可击碎，无论伤害多少。治疗者在骨刺被击碎前保住被穿刺队员的性命。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': '坟场爆裂',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    '每 {everyNormal} 秒，森森白骨之手会在队员脚下标记 {countNormal} 个半径 {radius} 码的圆圈。{warning} 秒后，每个圆圈都会爆裂，造成 {burstNormal} 最大生命值的暗影伤害，随后化为坟场烈焰燃烧 {flameNormal} 秒，对站在其中的任何人每秒造成 {tickNormal} 最大生命值的伤害。',
+    '每 {everyNormal} 秒，森森白骨之手会在队员脚下标记 {countNormal} 个半径 {radius} 码的圆圈。{warning} 秒后，每个圆圈都会爆裂，造成 {burstNormal} 最大生命值的暗影伤害，随后化为坟场烈焰燃烧 {flameNormal} 秒，对站在其中的任何人每秒造成 {tickNormal} 最大生命值的伤害。灵魂撕裂标记存在期间以及标记消失后 {gap} 秒内，此技能不会发动。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    '每 {everyHeroic} 秒，森森白骨之手会在队员脚下标记 {countHeroic} 个半径 {radius} 码的圆圈。{warning} 秒后，每个圆圈都会爆裂，造成 {burstHeroic} 最大生命值的暗影伤害，随后化为坟场烈焰燃烧 {flameHeroic} 秒，对站在其中的任何人每秒造成 {tickHeroic} 最大生命值的伤害。',
+    '每 {everyHeroic} 秒，森森白骨之手会在队员脚下标记 {countHeroic} 个半径 {radius} 码的圆圈。{warning} 秒后，每个圆圈都会爆裂，造成 {burstHeroic} 最大生命值的暗影伤害，随后化为坟场烈焰燃烧 {flameHeroic} 秒，对站在其中的任何人每秒造成 {tickHeroic} 最大生命值的伤害。灵魂撕裂标记存在期间以及标记消失后 {gap} 秒内，此技能不会发动。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     '在每个预警圆圈爆裂前离开，并远离燃烧地面。坦克应将尼思拉克西斯拉离火焰区域，为近战输出留出空间。',
   'hudChrome.raidBossGuide.nythraxis.bindingSigilName': '束缚法阵',
@@ -18652,9 +18675,18 @@ export const zh_CN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     '保持世界PvP开启可多获得{percent}的经验值和阵营声望。请求关闭时，加成立即停止。',
   'hudChrome.worldPvp.rewardTitles':
-    '开启世界PvP的游戏时间达到{thresholds}时，可获得永久头衔。离线或身处试炼之滨时计时暂停。关闭PvP会重置计时。',
+    '在开放世界中开启世界PvP的游戏时间达到{thresholds}时，可获得永久头衔。离线、死亡、身处副本或试炼之滨时计时暂停。关闭PvP会重置计时。',
   'hudChrome.worldPvp.rewardPaused': '当前PvP连续游戏时间：{time}（在试炼之滨暂停）',
+  'hudChrome.worldPvp.rewardPausedDead': '当前PvP连续游戏时间：{time}（死亡期间暂停）',
+  'hudChrome.worldPvp.rewardPausedInstance': '当前PvP连续游戏时间：{time}（在副本中暂停）',
   'hudChrome.worldPvp.rewardProgress': '当前PvP连续游戏时间：{time}',
   'hudChrome.hill.pvpEntry': '进入活动圈会开启世界 PvP。',
   'hudChrome.hill.pvpBanner': 'PvP',
+  'hudChrome.hill.callout.killingSpree': '{name}正在大杀特杀！',
+  'hudChrome.hill.callout.rampage': '{name}已经杀人如麻！',
+  'hudChrome.hill.callout.unstoppable': '{name}已经无人能挡！',
+  'hudChrome.hill.callout.dominating': '{name}已经主宰比赛！',
+  'hudChrome.hill.callout.godlike': '{name}已经接近神了！',
+  'hudChrome.hill.callout.legendary': '{name}已经超越神了！',
+  'hudChrome.hill.callout.shutDown': '{killer}终结了{victim}！',
 };

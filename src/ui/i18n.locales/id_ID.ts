@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const id_ID: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Bangkit PvP',
+  'hudChrome.death.pvpResurrectTitle':
+    'Bangkit di kuburan terdekat dengan kesehatan penuh, tanpa Pajak Penjaga yang baru.',
+  'hudChrome.hill.callout.dominating': '{name} menguasai!',
+  'hudChrome.hill.callout.godlike': '{name} seperti dewa!',
+  'hudChrome.hill.callout.killingSpree': '{name} berdarah-darahan!',
+  'hudChrome.hill.callout.legendary': '{name} legendaris!',
+  'hudChrome.hill.callout.rampage': '{name} mengamuk!',
+  'hudChrome.hill.callout.shutDown': '{killer} telah membungkam {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} tidak terbendung!',
+  'hudChrome.nameplate.bountyTag': 'Hadiah {honor}',
+  'hudChrome.social.presence.everyone': 'Semua orang',
+  'hudChrome.social.presence.friends': 'Hanya teman',
+  'hudChrome.social.presence.label': 'Tampilkan diriku online ke',
+  'hudChrome.social.presence.none': 'Tidak ada',
+  'hudChrome.social.presence.title':
+    'Siapa yang melihatmu online di daftar teman dan rostelunsur serikat, beserta zona dan posisi petamu. Partimu selalu melihatmu.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Beli {item} seharga {price}? Pembelian ini tidak dapat dikembalikan.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Perang hanya dihitung di tangan utama.',
+  'entities.items.vanguard_band_of_focus.name': 'Sabuk Pelopor Fokus',
+  'entities.items.vanguard_band_of_mending.name': 'Sabuk Pelopor Penyembuhan',
+  'entities.items.vanguard_band_of_might.name': 'Sabuk Pelopor Kekuatan',
+  'entities.items.vanguard_band_of_precision.name': 'Sabuk Pelopor Presisi',
+  'entities.items.vanguard_pendant_of_focus.name': 'Liontin Pelopor Fokus',
+  'entities.items.vanguard_pendant_of_mending.name': 'Liontin Pelopor Penyembuhan',
+  'entities.items.vanguard_pendant_of_might.name': 'Liontin Pelopor Kekuatan',
+  'entities.items.vanguard_pendant_of_precision.name': 'Liontin Pelopor Presisi',
+  'guide.arenaPage.vanguardStatsBody':
+    'Tidak seperti tingkat asli, perlengkapan Pelopor juga membawa rating pertarungan: setiap baju zirah Pelopor, senjata, dan kalung memiliki Rating Kritis atau Rating Kecepatan, dan bagian untuk penyihir dan penyembuh menambahkan Kekuatan Mantra atau Kekuatan Penyembuhan. Cincin dan kalung Pelopor dijual di sebelah senjata, dan setiap kelas dapat memakainya. Dua dari cincin jarak dekat Pelopor memberikan persis Rating Pukulan yang menghilangkan peluang dasar serangan mu meleset pada pemain level mu, dan dua cincin penyihir melakukan hal yang sama untuk mantramu ditolak. Serangan otomatis saat dual-wielding tetap mempertahankan peluang meleset tambahan mereka. Cincin penyembuh membawa Rating Kecepatan sebagai gantinya.',
+  'guide.commandsPage.presence':
+    'Siapa yang melihatmu online di daftar teman, rostelunsur serikatmu, dan /who: /presence everyone (standar), /presence friends (hanya pemain di daftar temamu) atau /presence none. Tersembunyi, mereka tidak melihat titik online, zona, atau posisi peta untukmu, meski bisikan dan undangan tetap menjangkaumu; partimu selalu melihatmu. Ketik /presence saja untuk memberitahumu mana yang diatur.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Menyelam',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Menyelam Dalam',
@@ -18501,12 +18533,12 @@ export const id_ID: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Setiap {every} dtk, Nythraxis menghantam tank saat ini sebesar {hitNormal} kesehatan maksimum sebagai kerusakan Bayangan dan menambah satu tumpukan Kutukan Ngeri. Selama {duration} dtk, setiap tumpukan meningkatkan kerusakan yang diterima tank itu dari Nythraxis sebesar {perStackNormal}, hingga {max} tumpukan.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Setiap {everyHeroic} dtk, tangan kerangka menandai {countHeroic} lingkaran {radius} yd di bawah raider. Setelah {warning} dtk, setiap lingkaran meletus sebesar {burstHeroic} kesehatan maksimum sebagai kerusakan Bayangan, lalu terbakar sebagai Api Makam selama {flameHeroic} dtk, menghasilkan {tickHeroic} kesehatan maksimum setiap detik kepada siapa pun yang berdiri di dalamnya.',
+    'Setiap {everyHeroic} dtk, tangan kerangka menandai {countHeroic} lingkaran {radius} yd di bawah raider. Setelah {warning} dtk, setiap lingkaran meletus sebesar {burstHeroic} kesehatan maksimum sebagai kerusakan Bayangan, lalu terbakar sebagai Api Makam selama {flameHeroic} dtk, menghasilkan {tickHeroic} kesehatan maksimum setiap detik kepada siapa pun yang berdiri di dalamnya. Ini tidak pernah terjadi selama tanda Robekan Jiwa masih aktif atau dalam {gap} dtk setelah tanda itu hilang.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Erupsi Makam',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Keluarlah dari setiap lingkaran peringatan sebelum meletus dan jauhi tanah yang terbakar. Tank menarik Nythraxis menjauh dari api agar petarung jarak dekat punya ruang untuk bergerak.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Setiap {everyNormal} dtk, tangan kerangka menandai {countNormal} lingkaran {radius} yd di bawah raider. Setelah {warning} dtk, setiap lingkaran meletus sebesar {burstNormal} kesehatan maksimum sebagai kerusakan Bayangan, lalu terbakar sebagai Api Makam selama {flameNormal} dtk, menghasilkan {tickNormal} kesehatan maksimum setiap detik kepada siapa pun yang berdiri di dalamnya.',
+    'Setiap {everyNormal} dtk, tangan kerangka menandai {countNormal} lingkaran {radius} yd di bawah raider. Setelah {warning} dtk, setiap lingkaran meletus sebesar {burstNormal} kesehatan maksimum sebagai kerusakan Bayangan, lalu terbakar sebagai Api Makam selama {flameNormal} dtk, menghasilkan {tickNormal} kesehatan maksimum setiap detik kepada siapa pun yang berdiri di dalamnya. Ini tidak pernah terjadi selama tanda Robekan Jiwa masih aktif atau dalam {gap} dtk setelah tanda itu hilang.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Penghancur Makam',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tank menjaga Nythraxis menghadap menjauh dari raid. Semua orang lain tetap di belakang atau di sampingnya dan tidak pernah melintasi kerucut.',
@@ -20012,9 +20044,13 @@ export const id_ID: Partial<Record<TranslationKey, string>> = {
     'Biarkan PvP Dunia aktif untuk mendapatkan {percent} lebih banyak pengalaman dan reputasi faksi. Bonus berhenti saat kamu meminta untuk menonaktifkannya.',
   'hudChrome.worldPvp.rewardPaused':
     'Rangkaian PvP saat ini: {time} bermain (dijeda di Pesisir Pembuktian)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Rangkaian PvP saat ini: {time} bermain (dijeda saat mati)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Rangkaian PvP saat ini: {time} bermain (dijeda di dalam instans)',
   'hudChrome.worldPvp.rewardProgress': 'Rangkaian PvP saat ini: {time} bermain',
   'hudChrome.worldPvp.rewardTitles':
-    'Dapatkan gelar permanen setelah {thresholds} waktu bermain dengan PvP Dunia aktif. Keluar dari permainan dan mengunjungi Pesisir Pembuktian menjeda penghitung. Menonaktifkannya mengatur ulang penghitung.',
+    'Dapatkan gelar permanen setelah {thresholds} waktu bermain di dunia terbuka dengan PvP Dunia aktif. Keluar dari permainan, mati, berada di instans, dan mengunjungi Pesisir Pembuktian menjeda penghitung. Menonaktifkannya mengatur ulang penghitung.',
   'guide.worldPvpPage.introZones':
     'PvP dunia terbuka bersifat sukarela dan bergantung pada wilayah. Di wilayah sengketa, mengaktifkan bendera PvP menjadikan setiap pemain berbendera di luar grup atau raid kamu sebagai musuh; setelah dinonaktifkan dan jeda singkat, kamu kembali menjadi penonton. Pesisir Pembuktian adalah satu-satunya tempat perlindungan tanpa pertempuran dunia, dan tiga wilayah paling utara menggunakan aturan bendera sukarela yang sama seperti wilayah lainnya. Memasuki lingkaran Raja Bukit yang aktif otomatis mengaktifkan benderamu. Anggota grup dan raid tidak pernah menjadi musuhmu di mana pun; anggota guild di luar grup kamu dapat diserang seperti pemain lain.',
   'guide.worldPvpPage.zonesBody':

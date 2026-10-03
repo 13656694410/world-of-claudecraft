@@ -442,7 +442,12 @@ export function createMinimapMarkers(): MinimapMarkers {
       const friendNames = social
         ? new Set(social.friends.filter((f) => f.online).map((f) => f.name))
         : null;
-      const guildNames = social?.guild ? new Set(social.guild.members.map((m) => m.name)) : null;
+      // Both sets are ONLINE-only, the rule the world map already applies: a
+      // friend or guildmate whose presence setting hides them from this viewer
+      // (server/presence_privacy.ts) arrives offline and gets no dot.
+      const guildNames = social?.guild
+        ? new Set(social.guild.members.filter((m) => m.online).map((m) => m.name))
+        : null;
       const partyPids = world.partyInfo ? new Set(world.partyInfo.members.map((m) => m.pid)) : null;
       // The same roster as a list, the shape the corpse indicator's rights
       // check consumes (the VIEWER's party, handed over as the tapper's only

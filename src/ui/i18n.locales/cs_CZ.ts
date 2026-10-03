@@ -2,6 +2,37 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const cs_CZ: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'PvP Vzkříšení',
+  'hudChrome.death.pvpResurrectTitle':
+    'Vzkříšit se u nejbližšího hřbitova s plným zdravím, bez nového Strážcova mýta.',
+  'hudChrome.hill.callout.dominating': '{name} dominuje!',
+  'hudChrome.hill.callout.godlike': '{name} je božský!',
+  'hudChrome.hill.callout.killingSpree': '{name} je na vražedné řádě!',
+  'hudChrome.hill.callout.legendary': '{name} je legendární!',
+  'hudChrome.hill.callout.rampage': '{name} řádí!',
+  'hudChrome.hill.callout.shutDown': '{killer} zastavil(a) {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} je nezastavitelný!',
+  'hudChrome.nameplate.bountyTag': 'Cena {honor}',
+  'hudChrome.social.presence.everyone': 'Všichni',
+  'hudChrome.social.presence.friends': 'Pouze přátelé',
+  'hudChrome.social.presence.label': 'Ukázat mi jako online',
+  'hudChrome.social.presence.none': 'Nikdo',
+  'hudChrome.social.presence.title':
+    'Kdo tě vidí jako online v seznamech přátel a v seznamu cechu, tvoji zónu a pozici na mapě. Tvá skupina tě vždy vidí.',
+  'hudChrome.warfareShop.buyConfirmBodyGold': 'Koupit {item} za {price}? Tento nákup nelze vrátit.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Válečnictví se počítá pouze v hlavní ruce.',
+  'entities.items.vanguard_band_of_focus.name': 'Předvojovo pásmo zaměření',
+  'entities.items.vanguard_band_of_mending.name': 'Předvojovo pásmo hojení',
+  'entities.items.vanguard_band_of_might.name': 'Předvojovo pásmo moci',
+  'entities.items.vanguard_band_of_precision.name': 'Předvojovo pásmo přesnosti',
+  'entities.items.vanguard_pendant_of_focus.name': 'Předvojův přívěsek zaměření',
+  'entities.items.vanguard_pendant_of_mending.name': 'Předvojův přívěsek hojení',
+  'entities.items.vanguard_pendant_of_might.name': 'Předvojův přívěsek moci',
+  'entities.items.vanguard_pendant_of_precision.name': 'Předvojův přívěsek přesnosti',
+  'guide.arenaPage.vanguardStatsBody':
+    'Na rozdíl od původní úrovně nese výbava Předvoje také bojová hodnocení: každý Předvojův kus zbroje, zbraň a náhrdelník má Hodnocení kritického zásahu nebo Hodnocení rychlosti, a kouzelnickovské a léčitelské kusy přidávají Sílu kouzel nebo Sílu léčení. Předvojské prsteny a náhrdelníky se prodávají vedle zbraní a nosit je mohou všechny třídy. Dva z Předvojských melee prstenů dávají přesně Hodnocení zásahu, které odstraňuje základní šanci, že tvůj útok mine hráče tvé úrovně, a dva kouzelnictví prsteny dělají totéž pro tvá kouzla, aby byla odolávána. Auto-útoky při duálním držení zbraní si zachovávají svou zvýšenou šanci zmeškat. Léčitelský prsten nese místo toho Hodnocení rychlosti.',
+  'guide.commandsPage.presence':
+    'Kdo tě vidí jako online v seznamech přátel, v seznamu cechu a v /who: /presence everyone (výchozí), /presence friends (pouze hráči na tvém seznamu přátel), nebo /presence none. Když jsi skrytý, nevidí žádný online bod, tvoji zónu ani pozici na mapě, i když ti šepoty a pozvánky stále docházejí; tvá skupina tě vždy vidí. Pouhý /presence ti řekne, co je nastaveno.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Potápění',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Pronikavý potop',
@@ -18161,12 +18192,12 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Každých {every} s Nythraxis zasáhne svého aktuálního tanka za {hitNormal} maximálního zdraví jako stínové poškození a přidá sadu Děsivé kletby. Po dobu {duration} s každá sada zvyšuje poškození, které tank utrpí od Nythraxise, o {perStackNormal}, až do {max} sad.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Každých {everyHeroic} s kostlivé ruce označí {countHeroic} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstHeroic} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameHeroic} s a každou sekundu způsobuje {tickHeroic} maximálního zdraví každému, kdo v něm stojí.',
+    'Každých {everyHeroic} s kostlivé ruce označí {countHeroic} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstHeroic} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameHeroic} s a každou sekundu způsobuje {tickHeroic} maximálního zdraví každému, kdo v něm stojí. Nikdy k tomu nedojde, dokud jsou aktivní značky Trhání duše, ani do {gap} s po jejich zmizení.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Hrobová erupce',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Ustupte z každého varovného kruhu, než vybuchne, a nestůjte na hořící zemi. Tankové odtáhnou Nythraxise od plamenů, aby měli bojovníci nablízko prostor.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Každých {everyNormal} s kostlivé ruce označí {countNormal} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstNormal} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameNormal} s a každou sekundu způsobuje {tickNormal} maximálního zdraví každému, kdo v něm stojí.',
+    'Každých {everyNormal} s kostlivé ruce označí {countNormal} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstNormal} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameNormal} s a každou sekundu způsobuje {tickNormal} maximálního zdraví každému, kdo v něm stojí. Nikdy k tomu nedojde, dokud jsou aktivní značky Trhání duše, ani do {gap} s po jejich zmizení.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Hrobobijec',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tankové drží Nythraxise otočeného pryč od raidu. Všichni ostatní stojí za ním nebo vedle něj a nikdy nekříží kužel.',
@@ -19684,9 +19715,13 @@ export const cs_CZ: Partial<Record<TranslationKey, string>> = {
     'Nechte světové PvP zapnuté a získávejte o {percent} více zkušeností a reputace frakcí. Bonusy skončí, jakmile požádáte o vypnutí.',
   'hudChrome.worldPvp.rewardPaused':
     'Aktuální série PvP: odehráno {time} (pozastaveno na Zkušebním pobřeží)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Aktuální série PvP: odehráno {time} (pozastaveno, dokud jste mrtví)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Aktuální série PvP: odehráno {time} (pozastaveno v instancích)',
   'hudChrome.worldPvp.rewardProgress': 'Aktuální série PvP: odehráno {time}',
   'hudChrome.worldPvp.rewardTitles':
-    'Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP. Odhlášení a návštěva Zkušebního pobřeží časovač pozastaví. Vypnutí jej vynuluje.',
+    'Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP v otevřeném světě. Odhlášení, smrt, instance a Zkušební pobřeží časovač pozastaví. Vypnutí jej vynuluje.',
   'guide.worldPvpPage.introZones':
     'PvP v otevřeném světě je dobrovolné a záleží na oblasti. Ve sporných oblastech z vás zapnutý příznak PvP dělá nepřítele všech označených hráčů mimo vaši skupinu či nájezd; po vypnutí a krátké prodlevě jste opět pozorovatelem. Zkušební pobřeží je jediné útočiště bez bojů ve světě a tři nejsevernější oblasti používají stejná pravidla dobrovolného příznaku jako zbytek světa. Vstup do aktivního kruhu Krále kopce automaticky zapne váš příznak. Členové skupiny a nájezdu nikdy nejsou vašimi nepřáteli; členové cechu mimo vaši skupinu jsou běžné cíle.',
   'guide.worldPvpPage.zonesBody':

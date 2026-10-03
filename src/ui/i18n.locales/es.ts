@@ -13,6 +13,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const es: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Resucitar JcJ',
+  'hudChrome.death.pvpResurrectTitle':
+    'Revive en el cementerio más cercano con vida plena, sin un nuevo Tañido del Guardián.',
+  'hudChrome.hill.callout.dominating': '¡{name} está Dominando!',
+  'hudChrome.hill.callout.godlike': '¡{name} es Divino!',
+  'hudChrome.hill.callout.killingSpree': '¡{name} está en Racha Letal!',
+  'hudChrome.hill.callout.legendary': '¡{name} es Legendario!',
+  'hudChrome.hill.callout.rampage': '¡{name} está Desenfrenado!',
+  'hudChrome.hill.callout.shutDown': '¡{killer} ha detenido a {victim}!',
+  'hudChrome.hill.callout.unstoppable': '¡{name} es Imparable!',
+  'hudChrome.nameplate.bountyTag': 'Recompensa {honor}',
+  'hudChrome.social.presence.everyone': 'Todos',
+  'hudChrome.social.presence.friends': 'Solo amigos',
+  'hudChrome.social.presence.label': 'Mostrarme conectado a',
+  'hudChrome.social.presence.none': 'Nadie',
+  'hudChrome.social.presence.title':
+    'Quién te ve conectado en listas de amigos y el registro de hermandad, con tu zona y posición en el mapa. Tu grupo siempre te ve.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    '¿Comprar {item} por {price}? Esta compra no se puede reembolsar.',
+  'itemUi.tooltip.warfareMainHandOnly': 'La Pericia bélica se cuenta solo en la mano principal.',
+  'entities.items.vanguard_band_of_focus.name': 'Anillo de Vanguardia de Enfoque',
+  'entities.items.vanguard_band_of_mending.name': 'Anillo de Vanguardia de Curación',
+  'entities.items.vanguard_band_of_might.name': 'Anillo de Vanguardia de Poder',
+  'entities.items.vanguard_band_of_precision.name': 'Anillo de Vanguardia de Precisión',
+  'entities.items.vanguard_pendant_of_focus.name': 'Colgante de Vanguardia de Enfoque',
+  'entities.items.vanguard_pendant_of_mending.name': 'Colgante de Vanguardia de Curación',
+  'entities.items.vanguard_pendant_of_might.name': 'Colgante de Vanguardia de Poder',
+  'entities.items.vanguard_pendant_of_precision.name': 'Colgante de Vanguardia de Precisión',
+  'guide.arenaPage.vanguardStatsBody':
+    'A diferencia del nivel original, el equipo de Vanguardia también lleva índices de combate: cada pieza de armadura, arma y collar de Vanguardia tiene Índice de Golpe Crítico o Índice de Celeridad, y las piezas de lanzador de hechizos y sanador añaden Poder con Hechizos o Poder de Sanación. Los anillos y collares de Vanguardia se venden junto con las armas, y todas las clases pueden usarlos. Dos de los anillos cuerpo a cuerpo de Vanguardia dan exactamente el Índice de Impacto que elimina la posibilidad base de que tus ataques fallen contra un jugador de tu nivel, y dos anillos de lanzador de hechizos hacen lo mismo con que tus hechizos sean resistidos. Los ataques automáticos mientras luchas con dos armas conservan su posibilidad de fallo adicional. El anillo de sanador lleva Índice de Celeridad en su lugar.',
+  'guide.commandsPage.presence':
+    'Quién te ve conectado en listas de amigos, el registro de tu hermandad y /who: /presence everyone (el predeterminado), /presence friends (solo jugadores de tu lista de amigos), o /presence none. Oculto, no ven un punto conectado, zona o posición de mapa para ti, aunque los susurros e invitaciones aún te llegan; tu grupo siempre te ve. Un /presence a secas te dice cuál está establecido.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Buceando',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Buceo de Embestida',
@@ -18496,12 +18528,12 @@ export const es: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Cada {every} s, Nythraxis golpea a su tanque actual con {hitNormal} de la salud máxima como daño de las Sombras y añade una acumulación de Maldición pavorosa. Durante {duration} s, cada acumulación aumenta el daño que ese tanque recibe de Nythraxis en {perStackNormal}, hasta {max} acumulaciones.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Cada {everyHeroic} s, manos esqueléticas marcan {countHeroic} círculos de {radius} yd bajo miembros de la banda. Tras {warning} s, cada círculo erupciona e inflige {burstHeroic} de la salud máxima como daño de las Sombras; luego arde como Llama sepulcral durante {flameHeroic} s e inflige {tickHeroic} de la salud máxima cada segundo a cualquiera que permanezca dentro.',
+    'Cada {everyHeroic} s, manos esqueléticas marcan {countHeroic} círculos de {radius} yd bajo miembros de la banda. Tras {warning} s, cada círculo erupciona e inflige {burstHeroic} de la salud máxima como daño de las Sombras; luego arde como Llama sepulcral durante {flameHeroic} s e inflige {tickHeroic} de la salud máxima cada segundo a cualquiera que permanezca dentro. Nunca ocurre mientras haya marcas de Desgarro de alma activas ni en los {gap} s posteriores a que desaparezcan.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Erupción sepulcral',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Sal de cada círculo de aviso antes de que erupcione y mantente fuera del suelo ardiente. Los tanques apartan a Nythraxis de las llamas para que los cuerpo a cuerpo tengan espacio.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Cada {everyNormal} s, manos esqueléticas marcan {countNormal} círculos de {radius} yd bajo miembros de la banda. Tras {warning} s, cada círculo erupciona e inflige {burstNormal} de la salud máxima como daño de las Sombras; luego arde como Llama sepulcral durante {flameNormal} s e inflige {tickNormal} de la salud máxima cada segundo a cualquiera que permanezca dentro.',
+    'Cada {everyNormal} s, manos esqueléticas marcan {countNormal} círculos de {radius} yd bajo miembros de la banda. Tras {warning} s, cada círculo erupciona e inflige {burstNormal} de la salud máxima como daño de las Sombras; luego arde como Llama sepulcral durante {flameNormal} s e inflige {tickNormal} de la salud máxima cada segundo a cualquiera que permanezca dentro. Nunca ocurre mientras haya marcas de Desgarro de alma activas ni en los {gap} s posteriores a que desaparezcan.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Quebrantatumbas',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Los tanques mantienen a Nythraxis mirando lejos de la banda. Todos los demás se quedan detrás o a su lado y nunca cruzan el cono.',
@@ -20213,9 +20245,13 @@ No hay un límite de profesiones que debas temer. Cada personaje puede subir nue
     'Mantén el JcJ mundial activado para ganar un {percent} más de experiencia y reputación de facción. Las bonificaciones terminan cuando solicitas desactivarlo.',
   'hudChrome.worldPvp.rewardPaused':
     'Racha JcJ actual: {time} de juego (en pausa en la Costa de la Prueba)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Racha JcJ actual: {time} de juego (en pausa mientras estás muerto)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Racha JcJ actual: {time} de juego (en pausa dentro de instancias)',
   'hudChrome.worldPvp.rewardProgress': 'Racha JcJ actual: {time} de juego',
   'hudChrome.worldPvp.rewardTitles':
-    'Consigue títulos permanentes tras {thresholds} de tiempo jugado con el JcJ mundial activado. Desconectarte y visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.',
+    'Consigue títulos permanentes tras {thresholds} de tiempo jugado en el mundo abierto con el JcJ mundial activado. Desconectarte, morir, entrar en instancias o visitar la Costa de la Prueba pausa el contador. Desactivarlo lo reinicia.',
   'guide.worldPvpPage.introZones':
     'El JcJ en el mundo abierto es voluntario y depende del terreno. Al activar tu bandera, los demás jugadores marcados que no estén en tu grupo o banda se vuelven enemigos en zonas disputadas. Al desactivarla, vuelves a ser espectador tras una breve demora. La Costa de la Prueba es el único santuario, sin combates JcJ mundiales. Las tres zonas más al norte siguen las mismas reglas de participación voluntaria que el resto del mundo. Entrar en el círculo activo del Rey de la Colina activa automáticamente tu bandera. Tus compañeros de grupo y banda nunca son enemigos; los miembros de tu hermandad fuera de tu grupo pueden ser atacados como cualquier otro jugador.',
   'guide.worldPvpPage.zonesBody':

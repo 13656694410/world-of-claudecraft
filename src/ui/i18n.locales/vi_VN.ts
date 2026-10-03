@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const vi_VN: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Hồi Sinh PvP',
+  'hudChrome.death.pvpResurrectTitle':
+    'Hồi sinh tại nghĩa trang gần nhất với đầy đủ sức khỏe, không bị Lệ Phí Người Giữ mới.',
+  'hudChrome.hill.callout.dominating': '{name} Đang Thống Trị!',
+  'hudChrome.hill.callout.godlike': '{name} Giống Như Thần!',
+  'hudChrome.hill.callout.killingSpree': '{name} Đang Trên Mạch Hành Quyết!',
+  'hudChrome.hill.callout.legendary': '{name} Thật Huyền Thoại!',
+  'hudChrome.hill.callout.rampage': '{name} Đang Tàn Phá!',
+  'hudChrome.hill.callout.shutDown': '{killer} Đã Dừng {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} Không Thể Dừng!',
+  'hudChrome.nameplate.bountyTag': 'Tiền Thưởng {honor}',
+  'hudChrome.social.presence.everyone': 'Mọi Người',
+  'hudChrome.social.presence.friends': 'Chỉ Bạn Bè',
+  'hudChrome.social.presence.label': 'Hiển Thị Trực Tuyến Cho',
+  'hudChrome.social.presence.none': 'Không Ai',
+  'hudChrome.social.presence.title':
+    'Ai thấy bạn trực tuyến trong danh sách bạn bè và danh sách thành viên hội, kèm theo khu vực và vị trí bản đồ của bạn. Đội của bạn luôn thấy bạn.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Mua {item} với giá {price}? Lần mua này không thể hoàn lại.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Chiến Tranh chỉ tính trong tay chính.',
+  'entities.items.vanguard_band_of_focus.name': 'Vòng Tay Tiền Phương Tập Trung',
+  'entities.items.vanguard_band_of_mending.name': 'Vòng Tay Tiền Phương Chữa Lành',
+  'entities.items.vanguard_band_of_might.name': 'Vòng Tay Tiền Phương Sức Mạnh',
+  'entities.items.vanguard_band_of_precision.name': 'Vòng Tay Tiền Phương Chính Xác',
+  'entities.items.vanguard_pendant_of_focus.name': 'Mặt Dây Tiền Phương Tập Trung',
+  'entities.items.vanguard_pendant_of_mending.name': 'Mặt Dây Tiền Phương Chữa Lành',
+  'entities.items.vanguard_pendant_of_might.name': 'Mặt Dây Tiền Phương Sức Mạnh',
+  'entities.items.vanguard_pendant_of_precision.name': 'Mặt Dây Tiền Phương Chính Xác',
+  'guide.arenaPage.vanguardStatsBody':
+    'Không giống như tầng gốc, trang bị Tiền Phương cũng mang Chỉ Số Tấn Công: mỗi bộ áo, vũ khí và dây chuyền Tiền Phương có Chỉ Số Chí Mạng hoặc Chỉ Số Thần Tốc, và bộ cho những người dùng phép thuật và chữa lành thêm Sức Mạnh Phép Thuật hoặc Sức Mạnh Trị Liệu. Những chiếc nhẫn và dây chuyền Tiền Phương được bán cạnh vũ khí, và mọi dòng đều có thể mặc. Hai chiếc nhẫn tấn công gần Tiền Phương cung cấp đúng Chỉ Số Trúng Đòn để loại bỏ cơ hội trúng đòn cơ bản khi tấn công người chơi cùng cấp của bạn, và hai chiếc nhẫn dùng phép thuật làm tương tự cho việc phép thuật bị chống lại. Tấn công tự động khi dùng hai vũ khí vẫn giữ cơ hội trúng đòn bổ sung. Nhẫn chữa lành mang Chỉ Số Thần Tốc thay vào đó.',
+  'guide.commandsPage.presence':
+    'Ai thấy bạn trực tuyến trong danh sách bạn bè, danh sách hội của bạn và /who: /presence everyone (mặc định), /presence friends (chỉ những người chơi trong danh sách bạn bè của bạn), hoặc /presence none. Ẩn, họ không thấy dấu trực tuyến, khu vực hoặc vị trí bản đồ của bạn, mặc dù thì thầm và lời mời vẫn đến được bạn; đội của bạn luôn thấy bạn. Một lệnh /presence đơn giản sẽ cho bạn biết cái nào được đặt.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}p',
   'abilityUi.cast.hoard_cast_bat_dive': 'Lao Xuống',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Lao Xuống Sâu',
@@ -18353,12 +18385,12 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Mỗi {every} giây, Nythraxis đánh tank hiện tại của hắn gây {hitNormal} máu tối đa dưới dạng sát thương Bóng Tối và thêm một cộng dồn Lời Nguyền Kinh Hoàng. Trong {duration} giây, mỗi cộng dồn tăng sát thương tank đó nhận từ Nythraxis thêm {perStackNormal}, tối đa {max} cộng dồn.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Mỗi {everyHeroic} giây, bàn tay xương đánh dấu {countHeroic} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstHeroic} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameHeroic} giây, gây {tickHeroic} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó.',
+    'Mỗi {everyHeroic} giây, bàn tay xương đánh dấu {countHeroic} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstHeroic} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameHeroic} giây, gây {tickHeroic} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó. Điều này không bao giờ xảy ra khi dấu Xé Linh Hồn còn hiệu lực hoặc trong vòng {gap} giây sau khi dấu biến mất.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Mộ Phần Phun Trào',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Bước ra khỏi mọi vòng cảnh báo trước khi chúng phun trào và tránh mặt đất đang cháy. Tank kéo Nythraxis ra khỏi lửa để cận chiến có chỗ đánh.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Mỗi {everyNormal} giây, bàn tay xương đánh dấu {countNormal} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstNormal} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameNormal} giây, gây {tickNormal} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó.',
+    'Mỗi {everyNormal} giây, bàn tay xương đánh dấu {countNormal} vòng tròn bán kính {radius} yd dưới chân raider. Sau {warning} giây, mỗi vòng phun trào gây {burstNormal} máu tối đa dưới dạng sát thương Bóng Tối, rồi cháy thành Lửa Mộ trong {flameNormal} giây, gây {tickNormal} máu tối đa mỗi giây cho bất kỳ ai đứng trong đó. Điều này không bao giờ xảy ra khi dấu Xé Linh Hồn còn hiệu lực hoặc trong vòng {gap} giây sau khi dấu biến mất.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Phá Mộ',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tank giữ Nythraxis quay mặt khỏi raid. Mọi người khác đứng sau hoặc bên cạnh hắn và không bao giờ băng qua hình nón.',
@@ -19851,9 +19883,13 @@ export const vi_VN: Partial<Record<TranslationKey, string>> = {
     'Giữ PvP Thế Giới bật để nhận thêm {percent} kinh nghiệm và danh vọng phe phái. Phần thưởng cộng thêm dừng khi bạn yêu cầu tắt.',
   'hudChrome.worldPvp.rewardPaused':
     'Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng tại Bờ Biển Thử Thách)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng khi tử trận)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Chuỗi PvP hiện tại: đã chơi {time} (tạm dừng trong phụ bản)',
   'hudChrome.worldPvp.rewardProgress': 'Chuỗi PvP hiện tại: đã chơi {time}',
   'hudChrome.worldPvp.rewardTitles':
-    'Nhận danh hiệu vĩnh viễn sau {thresholds} thời gian chơi khi bật PvP Thế Giới. Đăng xuất và đến Bờ Biển Thử Thách sẽ tạm dừng bộ đếm. Tắt PvP sẽ đặt lại bộ đếm.',
+    'Nhận danh hiệu vĩnh viễn sau {thresholds} thời gian chơi ở thế giới mở khi bật PvP Thế Giới. Đăng xuất, tử trận, ở trong phụ bản và đến Bờ Biển Thử Thách sẽ tạm dừng bộ đếm. Tắt PvP sẽ đặt lại bộ đếm.',
   'guide.worldPvpPage.introZones':
     'PvP thế giới mở là tự nguyện và phụ thuộc vào khu vực. Tại vùng tranh chấp, bật cờ PvP khiến mọi người chơi có cờ ngoài tổ đội hoặc nhóm đột kích của bạn thành kẻ địch; tắt cờ sẽ đưa bạn về trạng thái đứng ngoài sau một khoảng chờ ngắn. Bờ Biển Thử Thách là khu an toàn duy nhất không có giao tranh thế giới, và ba vùng cực bắc áp dụng cùng quy tắc bật cờ tự nguyện như phần còn lại của thế giới. Bước vào vòng tròn đang hoạt động của Vua Của Ngọn Đồi sẽ tự động bật cờ của bạn. Đồng đội trong tổ đội và nhóm đột kích không bao giờ là kẻ địch của bạn ở bất cứ đâu; thành viên bang hội ngoài nhóm vẫn có thể bị tấn công như người khác.',
   'guide.worldPvpPage.zonesBody':

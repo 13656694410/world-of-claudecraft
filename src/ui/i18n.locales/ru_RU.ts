@@ -914,6 +914,8 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'devCommand.actions.hillwarn.label': 'Отсчёт холма',
   'guide.arenaPage.vanguardBody':
     'Снаряжение Авангарда является вторым сезоном снаряжения Боевой мощи, его продают те же два квартирмейстера чести, что и исходный комплект, который остаётся в продаже. У каждой специализации есть собственный комплект Авангарда из пяти предметов: на голову, плечи, грудь, ноги и руки, а магазин показывает только три комплекта, которые может носить ваш класс, а следом идёт оружие Авангарда, доступное вам. Предмет Авангарда несёт те же рейтинги Боевой мощи, что и исходный комплект, но с более высоким уровнем предмета, а у каждого комплекта есть два бонуса, за два и за четыре предмета, меняющие одно из умений вашей специализации. В отличие от исходных комплектов, эти бонусы действуют везде, включая бои с монстрами, но созданы они для боя с игроками, так что рейдовый комплект остаётся лучшим выбором внутри рейда.',
+  'guide.arenaPage.vanguardStatsBody':
+    'В отличие от первого сезона, снаряжение Авангарда несёт и боевые рейтинги: у каждого доспеха, оружия и подвески Авангарда есть рейтинг крит. удара или рейтинг ускорения, а предметы для заклинателей и лекарей добавляют силу заклинаний или силу исцеления. Кольца и подвески Авангарда продаются рядом с оружием, и их может носить любой класс. Два кольца Авангарда для ближнего боя дают ровно столько рейтинга меткости, чтобы снять базовый шанс промаха ваших атак по игроку вашего уровня, а два кольца для заклинаний так же снимают шанс сопротивления вашим заклинаниям. Автоатаки при бое двумя оружиями сохраняют дополнительный шанс промаха. Кольцо лекаря вместо этого даёт рейтинг ускорения.',
   'guide.arenaPage.vanguardHeading': 'Снаряжение Авангарда: Боевая мощь, сезон 2',
   'guide.settingsPage.ifColorblindMode':
     'Перекрашивает опасные зоны на полу у Нитраксиса (кольцо удара Могильного извержения, лужи Могильного пламени и Пламени души, линию Могильного огня и метки Разрыва души) в безопасную для дальтоников палитру с различными оттенками и яркостью, чтобы перекрывающиеся круги сохраняли свои края. Размеры, таймеры и положения никогда не меняются.',
@@ -1071,6 +1073,14 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_verdict_greatsword.name': 'Приговор Авангарда',
   'entities.items.vanguard_feral_staff.name': 'Посох дикой силы авангарда',
   'entities.items.vanguard_warstaff.name': 'Боевой посох Авангарда',
+  'entities.items.vanguard_band_of_might.name': 'Кольцо мощи Авангарда',
+  'entities.items.vanguard_band_of_precision.name': 'Кольцо точности Авангарда',
+  'entities.items.vanguard_band_of_focus.name': 'Кольцо сосредоточения Авангарда',
+  'entities.items.vanguard_band_of_mending.name': 'Кольцо исцеления Авангарда',
+  'entities.items.vanguard_pendant_of_might.name': 'Подвеска мощи Авангарда',
+  'entities.items.vanguard_pendant_of_precision.name': 'Подвеска точности Авангарда',
+  'entities.items.vanguard_pendant_of_focus.name': 'Подвеска сосредоточения Авангарда',
+  'entities.items.vanguard_pendant_of_mending.name': 'Подвеска исцеления Авангарда',
   'hudChrome.paperdoll.trinketSlot': 'Аксессуар',
   'questUi.worldQuest.practiceRewards':
     'Тренировка: играйте снова без дополнительных монет, опыта и репутации.',
@@ -1406,6 +1416,7 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.nameplate.mobEliteLevel': '{level}+',
   'hudChrome.nameplate.mobLevel': '{level}',
   'hudChrome.nameplate.afkTag': 'AFK',
+  'hudChrome.nameplate.bountyTag': 'Награда {honor}',
   'hudChrome.nameplate.cheaterTag': '< Читер >',
   'hudChrome.nameplate.pledgeTag': 'Присяга: {guild}',
   'hudChrome.nameplate.npcRoleTag': '<{role}>',
@@ -2491,6 +2502,12 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.social.onlineHeader': 'В сети ({n})',
   'hudChrome.social.offlineHeader': 'Не в сети ({n})',
   'hudChrome.social.hideOffline': 'Скрыть офлайн',
+  'hudChrome.social.presence.label': 'Показывать меня в сети',
+  'hudChrome.social.presence.everyone': 'Всем',
+  'hudChrome.social.presence.friends': 'Только друзьям',
+  'hudChrome.social.presence.none': 'Никому',
+  'hudChrome.social.presence.title':
+    'Кто видит, что вы в сети, в списках друзей и составе гильдии, вместе с вашей зоной и положением на карте. Группа видит вас всегда.',
   'hudChrome.social.hideOfflineTitle': 'Скрыть офлайн участников гильдии',
   'hudChrome.social.billboard.label': 'Доска объявлений гильдии',
   'hudChrome.social.billboard.empty': 'На доске объявлений пока пусто.',
@@ -2694,6 +2711,8 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.buyOwnedAria': 'Купить {item} за {honor}, уже получено',
   'hudChrome.warfareShop.buyConfirmBody':
     'Купить {item} за {honor}? Покупки за честь не подлежат возврату.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Купить {item} за {price}? Эта покупка не подлежит возврату.',
   'hudChrome.keybinds.bgFlag': 'Действие с флагом',
   'hudChrome.keybinds.friendlyNameplates': 'Таблички дружественных',
   'hudChrome.pvp.mobileLabel': 'PvP',
@@ -2822,6 +2841,8 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
     'Книга деяний тоже ведёт счёт вашей репутации: Доверенный у фракции и Чемпион у фракции записываются как отдельные деяния, а Чемпион у всех трёх сразу есть своё деяние. Как и все деяния, они лишь украшение и никогда не сила, а деяния Чемпиона дают титул, который можно носить.',
   'guide.commandsPage.pvp':
     'Флаг мирового PvP: /pvp переключает его, /pvp on и /pvp off задают. Игроки с флагом могут сражаться друг с другом где угодно; отключение занимает 5 минут.',
+  'guide.commandsPage.presence':
+    'Кто видит, что вы в сети, в списках друзей, составе гильдии и /who: /presence everyone (по умолчанию), /presence friends (только игроки из вашего списка друзей) или /presence none. Когда вы скрыты, они не видят вашего статуса, зоны и положения на карте, но шёпот и приглашения до вас доходят; группа видит вас всегда. Просто /presence покажет текущую настройку.',
   'guide.commandsPage.flair':
     'Показывает или скрывает вашу роль в Discord для других игроков: цветное имя, метку роли и подтверждённую метку в чате. /flair on показывает её, /flair off скрывает, а просто /flair сообщает текущую настройку. Нужен привязанный аккаунт Discord.',
   'guide.commandsPage.pvpZones':
@@ -4669,6 +4690,7 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'itemUi.tooltip.dps': '({dps} урона в секунду)',
   'itemUi.tooltip.armorStat': '{value} брони',
   'itemUi.tooltip.stat': '+{value} {stat}',
+  'itemUi.tooltip.warfareMainHandOnly': 'Боевая мощь учитывается только в правой руке.',
   'itemUi.tooltip.useFood':
     'Использование: восстанавливает {amount} здоровья за {seconds} сек. Нужно оставаться сидя во время еды.',
   'itemUi.tooltip.useDrink':
@@ -5846,6 +5868,9 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.warlock_voidwalker.name': 'Демон Пустоты',
   'entities.mobs.ysolei.name': 'Изолея, Воплощение Утонувшей луны',
   'hudChrome.death.resurrectAtCorpse': 'Воскреснуть у тела',
+  'hudChrome.death.pvpResurrect': 'PvP-воскрешение',
+  'hudChrome.death.pvpResurrectTitle':
+    'Воскреснуть на ближайшем кладбище с полным здоровьем, без новой болезни воскрешения.',
   'hudChrome.death.resurrectAtHealer': 'Целитель душ (болезнь воскрешения)',
   'hudChrome.death.healerConfirmTitle': 'Принять болезнь воскрешения?',
   'hudChrome.death.healerConfirmBody':
@@ -10211,9 +10236,9 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
     'Кто ближе, тот бьёт по Костяному шипу: несколько попаданий от кого угодно разбивают его, независимо от урона. Лекари держат пронзённых в живых, пока шипы не падут.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Могильное извержение',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Каждые {everyNormal} сек. костлявые руки отмечают {countNormal} кругов радиусом {radius} м под рейдерами. Через {warning} сек. каждый круг взрывается на {burstNormal} максимального здоровья как урон тьмой, а затем горит Могильным пламенем ещё {flameNormal} сек., нанося {tickNormal} максимального здоровья каждую секунду всем, кто в нём стоит.',
+    'Каждые {everyNormal} сек. костлявые руки отмечают {countNormal} кругов радиусом {radius} м под рейдерами. Через {warning} сек. каждый круг взрывается на {burstNormal} максимального здоровья как урон тьмой, а затем горит Могильным пламенем ещё {flameNormal} сек., нанося {tickNormal} максимального здоровья каждую секунду всем, кто в нём стоит. Этого не происходит, пока активны метки Разрыва души, и ещё {gap} сек. после их исчезновения.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Каждые {everyHeroic} сек. костлявые руки отмечают {countHeroic} кругов радиусом {radius} м под рейдерами. Через {warning} сек. каждый круг взрывается на {burstHeroic} максимального здоровья как урон тьмой, а затем горит Могильным пламенем ещё {flameHeroic} сек., нанося {tickHeroic} максимального здоровья каждую секунду всем, кто в нём стоит.',
+    'Каждые {everyHeroic} сек. костлявые руки отмечают {countHeroic} кругов радиусом {radius} м под рейдерами. Через {warning} сек. каждый круг взрывается на {burstHeroic} максимального здоровья как урон тьмой, а затем горит Могильным пламенем ещё {flameHeroic} сек., нанося {tickHeroic} максимального здоровья каждую секунду всем, кто в нём стоит. Этого не происходит, пока активны метки Разрыва души, и ещё {gap} сек. после их исчезновения.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Выходите из каждого предупреждающего круга до его взрыва и держитесь подальше от горящей земли. Танки уводят Нитраксиса подальше от пламени, чтобы у бойцов ближнего боя оставалось место для работы.',
   'hudChrome.raidBossGuide.nythraxis.bindingSigilName': 'Печать связывания',
@@ -19986,10 +20011,21 @@ export const ru_RU: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     'При включенном мировом PvP вы получаете на {percent} больше опыта и репутации фракций. Бонусы прекращаются сразу после запроса на отключение.',
   'hudChrome.worldPvp.rewardTitles':
-    'Постоянные титулы выдаются за {thresholds} игрового времени с включенным мировым PvP. Выход из игры и пребывание на Берегу Испытаний приостанавливают таймер. Отключение PvP сбрасывает его.',
+    'Постоянные титулы выдаются за {thresholds} игрового времени в открытом мире с включенным мировым PvP. Выход из игры, смерть, пребывание в подземельях и на Берегу Испытаний приостанавливают таймер. Отключение PvP сбрасывает его.',
   'hudChrome.worldPvp.rewardPaused':
     'Текущая серия PvP: {time} игрового времени (приостановлена на Берегу Испытаний)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Текущая серия PvP: {time} игрового времени (приостановлена, пока вы мертвы)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Текущая серия PvP: {time} игрового времени (приостановлена в подземельях)',
   'hudChrome.worldPvp.rewardProgress': 'Текущая серия PvP: {time} игрового времени',
   'hudChrome.hill.pvpEntry': 'Вход в активный круг включает мировой PvP.',
   'hudChrome.hill.pvpBanner': 'PvP',
+  'hudChrome.hill.callout.killingSpree': '{name}: серия убийств!',
+  'hudChrome.hill.callout.rampage': '{name}: буйство!',
+  'hudChrome.hill.callout.unstoppable': '{name}: неудержим!',
+  'hudChrome.hill.callout.dominating': '{name}: доминирует!',
+  'hudChrome.hill.callout.godlike': '{name}: подобен богу!',
+  'hudChrome.hill.callout.legendary': '{name}: легендарен!',
+  'hudChrome.hill.callout.shutDown': '{killer} прервал серию {victim}!',
 };

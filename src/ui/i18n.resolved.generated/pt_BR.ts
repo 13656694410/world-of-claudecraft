@@ -594,6 +594,8 @@ export const pt_BR: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Ressuscitar no Cadáver",
+      "pvpResurrect": "Ressuscitar PvP",
+      "pvpResurrectTitle": "Reviver no cemitério mais próximo com saúde plena, sem um novo Tributo do Guardião.",
       "resurrectAtHealer": "O Guardião Pálido (Tributo do Guardião)",
       "ghostHint": "Corra até o local da sua morte ou fale com o Guardião Pálido para reviver",
       "spiritHealerAlive": "O Guardião Pálido vela pelos mortos. Você ainda está entre os vivos.",
@@ -2786,8 +2788,10 @@ export const pt_BR: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Mantenha o PvP mundial ativo para ganhar {percent} a mais de experiência e reputação de facção. Os bônus param quando você solicita a desativação.",
-      "rewardTitles": "Ganhe títulos permanentes após {thresholds} de tempo jogado com o PvP mundial ativo. Sair do jogo e visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.",
+      "rewardTitles": "Ganhe títulos permanentes após {thresholds} de tempo jogado no mundo aberto com o PvP mundial ativo. Sair do jogo, morrer, entrar em instâncias ou visitar a Costa da Provação pausa o contador. Desativar o PvP o reinicia.",
       "rewardPaused": "Sequência PvP atual: {time} de jogo (pausada na Costa da Provação)",
+      "rewardPausedDead": "Sequência PvP atual: {time} de jogo (pausada enquanto você estiver morto)",
+      "rewardPausedInstance": "Sequência PvP atual: {time} de jogo (pausada dentro de instâncias)",
       "rewardProgress": "Sequência PvP atual: {time} de jogo",
       "tab": "PvP Mundial",
       "title": "PvP Mundial",
@@ -2843,6 +2847,15 @@ export const pt_BR: EnTranslations = {
       "falls": "Cai em {minutes}",
       "pvpEntry": "Entrar no círculo ativo ativa o PvP Mundial.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} está em Matança Crescente!",
+        "rampage": "{name} está Descontrolado!",
+        "unstoppable": "{name} é Imparável!",
+        "dominating": "{name} está Dominando!",
+        "godlike": "{name} é Divino!",
+        "legendary": "{name} é Lendário!",
+        "shutDown": "{killer} derrubou {victim}!"
+      },
       "standingRaid": "Membros de raide não contam: apenas grupos podem controlar a colina"
     },
     "warfareShop": {
@@ -2855,7 +2868,8 @@ export const pt_BR: EnTranslations = {
       "owned": "Possuído",
       "buyAria": "Comprar {item} por {honor}",
       "buyOwnedAria": "Comprar {item} por {honor}, já possuído",
-      "buyConfirmBody": "Comprar {item} por {honor}? Compras com Honra não podem ser reembolsadas."
+      "buyConfirmBody": "Comprar {item} por {honor}? Compras com Honra não podem ser reembolsadas.",
+      "buyConfirmBodyGold": "Comprar {item} por {price}? Esta compra não pode ser reembolsada."
     },
     "charSheet": {
       "offense": "Ataque",
@@ -3878,8 +3892,8 @@ export const pt_BR: EnTranslations = {
         "boneSpikeHeroicSummary": "A cada {everyHeroic} s, Nythraxis empala {victimsHeroic} raiders que não sejam seu alvo atual em Espinhos ósseos. Um raider empalado não pode agir e perde {drainHeroic} da vida máxima a cada segundo até que seu espinho seja destruído. Um espinho se despedaça após {hitsHeroic} acertos de qualquer um, não importa o dano causado. Um jogador que já foi empalado não pode ser escolhido de novo por {cooldown} s, então os espinhos se espalham por toda a raide.",
         "boneSpikeResponse": "Quem estiver mais perto ataca o Espinho ósseo: alguns acertos de qualquer um o despedaçam, não importa o dano. Os curandeiros mantêm os empalados vivos enquanto os espinhos caem.",
         "graveEruptionName": "Erupção sepulcral",
-        "graveEruptionSummary": "A cada {everyNormal} s, mãos esqueléticas marcam {countNormal} círculos de {radius} yd sob raiders. Após {warning} s, cada círculo explode causando {burstNormal} da vida máxima como dano de Sombra, depois queima como Chama sepulcral por {flameNormal} s, causando {tickNormal} da vida máxima por segundo a quem ficar nele.",
-        "graveEruptionHeroicSummary": "A cada {everyHeroic} s, mãos esqueléticas marcam {countHeroic} círculos de {radius} yd sob raiders. Após {warning} s, cada círculo explode causando {burstHeroic} da vida máxima como dano de Sombra, depois queima como Chama sepulcral por {flameHeroic} s, causando {tickHeroic} da vida máxima por segundo a quem ficar nele.",
+        "graveEruptionSummary": "A cada {everyNormal} s, mãos esqueléticas marcam {countNormal} círculos de {radius} yd sob raiders. Após {warning} s, cada círculo explode causando {burstNormal} da vida máxima como dano de Sombra, depois queima como Chama sepulcral por {flameNormal} s, causando {tickNormal} da vida máxima por segundo a quem ficar nele. Isso nunca acontece enquanto houver marcas de Rasgo de alma ativas nem nos {gap} s após elas sumirem.",
+        "graveEruptionHeroicSummary": "A cada {everyHeroic} s, mãos esqueléticas marcam {countHeroic} círculos de {radius} yd sob raiders. Após {warning} s, cada círculo explode causando {burstHeroic} da vida máxima como dano de Sombra, depois queima como Chama sepulcral por {flameHeroic} s, causando {tickHeroic} da vida máxima por segundo a quem ficar nele. Isso nunca acontece enquanto houver marcas de Rasgo de alma ativas nem nos {gap} s após elas sumirem.",
         "graveEruptionResponse": "Saia de cada círculo de aviso antes que ele exploda e fique fora do chão em chamas. Os tanks puxam Nythraxis para longe das chamas para que os corpo a corpo tenham espaço.",
         "bindingSigilName": "Selo vinculante",
         "bindingSigilSummary": "A cada {everyNormal} s, um selo das antigas proteções brilha em uma das duas plataformas que ladeiam o trono, a {sideOffset} yd à esquerda ou à direita (do ponto de vista da raide) de onde Nythraxis estava no início do combate, alternando o lado a cada conjuração e ele inicia Ascensão imortal, ganhando {ascensionNormal} de dano e velocidade de ataque a cada {ascensionEvery} s. Se ele ficar sobre o selo em até {bindNormal} s, fica Vinculado: a Ascensão é purificada, ele fica atordoado por {stunNormal} s e sofre {vulnerability} a mais de dano por {boundNormal} s. Caso contrário, cada raider sofre {unboundHitNormal} da vida máxima como dano de Sombra e ele mantém {unboundBonusNormal} a mais de dano até o próximo vínculo.",
@@ -4194,6 +4208,7 @@ export const pt_BR: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "AFK",
+      "bountyTag": "Recompensa {honor}",
       "pvpTag": "JcJ",
       "cheaterTag": "< Trapaceiro >",
       "pledgeTag": "Promessa a {guild}",
@@ -5048,6 +5063,13 @@ export const pt_BR: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Ocultar offline",
       "hideOfflineTitle": "Ocultar membros da guilda offline",
+      "presence": {
+        "label": "Mostrar-me online para",
+        "everyone": "Todos",
+        "friends": "Só amigos",
+        "none": "Ninguém",
+        "title": "Quem vê você online em listas de amigos e na lista da guilda, com sua zona e posição no mapa. Seu grupo sempre vê você."
+      },
       "billboard": {
         "label": "Mural da Guilda",
         "empty": "Ainda não há nada no mural.",
@@ -7547,6 +7569,7 @@ export const pt_BR: EnTranslations = {
       "arena": "Sua posição no Coliseu das Cinzas em ambas as categorias: classificação, vitórias, derrotas e taxa de vitórias para 1v1 e 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Bandeira de PvP Mundial: /pvp alterna o estado, /pvp on ativa e /pvp off desativa. Jogadores com bandeira podem lutar entre si em áreas disputadas, santuários não permitem nenhum combate no mundo, e entrar em um círculo ativo do Rei da Colina ativa sua bandeira; a desativação leva 5 minutos.",
+      "presence": "Quem vê você online em listas de amigos, sua lista de guilda e /who: /presence everyone (o padrão), /presence friends (apenas jogadores em sua lista de amigos), ou /presence none. Oculto, eles não veem um ponto online, zona ou posição do mapa para você, mas sussurros e convites ainda chegam a você; seu grupo sempre vê você. Um simples /presence diz a você qual está configurado.",
       "flair": "Mostra ou oculta seu cargo do Discord para outros jogadores, ou seja, seu nome colorido, sua etiqueta de cargo e sua etiqueta verificada no chat: /flair on mostra, /flair off oculta e /flair sozinho informa qual está ativo. Requer uma conta do Discord vinculada.",
       "listings": "Suas próprias listagens no Mercado Mundial, com o preço pedido, o tempo restante de cada uma, e quanto espaço você ainda tem para mais.",
       "buyback": "O que você vendeu recentemente para um vendedor e ainda pode recomprar.",
@@ -8310,7 +8333,8 @@ export const pt_BR: EnTranslations = {
       "warfareTradeBody": "Essa é a troca deliberada. O equipamento de Guerra é feito para lutar contra jogadores, não como um atalho para pular os níveis de masmorra: uma peça de Guerra nunca carrega os índices de combate que um Épico de masmorra no mesmo encaixe carrega, e tudo o que ela realmente traz é gasto contra outros jogadores. Se você quer se sair bem na arena, compre-o. Se você quer concluir os heroicos mais rápido, conquiste seu equipamento nas masmorras.",
       "warfareTradeBodyRatingSpent": "Essa é a troca deliberada. O equipamento de Guerra foi feito para lutar contra jogadores, não para pular os níveis das masmorras: uma peça de Guerra nunca traz as classificações de combate que um épico de masmorra no mesmo espaço traz, e as classificações de Guerra e os bônus de conjunto que ela traz são gastos inteiramente contra outros jogadores. Se quiser se garantir na arena, compre-o. Se quiser limpar heroicas mais rápido, conquiste seu equipamento nas masmorras.",
       "vanguardHeading": "Equipamento de Guerra da Vanguarda: Temporada 2",
-      "vanguardBody": "O equipamento da Vanguarda é a segunda temporada do equipamento de Guerra, vendido pelos mesmos dois intendentes, acima do nível original, que continua à venda. Cada especialização tem seu próprio conjunto da Vanguarda de cinco peças, para cabeça, ombros, peito, pernas e mãos, e a loja lista apenas os três conjuntos que sua classe pode usar, seguidos das armas da Vanguarda que você pode empunhar. Uma peça da Vanguarda carrega as mesmas classificações de Guerra do nível original, em um nível de item mais alto, e cada conjunto tem dois bônus, em duas e quatro peças, que alteram uma das habilidades da sua especialização. Diferente dos conjuntos originais, esses bônus funcionam em qualquer lugar, incluindo contra monstros, mas foram feitos para lutar contra jogadores, então um conjunto de raide continua sendo a melhor escolha dentro de uma raide."
+      "vanguardBody": "O equipamento da Vanguarda é a segunda temporada do equipamento de Guerra, vendido pelos mesmos dois intendentes, acima do nível original, que continua à venda. Cada especialização tem seu próprio conjunto da Vanguarda de cinco peças, para cabeça, ombros, peito, pernas e mãos, e a loja lista apenas os três conjuntos que sua classe pode usar, seguidos das armas da Vanguarda que você pode empunhar. Uma peça da Vanguarda carrega as mesmas classificações de Guerra do nível original, em um nível de item mais alto, e cada conjunto tem dois bônus, em duas e quatro peças, que alteram uma das habilidades da sua especialização. Diferente dos conjuntos originais, esses bônus funcionam em qualquer lugar, incluindo contra monstros, mas foram feitos para lutar contra jogadores, então um conjunto de raide continua sendo a melhor escolha dentro de uma raide.",
+      "vanguardStatsBody": "Diferentemente do nível original, o equipamento da Vanguarda também traz classificações de combate: cada peça de armadura, arma e colar da Vanguarda tem Índice de Crítico ou Índice de Aceleração, e as peças de lançador de feitiço e curador adicionam Poder Mágico ou Poder de Cura. Os anéis e colares da Vanguarda são vendidos junto com as armas, e todas as classes podem usá-los. Dois dos anéis de combate corpo a corpo da Vanguarda dão exatamente a Classificação de Acerto que remove a chance base de seus ataques errarem um jogador de seu próprio nível, e dois anéis de lançador de feitiço fazem o mesmo para seus feitiços serem resistidos. Ataques automáticos enquanto se empunha duas armas mantêm sua chance de erro extra. O anel de curador carrega Índice de Aceleração em seu lugar."
     },
     "worldPvpPage": {
       "heading": "JcJ Mundial",
@@ -12768,6 +12792,7 @@ export const pt_BR: EnTranslations = {
       "dps": "({dps} de dano por segundo)",
       "armorStat": "{value} de armadura",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Guerra se conta apenas na mão principal.",
       "useFood": "Usar: restaura {amount} de vida ao longo de {seconds} s. É preciso permanecer sentado enquanto come.",
       "useDrink": "Usar: restaura {amount} de mana ao longo de {seconds} s. É preciso permanecer sentado enquanto bebe.",
       "useElixir": "Uso: aumenta seu {stat} em {value} por {minutes} min. Substitui qualquer outro elixir ou pergaminho do mesmo atributo. Pode ser usado em combate.",
@@ -18461,6 +18486,30 @@ export const pt_BR: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Cajado Feral da Vanguarda"
+      },
+      "vanguard_band_of_might": {
+        "name": "Anel da Vanguarda de Poder"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Anel da Vanguarda de Precisão"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Anel da Vanguarda de Foco"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Anel da Vanguarda de Cura"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Pingente da Vanguarda de Poder"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Pingente da Vanguarda de Precisão"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Pingente da Vanguarda de Foco"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Pingente da Vanguarda de Cura"
       },
       "conjured_water4": {
         "name": "Água de Nascente Conjurada"

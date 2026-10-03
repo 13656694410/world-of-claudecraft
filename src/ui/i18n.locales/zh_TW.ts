@@ -1010,9 +1010,19 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_warrior_prot_shoulder.name': '鐵軍肩甲',
   'entities.items.vanguard_feral_staff.name': '先鋒野性法杖',
   'entities.items.vanguard_warstaff.name': '先鋒之戰杖',
+  'entities.items.vanguard_band_of_might.name': '先鋒力量指環',
+  'entities.items.vanguard_band_of_precision.name': '先鋒精準指環',
+  'entities.items.vanguard_band_of_focus.name': '先鋒專注指環',
+  'entities.items.vanguard_band_of_mending.name': '先鋒癒合指環',
+  'entities.items.vanguard_pendant_of_might.name': '先鋒力量墜飾',
+  'entities.items.vanguard_pendant_of_precision.name': '先鋒精準墜飾',
+  'entities.items.vanguard_pendant_of_focus.name': '先鋒專注墜飾',
+  'entities.items.vanguard_pendant_of_mending.name': '先鋒癒合墜飾',
   'entities.npcs.glider_apprentice.name': '絲凱',
   'guide.arenaPage.vanguardBody':
     '先鋒裝備是戰爭裝備的第二季，由同樣兩位軍需官在原本品級之上一併販售，原本品級依然在架上。每個專精都有自己專屬的先鋒套裝，共五件：頭部、肩部、胸部、腿部與手部，商店只會列出你的職業能穿的三套先鋒套裝，其後才是你能揮舞的先鋒武器。先鋒裝備件帶有與原本品級相同的戰爭評級，只是物品等級更高，而每套套裝都有兩件式與四件式加成，會改變你專精的一項技能。與原本的套裝不同，這些加成在任何地方都會生效，連對付怪物也不例外，但它們是為了對抗玩家而打造的，所以在團隊副本中，團隊套裝依然是更好的選擇。',
+  'guide.arenaPage.vanguardStatsBody':
+    '與原版裝備不同，先鋒裝備還帶有戰鬥等級：每件先鋒護甲、武器和墜飾都帶有暴擊等級或急速等級，施法者和治療者的裝備還額外提供法術強度或治療強度。先鋒指環和墜飾與武器一同出售，所有職業都可以佩戴。佩戴兩枚先鋒近戰指環，恰好提供足夠的命中等級，消除你對同等級玩家攻擊的基礎未命中幾率；佩戴兩枚施法指環，則同樣消除你的法術被抵抗的幾率。雙持時的自動攻擊仍保留額外的未命中幾率。治療指環則改為提供急速等級。',
   'guide.arenaPage.vanguardHeading': '先鋒裝備：戰爭套裝第二季',
   'guide.settingsPage.ifColorblindMode':
     '將尼思拉克西斯的地面危害（墓穴爆發的警示圈、墓穴烈焰與靈魂之火的火池、墓火直線，以及靈魂撕裂的標記）重新著色為色盲友善的配色，色相與亮度分明，讓重疊的圓圈仍能分辨邊緣。大小、計時與位置一律不變。',
@@ -1337,6 +1347,7 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'hudChrome.nameplate.mobEliteLevel': '{level}+',
   'hudChrome.nameplate.mobLevel': '{level}',
   'hudChrome.nameplate.afkTag': '暫離',
+  'hudChrome.nameplate.bountyTag': '懸賞 {honor}',
   'hudChrome.nameplate.cheaterTag': '< 作弊者 >',
   'hudChrome.nameplate.pledgeTag': '{guild}的宣誓者',
   'hudChrome.nameplate.npcRoleTag': '<{role}>',
@@ -2387,6 +2398,12 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'hudChrome.social.onlineHeader': '在線 ({n})',
   'hudChrome.social.offlineHeader': '離線 ({n})',
   'hudChrome.social.hideOffline': '隱藏離線',
+  'hudChrome.social.presence.label': '對誰顯示在線',
+  'hudChrome.social.presence.everyone': '所有人',
+  'hudChrome.social.presence.friends': '僅好友',
+  'hudChrome.social.presence.none': '無人',
+  'hudChrome.social.presence.title':
+    '誰能在好友名單和公會名單中看到你在線，以及你的區域和地圖位置。隊伍成員始終能看到你。',
   'hudChrome.social.hideOfflineTitle': '隱藏離線公會成員',
   'hudChrome.social.billboard.label': '公會公告板',
   'hudChrome.social.billboard.empty': '公告板上還沒有內容。',
@@ -2576,6 +2593,7 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'hudChrome.warfareShop.owned': '已擁有',
   'hudChrome.warfareShop.buyOwnedAria': '以 {honor} 購買 {item}，已擁有',
   'hudChrome.warfareShop.buyConfirmBody': '用 {honor} 購買 {item}？榮譽購買後無法退款。',
+  'hudChrome.warfareShop.buyConfirmBodyGold': '用 {price} 購買 {item}？此次購買無法退款。',
   'hudChrome.keybinds.bgFlag': '戰場奪旗動作',
   'hudChrome.keybinds.friendlyNameplates': '切換友方姓名板',
   'hudChrome.pvp.mobileLabel': 'PvP',
@@ -2696,6 +2714,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
     '功績之書也會記錄你的聲望：與某個陣營達到信任、與某個陣營達到冠軍各記為一項功績，與三個陣營都達到冠軍則是另一項功績。和所有功績一樣，它們只是裝飾，從不帶來戰力，而冠軍功績會授予一個可佩戴的頭銜。',
   'guide.commandsPage.pvp':
     '世界 PvP 旗幟：/pvp 切換，/pvp on 與 /pvp off 直接設定。已開啟旗幟的玩家可以在任何地方互相作戰；關閉需要 5 分鐘。',
+  'guide.commandsPage.presence':
+    '控制誰能在好友名單、公會名單和 /who 中看到你在線：/presence everyone（預設）、/presence friends（僅你好友名單中的玩家）或 /presence none。隱藏後，他們看不到你的在線標記、區域和地圖位置，但密語和邀請仍能送達你；隊伍成員始終能看到你。只輸入 /presence 會告訴你目前的設定。',
   'guide.commandsPage.flair':
     '對其他玩家顯示或隱藏你的 Discord 身分組，也就是彩色名稱、身分組標籤和聊天認證標籤：/flair on 顯示，/flair off 隱藏，只輸入 /flair 會告訴你目前的設定。需要已連結的 Discord 帳號。',
   'guide.commandsPage.pvpZones':
@@ -4432,6 +4452,7 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'itemUi.tooltip.dps': '（每秒 {dps} 傷害）',
   'itemUi.tooltip.armorStat': '{value} 護甲',
   'itemUi.tooltip.stat': '+{value} {stat}',
+  'itemUi.tooltip.warfareMainHandOnly': '戰爭屬性僅在主手時生效。',
   'itemUi.tooltip.useFood': '使用：在 {seconds} 秒內恢復 {amount} 點生命值。進食時必須保持坐下。',
   'itemUi.tooltip.useDrink': '使用：在 {seconds} 秒內恢復 {amount} 點法力值。飲水時必須保持坐下。',
   'itemUi.tooltip.questItem': '任務物品',
@@ -5573,6 +5594,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'entities.mobs.warlock_voidwalker.name': '虛空惡魔',
   'entities.mobs.ysolei.name': '伊索蕾，溺月化身',
   'hudChrome.death.resurrectAtCorpse': '在屍體旁復活',
+  'hudChrome.death.pvpResurrect': 'PvP 復活',
+  'hudChrome.death.pvpResurrectTitle': '在最近的墓地以滿生命值復活，且不會新增復活後遺症。',
   'hudChrome.death.resurrectAtHealer': '靈魂醫者（復活虛弱）',
   'hudChrome.death.healerConfirmTitle': '接受復活虛弱？',
   'hudChrome.death.healerConfirmBody':
@@ -9624,9 +9647,9 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
     '離得最近的人攻擊骨刺：任何人命中幾次即可擊碎，無論傷害多寡。治療者在骨刺被擊碎前保住被穿刺團員的性命。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': '墓穴爆發',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    '每{everyNormal}秒，骸骨之手會在{countNormal}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstNormal}的暗影傷害，隨後化為墓焰燃燒{flameNormal}秒，對站在其中的人每秒造成相當於最大生命值{tickNormal}的傷害。',
+    '每{everyNormal}秒，骸骨之手會在{countNormal}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstNormal}的暗影傷害，隨後化為墓焰燃燒{flameNormal}秒，對站在其中的人每秒造成相當於最大生命值{tickNormal}的傷害。靈魂撕裂標記存在期間以及標記消失後{gap}秒內，此技能不會發動。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    '每{everyHeroic}秒，骸骨之手會在{countHeroic}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstHeroic}的暗影傷害，隨後化為墓焰燃燒{flameHeroic}秒，對站在其中的人每秒造成相當於最大生命值{tickHeroic}的傷害。',
+    '每{everyHeroic}秒，骸骨之手會在{countHeroic}名團員腳下標記半徑{radius}碼的圓圈。{warning}秒後，每個圓圈都會爆發，造成相當於最大生命值{burstHeroic}的暗影傷害，隨後化為墓焰燃燒{flameHeroic}秒，對站在其中的人每秒造成相當於最大生命值{tickHeroic}的傷害。靈魂撕裂標記存在期間以及標記消失後{gap}秒內，此技能不會發動。',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     '在每個警示圈爆發前離開範圍，並遠離燃燒地面。坦克應將尼思拉克西斯拉離火場，讓近戰保有輸出空間。',
   'hudChrome.raidBossGuide.nythraxis.bindingSigilName': '束縛印記',
@@ -18670,9 +18693,18 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     '保持世界PvP開啟可多獲得{percent}的經驗值和陣營聲望。請求關閉時，加成立即停止。',
   'hudChrome.worldPvp.rewardTitles':
-    '開啟世界PvP的遊戲時間達到{thresholds}時，可獲得永久頭銜。離線或身處試煉之濱時計時暫停。關閉PvP會重置計時。',
+    '在開放世界中開啟世界PvP的遊戲時間達到{thresholds}時，可獲得永久頭銜。離線、死亡、身處副本或試煉之濱時計時暫停。關閉PvP會重置計時。',
   'hudChrome.worldPvp.rewardPaused': '目前PvP連續遊戲時間：{time}（在試煉之濱暫停）',
+  'hudChrome.worldPvp.rewardPausedDead': '目前PvP連續遊戲時間：{time}（死亡期間暫停）',
+  'hudChrome.worldPvp.rewardPausedInstance': '目前PvP連續遊戲時間：{time}（在副本中暫停）',
   'hudChrome.worldPvp.rewardProgress': '目前PvP連續遊戲時間：{time}',
   'hudChrome.hill.pvpEntry': '進入活動圈會開啟世界 PvP。',
   'hudChrome.hill.pvpBanner': 'PvP',
+  'hudChrome.hill.callout.killingSpree': '{name}正在大殺特殺！',
+  'hudChrome.hill.callout.rampage': '{name}已經殺人如麻！',
+  'hudChrome.hill.callout.unstoppable': '{name}已經無人能擋！',
+  'hudChrome.hill.callout.dominating': '{name}已經主宰比賽！',
+  'hudChrome.hill.callout.godlike': '{name}已經接近神了！',
+  'hudChrome.hill.callout.legendary': '{name}已經超越神了！',
+  'hudChrome.hill.callout.shutDown': '{killer}終結了{victim}！',
 };

@@ -13,6 +13,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const it_IT: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Risorgi PvP',
+  'hudChrome.death.pvpResurrectTitle':
+    'Risorgi al cimitero più vicino a piena salute, senza un nuovo Mal di resurrezione.',
+  'hudChrome.hill.callout.dominating': '{name} sta Dominando!',
+  'hudChrome.hill.callout.godlike': '{name} è Divino!',
+  'hudChrome.hill.callout.killingSpree': '{name} è in Follia Omicida!',
+  'hudChrome.hill.callout.legendary': '{name} è Leggendario!',
+  'hudChrome.hill.callout.rampage': '{name} è Scatenato!',
+  'hudChrome.hill.callout.shutDown': '{killer} ha zittito {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} è Inarrestabile!',
+  'hudChrome.nameplate.bountyTag': 'Taglia {honor}',
+  'hudChrome.social.presence.everyone': 'Tutti',
+  'hudChrome.social.presence.friends': 'Solo amici',
+  'hudChrome.social.presence.label': 'Mostrami online a',
+  'hudChrome.social.presence.none': 'Nessuno',
+  'hudChrome.social.presence.title':
+    'Chi ti vede online negli elenchi amici e nella lista gilda, con la tua zona e posizione sulla mappa. Il tuo gruppo ti vede sempre.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Acquistare {item} per {price}? Questo acquisto non può essere rimborsato.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Guerra si conta solo nella mano principale.',
+  'entities.items.vanguard_band_of_focus.name': 'Anello di Avanguardia di Mira',
+  'entities.items.vanguard_band_of_mending.name': 'Anello di Avanguardia di Guarigione',
+  'entities.items.vanguard_band_of_might.name': 'Anello di Avanguardia di Potenza',
+  'entities.items.vanguard_band_of_precision.name': 'Anello di Avanguardia di Precisione',
+  'entities.items.vanguard_pendant_of_focus.name': 'Ciondolo di Avanguardia di Mira',
+  'entities.items.vanguard_pendant_of_mending.name': 'Ciondolo di Avanguardia di Guarigione',
+  'entities.items.vanguard_pendant_of_might.name': 'Ciondolo di Avanguardia di Potenza',
+  'entities.items.vanguard_pendant_of_precision.name': 'Ciondolo di Avanguardia di Precisione',
+  'guide.arenaPage.vanguardStatsBody':
+    "Diversamente dal livello originale, l'equipaggiamento dell'Avanguardia porta anche classificazioni di combattimento: ogni pezzo di armatura, arma e collana dell'Avanguardia ha Indice di Critico o Indice di Celerità, e i pezzi degli incantatori e guaritori aggiungono Potere Magico o Potere di Guarigione. Gli anelli e le collane dell'Avanguardia sono venduti accanto alle armi, e ogni classe può indossarli. Due degli anelli da mischia dell'Avanguardia danno esattamente l'Indice di Colpo che elimina la possibilità di base che i tuoi attacchi manchino un giocatore del tuo stesso livello, e due anelli da incantatore fanno lo stesso per i tuoi incantesimi che vengono resistiti. Gli attacchi automatici mentre si impugna doppiamente mantengono la loro possibilità di errore aggiuntiva. L'anello del guaritore invece porta l'Indice di Celerità.",
+  'guide.commandsPage.presence':
+    'Chi ti vede online negli elenchi amici, la tua lista gilda e /who: /presence everyone (il predefinito), /presence friends (solo i giocatori nella tua lista amici), o /presence none. Nascosto, non vedono alcun puntino online, zona o posizione sulla mappa per te, sebbene i sussurri e gli inviti ti raggiungino ancora; il tuo gruppo ti vede sempre. Un semplice /presence ti dice quale sia impostato.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Tuffo',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Tuffo Precipitoso',
@@ -19245,12 +19277,12 @@ export const it_IT: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Ogni {every} s, Nythraxis colpisce il suo tank attuale per {hitNormal} della salute massima come danni da Ombra e aggiunge un accumulo di Maledizione funesta. Per {duration} s, ogni accumulo aumenta di {perStackNormal} i danni che quel tank subisce da Nythraxis, fino a {max} accumuli.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    "Ogni {everyHeroic} s, mani scheletriche segnano {countHeroic} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstHeroic} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameHeroic} s, infliggendo {tickHeroic} della salute massima ogni secondo a chiunque vi stia dentro.",
+    "Ogni {everyHeroic} s, mani scheletriche segnano {countHeroic} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstHeroic} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameHeroic} s, infliggendo {tickHeroic} della salute massima ogni secondo a chiunque vi stia dentro. Non accade mai mentre sono attivi i marchi di Squarcio d'anima, né nei {gap} s successivi alla loro scomparsa.",
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Eruzione sepolcrale',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Esci da ogni cerchio di avviso prima che erutti e resta fuori dal terreno in fiamme. I tank tirano Nythraxis lontano dalle fiamme così la mischia ha spazio per agire.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    "Ogni {everyNormal} s, mani scheletriche segnano {countNormal} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstNormal} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameNormal} s, infliggendo {tickNormal} della salute massima ogni secondo a chiunque vi stia dentro.",
+    "Ogni {everyNormal} s, mani scheletriche segnano {countNormal} cerchi da {radius} yd sotto i membri dell'incursione. Dopo {warning} s ogni cerchio erutta per {burstNormal} della salute massima come danni da Ombra, poi brucia come Fiamma sepolcrale per {flameNormal} s, infliggendo {tickNormal} della salute massima ogni secondo a chiunque vi stia dentro. Non accade mai mentre sono attivi i marchi di Squarcio d'anima, né nei {gap} s successivi alla loro scomparsa.",
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Spezzatombe',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     "I tank tengono Nythraxis rivolto lontano dall'incursione. Tutti gli altri restano dietro o di lato a lui e non attraversano mai il cono.",
@@ -20189,9 +20221,13 @@ export const it_IT: Partial<Record<TranslationKey, string>> = {
     'Mantieni attivo il PvP mondiale per ottenere {percent} di esperienza e reputazione di fazione in più. I bonus terminano quando ne richiedi la disattivazione.',
   'hudChrome.worldPvp.rewardPaused':
     'Serie PvP attuale: {time} di gioco (in pausa sulla Riva della Prova)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Serie PvP attuale: {time} di gioco (in pausa finché sei morto)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Serie PvP attuale: {time} di gioco (in pausa nelle istanze)',
   'hudChrome.worldPvp.rewardProgress': 'Serie PvP attuale: {time} di gioco',
   'hudChrome.worldPvp.rewardTitles':
-    'Ottieni titoli permanenti dopo {thresholds} di tempo giocato con il PvP mondiale attivo. La disconnessione e le visite alla Riva della Prova mettono in pausa il timer. Disattivarlo lo azzera.',
+    'Ottieni titoli permanenti dopo {thresholds} di tempo giocato nel mondo aperto con il PvP mondiale attivo. La disconnessione, la morte, le istanze e la Riva della Prova mettono in pausa il timer. Disattivarlo lo azzera.',
   'guide.worldPvpPage.introZones':
     "Il PvP nel mondo aperto è facoltativo e dipende dal terreno. Alzando la bandiera, gli altri giocatori contrassegnati fuori dal tuo gruppo o incursione diventano nemici nelle zone contese; abbassandola, dopo una breve attesa torni spettatore. La Riva della Prova è l'unico santuario, senza combattimenti PvP mondiali. Le tre zone più a nord seguono le stesse regole di partecipazione volontaria del resto del mondo. Entrare nel cerchio attivo del Re della Collina alza automaticamente la bandiera. I compagni di gruppo e incursione non sono mai nemici; i membri della gilda fuori dal tuo gruppo possono essere combattuti come gli altri giocatori.",
   'guide.worldPvpPage.zonesBody':

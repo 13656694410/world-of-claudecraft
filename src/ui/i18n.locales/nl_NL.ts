@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const nl_NL: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'PvP-Opstanding',
+  'hudChrome.death.pvpResurrectTitle':
+    'Herverrijzen op de dichtstbijzijnde begraafplaats met volledige gezondheid, zonder een nieuwe Tol van de Hoeder.',
+  'hudChrome.hill.callout.dominating': '{name} domineert!',
+  'hudChrome.hill.callout.godlike': '{name} is goddelijk!',
+  'hudChrome.hill.callout.killingSpree': '{name} voert een moordpartij uit!',
+  'hudChrome.hill.callout.legendary': '{name} is legendarisch!',
+  'hudChrome.hill.callout.rampage': '{name} gaat volledig uit zijn dak!',
+  'hudChrome.hill.callout.shutDown': '{killer} heeft de reeks van {victim} beëindigd!',
+  'hudChrome.hill.callout.unstoppable': '{name} is onstopbaar!',
+  'hudChrome.nameplate.bountyTag': 'Premie {honor}',
+  'hudChrome.social.presence.everyone': 'Iedereen',
+  'hudChrome.social.presence.friends': 'Alleen vrienden',
+  'hudChrome.social.presence.label': 'Laat me online zien voor',
+  'hudChrome.social.presence.none': 'Niemand',
+  'hudChrome.social.presence.title':
+    'Wie ziet je online in vriendenlijsten en het gilderooster, met je zone en kaartpositie. Je groep ziet je altijd.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    '{item} voor {price} kopen? Deze aankoop kan niet worden terugbetaald.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Oorlogvoering telt alleen in de hoofdhand.',
+  'entities.items.vanguard_band_of_focus.name': 'Voortocht-ring van Concentratie',
+  'entities.items.vanguard_band_of_mending.name': 'Voortocht-ring van Verzorging',
+  'entities.items.vanguard_band_of_might.name': 'Voortocht-ring van Kracht',
+  'entities.items.vanguard_band_of_precision.name': 'Voortocht-ring van Precisie',
+  'entities.items.vanguard_pendant_of_focus.name': 'Voortocht-hanger van Concentratie',
+  'entities.items.vanguard_pendant_of_mending.name': 'Voortocht-hanger van Verzorging',
+  'entities.items.vanguard_pendant_of_might.name': 'Voortocht-hanger van Kracht',
+  'entities.items.vanguard_pendant_of_precision.name': 'Voortocht-hanger van Precisie',
+  'guide.arenaPage.vanguardStatsBody':
+    'In tegenstelling tot de originele rang, draagt Voortocht-uitrusting ook gevechtswaarderingen: elk stuk Voortocht-harnas, wapen en halsketting heeft een Kritieke-waardering of Snelheidswaardering, en de delen voor tovenaar en heelmeester voegen Spreukkracht of Genezingskracht toe. De Voortocht-ringen en halskettingen worden naast de wapens verkocht, en elke klasse kan ze dragen. Twee van de Voortocht-nabijavechtsringen geven exact de Raakwaarde die ervoor zorgt dat je aanvallen zeker raken tegen een speler van je eigen niveau, en twee tovenaarringen doen hetzelfde voor je spreuken niet worden tegengewerkt. Auto-aanvallen met twee wapens behouden hun extra miskans. De heelmeester-ring draagt in plaats daarvan een Snelheidswaardering.',
+  'guide.commandsPage.presence':
+    'Wie ziet je online in vriendenlijsten, je gilderooster en /who: /presence everyone (het standaard), /presence friends (alleen spelers op je vriendenlijst), of /presence none. Verborgen, ze zien geen online stip, zone of kaartpositie voor je, hoewel gefluister en uitnodigingen je nog steeds bereiken; je groep ziet je altijd. Een eenvoudige /presence vertelt je wat er is ingesteld.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Duiken',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Duik omlaag',
@@ -18481,12 +18513,12 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Elke {every} sec slaat Nythraxis zijn huidige tank voor {hitNormal} van maximale gezondheid als Schaduwschade en voegt een stapel Schrikvloek toe. Gedurende {duration} sec verhoogt elke stapel de schade die die tank van Nythraxis oploopt met {perStackNormal}, tot {max} stapels.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Elke {everyHeroic} sec markeren skelethanden {countHeroic} cirkels van {radius} yd onder raiders. Na {warning} sec barst elke cirkel uit voor {burstHeroic} van maximale gezondheid als Schaduwschade en brandt daarna {flameHeroic} sec als Grafvlam, die elke seconde {tickHeroic} van maximale gezondheid aanricht aan iedereen die erin staat.',
+    'Elke {everyHeroic} sec markeren skelethanden {countHeroic} cirkels van {radius} yd onder raiders. Na {warning} sec barst elke cirkel uit voor {burstHeroic} van maximale gezondheid als Schaduwschade en brandt daarna {flameHeroic} sec als Grafvlam, die elke seconde {tickHeroic} van maximale gezondheid aanricht aan iedereen die erin staat. Dit gebeurt nooit zolang er Zielenscheur-markeringen actief zijn, of binnen {gap} sec nadat ze verdwenen zijn.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Grafuitbarsting',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Stap uit elke waarschuwingscirkel voordat die uitbarst en blijf van de brandende grond. Tanks trekken Nythraxis uit de vlammen zodat melee ruimte houdt om te werken.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Elke {everyNormal} sec markeren skelethanden {countNormal} cirkels van {radius} yd onder raiders. Na {warning} sec barst elke cirkel uit voor {burstNormal} van maximale gezondheid als Schaduwschade en brandt daarna {flameNormal} sec als Grafvlam, die elke seconde {tickNormal} van maximale gezondheid aanricht aan iedereen die erin staat.',
+    'Elke {everyNormal} sec markeren skelethanden {countNormal} cirkels van {radius} yd onder raiders. Na {warning} sec barst elke cirkel uit voor {burstNormal} van maximale gezondheid als Schaduwschade en brandt daarna {flameNormal} sec als Grafvlam, die elke seconde {tickNormal} van maximale gezondheid aanricht aan iedereen die erin staat. Dit gebeurt nooit zolang er Zielenscheur-markeringen actief zijn, of binnen {gap} sec nadat ze verdwenen zijn.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Grafbreker',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tanks houden Nythraxis van de raid af gericht. Alle anderen blijven achter of naast hem en kruisen de kegel nooit.',
@@ -20036,9 +20068,13 @@ export const nl_NL: Partial<Record<TranslationKey, string>> = {
     'Houd wereld-PvP ingeschakeld om {percent} meer ervaring en factiereputatie te verdienen. De bonussen stoppen zodra je vraagt om het uit te schakelen.',
   'hudChrome.worldPvp.rewardPaused':
     'Huidige PvP-reeks: {time} gespeeld (gepauzeerd aan de Beproevingskust)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Huidige PvP-reeks: {time} gespeeld (gepauzeerd zolang je dood bent)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Huidige PvP-reeks: {time} gespeeld (gepauzeerd in instanties)',
   'hudChrome.worldPvp.rewardProgress': 'Huidige PvP-reeks: {time} gespeeld',
   'hudChrome.worldPvp.rewardTitles':
-    'Verdien permanente titels na {thresholds} speeltijd met wereld-PvP ingeschakeld. Uitloggen en de Beproevingskust bezoeken pauzeren de teller. Uitschakelen zet hem terug op nul.',
+    'Verdien permanente titels na {thresholds} speeltijd in de open wereld met wereld-PvP ingeschakeld. Uitloggen, dood zijn, instanties en de Beproevingskust pauzeren de teller. Uitschakelen zet hem terug op nul.',
   'guide.worldPvpPage.introZones':
     'PvP in de open wereld is vrijwillig en hangt af van het gebied. Op betwist terrein maakt je ingeschakelde PvP-vlag alle spelers met een vlag buiten je groep of raid tot vijanden; na uitschakelen ben je na een korte vertraging weer toeschouwer. De Beproevingskust is het enige heiligdom zonder wereldgevechten en de drie noordelijkste gebieden gebruiken dezelfde vrijwillige vlagregels als de rest van de wereld. Bij het betreden van een actieve cirkel van Koning van de Heuvel wordt je vlag automatisch ingeschakeld. Groeps- en raidleden zijn nergens je vijanden; gildeleden buiten je groep zijn net als andere spelers aan te vallen.',
   'guide.worldPvpPage.zonesBody':

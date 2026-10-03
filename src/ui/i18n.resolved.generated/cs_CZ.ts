@@ -594,6 +594,8 @@ export const cs_CZ: EnTranslations = {
     },
     "death": {
       "resurrectAtCorpse": "Vzkřísit u mrtvoly",
+      "pvpResurrect": "PvP Vzkříšení",
+      "pvpResurrectTitle": "Vzkříšit se u nejbližšího hřbitova s plným zdravím, bez nového Strážcova mýta.",
       "resurrectAtHealer": "Bledý strážce (Strážcovo mýto)",
       "ghostHint": "Doběhni na místo své smrti, nebo promluv s Bledým strážcem a nech se vzkřísit",
       "spiritHealerAlive": "Bledý strážce dohlíží na mrtvé. Ty jsi stále mezi živými.",
@@ -2786,8 +2788,10 @@ export const cs_CZ: EnTranslations = {
     },
     "worldPvp": {
       "rewardBonus": "Nechte světové PvP zapnuté a získávejte o {percent} více zkušeností a reputace frakcí. Bonusy skončí, jakmile požádáte o vypnutí.",
-      "rewardTitles": "Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP. Odhlášení a návštěva Zkušebního pobřeží časovač pozastaví. Vypnutí jej vynuluje.",
+      "rewardTitles": "Získejte trvalé tituly po {thresholds} odehraného času se zapnutým světovým PvP v otevřeném světě. Odhlášení, smrt, instance a Zkušební pobřeží časovač pozastaví. Vypnutí jej vynuluje.",
       "rewardPaused": "Aktuální série PvP: odehráno {time} (pozastaveno na Zkušebním pobřeží)",
+      "rewardPausedDead": "Aktuální série PvP: odehráno {time} (pozastaveno, dokud jste mrtví)",
+      "rewardPausedInstance": "Aktuální série PvP: odehráno {time} (pozastaveno v instancích)",
       "rewardProgress": "Aktuální série PvP: odehráno {time}",
       "tab": "Světové PvP",
       "title": "Světové PvP",
@@ -2843,6 +2847,15 @@ export const cs_CZ: EnTranslations = {
       "falls": "Padne za {minutes}",
       "pvpEntry": "Vstup do aktivního kruhu zapne světové PvP.",
       "pvpBanner": "PvP",
+      "callout": {
+        "killingSpree": "{name} je na vražedné řádě!",
+        "rampage": "{name} řádí!",
+        "unstoppable": "{name} je nezastavitelný!",
+        "dominating": "{name} dominuje!",
+        "godlike": "{name} je božský!",
+        "legendary": "{name} je legendární!",
+        "shutDown": "{killer} zastavil(a) {victim}!"
+      },
       "standingRaid": "Členové raidu se nepočítají: kopec mohou ovládat jen skupiny"
     },
     "warfareShop": {
@@ -2855,7 +2868,8 @@ export const cs_CZ: EnTranslations = {
       "owned": "Vlastněno",
       "buyAria": "Koupit {item} za {honor}",
       "buyOwnedAria": "Koupit {item} za {honor}, již vlastníš",
-      "buyConfirmBody": "Koupit {item} za {honor}? Nákupy za čest nelze vrátit."
+      "buyConfirmBody": "Koupit {item} za {honor}? Nákupy za čest nelze vrátit.",
+      "buyConfirmBodyGold": "Koupit {item} za {price}? Tento nákup nelze vrátit."
     },
     "charSheet": {
       "offense": "Útok",
@@ -3878,8 +3892,8 @@ export const cs_CZ: EnTranslations = {
         "boneSpikeHeroicSummary": "Každých {everyHeroic} s Nythraxis nabodne {victimsHeroic} raiderů mimo svůj aktuální cíl na kostěné bodce. Nabodnutý raider nemůže jednat a každou sekundu ztrácí {drainHeroic} maximálního zdraví, dokud není jeho bodec zničen. Bodec se roztříští po {hitsHeroic} zásazích od kohokoli, bez ohledu na způsobené poškození. Hráč, který už byl nabodnut, nemůže být znovu vybrán po dobu {cooldown} s, takže se bodce rozloží po celé skupině.",
         "boneSpikeResponse": "Kdo je nejblíž, udeří do Kostěného bodce: pár zásahů od kohokoli ho roztříští, bez ohledu na poškození. Léčitelé udržují nabodnuté naživu, dokud bodce nepadnou.",
         "graveEruptionName": "Hrobová erupce",
-        "graveEruptionSummary": "Každých {everyNormal} s kostlivé ruce označí {countNormal} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstNormal} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameNormal} s a každou sekundu způsobuje {tickNormal} maximálního zdraví každému, kdo v něm stojí.",
-        "graveEruptionHeroicSummary": "Každých {everyHeroic} s kostlivé ruce označí {countHeroic} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstHeroic} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameHeroic} s a každou sekundu způsobuje {tickHeroic} maximálního zdraví každému, kdo v něm stojí.",
+        "graveEruptionSummary": "Každých {everyNormal} s kostlivé ruce označí {countNormal} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstNormal} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameNormal} s a každou sekundu způsobuje {tickNormal} maximálního zdraví každému, kdo v něm stojí. Nikdy k tomu nedojde, dokud jsou aktivní značky Trhání duše, ani do {gap} s po jejich zmizení.",
+        "graveEruptionHeroicSummary": "Každých {everyHeroic} s kostlivé ruce označí {countHeroic} kruhů o poloměru {radius} yardů pod raidery. Po {warning} s každý kruh vybuchne za {burstHeroic} maximálního zdraví jako stínové poškození, potom hoří jako hrobový plamen po dobu {flameHeroic} s a každou sekundu způsobuje {tickHeroic} maximálního zdraví každému, kdo v něm stojí. Nikdy k tomu nedojde, dokud jsou aktivní značky Trhání duše, ani do {gap} s po jejich zmizení.",
         "graveEruptionResponse": "Ustupte z každého varovného kruhu, než vybuchne, a nestůjte na hořící zemi. Tankové odtáhnou Nythraxise od plamenů, aby měli bojovníci nablízko prostor.",
         "bindingSigilName": "Vazebná pečeť",
         "bindingSigilSummary": "Každých {everyNormal} s vzplane pečeť starých ochran na jedné ze dvou plošin po stranách trůnu, {sideOffset} yardů vlevo nebo vpravo od místa, kde Nythraxis stál na začátku boje (z pohledu skupiny, strana se s každým sesláním střídá), a on začne Nesmrtelný vzestup, který mu každých {ascensionEvery} s přidá {ascensionNormal} poškození a rychlost útoku. Pokud do {bindNormal} s stojí na pečeti, je spoután: Vzestup se očistí, je omráčen na {stunNormal} s a po dobu {boundNormal} s utrpí o {vulnerability} vyšší poškození. Jinak každý raider utrpí {unboundHitNormal} maximálního zdraví jako stínové poškození a on si ponechá o {unboundBonusNormal} vyšší poškození až do dalšího spoutání.",
@@ -4194,6 +4208,7 @@ export const cs_CZ: EnTranslations = {
       "mobLevel": "{level}",
       "mobEliteLevel": "{level}+",
       "afkTag": "PRYČ",
+      "bountyTag": "Cena {honor}",
       "pvpTag": "PvP",
       "cheaterTag": "< Podvodník >",
       "pledgeTag": "Přísaha cechu {guild}",
@@ -5048,6 +5063,13 @@ export const cs_CZ: EnTranslations = {
       "offlineHeader": "Offline ({n})",
       "hideOffline": "Skrýt offline",
       "hideOfflineTitle": "Skrýt offline hráče",
+      "presence": {
+        "label": "Ukázat mi jako online",
+        "everyone": "Všichni",
+        "friends": "Pouze přátelé",
+        "none": "Nikdo",
+        "title": "Kdo tě vidí jako online v seznamech přátel a v seznamu cechu, tvoji zónu a pozici na mapě. Tvá skupina tě vždy vidí."
+      },
       "billboard": {
         "label": "Cechovní nástěnka",
         "empty": "Na nástěnce zatím nic není.",
@@ -7547,6 +7569,7 @@ export const cs_CZ: EnTranslations = {
       "arena": "Tvé postavení v Popelavém koloseu v obou bracketech: hodnocení, výhry, prohry a poměr výher pro 1v1 a pro 2v2.",
       "pvp": "World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other anywhere; switching off takes 5 minutes.",
       "pvpZones": "Příznak světového PvP: /pvp jej přepíná, /pvp on jej zapne a /pvp off vypne. Označení hráči spolu mohou bojovat ve sporných oblastech, útočiště nepovolují žádné boje ve světě a vstup do aktivního kruhu Krále kopce zapne váš příznak; vypnutí trvá 5 minut.",
+      "presence": "Kdo tě vidí jako online v seznamech přátel, v seznamu cechu a v /who: /presence everyone (výchozí), /presence friends (pouze hráči na tvém seznamu přátel), nebo /presence none. Když jsi skrytý, nevidí žádný online bod, tvoji zónu ani pozici na mapě, i když ti šepoty a pozvánky stále docházejí; tvá skupina tě vždy vidí. Pouhý /presence ti řekne, co je nastaveno.",
       "flair": "Zobrazí nebo skryje tvou roli z Discordu pro ostatní hráče, tedy barevné jméno, štítek role a ověřený štítek v chatu: /flair on ji zobrazí, /flair off ji skryje a samotné /flair ti řekne, co je nastaveno. Vyžaduje propojený účet Discord.",
       "listings": "Tvé vlastní nabídky na Světovém trhu, s požadovanou cenou, časem, který každé zbývá, a kolik místa máš na další.",
       "buyback": "Co jsi nedávno prodal(a) obchodníkovi a co ještě můžeš koupit zpět.",
@@ -8310,7 +8333,8 @@ export const cs_CZ: EnTranslations = {
       "warfareTradeBody": "To je záměrný kompromis. Válečnická výbava je stavěná na boj proti hráčům, ne jako zkratka kolem dungeonových stupňů: válečnický kus nikdy nenese bojová hodnocení, jaká má epický dungeonový kus na stejném slotu, a všechno, co přináší, je určeno proti ostatním hráčům. Pokud chceš obstát v aréně, kup si ji. Pokud chceš rychleji čistit hrdinské dungeony, vydobuď si výbavu v dungeonech.",
       "warfareTradeBodyRatingSpent": "To je záměrný obchod. Válečnická výbava je stavěná na boj s hráči, ne jako zkratka přes dungeonové stupně: kus Válečnictví nikdy nenese bojová hodnocení, která má epický dungeonový kus ve stejném slotu, a hodnocení Válečnictví i bonusy sady, které nese místo nich, se utrácejí výhradně proti hráčům. Chceš-li obstát v aréně, kup si ji. Chceš-li rychleji čistit hrdinské dungeony, získávej výbavu v dungeonech.",
       "vanguardHeading": "Výbava Předvoje: Válečnictví, sezóna 2",
-      "vanguardBody": "Výbava Předvoje je druhá sezóna válečnické výbavy, prodávaná stejnými dvěma intendanty nad původním stupněm, který zůstává v prodeji. Každá specializace má vlastní sadu Předvoje o pěti kusech, na hlavu, ramena, hruď, nohy a ruce, a obchod nabízí jen tři sady, které tvoje třída může nosit, následované zbraněmi Předvoje, které umíš vládnout. Kus Předvoje nese stejná Válečnická hodnocení jako původní stupeň, jen na vyšší úrovni předmětu, a každá sada má dva bonusy, na dvou a čtyřech kusech, které mění jednu ze schopností tvé specializace. Na rozdíl od původních sad tyto bonusy fungují všude, nestvůry nevyjímaje, ale jsou stavěné na boj proti hráčům, takže raidová sada zůstává lepší volbou uvnitř raidu."
+      "vanguardBody": "Výbava Předvoje je druhá sezóna válečnické výbavy, prodávaná stejnými dvěma intendanty nad původním stupněm, který zůstává v prodeji. Každá specializace má vlastní sadu Předvoje o pěti kusech, na hlavu, ramena, hruď, nohy a ruce, a obchod nabízí jen tři sady, které tvoje třída může nosit, následované zbraněmi Předvoje, které umíš vládnout. Kus Předvoje nese stejná Válečnická hodnocení jako původní stupeň, jen na vyšší úrovni předmětu, a každá sada má dva bonusy, na dvou a čtyřech kusech, které mění jednu ze schopností tvé specializace. Na rozdíl od původních sad tyto bonusy fungují všude, nestvůry nevyjímaje, ale jsou stavěné na boj proti hráčům, takže raidová sada zůstává lepší volbou uvnitř raidu.",
+      "vanguardStatsBody": "Na rozdíl od původní úrovně nese výbava Předvoje také bojová hodnocení: každý Předvojův kus zbroje, zbraň a náhrdelník má Hodnocení kritického zásahu nebo Hodnocení rychlosti, a kouzelnickovské a léčitelské kusy přidávají Sílu kouzel nebo Sílu léčení. Předvojské prsteny a náhrdelníky se prodávají vedle zbraní a nosit je mohou všechny třídy. Dva z Předvojských melee prstenů dávají přesně Hodnocení zásahu, které odstraňuje základní šanci, že tvůj útok mine hráče tvé úrovně, a dva kouzelnictví prsteny dělají totéž pro tvá kouzla, aby byla odolávána. Auto-útoky při duálním držení zbraní si zachovávají svou zvýšenou šanci zmeškat. Léčitelský prsten nese místo toho Hodnocení rychlosti."
     },
     "worldPvpPage": {
       "heading": "Světové PvP",
@@ -12768,6 +12792,7 @@ export const cs_CZ: EnTranslations = {
       "dps": "({dps} poškození za sekundu)",
       "armorStat": "{value} brnění",
       "stat": "+{value} {stat}",
+      "warfareMainHandOnly": "Válečnictví se počítá pouze v hlavní ruce.",
       "useFood": "Použití: Obnoví {amount} zdraví během {seconds} s. Při jídle musíš zůstat sedět.",
       "useDrink": "Použití: Obnoví {amount} many během {seconds} s. Při pití musíš zůstat sedět.",
       "useElixir": "Použití: Zvyšuje {stat} o {value} na {minutes} min. Nahradí jiný elixír nebo svitek stejné vlastnosti. Použitelné v boji.",
@@ -18461,6 +18486,30 @@ export const cs_CZ: EnTranslations = {
       },
       "vanguard_feral_staff": {
         "name": "Divoká hůl Předvoje"
+      },
+      "vanguard_band_of_might": {
+        "name": "Předvojovo pásmo moci"
+      },
+      "vanguard_band_of_precision": {
+        "name": "Předvojovo pásmo přesnosti"
+      },
+      "vanguard_band_of_focus": {
+        "name": "Předvojovo pásmo zaměření"
+      },
+      "vanguard_band_of_mending": {
+        "name": "Předvojovo pásmo hojení"
+      },
+      "vanguard_pendant_of_might": {
+        "name": "Předvojův přívěsek moci"
+      },
+      "vanguard_pendant_of_precision": {
+        "name": "Předvojův přívěsek přesnosti"
+      },
+      "vanguard_pendant_of_focus": {
+        "name": "Předvojův přívěsek zaměření"
+      },
+      "vanguard_pendant_of_mending": {
+        "name": "Předvojův přívěsek hojení"
       },
       "conjured_water4": {
         "name": "Vyčarovaná pramenitá voda"

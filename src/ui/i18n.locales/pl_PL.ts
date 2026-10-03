@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const pl_PL: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'Wznowienie PvP',
+  'hudChrome.death.pvpResurrectTitle':
+    'Wznów się na najbliższym cmentarzu z pełnym zdrowiem, bez nowej Daniny Strażnika.',
+  'hudChrome.hill.callout.dominating': '{name} dominuje!',
+  'hudChrome.hill.callout.godlike': '{name} jest boski!',
+  'hudChrome.hill.callout.killingSpree': '{name} ma serię zabójstw!',
+  'hudChrome.hill.callout.legendary': '{name} jest legendarny!',
+  'hudChrome.hill.callout.rampage': '{name} szaleje!',
+  'hudChrome.hill.callout.shutDown': '{killer} zakończył(a) passę gracza {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} jest nie do zatrzymania!',
+  'hudChrome.nameplate.bountyTag': 'Nagroda {honor}',
+  'hudChrome.social.presence.everyone': 'Wszyscy',
+  'hudChrome.social.presence.friends': 'Tylko przyjaciele',
+  'hudChrome.social.presence.label': 'Pokaż mnie jako online',
+  'hudChrome.social.presence.none': 'Nikt',
+  'hudChrome.social.presence.title':
+    'Kto cię widzi jako online na listach przyjaciół i w rostrze gildii, twoją strefę i pozycję na mapie. Twoja drużyna cię zawsze widzi.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Kupić {item} za {price}? Ten zakup nie może być zwrócony.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Działania wojenne liczą się tylko w głównej ręce.',
+  'entities.items.vanguard_band_of_focus.name': 'Pierścień Awangardy Skupienia',
+  'entities.items.vanguard_band_of_mending.name': 'Pierścień Awangardy Gojenia',
+  'entities.items.vanguard_band_of_might.name': 'Pierścień Awangardy Mocy',
+  'entities.items.vanguard_band_of_precision.name': 'Pierścień Awangardy Precyzji',
+  'entities.items.vanguard_pendant_of_focus.name': 'Wisior Awangardy Skupienia',
+  'entities.items.vanguard_pendant_of_mending.name': 'Wisior Awangardy Gojenia',
+  'entities.items.vanguard_pendant_of_might.name': 'Wisior Awangardy Mocy',
+  'entities.items.vanguard_pendant_of_precision.name': 'Wisior Awangardy Precyzji',
+  'guide.arenaPage.vanguardStatsBody':
+    'W przeciwieństwie do oryginalnego poziomu, zbroja Awangardy nosi też oceny bojowe: każdy kawałek zbroi Awangardy, broń i naszyjnik ma Ocenę Krytyczną lub Ocenę Pośpiechu, a części dla czarownika i uzdrowiciela dodają Moc Zaklęcia lub Moc Leczenia. Pierścienie i naszyjniki Awangardy są sprzedawane obok broni i każda klasa je może nosić. Dwa z pierścieni Awangardy do walki wręcz dają dokładnie Ocenę Trafienia, która eliminuje szansę, że twoje ataki trafią gracza twojego poziomu, a dwa pierścienie czarowania robią to samo dla twoich zaklęć, które są oporami. Ataki automatyczne podczas walki z dwiema bronią zachowują swoją dodatkową szansę chybienia. Pierścień uzdrowiciela nosi zamiast tego Ocenę Pośpiechu.',
+  'guide.commandsPage.presence':
+    'Kto cię widzi jako online na listach przyjaciół, w spisie członków gildii i /who: /presence everyone (domyślnie), /presence friends (tylko gracze na twojej liście przyjaciół), lub /presence none. Gdy jesteś ukryty, nie widzą żadnej kropki online, twojej strefy ani pozycji na mapie, chociaż szepty i zaproszenia do ciebie docierają; twoja drużyna zawsze cię widzi. Zwykłe /presence mówi ci, co jest ustawione.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Nurkowanie',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Głębokie nurkowanie',
@@ -18418,12 +18450,12 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Co {every} sek. Nythraxis uderza obecnego tanka za {hitNormal} maksymalnego zdrowia jako obrażenia Cienia i dodaje ładunek Straszliwej Klątwy. Przez {duration} sek. każdy ładunek zwiększa obrażenia, które ten tank otrzymuje od Nythraxis, o {perStackNormal}, do {max} ładunków.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Co {everyHeroic} sek. szkieletowe dłonie oznaczają pod rajderami {countHeroic} kręgów o promieniu {radius} jardów. Po {warning} sek. każdy krąg wybucha za {burstHeroic} maksymalnego zdrowia jako obrażenia Cienia, potem płonie jako Grobowy Płomień przez {flameHeroic} sek., zadając {tickHeroic} maksymalnego zdrowia co sekundę każdemu, kto w nim stoi.',
+    'Co {everyHeroic} sek. szkieletowe dłonie oznaczają pod rajderami {countHeroic} kręgów o promieniu {radius} jardów. Po {warning} sek. każdy krąg wybucha za {burstHeroic} maksymalnego zdrowia jako obrażenia Cienia, potem płonie jako Grobowy Płomień przez {flameHeroic} sek., zadając {tickHeroic} maksymalnego zdrowia co sekundę każdemu, kto w nim stoi. Nigdy nie następuje, gdy aktywne są znaki Rozdarcia Duszy, ani w ciągu {gap} sek. po ich zniknięciu.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Grobowa Erupcja',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Wyjdźcie z każdego kręgu ostrzegawczego, zanim wybuchnie, i trzymajcie się z dala od płonącej ziemi. Tankowie odciągają Nythraxis od płomieni, aby walczący wręcz mieli miejsce do pracy.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Co {everyNormal} sek. szkieletowe dłonie oznaczają pod rajderami {countNormal} kręgów o promieniu {radius} jardów. Po {warning} sek. każdy krąg wybucha za {burstNormal} maksymalnego zdrowia jako obrażenia Cienia, potem płonie jako Grobowy Płomień przez {flameNormal} sek., zadając {tickNormal} maksymalnego zdrowia co sekundę każdemu, kto w nim stoi.',
+    'Co {everyNormal} sek. szkieletowe dłonie oznaczają pod rajderami {countNormal} kręgów o promieniu {radius} jardów. Po {warning} sek. każdy krąg wybucha za {burstNormal} maksymalnego zdrowia jako obrażenia Cienia, potem płonie jako Grobowy Płomień przez {flameNormal} sek., zadając {tickNormal} maksymalnego zdrowia co sekundę każdemu, kto w nim stoi. Nigdy nie następuje, gdy aktywne są znaki Rozdarcia Duszy, ani w ciągu {gap} sek. po ich zniknięciu.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Grobołamacz',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tankowie trzymają Nythraxis twarzą odwróconą od rajdu. Wszyscy inni stoją za nim lub obok niego i nigdy nie przecinają stożka.',
@@ -19942,9 +19974,13 @@ export const pl_PL: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     'Pozostaw światowe PvP włączone, aby zdobywać o {percent} więcej doświadczenia i reputacji frakcji. Premie kończą się, gdy poprosisz o wyłączenie.',
   'hudChrome.worldPvp.rewardPaused': 'Obecna seria PvP: {time} gry (wstrzymana na Wybrzeżu Prób)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Obecna seria PvP: {time} gry (wstrzymana, gdy nie żyjesz)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Obecna seria PvP: {time} gry (wstrzymana w instancjach)',
   'hudChrome.worldPvp.rewardProgress': 'Obecna seria PvP: {time} gry',
   'hudChrome.worldPvp.rewardTitles':
-    'Zdobywaj stałe tytuły po {thresholds} czasu gry z włączonym światowym PvP. Wylogowanie i odwiedziny na Wybrzeżu Prób wstrzymują licznik. Wyłączenie go zeruje.',
+    'Zdobywaj stałe tytuły po {thresholds} czasu gry w otwartym świecie z włączonym światowym PvP. Wylogowanie, śmierć, instancje i Wybrzeże Prób wstrzymują licznik. Wyłączenie go zeruje.',
   'guide.worldPvpPage.introZones':
     'PvP w otwartym świecie jest dobrowolne i zależy od terenu. Na spornych terenach włączenie flagi PvP czyni wrogami wszystkich oznaczonych graczy spoza twojej grupy lub rajdu; po wyłączeniu i krótkiej zwłoce znów jesteś obserwatorem. Wybrzeże Prób to jedyne sanktuarium bez walk w świecie, a trzy najbardziej północne strefy stosują te same zasady dobrowolnej flagi co reszta świata. Wejście do aktywnego kręgu Króla Wzgórza automatycznie włącza twoją flagę. Członkowie grupy i rajdu nigdzie nie są twoimi wrogami; członkowie gildii poza twoją grupą są celami jak inni gracze.',
   'guide.worldPvpPage.zonesBody':

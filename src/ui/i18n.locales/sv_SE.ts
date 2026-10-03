@@ -2,6 +2,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const sv_SE: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'PvP Återupplivning',
+  'hudChrome.death.pvpResurrectTitle':
+    'Återuppstå vid närmaste kyrkogård med full hälsa, utan ny Väktartull.',
+  'hudChrome.hill.callout.dominating': '{name} dominerar!',
+  'hudChrome.hill.callout.godlike': '{name} är gudalik!',
+  'hudChrome.hill.callout.killingSpree': '{name} är på en mördarspree!',
+  'hudChrome.hill.callout.legendary': '{name} är legendarisk!',
+  'hudChrome.hill.callout.rampage': '{name} härjar!',
+  'hudChrome.hill.callout.shutDown': '{killer} har stoppat {victim}!',
+  'hudChrome.hill.callout.unstoppable': '{name} är omöjlig att stoppa!',
+  'hudChrome.nameplate.bountyTag': 'Belöning {honor}',
+  'hudChrome.social.presence.everyone': 'Alla',
+  'hudChrome.social.presence.friends': 'Endast vänner',
+  'hudChrome.social.presence.label': 'Visa mig online för',
+  'hudChrome.social.presence.none': 'Ingen',
+  'hudChrome.social.presence.title':
+    'Vem som ser dig online i vännernas listor och gildsamlandet, med din zon och kartposition. Ditt lag ser alltid dig.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    'Köp {item} för {price}? Detta köp kan inte återbetalas.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Krigföring räknas endast i huvudhanden.',
+  'entities.items.vanguard_band_of_focus.name': 'Förtruppens ring av fokus',
+  'entities.items.vanguard_band_of_mending.name': 'Förtruppens ring av läkning',
+  'entities.items.vanguard_band_of_might.name': 'Förtruppens ring av kraft',
+  'entities.items.vanguard_band_of_precision.name': 'Förtruppens ring av precision',
+  'entities.items.vanguard_pendant_of_focus.name': 'Förtruppens hänge av fokus',
+  'entities.items.vanguard_pendant_of_mending.name': 'Förtruppens hänge av läkning',
+  'entities.items.vanguard_pendant_of_might.name': 'Förtruppens hänge av kraft',
+  'entities.items.vanguard_pendant_of_precision.name': 'Förtruppens hänge av precision',
+  'guide.arenaPage.vanguardStatsBody':
+    'Till skillnad från den ursprungliga nivån bär Förtruppsutrustning även stridsvärden: varje förtruppspans rustning, vapen och halsband har antingen Kritvärde eller Snabbhetsvärde, och spellcaster- och läkardelarna lägger till Besvärjelsekraft eller Läkningskraft. Förtruppens ringar och halsband säljs vid sidan av vapnen, och alla klasser kan bära dem. Två av Förtruppens närkampingsringar ger exakt det Träffvärde som tar bort baschansen för att dina attacker missar en spelare på din egen nivå, och två spellcaster-ringar gör samma för dina besvärjelser att bli motverkade. Autoattacker medan dual-wielding behåller sin extra misschans. Läkarringen bär Snabbhetsvärde istället.',
+  'guide.commandsPage.presence':
+    'Vem som ser dig online i vännernas listor, ditt gildsamlande och /who: /presence everyone (förval), /presence friends (endast spelare på din vännerlista) eller /presence none. Dold ser de ingen online-prick, zon eller kartposition för dig, dock når vissningar och inbjudningar dig ändå; ditt lag ser alltid dig. En enkel /presence talar om för dig vilken som är inställd.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Dykning',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Störtdykning',
@@ -18264,12 +18296,12 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Var {every} sek träffar Nythraxis sin nuvarande tank för {hitNormal} av maximal hälsa som Skuggskada och lägger till en stapel Skräckförbannelse. I {duration} sek ökar varje stapel skadan den tanken tar från Nythraxis med {perStackNormal}, upp till {max} staplar.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Var {everyHeroic} sek markerar skeletthänder {countHeroic} cirklar på {radius} yd under raiddeltagare. Efter {warning} sek bryter varje cirkel ut för {burstHeroic} av maximal hälsa som Skuggskada och brinner sedan som Gravflamma i {flameHeroic} sek, vilket orsakar {tickHeroic} av maximal hälsa varje sekund för alla som står i den.',
+    'Var {everyHeroic} sek markerar skeletthänder {countHeroic} cirklar på {radius} yd under raiddeltagare. Efter {warning} sek bryter varje cirkel ut för {burstHeroic} av maximal hälsa som Skuggskada och brinner sedan som Gravflamma i {flameHeroic} sek, vilket orsakar {tickHeroic} av maximal hälsa varje sekund för alla som står i den. Det sker aldrig medan Själsslitning-märken är aktiva, eller inom {gap} sek efter att de försvunnit.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Gravutbrott',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Kliv ut ur varje varningscirkel innan den bryter ut och håll er borta från brinnande mark. Tankar drar Nythraxis bort från lågorna så att närstrid har plats att arbeta.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Var {everyNormal} sek markerar skeletthänder {countNormal} cirklar på {radius} yd under raiddeltagare. Efter {warning} sek bryter varje cirkel ut för {burstNormal} av maximal hälsa som Skuggskada och brinner sedan som Gravflamma i {flameNormal} sek, vilket orsakar {tickNormal} av maximal hälsa varje sekund för alla som står i den.',
+    'Var {everyNormal} sek markerar skeletthänder {countNormal} cirklar på {radius} yd under raiddeltagare. Efter {warning} sek bryter varje cirkel ut för {burstNormal} av maximal hälsa som Skuggskada och brinner sedan som Gravflamma i {flameNormal} sek, vilket orsakar {tickNormal} av maximal hälsa varje sekund för alla som står i den. Det sker aldrig medan Själsslitning-märken är aktiva, eller inom {gap} sek efter att de försvunnit.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Gravbrytare',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tankar håller Nythraxis vänd bort från raiden. Alla andra står bakom eller bredvid honom och korsar aldrig konen.',
@@ -19784,9 +19816,13 @@ export const sv_SE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.rewardBonus':
     'Ha världs-PvP aktiverat för att få {percent} mer erfarenhet och fraktionsrykte. Bonusarna upphör när du begär att stänga av det.',
   'hudChrome.worldPvp.rewardPaused': 'Nuvarande PvP-svit: {time} spelat (pausad på Prövostranden)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Nuvarande PvP-svit: {time} spelat (pausad medan du är död)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Nuvarande PvP-svit: {time} spelat (pausad i instanser)',
   'hudChrome.worldPvp.rewardProgress': 'Nuvarande PvP-svit: {time} spelat',
   'hudChrome.worldPvp.rewardTitles':
-    'Få permanenta titlar efter {thresholds} speltid med världs-PvP aktiverat. Utloggning och besök på Prövostranden pausar räknaren. Avstängning nollställer den.',
+    'Få permanenta titlar efter {thresholds} speltid i den öppna världen med världs-PvP aktiverat. Utloggning, död, instanser och Prövostranden pausar räknaren. Avstängning nollställer den.',
   'guide.worldPvpPage.introZones':
     'PvP i den öppna världen är frivilligt och beror på området. På omstridd mark gör din aktiva PvP-flagga alla flaggade spelare utanför din grupp eller raid till fiender; stänger du av den blir du åskådare igen efter en kort fördröjning. Prövostranden är den enda fristaden utan världsstrider, och de tre nordligaste områdena använder samma frivilliga flaggregler som resten av världen. Din flagga aktiveras automatiskt när du går in i en aktiv cirkel i Kullens kung. Grupp- och raidkamrater är aldrig dina fiender någonstans; guildmedlemmar utanför din grupp är mål som alla andra.',
   'guide.worldPvpPage.zonesBody':

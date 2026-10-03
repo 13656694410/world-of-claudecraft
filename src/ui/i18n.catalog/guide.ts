@@ -1001,6 +1001,8 @@ export const guideStrings = {
     // reworded successor and `pvp` is retired in scripts/i18n_retired_keys.mjs.
     pvpZones:
       'World PvP flag: /pvp toggles it, /pvp on and /pvp off set it. Flagged players can fight each other on contested ground, sanctuaries allow no world fighting at all, and entering an active King of the Hill circle raises your flag; switching off takes 5 minutes.',
+    presence:
+      'Who sees you online in friends lists, your guild roster and /who: /presence everyone (the default), /presence friends (only players on your friends list), or /presence none. Hidden, they see no online dot, zone or map position for you, though whispers and invites still reach you; your party always sees you. A plain /presence tells you which is set.',
     flair:
       'Shows or hides your Discord role for other players, meaning your colored name, role tag and verified chat tag: /flair on shows it, /flair off hides it, and a plain /flair tells you which is set. Needs a linked Discord account.',
     listings:
@@ -1221,7 +1223,7 @@ export const guideStrings = {
       'What fighting other players pays out: arena victories, Thornhollow Fields wins, and honorable kills all add to it. You spend it on the Warfare sets.',
     warfareTerm: 'Warfare',
     warfareDef:
-      'The gear side of player-versus-player. A quartermaster sells sets of Warfare armor for Honor, and the Warfare rating they carry counts only in fights against other players.',
+      'The gear side of player-versus-player. The quartermasters sell sets of Warfare armor, the newest season for Honor and the last season for gold, and the Warfare rating they carry counts only in fights against other players.',
     // Swim fatigue out on the open sea (src/sim/fatigue.ts): warning, grace,
     // then rising unavoidable damage until you head back toward land.
     fatigueTerm: 'Fatigue',
@@ -2278,6 +2280,9 @@ export const guideStrings = {
     vanguardHeading: 'Vanguard gear: Warfare Season 2',
     vanguardBody:
       "Vanguard gear is the second season of Warfare gear, sold by the same two quartermasters above the original tier, which stays on sale. Every spec has its own Vanguard set of five pieces, for the head, shoulders, chest, legs and hands, and the shop lists only the three sets your class can wear, followed by the Vanguard weapons you can wield. A Vanguard piece carries the same Warfare ratings as the original tier at a higher item level, and each set has two bonuses, at two and four pieces, that change one of your spec's abilities. Unlike the original sets, those bonuses work everywhere, monsters included, but they are built for fighting players, so a raid set stays the better choice inside a raid.",
+    // Warfare Season 2 combat ratings and jewelry (owner request, 2026-10-02).
+    vanguardStatsBody:
+      'Unlike the original tier, Vanguard gear also carries combat ratings: each Vanguard armor piece, weapon and necklace has Crit Rating or Haste Rating, and the spellcaster and healer pieces add Spell Power or Healing Power. The Vanguard rings and necklaces are sold beside the weapons, and every class can wear them. Two of the Vanguard melee rings give exactly the Hit Rating that removes the base chance of your attacks missing a player of your own level, and two spellcasting rings do the same for your spells being resisted. Auto-attacks while dual-wielding keep their extra miss chance. The healer ring carries Haste Rating instead.',
   },
 
   // The Thornhollow Fields 5v5 capture-the-flag battleground page
@@ -2761,7 +2766,7 @@ export const guideStrings = {
     // The two gear sources the page never named: Honor (the Warfare stores) and
     // rift clears. Vendor names and towns only, no prices or stat budgets.
     sourcesHonor:
-      'Honor is what fighting other players pays, and the honor quartermasters, FURY in Eastbrook and Warmarshal Draven Kole in Highwatch, keep the Warfare stores that Honor alone buys: whole armor families, jewelry, and weapons no coin merchant carries. The arena page covers how the Honor itself is earned.',
+      'Honor is what fighting other players pays, and the honor quartermasters, FURY in Eastbrook and Warmarshal Draven Kole in Highwatch, keep the Warfare stores: the newest season of armor and weapons, sold for Honor alone, beside the armor families, jewelry, and weapons of the last season, now sold for gold. The arena page covers how the Honor itself is earned.',
     sourcesRifts:
       'Rifts add one more source once you are at the level cap, and a rift is a race: the group that clears one first wins its rewards. That first clear pays gear on top of everything else the run leaves behind, including a Riftbound band cut to your class role, a ring you will not find anywhere else in the world. A group that finishes second still finishes its own run and keeps the credit for the clear; what it forfeits are the first-clear rewards. The rifts page covers the race itself.',
     // Bind on trade: the per-copy lock in src/sim/item_instance_transfer.ts. An
@@ -3725,7 +3730,7 @@ export const guideStrings = {
     // Both honor quartermasters share one stock; every Warfare piece is soulbound
     // and records no buyback. What and where only: the arena page owns the detail.
     honorBody:
-      'Fighting other players pays a third currency, Honor. Winning a ranked arena bout pays it, and a played-out match on Thornhollow Fields pays it whether you win or lose, so a hard-fought loss on the Fields is never a wasted match. Honor collects on your character sheet without ever mixing with your coin. You spend it with the honor quartermasters, FURY in Eastbrook and Warmarshal Draven Kole in Highwatch, who share one stock between them: the Warfare armor families, jewelry, and weapons that Honor alone buys. Those purchases are final, and the gear binds to you the moment you buy it, so read a piece before you confirm it. The arena page covers how Honor is earned.',
+      'Fighting other players pays a third currency, Honor. Winning a ranked arena bout pays it, and a played-out match on Thornhollow Fields pays it whether you win or lose, so a hard-fought loss on the Fields is never a wasted match. Honor collects on your character sheet without ever mixing with your coin. You spend it with the honor quartermasters, FURY in Eastbrook and Warmarshal Draven Kole in Highwatch, who share one stock between them: the newest season of Warfare armor and weapons sells for Honor alone, while the armor families, jewelry, and weapons of the last season sell for gold. Those purchases are final, and the gear binds to you the moment you buy it, so read a piece before you confirm it. The arena page covers how Honor is earned.',
     // Pointer only: the guild vault (src/sim/guild_bank.ts) rides a tab on the
     // same bank window. The social page owns the detail (fees, slots, ranks).
     guildBankNote:
