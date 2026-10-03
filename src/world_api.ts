@@ -451,11 +451,13 @@ export type {
 export type { TradeInfo, TradeOffer } from './world_api/trade';
 export type { TransportFerryView } from './world_api/transport';
 export type {
+  HillCalloutInfo,
   HillInfo,
   HillPhaseInfo,
   HillSide,
   HillStandingInfo,
   WorldPvpInfo,
+  WorldPvpRewardPause,
   WorldPvpZone,
 } from './world_api/world_pvp';
 
@@ -674,6 +676,7 @@ export const COMMAND_NAMES = [
   'autoloot',
   'resurrect_corpse',
   'resurrect_healer',
+  'pvp_resurrect',
   'bank_deposit',
   'bank_withdraw',
   'bank_buy_slots',
@@ -1056,6 +1059,7 @@ export const COMMAND_FACETS = {
   // resurrection (with Resurrection Sickness). Wire strings are snake_case by design.
   resurrect_corpse: 'IWorldCombat',
   resurrect_healer: 'IWorldCombat',
+  pvp_resurrect: 'IWorldCombat',
   resurrect_respond: 'IWorldCombat',
   // IWorldTargeting: target selection + tab cycling.
   target: 'IWorldTargeting',

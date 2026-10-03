@@ -4,7 +4,8 @@
 // is announced: the title and the zone, "not yet risen", the distance to the
 // marked circle and when it rises. Once risen: who holds the hill, "you N vs
 // them M", the contest clock as a fill bar, the distance and when it falls.
-// Either way a note says so when the viewer does not count (a raid member). The skeleton is rebuilt in ONE innerHTML write when
+// A note explains ineligibility or warns that entering enables PvP.
+// The skeleton is rebuilt in ONE innerHTML write when
 // the structural sig changes (a new hill, the rise, a holder or challenger
 // change, crossing the circle's edge); every
 // per-second value rides the PainterHost elided writers, so an idle second
@@ -12,16 +13,26 @@
 // the union, never interpolated from the wire, and the state is carried by
 // text as well as colour.
 
+import { WORLD_PVP_MIN_LEVEL } from '../../../sim/pvp';
+import type { HillCalloutInfo } from '../../../world_api';
 import { durationText } from '../../duration_text';
 import { zoneDisplayName } from '../../entity_i18n';
 import { formatNumber, t } from '../../i18n';
 import type { PainterHostWriters } from '../../painter_host';
-import type { HillBarLive, HillBarView } from './hill_bar_view';
+import {
+  type HillBarLive,
+  type HillBarView,
+  hillCalloutToShow,
+  shouldAnnounceHillPvp,
+} from './hill_bar_view';
 
 export interface HillBarDeps {
   /** The HUD layer the strip mounts into (null before the HUD exists). */
   layer: () => HTMLElement | null;
   writers: PainterHostWriters;
+  /** Raise a PvP banner: the entry warning, or the announcer's call (a kill
+   *  streak or a shut down). */
+  banner?: (text: string) => void;
 }
 
 interface Slots {
@@ -40,6 +51,7 @@ export class HillBar {
   private slots: Slots | null = null;
   private lastSig = '';
   private lastView: HillBarLive | null = null;
+  private shownCalloutId: string | null = null;
 
   constructor(private readonly deps: HillBarDeps) {}
 
@@ -53,6 +65,14 @@ export class HillBar {
     }
     const root = this.ensureRoot();
     if (!root) return;
+    if (shouldAnnounceHillPvp(this.lastView, view)) {
+      this.deps.banner?.(t('hudChrome.hill.pvpBanner'));
+    }
+    const call = hillCalloutToShow(this.shownCalloutId, view);
+    if (call) {
+      this.shownCalloutId = call.id;
+      this.deps.banner?.(hillCalloutText(call));
+    }
     if (view.sig !== this.lastSig) {
       this.lastSig = view.sig;
       this.build(root, view);
@@ -155,9 +175,11 @@ export class HillBar {
   }
 }
 
-/** The note for a viewer who does not count on the hill, or null. */
+/** Explain ineligibility, or warn that entering the active circle raises PvP. */
 function standingNote(view: HillBarLive): string | null {
-  return view.standing === 'raid' ? t('hudChrome.hill.standingRaid') : null;
+  if (view.standing === 'level')
+    return t('hudChrome.worldPvp.levelReq', { level: formatNumber(WORLD_PVP_MIN_LEVEL) });
+  return view.standing === 'raid' ? t('hudChrome.hill.standingRaid') : t('hudChrome.hill.pvpEntry');
 }
 
 function heldText(view: HillBarLive): string {
@@ -181,4 +203,13 @@ function esc(text: string): string {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+/** The announcer's line for one callout (the kill streak names are League of
+ *  Legends' calls, src/sim/pvp/hill_bounty_rules.ts). */
+export function hillCalloutText(call: HillCalloutInfo): string {
+  if (call.kind === 'shutDown') {
+    return t('hudChrome.hill.callout.shutDown', { killer: call.killer, victim: call.victim });
+  }
+  return t(`hudChrome.hill.callout.${call.kind}`, { name: call.killer });
 }

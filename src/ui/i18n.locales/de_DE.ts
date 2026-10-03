@@ -13,6 +13,38 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const de_DE: Partial<Record<TranslationKey, string>> = {
+  'hudChrome.death.pvpResurrect': 'PvP-Wiederbelebung',
+  'hudChrome.death.pvpResurrectTitle':
+    'Belebe dich auf dem nächsten Friedhof mit voller Gesundheit wieder, ohne einen neuen Zoll des Hüters.',
+  'hudChrome.hill.callout.dominating': '{name} dominiert!',
+  'hudChrome.hill.callout.godlike': '{name} ist göttlich!',
+  'hudChrome.hill.callout.killingSpree': '{name} befindet sich in einem Tötungsrausch!',
+  'hudChrome.hill.callout.legendary': '{name} ist legendär!',
+  'hudChrome.hill.callout.rampage': '{name} begeht ein Massaker!',
+  'hudChrome.hill.callout.shutDown': '{killer} hat {victim} ausgeschaltet!',
+  'hudChrome.hill.callout.unstoppable': '{name} ist unaufhaltsam!',
+  'hudChrome.nameplate.bountyTag': 'Kopfgeld {honor}',
+  'hudChrome.social.presence.everyone': 'Jeder',
+  'hudChrome.social.presence.friends': 'Nur Freunde',
+  'hudChrome.social.presence.label': 'Online sichtbar für',
+  'hudChrome.social.presence.none': 'Niemand',
+  'hudChrome.social.presence.title':
+    'Wer sieht dich online in Freundeslisten und der Gildenliste, mit deiner Zone und Kartenposition. Deine Gruppe sieht dich immer.',
+  'hudChrome.warfareShop.buyConfirmBodyGold':
+    '{item} für {price} kaufen? Diesen Kauf kannst du nicht rückgängig machen.',
+  'itemUi.tooltip.warfareMainHandOnly': 'Kriegsführung zählt nur in der Haupthand.',
+  'entities.items.vanguard_band_of_focus.name': 'Vorhut-Ring des Fokus',
+  'entities.items.vanguard_band_of_mending.name': 'Vorhut-Ring der Heilung',
+  'entities.items.vanguard_band_of_might.name': 'Vorhut-Ring der Macht',
+  'entities.items.vanguard_band_of_precision.name': 'Vorhut-Ring der Präzision',
+  'entities.items.vanguard_pendant_of_focus.name': 'Vorhut-Amulett des Fokus',
+  'entities.items.vanguard_pendant_of_mending.name': 'Vorhut-Amulett der Heilung',
+  'entities.items.vanguard_pendant_of_might.name': 'Vorhut-Amulett der Macht',
+  'entities.items.vanguard_pendant_of_precision.name': 'Vorhut-Amulett der Präzision',
+  'guide.arenaPage.vanguardStatsBody':
+    'Anders als die ursprüngliche Stufe trägt die Vorhut-Ausrüstung auch Kampfwertungen: Jedes Vorhut-Rüstungsteil, jede Waffe und jede Halskette hat Kritische Trefferwertung oder Tempowertung, und die Teile für Zauberer und Heiler fügen Zaubermacht oder Heilkraft hinzu. Die Vorhut-Ringe und Halsketten werden neben den Waffen verkauft, und jede Klasse kann sie tragen. Zwei der Vorhut-Nahkampfringe geben genau die Trefferwertung, die deine Attacken von einem Spieler deiner Stufe garantiert trifft, und zwei Zaubererringe machen das Gleiche für deine Zauber, die nicht widerstanden werden. Automatische Angriffe beim Doppelwielding behalten ihre zusätzliche Verfehlungschance. Der Heiler-Ring trägt stattdessen Tempowertung.',
+  'guide.commandsPage.presence':
+    'Wer sieht dich online in Freundeslisten, deiner Gildenliste und /who: /presence everyone (der Standard), /presence friends (nur Spieler auf deiner Freundesliste), oder /presence none. Versteckt sehen sie keinen Online-Punkt, keine Zone und keine Kartenposition für dich, obwohl Flüstern und Einladungen dich immer noch erreichen; deine Gruppe sieht dich immer. Ein einfaches /presence sagt dir, was eingestellt ist.',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}m',
   'abilityUi.cast.hoard_cast_bat_dive': 'Tauchen',
   'abilityUi.cast.hoard_cast_bat_dive_aim': 'Sturzbiss',
@@ -1154,16 +1186,14 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.confirmCancel': 'Abbrechen',
   'hudChrome.worldPvp.disable': 'Welt-PvP deaktivieren',
   'hudChrome.worldPvp.disarmLine':
-    'Das Ausschalten dauert {minutes} Minuten und wartet, bis der Kampf endet.',
+    'Das Ausschalten dauert {minutes} Minuten und wartet, bis du den aktiven Hügel verlassen hast und der Kampf beendet ist.',
   'hudChrome.worldPvp.enable': 'Welt-PvP aktivieren',
   'hudChrome.worldPvp.greyLine':
     'Spieler, die mehr als {levels} Stufen unter Euch liegen, zahlen nichts.',
   'hudChrome.worldPvp.groundContested':
     'Überall sonst ist umkämpftes Gebiet: Nur zwei markierte Spieler können kämpfen.',
   'hudChrome.worldPvp.groundFfa':
-    'Die Drakenlande, der Frostschleier und der Bernsteinfall sind Jeder-gegen-Jeden-Gebiete: Dort kann jeder kämpfen, markiert oder nicht.',
-  'hudChrome.worldPvp.groundSanctuary':
-    'Die Bewährungsküste und das Eastbrook-Tal sind Schutzgebiete: Dort gibt es überhaupt kein Welt-PvP.',
+    'In den Gebieten Die Drakenlande, Der Frostschleier und Der Bernsteinfall gelten normale PvP-Flaggen. Das Betreten des aktiven Kreises von König des Hügels setzt deine Flagge.',
   'hudChrome.worldPvp.groupLine':
     'Gruppen- und Schlachtzugsmitglieder sind einander niemals feindlich gesinnt. Gildenmitglieder außerhalb Eurer Gruppe können kämpfen.',
   'hudChrome.worldPvp.honorLine':
@@ -1171,9 +1201,9 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.worldPvp.keepUp': 'Flagge oben halten',
   'hudChrome.worldPvp.levelReq': 'Erfordert Stufe {level}.',
   'hudChrome.worldPvp.markLine':
-    'Einen unmarkierten Spieler dort anzugreifen hebt Eure eigene Flagge; einen markierten anzugreifen tut das nie.',
+    'Das Betreten eines aktiven Hügelkreises aktiviert Welt-PvP. Beim Verlassen bleibt deine Flagge bestehen.',
   'hudChrome.worldPvp.noStakeLine':
-    'Ein unmarkierter Spieler, der auf Jeder-gegen-Jeden-Gebiet getötet wird, verliert kein Gold.',
+    'Nicht geflaggte Spieler können in der offenen Welt nicht angegriffen werden.',
   'hudChrome.worldPvp.noTakeLine':
     'Ein unmarkierter Kämpfer nimmt ebenfalls kein Gold: Es wechselt nur zwischen zwei markierten Spielern.',
   'hudChrome.worldPvp.pending': 'Wartet auf Euren PvP-Status vom Realm.',
@@ -1936,9 +1966,9 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'entities.items.vanguard_druid_balance_shoulder.name': 'Sternwächter-Schulterstücke',
   'entities.itemSets.vanguard_druid_feral.name': 'Blutmähnen-Fell',
   'entities.itemSets.vanguard_druid_feral.bonus2':
-    'Die Abklingzeit von Bruin-Ansturm wird um 3 Sek. verkürzt.',
+    'Verringert die Abklingzeiten von Ansprung und Bruin-Ansturm um 3 Sek.',
   'entities.itemSets.vanguard_druid_feral.bonus4':
-    'Bruin-Ansturm gewährt dir 6 Sek. lang einen Schild in Höhe von 6 Prozent deiner maximalen Gesundheit.',
+    'Verringert die Abklingzeit von Sprint um 15 Sek.',
   'entities.items.vanguard_druid_feral_chest.name': 'Blutmähnen-Tunika',
   'entities.items.vanguard_druid_feral_gloves.name': 'Blutmähnen-Griffe',
   'entities.items.vanguard_druid_feral_helmet.name': 'Blutmähnen-Helm',
@@ -2374,8 +2404,10 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'guide.arenaPage.vanguardHeading': 'Vorhut-Ausrüstung: Kriegsführung Saison 2',
   'guide.combat.unstuckBodyWindow':
     'Wenn die Welt dich irgendwo einsperrt, aus dem du nicht herauskommst, tippe /unstuck. Du musst dich außerhalb des Kampfes befinden und stillstehen, nicht durch eine Betäubung oder Verwurzelung festgehalten werden, und dich nicht in einem Duell oder einem Arenakampf befinden: Ein kurzer Countdown läuft, und Bewegung oder erlittener Schaden brechen ihn ab. Ist er abgeschlossen, wirst du am nächsten Friedhof abgesetzt. Er tötet dich nie und hinterlässt keine Leiche, und warst du bereits gefallen, wirst du stattdessen dort wiederbelebt. Die erste Nutzung innerhalb einer Stunde kostet dich nichts. Nutzt du ihn erneut innerhalb einer Stunde nach der letzten, ist der Preis die Befreiungskrankheit, eine vorübergehende Schwächung all dessen, was du bist, die abgeklungen ist, bis du den Befehl erneut benutzen könntest, und wie der Zoll des Hüters verschont sie brandneue Charaktere vollständig.',
+  'guide.commandsPage.flair':
+    'Zeigt oder verbirgt deine Discord-Rolle für andere Spieler, also deinen farbigen Namen, dein Rollenabzeichen und dein verifiziertes Chat-Abzeichen: /flair on zeigt sie an, /flair off blendet sie aus, und /flair allein sagt dir, was eingestellt ist. Erfordert ein verknüpftes Discord-Konto.',
   'guide.commandsPage.pvpZones':
-    'Weltweite PvP-Flagge: /pvp schaltet sie um, /pvp on und /pvp off setzen sie gezielt. Geflaggte Spieler können einander auf umkämpftem Gebiet bekämpfen, Zufluchtsorte erlauben überhaupt keinen Weltkampf, und die Jeder-gegen-jeden-Zonen erlauben ihn mit oder ohne Flagge; das Abschalten dauert 5 Minuten.',
+    'Welt-PvP-Flagge: /pvp schaltet sie um, /pvp on und /pvp off setzen den Zustand. Geflaggte Spieler können auf umkämpftem Boden gegeneinander kämpfen; in Schutzgebieten gibt es kein Welt-PvP. Das Betreten des aktiven Kreises von König des Hügels setzt deine Flagge. Das Ausschalten dauert 5 Minuten.',
   'guide.commandsPage.unstuckWindow':
     'Der Ausweg, wenn die Welt dich gefangen hat. Steh bewegungslos durch einen kurzen Countdown, und du wirst zum nächsten Friedhof gebracht und dort wiederbelebt, falls du bereits gefallen warst. Die erste Nutzung innerhalb einer Stunde ist kostenlos. Nutzt du ihn erneut innerhalb einer Stunde nach der letzten, schwächt dich danach eine Weile die Befreiungskrankheit, daher ist es eher eine Rettung als eine Abkürzung.',
   'guide.factionsPage.automatonsBody':
@@ -2446,20 +2478,16 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'guide.worldPvpPage.flagHeading': 'Die Flagge setzen und senken',
   'guide.worldPvpPage.heading': 'Welt-PvP',
   'guide.worldPvpPage.hillBodyRamp':
-    'Einmal alle drei Stunden, zu einem Zeitpunkt, den niemand vorhersehen kann, wird dem ganzen Reich mitgeteilt, dass in fünfzehn Minuten in einer der Jeder-gegen-jeden-Zonen ein Hügel entstehen wird, und der Kreis, an dem er stehen wird, ist auf offenem Gelände markiert. Sobald er entsteht, besteht er fünfundvierzig Minuten lang, dann fällt er. Die Gruppe mit den meisten Spielern darin bestreitet den Hügel, und nach einer Minute ungebrochener Mehrheit gehört der Hügel ihr; ein einzelner Spieler zählt als Gruppe von einem, doch Schlachtzugsmitglieder zählen überhaupt nicht. Solange eine Gruppe den Hügel hält, verdient jedes ihrer Mitglieder darin jede Minute Ehre, und je länger dieselbe Gruppe ihn hält, desto mehr zahlt jede Minute: Eine volle Gruppe, die einen unbestrittenen Hügel seine gesamte Standzeit über hält, verdient etwa so viel wie drei Schlachtfeldsiege. Wechselt der Hügel den Besitzer, beginnen die neuen Halter die Zählung von vorn. Ein Balken über dem Feld zeigt, wer ihn hält, deine Zahlen gegen ihre und die Bestreitungsuhr; /hill im Chat verrät, wo er steht.',
+    'Alle zwei Stunden erscheint ein Hügel in einem der Gebiete Die Drakenlande, Der Frostschleier oder Der Bernsteinfall. Der Realm erhält fünfzehn Minuten vorher eine Warnung, und der Kreis wird auf offenem Boden markiert. Der Hügel bleibt dreißig Minuten aktiv. Das Betreten des aktiven Kreises setzt nach den üblichen Stufenregeln die Welt-PvP-Flagge, auch bei Schlachtzugsmitgliedern. Die Gruppe mit den meisten berechtigten Spielern im Kreis erobert den Hügel nach einer Minute ununterbrochener Mehrheit. Ein Einzelspieler zählt als Einpersonengruppe; Schlachtzugsmitglieder und Spieler unter der PvP-Mindeststufe können weder erobern noch Hügelehre verdienen. Jedes Mitglied der haltenden Gruppe im Kreis erhält Ehre mit steigender Rate. Auszahlungen und ihre Steigerung erfolgen schneller, sodass die Gesamtehre des früheren fünfundvierzigminütigen Ereignisses erhalten bleibt. Ein Besitzerwechsel setzt die Steigerung zurück. Beim Verlassen bleibt die Flagge bestehen. /pvp off nutzt die üblichen fünf Minuten und kann innerhalb eines aktiven Hügels oder im Kampf nicht abgeschlossen werden. Die Hügelleiste zeigt Kontrolle, Spielerzahlen und Eroberungsfortschritt; /hill meldet den Standort.',
   'guide.worldPvpPage.hillHeading': 'König des Hügels',
-  'guide.worldPvpPage.introZones':
-    'Spieler-gegen-Spieler in der offenen Welt ist freiwillig, und der Boden, auf dem du stehst, entscheidet, was das bedeutet. Setze deine PvP-Flagge, und jeder andere geflaggte Spieler, der nicht in deiner Gruppe oder deinem Schlachtzug ist, wird auf umkämpftem Gebiet zu deinem Feind; senke sie, und nach einer kurzen Verzögerung bist du wieder Zuschauer. Zwei Zonen sind Zufluchtsorte, in denen überhaupt kein Weltkampf stattfindet, und die drei nördlichsten Zonen sind Jeder-gegen-jeden-Gebiet, auf dem jeder Anwesende Freiwild ist, mit oder ohne Flagge. Gruppen- und Schlachtzugsmitglieder sind nirgends deine Feinde; Gildenmitglieder außerhalb deiner Gruppe sind Freiwild wie jeder andere.',
   'guide.worldPvpPage.limitsBodyRaids':
     'Denselben Spieler immer wieder zu besiegen zahlt jedes Mal weniger und bald nichts mehr, und deine Zählung gegen diesen Spieler beginnt erst etwa eine Stunde nach der ersten dieser Tötungen von Neuem, sodass das Campen eines einzelnen Opfers nie das Warten wert ist. Ein Ziel weit unter deiner Stufe zahlt überhaupt nichts. Schlachtfelder und Arenen folgen ihren eigenen Regeln, solange du dich darin befindest, und sie zahlen mehr Ehre als die offene Welt, sodass Welt-PvP der langsamere Weg zu demselben Händler ist. Schlachtzüge verdienen nichts an Welttötungen: Ein Schlachtzugsmitglied erhält keine Ehre oder kein Gold und verkleinert auch niemandes Anteil, kämpfe also als Gruppe, um bezahlt zu werden.',
   'guide.worldPvpPage.limitsHeading': 'Fair-Play-Regeln',
   'guide.worldPvpPage.stakesBodyFlagged':
-    'Wird ein geflaggter Spieler von einem anderen Spieler besiegt, zahlt der Verlierer einen kleinen Anteil des Goldes in seinem Beutel, gedeckelt auf einen bescheidenen Betrag, und die Sieger verdienen Ehre für Kriegsführungsausrüstung. Ein nicht geflaggter Spieler zahlt überhaupt kein Gold, selbst wenn er in einer Jeder-gegen-jeden-Zone fällt. Alle, die geholfen haben, teilen sich beides: der tödliche Treffer, jeder, der das Ziel kurz zuvor beschädigt hat, und die Heiler, die diese Kämpfer auf den Beinen hielten. Ein sauberes Eins-gegen-eins zahlt den ganzen Einsatz; eine Gruppe teilt ihn sich.',
+    'Wird ein geflaggter Spieler von einem anderen Spieler besiegt, zahlt der Verlierer einen kleinen Anteil des Goldes in seinem Beutel, gedeckelt auf einen bescheidenen Betrag, und die Sieger verdienen Ehre für Kriegsführungsausrüstung. Nicht geflaggte Spieler können in der offenen Welt nicht angegriffen werden. Alle, die geholfen haben, teilen sich beides: der tödliche Treffer, jeder, der das Ziel kurz zuvor beschädigt hat, und die Heiler, die diese Kämpfer auf den Beinen hielten. Ein sauberes Eins-gegen-eins zahlt den ganzen Einsatz; eine Gruppe teilt ihn sich.',
   'guide.worldPvpPage.stakesHeading': 'Was eine Tötung wert ist',
   'guide.worldPvpPage.stakesUnflaggedTake':
     'Ein nicht geflaggter Kämpfer nimmt ebenfalls keins: Gold wechselt nur zwischen zwei geflaggten Spielern den Besitzer, wenngleich alle, die geholfen haben, weiterhin die Ehre verdienen.',
-  'guide.worldPvpPage.zonesBody':
-    'Die Welt kennt drei Arten von Boden. Die Bewährungsküste und das Eastbrook-Tal sind Zufluchtsorte: Dort findet überhaupt kein Welt-PvP statt, geflaggt oder nicht, sodass ein neuer Charakter nie bekämpft werden kann, bevor er weiß, was die Flagge bedeutet. Der größte Teil der Welt ist umkämpft, wo die obige Flaggenregel die ganze Geschichte ist. Die Drakenlande, der Frostschleier und der Bernsteinfall, die drei nördlichsten Zonen, sind Jeder-gegen-jeden-Gebiet: Jeder, der darin steht, kann jeden anderen angreifen, der darin steht, mit oder ohne Flagge, und du wirst benachrichtigt, sobald du hineinquerst, und erneut, wenn du sie verlässt. Einen dort nicht geflaggten Spieler anzugreifen setzt deine eigene Flagge, sodass ein Angreifer stets das Risiko trägt. Einen bereits geflaggten Spieler zu treffen setzt sie nie, was bedeutet, dass dich selbst zu verteidigen oder jemanden zu verteidigen, der nicht geflaggt ist, nichts kostet.',
   'guide.worldPvpPage.zonesHeading': 'Wo Welt-PvP stattfindet',
   'landing.headline': 'Abenteuer mit Freunden.',
   'landing.contribute': 'Zum Spiel beitragen',
@@ -6170,9 +6198,9 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.cameraPrompt.title': 'Kamera wahlen',
   'hudChrome.discord.link.joinServer': 'Einfach dem Discord-Server beitreten',
   'hudChrome.discord.roleTag.contentcreator': 'Ersteller von Inhalten',
-  'hudChrome.discord.roleTag.juniormods': 'Junior-Moderator',
+  'hudChrome.discord.roleTag.juniormods': 'Beobachter',
   'hudChrome.discord.roleTag.legend': 'LEGENDE',
-  'hudChrome.discord.roleTag.seniormods': 'Senior-Moderator',
+  'hudChrome.discord.roleTag.seniormods': 'Wächter',
   'hudChrome.discord.roleTag.shill': 'WERBETROMMEL',
   'hudChrome.finder.accept': 'Annehmen',
   'hudChrome.finder.acceptApplicantAria': '{name} annehmen',
@@ -7313,7 +7341,6 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.death.resurrectAtHealer': 'Der Bleiche Hüter (Zoll des Hüters)',
   'hudChrome.death.spiritHealerAlive':
     'Der Bleiche Hüter wacht über die Toten. Du weilst noch unter den Lebenden.',
-  'hudChrome.discord.roleTag.admin': 'Admin',
   'hudChrome.frameReset.label': 'Fensterpositionen zurücksetzen',
   'hudChrome.mailbox.arrivedBanner': 'Der Rabe ist gelandet: Post von {name}.',
   'hudChrome.mailbox.arrivedLog': 'Du hast neue Post von {name}.',
@@ -18674,12 +18701,12 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.raidBossGuide.nythraxis.dreadCurseSummary':
     'Alle {every} Sek. trifft Nythraxis seinen aktuellen Tank für {hitNormal} der maximalen Gesundheit als Schattenschaden und fügt einen Stapel Schreckensfluch hinzu. Für {duration} Sek. erhöht jeder Stapel den Schaden, den dieser Tank von Nythraxis erleidet, um {perStackNormal}, bis zu {max} Stapeln.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionHeroicSummary':
-    'Alle {everyHeroic} Sek. markieren Skeletthände {countHeroic} Kreise von {radius} yd unter Schlachtzüglern. Nach {warning} Sek. bricht jeder Kreis für {burstHeroic} der maximalen Gesundheit als Schattenschaden aus und brennt dann {flameHeroic} Sek. lang als Grabflamme, die jedem darin Stehenden jede Sekunde {tickHeroic} der maximalen Gesundheit zufügt.',
+    'Alle {everyHeroic} Sek. markieren Skeletthände {countHeroic} Kreise von {radius} yd unter Schlachtzüglern. Nach {warning} Sek. bricht jeder Kreis für {burstHeroic} der maximalen Gesundheit als Schattenschaden aus und brennt dann {flameHeroic} Sek. lang als Grabflamme, die jedem darin Stehenden jede Sekunde {tickHeroic} der maximalen Gesundheit zufügt. Das geschieht nie, solange Seelenriss-Markierungen aktiv sind, oder innerhalb von {gap} Sek. nach ihrem Ende.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionName': 'Graberuption',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionResponse':
     'Tretet aus jedem Warnkreis, bevor er ausbricht, und bleibt vom brennenden Boden weg. Tanks ziehen Nythraxis aus den Flammen, damit Nahkämpfer Platz zum Arbeiten behalten.',
   'hudChrome.raidBossGuide.nythraxis.graveEruptionSummary':
-    'Alle {everyNormal} Sek. markieren Skeletthände {countNormal} Kreise von {radius} yd unter Schlachtzüglern. Nach {warning} Sek. bricht jeder Kreis für {burstNormal} der maximalen Gesundheit als Schattenschaden aus und brennt dann {flameNormal} Sek. lang als Grabflamme, die jedem darin Stehenden jede Sekunde {tickNormal} der maximalen Gesundheit zufügt.',
+    'Alle {everyNormal} Sek. markieren Skeletthände {countNormal} Kreise von {radius} yd unter Schlachtzüglern. Nach {warning} Sek. bricht jeder Kreis für {burstNormal} der maximalen Gesundheit als Schattenschaden aus und brennt dann {flameNormal} Sek. lang als Grabflamme, die jedem darin Stehenden jede Sekunde {tickNormal} der maximalen Gesundheit zufügt. Das geschieht nie, solange Seelenriss-Markierungen aktiv sind, oder innerhalb von {gap} Sek. nach ihrem Ende.',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerName': 'Grabbrecher',
   'hudChrome.raidBossGuide.nythraxis.gravebreakerResponse':
     'Tanks halten Nythraxis vom Schlachtzug weggedreht. Alle anderen bleiben hinter oder neben ihm und kreuzen nie den Kegel.',
@@ -20214,4 +20241,29 @@ export const de_DE: Partial<Record<TranslationKey, string>> = {
   'hudChrome.interfaceUnlock.frameNames.unitTooltip': 'Tooltip',
   'guide.interfacePage.framesGovernedUnitTooltip':
     'Edit Frames also unlocks the Tooltip frame: the position where the hover card for a creature or another player appears. Drag it where you want the card to grow from, or hide it from Frames Settings if you do not want hover cards.',
+  'abilityUi.actionBar.moveHint': 'Zum Verschieben Umschalt gedrückt halten und ziehen',
+  'entities.items.vanguard_feral_staff.name': 'Wildheitsstab der Vorhut',
+  'hudChrome.weeklyRewards.previewClaimNotice':
+    'Belohnungen warten auf dich. Besuche den Tresorhüter in Eastbrook, um sie zu öffnen und abzuholen.',
+  'hudChrome.worldPvp.groundSanctuary':
+    'Die Bewährungsküste ist das einzige Schutzgebiet: Dort kannst du weder Welt-PvP aktivieren noch andere Spieler bekämpfen.',
+  'hudChrome.worldPvp.rewardBonus':
+    'Lasse Welt-PvP aktiv, um {percent} mehr Erfahrung und Fraktionsruf zu erhalten. Die Boni enden, sobald du die Deaktivierung anforderst.',
+  'hudChrome.worldPvp.rewardPaused':
+    'Aktuelle PvP-Serie: {time} Spielzeit (an der Bewährungsküste pausiert)',
+  'hudChrome.worldPvp.rewardPausedDead':
+    'Aktuelle PvP-Serie: {time} Spielzeit (pausiert, solange du tot bist)',
+  'hudChrome.worldPvp.rewardPausedInstance':
+    'Aktuelle PvP-Serie: {time} Spielzeit (in Instanzen pausiert)',
+  'hudChrome.worldPvp.rewardProgress': 'Aktuelle PvP-Serie: {time} Spielzeit',
+  'hudChrome.worldPvp.rewardTitles':
+    'Erhalte nach {thresholds} Spielzeit mit aktivem Welt-PvP in der offenen Welt dauerhafte Titel. Ausloggen, Tod, Instanzen und die Bewährungsküste pausieren den Zähler. Deaktivieren setzt ihn zurück.',
+  'guide.worldPvpPage.introZones':
+    'PvP in der offenen Welt ist freiwillig und hängt vom Gebiet ab. Auf umkämpftem Boden werden mit deiner Flagge alle anderen geflaggten Spieler außerhalb deiner Gruppe oder deines Schlachtzugs zu Feinden. Schaltest du sie aus, bist du nach kurzer Wartezeit wieder Zuschauer. Die Bewährungsküste ist das einzige Schutzgebiet ohne Welt-PvP. Für die drei nördlichsten Gebiete gelten dieselben freiwilligen Flaggenregeln wie für den Rest der Welt. Das Betreten des aktiven Kreises von König des Hügels setzt deine Flagge automatisch. Gruppen- und Schlachtzugsmitglieder sind niemals Feinde; Gildenmitglieder außerhalb deiner Gruppe können wie andere Spieler bekämpft werden.',
+  'guide.worldPvpPage.zonesBody':
+    'Die Bewährungsküste ist das einzige Schutzgebiet: Dort gibt es kein Welt-PvP und du kannst deine Flagge nicht setzen. Eine bestehende Flagge bleibt bestehen, aber der Spielzeitfortschritt für Titel pausiert bis zum Verlassen. Überall sonst, auch in den Gebieten Die Drakenlande, Der Frostschleier und Der Bernsteinfall, können nur geflaggte Spieler kämpfen. Das Betreten des aktiven Kreises von König des Hügels setzt deine Flagge automatisch, wenn du die übliche Stufenanforderung erfüllst. Der Vorwarnkreis setzt keine Flagge. Beim Verlassen des aktiven Kreises bleibt deine Flagge bestehen. /pvp off startet die übliche Wartezeit von fünf Minuten, die innerhalb eines aktiven Hügels oder während eines Kampfes nicht enden kann.',
+  'hudChrome.hill.pvpEntry': 'Das Betreten des aktiven Kreises aktiviert Welt-PvP.',
+  'hudChrome.hill.pvpBanner': 'PvP',
+  'guide.worldPvpPage.hillBody':
+    'Alle zwei Stunden erscheint ein Hügel in einem der Gebiete Die Drakenlande, Der Frostschleier oder Der Bernsteinfall. Der Realm erhält fünfzehn Minuten vorher eine Warnung, und der Kreis wird auf offenem Boden markiert. Der Hügel bleibt dreißig Minuten aktiv. Das Betreten des aktiven Kreises setzt nach den üblichen Stufenregeln die Welt-PvP-Flagge, auch bei Schlachtzugsmitgliedern. Die Gruppe mit den meisten berechtigten Spielern im Kreis erobert den Hügel nach einer Minute ununterbrochener Mehrheit. Ein Einzelspieler zählt als Einpersonengruppe; Schlachtzugsmitglieder und Spieler unter der PvP-Mindeststufe können weder erobern noch Hügelehre verdienen. Jedes Mitglied der haltenden Gruppe im Kreis erhält Ehre mit steigender Rate. Auszahlungen und ihre Steigerung erfolgen schneller, sodass die Gesamtehre des früheren fünfundvierzigminütigen Ereignisses erhalten bleibt. Ein Besitzerwechsel setzt die Steigerung zurück. Beim Verlassen bleibt die Flagge bestehen. /pvp off nutzt die üblichen fünf Minuten und kann innerhalb eines aktiven Hügels oder im Kampf nicht abgeschlossen werden. Die Hügelleiste zeigt Kontrolle, Spielerzahlen und Eroberungsfortschritt; /hill meldet den Standort.',
 };

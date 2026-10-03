@@ -8160,6 +8160,13 @@
     padding: 1px 4px;
     line-height: 1.5;
   }
+  #tooltip .mt-tip-time {
+    position: relative;
+    font-size: 10px;
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
   #tooltip .mt-tip-icon {
     position: relative;
     width: 16px;
@@ -10505,6 +10512,10 @@
   #banner.banner-no-motion {
     transition: none;
   }
+  #banner.banner-pvp {
+    --color-text-light: var(--color-danger);
+    text-transform: uppercase;
+  }
   /* The quest-progress flash (quest_progress_banner.ts): small yellow lines
      stacked at the top-center, above the zone banner's slot, the classic
      "Forest Wolf slain: 3/8" cue. Lines are appended by the banner module and
@@ -10632,7 +10643,11 @@
   }
   #death-overlay .death-actions {
     display: flex;
-    gap: 16px;
+    /* Three buttons (Release, PvP Resurrect, Recap) are wider than the 360px
+       panel, so the row wraps: the two ways back share the first line and
+       Recap drops below, never spilling past the panel edge. */
+    flex-wrap: wrap;
+    gap: 12px 16px;
     align-items: center;
     justify-content: center;
   }

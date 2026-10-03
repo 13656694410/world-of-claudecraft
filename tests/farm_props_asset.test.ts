@@ -70,7 +70,7 @@ const REPO_ROOT = path.join(__dirname, '..');
 // hash change) for this seventeen-asset farm family: both extras stamps on
 // every GLB were restamped in place with byte counts, triangles, and bounds
 // held exactly. No source file changed.
-const SOURCE_FINGERPRINT = '957ecf8ce4bff342f90c0ad2ab3dd76199eb6637696a97f0bba689c4e6dcaeac';
+const SOURCE_FINGERPRINT = '95a74f861cedc0961ba324e2d3e6d6eef221207c6e76313eedbb23ed82b2546e';
 const SET_BYTES = 208_200;
 const PER_ASSET_BYTE_CEILING = 35 * 1024;
 const TRIANGLE_CEILING = 1_200;
@@ -118,112 +118,112 @@ interface AssetPin {
 const PINS: Readonly<Record<string, AssetPin>> = {
   farm_bed: {
     bytes: 6_880,
-    sha256: '2e80f526dd722a5d069ad779282a070e77de3d1c384497e8d6de2baf7085003b',
+    sha256: 'ee30caeab8b86984ab65baffd230a2a9b38932be0bac2a16c7f1dd54f3484757',
     triangles: 228,
     footprintYd: [3, 2],
     heightYd: 0.34,
   },
   farm_sprout: {
     bytes: 5_168,
-    sha256: 'c8f0480874433792d48b629ffcf7c4a5c62c7ad73394fa8634ea2330c8d70552',
+    sha256: '5322a8e2327287abe5d1b5c480b78ee7e21bc9e677d4c4c0940957a3870787b6',
     triangles: 108,
     footprintYd: [1.67, 0.97],
     heightYd: 0.25,
   },
   farm_grain_stage2: {
     bytes: 5_248,
-    sha256: '3298a038e06c8001aa3709bf89ca1792a931a99388f584326ed3df92560a0561',
+    sha256: '5e45f71bc1bfdf30684d0712919e9366fc16807becdcec283415a5a5c5ad3cd4',
     triangles: 108,
     footprintYd: [1.81, 1.04],
     heightYd: 0.42,
   },
   farm_rootleaf_stage2: {
     bytes: 8_792,
-    sha256: 'a98929f0dd9e17efc75f9b593332e75b0aad3e9f7fdc2e5d829cfd7b20bdb499',
+    sha256: '3b6d573b98a1e92ace372de3ad4264eae8c03c9cb2815f738090339619f6c742',
     triangles: 240,
     footprintYd: [1.61, 1.31],
     heightYd: 0.22,
   },
   farm_gourd_stage2: {
     bytes: 9_580,
-    sha256: '3db96d69f865571d3e6fa07dffc9b99ae7cccdf59c5f6436fdf9e67548471d79',
+    sha256: '95aaea37e0319517c573c2fa07c81280ca72a2e98d6d7207e8ba8f198ca3a5e9',
     triangles: 360,
     footprintYd: [1.8, 1.16],
     heightYd: 0.09,
   },
   farm_grain_stage3: {
     bytes: 10_988,
-    sha256: 'e5354c433c40802e926867cb388d8e081b8cb56a09bc68e43bc5ffc1bdce92ca',
+    sha256: '879f8e77f61af91f8cba6aceaabe228b18b82a1b3f791e85282093ce51cde8e4',
     triangles: 288,
     footprintYd: [1.91, 1.31],
     heightYd: 0.82,
   },
   farm_rootleaf_stage3: {
     bytes: 17_776,
-    sha256: '072197f3fd3a87c44fd332559beba007238f1513c3483899321fa6c0a1cd47cc',
+    sha256: '1d07866d93914cf64de20aa4ac9af2206ccc4f11fe7367ec6eb97e4166d6aa37',
     triangles: 540,
     footprintYd: [2.16, 1.49],
     heightYd: 0.37,
   },
   farm_gourd_stage3: {
     bytes: 16_460,
-    sha256: '1d549b75c1cd1a384c3926159444ffd139041e49bdd2f57e5b8faeb96145325d',
+    sha256: '39c43413f5ed3321959b6489d6a64370f6bda2f5de80b6a15949917d1d6356b1',
     triangles: 612,
     footprintYd: [2.46, 1.5],
     heightYd: 0.18,
   },
   farm_grain_stage4: {
     bytes: 12_212,
-    sha256: 'd8db6637e8d21b30a294497b8c4217e00f12193a8e73476a3d9666dbe1381d17',
+    sha256: 'a6d33d6bf2a0bdd4beed0007d54a5cc0ce5483217b8fbe805de1250329357bda',
     triangles: 336,
     footprintYd: [2.54, 1.38],
     heightYd: 1.07,
   },
   farm_rootleaf_stage4: {
     bytes: 22_308,
-    sha256: '11cf059edfd1d4fae7b0d8ca4b30234543e5e8210e1fc20141a16697022da524',
+    sha256: '2a5fdc4adee8c1826e02293091b58c54919084ac986a5b8dfc8a30fbfeb17381',
     triangles: 720,
     footprintYd: [2.72, 1.71],
     heightYd: 0.58,
   },
   farm_gourd_stage4: {
     bytes: 16_740,
-    sha256: 'fde0bb99e76efc1e88a206a678659e4964f0381544e930a1eb5a81f821693445',
+    sha256: 'fd961ca4744dcb33dade12cee411ede1597584aa4576966579db5bf29fb17012',
     triangles: 620,
     footprintYd: [2.63, 1.61],
     heightYd: 0.4,
   },
   farm_grain_withered: {
     bytes: 9_656,
-    sha256: '36ccf3de5f481b34bb2dd101ff3508030737a7c8af80f7a4d09332b308155c37',
+    sha256: 'c807587cb3179c2b2c20704e0c948cefd5fd261c1d503dcdc6602506894900c6',
     triangles: 288,
     footprintYd: [2.17, 1.36],
     heightYd: 0.66,
   },
   farm_rootleaf_withered: {
     bytes: 11_724,
-    sha256: '78098fbb5f0d3f771033211ca9d0a80454ba07f5145fbe951aba2091db58fcc1',
+    sha256: '8630fae6b15922f5dde7f349a5736931e1c188d873c34057e8ba5995c82fe7fe',
     triangles: 360,
     footprintYd: [2.12, 1.47],
     heightYd: 0.24,
   },
   farm_gourd_withered: {
     bytes: 13_872,
-    sha256: 'bd3de1469731e99d26275d21563b9df6b16c4ad24fa5a716723aa636fb5e6208',
+    sha256: 'f97e37b3ae7067d0fb9575d07a3709ee7c2c52d5599a4af80e586967b6dddd99',
     triangles: 576,
     footprintYd: [2.43, 1.42],
     heightYd: 0.14,
   },
   farm_compost_bin: {
     bytes: 7_440,
-    sha256: '853eb2d15347605571ca16867720cfb4ef2e17cf569dddb8da836950cfd009c6',
+    sha256: 'aa6e464ab402f19574c12a987e4bf2bef91ff4169c2f77ce407542d67696cc7e',
     triangles: 264,
     footprintYd: [1, 1],
     heightYd: 0.8,
   },
   farm_feast: {
     bytes: 15_644,
-    sha256: 'f0c0a8c3321435f45d9d71e0f64012bf6cae0388354cbaf60a45a3b843f9977f',
+    sha256: 'c48a466323ebcc8a0d5a021b2e6ca171b95c56c7250b019bd9fe8a798f68a135',
     triangles: 656,
     footprintYd: [1.6, 1.6],
     heightYd: 0.9,
@@ -234,7 +234,7 @@ const PINS: Readonly<Record<string, AssetPin>> = {
   // the equality is asserted here as well.
   farm_feast_apex: {
     bytes: 17_712,
-    sha256: '4ff01292dd3a14b77c8630e507116029ff3743d674fc2571230db0faf184a879',
+    sha256: 'bb4847ee9e46f3fb27cb5d7f418999c0d9d10faf500792b579605e5e2443ac72',
     triangles: 780,
     footprintYd: [1.6, 1.6],
     heightYd: 0.9,

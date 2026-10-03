@@ -45,10 +45,10 @@ ratings.
   `'contested'` and `'ffa'` applies at a position (`worldPvpZonePolicyAt`) or to
   a zone record (`worldPvpZonePolicyOf`), read off `ZoneDef.worldPvp`
   (data-as-code in `src/sim/content/`, absent meaning contested). A sanctuary
-  under EITHER player switches the world off (the Proving Shore and Eastbrook
-  Vale, so a new character cannot be fought); both players on free-for-all
-  ground are hostile with no flag at all (the Drakelands, the Frostveil Reach and
-  the Amberfall, the map's top row); everything else is the mutual-flag rule. The lookup is the strict
+  under EITHER player switches the world off (only the Proving Shore;
+  Eastbrook Vale is contested). The Drakelands, Frostveil Reach and Amberfall
+  are also contested: normal mutual flags are required. The generic free-for-all
+  policy remains supported, but these zones no longer select it. The lookup is the strict
   rectangle containment (`zoneContaining`, never the clamping `zoneAt`), so the
   instance plane reads as contested and the open-world policy cannot leak into a
   dungeon, delve, arena or battleground floor. Pure and host-agnostic: the sim's
@@ -58,8 +58,10 @@ ratings.
   flag state (`PlayerMeta.worldPvp`, absent until first raised; `Entity.pvpFlag`
   is its display mirror and the ONLY writer is this module, the away.ts
   meta<->entity precedent), the 5-minute disarm clock (deferred while in
-  combat, ticked from `Sim.tick` in the battleground lap behind a
-  `nextDisarmAt` watermark so an idle realm pays one comparison), the toggle
+  combat or inside an active hill, ticked from `Sim.tick` in the battleground
+  lap behind a `nextDisarmAt` watermark). Active hill entry is checked every
+  simulation tick and raises the ordinary flag with the normal eligibility
+  gates; leaving or ending a hill does not clear it. It also owns the toggle
   cooldown, the realm kill switch (`ctx.worldPvpDisabled`, server env
   `WORLD_PVP_DISABLED=1`), the session books (`Sim.worldPvpBooks`, a live
   `ctx.worldPvpBooks` view: the assist recency rows, the paid-death guard, the
@@ -110,7 +112,31 @@ ratings.
   `nextId` nor the shared rng stream moves
   (`tests/warfare_vendor_npc.test.ts` asserts both). His stock is the one
   canonical `content/pvp_honor.ts` table, shared with FURY.
-- Import the directory's public API through `src/sim/pvp/index.ts`, with ONE
+- `pvp_resurrect.ts` owns the PvP Resurrect RULE (owner rule 2026-10-02): a
+  player death outside the instance plane, not jailed, whose killing blow came
+  from a hostile player or that took a hostile player's hit within
+  `PVP_RESURRECT_WINDOW_SECONDS` (10), offers a raise at the graveyard Release
+  picks at full health and mana with no Keeper's Toll. `worldPvpOnPlayerDeath`
+  stamps `Entity.pvpResurrect` at every player death from the same hostile-hit
+  books the kill credit reads; the raise is `spirit.ts` `pvpResurrect` (refused
+  to a ghost). A living player's death resets the stamp before deciding it
+  (`combat/damage.ts` `handleDeath`), so a revive that skips `reviveAt`
+  (battleground seating, the delve respawn) can never carry an offer into a
+  later death; `reviveAt` clears it too. The self record carries it as `pvr`,
+  lit only when the raise would be honored (`server/self_scalar_wire.ts`); the death screen's button is
+  `src/ui/hud/death`. Imported by path from `world_pvp.ts` and `spirit.ts` (it
+  imports neither, so no cycle). Pinned by `tests/pvp_resurrect.test.ts`.
+- `world_pvp_rewards_rules.ts` owns the pure 20% XP/reputation bonus, five
+  played-time title thresholds and bounded tick normalization. XP includes
+  lifetime XP. XP, faction and UI consumers import this leaf directly to avoid
+  the barrel runtime graph (a second deliberate direct-import exception).
+- `world_pvp_rewards.ts` accrues connected, armed played ticks and grants deeds
+  only at threshold crossings. Only a living player on open-world ground ticks;
+  `worldPvpRewardPause` names the cause otherwise (dead, the instance plane, the
+  tutorial island sanctuary) and feeds both the tick and the IWorld readout.
+  Logout preserves progress; requesting disarm resets it. Save full ticks,
+  publish whole minutes.
+- Import the directory's public API through `src/sim/pvp/index.ts`, with the rewards leaf exception above and another
   deliberate exception: `warfare_quartermaster.ts` is NOT re-exported there
   (see the comment in `index.ts`). It needs `createNpc` from `../entity` at
   runtime while `entity.ts` imports this barrel, so re-exporting it would
@@ -124,32 +150,46 @@ ratings.
 
 ## King of the Hill
 
+- `hill_bounty_rules.ts` owns the PURE bounty tables (League of Legends'
+  champion bounty scaled to 10 Honor, `hillBountyHonor`), the per-hill repeat
+  cap (`hillRepeatHonorMultiplier`) and the announcer's calls
+  (`hillStreakCallout`). `hill_bounty.ts` owns the per-hill books on
+  `ActiveHill.bounty`: which world kills are hill kills (`hillKillFor`, called
+  from `worldPvpOnPlayerDeath`), the streaks, the `Entity.hillBounty` badge,
+  the readout's `callout` (`hillCalloutFor`) and the teardown at every way a
+  hill ends (`clearHillBounties`). It imports neither hill.ts nor world_pvp.ts
+  at runtime (ActiveHill is a type import), so both can call in. Pinned by
+  `tests/hill_bounty.test.ts`; docs/design/warfare.md "Bounties".
 - `hill_rules.ts` owns the PURE rules: who counts (`hillStanding`: parties
-  only, so a raid member does not; any level does), the group key (`hillGroupKey`: a party, or a lone
+  only, so a raid member does not; level 10 or above), the group key (`hillGroupKey`: a party, or a lone
   player as a group of one; null for a raid), the strict-maximum leader
   (`hillLeader`, null on a tie), the majority verdict (`hillChallengeStands`),
   the contest clock (`hillContestStep`), the spot probe (`hillSpotIsOpen` over a
   `HillSpotProbe` the sim binds to the terrain, the water bodies, the collider
-  grid and the static zones), the three-hour schedule (`hillWindowAt`,
+  grid and the static zones), the two-hour schedule (`hillWindowAt`,
   `hillTimes` from a window and a warning offset, `hillMinutesUntil`) and the
   circle test. No ctx, no rng, no clock. Every tuning literal (`HILL_RADIUS`,
   `HILL_WINDOW_SECONDS`, `HILL_WARNING_SECONDS`, `HILL_DURATION_SECONDS`,
   `HILL_CAPTURE_SECONDS`, `HILL_ACCRUAL_SECONDS`, the payout ramp `hillHonorPerPayout` with `HILL_RAMP_STEP_SECONDS` and `HILL_RAMP_MAX_HONOR`) lives
-  here and the copy resolves from it.
+  here and the copy resolves from it. Hills last 30 minutes; payout and ramp
+  intervals are compressed by 29/44 to preserve 388 Honor for a full uncontested
+  hold after the one-minute capture. `hill_zones.ts` selects the three northern
+  spawn zones independently of their World PvP ground policy.
 - `hill.ts` owns the SYSTEM behind the `SimContext` seam: the session state as
   ONE live view (`Sim.hillState`, `ctx.hillState`: the announced or standing
   hill with its phase, the next window's plan and spot retries, the presence
   counts, the contest clock, the accruals; never persisted), the plan
   (`hillPlanFor`: the warning's offset inside the window from a PRIVATE rng
-  derived from the seed and the window's ordinal, the rift portal precedent, so
-  the world stream never moves), the spawn (`spawnHill`, whose spot rng salts
+  derived from the seed and window zero, reused each window so scheduled hills
+  are exactly two hours apart; the world stream never moves), the spawn (`spawnHill`, whose spot rng salts
   in the attempt number so a retry searches new ground), the `/dev hill` test
   levers (`spawnHillNow`, `riseHillNow`, `endHillNow`, `warnNextHillNow`; their
   argument grammar is the pure `hill_dev.ts`), the once-a-second `updateHill` pass (the
   phases warning, risen, fallen, each announced to the realm; then, only while
   risen, presence by party, contest, payouts through `grantHonor` with reason
   `hill_hold`), the readout (`hillInfoFor`, live fields only for a viewer in the
-  hill's zone while it is risen, so the self wire elides it elsewhere), the
+  hill's zone while it is risen; geometry and phase remain available elsewhere
+  and during the warning for the map markers), the
   `/hill` readout line, and the notice lines the client matcher re-localizes
   (`hillWarningLine`, `hillRiseLine`, `hillFallenLine` with the zone name,
   `HILL_TAKEN_LINE`, `HILL_LOST_LINE`). The realm switch

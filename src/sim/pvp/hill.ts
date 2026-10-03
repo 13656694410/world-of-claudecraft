@@ -1,18 +1,17 @@
 // King of the Hill: the system half, behind the SimContext seam.
 //
-// Once every HILL_WINDOW_SECONDS (three hours), at a moment drawn at random
+// Once every HILL_WINDOW_SECONDS (two hours), at a moment drawn at random
 // inside the window, the realm is warned that a hill will rise in one of the
-// free-for-all zones (world_pvp_zones.ts); HILL_WARNING_SECONDS later it rises,
+// northern zones (hill_zones.ts); HILL_WARNING_SECONDS later it rises,
 // a HILL_RADIUS circle on dry, open ground, clear of the water, the hub
 // settlement and every collider, wholly inside its zone, and it stands for
 // HILL_DURATION_SECONDS before it falls. Each phase change is announced to the
-// whole realm. Everyone standing in that zone is already hostile to every
-// stranger there (the free-for-all arm of world_pvp.ts), so the hill needs no
-// flag of its own.
+// whole realm. Entering the active circle raises the ordinary World PvP flag;
+// outside the circle, the surrounding zone remains opt-in.
 //
 // Once a second while the hill stands the presence pass counts the players
 // inside the circle by PARTY (an ungrouped player is a group of one; a raid
-// member does not count at all, hill_rules.ts hillStanding; any level does); the largest party that beats the holder's
+// member does not count at all, hill_rules.ts hillStanding; level 10 or above); the largest party that beats the holder's
 // present count by a strict majority is the challenger, and after
 // HILL_CAPTURE_SECONDS of unbroken majority it takes the hill (a tie never
 // moves it; a challenge that lapses starts over). Every holder standing inside
@@ -42,6 +41,12 @@ import { Rng } from '../rng';
 import type { SimContext } from '../sim_context';
 import type { ZoneDef } from '../types';
 import {
+  clearHillBounties,
+  type HillBountyBook,
+  hillCalloutFor,
+  syncHillBountyBadges,
+} from './hill_bounty';
+import {
   HILL_ACCRUAL_SECONDS,
   HILL_CAPTURE_SECONDS,
   HILL_DURATION_SECONDS,
@@ -66,8 +71,9 @@ import {
   hillTimesFrom,
   hillWindowAt,
 } from './hill_rules';
+import { hillZones } from './hill_zones';
 import { grantHonor } from './honor';
-import { worldPvpFfaZones } from './world_pvp_zones';
+import { worldPvpOnHillPresence } from './world_pvp';
 
 /** 'warning': announced, drawn on the ground, not yet contestable.
  *  'active': risen; the contest and the payouts run. */
@@ -97,6 +103,9 @@ export interface ActiveHill extends HillTimes {
   heldSeconds: number;
   /** Honor paid out by this hill so far (the readout and the tests). */
   honorPaid: number;
+  /** Kill and death streaks, repeat counts and the latest callout
+   *  (hill_bounty.ts), created on the hill's first hill kill. */
+  bounty?: HillBountyBook;
 }
 
 /** The Sim-owned session state, exposed on SimContext as a live view. */
@@ -113,6 +122,9 @@ export interface HillState {
    *  modulo of the tick count, so a pass can never be skipped by a host that
    *  does not visit every tick. */
   passTick: number;
+  /** The realm's announcer call counter (hill_bounty.ts), so a callout id is
+   *  never reused within the realm's session. */
+  calloutSeq?: number;
 }
 
 export function newHillState(): HillState {
@@ -152,9 +164,9 @@ function hillRng(ctx: SimContext, ordinal: number, salt: number): Rng {
 }
 
 /** Window `ordinal`'s times: the warning's offset inside the window is the
- *  first draw of the window's own private rng. */
+ *  first draw of a seed-specific private rng, reused so rises are two hours apart. */
 export function hillPlanFor(ctx: SimContext, ordinal: number): HillTimes {
-  const offset = hillRng(ctx, ordinal, OFFSET_SALT).int(0, HILL_LATEST_WARN_OFFSET_SECONDS);
+  const offset = hillRng(ctx, 0, OFFSET_SALT).int(0, HILL_LATEST_WARN_OFFSET_SECONDS);
   return hillTimes(ordinal, offset);
 }
 
@@ -192,7 +204,7 @@ function notice(ctx: SimContext, pid: number, text: string, color = NOTICE_COLOR
 }
 
 function zoneName(zoneId: string): string {
-  return worldPvpFfaZones().find((z) => z.id === zoneId)?.name ?? zoneId;
+  return hillZones().find((z) => z.id === zoneId)?.name ?? zoneId;
 }
 
 /** Tell the realm what just happened to the hill: the warning (with the
@@ -213,7 +225,7 @@ function announcePhase(
 }
 
 /**
- * Place window `ordinal`'s hill on `times` in a free-for-all zone (a random
+ * Place window `ordinal`'s hill on `times` in a hill zone (a random
  * one by the private rng, or `zoneId` when given: the /dev arm and the tests)
  * and announce it: the warning when it has not risen yet, else the rise.
  * `attempt` salts the spot rng so a retry searches new ground. Returns the
@@ -226,7 +238,7 @@ export function spawnHill(
   attempt = 0,
   zoneId?: string,
 ): ActiveHill | null {
-  const zones = worldPvpFfaZones();
+  const zones = hillZones();
   if (zones.length === 0) return null;
   const rng = hillRng(ctx, ordinal, SPOT_SALT ^ Math.imul(attempt, 0x27d4eb2f));
   const zone = zoneId ? zones.find((z) => z.id === zoneId) : zones[rng.int(0, zones.length - 1)];
@@ -251,6 +263,7 @@ export function spawnHill(
     heldSeconds: 0,
     honorPaid: 0,
   };
+  clearHillBounties(ctx, ctx.hillState.active);
   ctx.hillState.active = hill;
   announcePhase(ctx, hill, phase === 'warning' ? 'warning' : 'risen');
   return hill;
@@ -297,6 +310,7 @@ export function riseHillNow(ctx: SimContext): ActiveHill | null {
 export function endHillNow(ctx: SimContext): ActiveHill | null {
   const hill = ctx.hillState.active;
   if (!hill) return null;
+  clearHillBounties(ctx, hill);
   ctx.hillState.active = null;
   announcePhase(ctx, hill, 'fallen');
   return hill;
@@ -337,6 +351,7 @@ function updateSchedule(ctx: SimContext): void {
   const hill = state.active;
   if (hill) {
     if (ctx.time >= hill.closesAt) {
+      clearHillBounties(ctx, hill);
       state.active = null;
       announcePhase(ctx, hill, 'fallen');
     } else {
@@ -384,8 +399,9 @@ function countInside(ctx: SimContext, hill: ActiveHill): void {
   for (const meta of ctx.players.values()) {
     const e = ctx.entities.get(meta.entityId);
     if (!e || e.dead || !hillContains(hill, e.pos.x, e.pos.z)) continue;
+    if (!worldPvpOnHillPresence(ctx, e)) continue;
     const party = ctx.partyOf(e.id);
-    if (hillStanding(party) !== 'counted') continue;
+    if (hillStanding(party, e.level) !== 'counted') continue;
     const key = hillGroupKey(e.id, party);
     if (key === null) continue;
     hill.insideKeys.set(e.id, key);
@@ -422,8 +438,8 @@ function updateContest(ctx: SimContext, hill: ActiveHill, dt: number): void {
   }
 }
 
-/** The trickle: every holder inside banks this pass, and a full minute pays
- *  one Honor. Only counted players are inside the books, so the raid rule
+/** The trickle: every holder inside banks this pass, and each compressed payout interval pays
+ *  the current ramp amount. Only counted players are inside the books, so the raid rule
  *  holds here too, and a party's size is the payee cap. A
  *  holder who steps out keeps their bank; one who leaves the party, or the
  *  realm, loses it. */
@@ -442,11 +458,11 @@ function payHolders(ctx: SimContext, hill: ActiveHill, dt: number): void {
     const meta = ctx.players.get(pid);
     if (!meta) continue;
     const banked = (hill.accrual.get(pid) ?? 0) + dt;
-    if (banked < HILL_ACCRUAL_SECONDS) {
+    if (banked + 1e-9 < HILL_ACCRUAL_SECONDS) {
       hill.accrual.set(pid, banked);
       continue;
     }
-    hill.accrual.set(pid, banked - HILL_ACCRUAL_SECONDS);
+    hill.accrual.set(pid, Math.max(0, banked - HILL_ACCRUAL_SECONDS));
     hill.honorPaid += grantHonor(ctx, meta, amount, 'hill_hold');
   }
 }
@@ -462,6 +478,7 @@ export function updateHill(ctx: SimContext): void {
   if (ctx.tickCount - state.passTick < PASS_TICKS) return;
   state.passTick = ctx.tickCount;
   if (ctx.worldPvpDisabled) {
+    clearHillBounties(ctx, state.active);
     state.active = null;
     return;
   }
@@ -472,6 +489,7 @@ export function updateHill(ctx: SimContext): void {
   countInside(ctx, live);
   updateContest(ctx, live, dt);
   payHolders(ctx, live, dt);
+  syncHillBountyBadges(ctx, live);
 }
 
 /** The IWorld readout for one viewer (src/world_api/world_pvp.ts HillInfo).
@@ -487,7 +505,7 @@ export function hillInfoFor(
   const e = ctx.entities.get(pid);
   if (!e || e.kind !== 'player') return null;
   const party = ctx.partyOf(pid);
-  const standing = hillStanding(party);
+  const standing = hillStanding(party, e.level);
   const key = standing === 'counted' ? hillGroupKey(pid, party) : null;
   const side = (group: string | null): 'none' | 'you' | 'other' =>
     group === null ? 'none' : group === key ? 'you' : 'other';
@@ -526,6 +544,8 @@ export function hillInfoFor(
     challenger: side(hill.challenger),
     challengerCount: hill.challenger === null ? 0 : (hill.counts.get(hill.challenger) ?? 0),
     contest: Math.floor(hill.contest),
+    // The announcer (hill_bounty.ts): everyone in the zone sees the same call.
+    callout: hillCalloutFor(ctx, hill),
   };
 }
 

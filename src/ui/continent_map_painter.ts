@@ -37,6 +37,7 @@ import {
   type ContinentZoneRegion,
 } from './continent_map_view';
 import { zoneDisplayName } from './entity_i18n';
+import { drawHillMapMarker } from './hill_map_marker_painter';
 import { t } from './i18n';
 
 // Typography (Georgia, matching the per-zone map painter).
@@ -83,6 +84,7 @@ const CONTINENT_COLOR_TOKENS = {
   label: '--color-map-label',
   outline: '--color-map-outline',
   player: '--color-map-player',
+  worldQuestAvailable: '--color-map-world-quest-available',
   partyDead: '--color-map-party-dead',
   regionHoverFill: '--color-map-region-hover-fill',
   regionCurrentFill: '--color-map-region-current-fill',
@@ -316,6 +318,10 @@ export class ContinentMapPainter {
         ctx.fill();
         ctx.stroke();
       }
+    }
+
+    if (model.hill) {
+      drawHillMapMarker(ctx, model.hill, 8, colors.worldQuestAvailable, colors.outline);
     }
 
     // "You are here": a filled dot in a ring at the player's projected position.

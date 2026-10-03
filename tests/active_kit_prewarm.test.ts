@@ -250,9 +250,10 @@ it('leaves out only the shockwave sheet, which no cast draws', () => {
   const drawers: string[] = [];
   for (const file of readdirSync(root, { recursive: true, encoding: 'utf8' })) {
     if (!file.endsWith('.ts')) continue;
+    const rel = file.replace(/\\/g, '/');
     const source = readFileSync(new URL(file, root), 'utf8');
     for (const match of source.matchAll(/(?:bakedAt|spawn)\??\.?\(\s*'shockwave'/g))
-      drawers.push(`${file}:${source.slice(0, match.index).split('\n').length}`);
+      drawers.push(`${rel}:${source.slice(0, match.index).split('\n').length}`);
   }
   expect(drawers).toHaveLength(1);
   expect(drawers[0]).toMatch(/^ability_vfx\/fx\.ts:/);

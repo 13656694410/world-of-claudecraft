@@ -5545,7 +5545,8 @@ export const ITEM_ART_PENDING = new Set<string>([
   ...NYTHRAXIS_GAP_ART_PENDING_ITEM_IDS,
   // Warfare Season 2 armor: painted icons owned by a follow-up art pass; the
   // procedural icon stands in until then. The season weapons never park here:
-  // an unpainted weapon already draws its procedural icon.
+  // an unpainted weapon already draws its procedural icon, and the season
+  // jewelry ships its own (vanguard-jewelry-icons-2026-10-03).
   ...SEASON2_SETS.flatMap((set) => set.itemIds),
 ]);
 
@@ -5608,6 +5609,12 @@ export const DEED_ART_PENDING: ReadonlySet<string> = new Set([
   'cmb_coinsack_caught',
   // The ferry round trip (exp_harbor_to_harbor): procedural exploration crest until commissioned.
   'exp_harbor_to_harbor',
+  // Opt-in played-time titles use the PvP category crest pending commissioned art.
+  'pvp_flag_1h',
+  'pvp_flag_3h',
+  'pvp_flag_6h',
+  'pvp_flag_24h',
+  'pvp_flag_168h',
 ]);
 /** Static URL of a deed crest's painted art, or null when the crest id has no committed image. */
 export function deedImageUrl(crestId: string): string | null {

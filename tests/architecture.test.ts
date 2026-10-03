@@ -213,6 +213,7 @@ const UI_PURE_CORES = [
   'src/ui/frame_menu_core.ts',
   'src/ui/loot_quality_view.ts',
   'src/ui/item_combat_tooltip_view.ts',
+  'src/ui/treasure_map_tooltip_view.ts',
   'src/ui/trinket_tooltip_view.ts',
   // The trinket auras' tooltip descriptor and their item-icon art map.
   'src/ui/trinket_aura_effect.ts',
@@ -351,6 +352,7 @@ const UI_PURE_CORES = [
   'src/ui/hud/action_bar/item_bags_line_core.ts',
   'src/ui/hud/quest/clue_talk_row_core.ts',
   'src/ui/hud/action_bar/trinket_slot_core.ts',
+  'src/ui/hud/action_bar/slot_edit_hints_core.ts',
   'src/ui/hud/quest/prof_intro_hint_core.ts',
   'src/ui/hud/quest/clue_step_row_view.ts',
   'src/ui/hud/pet_bar_core.ts',
@@ -633,6 +635,9 @@ const UI_PURE_CORES = [
   'src/ui/hud/battleground/battleground_window_view.ts',
   'src/ui/hud/world_pvp/world_pvp_window_view.ts',
   'src/ui/hud/hill/hill_bar_view.ts',
+  // The death screens: which of the Release overlay, PvP Resurrect button and
+  // ghost surfaces show (src/ui/hud/death).
+  'src/ui/hud/death/death_prompt_view.ts',
   'src/ui/hud/battleground/bg_end_banner_view.ts',
   'src/ui/hud/battleground/battleground_scoreboard_view.ts',
   'src/ui/leaderboard_view.ts',

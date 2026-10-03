@@ -39,7 +39,7 @@ import type {
   RaidLockout,
 } from '../world_api';
 
-export type FinderTab = 'catalogue' | 'queue' | 'board';
+export type FinderTab = 'catalogue' | 'queue' | 'board' | 'vault';
 
 // Directory of the prerendered boss portrait stills (WebP, fixed 128x128).
 export const FINDER_PORTRAIT_DIR = '/ui/dungeons';

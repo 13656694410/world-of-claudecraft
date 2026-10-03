@@ -45,8 +45,8 @@ import type {
 } from '../sim/types';
 import type { Decoration } from '../sim/world';
 import { WORLD_BOSSES, worldBossLockoutId } from '../sim/world_boss';
+import { worldQuestCompletedForBoard } from '../sim/world_quest_practice';
 import { playerActiveWorldQuests } from '../sim/world_quest_reroll';
-import { activeWorldQuestsForCycle } from '../sim/world_quest_rotation';
 import type { FriendInfo, IWorld } from '../world_api';
 import { buildCastlePlanMarkers, type CastlePlanMarker } from './castle_plan_core';
 import { dungeonMapActive } from './dungeon_map_view';
@@ -843,6 +843,7 @@ export interface OverworldMapModel {
   questAreas: MapQuestAreaMarker[];
   worldQuests: MapWorldQuestMarker[];
   worldBosses: MapWorldBossMarker[];
+  hill: { mx: number; my: number; phase: 'warning' | 'active' } | null;
   /** Gather nodes in the committed zone (all zoom levels). Empty only when
    *  the zone has no authored nodes in view. */
   gatherNodes: MapGatherNodeMarker[];
@@ -929,6 +930,7 @@ export function buildOverworldMapModel(input: OverworldMapInput): OverworldMapMo
   const filters = input.filters ?? DEFAULT_MAP_ATLAS_FILTERS;
   const landmarkPlacement = MAP_LANDMARK_PLACEMENT_BY_PROFILE[input.markerProfile ?? 'standard'];
   const p = world.player;
+  const hill = world.hillInfo;
 
   // Inside a rift the overworld zone (the current-zone frame below still keys
   // off `zone`, which the player's far-off rift x displaces past any real
@@ -1076,7 +1078,7 @@ export function buildOverworldMapModel(input: OverworldMapInput): OverworldMapMo
   })) {
     if (quest.zoneId !== zone.id || playerLevel < quest.minLevel) continue;
     const progress = world.worldQuestLog?.get(quest.id);
-    if (progress?.state === 'completed') continue;
+    if (worldQuestCompletedForBoard(progress)) continue;
     const isGlider = quest.objective.type === 'glider';
     const position = isGlider ? GLIDER_NPC_DEF.pos : quest.area;
     if (!inView(position.x, position.z)) continue;
@@ -1405,6 +1407,10 @@ export function buildOverworldMapModel(input: OverworldMapInput): OverworldMapMo
     questAreas,
     worldQuests,
     worldBosses,
+    hill:
+      hill && hill.zoneId === zone.id && inView(hill.x, hill.z)
+        ? { ...toMap(hill.x, hill.z), phase: hill.phase }
+        : null,
     gatherNodes,
     stations,
     services,
