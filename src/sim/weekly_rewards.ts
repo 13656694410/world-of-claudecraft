@@ -96,6 +96,8 @@ export interface WeeklyRewardState {
   pvp: number;
   raidUnlocks: number[];
   bossUnlocks?: WeeklyBossUnlocks;
+  /** Bosses killed during this reset week; missing on pre-deploy saves. */
+  weeklyBossUnlocks?: WeeklyBossUnlocks;
   vaults: WeeklyVaultBatch[];
   overflowed: boolean;
   legacyPending?: number[];
@@ -162,6 +164,7 @@ export function sanitizeWeeklyRewards(
   );
   state.overflowed = r.overflowed === true;
   state.bossUnlocks = sanitizeWeeklyBossUnlocks(r.bossUnlocks);
+  state.weeklyBossUnlocks = sanitizeWeeklyBossUnlocks(r.weeklyBossUnlocks);
   const legacy = r.legacyPending ?? (!Array.isArray(r.vaults) ? r.pending : undefined);
   if (Array.isArray(legacy))
     state.legacyPending = WEEKLY_POOL_IDS.map((_, i) => bounded(legacy[i], 3));
@@ -237,6 +240,8 @@ export function advanceWeeklyRewards(
   if (!Number.isFinite(nowMs) || nowMs < 0) return;
   if (state.resetAtMs > nowMs) return;
   if (state.resetAtMs > 0) {
+    // Direct callers may still pass a pre-deploy state without the weekly map.
+    const weeklyBossUnlocks = state.weeklyBossUnlocks ?? state.bossUnlocks ?? {};
     const earned = earnedWeeklyRolls(state);
     const choices: WeeklyChoice[] = [];
     if (state.vaults.length < WEEKLY_BACKLOG_LIMIT) {
@@ -251,13 +256,14 @@ export function advanceWeeklyRewards(
           resetAtMs: state.resetAtMs,
           choices,
           raidUnlocks: [...state.raidUnlocks],
-          bossUnlocks: { ...state.bossUnlocks },
+          bossUnlocks: { ...weeklyBossUnlocks },
         });
     } else if (earned.some(Boolean)) state.overflowed = true;
     state.raids.fill(0);
     state.raidClears = [];
     state.dungeons = [];
     state.world = state.pvp = 0;
+    state.weeklyBossUnlocks = {};
   }
   const next = nextReset(nowMs);
   state.resetAtMs = Number.isSafeInteger(next) && next > nowMs ? next : Math.floor(nowMs) + WEEK_MS;
@@ -272,6 +278,9 @@ export function stateFor(ctx: SimContext, meta: PlayerMeta): WeeklyRewardState {
       if (tier) state.bossUnlocks[bossId] = Math.max(state.bossUnlocks[bossId] ?? 0, tier);
     }
   }
+  // A missing field identifies a pre-deploy save. Keep its earned slots
+  // eligible for this one week, then use only new kills after rollover.
+  state.weeklyBossUnlocks ??= { ...state.bossUnlocks };
   if (state.legacyPending) {
     const choices: WeeklyChoice[] = [];
     for (const [i, count] of state.legacyPending.entries()) {
@@ -287,7 +296,7 @@ export function stateFor(ctx: SimContext, meta: PlayerMeta): WeeklyRewardState {
   advanceWeeklyRewards(state, ctx.lockoutNowMs(), ctx.weeklyRaidResetMs, (pool) =>
     needsWeeklyBossTable(pool)
       ? weeklyAvailableBossTables(
-          { resetAtMs: state.resetAtMs, choices: [], bossUnlocks: state.bossUnlocks },
+          { resetAtMs: state.resetAtMs, choices: [], bossUnlocks: state.weeklyBossUnlocks },
           { pool },
           meta.cls,
         ).length > 0
@@ -328,6 +337,7 @@ export function weeklyRewardInfoFor(ctx: SimContext, pid: number): WeeklyRewardI
       dungeons: [...state.dungeons],
       raidUnlocks: [...state.raidUnlocks],
       bossUnlocks: { ...state.bossUnlocks },
+      weeklyBossUnlocks: { ...state.weeklyBossUnlocks },
       vaults: state.vaults.slice(0, 1).map((batch) => ({
         resetAtMs: batch.resetAtMs,
         // Legacy weeks have no historical snapshot. Use proven lifetime clears
@@ -393,6 +403,10 @@ export function recordWeeklyBossKill(
     const state = stateFor(ctx, meta);
     const tier = inst.difficulty === 'heroic' ? 2 : 1;
     state.bossUnlocks![boss.templateId] = Math.max(state.bossUnlocks![boss.templateId] ?? 0, tier);
+    state.weeklyBossUnlocks![boss.templateId] = Math.max(
+      state.weeklyBossUnlocks![boss.templateId] ?? 0,
+      tier,
+    );
     if (tuning.finalBossId !== boss.templateId) continue;
     if (raid) {
       const i = WEEKLY_RAID_BOSSES.indexOf(boss.templateId);

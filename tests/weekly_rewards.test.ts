@@ -796,9 +796,7 @@ describe('weekly activity completion hooks', () => {
         sim.ctx.dealDamage(player, boss, boss.hp * 100, false, 'physical', null, 'hit');
         if (difficulty === 'normal' && dungeonId !== 'nythraxis_boss_arena')
           expect(meta.raidLockouts.get(dungeonId)).toBe(meta.weeklyRewards!.resetAtMs);
-        expect(meta.weeklyRewards!.raidClears).toEqual(
-          [[1], [1, 1], [2, 1, 1], [2, 2, 1]][clear],
-        );
+        expect(meta.weeklyRewards!.raidClears).toEqual([[1], [1, 1], [2, 1, 1], [2, 2, 1]][clear]);
         expect(meta.weeklyRewards!.raids.filter(Boolean)).toEqual([
           difficulty === 'heroic' ? 2 : 1,
         ]);
@@ -806,7 +804,12 @@ describe('weekly activity completion hooks', () => {
           difficulty === 'heroic' ? 2 : 1,
         ]);
         expect(earnedWeeklyRolls(meta.weeklyRewards!).slice(0, 2)).toEqual(
-          [[1, 0], [2, 0], [2, 1], [1, 2]][clear],
+          [
+            [1, 0],
+            [2, 0],
+            [2, 1],
+            [1, 2],
+          ][clear],
         );
         expect(sim.players.get(partyIds[1])!.weeklyRewards!.raids).toEqual(
           meta.weeklyRewards!.raids,

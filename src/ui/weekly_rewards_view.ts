@@ -53,7 +53,7 @@ export function buildWeeklyRewardsView(info: WeeklyRewardInfo, playerClass: Play
         {
           resetAtMs: 0,
           choices: [],
-          bossUnlocks: info.state.bossUnlocks,
+          bossUnlocks: info.state.weeklyBossUnlocks ?? info.state.bossUnlocks,
           raidUnlocks: info.state.raidUnlocks,
         },
         { pool },

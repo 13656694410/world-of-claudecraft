@@ -68,6 +68,23 @@ describe('weekly reward presentation', () => {
     expect(live[2].available).toBe(true);
     expect(live[2].milestones.map((m) => m.completed)).toEqual([true, false, false]);
   });
+  it('previews loot only from bosses killed this week', () => {
+    const state = emptyWeeklyRewards();
+    state.bossUnlocks = { morthen: 2, ysolei: 2 };
+    state.weeklyBossUnlocks = { ysolei: 2 };
+    const dungeon = buildWeeklyRewardsView(
+      {
+        playerLevel: 20,
+        state,
+        nowMs: 0,
+        canClaim: true,
+        worldQuestsAvailable: false,
+        readyWeeks: 0,
+      },
+      'mage',
+    )[1];
+    expect(dungeon.pools[1].tables.map((table) => table.id)).toEqual(['drowned_temple']);
+  });
   it('shows days, hours, minutes and seconds and clamps expired resets to zero', () => {
     expect(weeklyCountdown(90061000, 0)).toBe('01d 01h 01m 01s');
     expect(weeklyCountdown(0, 1000)).toBe('00d 00h 00m 00s');
