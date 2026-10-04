@@ -687,6 +687,8 @@ export interface SimContextCallbacks {
   pullTimerStart(rawCommand: string, pid?: number): void;
   pullTimerCancel(pid?: number): void;
   removeFromParty(pid: number, verb: string): void;
+  hillPartyDisband(partyId: number, survivorPid: number): void;
+  hillPartyJoin(pid: number): void;
   // Drop a disbanded party's whole raid-marker set (points at T1's targeting store).
   dropPartyMarkers(partyId: number): void;
   // Dungeon Finder formation seam (owned by social/party.ts): merge solo
@@ -1670,6 +1672,8 @@ export function createSimContext(host: SimContextHost): SimContext {
     pullTimerStart: host.pullTimerStart,
     pullTimerCancel: host.pullTimerCancel,
     removeFromParty: host.removeFromParty,
+    hillPartyDisband: host.hillPartyDisband,
+    hillPartyJoin: host.hillPartyJoin,
     dropPartyMarkers: host.dropPartyMarkers,
     formDungeonFinderGroup: host.formDungeonFinderGroup,
     onMobKilledForQuests: host.onMobKilledForQuests,

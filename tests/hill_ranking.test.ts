@@ -342,6 +342,96 @@ describe('the hold ranking', () => {
 });
 
 describe('the Weekly Vault point', () => {
+  it('pays the member left behind when a holding duo disbands', () => {
+    const { sim, pids } = hillWorld(['Bet', 'Gimel']);
+    const [bet, gimel] = pids;
+    sim.partyInvite(gimel, bet);
+    sim.partyAccept(gimel);
+    const partyId = sim.partyOf(bet)!.id;
+    inside(sim, bet);
+    inside(sim, gimel, 4, 0);
+    tickSeconds(sim, HILL_CAPTURE_SECONDS + HILL_VAULT_MIN_INSIDE_SECONDS + 5);
+    const hill = sim.hillState.active!;
+    expect(hill.holds.get(`party:${partyId}`)?.holders.has(bet)).toBe(true);
+    expect(hill.holds.get(`party:${partyId}`)?.holders.has(gimel)).toBe(true);
+
+    outside(sim, gimel);
+    sim.partyLeave(gimel);
+    expect(sim.partyOf(bet)).toBeNull();
+    expect(sim.partyOf(gimel)).toBeNull();
+    jumpTo(sim, hill.closesAt - 0.5);
+    const seen = tickSeconds(sim, 2);
+    expect(logLines(seen)).toContain("Hill ranking #1: Bet's group, held 2 minutes.");
+    expect(vaultPvp(sim, bet)).toBe(1);
+    expect(logLines(seen, bet)).toContain(HILL_VAULT_LINE);
+    expect(vaultPvp(sim, gimel)).toBe(0);
+  });
+
+  it('also pays the member left behind when the leader disbands the duo', () => {
+    const { sim, pids } = hillWorld(['Bet', 'Gimel']);
+    const [bet, gimel] = pids;
+    sim.partyInvite(gimel, bet);
+    sim.partyAccept(gimel);
+    inside(sim, bet);
+    inside(sim, gimel, 4, 0);
+    tickSeconds(sim, HILL_CAPTURE_SECONDS + HILL_VAULT_MIN_INSIDE_SECONDS + 5);
+    outside(sim, bet);
+    sim.partyLeave(bet);
+    const hill = sim.hillState.active!;
+    jumpTo(sim, hill.closesAt - 0.5);
+    tickSeconds(sim, 2);
+    expect(vaultPvp(sim, gimel)).toBe(1);
+    expect(vaultPvp(sim, bet)).toBe(0);
+  });
+
+  it('does not pay a disband survivor who joins another party before the fall', () => {
+    const { sim, pids } = hillWorld(['Bet', 'Gimel', 'Dalet']);
+    const [bet, gimel, dalet] = pids;
+    sim.partyInvite(gimel, bet);
+    sim.partyAccept(gimel);
+    inside(sim, bet);
+    inside(sim, gimel, 4, 0);
+    tickSeconds(sim, HILL_CAPTURE_SECONDS + HILL_VAULT_MIN_INSIDE_SECONDS + 5);
+    outside(sim, gimel);
+    sim.partyLeave(gimel);
+    sim.partyInvite(dalet, bet);
+    sim.partyAccept(dalet);
+    sim.partyLeave(dalet);
+    expect(sim.partyOf(bet)).toBeNull();
+    const hill = sim.hillState.active!;
+    jumpTo(sim, hill.closesAt - 0.5);
+    tickSeconds(sim, 2);
+    expect(vaultPvp(sim, bet)).toBe(0);
+    expect(vaultPvp(sim, gimel)).toBe(0);
+  });
+
+  it('revokes the survivor exception when Dungeon Finder puts them in another party', () => {
+    const { sim, pids } = hillWorld(['Bet', 'Gimel', 'Dalet']);
+    const [bet, gimel, dalet] = pids;
+    sim.partyInvite(gimel, bet);
+    sim.partyAccept(gimel);
+    inside(sim, bet);
+    inside(sim, gimel, 4, 0);
+    tickSeconds(sim, HILL_CAPTURE_SECONDS + HILL_VAULT_MIN_INSIDE_SECONDS + 5);
+    outside(sim, gimel);
+    sim.partyLeave(gimel);
+    expect(
+      sim.ctx.formDungeonFinderGroup(
+        [
+          { partyId: null, leaderPid: dalet, members: [dalet] },
+          { partyId: null, leaderPid: bet, members: [bet] },
+        ],
+        { raid: false },
+      ),
+    ).not.toBeNull();
+    sim.partyLeave(dalet);
+    expect(sim.partyOf(bet)).toBeNull();
+    const hill = sim.hillState.active!;
+    jumpTo(sim, hill.closesAt - 0.5);
+    tickSeconds(sim, 2);
+    expect(vaultPvp(sim, bet)).toBe(0);
+  });
+
   it('pays each qualifying holder of the longest hold one PvP point at the fall, and nobody else', {
     timeout: 60_000,
   }, () => {

@@ -47,17 +47,17 @@ import { Rng } from '../rng';
 import type { SimContext } from '../sim_context';
 import type { ZoneDef } from '../types';
 import {
-  HILL_RANKING_SHOWN,
-  type HillHoldRecord,
-  hillRanking,
-  hillVaultPayees,
-} from './hill_ranking';
-import {
   clearHillBounties,
   type HillBountyBook,
   hillCalloutFor,
   syncHillBountyBadges,
 } from './hill_bounty';
+import {
+  HILL_RANKING_SHOWN,
+  type HillHoldRecord,
+  hillRanking,
+  hillVaultPayees,
+} from './hill_ranking';
 import {
   HILL_ACCRUAL_SECONDS,
   HILL_CAPTURE_SECONDS,
@@ -377,7 +377,8 @@ function announceRanking(ctx: SimContext, hill: ActiveHill): void {
 /** The hill falls: the fall line, the final standings, and one Weekly Vault
  *  PvP point to every player who stood inside for HILL_VAULT_MIN_INSIDE_SECONDS
  *  for the group that held it longest (every group tied at the top) and is
- *  still in the realm and in that group now. */
+ *  still in the realm and in that group now, or was its sole survivor when
+ *  the party disbanded and has remained ungrouped. */
 function fallHill(ctx: SimContext, hill: ActiveHill, credit: HillVaultCredit): void {
   clearHillBounties(ctx, hill);
   ctx.hillState.active = null;
@@ -385,7 +386,12 @@ function fallHill(ctx: SimContext, hill: ActiveHill, credit: HillVaultCredit): v
   announceRanking(ctx, hill);
   const stillInGroup = (pid: number, key: string): boolean => {
     const meta = ctx.players.get(pid);
-    return !!meta && !meta.leaving && hillGroupKey(pid, ctx.partyOf(pid)) === key;
+    if (!meta || meta.leaving) return false;
+    const current = hillGroupKey(pid, ctx.partyOf(pid));
+    return (
+      current === key ||
+      (current === `solo:${pid}` && hill.holds.get(key)?.disbandedSurvivor === pid)
+    );
   };
   for (const pid of hillVaultPayees(
     hill.holds.values(),
@@ -393,6 +399,21 @@ function fallHill(ctx: SimContext, hill: ActiveHill, credit: HillVaultCredit): v
     stillInGroup,
   )) {
     if (credit(ctx, pid)) notice(ctx, pid, HILL_VAULT_LINE);
+  }
+}
+
+/** Keep the last member eligible when a holding party disappears. The player
+ * who left is never marked, and a later join revokes this exception. */
+export function hillPartyDisband(ctx: SimContext, partyId: number, survivorPid: number): void {
+  const record = ctx.hillState.active?.holds.get(`party:${partyId}`);
+  if (record?.holders.has(survivorPid)) record.disbandedSurvivor = survivorPid;
+}
+
+export function hillPartyJoin(ctx: SimContext, pid: number): void {
+  const hill = ctx.hillState.active;
+  if (!hill) return;
+  for (const record of hill.holds.values()) {
+    if (record.disbandedSurvivor === pid) record.disbandedSurvivor = undefined;
   }
 }
 

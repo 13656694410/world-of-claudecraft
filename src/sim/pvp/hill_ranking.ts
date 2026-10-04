@@ -6,7 +6,8 @@
 // and once more when it falls, and the group (or groups, on a tie) that held
 // it longest earns one point toward the Weekly Vault's PvP row for each member
 // who stood inside for HILL_VAULT_MIN_INSIDE_SECONDS and is still in the group
-// when it falls, so the payees are capped at a party's size (hill.ts pays
+// when it falls (or is its sole survivor after disband), so the payees are
+// capped at a party's size (hill.ts pays
 // it through the host-injected credit, so this barrel never imports the vault
 // module: an import cycle through entity.ts).
 //
@@ -29,6 +30,8 @@ export interface HillHoldRecord {
   /** pid -> seconds that player stood inside while this group held the hill,
    *  in the order they first did: the Weekly Vault point's candidates. */
   holders: Map<number, number>;
+  /** The sole member left when this party disbanded, while still ungrouped. */
+  disbandedSurvivor?: number;
 }
 
 /** How many places the realm announcements list. */
