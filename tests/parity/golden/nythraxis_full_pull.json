@@ -17577,7 +17577,7 @@
       "tick": 1248,
       "time": 62.4,
       "nextId": 1023,
-      "state": "05358ff6",
+      "state": "9b2e7e00",
       "events": "31ced149",
       "rng": {
         "draws": 10867,
@@ -17778,7 +17778,10 @@
               0,
               0
             ],
-            "resetAtMs": 604862349
+            "resetAtMs": 604862349,
+            "weeklyBossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 1
+            }
           },
           "worldQuestCycle": "wq1_26596",
           "worldQuestReplacements": {},
@@ -17974,7 +17977,10 @@
               0,
               0
             ],
-            "resetAtMs": 604862349
+            "resetAtMs": 604862349,
+            "weeklyBossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 1
+            }
           },
           "worldQuestCycle": "wq1_26596",
           "worldQuestReplacements": {},
@@ -18170,7 +18176,10 @@
               0,
               0
             ],
-            "resetAtMs": 604862349
+            "resetAtMs": 604862349,
+            "weeklyBossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 1
+            }
           },
           "worldQuestCycle": "wq1_26596",
           "worldQuestReplacements": {},
@@ -18366,7 +18375,10 @@
               0,
               0
             ],
-            "resetAtMs": 604862349
+            "resetAtMs": 604862349,
+            "weeklyBossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 1
+            }
           },
           "worldQuestCycle": "wq1_26596",
           "worldQuestReplacements": {},
@@ -18562,7 +18574,10 @@
               0,
               0
             ],
-            "resetAtMs": 604862349
+            "resetAtMs": 604862349,
+            "weeklyBossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 1
+            }
           },
           "worldQuestCycle": "wq1_26596",
           "worldQuestReplacements": {},
@@ -19212,7 +19227,7 @@
       "tick": 1250,
       "time": 62.5,
       "nextId": 1023,
-      "state": "9347ce55",
+      "state": "120792d5",
       "events": "741638a5",
       "rng": {
         "draws": 10902,
@@ -19223,7 +19238,7 @@
       "tick": 1260,
       "time": 63,
       "nextId": 1023,
-      "state": "6f26f04e",
+      "state": "9acb2cd8",
       "events": "741638a5",
       "rng": {
         "draws": 10989,
@@ -19234,7 +19249,7 @@
       "tick": 1270,
       "time": 63.5,
       "nextId": 1023,
-      "state": "57dfc24b",
+      "state": "e02b43ab",
       "events": "741638a5",
       "rng": {
         "draws": 11048,
@@ -19245,7 +19260,7 @@
       "tick": 1280,
       "time": 64,
       "nextId": 1023,
-      "state": "b7f2e101",
+      "state": "e85d9b89",
       "events": "741638a5",
       "rng": {
         "draws": 11143,
@@ -19256,7 +19271,7 @@
       "tick": 1290,
       "time": 64.5,
       "nextId": 1023,
-      "state": "2e67e2d4",
+      "state": "67d63826",
       "events": "741638a5",
       "rng": {
         "draws": 11238,
@@ -19267,7 +19282,7 @@
       "tick": 1300,
       "time": 65,
       "nextId": 1023,
-      "state": "167415e8",
+      "state": "c91c6662",
       "events": "741638a5",
       "rng": {
         "draws": 11323,
@@ -19278,7 +19293,7 @@
       "tick": 1308,
       "time": 65.4,
       "nextId": 1023,
-      "state": "515e846e",
+      "state": "292e2738",
       "events": "73c8d5ba",
       "rng": {
         "draws": 11409,
@@ -19479,7 +19494,10 @@
               0,
               0
             ],
-            "resetAtMs": 604862349
+            "resetAtMs": 604862349,
+            "weeklyBossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 1
+            }
           },
           "worldQuestCycle": "wq1_26596",
           "worldQuestReplacements": {},
@@ -19675,7 +19693,10 @@
               0,
               0
             ],
-            "resetAtMs": 604862349
+            "resetAtMs": 604862349,
+            "weeklyBossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 1
+            }
           },
           "worldQuestCycle": "wq1_26596",
           "worldQuestReplacements": {},
@@ -19871,7 +19892,10 @@
               0,
               0
             ],
-            "resetAtMs": 604862349
+            "resetAtMs": 604862349,
+            "weeklyBossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 1
+            }
           },
           "worldQuestCycle": "wq1_26596",
           "worldQuestReplacements": {},
@@ -20067,7 +20091,10 @@
               0,
               0
             ],
-            "resetAtMs": 604862349
+            "resetAtMs": 604862349,
+            "weeklyBossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 1
+            }
           },
           "worldQuestCycle": "wq1_26596",
           "worldQuestReplacements": {},
@@ -20263,7 +20290,10 @@
               0,
               0
             ],
-            "resetAtMs": 604862349
+            "resetAtMs": 604862349,
+            "weeklyBossUnlocks": {
+              "nythraxis_scourge_of_thornpeak": 1
+            }
           },
           "worldQuestCycle": "wq1_26596",
           "worldQuestReplacements": {},
