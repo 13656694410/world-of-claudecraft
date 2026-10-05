@@ -5345,10 +5345,7 @@ export class Sim {
       summonPet: sim.summonPet.bind(sim),
       petOf: sim.petOf.bind(sim),
       completeTame: sim.completeTame.bind(sim),
-      // partyOf stays bound to Sim's thin delegate (it forwards to this.party);
-      // removeFromParty routes to the moved machine (points-at social/party, A1).
-      // clearEntityMarker + dropPartyMarkers now route to the moved marker store
-      // (points-at targeting, T1); lazy arrows since `sim.targeting` is built after ctx.
+      // Party and marker callbacks resolve lazily after their machines are built.
       clearEntityMarker: (id: number) => sim.targeting.clearEntityMarker(id),
       // P1b new shared-helper bindings; both STAY on Sim. error/playerGcdFor/
       // healingThreat/countItem are bound elsewhere in this host (C4a/C2/C3/Q1) - deduped.
@@ -5365,6 +5362,9 @@ export class Sim {
       pullTimerStart: (rawCommand: string, pid?: number) => sim.pullTimerStart(rawCommand, pid),
       pullTimerCancel: (pid?: number) => sim.pullTimerCancel(pid),
       removeFromParty: (pid: number, verb: string) => sim.party.removeFromParty(pid, verb),
+      hillPartyDisband: (partyId: number, survivorPid: number) =>
+        hillMod.hillPartyDisband(sim.ctx, partyId, survivorPid),
+      hillPartyJoin: (pid: number) => hillMod.hillPartyJoin(sim.ctx, pid),
       // Dungeon Finder formation seam (points at the party machine); lazy arrow
       // since `sim.party` is built after ctx.
       formDungeonFinderGroup: (units, opts) => sim.party.formDungeonFinderGroup(units, opts),
@@ -6143,7 +6143,7 @@ export class Sim {
     lap?.('battleground');
     worldPvpMod.updateWorldPvp(this.ctx); // the /pvp clock, zone pass + books sweep; zero rng
     lap?.('worldPvp');
-    hillMod.updateHill(this.ctx); // King of the Hill (pvp/hill.ts): spawns draw a PRIVATE rng
+    hillMod.updateHill(this.ctx, weeklyMod.recordWeeklyPvpWin); // King of the Hill (pvp/hill.ts): PRIVATE rng
     lap?.('hill');
     // The Dungeon Finder phase draws ZERO rng (queue bookkeeping + role
     // matching on the sim clock), so appending it here cannot fork the draw order.
