@@ -17,8 +17,12 @@ import type { CensusRecord } from './contract';
 /** Per-batch statement timeout; each batch is small by construction. */
 const CENSUS_BATCH_TIMEOUT_MS = 15_000;
 export const CENSUS_BATCH_SIZE = 500;
-/** Tries per batch: one transient stall must not discard the whole day's snapshot. */
-export const CENSUS_BATCH_ATTEMPTS = 3;
+/**
+ * Retries per RUN, shared by every batch: one transient stall must not
+ * discard the whole day's snapshot, but a systemic slow plan must still fail
+ * fast instead of retrying every batch on the pool shared with the world loop.
+ */
+export const CENSUS_RUN_RETRIES = 3;
 
 /** The lifetime counters worth carrying (the scout allowlist). */
 const COUNTER_KEYS = [
@@ -87,51 +91,57 @@ export const CENSUS_SQL = `SELECT c.id, c.name, c.class, c.level,
      ORDER BY c.id
      LIMIT $3`;
 
-export async function loadCensusRows(realm: string, snapshotDate: string): Promise<CensusRecord[]> {
-  return walkCensusBatches(async (lastId) => {
-    const res = await runWithStatementTimeout(CENSUS_BATCH_TIMEOUT_MS, (query) =>
-      query(CENSUS_SQL, [realm, lastId, CENSUS_BATCH_SIZE]),
-    );
-    return res.rows as CensusRowRaw[];
-  }, snapshotDate);
+export async function loadCensusRows(
+  realm: string,
+  snapshotDate: string,
+  onRetry: () => void = () => undefined,
+): Promise<CensusRecord[]> {
+  return walkCensusBatches(
+    async (lastId) => {
+      const res = await runWithStatementTimeout(CENSUS_BATCH_TIMEOUT_MS, (query) =>
+        query(CENSUS_SQL, [realm, lastId, CENSUS_BATCH_SIZE]),
+      );
+      return res.rows as CensusRowRaw[];
+    },
+    snapshotDate,
+    onRetry,
+  );
 }
 
 /** Reads the keyset batch after `lastId`. */
 export type CensusBatchFetch = (lastId: number) => Promise<CensusRowRaw[]>;
 
 /**
- * The keyset walk. Each batch gets CENSUS_BATCH_ATTEMPTS tries, so a lock
- * wait or IO stall on one batch costs a retry instead of the whole day (the
- * exporter's day memory means a failed run is not retried until tomorrow).
- * The last failure still throws, to the exporter's failure counter.
+ * The keyset walk. A failed batch is retried at the same keyset while the
+ * run's CENSUS_RUN_RETRIES budget lasts, so a lock wait or IO stall costs a
+ * retry instead of the whole day (the exporter's day memory means a failed
+ * run is not retried until tomorrow). Once the budget is spent the failure
+ * throws, to the exporter's failure counter. `onRetry` feeds the retry metric.
  */
 export async function walkCensusBatches(
   fetchBatch: CensusBatchFetch,
   snapshotDate: string,
+  onRetry: () => void = () => undefined,
 ): Promise<CensusRecord[]> {
   const out: CensusRecord[] = [];
   let lastId = 0;
+  let retriesLeft = CENSUS_RUN_RETRIES;
   for (;;) {
-    const rows = await fetchBatchWithRetry(fetchBatch, lastId);
+    let rows: CensusRowRaw[];
+    try {
+      rows = await fetchBatch(lastId);
+    } catch (e) {
+      if (retriesLeft === 0) throw e;
+      retriesLeft--;
+      onRetry();
+      console.warn(`[parse] census batch after id ${lastId} failed, retrying:`, e);
+      continue;
+    }
     for (const row of rows) out.push(toCensusRecord(row, snapshotDate));
     if (rows.length < CENSUS_BATCH_SIZE) break;
     lastId = Number(rows[rows.length - 1]?.id);
   }
   return out;
-}
-
-async function fetchBatchWithRetry(
-  fetchBatch: CensusBatchFetch,
-  lastId: number,
-): Promise<CensusRowRaw[]> {
-  for (let attempt = 1; ; attempt++) {
-    try {
-      return await fetchBatch(lastId);
-    } catch (e) {
-      if (attempt >= CENSUS_BATCH_ATTEMPTS) throw e;
-      console.warn(`[parse] census batch after id ${lastId} failed (try ${attempt}), retrying:`, e);
-    }
-  }
 }
 
 export interface CensusRowRaw {

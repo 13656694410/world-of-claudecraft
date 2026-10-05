@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { CensusExporter } from '../server/parse/census';
 import {
-  CENSUS_BATCH_ATTEMPTS,
   CENSUS_BATCH_SIZE,
+  CENSUS_RUN_RETRIES,
   type CensusRowRaw,
   walkCensusBatches,
 } from '../server/parse/census_db';
@@ -175,22 +175,28 @@ describe('census batch walk', () => {
   test('a batch that fails once is retried at the same keyset, not the day', async () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const seen: number[] = [];
+    let retries = 0;
     let failed = false;
-    const records = await walkCensusBatches(async (lastId) => {
-      seen.push(lastId);
-      if (lastId === CENSUS_BATCH_SIZE && !failed) {
-        failed = true;
-        throw new Error('canceling statement due to statement timeout');
-      }
-      return lastId === 0 ? rawRows(1, CENSUS_BATCH_SIZE) : rawRows(lastId + 1, 3);
-    }, '2026-10-05');
+    const records = await walkCensusBatches(
+      async (lastId) => {
+        seen.push(lastId);
+        if (lastId === CENSUS_BATCH_SIZE && !failed) {
+          failed = true;
+          throw new Error('canceling statement due to statement timeout');
+        }
+        return lastId === 0 ? rawRows(1, CENSUS_BATCH_SIZE) : rawRows(lastId + 1, 3);
+      },
+      '2026-10-05',
+      () => retries++,
+    );
 
     expect(seen).toEqual([0, CENSUS_BATCH_SIZE, CENSUS_BATCH_SIZE]);
     expect(records).toHaveLength(CENSUS_BATCH_SIZE + 3);
+    expect(retries).toBe(1);
     expect(warn).toHaveBeenCalledTimes(1);
   });
 
-  test('a batch that keeps failing throws after the last try', async () => {
+  test('a batch that keeps failing throws once the run budget is spent', async () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {});
     let calls = 0;
     await expect(
@@ -199,6 +205,36 @@ describe('census batch walk', () => {
         throw new Error('canceling statement due to statement timeout');
       }, '2026-10-05'),
     ).rejects.toThrow('statement timeout');
-    expect(calls).toBe(CENSUS_BATCH_ATTEMPTS);
+    expect(calls).toBe(CENSUS_RUN_RETRIES + 1);
+  });
+
+  test('the retry budget is shared by the whole run, not granted per batch', async () => {
+    // Two failures per batch: the first batch spends two retries, the second
+    // spends the last one, and its next failure ends the run. A per-batch
+    // budget would instead retry every batch of a systemically slow plan.
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const failuresLeft = new Map([
+      [0, 2],
+      [CENSUS_BATCH_SIZE, 2],
+    ]);
+    const seen: number[] = [];
+    let retries = 0;
+    await expect(
+      walkCensusBatches(
+        async (lastId) => {
+          seen.push(lastId);
+          const left = failuresLeft.get(lastId) ?? 0;
+          if (left > 0) {
+            failuresLeft.set(lastId, left - 1);
+            throw new Error('canceling statement due to statement timeout');
+          }
+          return lastId === 0 ? rawRows(1, CENSUS_BATCH_SIZE) : rawRows(lastId + 1, 3);
+        },
+        '2026-10-05',
+        () => retries++,
+      ),
+    ).rejects.toThrow('statement timeout');
+    expect(seen).toEqual([0, 0, 0, CENSUS_BATCH_SIZE, CENSUS_BATCH_SIZE]);
+    expect(retries).toBe(CENSUS_RUN_RETRIES);
   });
 });

@@ -9,16 +9,18 @@
 // full walk of an unrelated index) and fails the pin on small fixture tables.
 //
 // Values: the REAL loadCensusRows end to end, so the account term is proven
-// to drop no session while the clamp, open-session and GM rules still hold.
+// to drop no session while the clamp, open-session, folded-totals, deleted
+// sibling and GM rules still hold.
 import { Pool } from 'pg';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { materialSourceConnection } from '../server/material_source_connection';
 import { checkRelationUsesPartialIndex, rootPlanFromExplainRow } from './helpers/pg_plan';
 
 const ADMIN_URL = process.env.TEST_DATABASE_URL;
-// Per-run name (the character_save_statement_pg_integration recipe): a fixed
-// name lets two runs against one server terminate each other's database.
-const VERIFY_DB = `wocc_parse_census_verify_${process.env.VITEST_WORKER_ID ?? process.pid}`;
+// Per-run name: a fixed name lets two runs against one server (two worktrees
+// gating at once against one local db:up) terminate each other's database.
+// VITEST_WORKER_ID alone repeats across vitest processes, so the pid leads.
+const VERIFY_DB = `wocc_parse_census_verify_${process.pid}_${process.env.VITEST_WORKER_ID ?? 0}`;
 
 function verifyUrl(admin: string): string {
   const u = new URL(admin);
@@ -62,8 +64,9 @@ describeDb('parse census loader (REAL Postgres)', () => {
     return Number(res.rows[0].id);
   }
 
-  /** One session of `seconds` length; `seconds` null leaves it open. */
-  async function addSession(accountId: number, characterId: number, seconds: number | null) {
+  /** One session of `seconds` length; `seconds` null leaves it open. A null
+   *  character is a deleted one (play_sessions.character_id ON DELETE SET NULL). */
+  async function addSession(accountId: number, characterId: number | null, seconds: number | null) {
     await pool.query(
       `INSERT INTO play_sessions (account_id, character_id, started_at, ended_at)
        VALUES ($1, $2, now() - interval '3 days',
@@ -104,6 +107,13 @@ describeDb('parse census loader (REAL Postgres)', () => {
     await addSession(accountA, ids.played, 200);
     await addSession(accountA, ids.played, 2 * 86_400); // clamped to one day
     await addSession(accountA, ids.played, null); // still open: not counted
+    await addSession(accountA, null, 300); // a deleted sibling: never credited
+    // Sessions the retention sweep already folded forward still count.
+    await pool.query(
+      `INSERT INTO play_session_totals (account_id, character_id, playtime_seconds, sessions)
+       VALUES ($1, $2, 1000, 4)`,
+      [accountA, ids.played],
+    );
     await addSession(accountA, ids.gm, 500);
     await addSession(accountB, ids.other, 50);
   }, 120_000);
@@ -140,7 +150,7 @@ describeDb('parse census loader (REAL Postgres)', () => {
     }
   });
 
-  it('loads every ended session per character and still excludes GMs', async () => {
+  it('loads every ended session plus the folded totals, and still excludes GMs', async () => {
     const records = await census.loadCensusRows(realm, '2026-10-05');
     const byId = new Map(records.map((record) => [record.characterId, record]));
 
@@ -148,8 +158,8 @@ describeDb('parse census loader (REAL Postgres)', () => {
       [ids.played, ids.idle, ids.other].sort((a, b) => a - b),
     );
     expect(byId.get(ids.played)).toMatchObject({
-      playtimeSeconds: 100 + 200 + 86_400,
-      playSessions: 3,
+      playtimeSeconds: 100 + 200 + 86_400 + 1000,
+      playSessions: 3 + 4,
     });
     expect(byId.get(ids.idle)).toMatchObject({ playtimeSeconds: 0, playSessions: 0 });
     expect(byId.get(ids.other)).toMatchObject({ playtimeSeconds: 50, playSessions: 1 });
