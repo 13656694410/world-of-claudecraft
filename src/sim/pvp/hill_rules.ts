@@ -54,6 +54,11 @@ export const HILL_RAMP_MAX_HONOR = 12;
  *  hill, and who is still in that group when it falls: a one-second visit, or
  *  a player cycled through the party, earns nothing. */
 export const HILL_VAULT_MIN_INSIDE_SECONDS = 60;
+/** The longest hold must last at least this long in total before it pays any
+ *  Weekly Vault point (owner decision 2026-10-05): a lone player who captures
+ *  an empty hill on a quiet realm and stands a minute still tops the
+ *  standings, but five such visits must not fill the PvP row. */
+export const HILL_VAULT_MIN_HOLD_SECONDS = 10 * 60;
 
 /** The Honor one payout is worth after the holding party has held the hill
  *  for `heldSeconds`: HILL_RAMP_STEP_HONOR, then that much more every

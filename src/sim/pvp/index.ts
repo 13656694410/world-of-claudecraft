@@ -26,13 +26,6 @@ export {
   warnNextHillNow,
 } from './hill';
 export {
-  HILL_RANKING_SHOWN,
-  type HillHoldRecord,
-  hillLongestHolds,
-  hillRanking,
-  hillVaultPayees,
-} from './hill_ranking';
-export {
   HILL_BOUNTY_BASE_HONOR,
   HILL_BOUNTY_DEATH_STREAK_HONOR,
   HILL_BOUNTY_KILL_STREAK_HONOR,
@@ -46,6 +39,13 @@ export {
   hillStreakCallout,
 } from './hill_bounty_rules';
 export {
+  HILL_RANKING_SHOWN,
+  type HillHoldRecord,
+  hillLongestHolds,
+  hillRanking,
+  hillVaultPayees,
+} from './hill_ranking';
+export {
   HILL_ACCRUAL_SECONDS,
   HILL_CAPTURE_SECONDS,
   HILL_DURATION_SECONDS,
@@ -56,6 +56,7 @@ export {
   HILL_RAMP_MAX_HONOR,
   HILL_RAMP_STEP_HONOR,
   HILL_RAMP_STEP_SECONDS,
+  HILL_VAULT_MIN_HOLD_SECONDS,
   HILL_VAULT_MIN_INSIDE_SECONDS,
   HILL_WARNING_SECONDS,
   HILL_WINDOW_SECONDS,

@@ -620,7 +620,8 @@ its leader, a lone player by their own name. The standings (`hillRanking`,
 longest first, a tie in first-held order, `HILL_RANKING_SHOWN` deep, each hold
 in whole minutes rounded up, `hillRankLine`) are announced with each five-minute
 reminder and once more after the fall line. When the hill falls on its own or
-through `/dev hill end`, every player who stood inside for
+through `/dev hill end`, and the longest hold lasted `HILL_VAULT_MIN_HOLD_SECONDS`
+(ten minutes) in total, every player who stood inside for
 `HILL_VAULT_MIN_INSIDE_SECONDS` (a minute) for the group that held it longest
 (every group tied at the top, `hillVaultPayees`, each player once) and is still
 in the realm and in that group earns one win on the Weekly Vault's PvP row
@@ -628,6 +629,10 @@ in the realm and in that group earns one win on the Weekly Vault's PvP row
 battleground or ranked arena win gives) and is told (`HILL_VAULT_LINE`, only
 when the row actually moved). Requiring membership at the fall caps the payees
 at a party's size: a player cycled through the party cannot carry a point away.
+The hold floor (owner decision 2026-10-05) closes the quiet-realm farm: a lone
+player who captures an empty hill and stands a minute still tops the standings,
+but five such visits must not fill the PvP row, so a hold under ten minutes pays
+nobody.
 Unlike a developer-ended battleground, `/dev hill end` does pay: it is the test
 lever for this award, on dev realms only. The credit is injected by the host
 (`HillVaultCredit`: the Sim passes it into `updateHill`, the dev arm into

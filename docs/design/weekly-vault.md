@@ -37,7 +37,8 @@ content and equipment tiers:
 - PvP: 1, 3 and 5 ranked arena or rated battleground wins. Practice matches,
   developer-ended battlegrounds and forfeits do not count. King of the Hill also
   counts one win for every player who stood inside for at least a minute for the
-  group that held the hill longest, and is still in that group when it falls
+  group that held the hill longest, when that group held it for at least ten
+  minutes in total, and is still in that group when it falls
   (`docs/design/warfare.md`, King of the Hill). The row reads "PvP Wins" for
   that reason.
 

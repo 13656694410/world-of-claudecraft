@@ -1,10 +1,11 @@
 // King of the Hill: the five-minute reminder, the hold ranking and the Weekly
 // Vault point (src/sim/pvp/hill.ts, src/sim/pvp/hill_ranking.ts). While a hill
 // stands the realm hears where it is every HILL_NOTICE_SECONDS with the
-// standings; when it falls the final standings are told and every player who
-// stood inside for the group that held it longest (every group tied at the
-// top) earns one point on the Weekly Vault's PvP row. The client matcher
-// re-renders every new line (src/ui/sim_i18n.ts).
+// standings; when it falls the final standings are told and, when that hold
+// lasted HILL_VAULT_MIN_HOLD_SECONDS, every player who stood inside for the
+// group that held it longest (every group tied at the top) earns one point on
+// the Weekly Vault's PvP row. The client matcher re-renders every new line
+// (src/ui/sim_i18n.ts).
 import { describe, expect, it, vi } from 'vitest';
 import { BUILTIN_WORLD } from '../src/sim/data';
 import {
@@ -14,6 +15,7 @@ import {
   HILL_NOTICE_SECONDS,
   HILL_RANKING_SHOWN,
   HILL_VAULT_LINE,
+  HILL_VAULT_MIN_HOLD_SECONDS,
   HILL_VAULT_MIN_INSIDE_SECONDS,
   type HillHoldRecord,
   hillLongestHolds,
@@ -100,6 +102,15 @@ function vaultPvp(sim: Sim, pid: number): number {
   return sim.meta(pid)?.weeklyRewards?.pvp ?? 0;
 }
 
+/** Bank the rest of the Weekly Vault hold floor on `key`'s record at once, so
+ *  a test about WHO the longest hold pays need not tick ten sim minutes. The
+ *  banking itself is pinned with real ticks ('the hold ranking', and 'the hold
+ *  floor' below). */
+function bankHoldFloor(sim: Sim, key: string): void {
+  const record = sim.hillState.active!.holds.get(key)!;
+  record.seconds = Math.max(record.seconds, HILL_VAULT_MIN_HOLD_SECONDS);
+}
+
 /** A risen hill in the Drakelands, the fighters placed outside it. */
 function hillWorld(names: string[]): { sim: Sim; pids: number[] } {
   const sim = world();
@@ -149,20 +160,62 @@ describe('the ranking rules (pure)', () => {
   });
 
   it('pays every holder of every group tied at the top once, and nobody else', () => {
+    const floor = HILL_VAULT_MIN_HOLD_SECONDS;
     expect(
       hillVaultPayees(
         [
-          record('party:1', 300, [10, 11]),
-          record('party:2', 300, [11, 12]),
-          record('solo:13', 299, [13]),
+          record('party:1', floor, [10, 11]),
+          record('party:2', floor, [11, 12]),
+          record('solo:13', floor - 1, [13]),
         ],
+        floor,
         HILL_VAULT_MIN_INSIDE_SECONDS,
         anyGroup,
       ),
     ).toEqual([10, 11, 12]);
     expect(
-      hillVaultPayees([record('party:1', 0, [10])], HILL_VAULT_MIN_INSIDE_SECONDS, anyGroup),
+      hillVaultPayees([record('party:1', 0, [10])], 0, HILL_VAULT_MIN_INSIDE_SECONDS, anyGroup),
     ).toEqual([]);
+  });
+
+  it('pays nobody unless the longest hold lasted ten minutes, counted on the group total', () => {
+    const floor = HILL_VAULT_MIN_HOLD_SECONDS;
+    expect(floor).toBe(10 * 60);
+    const asked = vi.fn(() => true);
+    // A lone player's minute on an empty hill tops the standings but pays nothing.
+    expect(
+      hillVaultPayees(
+        [record('solo:1', floor - 1, [[1, floor - 1]])],
+        floor,
+        HILL_VAULT_MIN_INSIDE_SECONDS,
+        asked,
+      ),
+    ).toEqual([]);
+    expect(asked).not.toHaveBeenCalled();
+    // Groups tied at the top under the floor: still nobody.
+    expect(
+      hillVaultPayees(
+        [record('party:2', 120, [20]), record('party:3', 120, [30])],
+        floor,
+        HILL_VAULT_MIN_INSIDE_SECONDS,
+        anyGroup,
+      ),
+    ).toEqual([]);
+    // At the floor exactly it pays, and the floor is the group's total hold:
+    // two members who each stood one minute inside are both paid.
+    expect(
+      hillVaultPayees(
+        [
+          record('party:4', floor, [
+            [40, 60],
+            [41, 60],
+          ]),
+        ],
+        floor,
+        HILL_VAULT_MIN_INSIDE_SECONDS,
+        anyGroup,
+      ),
+    ).toEqual([40, 41]);
   });
 
   it('pays only a holder who stood inside a full minute and is still in the group', () => {
@@ -170,13 +223,14 @@ describe('the ranking rules (pure)', () => {
     const seen: Array<[number, string]> = [];
     const payees = hillVaultPayees(
       [
-        record('party:1', 300, [
+        record('party:1', HILL_VAULT_MIN_HOLD_SECONDS, [
           [10, 60],
           [11, 59],
           [12, 200],
           [13, 1],
         ]),
       ],
+      HILL_VAULT_MIN_HOLD_SECONDS,
       HILL_VAULT_MIN_INSIDE_SECONDS,
       (pid, key) => {
         seen.push([pid, key]);
@@ -354,6 +408,7 @@ describe('the Weekly Vault point', () => {
     const hill = sim.hillState.active!;
     expect(hill.holds.get(`party:${partyId}`)?.holders.has(bet)).toBe(true);
     expect(hill.holds.get(`party:${partyId}`)?.holders.has(gimel)).toBe(true);
+    bankHoldFloor(sim, `party:${partyId}`);
 
     outside(sim, gimel);
     sim.partyLeave(gimel);
@@ -361,7 +416,7 @@ describe('the Weekly Vault point', () => {
     expect(sim.partyOf(gimel)).toBeNull();
     jumpTo(sim, hill.closesAt - 0.5);
     const seen = tickSeconds(sim, 2);
-    expect(logLines(seen)).toContain("Hill ranking #1: Bet's group, held 2 minutes.");
+    expect(logLines(seen)).toContain("Hill ranking #1: Bet's group, held 10 minutes.");
     expect(vaultPvp(sim, bet)).toBe(1);
     expect(logLines(seen, bet)).toContain(HILL_VAULT_LINE);
     expect(vaultPvp(sim, gimel)).toBe(0);
@@ -375,6 +430,7 @@ describe('the Weekly Vault point', () => {
     inside(sim, bet);
     inside(sim, gimel, 4, 0);
     tickSeconds(sim, HILL_CAPTURE_SECONDS + HILL_VAULT_MIN_INSIDE_SECONDS + 5);
+    bankHoldFloor(sim, `party:${sim.partyOf(bet)!.id}`);
     outside(sim, bet);
     sim.partyLeave(bet);
     const hill = sim.hillState.active!;
@@ -392,6 +448,7 @@ describe('the Weekly Vault point', () => {
     inside(sim, bet);
     inside(sim, gimel, 4, 0);
     tickSeconds(sim, HILL_CAPTURE_SECONDS + HILL_VAULT_MIN_INSIDE_SECONDS + 5);
+    bankHoldFloor(sim, `party:${sim.partyOf(bet)!.id}`);
     outside(sim, gimel);
     sim.partyLeave(gimel);
     sim.partyInvite(dalet, bet);
@@ -413,6 +470,7 @@ describe('the Weekly Vault point', () => {
     inside(sim, bet);
     inside(sim, gimel, 4, 0);
     tickSeconds(sim, HILL_CAPTURE_SECONDS + HILL_VAULT_MIN_INSIDE_SECONDS + 5);
+    bankHoldFloor(sim, `party:${sim.partyOf(bet)!.id}`);
     outside(sim, gimel);
     sim.partyLeave(gimel);
     expect(
@@ -465,6 +523,7 @@ describe('the Weekly Vault point', () => {
     tickSeconds(sim, 90);
     // Dalet never stood on the hill at all.
     expect(vaultPvp(sim, b)).toBe(0);
+    bankHoldFloor(sim, `party:${sim.partyOf(b)!.id}`);
     jumpTo(sim, hill.closesAt - 0.5);
     const seen = tickSeconds(sim, 2);
     expect(sim.hillState.active).toBeNull();
@@ -472,7 +531,7 @@ describe('the Weekly Vault point', () => {
     expect(realm).toContain('The hill in The Drakelands has fallen.');
     const ranking = realm.filter((l) => l.startsWith('Hill ranking'));
     expect(ranking).toEqual([
-      "Hill ranking #1: Bet's group, held 3 minutes.",
+      "Hill ranking #1: Bet's group, held 10 minutes.",
       'Hill ranking #2: Aleph, held 2 minutes.',
     ]);
     // The standings follow the fall line.
@@ -508,6 +567,7 @@ describe('the Weekly Vault point', () => {
     const [a, b] = pids;
     inside(sim, a);
     tickSeconds(sim, HILL_CAPTURE_SECONDS + 65);
+    bankHoldFloor(sim, `solo:${a}`);
     sim.removePlayer(a);
     const credit = vi.fn(() => true);
     endHillNow(sim.ctx, credit);
@@ -520,6 +580,7 @@ describe('the Weekly Vault point', () => {
     const [a] = pids;
     inside(sim, a);
     tickSeconds(sim, HILL_CAPTURE_SECONDS + 65);
+    bankHoldFloor(sim, `solo:${a}`);
     const credit = vi.fn(() => true);
     sim.events = [];
     expect(endHillNow(sim.ctx, credit)).not.toBeNull();
@@ -533,6 +594,7 @@ describe('the Weekly Vault point', () => {
     const [a] = pids;
     inside(sim, a);
     tickSeconds(sim, HILL_CAPTURE_SECONDS + 65);
+    bankHoldFloor(sim, `solo:${a}`);
     const credit = vi.fn(() => false);
     sim.events = [];
     endHillNow(sim.ctx, credit);
@@ -554,6 +616,7 @@ describe('the Weekly Vault point', () => {
     const [a] = pids;
     inside(sim, a);
     tickSeconds(sim, HILL_CAPTURE_SECONDS + 65);
+    bankHoldFloor(sim, `solo:${a}`);
     sim.events = [];
     expect(NO_HILL_VAULT_CREDIT(sim.ctx, a)).toBe(false);
     endHillNow(sim.ctx);
@@ -573,5 +636,41 @@ describe('the Weekly Vault point', () => {
     expect(sim.hillState.active).toBeNull();
     expect(logLines(seen).filter((l) => l.startsWith('Hill ranking'))).toEqual([]);
     expect(vaultPvp(sim, a)).toBe(0);
+  });
+});
+
+describe('the hold floor', () => {
+  it('a lone minute on an empty hill tops the standings but pays no vault point', () => {
+    const { sim, pids } = hillWorld(['Aleph']);
+    const [a] = pids;
+    const hill = sim.hillState.active!;
+    inside(sim, a);
+    tickSeconds(sim, HILL_CAPTURE_SECONDS + HILL_VAULT_MIN_INSIDE_SECONDS + 5);
+    outside(sim, a);
+    const record = hill.holds.get(`solo:${a}`)!;
+    expect(record.holders.get(a)).toBeGreaterThanOrEqual(HILL_VAULT_MIN_INSIDE_SECONDS);
+    expect(record.seconds).toBeLessThan(HILL_VAULT_MIN_HOLD_SECONDS);
+    jumpTo(sim, hill.closesAt - 0.5);
+    const seen = tickSeconds(sim, 2);
+    expect(sim.hillState.active).toBeNull();
+    expect(logLines(seen)).toContain('Hill ranking #1: Aleph, held 2 minutes.');
+    expect(vaultPvp(sim, a)).toBe(0);
+    expect(logLines(seen, a)).not.toContain(HILL_VAULT_LINE);
+  });
+
+  it('a lone player who really holds the hill ten minutes is paid', () => {
+    const { sim, pids } = hillWorld(['Aleph']);
+    const [a] = pids;
+    const hill = sim.hillState.active!;
+    inside(sim, a);
+    tickSeconds(sim, HILL_CAPTURE_SECONDS + HILL_VAULT_MIN_HOLD_SECONDS + 5);
+    const record = hill.holds.get(`solo:${a}`)!;
+    expect(record.seconds).toBeGreaterThanOrEqual(HILL_VAULT_MIN_HOLD_SECONDS);
+    expect(record.seconds).toBeLessThan(HILL_VAULT_MIN_HOLD_SECONDS + 10);
+    jumpTo(sim, hill.closesAt - 0.5);
+    const seen = tickSeconds(sim, 2);
+    expect(logLines(seen)).toContain('Hill ranking #1: Aleph, held 11 minutes.');
+    expect(vaultPvp(sim, a)).toBe(1);
+    expect(logLines(seen, a)).toContain(HILL_VAULT_LINE);
   });
 });

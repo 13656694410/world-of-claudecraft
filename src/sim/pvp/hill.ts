@@ -68,6 +68,7 @@ import {
   HILL_NOTICE_SECONDS,
   HILL_RADIUS,
   HILL_SPAWN_ATTEMPTS,
+  HILL_VAULT_MIN_HOLD_SECONDS,
   HILL_VAULT_MIN_INSIDE_SECONDS,
   HILL_WARNING_SECONDS,
   type HillSpotProbe,
@@ -374,8 +375,9 @@ function announceRanking(ctx: SimContext, hill: ActiveHill): void {
   }
 }
 
-/** The hill falls: the fall line, the final standings, and one Weekly Vault
- *  PvP point to every player who stood inside for HILL_VAULT_MIN_INSIDE_SECONDS
+/** The hill falls: the fall line, the final standings, and, when the longest
+ *  hold lasted HILL_VAULT_MIN_HOLD_SECONDS, one Weekly Vault PvP point to
+ *  every player who stood inside for HILL_VAULT_MIN_INSIDE_SECONDS
  *  for the group that held it longest (every group tied at the top) and is
  *  still in the realm and in that group now, or was its sole survivor when
  *  the party disbanded and has remained ungrouped. */
@@ -395,6 +397,7 @@ function fallHill(ctx: SimContext, hill: ActiveHill, credit: HillVaultCredit): v
   };
   for (const pid of hillVaultPayees(
     hill.holds.values(),
+    HILL_VAULT_MIN_HOLD_SECONDS,
     HILL_VAULT_MIN_INSIDE_SECONDS,
     stillInGroup,
   )) {

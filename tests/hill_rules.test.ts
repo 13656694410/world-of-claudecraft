@@ -14,6 +14,7 @@ import {
   HILL_RAMP_MAX_HONOR,
   HILL_RAMP_STEP_HONOR,
   HILL_RAMP_STEP_SECONDS,
+  HILL_VAULT_MIN_HOLD_SECONDS,
   HILL_VAULT_MIN_INSIDE_SECONDS,
   HILL_WARNING_SECONDS,
   HILL_WINDOW_SECONDS,
@@ -49,6 +50,9 @@ describe('the tuning literals the copy and the docs quote', () => {
     // Weekly Vault point needs a full minute inside.
     expect(HILL_NOTICE_SECONDS).toBe(5 * 60);
     expect(HILL_VAULT_MIN_INSIDE_SECONDS).toBe(60);
+    // Owner decision 2026-10-05: the longest hold pays no vault point unless
+    // it lasted ten minutes in total.
+    expect(HILL_VAULT_MIN_HOLD_SECONDS).toBe(10 * 60);
   });
 });
 

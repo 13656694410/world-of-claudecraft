@@ -4,7 +4,8 @@
 // quiet realm cannot be won from afar); the
 // realm hears the standings every HILL_NOTICE_SECONDS while the hill stands
 // and once more when it falls, and the group (or groups, on a tie) that held
-// it longest earns one point toward the Weekly Vault's PvP row for each member
+// it longest, if for at least HILL_VAULT_MIN_HOLD_SECONDS, earns one point
+// toward the Weekly Vault's PvP row for each member
 // who stood inside for HILL_VAULT_MIN_INSIDE_SECONDS and is still in the group
 // when it falls (or is its sole survivor after disband), so the payees are
 // capped at a party's size (hill.ts pays
@@ -53,17 +54,21 @@ export function hillLongestHolds(records: Iterable<HillHoldRecord>): HillHoldRec
   return ranked.filter((r) => r.seconds === best);
 }
 
-/** The players the longest hold pays: every holder of every group tied at the
- *  top who stood inside for at least `minInsideSeconds` while it held and
+/** The players the longest hold pays: nobody unless it lasted at least
+ *  `minHoldSeconds` in total; otherwise every holder of every group tied at
+ *  the top who stood inside for at least `minInsideSeconds` while it held and
  *  `stillInGroup` (the host's membership check at the fall), each once (a
  *  player who held for two tied groups earns one point). */
 export function hillVaultPayees(
   records: Iterable<HillHoldRecord>,
+  minHoldSeconds: number,
   minInsideSeconds: number,
   stillInGroup: (pid: number, key: string) => boolean,
 ): number[] {
+  const longest = hillLongestHolds(records);
+  if (longest.length === 0 || longest[0].seconds < minHoldSeconds) return [];
   const payees = new Set<number>();
-  for (const record of hillLongestHolds(records)) {
+  for (const record of longest) {
     for (const [pid, inside] of record.holders) {
       if (inside >= minInsideSeconds && stillInGroup(pid, record.key)) payees.add(pid);
     }
