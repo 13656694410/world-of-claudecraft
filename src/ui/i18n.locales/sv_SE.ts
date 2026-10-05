@@ -2,6 +2,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const sv_SE: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': 'Bästa MMORPG:er',
+  'footer.guideBrowser': 'Webbläsar-MMORPG:er',
+  'footer.guideFree': 'Gratis MMORPG:er',
+  'footer.guideGamesLikeDiablo': 'Spel som Diablo',
+  'footer.guideGamesLikeWow': 'Spel som WoW',
+  'footer.guideNew': 'Nya MMORPG:er',
+  'footer.guidesLabel': 'Spelarguider',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} PvP-vinster',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} PvP-vinst',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'Ta {count} PvP-vinster',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'Ta {count} PvP-vinst',
+  'guide.footer.guideBest': 'Bästa MMORPG:er',
+  'guide.footer.guideBrowser': 'Webbläsar-MMORPG:er',
+  'guide.footer.guideFree': 'Gratis MMORPG:er',
+  'guide.footer.guideGamesLikeDiablo': 'Spel som Diablo',
+  'guide.footer.guideGamesLikeWow': 'Spel som WoW',
+  'guide.footer.guideNew': 'Nya MMORPG:er',
+  'guide.footer.guidesLabel': 'Spelarguider',
+  'guide.worldPvpPage.hillBodyRanked':
+    'Varannan timme dyker en kulle upp i Drakländerna, Frostslöjans vidder eller Bärnstensfallet. Riket får en varning femton minuter i förväg och cirkeln markeras på öppen mark. Kullen är aktiv i trettio minuter. När du går in i den aktiva cirkeln aktiveras din flagga för världs-PvP enligt de vanliga nivåreglerna, även för raidmedlemmar. Gruppen med flest behöriga spelare i cirkeln tar kullen efter en minut med obruten majoritet; en ensam spelare räknas som en grupp på en, men raidmedlemmar och spelare under nivåkravet för PvP kan varken inta kullen eller tjäna Ära från den. Varje innehavare som står i cirkeln tjänar Ära i ökande takt. Utbetalningarna sker oftare och ökar snabbare, så att den totala Äran från det tidigare evenemanget på fyrtiofem minuter bevaras. När kullen byter innehavare börjar ökningen om från början. Var femte minut medan berget står hör riket dess plats och grupperna rangordnade efter hur länge de har hållit det. När berget faller, om gruppen som höll det längst höll det i minst tio minuter totalt, får varje spelare som stod innanför i minst en minut för den gruppen, och fortfarande är i den, en vinst till Det veckovisa valvets PvP-rad. Din flagga förblir aktiv när du lämnar cirkeln; /pvp off använder den vanliga fördröjningen på fem minuter och kan inte slutföras på en aktiv kulle eller under strid. Kullens stapel visar kontroll, spelarantal och erövringsförlopp; /hill anger dess plats.',
   'hudChrome.death.pvpResurrect': 'PvP Återupplivning',
   'hudChrome.death.pvpResurrectTitle':
     'Återuppstå vid närmaste kyrkogård med full hälsa, utan ny Väktartull.',

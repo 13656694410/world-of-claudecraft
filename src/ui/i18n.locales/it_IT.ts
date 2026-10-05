@@ -13,6 +13,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const it_IT: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': 'Migliori MMORPG',
+  'footer.guideBrowser': 'MMORPG da Browser',
+  'footer.guideFree': 'MMORPG Gratuiti',
+  'footer.guideGamesLikeDiablo': 'Giochi come Diablo',
+  'footer.guideGamesLikeWow': 'Giochi come WoW',
+  'footer.guideNew': 'Nuovi MMORPG',
+  'footer.guidesLabel': 'Guide dei Giocatori',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} Vittorie PvP',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} Vittoria PvP',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'Ottieni {count} Vittorie PvP',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'Ottieni {count} Vittoria PvP',
+  'guide.footer.guideBest': 'Migliori MMORPG',
+  'guide.footer.guideBrowser': 'MMORPG da Browser',
+  'guide.footer.guideFree': 'MMORPG Gratuiti',
+  'guide.footer.guideGamesLikeDiablo': 'Giochi come Diablo',
+  'guide.footer.guideGamesLikeWow': 'Giochi come WoW',
+  'guide.footer.guideNew': 'Nuovi MMORPG',
+  'guide.footer.guidesLabel': 'Guide dei Giocatori',
+  'guide.worldPvpPage.hillBodyRanked':
+    "Ogni due ore compare una collina in Drakelands, La Distesa di Frostveil o Amberfall. Il reame riceve un preavviso di quindici minuti e il cerchio viene segnato su terreno aperto. La collina resta attiva per trenta minuti. Entrare nel cerchio attivo alza la bandiera PvP mondiale secondo i normali requisiti di livello, anche per i membri di un'incursione. Il gruppo con più giocatori idonei all'interno conquista la collina dopo un minuto di maggioranza ininterrotta; un giocatore solo conta come gruppo di uno, ma i membri di incursioni e i giocatori sotto il livello PvP richiesto non possono conquistare né guadagnare Onore della collina. Ogni difensore all'interno guadagna Onore a un ritmo crescente. Le assegnazioni e la loro crescita sono più rapide, mantenendo l'Onore totale del precedente evento di quarantacinque minuti. Un cambio di controllo azzera la crescita. Ogni cinque minuti mentre la collina è in gioco, il reame viene informato della sua posizione e dei gruppi classificati per il tempo controllato. Quando la collina cade, se il gruppo che l'ha controllata più a lungo l'ha tenuta per almeno dieci minuti in totale, ogni giocatore che è rimasto dentro per almeno un minuto per quel gruppo ed è ancora membro guadagna una vittoria verso la riga PvP del Forziere Settimanale. Uscire mantiene la bandiera alzata; /pvp off richiede i soliti cinque minuti e non può completarsi dentro una collina attiva o in combattimento. La barra mostra controllo, numero di giocatori e progresso di conquista; /hill indica la posizione.",
   'hudChrome.death.pvpResurrect': 'Risorgi PvP',
   'hudChrome.death.pvpResurrectTitle':
     'Risorgi al cimitero più vicino a piena salute, senza un nuovo Mal di resurrezione.',

@@ -13,6 +13,12 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const ko_KR: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': '최고의 MMORPG',
+  'footer.guideFree': '무료 MMORPG',
+  'footer.guideNew': '신작 MMORPG',
+  'guide.footer.guideBest': '최고의 MMORPG',
+  'guide.footer.guideFree': '무료 MMORPG',
+  'guide.footer.guideNew': '신작 MMORPG',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}분',
   'abilityUi.cast.hoard_cast_rime_beam': '상고대 광선',
   'hudChrome.worldQuestTooltip.currencyAmount': '{amount} {currency}',

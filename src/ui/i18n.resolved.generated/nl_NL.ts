@@ -439,8 +439,8 @@ export const nl_NL: EnTranslations = {
         "worldMany": "{count} Wereldquests voltooid",
         "pvpOne": "{count} Gewilde wedstrijd gewonnen",
         "pvpMany": "{count} Gewilde wedstrijden gewonnen",
-        "pvpWinOne": "{count} PvP Win",
-        "pvpWinMany": "{count} PvP Wins"
+        "pvpWinOne": "{count} PvP-overwinning",
+        "pvpWinMany": "{count} PvP-overwinningen"
       },
       "requiredTask": {
         "raidOne": "Ruim {count} Raid-gevecht op",
@@ -451,8 +451,8 @@ export const nl_NL: EnTranslations = {
         "worldMany": "Voltooi {count} Wereldquests",
         "pvpOne": "Win {count} Gewilde wedstrijd",
         "pvpMany": "Win {count} Gewilde wedstrijden",
-        "pvpWinOne": "Earn {count} PvP Win",
-        "pvpWinMany": "Earn {count} PvP Wins"
+        "pvpWinOne": "Behaal {count} PvP-overwinning",
+        "pvpWinMany": "Behaal {count} PvP-overwinningen"
       },
       "readyWeeks": "Niet-opgeëiste weken: {count}. Claim eerst de oudste voltooide week.",
       "claimLastWeek": "Claim beloning van vorige week",
@@ -7062,13 +7062,13 @@ export const nl_NL: EnTranslations = {
       "communityWiki": "Community-wiki",
       "rights": "World of ClaudeCraft",
       "linksLabel": "Speel- en communitylinks",
-      "guidesLabel": "Player guides",
-      "guideFree": "Free MMORPGs",
-      "guideGamesLikeWow": "Games like WoW",
-      "guideBest": "Best MMORPGs",
-      "guideNew": "New MMORPGs",
-      "guideBrowser": "Browser MMORPGs",
-      "guideGamesLikeDiablo": "Games like Diablo"
+      "guidesLabel": "Spelersgidsen",
+      "guideFree": "Gratis MMORPG's",
+      "guideGamesLikeWow": "Spellen zoals WoW",
+      "guideBest": "Beste MMORPG's",
+      "guideNew": "Nieuwe MMORPG's",
+      "guideBrowser": "Browser-MMORPG's",
+      "guideGamesLikeDiablo": "Spellen zoals Diablo"
     },
     "language": {
       "label": "Taal",
@@ -8366,7 +8366,7 @@ export const nl_NL: EnTranslations = {
       "hillBody": "Elke twee uur verschijnt er een heuvel in de Drakenlanden, de Vorstsluier of de Amberval. Het rijk krijgt een kwartier van tevoren een waarschuwing en de cirkel wordt op open terrein gemarkeerd. De heuvel blijft dertig minuten actief. Bij het betreden van de actieve cirkel wordt je wereld-PvP-vlag ingeschakeld volgens de normale niveauregels, ook voor raidleden. De groep met de meeste spelers binnen de cirkel die aan de voorwaarden voldoen, verovert de heuvel na een minuut met een ononderbroken meerderheid; een solospeler telt als een groep van één, maar raidleden en spelers onder het vereiste PvP-niveau kunnen de heuvel niet veroveren en er geen Eer verdienen. Elke bezetter binnen de cirkel verdient in een steeds hoger tempo Eer. Uitbetalingen volgen elkaar sneller op en lopen sneller op, zodat de totale Eer van het vroegere evenement van vijfenveertig minuten behouden blijft. Bij een wisseling van bezetters begint de opbouw opnieuw. Je vlag blijft aan wanneer je de cirkel verlaat; /pvp off gebruikt de normale vertraging van vijf minuten en kan niet aflopen binnen een actieve heuvel of tijdens een gevecht. De heuvelbalk toont de bezetting, aantallen en veroveringsvoortgang; /hill meldt de locatie.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
       "hillBodyRamp": "Elke twee uur verschijnt er een heuvel in de Drakenlanden, de Vorstsluier of de Amberval. Het rijk krijgt een kwartier van tevoren een waarschuwing en de cirkel wordt op open terrein gemarkeerd. De heuvel blijft dertig minuten actief. Bij het betreden van de actieve cirkel wordt je wereld-PvP-vlag ingeschakeld volgens de normale niveauregels, ook voor raidleden. De groep met de meeste spelers binnen de cirkel die aan de voorwaarden voldoen, verovert de heuvel na een minuut met een ononderbroken meerderheid; een solospeler telt als een groep van één, maar raidleden en spelers onder het vereiste PvP-niveau kunnen de heuvel niet veroveren en er geen Eer verdienen. Elke bezetter binnen de cirkel verdient in een steeds hoger tempo Eer. Uitbetalingen volgen elkaar sneller op en lopen sneller op, zodat de totale Eer van het vroegere evenement van vijfenveertig minuten behouden blijft. Bij een wisseling van bezetters begint de opbouw opnieuw. Je vlag blijft aan wanneer je de cirkel verlaat; /pvp off gebruikt de normale vertraging van vijf minuten en kan niet aflopen binnen een actieve heuvel of tijdens een gevecht. De heuvelbalk toont de bezetting, aantallen en veroveringsvoortgang; /hill meldt de locatie.",
-      "hillBodyRanked": "Every two hours, a hill rises in the Drakelands, the Frostveil Reach or the Amberfall. The realm receives a fifteen-minute warning, and the circle is marked on open ground. The hill stays active for thirty minutes. Entering the active circle raises your World PvP flag under the normal level rules, including for raid members. The party with the most eligible players inside takes the hill after a minute of unbroken majority; a lone player counts as a party of one, but raid members and players below the PvP level requirement cannot capture or earn hill Honor. Each holder standing inside earns Honor at an increasing rate. Payouts and their ramp are faster, preserving the total Honor of the former forty-five-minute event. A change of holder restarts the ramp. Every five minutes while the hill stands, the realm hears its location and the groups ranked by time held. When the hill falls, if the longest-holding group held it for at least ten minutes in total, each player who stood inside for at least a minute for that group, and is still in it, earns one win toward the Weekly Vault PvP row. Leaving the circle keeps your flag up; /pvp off uses the normal five-minute delay and cannot finish inside an active hill or during combat. The hill bar shows control, numbers and capture progress; /hill reports its location.",
+      "hillBodyRanked": "Elke twee uur verschijnt er een heuvel in de Drakenlanden, de Vorstsluier of de Amberval. Het rijk krijgt een kwartier van tevoren een waarschuwing en de cirkel wordt op open terrein gemarkeerd. De heuvel blijft dertig minuten actief. Bij het betreden van de actieve cirkel wordt je wereld-PvP-vlag ingeschakeld volgens de normale niveauregels, ook voor raidleden. De groep met de meeste spelers binnen de cirkel die aan de voorwaarden voldoen, verovert de heuvel na een minuut met een ononderbroken meerderheid; een solospeler telt als een groep van één, maar raidleden en spelers onder het vereiste PvP-niveau kunnen de heuvel niet veroveren en er geen Eer verdienen. Elke bezetter binnen de cirkel verdient in een steeds hoger tempo Eer. Uitbetalingen volgen elkaar sneller op en lopen sneller op, zodat de totale Eer van het vroegere evenement van vijfenveertig minuten behouden blijft. Bij een wisseling van bezetters begint de opbouw opnieuw. Elke vijf minuten terwijl de heuvel staat, hoort het rijk de locatie ervan en de groepen gerangschikt naar bezettingsduur. Wanneer de heuvel valt, als de groep die het het langst hield het minstens tien minuten totaal hield, verdient elke speler die minstens een minuut daarbinnen voor die groep stond en er nog steeds onderdeel van is een overwinning voor de PvP-rij van de Weeklijkse Kluis. Je vlag blijft aan wanneer je de cirkel verlaat; /pvp off gebruikt de normale vertraging van vijf minuten en kan niet aflopen binnen een actieve heuvel of tijdens een gevecht. De heuvelbalk toont de bezetting, aantallen en veroveringsvoortgang; /hill meldt de locatie.",
       "limitsBodyRaids": "Het herhaaldelijk verslaan van dezelfde speler betaalt steeds minder en binnenkort niets, en je telling tegen die speler begint slechts ongeveer een uur na het eerste van die kills opnieuw, dus het kamperen op één slachtoffer is nooit de wacht waard. Een doelwit veel onder je niveau betaalt niets. Battlegrounds en Arenas voeren hun eigen regels uit terwijl je erin bent, en ze betalen meer Eer dan de open wereld, dus wereld-PvP is de langzamere weg naar dezelfde verkoper. Raids verdienen niets uit wereldkills: een raidlid neemt geen Eer of goud aan en verkleint niemand anders aandeel, dus vecht als partij om betaald te krijgen."
     },
     "thornhollowPage": {
@@ -9711,13 +9711,13 @@ export const nl_NL: EnTranslations = {
     "terms": "Servicevoorwaarden",
     "privacy": "Privacybeleid",
     "discordLabel": "Word lid van de Discord",
-    "guidesLabel": "Player guides",
-    "guideFree": "Free MMORPGs",
-    "guideGamesLikeWow": "Games like WoW",
-    "guideBest": "Best MMORPGs",
-    "guideNew": "New MMORPGs",
-    "guideBrowser": "Browser MMORPGs",
-    "guideGamesLikeDiablo": "Games like Diablo"
+    "guidesLabel": "Spelersgidsen",
+    "guideFree": "Gratis MMORPG's",
+    "guideGamesLikeWow": "Spellen zoals WoW",
+    "guideBest": "Beste MMORPG's",
+    "guideNew": "Nieuwe MMORPG's",
+    "guideBrowser": "Browser-MMORPG's",
+    "guideGamesLikeDiablo": "Spellen zoals Diablo"
   },
   "settings": {
     "languageLoading": "Taal laden...",

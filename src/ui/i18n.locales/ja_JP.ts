@@ -13,6 +13,12 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const ja_JP: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': '最高のMMORPG',
+  'footer.guideFree': '無料MMORPG',
+  'footer.guideNew': '新作MMORPG',
+  'guide.footer.guideBest': '最高のMMORPG',
+  'guide.footer.guideFree': '無料MMORPG',
+  'guide.footer.guideNew': '新作MMORPG',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}分',
   'abilityUi.cast.hoard_cast_rime_beam': '霜光線',
   'hudChrome.worldQuestTooltip.currencyAmount': '{amount}{currency}',

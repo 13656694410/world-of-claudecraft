@@ -2,6 +2,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const cs_CZ: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': 'Nejlepší MMORPG',
+  'footer.guideBrowser': 'Prohlížečové MMORPG',
+  'footer.guideFree': 'MMORPG zdarma',
+  'footer.guideGamesLikeDiablo': 'Hry podobné Diablu',
+  'footer.guideGamesLikeWow': 'Hry podobné WoW',
+  'footer.guideNew': 'Nové MMORPG',
+  'footer.guidesLabel': 'Průvodce pro hráče',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} vítězství v PvP',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} vítězství v PvP',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'Získej {count} vítězství v PvP',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'Získej {count} vítězství v PvP',
+  'guide.footer.guideBest': 'Nejlepší MMORPG',
+  'guide.footer.guideBrowser': 'Prohlížečové MMORPG',
+  'guide.footer.guideFree': 'MMORPG zdarma',
+  'guide.footer.guideGamesLikeDiablo': 'Hry podobné Diablu',
+  'guide.footer.guideGamesLikeWow': 'Hry podobné WoW',
+  'guide.footer.guideNew': 'Nové MMORPG',
+  'guide.footer.guidesLabel': 'Průvodce pro hráče',
+  'guide.worldPvpPage.hillBodyRanked':
+    'Každé dvě hodiny se v Dračích zemích, Kraji Mrazivého závoje nebo Jantarovém pádu objeví kopec. Říše dostane varování patnáct minut předem a kruh je vyznačen na otevřeném prostranství. Kopec zůstává aktivní třicet minut. Vstup do aktivního kruhu zapne příznak světového PvP podle běžných pravidel úrovně, a to i členům nájezdu. Skupina s největším počtem způsobilých hráčů uvnitř získá kopec po minutě nepřerušené převahy; samotný hráč se počítá jako jednočlenná skupina, ale členové nájezdu a hráči pod požadovanou úrovní pro PvP nemohou kopec obsadit ani získávat Čest z kopce. Každý držitel uvnitř získává Čest stále rychleji. Odměny přicházejí častěji a jejich výše roste rychleji, takže celková Čest zůstává stejná jako při dřívější pětačtyřicetiminutové události. Změna držitele spustí růst odměn od začátku. Každých pět minut, dokud kopec stojí, slyší říše jeho polohu a skupiny hodnocené podle času, kdy jej držely. Když kopec padne, pokud skupina, která jej držela nejdéle, jej držela minimálně deset minut celkem, každý hráč, který stál uvnitř alespoň minutu pro tu skupinu a stále je v ní, si vyslouží jedno vítězství směrem k řádku PvP Týdenního trezoru. Po opuštění kruhu zůstává příznak zapnutý; /pvp off používá běžnou pětiminutovou prodlevu a nemůže doběhnout uvnitř aktivního kopce ani během boje. Lišta kopce ukazuje držitele, počty hráčů a postup obsazování; /hill oznámí jeho polohu.',
   'hudChrome.death.pvpResurrect': 'PvP Vzkříšení',
   'hudChrome.death.pvpResurrectTitle':
     'Vzkříšit se u nejbližšího hřbitova s plným zdravím, bez nového Strážcova mýta.',

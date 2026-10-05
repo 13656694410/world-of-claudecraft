@@ -13,6 +13,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const pt_BR: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': 'Melhores MMORPGs',
+  'footer.guideBrowser': 'MMORPGs de Navegador',
+  'footer.guideFree': 'MMORPGs Gratuitos',
+  'footer.guideGamesLikeDiablo': 'Jogos como Diablo',
+  'footer.guideGamesLikeWow': 'Jogos como WoW',
+  'footer.guideNew': 'Novos MMORPGs',
+  'footer.guidesLabel': 'Guias de Jogadores',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} Vitórias de PvP',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} Vitória de PvP',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'Ganhe {count} Vitórias de PvP',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'Ganhe {count} Vitória de PvP',
+  'guide.footer.guideBest': 'Melhores MMORPGs',
+  'guide.footer.guideBrowser': 'MMORPGs de Navegador',
+  'guide.footer.guideFree': 'MMORPGs Gratuitos',
+  'guide.footer.guideGamesLikeDiablo': 'Jogos como Diablo',
+  'guide.footer.guideGamesLikeWow': 'Jogos como WoW',
+  'guide.footer.guideNew': 'Novos MMORPGs',
+  'guide.footer.guidesLabel': 'Guias de Jogadores',
+  'guide.worldPvpPage.hillBodyRanked':
+    'A cada duas horas, uma colina surge em Drakelands, nos Confins de Frostveil ou em Amberfall. O reino recebe um aviso com quinze minutos de antecedência, e o círculo é marcado em terreno aberto. A colina permanece ativa por trinta minutos. Entrar no círculo ativo ativa sua bandeira de PvP Mundial pelas regras normais de nível, inclusive para membros de raide. O grupo com mais jogadores elegíveis dentro do círculo conquista a colina após um minuto de maioria ininterrupta; um jogador sozinho conta como um grupo de um, mas membros de raide e jogadores abaixo do nível exigido para PvP não podem capturar a colina nem ganhar Honra por ela. Cada integrante do grupo que a controla e está dentro do círculo ganha Honra em ritmo crescente. Os pagamentos são mais frequentes e aumentam mais rápido, preservando a Honra total do antigo evento de quarenta e cinco minutos. Uma mudança de controle reinicia o aumento das recompensas. A cada cinco minutos enquanto a colina está ativa, o reino é informado de sua localização e os grupos classificados pelo tempo que a mantêm. Quando a colina cai, se o grupo que a manteve por mais tempo a manteve por pelo menos dez minutos no total, cada jogador que ficou dentro por pelo menos um minuto para esse grupo e ainda é membro dele ganha uma vitória para a linha de PvP do Cofre Semanal. Sair do círculo mantém sua bandeira ligada; /pvp off usa o atraso normal de cinco minutos e não pode terminar dentro de uma colina ativa ou durante o combate. A barra da colina mostra o controle, os números de jogadores e o progresso de captura; /hill informa sua localização.',
   'hudChrome.death.pvpResurrect': 'Ressuscitar PvP',
   'hudChrome.death.pvpResurrectTitle':
     'Reviver no cemitério mais próximo com saúde plena, sem um novo Tributo do Guardião.',

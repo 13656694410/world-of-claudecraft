@@ -2,6 +2,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const id_ID: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': 'MMORPG Terbaik',
+  'footer.guideBrowser': 'MMORPG Peramban',
+  'footer.guideFree': 'MMORPG Gratis',
+  'footer.guideGamesLikeDiablo': 'Permainan seperti Diablo',
+  'footer.guideGamesLikeWow': 'Permainan seperti WoW',
+  'footer.guideNew': 'MMORPG Baru',
+  'footer.guidesLabel': 'Panduan Pemain',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} Kemenangan PvP',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} Kemenangan PvP',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'Dapatkan {count} Kemenangan PvP',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'Dapatkan {count} Kemenangan PvP',
+  'guide.footer.guideBest': 'MMORPG Terbaik',
+  'guide.footer.guideBrowser': 'MMORPG Peramban',
+  'guide.footer.guideFree': 'MMORPG Gratis',
+  'guide.footer.guideGamesLikeDiablo': 'Permainan seperti Diablo',
+  'guide.footer.guideGamesLikeWow': 'Permainan seperti WoW',
+  'guide.footer.guideNew': 'MMORPG Baru',
+  'guide.footer.guidesLabel': 'Panduan Pemain',
+  'guide.worldPvpPage.hillBodyRanked':
+    'Setiap dua jam, sebuah bukit muncul di Tanah Naga, Tabir Beku, atau Air Terjun Amber. Realm menerima peringatan lima belas menit sebelumnya, dan lingkarannya ditandai di tanah terbuka. Bukit tetap aktif selama tiga puluh menit. Memasuki lingkaran aktif mengaktifkan bendera PvP Dunia sesuai aturan level biasa, termasuk bagi anggota raid. Grup dengan pemain yang memenuhi syarat paling banyak di dalamnya merebut bukit setelah mempertahankan mayoritas selama satu menit tanpa terputus; pemain tunggal dihitung sebagai grup beranggota satu, tetapi anggota raid dan pemain di bawah persyaratan level PvP tidak dapat merebut bukit atau memperoleh Kehormatan bukit. Setiap anggota grup penguasa yang berada di dalam lingkaran memperoleh Kehormatan dengan laju yang terus meningkat. Pembagian hadiah menjadi lebih sering dan kenaikannya lebih cepat, sehingga total Kehormatan tetap sama seperti acara lama yang berlangsung empat puluh lima menit. Pergantian penguasa mengulang kenaikan hadiah dari awal. Setiap lima menit selama bukit berdiri, realm mendengar lokasinya dan grup-grup yang diperingkat berdasarkan waktu menguasai. Saat bukit jatuh, jika grup yang menguasai terlama menguasainya selama minimal sepuluh menit total, setiap pemain yang berdiri di dalam selama minimal satu menit untuk grup itu, dan masih berada di dalamnya, memperoleh satu kemenangan menuju baris PvP Gudang Mingguan. Keluar dari lingkaran tidak menonaktifkan benderamu; /pvp off menggunakan jeda lima menit seperti biasa dan tidak dapat selesai di dalam bukit aktif atau selama pertempuran. Bilah bukit menampilkan penguasaan, jumlah pemain, dan kemajuan perebutan; /hill melaporkan lokasinya.',
   'hudChrome.death.pvpResurrect': 'Bangkit PvP',
   'hudChrome.death.pvpResurrectTitle':
     'Bangkit di kuburan terdekat dengan kesehatan penuh, tanpa Pajak Penjaga yang baru.',

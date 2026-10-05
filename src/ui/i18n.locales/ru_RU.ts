@@ -13,6 +13,12 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const ru_RU: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': 'Лучшие MMORPG',
+  'footer.guideFree': 'Бесплатные MMORPG',
+  'footer.guideNew': 'Новые MMORPG',
+  'guide.footer.guideBest': 'Лучшие MMORPG',
+  'guide.footer.guideFree': 'Бесплатные MMORPG',
+  'guide.footer.guideNew': 'Новые MMORPG',
   'abilityUi.actionBar.cooldownMinutes': '{minutes} мин',
   'abilityUi.cast.hoard_cast_rime_beam': 'Луч инея',
   'hudChrome.worldQuestTooltip.currencyAmount': '{amount} {currency}',

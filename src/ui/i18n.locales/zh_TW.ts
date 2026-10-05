@@ -13,6 +13,12 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const zh_TW: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': '最佳 MMORPG',
+  'footer.guideFree': '免費 MMORPG',
+  'footer.guideNew': '新 MMORPG',
+  'guide.footer.guideBest': '最佳 MMORPG',
+  'guide.footer.guideFree': '免費 MMORPG',
+  'guide.footer.guideNew': '新 MMORPG',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}分鐘',
   'abilityUi.cast.hoard_cast_rime_beam': '白霜射束',
   'hudChrome.worldQuestTooltip.currencyAmount': '{amount} {currency}',
