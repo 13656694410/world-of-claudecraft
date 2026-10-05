@@ -438,7 +438,9 @@ export const de_DE: EnTranslations = {
         "worldOne": "{count} Weltquest abgeschlossen",
         "worldMany": "{count} Weltquests abgeschlossen",
         "pvpOne": "{count} gewertetes Match gewonnen",
-        "pvpMany": "{count} gewertete Matches gewonnen"
+        "pvpMany": "{count} gewertete Matches gewonnen",
+        "pvpWinOne": "{count} PvP-Sieg",
+        "pvpWinMany": "{count} PvP-Siege"
       },
       "requiredTask": {
         "raidOne": "Bereinige {count} Schlachtzugsbegegnung",
@@ -448,7 +450,9 @@ export const de_DE: EnTranslations = {
         "worldOne": "Schließe {count} Weltquest ab",
         "worldMany": "Schließe {count} Weltquests ab",
         "pvpOne": "Gewinne {count} gewertetes Match",
-        "pvpMany": "Gewinne {count} gewertete Matches"
+        "pvpMany": "Gewinne {count} gewertete Matches",
+        "pvpWinOne": "Erringe {count} PvP-Sieg",
+        "pvpWinMany": "Erringe {count} PvP-Siege"
       },
       "readyWeeks": "Nicht abgeholte Wochen: {count}. Hole zuerst die älteste abgeschlossene Woche ab.",
       "claimLastWeek": "Belohnung der letzten Woche abholen",
@@ -7057,7 +7061,14 @@ export const de_DE: EnTranslations = {
       "discord": "Tritt dem Discord bei",
       "communityWiki": "Community-Wiki",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Spiel- und Community-Links"
+      "linksLabel": "Spiel- und Community-Links",
+      "guidesLabel": "Spieler-Guides",
+      "guideFree": "Kostenlose MMORPGs",
+      "guideGamesLikeWow": "Spiele wie WoW",
+      "guideBest": "Die besten MMORPGs",
+      "guideNew": "Neue MMORPGs",
+      "guideBrowser": "Browser-MMORPGs",
+      "guideGamesLikeDiablo": "Spiele wie Diablo"
     },
     "language": {
       "label": "Sprache",
@@ -8355,6 +8366,7 @@ export const de_DE: EnTranslations = {
       "hillBody": "Alle zwei Stunden erscheint ein Hügel in einem der Gebiete Die Drakenlande, Der Frostschleier oder Der Bernsteinfall. Der Realm erhält fünfzehn Minuten vorher eine Warnung, und der Kreis wird auf offenem Boden markiert. Der Hügel bleibt dreißig Minuten aktiv. Das Betreten des aktiven Kreises setzt nach den üblichen Stufenregeln die Welt-PvP-Flagge, auch bei Schlachtzugsmitgliedern. Die Gruppe mit den meisten berechtigten Spielern im Kreis erobert den Hügel nach einer Minute ununterbrochener Mehrheit. Ein Einzelspieler zählt als Einpersonengruppe; Schlachtzugsmitglieder und Spieler unter der PvP-Mindeststufe können weder erobern noch Hügelehre verdienen. Jedes Mitglied der haltenden Gruppe im Kreis erhält Ehre mit steigender Rate. Auszahlungen und ihre Steigerung erfolgen schneller, sodass die Gesamtehre des früheren fünfundvierzigminütigen Ereignisses erhalten bleibt. Ein Besitzerwechsel setzt die Steigerung zurück. Beim Verlassen bleibt die Flagge bestehen. /pvp off nutzt die üblichen fünf Minuten und kann innerhalb eines aktiven Hügels oder im Kampf nicht abgeschlossen werden. Die Hügelleiste zeigt Kontrolle, Spielerzahlen und Eroberungsfortschritt; /hill meldet den Standort.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
       "hillBodyRamp": "Alle zwei Stunden erscheint ein Hügel in einem der Gebiete Die Drakenlande, Der Frostschleier oder Der Bernsteinfall. Der Realm erhält fünfzehn Minuten vorher eine Warnung, und der Kreis wird auf offenem Boden markiert. Der Hügel bleibt dreißig Minuten aktiv. Das Betreten des aktiven Kreises setzt nach den üblichen Stufenregeln die Welt-PvP-Flagge, auch bei Schlachtzugsmitgliedern. Die Gruppe mit den meisten berechtigten Spielern im Kreis erobert den Hügel nach einer Minute ununterbrochener Mehrheit. Ein Einzelspieler zählt als Einpersonengruppe; Schlachtzugsmitglieder und Spieler unter der PvP-Mindeststufe können weder erobern noch Hügelehre verdienen. Jedes Mitglied der haltenden Gruppe im Kreis erhält Ehre mit steigender Rate. Auszahlungen und ihre Steigerung erfolgen schneller, sodass die Gesamtehre des früheren fünfundvierzigminütigen Ereignisses erhalten bleibt. Ein Besitzerwechsel setzt die Steigerung zurück. Beim Verlassen bleibt die Flagge bestehen. /pvp off nutzt die üblichen fünf Minuten und kann innerhalb eines aktiven Hügels oder im Kampf nicht abgeschlossen werden. Die Hügelleiste zeigt Kontrolle, Spielerzahlen und Eroberungsfortschritt; /hill meldet den Standort.",
+      "hillBodyRanked": "Alle zwei Stunden erscheint ein Hügel in einem der Gebiete Die Drakenlande, Der Frostschleier oder Der Bernsteinfall. Der Realm erhält fünfzehn Minuten vorher eine Warnung, und der Kreis wird auf offenem Boden markiert. Der Hügel bleibt dreißig Minuten aktiv. Das Betreten des aktiven Kreises setzt nach den üblichen Stufenregeln die Welt-PvP-Flagge, auch bei Schlachtzugsmitgliedern. Die Gruppe mit den meisten berechtigten Spielern im Kreis erobert den Hügel nach einer Minute ununterbrochener Mehrheit. Ein Einzelspieler zählt als Einpersonengruppe; Schlachtzugsmitglieder und Spieler unter der PvP-Mindeststufe können weder erobern noch Hügelehre verdienen. Jedes Mitglied der haltenden Gruppe im Kreis erhält Ehre mit steigender Rate. Auszahlungen und ihre Steigerung erfolgen schneller, sodass die Gesamtehre des früheren fünfundvierzigminütigen Ereignisses erhalten bleibt. Ein Besitzerwechsel setzt die Steigerung zurück. Alle fünf Minuten, solange der Hügel steht, erfährt der ganze Realm seine Position und die Gruppen, geordnet nach ihrer Haltezeit. Fällt der Hügel und hat die Gruppe mit der längsten Haltezeit ihn insgesamt mindestens zehn Minuten gehalten, erhält jeder Spieler, der mindestens eine Minute für diese Gruppe im Kreis stand und ihr noch angehört, einen Sieg für die PvP-Reihe des Wöchentlichen Tresors. Beim Verlassen bleibt die Flagge bestehen. /pvp off nutzt die üblichen fünf Minuten und kann innerhalb eines aktiven Hügels oder im Kampf nicht abgeschlossen werden. Die Hügelleiste zeigt Kontrolle, Spielerzahlen und Eroberungsfortschritt; /hill meldet den Standort.",
       "limitsBodyRaids": "Denselben Spieler immer wieder zu besiegen zahlt jedes Mal weniger und bald nichts mehr, und deine Zählung gegen diesen Spieler beginnt erst etwa eine Stunde nach der ersten dieser Tötungen von Neuem, sodass das Campen eines einzelnen Opfers nie das Warten wert ist. Ein Ziel weit unter deiner Stufe zahlt überhaupt nichts. Schlachtfelder und Arenen folgen ihren eigenen Regeln, solange du dich darin befindest, und sie zahlen mehr Ehre als die offene Welt, sodass Welt-PvP der langsamere Weg zu demselben Händler ist. Schlachtzüge verdienen nichts an Welttötungen: Ein Schlachtzugsmitglied erhält keine Ehre oder kein Gold und verkleinert auch niemandes Anteil, kämpfe also als Gruppe, um bezahlt zu werden."
     },
     "thornhollowPage": {
@@ -9698,7 +9710,14 @@ export const de_DE: EnTranslations = {
     "whitepaper": "Whitepaper",
     "terms": "Nutzungsbedingungen",
     "privacy": "Datenschutzerklärung",
-    "discordLabel": "Tritt dem Discord bei"
+    "discordLabel": "Tritt dem Discord bei",
+    "guidesLabel": "Spieler-Guides",
+    "guideFree": "Kostenlose MMORPGs",
+    "guideGamesLikeWow": "Spiele wie WoW",
+    "guideBest": "Die besten MMORPGs",
+    "guideNew": "Neue MMORPGs",
+    "guideBrowser": "Browser-MMORPGs",
+    "guideGamesLikeDiablo": "Spiele wie Diablo"
   },
   "settings": {
     "languageLoading": "Sprache wird geladen...",

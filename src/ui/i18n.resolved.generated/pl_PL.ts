@@ -438,7 +438,9 @@ export const pl_PL: EnTranslations = {
         "worldOne": "{count} Zadania Światowego Ukończonego",
         "worldMany": "{count} Zadań Światowych Ukończonych",
         "pvpOne": "{count} Wygrane Mecze Rankingowe",
-        "pvpMany": "{count} Wygranych Mecze Rankingowe"
+        "pvpMany": "{count} Wygranych Mecze Rankingowe",
+        "pvpWinOne": "{count} zwycięstwo PvP",
+        "pvpWinMany": "{count} zwycięstw PvP"
       },
       "requiredTask": {
         "raidOne": "Oczyszcz {count} Spotkania Rajdu",
@@ -448,7 +450,9 @@ export const pl_PL: EnTranslations = {
         "worldOne": "Ukończ {count} Zadania Światowego",
         "worldMany": "Ukończ {count} Zadań Światowych",
         "pvpOne": "Wygraj {count} Mecze Rankingowe",
-        "pvpMany": "Wygraj {count} Meczów Rankingowych"
+        "pvpMany": "Wygraj {count} Meczów Rankingowych",
+        "pvpWinOne": "Zdobądź {count} zwycięstwo PvP",
+        "pvpWinMany": "Zdobądź {count} zwycięstw PvP"
       },
       "readyWeeks": "Nieodebrane tygodnie: {count}. Najpierw odebrz najstarszy ukończony tydzień.",
       "claimLastWeek": "Odebrz nagrodę z ostatniego tygodnia",
@@ -7057,7 +7061,14 @@ export const pl_PL: EnTranslations = {
       "discord": "Dołącz do Discorda",
       "communityWiki": "Wiki społeczności",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Odnośniki do gry i społeczności"
+      "linksLabel": "Odnośniki do gry i społeczności",
+      "guidesLabel": "Przewodniki graczy",
+      "guideFree": "Darmowe MMORPG",
+      "guideGamesLikeWow": "Gry podobne do WoW",
+      "guideBest": "Najlepsze MMORPG",
+      "guideNew": "Nowe MMORPG",
+      "guideBrowser": "MMORPG w przeglądarce",
+      "guideGamesLikeDiablo": "Gry podobne do Diablo"
     },
     "language": {
       "label": "Język",
@@ -8355,6 +8366,7 @@ export const pl_PL: EnTranslations = {
       "hillBody": "Co dwie godziny wzgórze pojawia się na Smoczych Ziemiach, w Szronowej Krainie lub Bursztynowej Dolinie. Kraina otrzymuje ostrzeżenie piętnaście minut wcześniej, a krąg zostaje oznaczony na otwartym terenie. Wzgórze pozostaje aktywne przez trzydzieści minut. Wejście do aktywnego kręgu włącza flagę PvP w świecie zgodnie ze zwykłymi zasadami poziomu, także członkom rajdu. Grupa z największą liczbą uprawnionych graczy w kręgu przejmuje wzgórze po minucie nieprzerwanej przewagi; samotny gracz liczy się jako jednoosobowa grupa, ale członkowie rajdu i gracze poniżej wymaganego poziomu PvP nie mogą przejmować wzgórza ani zdobywać z niego Honoru. Każdy obrońca stojący wewnątrz zdobywa Honor w rosnącym tempie. Wypłaty są częstsze, a ich wartość rośnie szybciej, dzięki czemu łączna ilość Honoru pozostaje taka sama jak w dawnym wydarzeniu trwającym czterdzieści pięć minut. Zmiana właściciela rozpoczyna wzrost nagród od nowa. Po opuszczeniu kręgu flaga pozostaje włączona; /pvp off korzysta ze zwykłego pięciominutowego opóźnienia i nie może się zakończyć na aktywnym wzgórzu ani podczas walki. Pasek wzgórza pokazuje kontrolę, liczby graczy i postęp przejmowania; /hill podaje jego położenie.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
       "hillBodyRamp": "Co dwie godziny wzgórze pojawia się na Smoczych Ziemiach, w Szronowej Krainie lub Bursztynowej Dolinie. Kraina otrzymuje ostrzeżenie piętnaście minut wcześniej, a krąg zostaje oznaczony na otwartym terenie. Wzgórze pozostaje aktywne przez trzydzieści minut. Wejście do aktywnego kręgu włącza flagę PvP w świecie zgodnie ze zwykłymi zasadami poziomu, także członkom rajdu. Grupa z największą liczbą uprawnionych graczy w kręgu przejmuje wzgórze po minucie nieprzerwanej przewagi; samotny gracz liczy się jako jednoosobowa grupa, ale członkowie rajdu i gracze poniżej wymaganego poziomu PvP nie mogą przejmować wzgórza ani zdobywać z niego Honoru. Każdy obrońca stojący wewnątrz zdobywa Honor w rosnącym tempie. Wypłaty są częstsze, a ich wartość rośnie szybciej, dzięki czemu łączna ilość Honoru pozostaje taka sama jak w dawnym wydarzeniu trwającym czterdzieści pięć minut. Zmiana właściciela rozpoczyna wzrost nagród od nowa. Po opuszczeniu kręgu flaga pozostaje włączona; /pvp off korzysta ze zwykłego pięciominutowego opóźnienia i nie może się zakończyć na aktywnym wzgórzu ani podczas walki. Pasek wzgórza pokazuje kontrolę, liczby graczy i postęp przejmowania; /hill podaje jego położenie.",
+      "hillBodyRanked": "Co dwie godziny wzgórze pojawia się na Smoczych Ziemiach, w Szronowej Krainie lub Bursztynowej Dolinie. Kraina otrzymuje ostrzeżenie piętnaście minut wcześniej, a krąg zostaje oznaczony na otwartym terenie. Wzgórze pozostaje aktywne przez trzydzieści minut. Wejście do aktywnego kręgu włącza flagę PvP w świecie zgodnie ze zwykłymi zasadami poziomu, także członkom rajdu. Grupa z największą liczbą uprawnionych graczy w kręgu przejmuje wzgórze po minucie nieprzerwanej przewagi; samotny gracz liczy się jako jednoosobowa grupa, ale członkowie rajdu i gracze poniżej wymaganego poziomu PvP nie mogą przejmować wzgórza ani zdobywać z niego Honoru. Każdy obrońca stojący wewnątrz zdobywa Honor w rosnącym tempie. Wypłaty są częstsze, a ich wartość rośnie szybciej, dzięki czemu łączna ilość Honoru pozostaje taka sama jak w dawnym wydarzeniu trwającym czterdzieści pięć minut. Zmiana właściciela rozpoczyna wzrost nagród od nowa. Co pięć minut, gdy wzgórze stoi, kraina słyszy jego położenie i grupy uszeregowane według czasu, w którym je trzymały. Gdy wzgórze upadnie, jeśli grupa, która trzymała je najdłużej, trzymała je co najmniej dziesięć minut łącznie, każdy gracz, który stał wewnątrz co najmniej minutę dla tej grupy i nadal jest w niej, zyskuje jedno zwycięstwo do rzędu PvP Tygodniowego Skarbca. Po opuszczeniu kręgu flaga pozostaje włączona; /pvp off korzysta ze zwykłego pięciominutowego opóźnienia i nie może się zakończyć na aktywnym wzgórzu ani podczas walki. Pasek wzgórza pokazuje kontrolę, liczby graczy i postęp przejmowania; /hill podaje jego położenie.",
       "limitsBodyRaids": "Pokonanie tego samego gracza znowu i znowu płaci mniej za każdym razem i wkrótce nic, a twój rachunek przeciwko temu graczowi zaczyna się tylko od nowa około godzinę po pierwszym z tych zabójstw, więc campowanie jednej ofiary nigdy nie jest warte czekania. Cel znacznie poniżej twojego poziomu płaci wcale. Pola bitwy i Areny prowadzą swoje własne zasady, gdy jesteś w środku, i płacą więcej Honor niż otwarty świat, więc świat PvP jest powolniejszą drogą do tego samego dostawcy. Rajdy nie zarabiają nic ze światowych zabójstw: członek rajdu nie otrzymuje Honor lub złota i nie zmniejsza udziału nikogo innego, więc walcz jako drużyna, aby być opłaconą."
     },
     "thornhollowPage": {
@@ -9698,7 +9710,14 @@ export const pl_PL: EnTranslations = {
     "whitepaper": "Biała księga",
     "terms": "Warunki korzystania z usługi",
     "privacy": "Polityka prywatności",
-    "discordLabel": "Dołącz do Discorda"
+    "discordLabel": "Dołącz do Discorda",
+    "guidesLabel": "Przewodniki graczy",
+    "guideFree": "Darmowe MMORPG",
+    "guideGamesLikeWow": "Gry podobne do WoW",
+    "guideBest": "Najlepsze MMORPG",
+    "guideNew": "Nowe MMORPG",
+    "guideBrowser": "MMORPG w przeglądarce",
+    "guideGamesLikeDiablo": "Gry podobne do Diablo"
   },
   "settings": {
     "languageLoading": "Wczytywanie języka...",

@@ -2,6 +2,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const tr_TR: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': "En İyi MMORPG'ler",
+  'footer.guideBrowser': "Tarayıcı MMORPG'leri",
+  'footer.guideFree': "Ücretsiz MMORPG'ler",
+  'footer.guideGamesLikeDiablo': 'Diablo Gibi Oyunlar',
+  'footer.guideGamesLikeWow': 'WoW Gibi Oyunlar',
+  'footer.guideNew': "Yeni MMORPG'ler",
+  'footer.guidesLabel': 'Oyuncu Rehberleri',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} PvP Galibiyeti',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} PvP Galibiyeti',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': '{count} PvP Galibiyeti Al',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': '{count} PvP Galibiyeti Al',
+  'guide.footer.guideBest': "En İyi MMORPG'ler",
+  'guide.footer.guideBrowser': "Tarayıcı MMORPG'leri",
+  'guide.footer.guideFree': "Ücretsiz MMORPG'ler",
+  'guide.footer.guideGamesLikeDiablo': 'Diablo Gibi Oyunlar',
+  'guide.footer.guideGamesLikeWow': 'WoW Gibi Oyunlar',
+  'guide.footer.guideNew': "Yeni MMORPG'ler",
+  'guide.footer.guidesLabel': 'Oyuncu Rehberleri',
+  'guide.worldPvpPage.hillBodyRanked':
+    "Her iki saatte bir Ejder Toprakları, Kırağı Diyarı veya Kehribar Vadisi'nde bir tepe belirir. Diyara on beş dakika önceden uyarı verilir ve çember açık arazide işaretlenir. Tepe otuz dakika aktif kalır. Aktif çembere girmek, baskın üyeleri dahil herkesin Dünya PvP bayrağını normal seviye kurallarına göre açar. İçeride en çok uygun oyuncusu bulunan grup, çoğunluğunu kesintisiz bir dakika koruduktan sonra tepeyi ele geçirir; tek başına oynayan biri tek kişilik grup sayılır, ancak baskın üyeleri ve PvP seviye şartının altındaki oyuncular tepeyi ele geçiremez veya tepeden Onur kazanamaz. İçeride duran her hâkim grup üyesi giderek artan hızda Onur kazanır. Ödemeler daha sık yapılır ve daha hızlı artar; böylece eski kırk beş dakikalık etkinliğin toplam Onur miktarı korunur. Tepe el değiştirdiğinde ödül artışı baştan başlar. Tepe ayakta iken her beş dakikada bir diyar, konumunu ve tutma sürelerine göre sıralanmış grupları duyar. Tepe düştüğünde, onu en uzun süre tutan grup onu toplamda en az on dakika tutmuşsa, bu grup için içeride en az bir dakika duran ve hala grupta olan her oyuncu, Haftalık Kasa PvP satırı için bir galibiyet elde eder. Çemberden ayrılınca bayrağın açık kalır; /pvp off normal beş dakikalık gecikmeyi kullanır ve aktif tepenin içindeyken veya savaş sırasında tamamlanamaz. Tepe çubuğu kontrolü, oyuncu sayılarını ve ele geçirme ilerlemesini gösterir; /hill konumunu bildirir.",
   'hudChrome.death.pvpResurrect': 'PvP Diriltme',
   'hudChrome.death.pvpResurrectTitle':
     'En yakın mezarlıkta tam sağlıkla dirilt, yeni bir Bekçi Bedeli olmadan.',

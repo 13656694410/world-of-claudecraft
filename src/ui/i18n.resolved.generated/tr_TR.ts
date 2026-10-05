@@ -438,7 +438,9 @@ export const tr_TR: EnTranslations = {
         "worldOne": "{count} Dünya Görevi Tamamlandı",
         "worldMany": "{count} Dünya Görevi Tamamlandı",
         "pvpOne": "{count} Derecelendirilmiş Maç Kazanıldı",
-        "pvpMany": "{count} Derecelendirilmiş Maç Kazanıldı"
+        "pvpMany": "{count} Derecelendirilmiş Maç Kazanıldı",
+        "pvpWinOne": "{count} PvP Galibiyeti",
+        "pvpWinMany": "{count} PvP Galibiyeti"
       },
       "requiredTask": {
         "raidOne": "{count} Baskın Karşılaşmasını Temizle",
@@ -448,7 +450,9 @@ export const tr_TR: EnTranslations = {
         "worldOne": "{count} Dünya Görevini Tamamla",
         "worldMany": "{count} Dünya Görevini Tamamla",
         "pvpOne": "{count} Derecelendirilmiş Maçı Kazan",
-        "pvpMany": "{count} Derecelendirilmiş Maçı Kazan"
+        "pvpMany": "{count} Derecelendirilmiş Maçı Kazan",
+        "pvpWinOne": "{count} PvP Galibiyeti Al",
+        "pvpWinMany": "{count} PvP Galibiyeti Al"
       },
       "readyWeeks": "Talep edilmemiş haftalar: {count}. İlk tamamlanan haftayı talep et.",
       "claimLastWeek": "Geçen haftanın ödülünü al",
@@ -7057,7 +7061,14 @@ export const tr_TR: EnTranslations = {
       "discord": "Discord'a Katıl",
       "communityWiki": "Topluluk Wiki'si",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Oyun ve topluluk bağlantıları"
+      "linksLabel": "Oyun ve topluluk bağlantıları",
+      "guidesLabel": "Oyuncu Rehberleri",
+      "guideFree": "Ücretsiz MMORPG'ler",
+      "guideGamesLikeWow": "WoW Gibi Oyunlar",
+      "guideBest": "En İyi MMORPG'ler",
+      "guideNew": "Yeni MMORPG'ler",
+      "guideBrowser": "Tarayıcı MMORPG'leri",
+      "guideGamesLikeDiablo": "Diablo Gibi Oyunlar"
     },
     "language": {
       "label": "Dil",
@@ -8355,6 +8366,7 @@ export const tr_TR: EnTranslations = {
       "hillBody": "Her iki saatte bir Ejder Toprakları, Kırağı Diyarı veya Kehribar Vadisi'nde bir tepe belirir. Diyara on beş dakika önceden uyarı verilir ve çember açık arazide işaretlenir. Tepe otuz dakika aktif kalır. Aktif çembere girmek, baskın üyeleri dahil herkesin Dünya PvP bayrağını normal seviye kurallarına göre açar. İçeride en çok uygun oyuncusu bulunan grup, çoğunluğunu kesintisiz bir dakika koruduktan sonra tepeyi ele geçirir; tek başına oynayan biri tek kişilik grup sayılır, ancak baskın üyeleri ve PvP seviye şartının altındaki oyuncular tepeyi ele geçiremez veya tepeden Onur kazanamaz. İçeride duran her hâkim grup üyesi giderek artan hızda Onur kazanır. Ödemeler daha sık yapılır ve daha hızlı artar; böylece eski kırk beş dakikalık etkinliğin toplam Onur miktarı korunur. Tepe el değiştirdiğinde ödül artışı baştan başlar. Çemberden ayrılınca bayrağın açık kalır; /pvp off normal beş dakikalık gecikmeyi kullanır ve aktif tepenin içindeyken veya savaş sırasında tamamlanamaz. Tepe çubuğu kontrolü, oyuncu sayılarını ve ele geçirme ilerlemesini gösterir; /hill konumunu bildirir.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
       "hillBodyRamp": "Her iki saatte bir Ejder Toprakları, Kırağı Diyarı veya Kehribar Vadisi'nde bir tepe belirir. Diyara on beş dakika önceden uyarı verilir ve çember açık arazide işaretlenir. Tepe otuz dakika aktif kalır. Aktif çembere girmek, baskın üyeleri dahil herkesin Dünya PvP bayrağını normal seviye kurallarına göre açar. İçeride en çok uygun oyuncusu bulunan grup, çoğunluğunu kesintisiz bir dakika koruduktan sonra tepeyi ele geçirir; tek başına oynayan biri tek kişilik grup sayılır, ancak baskın üyeleri ve PvP seviye şartının altındaki oyuncular tepeyi ele geçiremez veya tepeden Onur kazanamaz. İçeride duran her hâkim grup üyesi giderek artan hızda Onur kazanır. Ödemeler daha sık yapılır ve daha hızlı artar; böylece eski kırk beş dakikalık etkinliğin toplam Onur miktarı korunur. Tepe el değiştirdiğinde ödül artışı baştan başlar. Çemberden ayrılınca bayrağın açık kalır; /pvp off normal beş dakikalık gecikmeyi kullanır ve aktif tepenin içindeyken veya savaş sırasında tamamlanamaz. Tepe çubuğu kontrolü, oyuncu sayılarını ve ele geçirme ilerlemesini gösterir; /hill konumunu bildirir.",
+      "hillBodyRanked": "Her iki saatte bir Ejder Toprakları, Kırağı Diyarı veya Kehribar Vadisi'nde bir tepe belirir. Diyara on beş dakika önceden uyarı verilir ve çember açık arazide işaretlenir. Tepe otuz dakika aktif kalır. Aktif çembere girmek, baskın üyeleri dahil herkesin Dünya PvP bayrağını normal seviye kurallarına göre açar. İçeride en çok uygun oyuncusu bulunan grup, çoğunluğunu kesintisiz bir dakika koruduktan sonra tepeyi ele geçirir; tek başına oynayan biri tek kişilik grup sayılır, ancak baskın üyeleri ve PvP seviye şartının altındaki oyuncular tepeyi ele geçiremez veya tepeden Onur kazanamaz. İçeride duran her hâkim grup üyesi giderek artan hızda Onur kazanır. Ödemeler daha sık yapılır ve daha hızlı artar; böylece eski kırk beş dakikalık etkinliğin toplam Onur miktarı korunur. Tepe el değiştirdiğinde ödül artışı baştan başlar. Tepe ayakta iken her beş dakikada bir diyar, konumunu ve tutma sürelerine göre sıralanmış grupları duyar. Tepe düştüğünde, onu en uzun süre tutan grup onu toplamda en az on dakika tutmuşsa, bu grup için içeride en az bir dakika duran ve hala grupta olan her oyuncu, Haftalık Kasa PvP satırı için bir galibiyet elde eder. Çemberden ayrılınca bayrağın açık kalır; /pvp off normal beş dakikalık gecikmeyi kullanır ve aktif tepenin içindeyken veya savaş sırasında tamamlanamaz. Tepe çubuğu kontrolü, oyuncu sayılarını ve ele geçirme ilerlemesini gösterir; /hill konumunu bildirir.",
       "limitsBodyRaids": "Aynı oyuncu tekrar tekrar mağlup etmek daha az az çoğu zaman hiçbir şey öder, ve o oyuncu yönü sayarınız ilk öldürülerinden bir saat sonra baştan başlar, böylece bir kurban değerli bekleme beklemez. Seviyeniz çok aşağı bir hedef hiçbir şey öder. Dövüşlü Alanları ve Arenalar onlara içinde iken kendi kuralları yürütür, ve açık dünyaya daha fazla Onur ödedikleri, böylece dünya PvP aynı satıcıya yavaş yoldur. Raid dünya öldürüleridaten hiç almaz: bir raid üyesi Onur ya da altın almaz ve başkasının hissesini kabusmaz, böylece parti olarak dövüş almak için ödenir."
     },
     "thornhollowPage": {
@@ -9698,7 +9710,14 @@ export const tr_TR: EnTranslations = {
     "whitepaper": "Teknik Doküman",
     "terms": "Hizmet Koşulları",
     "privacy": "Gizlilik Politikası",
-    "discordLabel": "Discord'a Katıl"
+    "discordLabel": "Discord'a Katıl",
+    "guidesLabel": "Oyuncu Rehberleri",
+    "guideFree": "Ücretsiz MMORPG'ler",
+    "guideGamesLikeWow": "WoW Gibi Oyunlar",
+    "guideBest": "En İyi MMORPG'ler",
+    "guideNew": "Yeni MMORPG'ler",
+    "guideBrowser": "Tarayıcı MMORPG'leri",
+    "guideGamesLikeDiablo": "Diablo Gibi Oyunlar"
   },
   "settings": {
     "languageLoading": "Dil yükleniyor...",

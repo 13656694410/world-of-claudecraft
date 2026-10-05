@@ -2,6 +2,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const vi_VN: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': 'MMORPG Tốt Nhất',
+  'footer.guideBrowser': 'MMORPG Trình Duyệt',
+  'footer.guideFree': 'MMORPG Miễn Phí',
+  'footer.guideGamesLikeDiablo': 'Trò Chơi Giống Diablo',
+  'footer.guideGamesLikeWow': 'Trò Chơi Giống WoW',
+  'footer.guideNew': 'MMORPG Mới',
+  'footer.guidesLabel': 'Hướng Dẫn Của Người Chơi',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} Chiến Thắng PvP',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} Chiến Thắng PvP',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'Giành {count} Chiến Thắng PvP',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'Giành {count} Chiến Thắng PvP',
+  'guide.footer.guideBest': 'MMORPG Tốt Nhất',
+  'guide.footer.guideBrowser': 'MMORPG Trình Duyệt',
+  'guide.footer.guideFree': 'MMORPG Miễn Phí',
+  'guide.footer.guideGamesLikeDiablo': 'Trò Chơi Giống Diablo',
+  'guide.footer.guideGamesLikeWow': 'Trò Chơi Giống WoW',
+  'guide.footer.guideNew': 'MMORPG Mới',
+  'guide.footer.guidesLabel': 'Hướng Dẫn Của Người Chơi',
+  'guide.worldPvpPage.hillBodyRanked':
+    'Cứ mỗi hai giờ, một ngọn đồi xuất hiện tại Vùng Đất Rồng, Đỉnh Sương Giá hoặc Xứ Thu Hổ Phách. Toàn vương quốc nhận cảnh báo trước mười lăm phút và vòng tròn được đánh dấu trên đất trống. Ngọn đồi hoạt động trong ba mươi phút. Bước vào vòng tròn đang hoạt động sẽ bật cờ PvP Thế Giới theo quy tắc cấp độ thông thường, kể cả với thành viên nhóm đột kích. Tổ đội có nhiều người chơi đủ điều kiện nhất bên trong sẽ chiếm ngọn đồi sau một phút duy trì ưu thế số lượng liên tục; người chơi một mình được tính là tổ đội một người, nhưng thành viên nhóm đột kích và người chơi chưa đạt cấp độ yêu cầu của PvP không thể chiếm đồi hoặc nhận Danh dự từ đồi. Mỗi người thuộc tổ đội kiểm soát đang đứng bên trong nhận Danh dự với tốc độ tăng dần. Phần thưởng được trao thường xuyên hơn và tăng nhanh hơn, giữ nguyên tổng Danh dự của sự kiện bốn mươi lăm phút trước đây. Khi quyền kiểm soát đổi chủ, mức thưởng bắt đầu tăng lại từ đầu. Mỗi năm phút trong khi ngọn đồi đứng, toàn vương quốc nghe vị trí của nó và các nhóm được xếp hạng theo thời gian giữ. Khi ngọn đồi mất, nếu nhóm giữ lâu nhất đã giữ nó ít nhất mười phút tính cộng, mỗi người chơi đứng bên trong ít nhất một phút cho nhóm đó, và vẫn còn trong đó, kiếm được một chiến thắng hướng tới hàng PvP Kho Tuần. Rời vòng tròn vẫn giữ cờ bật; /pvp off áp dụng thời gian chờ năm phút thông thường và không thể hoàn tất bên trong ngọn đồi đang hoạt động hoặc trong lúc chiến đấu. Thanh ngọn đồi hiển thị quyền kiểm soát, số người và tiến độ chiếm giữ; /hill cho biết vị trí của đồi.',
   'hudChrome.death.pvpResurrect': 'Hồi Sinh PvP',
   'hudChrome.death.pvpResurrectTitle':
     'Hồi sinh tại nghĩa trang gần nhất với đầy đủ sức khỏe, không bị Lệ Phí Người Giữ mới.',

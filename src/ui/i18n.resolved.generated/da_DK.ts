@@ -438,7 +438,9 @@ export const da_DK: EnTranslations = {
         "worldOne": "{count} Verdenquest Gennemført",
         "worldMany": "{count} Verdenquester Gennemført",
         "pvpOne": "{count} Rangeret Kamp Vundet",
-        "pvpMany": "{count} Rangerede Kampe Vundet"
+        "pvpMany": "{count} Rangerede Kampe Vundet",
+        "pvpWinOne": "{count} PvP-Sejr",
+        "pvpWinMany": "{count} PvP-Sejre"
       },
       "requiredTask": {
         "raidOne": "Gennemfør {count} Raid-møde",
@@ -448,7 +450,9 @@ export const da_DK: EnTranslations = {
         "worldOne": "Gennemfør {count} Verdenquest",
         "worldMany": "Gennemfør {count} Verdenquester",
         "pvpOne": "Vind {count} Rangeret Kamp",
-        "pvpMany": "Vind {count} Rangerede Kampe"
+        "pvpMany": "Vind {count} Rangerede Kampe",
+        "pvpWinOne": "Opnå {count} PvP-Sejr",
+        "pvpWinMany": "Opnå {count} PvP-Sejre"
       },
       "readyWeeks": "Uafkrævede uger: {count}. Gør krav på den ældste gennemførte uge først.",
       "claimLastWeek": "Gør krav på sidste uges belønning",
@@ -7057,7 +7061,14 @@ export const da_DK: EnTranslations = {
       "discord": "Bliv en del af Discord",
       "communityWiki": "Fællesskabswiki",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Spil- og fællesskabslinks"
+      "linksLabel": "Spil- og fællesskabslinks",
+      "guidesLabel": "Spillerguides",
+      "guideFree": "Gratis MMORPG'er",
+      "guideGamesLikeWow": "Spil som WoW",
+      "guideBest": "Bedste MMORPG'er",
+      "guideNew": "Nye MMORPG'er",
+      "guideBrowser": "Browser-MMORPG'er",
+      "guideGamesLikeDiablo": "Spil som Diablo"
     },
     "language": {
       "label": "Sprog",
@@ -8355,6 +8366,7 @@ export const da_DK: EnTranslations = {
       "hillBody": "Hver anden time dukker en bakke op i Dragelandet, Frostsløret eller Ravfaldet. Riget får et varsel femten minutter før, og cirklen markeres på åbent land. Bakken er aktiv i tredive minutter. Når du går ind i den aktive cirkel, aktiveres dit flag til verdens-PvP efter de normale niveauregler, også for raidmedlemmer. Gruppen med flest kvalificerede spillere i cirklen indtager bakken efter et minut med uafbrudt flertal; en enkelt spiller tæller som en gruppe på én, men raidmedlemmer og spillere under niveaukravet for PvP kan hverken indtage bakken eller optjene Ære fra den. Hver indehaver i cirklen optjener Ære med stigende hastighed. Udbetalingerne kommer hyppigere og stiger hurtigere, så den samlede Ære fra den tidligere begivenhed på femogfyrre minutter bevares. Når bakken skifter ejer, begynder stigningen forfra. Dit flag forbliver aktivt, når du forlader cirklen; /pvp off bruger den normale forsinkelse på fem minutter og kan ikke afsluttes på en aktiv bakke eller under kamp. Bakkens bjælke viser kontrollen, antallet af spillere og fremskridtet i erobringen; /hill oplyser dens placering.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
       "hillBodyRamp": "Hver anden time dukker en bakke op i Dragelandet, Frostsløret eller Ravfaldet. Riget får et varsel femten minutter før, og cirklen markeres på åbent land. Bakken er aktiv i tredive minutter. Når du går ind i den aktive cirkel, aktiveres dit flag til verdens-PvP efter de normale niveauregler, også for raidmedlemmer. Gruppen med flest kvalificerede spillere i cirklen indtager bakken efter et minut med uafbrudt flertal; en enkelt spiller tæller som en gruppe på én, men raidmedlemmer og spillere under niveaukravet for PvP kan hverken indtage bakken eller optjene Ære fra den. Hver indehaver i cirklen optjener Ære med stigende hastighed. Udbetalingerne kommer hyppigere og stiger hurtigere, så den samlede Ære fra den tidligere begivenhed på femogfyrre minutter bevares. Når bakken skifter ejer, begynder stigningen forfra. Dit flag forbliver aktivt, når du forlader cirklen; /pvp off bruger den normale forsinkelse på fem minutter og kan ikke afsluttes på en aktiv bakke eller under kamp. Bakkens bjælke viser kontrollen, antallet af spillere og fremskridtet i erobringen; /hill oplyser dens placering.",
+      "hillBodyRanked": "Hver anden time dukker en bakke op i Dragelandet, Frostsløret eller Ravfaldet. Riget får et varsel femten minutter før, og cirklen markeres på åbent land. Bakken er aktiv i tredive minutter. Når du går ind i den aktive cirkel, aktiveres dit flag til verdens-PvP efter de normale niveauregler, også for raidmedlemmer. Gruppen med flest kvalificerede spillere i cirklen indtager bakken efter et minut med uafbrudt flertal; en enkelt spiller tæller som en gruppe på én, men raidmedlemmer og spillere under niveaukravet for PvP kan hverken indtage bakken eller optjene Ære fra den. Hver indehaver i cirklen optjener Ære med stigende hastighed. Udbetalingerne kommer hyppigere og stiger hurtigere, så den samlede Ære fra den tidligere begivenhed på femogfyrre minutter bevares. Når bakken skifter ejer, begynder stigningen forfra. Hver fem minutter, mens bakken står, hører riget dens placering og grupperne rangeret efter, hvor længe de har holdt den. Når bakken falder, hvis gruppen, der holdt den længst, holdt den i mindst ti minutter i alt, optjener hver spiller, der stod inden for i mindst et minut for denne gruppe og stadig er medlem, en sejr til PvP-rækken i Det Ugentlige Hvælving. Dit flag forbliver aktivt, når du forlader cirklen; /pvp off bruger den normale forsinkelse på fem minutter og kan ikke afsluttes på en aktiv bakke eller under kamp. Bakkens bjælke viser kontrollen, antallet af spillere og fremskridtet i erobringen; /hill oplyser dens placering.",
       "limitsBodyRaids": "Besejring det samme spiller igen og igen betaler mindre hver gang og snart ingenting, og din tælling mod det spiller kun starter over omkring en time efter først af disse drab, så lejring en offer er aldrig værd ventetid. Et mål langt under dit niveau betaler ingenting overhovedet. Battlegrounds og Arenaer køre deres egne regler mens du er inden i dem, og de betaler mere Ære end åben verden, så verden PvP er den langsommere vej til samme forhandler. Raids tjener ingenting fra verden drab: et raid medlem tager ingen Ære eller guld og gør ikke skrumpe nogen anden aktie, så kæmp som en parti til at blive betalt."
     },
     "thornhollowPage": {
@@ -9698,7 +9710,14 @@ export const da_DK: EnTranslations = {
     "whitepaper": "Whitepaper",
     "terms": "Servicevilkår",
     "privacy": "Privatlivspolitik",
-    "discordLabel": "Bliv medlem af Discord"
+    "discordLabel": "Bliv medlem af Discord",
+    "guidesLabel": "Spillerguides",
+    "guideFree": "Gratis MMORPG'er",
+    "guideGamesLikeWow": "Spil som WoW",
+    "guideBest": "Bedste MMORPG'er",
+    "guideNew": "Nye MMORPG'er",
+    "guideBrowser": "Browser-MMORPG'er",
+    "guideGamesLikeDiablo": "Spil som Diablo"
   },
   "settings": {
     "languageLoading": "Indlæser sprog...",

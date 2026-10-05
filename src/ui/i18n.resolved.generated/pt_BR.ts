@@ -438,7 +438,9 @@ export const pt_BR: EnTranslations = {
         "worldOne": "{count} Missão Mundial Concluída",
         "worldMany": "{count} Missões Mundiais Concluídas",
         "pvpOne": "{count} Partida Ranqueada Vencida",
-        "pvpMany": "{count} Partidas Ranqueadas Vencidas"
+        "pvpMany": "{count} Partidas Ranqueadas Vencidas",
+        "pvpWinOne": "{count} Vitória de PvP",
+        "pvpWinMany": "{count} Vitórias de PvP"
       },
       "requiredTask": {
         "raidOne": "Conclua {count} Combate de Raide",
@@ -448,7 +450,9 @@ export const pt_BR: EnTranslations = {
         "worldOne": "Complete {count} Missão Mundial",
         "worldMany": "Complete {count} Missões Mundiais",
         "pvpOne": "Vença {count} Partida Ranqueada",
-        "pvpMany": "Vença {count} Partidas Ranqueadas"
+        "pvpMany": "Vença {count} Partidas Ranqueadas",
+        "pvpWinOne": "Ganhe {count} Vitória de PvP",
+        "pvpWinMany": "Ganhe {count} Vitórias de PvP"
       },
       "readyWeeks": "Semanas não resgatadas: {count}. Resgate primeiro a semana concluída mais antiga.",
       "claimLastWeek": "Resgatar a recompensa da semana passada",
@@ -7057,7 +7061,14 @@ export const pt_BR: EnTranslations = {
       "discord": "Entre no Discord",
       "communityWiki": "Wiki da Comunidade",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Links de jogo e comunidade"
+      "linksLabel": "Links de jogo e comunidade",
+      "guidesLabel": "Guias de Jogadores",
+      "guideFree": "MMORPGs Gratuitos",
+      "guideGamesLikeWow": "Jogos como WoW",
+      "guideBest": "Melhores MMORPGs",
+      "guideNew": "Novos MMORPGs",
+      "guideBrowser": "MMORPGs de Navegador",
+      "guideGamesLikeDiablo": "Jogos como Diablo"
     },
     "language": {
       "label": "Idioma",
@@ -8355,6 +8366,7 @@ export const pt_BR: EnTranslations = {
       "hillBody": "A cada duas horas, uma colina surge em Drakelands, nos Confins de Frostveil ou em Amberfall. O reino recebe um aviso com quinze minutos de antecedência, e o círculo é marcado em terreno aberto. A colina permanece ativa por trinta minutos. Entrar no círculo ativo ativa sua bandeira de PvP Mundial pelas regras normais de nível, inclusive para membros de raide. O grupo com mais jogadores elegíveis dentro do círculo conquista a colina após um minuto de maioria ininterrupta; um jogador sozinho conta como um grupo de um, mas membros de raide e jogadores abaixo do nível exigido para PvP não podem capturar a colina nem ganhar Honra por ela. Cada integrante do grupo que a controla e está dentro do círculo ganha Honra em ritmo crescente. Os pagamentos são mais frequentes e aumentam mais rápido, preservando a Honra total do antigo evento de quarenta e cinco minutos. Uma mudança de controle reinicia o aumento das recompensas. Sair do círculo mantém sua bandeira ligada; /pvp off usa o atraso normal de cinco minutos e não pode terminar dentro de uma colina ativa ou durante o combate. A barra da colina mostra o controle, os números de jogadores e o progresso de captura; /hill informa sua localização.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
       "hillBodyRamp": "A cada duas horas, uma colina surge em Drakelands, nos Confins de Frostveil ou em Amberfall. O reino recebe um aviso com quinze minutos de antecedência, e o círculo é marcado em terreno aberto. A colina permanece ativa por trinta minutos. Entrar no círculo ativo ativa sua bandeira de PvP Mundial pelas regras normais de nível, inclusive para membros de raide. O grupo com mais jogadores elegíveis dentro do círculo conquista a colina após um minuto de maioria ininterrupta; um jogador sozinho conta como um grupo de um, mas membros de raide e jogadores abaixo do nível exigido para PvP não podem capturar a colina nem ganhar Honra por ela. Cada integrante do grupo que a controla e está dentro do círculo ganha Honra em ritmo crescente. Os pagamentos são mais frequentes e aumentam mais rápido, preservando a Honra total do antigo evento de quarenta e cinco minutos. Uma mudança de controle reinicia o aumento das recompensas. Sair do círculo mantém sua bandeira ligada; /pvp off usa o atraso normal de cinco minutos e não pode terminar dentro de uma colina ativa ou durante o combate. A barra da colina mostra o controle, os números de jogadores e o progresso de captura; /hill informa sua localização.",
+      "hillBodyRanked": "A cada duas horas, uma colina surge em Drakelands, nos Confins de Frostveil ou em Amberfall. O reino recebe um aviso com quinze minutos de antecedência, e o círculo é marcado em terreno aberto. A colina permanece ativa por trinta minutos. Entrar no círculo ativo ativa sua bandeira de PvP Mundial pelas regras normais de nível, inclusive para membros de raide. O grupo com mais jogadores elegíveis dentro do círculo conquista a colina após um minuto de maioria ininterrupta; um jogador sozinho conta como um grupo de um, mas membros de raide e jogadores abaixo do nível exigido para PvP não podem capturar a colina nem ganhar Honra por ela. Cada integrante do grupo que a controla e está dentro do círculo ganha Honra em ritmo crescente. Os pagamentos são mais frequentes e aumentam mais rápido, preservando a Honra total do antigo evento de quarenta e cinco minutos. Uma mudança de controle reinicia o aumento das recompensas. A cada cinco minutos enquanto a colina está ativa, o reino é informado de sua localização e os grupos classificados pelo tempo que a mantêm. Quando a colina cai, se o grupo que a manteve por mais tempo a manteve por pelo menos dez minutos no total, cada jogador que ficou dentro por pelo menos um minuto para esse grupo e ainda é membro dele ganha uma vitória para a linha de PvP do Cofre Semanal. Sair do círculo mantém sua bandeira ligada; /pvp off usa o atraso normal de cinco minutos e não pode terminar dentro de uma colina ativa ou durante o combate. A barra da colina mostra o controle, os números de jogadores e o progresso de captura; /hill informa sua localização.",
       "limitsBodyRaids": "Derrotar o mesmo jogador repetidamente paga cada vez menos e logo nada, e sua contagem contra aquele jogador só recomeça cerca de uma hora depois da primeira dessas mortes, então esperar de tocaia por uma única vítima nunca compensa a espera. Um alvo muito abaixo do seu nível não paga nada. Campos de Batalha e Arenas seguem suas próprias regras enquanto você está dentro deles, e pagam mais Honra que o mundo aberto, então o JcJ mundial é o caminho mais lento até o mesmo vendedor. Raides não ganham nada com mortes no mundo: um membro de raide não recebe Honra nem ouro e não reduz a parte de mais ninguém, então lute em grupo para ser pago."
     },
     "thornhollowPage": {
@@ -9698,7 +9710,14 @@ export const pt_BR: EnTranslations = {
     "whitepaper": "Whitepaper",
     "terms": "Termos de serviço",
     "privacy": "Política de privacidade",
-    "discordLabel": "Juntar-se ao Discord"
+    "discordLabel": "Juntar-se ao Discord",
+    "guidesLabel": "Guias de Jogadores",
+    "guideFree": "MMORPGs Gratuitos",
+    "guideGamesLikeWow": "Jogos como WoW",
+    "guideBest": "Melhores MMORPGs",
+    "guideNew": "Novos MMORPGs",
+    "guideBrowser": "MMORPGs de Navegador",
+    "guideGamesLikeDiablo": "Jogos como Diablo"
   },
   "settings": {
     "languageLoading": "Carregando idioma...",

@@ -2,6 +2,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const da_DK: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': "Bedste MMORPG'er",
+  'footer.guideBrowser': "Browser-MMORPG'er",
+  'footer.guideFree': "Gratis MMORPG'er",
+  'footer.guideGamesLikeDiablo': 'Spil som Diablo',
+  'footer.guideGamesLikeWow': 'Spil som WoW',
+  'footer.guideNew': "Nye MMORPG'er",
+  'footer.guidesLabel': 'Spillerguides',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} PvP-Sejre',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} PvP-Sejr',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'Opnå {count} PvP-Sejre',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'Opnå {count} PvP-Sejr',
+  'guide.footer.guideBest': "Bedste MMORPG'er",
+  'guide.footer.guideBrowser': "Browser-MMORPG'er",
+  'guide.footer.guideFree': "Gratis MMORPG'er",
+  'guide.footer.guideGamesLikeDiablo': 'Spil som Diablo',
+  'guide.footer.guideGamesLikeWow': 'Spil som WoW',
+  'guide.footer.guideNew': "Nye MMORPG'er",
+  'guide.footer.guidesLabel': 'Spillerguides',
+  'guide.worldPvpPage.hillBodyRanked':
+    'Hver anden time dukker en bakke op i Dragelandet, Frostsløret eller Ravfaldet. Riget får et varsel femten minutter før, og cirklen markeres på åbent land. Bakken er aktiv i tredive minutter. Når du går ind i den aktive cirkel, aktiveres dit flag til verdens-PvP efter de normale niveauregler, også for raidmedlemmer. Gruppen med flest kvalificerede spillere i cirklen indtager bakken efter et minut med uafbrudt flertal; en enkelt spiller tæller som en gruppe på én, men raidmedlemmer og spillere under niveaukravet for PvP kan hverken indtage bakken eller optjene Ære fra den. Hver indehaver i cirklen optjener Ære med stigende hastighed. Udbetalingerne kommer hyppigere og stiger hurtigere, så den samlede Ære fra den tidligere begivenhed på femogfyrre minutter bevares. Når bakken skifter ejer, begynder stigningen forfra. Hver fem minutter, mens bakken står, hører riget dens placering og grupperne rangeret efter, hvor længe de har holdt den. Når bakken falder, hvis gruppen, der holdt den længst, holdt den i mindst ti minutter i alt, optjener hver spiller, der stod inden for i mindst et minut for denne gruppe og stadig er medlem, en sejr til PvP-rækken i Det Ugentlige Hvælving. Dit flag forbliver aktivt, når du forlader cirklen; /pvp off bruger den normale forsinkelse på fem minutter og kan ikke afsluttes på en aktiv bakke eller under kamp. Bakkens bjælke viser kontrollen, antallet af spillere og fremskridtet i erobringen; /hill oplyser dens placering.',
   'hudChrome.death.pvpResurrect': 'PvP Genoplivning',
   'hudChrome.death.pvpResurrectTitle':
     'Genoplives ved nærmeste kirkegård med fuld sundhed, uden ny Kyperens Told.',

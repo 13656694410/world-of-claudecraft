@@ -13,6 +13,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const fr_FR: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': 'Meilleurs MMORPG',
+  'footer.guideBrowser': 'MMORPG de navigateur',
+  'footer.guideFree': 'MMORPG gratuits',
+  'footer.guideGamesLikeDiablo': 'Jeux comme Diablo',
+  'footer.guideGamesLikeWow': 'Jeux comme WoW',
+  'footer.guideNew': 'Nouveaux MMORPG',
+  'footer.guidesLabel': 'Guides des joueurs',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} Victoires JcJ',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} Victoire JcJ',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'Remportez {count} Victoires JcJ',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'Remportez {count} Victoire JcJ',
+  'guide.footer.guideBest': 'Meilleurs MMORPG',
+  'guide.footer.guideBrowser': 'MMORPG de navigateur',
+  'guide.footer.guideFree': 'MMORPG gratuits',
+  'guide.footer.guideGamesLikeDiablo': 'Jeux comme Diablo',
+  'guide.footer.guideGamesLikeWow': 'Jeux comme WoW',
+  'guide.footer.guideNew': 'Nouveaux MMORPG',
+  'guide.footer.guidesLabel': 'Guides des joueurs',
+  'guide.worldPvpPage.hillBodyRanked':
+    "Toutes les deux heures, une colline apparaît dans une des zones Les Terres du Dragon, Le Voile de Givre ou La Chute d'Ambre. Le royaume reçoit un avertissement quinze minutes avant et le cercle est marqué en terrain dégagé. La colline reste active trente minutes. Entrer dans le cercle actif lève votre drapeau JcJ mondial selon les conditions de niveau habituelles, même pour les membres d'un raid. Le groupe comptant le plus de joueurs admissibles à l'intérieur capture la colline après une minute de majorité ininterrompue ; un joueur seul compte comme un groupe d'une personne, mais les membres d'un raid et les joueurs sous le niveau requis pour le JcJ ne peuvent ni capturer ni gagner l'Honneur de la colline. Chaque détenteur à l'intérieur gagne de l'Honneur à un rythme croissant. Les versements et leur progression sont accélérés pour conserver l'Honneur total de l'ancien événement de quarante-cinq minutes. Un changement de détenteur réinitialise la progression. Toutes les cinq minutes tandis que la colline se dresse, le royaume apprend sa position et les groupes classés par temps de détention. Quand la colline tombe, si le groupe qui l'a tenue le plus longtemps l'a tenue au moins dix minutes au total, chaque joueur qui est resté à l'intérieur pendant au moins une minute pour ce groupe et en est toujours membre remporte une victoire pour la ligne JcJ du Coffre hebdomadaire. Sortir laisse votre drapeau levé ; /pvp off prend les cinq minutes habituelles et ne peut aboutir dans une colline active ni en combat. La barre affiche le contrôle, les effectifs et la progression de capture ; /hill indique l'emplacement.",
   'hudChrome.death.pvpResurrect': 'Résurrection JcJ',
   'hudChrome.death.pvpResurrectTitle':
     'Ressuscitez au cimetière le plus proche avec la santé complète, sans nouveau Glas du Veilleur.',

@@ -13,6 +13,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const es: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': 'Mejores MMORPGs',
+  'footer.guideBrowser': 'MMORPGs de navegador',
+  'footer.guideFree': 'MMORPGs gratuitos',
+  'footer.guideGamesLikeDiablo': 'Juegos como Diablo',
+  'footer.guideGamesLikeWow': 'Juegos como WoW',
+  'footer.guideNew': 'Nuevos MMORPGs',
+  'footer.guidesLabel': 'Guías de jugadores',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} victorias JcJ',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} victoria JcJ',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'Consigue {count} victorias JcJ',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'Consigue {count} victoria JcJ',
+  'guide.footer.guideBest': 'Mejores MMORPGs',
+  'guide.footer.guideBrowser': 'MMORPGs de navegador',
+  'guide.footer.guideFree': 'MMORPGs gratuitos',
+  'guide.footer.guideGamesLikeDiablo': 'Juegos como Diablo',
+  'guide.footer.guideGamesLikeWow': 'Juegos como WoW',
+  'guide.footer.guideNew': 'Nuevos MMORPGs',
+  'guide.footer.guidesLabel': 'Guías de jugadores',
+  'guide.worldPvpPage.hillBodyRanked':
+    'Cada dos horas aparece una colina en Las Tierras del Dragón, El Velo de Escarcha o La Cascada de Ámbar. El reino recibe un aviso con quince minutos de antelación y el círculo queda marcado en terreno abierto. La colina permanece activa treinta minutos. Entrar en el círculo activo activa la bandera JcJ mundial según los requisitos de nivel habituales, también para los miembros de bandas. El grupo con más jugadores aptos dentro captura la colina tras un minuto de mayoría ininterrumpida; un jugador solo cuenta como grupo de uno, pero los miembros de bandas y los jugadores por debajo del nivel requerido para JcJ no pueden capturar ni ganar Honor de la colina. Cada defensor dentro gana Honor a un ritmo creciente. Los pagos y su aumento son más rápidos y conservan el Honor total del antiguo evento de cuarenta y cinco minutos. Al cambiar de dueño, el aumento empieza de nuevo. Cada cinco minutos mientras la colina se alza, el reino recibe su ubicación y los grupos clasificados por el tiempo que la han mantenido. Cuando la colina cae, si el grupo que más tiempo la mantuvo la tuvo durante al menos diez minutos en total, cada jugador que estuvo dentro durante al menos un minuto para ese grupo y sigue siendo miembro suyo consigue una victoria hacia la fila JcJ de la Bóveda Semanal. Salir mantiene tu bandera activa; /pvp off tarda los cinco minutos habituales y no puede completarse dentro de una colina activa ni durante el combate. La barra muestra el control, los efectivos y el progreso de captura; /hill indica la ubicación.',
   'hudChrome.death.pvpResurrect': 'Resucitar JcJ',
   'hudChrome.death.pvpResurrectTitle':
     'Revive en el cementerio más cercano con vida plena, sin un nuevo Tañido del Guardián.',

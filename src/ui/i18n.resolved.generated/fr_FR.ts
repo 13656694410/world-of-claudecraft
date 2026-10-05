@@ -438,7 +438,9 @@ export const fr_FR: EnTranslations = {
         "worldOne": "{count} quête mondiale terminée",
         "worldMany": "{count} quêtes mondiales terminées",
         "pvpOne": "{count} match classé remporté",
-        "pvpMany": "{count} matchs classés remportés"
+        "pvpMany": "{count} matchs classés remportés",
+        "pvpWinOne": "{count} Victoire JcJ",
+        "pvpWinMany": "{count} Victoires JcJ"
       },
       "requiredTask": {
         "raidOne": "Vainquez {count} rencontre de raid",
@@ -448,7 +450,9 @@ export const fr_FR: EnTranslations = {
         "worldOne": "Terminez {count} quête mondiale",
         "worldMany": "Terminez {count} quêtes mondiales",
         "pvpOne": "Remportez {count} match classé",
-        "pvpMany": "Remportez {count} matchs classés"
+        "pvpMany": "Remportez {count} matchs classés",
+        "pvpWinOne": "Remportez {count} Victoire JcJ",
+        "pvpWinMany": "Remportez {count} Victoires JcJ"
       },
       "readyWeeks": "Semaines non réclamées : {count}. Réclamez d'abord la semaine terminée la plus ancienne.",
       "claimLastWeek": "Réclamer la récompense de la semaine dernière",
@@ -7057,7 +7061,14 @@ export const fr_FR: EnTranslations = {
       "discord": "Rejoindre le Discord",
       "communityWiki": "Wiki communautaire",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Liens de jeu et de communauté"
+      "linksLabel": "Liens de jeu et de communauté",
+      "guidesLabel": "Guides des joueurs",
+      "guideFree": "MMORPG gratuits",
+      "guideGamesLikeWow": "Jeux comme WoW",
+      "guideBest": "Meilleurs MMORPG",
+      "guideNew": "Nouveaux MMORPG",
+      "guideBrowser": "MMORPG de navigateur",
+      "guideGamesLikeDiablo": "Jeux comme Diablo"
     },
     "language": {
       "label": "Langue",
@@ -8355,6 +8366,7 @@ export const fr_FR: EnTranslations = {
       "hillBody": "Toutes les deux heures, une colline apparaît dans une des zones Les Terres du Dragon, Le Voile de Givre ou La Chute d'Ambre. Le royaume reçoit un avertissement quinze minutes avant et le cercle est marqué en terrain dégagé. La colline reste active trente minutes. Entrer dans le cercle actif lève votre drapeau JcJ mondial selon les conditions de niveau habituelles, même pour les membres d'un raid. Le groupe comptant le plus de joueurs admissibles à l'intérieur capture la colline après une minute de majorité ininterrompue ; un joueur seul compte comme un groupe d'une personne, mais les membres d'un raid et les joueurs sous le niveau requis pour le JcJ ne peuvent ni capturer ni gagner l'Honneur de la colline. Chaque détenteur à l'intérieur gagne de l'Honneur à un rythme croissant. Les versements et leur progression sont accélérés pour conserver l'Honneur total de l'ancien événement de quarante-cinq minutes. Un changement de détenteur réinitialise la progression. Sortir laisse votre drapeau levé ; /pvp off prend les cinq minutes habituelles et ne peut aboutir dans une colline active ni en combat. La barre affiche le contrôle, les effectifs et la progression de capture ; /hill indique l'emplacement.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
       "hillBodyRamp": "Toutes les deux heures, une colline apparaît dans une des zones Les Terres du Dragon, Le Voile de Givre ou La Chute d'Ambre. Le royaume reçoit un avertissement quinze minutes avant et le cercle est marqué en terrain dégagé. La colline reste active trente minutes. Entrer dans le cercle actif lève votre drapeau JcJ mondial selon les conditions de niveau habituelles, même pour les membres d'un raid. Le groupe comptant le plus de joueurs admissibles à l'intérieur capture la colline après une minute de majorité ininterrompue ; un joueur seul compte comme un groupe d'une personne, mais les membres d'un raid et les joueurs sous le niveau requis pour le JcJ ne peuvent ni capturer ni gagner l'Honneur de la colline. Chaque détenteur à l'intérieur gagne de l'Honneur à un rythme croissant. Les versements et leur progression sont accélérés pour conserver l'Honneur total de l'ancien événement de quarante-cinq minutes. Un changement de détenteur réinitialise la progression. Sortir laisse votre drapeau levé ; /pvp off prend les cinq minutes habituelles et ne peut aboutir dans une colline active ni en combat. La barre affiche le contrôle, les effectifs et la progression de capture ; /hill indique l'emplacement.",
+      "hillBodyRanked": "Toutes les deux heures, une colline apparaît dans une des zones Les Terres du Dragon, Le Voile de Givre ou La Chute d'Ambre. Le royaume reçoit un avertissement quinze minutes avant et le cercle est marqué en terrain dégagé. La colline reste active trente minutes. Entrer dans le cercle actif lève votre drapeau JcJ mondial selon les conditions de niveau habituelles, même pour les membres d'un raid. Le groupe comptant le plus de joueurs admissibles à l'intérieur capture la colline après une minute de majorité ininterrompue ; un joueur seul compte comme un groupe d'une personne, mais les membres d'un raid et les joueurs sous le niveau requis pour le JcJ ne peuvent ni capturer ni gagner l'Honneur de la colline. Chaque détenteur à l'intérieur gagne de l'Honneur à un rythme croissant. Les versements et leur progression sont accélérés pour conserver l'Honneur total de l'ancien événement de quarante-cinq minutes. Un changement de détenteur réinitialise la progression. Toutes les cinq minutes tandis que la colline se dresse, le royaume apprend sa position et les groupes classés par temps de détention. Quand la colline tombe, si le groupe qui l'a tenue le plus longtemps l'a tenue au moins dix minutes au total, chaque joueur qui est resté à l'intérieur pendant au moins une minute pour ce groupe et en est toujours membre remporte une victoire pour la ligne JcJ du Coffre hebdomadaire. Sortir laisse votre drapeau levé ; /pvp off prend les cinq minutes habituelles et ne peut aboutir dans une colline active ni en combat. La barre affiche le contrôle, les effectifs et la progression de capture ; /hill indique l'emplacement.",
       "limitsBodyRaids": "Vaincre le même joueur encore et encore rapporte de moins en moins puis bientôt plus rien, et votre compteur contre ce joueur ne repart de zéro qu'environ une heure après la première de ces victoires, si bien que camper une seule victime ne vaut jamais l'attente. Une cible très en dessous de votre niveau ne rapporte rien du tout. Les champs de bataille et les arènes suivent leurs propres règles tant que vous vous y trouvez, et ils rapportent plus d'Honneur que le monde ouvert, si bien que le JcJ en monde ouvert est la voie la plus lente vers le même marchand. Les raids ne gagnent rien des victoires en monde ouvert : un membre de raid ne reçoit ni Honneur ni or et ne réduit la part de personne d'autre, alors combattez en groupe pour être payé."
     },
     "thornhollowPage": {
@@ -9698,7 +9710,14 @@ export const fr_FR: EnTranslations = {
     "whitepaper": "Livre blanc",
     "terms": "Conditions d'utilisation",
     "privacy": "Politique de confidentialité",
-    "discordLabel": "Rejoindre le Discord"
+    "discordLabel": "Rejoindre le Discord",
+    "guidesLabel": "Guides des joueurs",
+    "guideFree": "MMORPG gratuits",
+    "guideGamesLikeWow": "Jeux comme WoW",
+    "guideBest": "Meilleurs MMORPG",
+    "guideNew": "Nouveaux MMORPG",
+    "guideBrowser": "MMORPG de navigateur",
+    "guideGamesLikeDiablo": "Jeux comme Diablo"
   },
   "settings": {
     "languageLoading": "Chargement de la langue...",

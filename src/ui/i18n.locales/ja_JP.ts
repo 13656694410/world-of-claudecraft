@@ -13,6 +13,12 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const ja_JP: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': '最高のMMORPG',
+  'footer.guideFree': '無料MMORPG',
+  'footer.guideNew': '新作MMORPG',
+  'guide.footer.guideBest': '最高のMMORPG',
+  'guide.footer.guideFree': '無料MMORPG',
+  'guide.footer.guideNew': '新作MMORPG',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}分',
   'abilityUi.cast.hoard_cast_rime_beam': '霜光線',
   'hudChrome.worldQuestTooltip.currencyAmount': '{amount}{currency}',
@@ -2850,6 +2856,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
     '同じプレイヤーを繰り返し倒すと報酬は毎回減り、すぐにゼロになります。そのプレイヤーに対するカウントは最初の撃破からおよそ1時間後にようやく元に戻るため、一人を狙い続けて待つ価値はありません。自分よりはるかに低いレベルの相手からは何も得られません。バトルグラウンドとアリーナの中では独自のルールが適用され、オープンワールドより多くの名誉を支払うため、ワールドPvPは同じ商人へ向かう遠回りの道です。',
   'guide.worldPvpPage.hillBodyRamp':
     '2時間ごとにドレイクランド、フロストヴェイルの果て、アンバーフォールのいずれかに丘が出現します。レルム全体に15分前の予告が届き、開けた地面に円が表示されます。丘は30分間有効です。開催中の円に入ると、レイドメンバーも含め、通常のレベル条件に従ってワールドPvPフラグが立ちます。円内の参加資格を持つ人数が最も多いパーティーが、1分間連続で優勢を保つと丘を占領します。単独プレイヤーは1人パーティーとして扱われますが、レイドメンバーとPvP必要レベル未満のプレイヤーは占領も丘の名誉獲得もできません。占領側の円内の各メンバーは、次第に高まる割合で名誉を得ます。報酬の支給頻度と増加速度が上がり、以前の45分間のイベントと同じ名誉総量が保たれます。占領側が変わると増加は最初から始まります。円から出てもフラグは残ります。/pvp offは通常の5分待ちを使い、開催中の丘の中や戦闘中には完了しません。丘のバーには占領側、人数、占領進捗が表示され、/hillで場所を確認できます。',
+  'guide.worldPvpPage.hillBodyRanked':
+    '2時間ごとにドレイクランド、フロストヴェイルの果て、アンバーフォールのいずれかに丘が出現します。レルム全体に15分前の予告が届き、開けた地面に円が表示されます。丘は30分間有効です。開催中の円に入ると、レイドメンバーも含め、通常のレベル条件に従ってワールドPvPフラグが立ちます。円内の参加資格を持つ人数が最も多いパーティーが、1分間連続で優勢を保つと丘を占領します。単独プレイヤーは1人パーティーとして扱われますが、レイドメンバーとPvP必要レベル未満のプレイヤーは占領も丘の名誉獲得もできません。占領側の円内の各メンバーは次第に高まる割合で名誉を得て、占領側が変わると増加は最初から始まります。丘の開催中は5分ごとに場所と各グループの占領時間ランキングがレルム全体に告知されます。丘が終わると、合計占領時間が最も長いグループが合計10分以上占領していた場合、そのグループの占領中に円内に1分以上立ち、終了時にもグループに残っているプレイヤーは、週間宝物庫のPvP進捗に1勝を獲得します。円から出てもフラグは残ります。/pvp offは通常の5分待ちを使い、開催中の丘の中や戦闘中には完了しません。丘のバーには占領側、人数、占領進捗が表示され、/hillで場所を確認できます。',
   'guide.worldPvpPage.limitsBodyRaids':
     '同じプレイヤーを繰り返し倒すと報酬は毎回減り、すぐにゼロになります。そのプレイヤーに対するカウントは最初の撃破からおよそ1時間後にようやく元に戻るため、一人を狙い続けて待つ価値はありません。自分よりはるかに低いレベルの相手からは何も得られません。バトルグラウンドとアリーナの中では独自のルールが適用され、オープンワールドより多くの名誉を支払うため、ワールドPvPは同じ商人へ向かう遠回りの道です。レイドはワールドでの撃破から何も得られません。レイドのメンバーは名誉もゴールドも受け取らず、他の人の取り分も減らさないため、報酬を得るにはパーティで戦いましょう。',
   'guide.worldPvpPage.hillHeading': '丘の王',
@@ -3330,6 +3338,10 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'footer.terms': '利用規約',
   'footer.privacy': 'プライバシーポリシー',
   'footer.discordLabel': 'Discordに参加する',
+  'footer.guidesLabel': 'プレイヤーガイド',
+  'footer.guideGamesLikeWow': 'WoWに似たゲーム',
+  'footer.guideBrowser': 'ブラウザMMORPG',
+  'footer.guideGamesLikeDiablo': 'ディアブロに似たゲーム',
   'highscores.title': 'ハイスコアリーダーボード',
   'highscores.desc': 'ワールドの偉大なチャンピオンたちを確認し、あなたの進行度と比較しましょう。',
   'wiki.title': 'ゲームWiki & ガイド',
@@ -13214,6 +13226,10 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
     '画面上の宝箱ボタンを押すと、デイリー報酬のウィンドウが開きます。毎日いくつかの課題が用意され、クエストを達成したり、灰の闘技場で戦ったり、ヴェイルカップの試合に勝ったりでき、さらに賞品ホイールを一日一回無料で回せます。これらはすべてその日の順位に向けたポイントになり、上位の獲得者たちは、任意のコミュニティトークンの保有者向けの賞金プールを分け合います。いずれもゲーム内で力を授けることはありません。ウィンドウにはその日のルールと参加資格が示され、リーダーボードが表示され、あなたの履歴も残されます。',
   'guide.economy.dailyTitle': 'デイリー報酬',
   'guide.footer.linksLabel': 'プレイとコミュニティのリンク',
+  'guide.footer.guidesLabel': 'プレイヤーガイド',
+  'guide.footer.guideGamesLikeWow': 'WoWに似たゲーム',
+  'guide.footer.guideBrowser': 'ブラウザMMORPG',
+  'guide.footer.guideGamesLikeDiablo': 'ディアブロに似たゲーム',
   'guide.gear.bagsBody':
     '拾ったものはすべて一つの共通の背嚢に入り、バッグを装備することでそれを広げます。バッグウィンドウにはバッグスロットが四つあります。背嚢の中のバッグをクリックすれば空きスロットに差し込めますし、身に着けたバッグはそれぞれ自分の収納を足します。素朴なバッグは安価な商人の品で、より広いものは獣が落とし、最上のものはダンジョンのボスから来るので、持てる量は装備と歩調を合わせて育ちます。積み重ねられる品はどれも、一つのスロットに何個入るかをツールチップに記しているので、ちょっとしたポーションの買い出しがスロット二つ分になることを前もって知ることができます。',
   'guide.gear.bagsTitle': 'バッグと収納容量',
@@ -19434,6 +19450,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.completedTask.worldMany': 'ワールドクエスト{count}件完了',
   'hudChrome.weeklyRewards.completedTask.pvpOne': 'レート戦{count}勝',
   'hudChrome.weeklyRewards.completedTask.pvpMany': 'レート戦{count}勝',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': 'PvPで{count}勝',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': 'PvPで{count}勝',
   'hudChrome.weeklyRewards.requiredTask.raidOne': 'レイドボスを{count}体撃破する',
   'hudChrome.weeklyRewards.requiredTask.raidMany': 'レイドボスを{count}体撃破する',
   'hudChrome.weeklyRewards.requiredTask.dungeonOne': 'ダンジョンを{count}回クリアする',
@@ -19442,6 +19460,8 @@ export const ja_JP: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.requiredTask.worldMany': 'ワールドクエストを{count}件完了する',
   'hudChrome.weeklyRewards.requiredTask.pvpOne': 'レート戦で{count}勝する',
   'hudChrome.weeklyRewards.requiredTask.pvpMany': 'レート戦で{count}勝する',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'PvPで{count}勝する',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'PvPで{count}勝する',
   'hudChrome.weeklyRewards.readyWeeks':
     '未受領の週：{count}。完了した最も古い週から受け取ってください。',
   'hudChrome.weeklyRewards.claimLastWeek': '先週の報酬を受け取る',

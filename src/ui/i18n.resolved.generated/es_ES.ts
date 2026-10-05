@@ -438,7 +438,9 @@ export const es_ES: EnTranslations = {
         "worldOne": "{count} misión de mundo completada",
         "worldMany": "{count} misiones de mundo completadas",
         "pvpOne": "{count} combate clasificatorio ganado",
-        "pvpMany": "{count} combates clasificatorios ganados"
+        "pvpMany": "{count} combates clasificatorios ganados",
+        "pvpWinOne": "{count} victoria JcJ",
+        "pvpWinMany": "{count} victorias JcJ"
       },
       "requiredTask": {
         "raidOne": "Supera {count} encuentro de banda",
@@ -448,7 +450,9 @@ export const es_ES: EnTranslations = {
         "worldOne": "Completa {count} misión de mundo",
         "worldMany": "Completa {count} misiones de mundo",
         "pvpOne": "Gana {count} combate clasificatorio",
-        "pvpMany": "Gana {count} combates clasificatorios"
+        "pvpMany": "Gana {count} combates clasificatorios",
+        "pvpWinOne": "Consigue {count} victoria JcJ",
+        "pvpWinMany": "Consigue {count} victorias JcJ"
       },
       "readyWeeks": "Semanas sin reclamar: {count}. Reclama primero la semana completada más antigua.",
       "claimLastWeek": "Reclamar la recompensa de la semana pasada",
@@ -7057,7 +7061,14 @@ export const es_ES: EnTranslations = {
       "discord": "Únete al Discord",
       "communityWiki": "Wiki de la comunidad",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Enlaces de juego y comunidad"
+      "linksLabel": "Enlaces de juego y comunidad",
+      "guidesLabel": "Guías de jugadores",
+      "guideFree": "MMORPGs gratuitos",
+      "guideGamesLikeWow": "Juegos como WoW",
+      "guideBest": "Mejores MMORPGs",
+      "guideNew": "Nuevos MMORPGs",
+      "guideBrowser": "MMORPGs de navegador",
+      "guideGamesLikeDiablo": "Juegos como Diablo"
     },
     "language": {
       "label": "Idioma",
@@ -8355,6 +8366,7 @@ export const es_ES: EnTranslations = {
       "hillBody": "Cada dos horas aparece una colina en Las Tierras del Dragón, El Velo de Escarcha o La Cascada de Ámbar. El reino recibe un aviso con quince minutos de antelación y el círculo queda marcado en terreno abierto. La colina permanece activa treinta minutos. Entrar en el círculo activo activa la bandera JcJ mundial según los requisitos de nivel habituales, también para los miembros de bandas. El grupo con más jugadores aptos dentro captura la colina tras un minuto de mayoría ininterrumpida; un jugador solo cuenta como grupo de uno, pero los miembros de bandas y los jugadores por debajo del nivel requerido para JcJ no pueden capturar ni ganar Honor de la colina. Cada defensor dentro gana Honor a un ritmo creciente. Los pagos y su aumento son más rápidos y conservan el Honor total del antiguo evento de cuarenta y cinco minutos. Al cambiar de dueño, el aumento empieza de nuevo. Salir mantiene tu bandera activa; /pvp off tarda los cinco minutos habituales y no puede completarse dentro de una colina activa ni durante el combate. La barra muestra el control, los efectivos y el progreso de captura; /hill indica la ubicación.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
       "hillBodyRamp": "Cada dos horas aparece una colina en Las Tierras del Dragón, El Velo de Escarcha o La Cascada de Ámbar. El reino recibe un aviso con quince minutos de antelación y el círculo queda marcado en terreno abierto. La colina permanece activa treinta minutos. Entrar en el círculo activo activa la bandera JcJ mundial según los requisitos de nivel habituales, también para los miembros de bandas. El grupo con más jugadores aptos dentro captura la colina tras un minuto de mayoría ininterrumpida; un jugador solo cuenta como grupo de uno, pero los miembros de bandas y los jugadores por debajo del nivel requerido para JcJ no pueden capturar ni ganar Honor de la colina. Cada defensor dentro gana Honor a un ritmo creciente. Los pagos y su aumento son más rápidos y conservan el Honor total del antiguo evento de cuarenta y cinco minutos. Al cambiar de dueño, el aumento empieza de nuevo. Salir mantiene tu bandera activa; /pvp off tarda los cinco minutos habituales y no puede completarse dentro de una colina activa ni durante el combate. La barra muestra el control, los efectivos y el progreso de captura; /hill indica la ubicación.",
+      "hillBodyRanked": "Cada dos horas aparece una colina en Las Tierras del Dragón, El Velo de Escarcha o La Cascada de Ámbar. El reino recibe un aviso con quince minutos de antelación y el círculo queda marcado en terreno abierto. La colina permanece activa treinta minutos. Entrar en el círculo activo activa la bandera JcJ mundial según los requisitos de nivel habituales, también para los miembros de bandas. El grupo con más jugadores aptos dentro captura la colina tras un minuto de mayoría ininterrumpida; un jugador solo cuenta como grupo de uno, pero los miembros de bandas y los jugadores por debajo del nivel requerido para JcJ no pueden capturar ni ganar Honor de la colina. Cada defensor dentro gana Honor a un ritmo creciente. Los pagos y su aumento son más rápidos y conservan el Honor total del antiguo evento de cuarenta y cinco minutos. Al cambiar de dueño, el aumento empieza de nuevo. Cada cinco minutos mientras la colina se alza, el reino recibe su ubicación y los grupos clasificados por el tiempo que la han mantenido. Cuando la colina cae, si el grupo que más tiempo la mantuvo la tuvo durante al menos diez minutos en total, cada jugador que estuvo dentro durante al menos un minuto para ese grupo y sigue siendo miembro suyo consigue una victoria hacia la fila JcJ de la Bóveda Semanal. Salir mantiene tu bandera activa; /pvp off tarda los cinco minutos habituales y no puede completarse dentro de una colina activa ni durante el combate. La barra muestra el control, los efectivos y el progreso de captura; /hill indica la ubicación.",
       "limitsBodyRaids": "Derrotar al mismo jugador una y otra vez paga cada vez menos y pronto no paga nada, y tu cuenta contra ese jugador solo se reinicia alrededor de una hora después de la primera de esas muertes, así que acechar a una sola víctima nunca vale la espera. Un objetivo muy por debajo de tu nivel no paga absolutamente nada. Los Campos Espinosos y las Arenas siguen sus propias reglas mientras estás dentro, y pagan más Honor que el mundo abierto, así que el JcJ mundial es el camino más lento hacia el mismo vendedor. Las bandas no ganan nada con las muertes en el mundo: un miembro de banda no recibe Honor ni oro y no reduce la parte de nadie más, así que lucha en grupo para que te paguen."
     },
     "thornhollowPage": {
@@ -9698,7 +9710,14 @@ export const es_ES: EnTranslations = {
     "whitepaper": "Libro blanco",
     "terms": "Términos de servicio",
     "privacy": "Política de privacidad",
-    "discordLabel": "Únete al Discord"
+    "discordLabel": "Únete al Discord",
+    "guidesLabel": "Guías de jugadores",
+    "guideFree": "MMORPGs gratuitos",
+    "guideGamesLikeWow": "Juegos como WoW",
+    "guideBest": "Mejores MMORPGs",
+    "guideNew": "Nuevos MMORPGs",
+    "guideBrowser": "MMORPGs de navegador",
+    "guideGamesLikeDiablo": "Juegos como Diablo"
   },
   "settings": {
     "languageLoading": "Cargando idioma...",

@@ -13,6 +13,12 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const zh_TW: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': '最佳 MMORPG',
+  'footer.guideFree': '免費 MMORPG',
+  'footer.guideNew': '新 MMORPG',
+  'guide.footer.guideBest': '最佳 MMORPG',
+  'guide.footer.guideFree': '免費 MMORPG',
+  'guide.footer.guideNew': '新 MMORPG',
   'abilityUi.actionBar.cooldownMinutes': '{minutes}分鐘',
   'abilityUi.cast.hoard_cast_rime_beam': '白霜射束',
   'hudChrome.worldQuestTooltip.currencyAmount': '{amount} {currency}',
@@ -2748,6 +2754,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
     '反覆擊敗同一名玩家，每次的收益都會減少並很快歸零，而你對那名玩家的計數要在首次擊殺約一小時之後才會重新開始，所以蹲守同一個目標永遠不值得等待。遠低於你等級的目標不會帶來任何收益。在戰場和競技場內部適用它們自己的規則，而且它們提供的榮譽比開放世界更多，因此世界 PvP 是通往同一位商人的較慢道路。',
   'guide.worldPvpPage.hillBodyRamp':
     '每兩小時，龍裔荒原、霜幕之境或琥珀秋境會出現一座活動山丘。全伺服器會提前十五分鐘收到預告，空地上會標出圓圈。山丘活動持續三十分鐘。進入活動圈會依一般等級規則開啟世界 PvP 旗幟，團隊成員也不例外。圈內符合條件的玩家人數最多的小隊，在連續保持人數優勢一分鐘後佔領山丘；單人視為一人小隊，但團隊成員和未達到 PvP 等級要求的玩家不能佔領或獲得山丘榮譽。佔領方每名站在圈內的成員都會以逐漸提高的速率獲得榮譽。發獎頻率和獎勵遞增速度均已加快，保留原四十五分鐘活動的榮譽總量。佔領方變更會重設獎勵遞增。離開圈後旗幟仍保留；/pvp off 使用一般的五分鐘延遲，在活動山丘內或戰鬥中無法完成。山丘狀態列顯示控制方、人數和佔領進度；/hill 顯示位置。',
+  'guide.worldPvpPage.hillBodyRanked':
+    '每兩小時，龍裔荒原、霜幕之境或琥珀秋境會出現一座活動山丘。全伺服器會提前十五分鐘收到預告，空地上會標出圓圈。山丘活動持續三十分鐘。進入活動圈會依一般等級規則開啟世界 PvP 旗幟，團隊成員也不例外。圈內符合條件的玩家人數最多的小隊，在連續保持人數優勢一分鐘後佔領山丘；單人視為一人小隊，但團隊成員和未達到 PvP 等級要求的玩家不能佔領或獲得山丘榮譽。佔領方每名站在圈內的成員都會以逐漸提高的速率獲得榮譽，佔領方變更會重設獎勵遞增。山丘活動期間，全伺服器每五分鐘會收到位置提醒和各隊伍的佔領時長排名。山丘結束時，若佔領總時長最長的隊伍累計佔領至少十分鐘，該隊伍中曾在佔領期間站在圈內至少一分鐘且仍留在隊伍中的玩家，會為每週寶庫的 PvP 獎勵進度獲得一場勝利。離開圈後旗幟仍保留；/pvp off 使用一般的五分鐘延遲，在活動山丘內或戰鬥中無法完成。山丘狀態列顯示控制方、人數和佔領進度；/hill 顯示位置。',
   'guide.worldPvpPage.limitsBodyRaids':
     '反覆擊敗同一名玩家，每次的收益都會減少並很快歸零，而你對那名玩家的計數要在首次擊殺約一小時之後才會重新開始，所以蹲守同一個目標永遠不值得等待。遠低於你等級的目標不會帶來任何收益。在戰場和競技場內部適用它們自己的規則，而且它們提供的榮譽比開放世界更多，因此世界 PvP 是通往同一位商人的較慢道路。團隊無法從世界擊殺中獲得任何收益：團隊成員既得不到榮譽也得不到金幣，也不會減少其他人的份額，所以想獲得報酬就以隊伍身分作戰。',
   'guide.worldPvpPage.hillHeading': '山丘之王',
@@ -3209,6 +3217,10 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'footer.terms': '服務條款',
   'footer.privacy': '隱私權政策',
   'footer.discordLabel': '加入Discord社區',
+  'footer.guidesLabel': '玩家指南',
+  'footer.guideGamesLikeWow': '類似 WoW 的遊戲',
+  'footer.guideBrowser': '瀏覽器 MMORPG',
+  'footer.guideGamesLikeDiablo': '類似《暗黑破壞神》的遊戲',
   'highscores.title': '高分排行榜',
   'highscores.desc': '追蹤這個世界中最偉大的英雄，並對比你的遊戲進度。',
   'wiki.title': '遊戲百科與指南',
@@ -12572,6 +12584,10 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
     '畫面上的寶箱按鈕能開啟每日獎勵視窗。每天都會安排幾項任務：完成任務、在灰燼競技場中作戰、贏得一場溪谷盃比賽，並提供一次免費轉動獎輪的機會，這一切都能換取當日排名的點數；而當日累積最多的玩家，會為持有選用社群代幣者共享一份獎池。這一切都不會在遊戲中賦予任何戰力。視窗本身會載明當日規則與參賽資格，顯示排行榜，並保留你的歷史紀錄。',
   'guide.economy.dailyTitle': '每日獎勵',
   'guide.footer.linksLabel': '遊玩與社群連結',
+  'guide.footer.guidesLabel': '玩家指南',
+  'guide.footer.guideGamesLikeWow': '類似 WoW 的遊戲',
+  'guide.footer.guideBrowser': '瀏覽器 MMORPG',
+  'guide.footer.guideGamesLikeDiablo': '類似《暗黑破壞神》的遊戲',
   'guide.gear.bagsBody':
     '你撿到的一切都裝在同一個背囊裡，而你透過裝備背包來擴充它。你的背包視窗有四個背包欄位：點擊背囊中的一個背包，即可把它塞進空著的欄位，你所背的每個背包都會加上它自己的空間。簡樸的背包是廉價的商人貨，更寬敞的從野獸身上掉落，最精良的則來自地城首領，因此你的負重空間會與裝備同步成長。任何可堆疊之物都會在提示中標明一個欄位能放多少，你正是藉此提前知道，一次像樣的藥水採買將會佔去你兩個欄位。',
   'guide.gear.bagsTitle': '袋子與攜物空間',
@@ -18497,6 +18513,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.completedTask.worldMany': '已完成{count}個世界任務',
   'hudChrome.weeklyRewards.completedTask.pvpOne': '已贏得{count}場積分賽',
   'hudChrome.weeklyRewards.completedTask.pvpMany': '已贏得{count}場積分賽',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '已獲得{count}場PvP勝利',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '已獲得{count}場PvP勝利',
   'hudChrome.weeklyRewards.requiredTask.raidOne': '擊敗{count}個團隊副本首領',
   'hudChrome.weeklyRewards.requiredTask.raidMany': '擊敗{count}個團隊副本首領',
   'hudChrome.weeklyRewards.requiredTask.dungeonOne': '通關{count}個地城',
@@ -18505,6 +18523,8 @@ export const zh_TW: Partial<Record<TranslationKey, string>> = {
   'hudChrome.weeklyRewards.requiredTask.worldMany': '完成{count}個世界任務',
   'hudChrome.weeklyRewards.requiredTask.pvpOne': '贏得{count}場積分賽',
   'hudChrome.weeklyRewards.requiredTask.pvpMany': '贏得{count}場積分賽',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': '獲得{count}場PvP勝利',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': '獲得{count}場PvP勝利',
   'hudChrome.weeklyRewards.readyWeeks': '未領取的週次：{count}。請先領取最早完成的那一週。',
   'hudChrome.weeklyRewards.claimLastWeek': '領取上週的獎勵',
   'hudChrome.weeklyRewards.readyTitle': '你的每週獎勵已就緒',

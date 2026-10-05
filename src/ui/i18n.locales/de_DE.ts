@@ -13,6 +13,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const de_DE: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': 'Die besten MMORPGs',
+  'footer.guideBrowser': 'Browser-MMORPGs',
+  'footer.guideFree': 'Kostenlose MMORPGs',
+  'footer.guideGamesLikeDiablo': 'Spiele wie Diablo',
+  'footer.guideGamesLikeWow': 'Spiele wie WoW',
+  'footer.guideNew': 'Neue MMORPGs',
+  'footer.guidesLabel': 'Spieler-Guides',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} PvP-Siege',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} PvP-Sieg',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'Erringe {count} PvP-Siege',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'Erringe {count} PvP-Sieg',
+  'guide.footer.guideBest': 'Die besten MMORPGs',
+  'guide.footer.guideBrowser': 'Browser-MMORPGs',
+  'guide.footer.guideFree': 'Kostenlose MMORPGs',
+  'guide.footer.guideGamesLikeDiablo': 'Spiele wie Diablo',
+  'guide.footer.guideGamesLikeWow': 'Spiele wie WoW',
+  'guide.footer.guideNew': 'Neue MMORPGs',
+  'guide.footer.guidesLabel': 'Spieler-Guides',
+  'guide.worldPvpPage.hillBodyRanked':
+    'Alle zwei Stunden erscheint ein Hügel in einem der Gebiete Die Drakenlande, Der Frostschleier oder Der Bernsteinfall. Der Realm erhält fünfzehn Minuten vorher eine Warnung, und der Kreis wird auf offenem Boden markiert. Der Hügel bleibt dreißig Minuten aktiv. Das Betreten des aktiven Kreises setzt nach den üblichen Stufenregeln die Welt-PvP-Flagge, auch bei Schlachtzugsmitgliedern. Die Gruppe mit den meisten berechtigten Spielern im Kreis erobert den Hügel nach einer Minute ununterbrochener Mehrheit. Ein Einzelspieler zählt als Einpersonengruppe; Schlachtzugsmitglieder und Spieler unter der PvP-Mindeststufe können weder erobern noch Hügelehre verdienen. Jedes Mitglied der haltenden Gruppe im Kreis erhält Ehre mit steigender Rate. Auszahlungen und ihre Steigerung erfolgen schneller, sodass die Gesamtehre des früheren fünfundvierzigminütigen Ereignisses erhalten bleibt. Ein Besitzerwechsel setzt die Steigerung zurück. Alle fünf Minuten, solange der Hügel steht, erfährt der ganze Realm seine Position und die Gruppen, geordnet nach ihrer Haltezeit. Fällt der Hügel und hat die Gruppe mit der längsten Haltezeit ihn insgesamt mindestens zehn Minuten gehalten, erhält jeder Spieler, der mindestens eine Minute für diese Gruppe im Kreis stand und ihr noch angehört, einen Sieg für die PvP-Reihe des Wöchentlichen Tresors. Beim Verlassen bleibt die Flagge bestehen. /pvp off nutzt die üblichen fünf Minuten und kann innerhalb eines aktiven Hügels oder im Kampf nicht abgeschlossen werden. Die Hügelleiste zeigt Kontrolle, Spielerzahlen und Eroberungsfortschritt; /hill meldet den Standort.',
   'hudChrome.death.pvpResurrect': 'PvP-Wiederbelebung',
   'hudChrome.death.pvpResurrectTitle':
     'Belebe dich auf dem nächsten Friedhof mit voller Gesundheit wieder, ohne einen neuen Zoll des Hüters.',

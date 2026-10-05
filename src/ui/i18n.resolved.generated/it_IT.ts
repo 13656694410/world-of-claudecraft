@@ -438,7 +438,9 @@ export const it_IT: EnTranslations = {
         "worldOne": "{count} missione mondiale completata",
         "worldMany": "{count} missioni mondiali completate",
         "pvpOne": "{count} incontro classificato vinto",
-        "pvpMany": "{count} incontri classificati vinti"
+        "pvpMany": "{count} incontri classificati vinti",
+        "pvpWinOne": "{count} Vittoria PvP",
+        "pvpWinMany": "{count} Vittorie PvP"
       },
       "requiredTask": {
         "raidOne": "Supera {count} scontro d'incursione",
@@ -448,7 +450,9 @@ export const it_IT: EnTranslations = {
         "worldOne": "Completa {count} missione mondiale",
         "worldMany": "Completa {count} missioni mondiali",
         "pvpOne": "Vinci {count} incontro classificato",
-        "pvpMany": "Vinci {count} incontri classificati"
+        "pvpMany": "Vinci {count} incontri classificati",
+        "pvpWinOne": "Ottieni {count} Vittoria PvP",
+        "pvpWinMany": "Ottieni {count} Vittorie PvP"
       },
       "readyWeeks": "Settimane non ritirate: {count}. Ritira prima la settimana completata più vecchia.",
       "claimLastWeek": "Ritira la ricompensa della settimana scorsa",
@@ -7057,7 +7061,14 @@ export const it_IT: EnTranslations = {
       "discord": "Unisciti al Discord",
       "communityWiki": "Wiki della Comunità",
       "rights": "World of ClaudeCraft",
-      "linksLabel": "Collegamenti al gioco e alla community"
+      "linksLabel": "Collegamenti al gioco e alla community",
+      "guidesLabel": "Guide dei Giocatori",
+      "guideFree": "MMORPG Gratuiti",
+      "guideGamesLikeWow": "Giochi come WoW",
+      "guideBest": "Migliori MMORPG",
+      "guideNew": "Nuovi MMORPG",
+      "guideBrowser": "MMORPG da Browser",
+      "guideGamesLikeDiablo": "Giochi come Diablo"
     },
     "language": {
       "label": "Lingua",
@@ -8355,6 +8366,7 @@ export const it_IT: EnTranslations = {
       "hillBody": "Ogni due ore compare una collina in Drakelands, La Distesa di Frostveil o Amberfall. Il reame riceve un preavviso di quindici minuti e il cerchio viene segnato su terreno aperto. La collina resta attiva per trenta minuti. Entrare nel cerchio attivo alza la bandiera PvP mondiale secondo i normali requisiti di livello, anche per i membri di un'incursione. Il gruppo con più giocatori idonei all'interno conquista la collina dopo un minuto di maggioranza ininterrotta; un giocatore solo conta come gruppo di uno, ma i membri di incursioni e i giocatori sotto il livello PvP richiesto non possono conquistare né guadagnare Onore della collina. Ogni difensore all'interno guadagna Onore a un ritmo crescente. Le assegnazioni e la loro crescita sono più rapide, mantenendo l'Onore totale del precedente evento di quarantacinque minuti. Un cambio di controllo azzera la crescita. Uscire mantiene la bandiera alzata; /pvp off richiede i soliti cinque minuti e non può completarsi dentro una collina attiva o in combattimento. La barra mostra controllo, numero di giocatori e progresso di conquista; /hill indica la posizione.",
       "limitsBodyHour": "Defeating the same player again and again pays less each time and soon nothing, and your count against that player only starts over about an hour after the first of those kills, so camping one victim is never worth the wait. A target far below your level pays nothing at all. Battlegrounds and Arenas run their own rules while you are inside them, and they pay more Honor than the open world, so world PvP is the slower road to the same vendor.",
       "hillBodyRamp": "Ogni due ore compare una collina in Drakelands, La Distesa di Frostveil o Amberfall. Il reame riceve un preavviso di quindici minuti e il cerchio viene segnato su terreno aperto. La collina resta attiva per trenta minuti. Entrare nel cerchio attivo alza la bandiera PvP mondiale secondo i normali requisiti di livello, anche per i membri di un'incursione. Il gruppo con più giocatori idonei all'interno conquista la collina dopo un minuto di maggioranza ininterrotta; un giocatore solo conta come gruppo di uno, ma i membri di incursioni e i giocatori sotto il livello PvP richiesto non possono conquistare né guadagnare Onore della collina. Ogni difensore all'interno guadagna Onore a un ritmo crescente. Le assegnazioni e la loro crescita sono più rapide, mantenendo l'Onore totale del precedente evento di quarantacinque minuti. Un cambio di controllo azzera la crescita. Uscire mantiene la bandiera alzata; /pvp off richiede i soliti cinque minuti e non può completarsi dentro una collina attiva o in combattimento. La barra mostra controllo, numero di giocatori e progresso di conquista; /hill indica la posizione.",
+      "hillBodyRanked": "Ogni due ore compare una collina in Drakelands, La Distesa di Frostveil o Amberfall. Il reame riceve un preavviso di quindici minuti e il cerchio viene segnato su terreno aperto. La collina resta attiva per trenta minuti. Entrare nel cerchio attivo alza la bandiera PvP mondiale secondo i normali requisiti di livello, anche per i membri di un'incursione. Il gruppo con più giocatori idonei all'interno conquista la collina dopo un minuto di maggioranza ininterrotta; un giocatore solo conta come gruppo di uno, ma i membri di incursioni e i giocatori sotto il livello PvP richiesto non possono conquistare né guadagnare Onore della collina. Ogni difensore all'interno guadagna Onore a un ritmo crescente. Le assegnazioni e la loro crescita sono più rapide, mantenendo l'Onore totale del precedente evento di quarantacinque minuti. Un cambio di controllo azzera la crescita. Ogni cinque minuti mentre la collina è in gioco, il reame viene informato della sua posizione e dei gruppi classificati per il tempo controllato. Quando la collina cade, se il gruppo che l'ha controllata più a lungo l'ha tenuta per almeno dieci minuti in totale, ogni giocatore che è rimasto dentro per almeno un minuto per quel gruppo ed è ancora membro guadagna una vittoria verso la riga PvP del Forziere Settimanale. Uscire mantiene la bandiera alzata; /pvp off richiede i soliti cinque minuti e non può completarsi dentro una collina attiva o in combattimento. La barra mostra controllo, numero di giocatori e progresso di conquista; /hill indica la posizione.",
       "limitsBodyRaids": "Sconfiggere lo stesso giocatore più e più volte paga sempre meno e presto nulla, e il tuo conteggio contro quel giocatore riparte da capo solo circa un'ora dopo la prima di quelle uccisioni, quindi appostarsi su una singola vittima non vale mai l'attesa. Un bersaglio molto al di sotto del tuo livello non paga assolutamente nulla. I Campi di Battaglia e i Colossei seguono le proprie regole mentre sei al loro interno, e pagano più Onore del mondo aperto, quindi il PvP mondiale è la strada più lenta verso lo stesso mercante. Le incursioni non guadagnano nulla dalle uccisioni nel mondo: un membro di un'incursione non riceve Onore né monete e non riduce la quota di nessun altro, quindi combatti in gruppo per essere pagato."
     },
     "thornhollowPage": {
@@ -9698,7 +9710,14 @@ export const it_IT: EnTranslations = {
     "whitepaper": "Libro bianco",
     "terms": "Termini di servizio",
     "privacy": "Informativa sulla privacy",
-    "discordLabel": "Entra nel Discord"
+    "discordLabel": "Entra nel Discord",
+    "guidesLabel": "Guide dei Giocatori",
+    "guideFree": "MMORPG Gratuiti",
+    "guideGamesLikeWow": "Giochi come WoW",
+    "guideBest": "Migliori MMORPG",
+    "guideNew": "Nuovi MMORPG",
+    "guideBrowser": "MMORPG da Browser",
+    "guideGamesLikeDiablo": "Giochi come Diablo"
   },
   "settings": {
     "languageLoading": "Caricamento della lingua...",

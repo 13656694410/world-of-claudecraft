@@ -2,6 +2,26 @@
 import type { TranslationKey } from '../i18n.catalog';
 
 export const nl_NL: Partial<Record<TranslationKey, string>> = {
+  'footer.guideBest': "Beste MMORPG's",
+  'footer.guideBrowser': "Browser-MMORPG's",
+  'footer.guideFree': "Gratis MMORPG's",
+  'footer.guideGamesLikeDiablo': 'Spellen zoals Diablo',
+  'footer.guideGamesLikeWow': 'Spellen zoals WoW',
+  'footer.guideNew': "Nieuwe MMORPG's",
+  'footer.guidesLabel': 'Spelersgidsen',
+  'hudChrome.weeklyRewards.completedTask.pvpWinMany': '{count} PvP-overwinningen',
+  'hudChrome.weeklyRewards.completedTask.pvpWinOne': '{count} PvP-overwinning',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinMany': 'Behaal {count} PvP-overwinningen',
+  'hudChrome.weeklyRewards.requiredTask.pvpWinOne': 'Behaal {count} PvP-overwinning',
+  'guide.footer.guideBest': "Beste MMORPG's",
+  'guide.footer.guideBrowser': "Browser-MMORPG's",
+  'guide.footer.guideFree': "Gratis MMORPG's",
+  'guide.footer.guideGamesLikeDiablo': 'Spellen zoals Diablo',
+  'guide.footer.guideGamesLikeWow': 'Spellen zoals WoW',
+  'guide.footer.guideNew': "Nieuwe MMORPG's",
+  'guide.footer.guidesLabel': 'Spelersgidsen',
+  'guide.worldPvpPage.hillBodyRanked':
+    'Elke twee uur verschijnt er een heuvel in de Drakenlanden, de Vorstsluier of de Amberval. Het rijk krijgt een kwartier van tevoren een waarschuwing en de cirkel wordt op open terrein gemarkeerd. De heuvel blijft dertig minuten actief. Bij het betreden van de actieve cirkel wordt je wereld-PvP-vlag ingeschakeld volgens de normale niveauregels, ook voor raidleden. De groep met de meeste spelers binnen de cirkel die aan de voorwaarden voldoen, verovert de heuvel na een minuut met een ononderbroken meerderheid; een solospeler telt als een groep van één, maar raidleden en spelers onder het vereiste PvP-niveau kunnen de heuvel niet veroveren en er geen Eer verdienen. Elke bezetter binnen de cirkel verdient in een steeds hoger tempo Eer. Uitbetalingen volgen elkaar sneller op en lopen sneller op, zodat de totale Eer van het vroegere evenement van vijfenveertig minuten behouden blijft. Bij een wisseling van bezetters begint de opbouw opnieuw. Elke vijf minuten terwijl de heuvel staat, hoort het rijk de locatie ervan en de groepen gerangschikt naar bezettingsduur. Wanneer de heuvel valt, als de groep die het het langst hield het minstens tien minuten totaal hield, verdient elke speler die minstens een minuut daarbinnen voor die groep stond en er nog steeds onderdeel van is een overwinning voor de PvP-rij van de Weeklijkse Kluis. Je vlag blijft aan wanneer je de cirkel verlaat; /pvp off gebruikt de normale vertraging van vijf minuten en kan niet aflopen binnen een actieve heuvel of tijdens een gevecht. De heuvelbalk toont de bezetting, aantallen en veroveringsvoortgang; /hill meldt de locatie.',
   'hudChrome.death.pvpResurrect': 'PvP-Opstanding',
   'hudChrome.death.pvpResurrectTitle':
     'Herverrijzen op de dichtstbijzijnde begraafplaats met volledige gezondheid, zonder een nieuwe Tol van de Hoeder.',
